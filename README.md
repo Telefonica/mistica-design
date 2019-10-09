@@ -2,7 +2,8 @@
 
 <h1 align="center"> Mística Design System </h1> <br>
 
-**Development `v1.14.2`**  
+<h2 align="center">Development</h2> <br>
+`v1.14.2`  
 Production `v1.14.1`
 
 # Getting Started <a name="getting_started"></a>
@@ -13,7 +14,7 @@ Production `v1.14.1`
 2. Clone [repo](https://github.com/tef-novum/mistica-design-libraries.git) in **Kactus**:
    >`git clone https://github.com/tef-novum/android-messenger.git`
 3. Generate Sketch files
-    + Click in *Regenerate Sketch File* in each files in Kactus
+    + Click in **Regenerate Sketch File** in each files in Kactus
       ![Kactus Regenerate File](https://i.imgur.com/8WHdEmf.png)
 
 ## Release Workflow in Kactus
