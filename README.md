@@ -14,7 +14,7 @@ Production `v1.14.1`
    >`git clone https://github.com/tef-novum/android-messenger.git`
 3. Generate Sketch files
     + Click in *Regenerate Sketch File* in each files in Kactus
-      ![Kactus Regenerate File](https://imgur.com/a/DlSGiW7)
+      ![Kactus Regenerate File](https://i.imgur.com/8WHdEmf.png)
 
 ## Release Workflow in Kactus
 La rama Máster siempre será la versión que está en producción. Asegurate de seleccionar la rama con la versión en la que quieras trabajar (desarrollo) porque no podrás hacer commit de tus cambios en la versión de producción y probablemente perderás tus cambios. Para saber qué versión de producción tienes que usar, mira arriba de este documento.
