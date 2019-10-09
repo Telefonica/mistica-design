@@ -1,6 +1,6 @@
 
 
-<div align="center">![Mistica Logo](https://i.imgur.com/3H975vE.png)</div>  
+![Mistica Logo](https://i.imgur.com/3H975vE.png)
 <h1 align="center"> Mística Design System </h1> <br>
 
 **Development `v1.14.2`**  
