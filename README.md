@@ -17,6 +17,8 @@
   <a href="#license">License</a>
 </p>
 
+---
+
 # Getting Started <a name="gettingStarted"></a>
 
 ### :computer: Project Setup  <a name="installation"></a>
