@@ -1,4 +1,7 @@
-<h1 align="center">![Mistica Logo](https://i.imgur.com/3H975vE.png) Mística Design System </h1> <br>
+<div align="center">
+  <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png">
+</div>
+<h1 align="center">Mística Design System </h1> <br>
 
 **Development `v1.14.2`**  
 Release `v1.14.1`
