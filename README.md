@@ -2,11 +2,25 @@
 
 <h1 align="center"> Mística Design System </h1> <br>
 
-<h2 align="center">Development</h2> <br>
-`v1.14.2`  
+**Development `v1.14.2`**  
 Production `v1.14.1`
 
-# Getting Started <a name="getting_started"></a>
+
+<p align="center">
+  <a href="#gettingStarted">Getting Started</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#updating">Updating</a> •
+  <a href="#features">Features</a> •
+  <a href="#binds">Binds</a> •
+  <a href="#wiki">Wiki</a> •
+  <a href="#contributing">Contributing</a> •
+  <a href="#author">Author</a> •
+  <a href="#support">Support</a> •
+  <a href="#donate">Donate</a> •
+  <a href="#license">License</a>
+</p>
+
+# Getting Started <a name="gettingStarted"></a>
 
 ### :computer: Project Setup  <a name="installation"></a>
 
