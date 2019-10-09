@@ -3,8 +3,7 @@
 </div>
 <h1 align="center">Mística Design System </h1> <br>
 
-**Development `v1.14.2`**  
-Release `v1.14.1`
+`**Development | v1.14.2**` `Release | v1.14.1`
 
 
 <p align="center">
