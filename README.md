@@ -1,6 +1,6 @@
 # Mística Design System
-**Development `v1.14.3`**  
-Production `v1.14.2`
+**Development `v1.14.2`**  
+Production `v1.14.1`
 
 
 ## Release Workflow in Kactus
