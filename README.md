@@ -1,7 +1,4 @@
-
-
-![Mistica Logo](https://i.imgur.com/3H975vE.png)
-<h1 align="center"> Mística Design System </h1> <br>
+<h1 align="center">![Mistica Logo](https://i.imgur.com/3H975vE.png) Mística Design System </h1> <br>
 
 **Development `v1.14.2`**  
 Release `v1.14.1`
