@@ -1,7 +1,34 @@
-# Mística Design System
-**Development `v1.14.2`**  
-Production `v1.14.1`
+<div align="center">
+  <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png">
+</div>
+<h1 align="center">Mística Design System</h1> <br>
 
+<p align="center">
+  <a href="#gettingStarted">Getting Started</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#updating">Updating</a> •
+  <a href="#features">Features</a> •
+  <a href="#binds">Binds</a> •
+  <a href="#wiki">Wiki</a> •
+  <a href="#contributing">Contributing</a> •
+  <a href="#author">Author</a> •
+  <a href="#support">Support</a> •
+  <a href="#donate">Donate</a> •
+  <a href="#license">License</a>
+</p>
+
+---
+
+# Getting Started <a name="gettingStarted"></a>
+
+### :computer: Project Setup  <a name="installation"></a>
+
+1. Download and install latest version of [Kactus](http://kactus.io)
+2. Clone [repo](https://github.com/tef-novum/mistica-design-libraries.git) in **Kactus**:
+   >`git clone https://github.com/tef-novum/android-messenger.git`
+3. Generate Sketch files
+    + Click in **Regenerate Sketch File** in each files in Kactus
+      ![Kactus Regenerate File](https://i.imgur.com/8WHdEmf.png)
 
 ## Release Workflow in Kactus
 La rama Máster siempre será la versión que está en producción. Asegurate de seleccionar la rama con la versión en la que quieras trabajar (desarrollo) porque no podrás hacer commit de tus cambios en la versión de producción y probablemente perderás tus cambios. Para saber qué versión de producción tienes que usar, mira arriba de este documento.
