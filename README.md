@@ -1,7 +1,7 @@
 <div align="center">
   <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png">
 </div>
-<h1 align="center">Mística Design System</h1> <br>
+<h1 align="center">Mística Design Libraries</h1> <br>
 
 <p align="center">
   <a href="#gettingStarted">Getting Started</a> •
@@ -17,7 +17,7 @@
   <a href="#license">License</a>
 </p>
 
----
+  
 
 # Getting Started <a name="gettingStarted"></a>
 
