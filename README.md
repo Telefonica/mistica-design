@@ -5,23 +5,15 @@
 
 <p align="center">
   <a href="#gettingStarted">Getting Started</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#updating">Updating</a> •
-  <a href="#features">Features</a> •
-  <a href="#binds">Binds</a> •
+  <a href="#releaseWorkflow">Release Workflow</a> •
+  <a href="#dangerZone">Danger Zone in Kactus</a> •
   <a href="#wiki">Wiki</a> •
-  <a href="#contributing">Contributing</a> •
-  <a href="#author">Author</a> •
-  <a href="#support">Support</a> •
-  <a href="#donate">Donate</a> •
-  <a href="#license">License</a>
+  <a href="#problemsWithKactus">Problems w/ Kactus</a> •
 </p>
 
+<br>
 
-
-# Getting Started <a name="gettingStarted"></a>
-
-### :computer: Project Setup  <a name="installation"></a>
+## Getting Started <a name="gettingStarted"></a>
 
 1. Download and install latest version of [Kactus](http://kactus.io)
 2. Clone repo in **Kactus**:
@@ -30,7 +22,7 @@
     + Click in **Regenerate Sketch File** in each files in Kactus
       ![Kactus Regenerate File](https://i.imgur.com/8WHdEmf.png)
 
-## Release Workflow in Kactus
+## Release Workflow in Kactus <a name="releaseWorkflow"></a>
 La rama Máster siempre será la versión que está en producción. Asegurate de seleccionar la rama con la versión en la que quieras trabajar (desarrollo) porque no podrás hacer commit de tus cambios en la versión de producción y probablemente perderás tus cambios. Para saber qué versión de producción tienes que usar, mira arriba de este documento.
 
 Cada viernes (si existen cambios sustanciales) se hará un merge de la branch activa de desarrollo a la máster.  **No dejes nada sin hacer commit o no saldrán en la release.**
@@ -52,14 +44,14 @@ Proof of concept
 
 **When you make a new branch, don't publish immediately, work on this branch and publish it when you consider that your work is substantial.**
 
-## Danger Zone in Kactus
+## Danger Zone in Kactus <a name="dangerZone"></a>
 Cuando metas en Sketch las librerías de Kactus, ten siempre presente que si cambias de branch, las librerías de tu Sketch también cambiarán. Esto puede ser peligroso si alguien con una versión de esas librerías en Sketch abriera las librerías de Dropbox (lo cual no debería porque está terminantemente prohibido) y le diese a actualizar las librerías de Dropbox.
 
 If you will go to use Kactus, when you download libraries in your computer, install the libraries from Kactus to Sketch (just drag and drop libraries sketch files to the Sketch > Preferences > Libraries). Be careful because if you change the branch in Kactus, libraries will change. Obviously, right?.
 
-**Be careful updating library updates, make sure that you know what are you doing*
+**Be careful updating library updates, make sure that you know what are you doing**
 
-## Must to know
+## Wiki <a name="wiki"></a>
 * **Branch**  
 It is a copy from Master or other branch. You can work new things in this copy and when you finish, you can merge in Master.
 * **Merge**  
@@ -77,8 +69,7 @@ Download new updates to your files.
 * **Push**  
 Upload your work to the branch. When you make push, all of the people on the repository will get a Pull.
 
-
-## Problem with Kactus
+## Problems w/ Kactus <a name="problemsWithKactus"></a>
 1. First time when you will sync Mistica repository you will not see sketch files, to generate this files click in "Regenerate sketch file" in each files in Kactus.
 
 2. If Kactus fetching time is longer, better restart Kactus app.
