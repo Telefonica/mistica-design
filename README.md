@@ -25,7 +25,7 @@
 
 1. Download and install latest version of [Kactus](http://kactus.io)
 2. Clone repo in **Kactus**:
-   >`https://github.com/tef-novum/mistica-design-libraries.git`  
+   >File > Clone repository > URL > `https://github.com/tef-novum/mistica-design-libraries.git`  
 3. Generate Sketch files
     + Click in **Regenerate Sketch File** in each files in Kactus
       ![Kactus Regenerate File](https://i.imgur.com/8WHdEmf.png)
