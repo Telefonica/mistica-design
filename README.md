@@ -8,7 +8,7 @@
   <a href="#releaseWorkflow">Release Workflow</a> •
   <a href="#dangerZone">Danger Zone in Kactus</a> •
   <a href="#wiki">Wiki</a> •
-  <a href="#problemsWithKactus">Problems w/ Kactus</a> •
+  <a href="#problemsWithKactus">Problems w/ Kactus</a>
 </p>
 
 <br>
