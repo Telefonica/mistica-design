@@ -17,7 +17,7 @@
   <a href="#license">License</a>
 </p>
 
-  
+
 
 # Getting Started <a name="gettingStarted"></a>
 
@@ -25,7 +25,7 @@
 
 1. Download and install latest version of [Kactus](http://kactus.io)
 2. Clone [repo](https://github.com/tef-novum/mistica-design-libraries.git) in **Kactus**:
-   >`git clone https://github.com/tef-novum/android-messenger.git`
+   >`https://github.com/tef-novum/mistica-design-libraries.git`  
 3. Generate Sketch files
     + Click in **Regenerate Sketch File** in each files in Kactus
       ![Kactus Regenerate File](https://i.imgur.com/8WHdEmf.png)
