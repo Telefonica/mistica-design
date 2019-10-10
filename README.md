@@ -24,7 +24,7 @@
 ### :computer: Project Setup  <a name="installation"></a>
 
 1. Download and install latest version of [Kactus](http://kactus.io)
-2. Clone [repo](https://github.com/tef-novum/mistica-design-libraries.git) in **Kactus**:
+2. Clone repo in **Kactus**:
    >`https://github.com/tef-novum/mistica-design-libraries.git`  
 3. Generate Sketch files
     + Click in **Regenerate Sketch File** in each files in Kactus
