@@ -8,7 +8,7 @@
   <a href="#releaseWorkflow">Release Workflow</a> •
   <a href="#dangerZone">Danger Zone in Kactus</a> •
   <a href="#wiki">Wiki</a> •
-  <a href="#problemsWithKactus">Problems w/ Kactus</a> •
+  <a href="#problemsWithKactus">Problems w/ Kactus</a>
 </p>
 
 <br>
@@ -20,7 +20,10 @@
    >File > Clone repository > URL > `https://github.com/tef-novum/mistica-design-libraries.git`  
 3. Generate Sketch files
     + Click in **Regenerate Sketch File** in each files in Kactus
-      ![Kactus Regenerate File](https://i.imgur.com/8WHdEmf.png)
+      ![Kactus Regenerate File](https://i.imgur.com/8WHdEmf.png)  
+4. Remove old dropbox libraries from Sketch > Libraries (just remove from Sketch! Don't delete the files)
+5. Add Kactus libraries sketch files to Sketch.
+
 
 ## Release Workflow in Kactus <a name="releaseWorkflow"></a>
 La rama Máster siempre será la versión que está en producción. Asegurate de seleccionar la rama con la versión en la que quieras trabajar (desarrollo) porque no podrás hacer commit de tus cambios en la versión de producción y probablemente perderás tus cambios. Para saber qué versión de producción tienes que usar, mira arriba de este documento.
