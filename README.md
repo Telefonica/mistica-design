@@ -30,11 +30,10 @@
 
 
 ## Release Workflow in Kactus <a name="releaseWorkflow"></a>
-La rama Máster siempre será la versión que está en producción. Asegurate de seleccionar la rama con la versión en la que quieras trabajar (desarrollo) porque no podrás hacer commit de tus cambios en la versión de producción y probablemente perderás tus cambios. Para saber qué versión de producción tienes que usar, mira arriba de este documento.
-
-Cada viernes (si existen cambios sustanciales) se hará un merge de la branch activa de desarrollo a la máster.  **No dejes nada sin hacer commit o no saldrán en la release.**
-
 Master branch always be a production version of Mística Design System Libraries. Ensure before of select a branch of the version that you want to work, you always have to work in Development branch, if you don't do that all of your changes will be lost. To know what version of development have to choose, see the first lines of this document.
+
+Every Friday, if there are substantial changes, we release a new version of library. So, **don't let anything without commited and pushed!**
+
 
 #### POC Branches (Esto no debería ocurrir habitualmente)
 If you want to test something to later will be integrated in libraries, you will be going to do that creating a *custom branch*.  
