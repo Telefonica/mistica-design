@@ -52,8 +52,6 @@ Proof of concept
 **When you make a new branch, don't publish immediately, work on this branch and publish it when you consider that your work is substantial.**
 
 ## Danger Zone in Kactus <a name="dangerZone"></a>
-Cuando metas en Sketch las librerías de Kactus, ten siempre presente que si cambias de branch, las librerías de tu Sketch también cambiarán. Esto puede ser peligroso si alguien con una versión de esas librerías en Sketch abriera las librerías de Dropbox (lo cual no debería porque está terminantemente prohibido) y le diese a actualizar las librerías de Dropbox.
-
 If you will go to use Kactus, when you download libraries in your computer, install the libraries from Kactus to Sketch (just drag and drop libraries sketch files to the Sketch > Preferences > Libraries). Be careful because if you change the branch in Kactus, libraries will change. Obviously, right?.
 
 **Be careful updating library updates, make sure that you know what are you doing**
