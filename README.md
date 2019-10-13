@@ -48,8 +48,6 @@ Proof of concept  = POC
 
 If this custom branch work fine, we can merge it with development branch.  
 
-**Al crear la rama, no la publiques automáticamente, trabaja sobre ella y si consideras que es importante, publícala.**
-
 **When you make a new branch, don't publish immediately, work on this branch and publish it when you consider that your work is substantial.**
 
 ## Danger Zone in Kactus <a name="dangerZone"></a>
