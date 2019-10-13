@@ -3,7 +3,6 @@
 </div>
 <h1 align="center">Mística Design Libraries</h1> <br>
 
-
 <p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="#gettingStarted">Getting Started</a> •
   <a href="#releaseWorkflow">Release Workflow</a> •
@@ -12,9 +11,11 @@
   <a href="#problemsWithKactus">Problems w/ Kactus</a>
 </p>
 
+<br>
+
 <div align="center">
   <img alt="LIVE VERSION" src="https://img.shields.io/badge/LIVE%20VERSION-1.14.2-success">
-  <img alt="LIVE VERSION" src="https://img.shields.io/badge/DEVELOPMENT%20VERSION-1.15.20-blueviolet">
+  <img alt="LIVE VERSION" src="https://img.shields.io/badge/DEVELOPMENT%20VERSION-1.15.0-blueviolet">
 </div>
 
 <br>
