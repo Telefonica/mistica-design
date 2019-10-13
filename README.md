@@ -1,5 +1,7 @@
 <div align="center">
   <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png">
+  <img alt="LIVE VERSION" src="https://img.shields.io/badge/LIVE%20VERSION-1.14.2-success">
+  <img alt="LIVE VERSION" src="https://img.shields.io/badge/DEVELOPMENT%20VERSION-1.15.20-blueviolet">
 </div>
 <h1 align="center">Mística Design Libraries</h1> <br>
 
@@ -35,7 +37,7 @@ Master branch always be a production version of Mística Design System Libraries
 Every Friday, if there are substantial changes, we release a new version of library. So, **don't let anything without commited and pushed!**
 
 
-#### POC Branches (Esto no debería ocurrir habitualmente)
+#### POC Branches (Shouldn't be common)
 If you want to test something to later will be integrated in libraries, you will be going to do that creating a *custom branch*.  
 
 A custom branch always have to follow a structure in the name:  
