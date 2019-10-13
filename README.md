@@ -42,8 +42,8 @@ If you want to test something to later will be integrated in libraries, you will
 A custom branch always have to follow a structure in the name:  
 `ACRONYM-short-description`  
 
-For example  
-Proof of concept  = POC
+*For example*  
+Proof of concept  = POC  
 `POC-autolayout-list`  
 
 If this custom branch work fine, we can merge it with development branch.  
