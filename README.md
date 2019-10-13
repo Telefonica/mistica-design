@@ -1,9 +1,10 @@
 <div align="center">
   <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png">
-<h1 align="center">Mística Design Libraries
+<h1 align="center">Mística Design Libraries</h1> <br>
+<h1>
 <img alt="LIVE VERSION" src="https://img.shields.io/badge/LIVE%20VERSION-1.14.2-success">
 <img alt="LIVE VERSION" src="https://img.shields.io/badge/DEVELOPMENT%20VERSION-1.15.20-blueviolet">
-</h1> <br>
+</h1>
 
 </div>
 <p align="center">
