@@ -1,12 +1,10 @@
 <div align="center">
-  <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png"> <br>
-  <img alt="LIVE VERSION" src="https://img.shields.io/badge/LIVE%20VERSION-1.14.2-success">
-  <img alt="LIVE VERSION" src="https://img.shields.io/badge/DEVELOPMENT%20VERSION-1.15.20-blueviolet">
+  <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png">
 </div>
 <h1 align="center">Mística Design Libraries</h1> <br>
 
 
-<p align="center">
+<p align="center" style="border-bottom: 1px solid #eaecef">
   <a href="#gettingStarted">Getting Started</a> •
   <a href="#releaseWorkflow">Release Workflow</a> •
   <a href="#dangerZone">Danger Zone in Kactus</a> •
@@ -14,6 +12,8 @@
   <a href="#problemsWithKactus">Problems w/ Kactus</a>
 </p>
 
+<img alt="LIVE VERSION" src="https://img.shields.io/badge/LIVE%20VERSION-1.14.2-success">
+<img alt="LIVE VERSION" src="https://img.shields.io/badge/DEVELOPMENT%20VERSION-1.15.20-blueviolet">
 <br>
 
 ## Getting Started <a name="gettingStarted"></a>
