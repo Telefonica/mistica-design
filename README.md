@@ -37,15 +37,16 @@ Cada viernes (si existen cambios sustanciales) se hará un merge de la branch ac
 Master branch always be a production version of Mística Design System Libraries. Ensure before of select a branch of the version that you want to work, you always have to work in Development branch, if you don't do that all of your changes will be lost. To know what version of development have to choose, see the first lines of this document.
 
 #### POC Branches (Esto no debería ocurrir habitualmente)
-Se puede dar el caso de que quieras hacer pruebas con nuevas features de Sketch o cualquier otra cosa que pueda entenderse como experimentación y que pueda romper cosas en la librería y además quieras mantenerlo guardado en Kactus para una futura integración.
+If you want to test something to later will be integrated in libraries, you will be going to do that creating a *custom branch*.  
 
-Para referirnos a esto le hemos llamado *customBranch*
-Una custom branch debe seguir una estructura en el nombre a la hora de crear la branch.
-`SIGLAS-descripcion-corta`
+A custom branch always have to follow a structure in the name:  
+`ACRONYM-short-description`  
 
 For example  
-Proof of concept  
+Proof of concept  = POC
 `POC-autolayout-list`  
+
+If this custom branch work fine, we can merge it with development branch.  
 
 **Al crear la rama, no la publiques automáticamente, trabaja sobre ella y si consideras que es importante, publícala.**
 
