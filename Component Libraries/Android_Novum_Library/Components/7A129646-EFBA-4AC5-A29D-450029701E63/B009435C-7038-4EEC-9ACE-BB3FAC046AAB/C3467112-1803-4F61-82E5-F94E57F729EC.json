@@ -9,39 +9,40 @@
           "MSAttributedStringColorAttribute": {
             "_class": "color",
             "alpha": 1,
-            "blue": 0.5333333333,
-            "green": 0.5882352941,
-            "red": 0
+            "blue": 1,
+            "green": 1,
+            "red": 1
           },
           "MSAttributedStringFontAttribute": {
             "_class": "fontDescriptor",
             "attributes": {
               "name": "Roboto-Medium",
-              "size": 14
+              "size": 16
             }
           },
-          "kerning": 0.5,
-          "ligature": 0,
+          "kerning": 0,
           "paragraphStyle": {
             "_class": "paragraphStyle",
-            "alignment": 2,
-            "allowsDefaultTighteningForTruncation": 0
+            "alignment": 1,
+            "allowsDefaultTighteningForTruncation": 0,
+            "maximumLineHeight": 24,
+            "minimumLineHeight": 24
           }
         },
-        "length": 9,
+        "length": 6,
         "location": 0
       }
     ],
-    "string": "CONTINUAR"
+    "string": "ACTION"
   },
   "automaticallyDrawOnUnderlyingPath": false,
-  "booleanOperation": 0,
+  "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "5F465E5E-9A80-4381-A20D-65EBF146C0A3",
+  "do_objectID": "C3467112-1803-4F61-82E5-F94E57F729EC",
   "dontSynchroniseWithSymbol": false,
   "exportOptions": {
     "_class": "exportOptions",
-    "do_objectID": "4A6CFCCA-B75D-41ED-AD41-A56FD72C8C49",
+    "do_objectID": "DD21D082-9DCB-49FA-9706-D41707D63B9B",
     "exportFormats": [
     ],
     "includedLayerIds": [
@@ -52,13 +53,13 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "do_objectID": "040013A9-7AD8-4A3B-889D-02824DE9AB00",
-    "height": 19,
-    "width": 83,
-    "x": 7,
-    "y": 8
+    "do_objectID": "82A6B473-67B8-40C1-B176-C85FBF34971D",
+    "height": 24,
+    "width": 57,
+    "x": 271,
+    "y": 12
   },
-  "glyphBounds": "{{0, 4}, {82, 12}}",
+  "glyphBounds": "{{0, 6}, {56, 13}}",
   "hasClippingMask": false,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
@@ -66,23 +67,23 @@
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "lineSpacingBehaviour": 0,
+  "lineSpacingBehaviour": 2,
   "maintainScrollPosition": false,
-  "name": "Primary",
+  "name": "Action",
   "nameIsFixed": true,
-  "resizingConstraint": 47,
+  "resizingConstraint": 46,
   "resizingType": 0,
   "rotation": 0,
+  "sharedStyleID": "F1A3F2ED-BE23-41E2-9311-BFAF50D700EC",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
     "blur": {
       "_class": "blur",
       "center": "{0.5, 0.5}",
-      "do_objectID": "FAABD05A-481B-42EF-A1BA-B3F871AE8CC1",
       "isEnabled": false,
       "motionAngle": 0,
-      "radius": 10.001000049995,
+      "radius": 10,
       "saturation": 1,
       "type": 0
     },
@@ -109,7 +110,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "61D18806-9B60-4BE7-B0AD-BA6B01317680",
+    "do_objectID": "6299E34A-0858-40DB-8F3B-DD7596AC34B4",
     "endMarkerType": 0,
     "fills": [
     ],
@@ -121,33 +122,33 @@
     "startMarkerType": 0,
     "textStyle": {
       "_class": "textStyle",
-      "do_objectID": "3768EB86-5635-4499-A821-08E98859F530",
       "encodedAttributes": {
         "MSAttributedStringColorAttribute": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0.5333333333,
-          "green": 0.5882352941,
-          "red": 0
+          "blue": 1,
+          "green": 1,
+          "red": 1
         },
         "MSAttributedStringFontAttribute": {
           "_class": "fontDescriptor",
           "attributes": {
             "name": "Roboto-Medium",
-            "size": 14
+            "size": 16
           }
         },
-        "kerning": 0.5,
-        "ligature": 0,
+        "kerning": 0,
         "paragraphStyle": {
           "_class": "paragraphStyle",
-          "alignment": 2,
-          "allowsDefaultTighteningForTruncation": 0
+          "alignment": 1,
+          "allowsDefaultTighteningForTruncation": 0,
+          "maximumLineHeight": 24,
+          "minimumLineHeight": 24
         }
       },
       "verticalAlignment": 0
     },
     "windingRule": 1
   },
-  "textBehaviour": 0
+  "textBehaviour": 1
 }
