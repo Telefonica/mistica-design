@@ -3,7 +3,7 @@
 </div>
 <h1 align="center">Mística Design Libraries</h1> <br>
 
-<p align="center">
+<p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="#gettingStarted">Getting Started</a> •
   <a href="#releaseWorkflow">Release Workflow</a> •
   <a href="#dangerZone">Danger Zone in Kactus</a> •
@@ -13,11 +13,21 @@
 
 <br>
 
+<div align="center">
+  <img alt="VERSION" src="https://img.shields.io/badge/VERSION-1.14.4-blueviolet">
+</div>
+
+<br>
+
 ## Getting Started <a name="gettingStarted"></a>
 
 1. Download and install latest version of [Kactus](http://kactus.io)
-2. Clone repo in **Kactus**:
-   >File > Clone repository > URL > `https://github.com/tef-novum/mistica-design-libraries.git`  
+2. Clone repo in **Kactus**:  
+   You can search mistica-design-libraries repo in the list
+   ![Clone Repo](https://i.imgur.com/iz45eLf.png)  
+
+   You also clone the repo with this url  
+   `https://github.com/tef-novum/mistica-design-libraries.git`  
 3. Generate Sketch files
     + Click in **Regenerate Sketch File** in each files in Kactus
       ![Kactus Regenerate File](https://i.imgur.com/8WHdEmf.png)  
@@ -26,30 +36,26 @@
 
 
 ## Release Workflow in Kactus <a name="releaseWorkflow"></a>
-La rama Máster siempre será la versión que está en producción. Asegurate de seleccionar la rama con la versión en la que quieras trabajar (desarrollo) porque no podrás hacer commit de tus cambios en la versión de producción y probablemente perderás tus cambios. Para saber qué versión de producción tienes que usar, mira arriba de este documento.
-
-Cada viernes (si existen cambios sustanciales) se hará un merge de la branch activa de desarrollo a la máster.  **No dejes nada sin hacer commit o no saldrán en la release.**
-
 Master branch always be a production version of Mística Design System Libraries. Ensure before of select a branch of the version that you want to work, you always have to work in Development branch, if you don't do that all of your changes will be lost. To know what version of development have to choose, see the first lines of this document.
 
-#### POC Branches (Esto no debería ocurrir habitualmente)
-Se puede dar el caso de que quieras hacer pruebas con nuevas features de Sketch o cualquier otra cosa que pueda entenderse como experimentación y que pueda romper cosas en la librería y además quieras mantenerlo guardado en Kactus para una futura integración.
+Every Friday, if there are substantial changes, we release a new version of library. So, **don't let anything without commited and pushed!**
 
-Para referirnos a esto le hemos llamado *customBranch*
-Una custom branch debe seguir una estructura en el nombre a la hora de crear la branch.
-`SIGLAS-descripcion-corta`
 
-For example  
-Proof of concept  
+#### POC Branches (Shouldn't be common)
+If you want to test something to later will be integrated in libraries, you will be going to do that creating a *custom branch*.  
+
+A custom branch always have to follow a structure in the name:  
+`ACRONYM-short-description`  
+
+*For example*  
+Proof of concept  = POC  
 `POC-autolayout-list`  
 
-**Al crear la rama, no la publiques automáticamente, trabaja sobre ella y si consideras que es importante, publícala.**
+If this custom branch work fine, we can merge it with development branch.  
 
 **When you make a new branch, don't publish immediately, work on this branch and publish it when you consider that your work is substantial.**
 
 ## Danger Zone in Kactus <a name="dangerZone"></a>
-Cuando metas en Sketch las librerías de Kactus, ten siempre presente que si cambias de branch, las librerías de tu Sketch también cambiarán. Esto puede ser peligroso si alguien con una versión de esas librerías en Sketch abriera las librerías de Dropbox (lo cual no debería porque está terminantemente prohibido) y le diese a actualizar las librerías de Dropbox.
-
 If you will go to use Kactus, when you download libraries in your computer, install the libraries from Kactus to Sketch (just drag and drop libraries sketch files to the Sketch > Preferences > Libraries). Be careful because if you change the branch in Kactus, libraries will change. Obviously, right?.
 
 **Be careful updating library updates, make sure that you know what are you doing**
