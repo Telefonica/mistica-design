@@ -71,6 +71,7 @@
   "resizingConstraint": 45,
   "resizingType": 0,
   "rotation": 225,
+  "sharedStyleID": "479B8290-1C9F-4130-BB53-9DD3207BB41D",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -79,7 +80,7 @@
       "center": "{0.5, 0.5}",
       "isEnabled": false,
       "motionAngle": 0,
-      "radius": 9.46110608878756,
+      "radius": 10,
       "saturation": 1,
       "type": 0
     },
@@ -97,9 +98,9 @@
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0.9333333333333333,
-          "green": 0.9333333333333333,
-          "red": 0.9333333333333333
+          "blue": 0.8666666666666667,
+          "green": 0.8666666666666667,
+          "red": 0.8666666666666667
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -140,7 +141,7 @@
         },
         "isEnabled": true,
         "position": 1,
-        "thickness": 0.946110608878756
+        "thickness": 1
       }
     ],
     "colorControls": {
@@ -208,7 +209,7 @@
         "isEnabled": true,
         "noiseIndex": 0,
         "noiseIntensity": 0,
-        "patternFillType": 0,
+        "patternFillType": 1,
         "patternTileScale": 1
       }
     ],
@@ -216,28 +217,8 @@
     ],
     "miterLimit": 10,
     "shadows": [
-      {
-        "_class": "shadow",
-        "blurRadius": 4,
-        "color": {
-          "_class": "color",
-          "alpha": 0.6,
-          "blue": 0.6,
-          "green": 0.6,
-          "red": 0.6
-        },
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": 1
-        },
-        "isEnabled": false,
-        "offsetX": 0,
-        "offsetY": 2,
-        "spread": 0
-      }
     ],
     "startMarkerType": 0,
-    "windingRule": 1
+    "windingRule": 0
   }
 }

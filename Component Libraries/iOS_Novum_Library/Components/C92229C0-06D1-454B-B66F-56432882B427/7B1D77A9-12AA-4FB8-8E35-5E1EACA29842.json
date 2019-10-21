@@ -2,7 +2,7 @@
   "_class": "rectangle",
   "booleanOperation": 0,
   "clippingMaskMode": 0,
-  "do_objectID": "D694F092-48CF-4E9F-9626-CA7276A303E9",
+  "do_objectID": "7B1D77A9-12AA-4FB8-8E35-5E1EACA29842",
   "edited": false,
   "exportOptions": {
     "_class": "exportOptions",
@@ -18,9 +18,9 @@
     "_class": "rect",
     "constrainProportions": false,
     "height": 121,
-    "width": 328,
+    "width": 343,
     "x": 0,
-    "y": 7
+    "y": 0
   },
   "hasClippingMask": false,
   "hasConvertedToNewRoundCorners": true,
@@ -32,7 +32,7 @@
   "isVisible": true,
   "layerListExpandedType": 0,
   "maintainScrollPosition": false,
-  "name": "Shadow",
+  "name": "Background",
   "nameIsFixed": true,
   "needsConvertionToNewRoundCorners": false,
   "pointRadiusBehaviour": 1,
@@ -78,9 +78,10 @@
       "point": "{1, 0}"
     }
   ],
-  "resizingConstraint": 31,
+  "resizingConstraint": 55,
   "resizingType": 0,
   "rotation": 0,
+  "sharedStyleID": "479B8290-1C9F-4130-BB53-9DD3207BB41D",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -107,9 +108,9 @@
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0.9333333333333333,
-          "green": 0.9333333333333333,
-          "red": 0.9333333333333333
+          "blue": 0.8666666666666667,
+          "green": 0.8666666666666667,
+          "red": 0.8666666666666667
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -148,8 +149,8 @@
           ],
           "to": "{0.5, 1}"
         },
-        "isEnabled": false,
-        "position": 2,
+        "isEnabled": true,
+        "position": 1,
         "thickness": 1
       }
     ],
@@ -166,7 +167,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "DE4E8FF0-6B85-4D10-B2E7-A6A05F1415FD",
+    "do_objectID": "725BCF88-5B4D-4F13-AF30-1FDA65AF57F1",
     "endMarkerType": 0,
     "fills": [
       {
@@ -215,10 +216,10 @@
           ],
           "to": "{0.5, 1}"
         },
-        "isEnabled": false,
+        "isEnabled": true,
         "noiseIndex": 0,
         "noiseIntensity": 0,
-        "patternFillType": 0,
+        "patternFillType": 1,
         "patternTileScale": 1
       }
     ],
@@ -226,28 +227,8 @@
     ],
     "miterLimit": 10,
     "shadows": [
-      {
-        "_class": "shadow",
-        "blurRadius": 4,
-        "color": {
-          "_class": "color",
-          "alpha": 0.6,
-          "blue": 0.6,
-          "green": 0.6,
-          "red": 0.6
-        },
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": 1
-        },
-        "isEnabled": true,
-        "offsetX": 0,
-        "offsetY": 2,
-        "spread": 0
-      }
     ],
     "startMarkerType": 0,
-    "windingRule": 1
+    "windingRule": 0
   }
 }
