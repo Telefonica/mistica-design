@@ -36,7 +36,7 @@
 
 
 ## Release Workflow in Kactus <a name="releaseWorkflow"></a>
-Master branch always be a production version of Mística Design System Libraries. Ensure before of select a branch of the version that you want to work, you always have to work in Development branch. If you don't do that, all of your changes will be lost.  
+Master branch always be a production version of Mística Design System Libraries. Ensure before of select a branch of the version that you want to work, you always have to work in Development branch, if you don't do that all of your changes will be lost. To know what version of development have to choose, see the first lines of this document.
 
 Every Friday, if there are substantial changes, we release a new version of library. So, **don't let anything without commited and pushed!**
 
@@ -51,7 +51,7 @@ A custom branch always have to follow a structure in the name:
 Proof of concept  = POC  
 `POC-autolayout-list`  
 
-If this custom branch work fine, you can make a pull request to integrate in other branch.  
+If this custom branch work fine, we can merge it with development branch.  
 
 **When you make a new branch, don't publish immediately, work on this branch and publish it when you consider that your work is substantial. This avoids having a dirty repository.**
 
