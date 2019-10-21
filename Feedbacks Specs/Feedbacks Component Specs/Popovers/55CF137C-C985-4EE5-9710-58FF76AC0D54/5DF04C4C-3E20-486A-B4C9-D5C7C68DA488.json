@@ -9,33 +9,35 @@
           "MSAttributedStringColorAttribute": {
             "_class": "color",
             "alpha": 1,
-            "blue": 0,
-            "green": 0,
-            "red": 0
+            "blue": 0.4588235294117647,
+            "green": 0.4588235294117647,
+            "red": 0.4588235294117647
           },
           "MSAttributedStringFontAttribute": {
             "_class": "fontDescriptor",
             "attributes": {
-              "name": "Roboto-Medium",
-              "size": 20
+              "name": "SFProText-Regular",
+              "size": 14
             }
           },
-          "kerning": 0.2,
+          "kerning": 0,
           "paragraphStyle": {
             "_class": "paragraphStyle",
-            "allowsDefaultTighteningForTruncation": 0
+            "allowsDefaultTighteningForTruncation": 0,
+            "maximumLineHeight": 20,
+            "minimumLineHeight": 20
           }
         },
-        "length": 12,
+        "length": 235,
         "location": 0
       }
     ],
-    "string": "Notification"
+    "string": "La anchura en mobile siempre se adaptará al ancho completo de la pantalla restándole 16px de izquierda y otros 16px de la derecha.\n\nLa altura dependerá del contenido del popover, siempre respetando los paddings internos del componente."
   },
   "automaticallyDrawOnUnderlyingPath": false,
   "booleanOperation": 0,
   "clippingMaskMode": 0,
-  "do_objectID": "C4B393F3-81A5-4DD2-A6C7-C6E6303B3F21",
+  "do_objectID": "5DF04C4C-3E20-486A-B4C9-D5C7C68DA488",
   "dontSynchroniseWithSymbol": false,
   "exportOptions": {
     "_class": "exportOptions",
@@ -49,12 +51,12 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 26,
-    "width": 109,
-    "x": -7915,
-    "y": 1628
+    "height": 120,
+    "width": 392,
+    "x": 80,
+    "y": 351
   },
-  "glyphBounds": "{{1, 5}, {106, 17}}",
+  "glyphBounds": "{{0, 4}, {369, 114}}",
   "hasClippingMask": false,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
@@ -62,14 +64,13 @@
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "lineSpacingBehaviour": 0,
+  "lineSpacingBehaviour": 2,
   "maintainScrollPosition": false,
-  "name": "Dividers",
+  "name": "Buttons allow users",
   "nameIsFixed": true,
-  "resizingConstraint": 47,
+  "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
-  "sharedStyleID": "254F0E74-0623-49C6-B9B0-248D4FDAA991",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -105,7 +106,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "B34C0107-330D-4FDE-930C-5E8C758C0AFD",
+    "do_objectID": "28297050-8739-4F26-8DAB-736859893605",
     "endMarkerType": 0,
     "fills": [
     ],
@@ -121,26 +122,28 @@
         "MSAttributedStringColorAttribute": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0,
-          "green": 0,
-          "red": 0
+          "blue": 0.4588235294117647,
+          "green": 0.4588235294117647,
+          "red": 0.4588235294117647
         },
         "MSAttributedStringFontAttribute": {
           "_class": "fontDescriptor",
           "attributes": {
-            "name": "Roboto-Medium",
-            "size": 20
+            "name": "SFProText-Regular",
+            "size": 14
           }
         },
-        "kerning": 0.2,
+        "kerning": 0,
         "paragraphStyle": {
           "_class": "paragraphStyle",
-          "allowsDefaultTighteningForTruncation": 0
+          "allowsDefaultTighteningForTruncation": 0,
+          "maximumLineHeight": 20,
+          "minimumLineHeight": 20
         }
       },
       "verticalAlignment": 0
     },
     "windingRule": 1
   },
-  "textBehaviour": 0
+  "textBehaviour": 1
 }
