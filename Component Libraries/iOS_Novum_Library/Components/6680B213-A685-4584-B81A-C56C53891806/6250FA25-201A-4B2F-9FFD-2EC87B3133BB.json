@@ -17,9 +17,9 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 119.016393442623,
-    "width": 341,
-    "x": 1,
+    "height": 120,
+    "width": 343,
+    "x": 0,
     "y": 8
   },
   "hasClippingMask": false,
@@ -32,7 +32,7 @@
   "isVisible": true,
   "layerListExpandedType": 0,
   "maintainScrollPosition": false,
-  "name": "Background",
+  "name": "Shadow",
   "nameIsFixed": true,
   "needsConvertionToNewRoundCorners": false,
   "pointRadiusBehaviour": 1,
@@ -148,8 +148,8 @@
           ],
           "to": "{0.5, 1}"
         },
-        "isEnabled": true,
-        "position": 2,
+        "isEnabled": false,
+        "position": 1,
         "thickness": 1
       }
     ],
@@ -215,7 +215,7 @@
           ],
           "to": "{0.5, 1}"
         },
-        "isEnabled": true,
+        "isEnabled": false,
         "noiseIndex": 0,
         "noiseIntensity": 0,
         "patternFillType": 0,
@@ -231,10 +231,10 @@
         "blurRadius": 4,
         "color": {
           "_class": "color",
-          "alpha": 0.6,
-          "blue": 0.6,
-          "green": 0.6,
-          "red": 0.6
+          "alpha": 0.3,
+          "blue": 0.2352941176470588,
+          "green": 0.1647058823529412,
+          "red": 0.1647058823529412
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
