@@ -14,7 +14,7 @@
 <br>
 
 <div align="center">
-  <img alt="VERSION" src="https://img.shields.io/badge/VERSION-1.14.4-blueviolet">
+  <img alt="VERSION" src="https://img.shields.io/badge/VERSION-1.14.5-blueviolet">
 </div>
 
 <br>
