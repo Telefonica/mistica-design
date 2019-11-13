@@ -45,11 +45,11 @@ Every Friday, if there are substantial changes, we release a new version of libr
 If you want to test something to later will be integrated in libraries, you will be going to do that creating a *custom branch*.  
 
 A custom branch always have to follow a structure in the name:  
-`ACRONYM-short-description`  
+`ACRONYM-VERSION-short-description`  
 
 *For example*  
-Proof of concept  = POC  
-`POC-autolayout-list`  
+Proof of concept  = POC
+`POC-1.15.0-autolayout-list`  
 
 If this custom branch work fine, we can merge it with development branch.  
 
