@@ -14,7 +14,7 @@
 <br>
 
 <div align="center">
-  <img alt="VERSION" src="https://img.shields.io/badge/VERSION-1.14.6-blueviolet">
+  <img alt="VERSION" src="https://img.shields.io/badge/VERSION-1.15.0-blueviolet">
 </div>
 
 <br>
@@ -45,15 +45,15 @@ Every Friday, if there are substantial changes, we release a new version of libr
 If you want to test something to later will be integrated in libraries, you will be going to do that creating a *custom branch*.  
 
 A custom branch always have to follow a structure in the name:  
-`ACRONYM-short-description`  
+`ACRONYM-VERSION-short-description`  
 
 *For example*  
-Proof of concept  = POC  
-`POC-autolayout-list`  
+Proof of concept  = POC
+`POC-1.15.0-autolayout-list`  
 
 If this custom branch work fine, we can merge it with development branch.  
 
-**When you make a new branch, don't publish immediately, work on this branch and publish it when you consider that your work is substantial.**
+**When you make a new branch, don't publish immediately, work on this branch and publish it when you consider that your work is substantial. This avoids having a dirty repository.**
 
 ## Danger Zone in Kactus <a name="dangerZone"></a>
 If you will go to use Kactus, when you download libraries in your computer, install the libraries from Kactus to Sketch (just drag and drop libraries sketch files to the Sketch > Preferences > Libraries). Be careful because if you change the branch in Kactus, libraries will change. Obviously, right?.

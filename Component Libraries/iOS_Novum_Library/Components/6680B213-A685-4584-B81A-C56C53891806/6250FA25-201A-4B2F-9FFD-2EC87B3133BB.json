@@ -13,13 +13,13 @@
     "layerOptions": 0,
     "shouldTrim": false
   },
-  "fixedRadius": 6,
+  "fixedRadius": 4,
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 119.016393442623,
-    "width": 341,
-    "x": 1,
+    "height": 120,
+    "width": 343,
+    "x": 0,
     "y": 8
   },
   "hasClippingMask": false,
@@ -32,14 +32,14 @@
   "isVisible": true,
   "layerListExpandedType": 0,
   "maintainScrollPosition": false,
-  "name": "Background",
+  "name": "Shadow",
   "nameIsFixed": true,
   "needsConvertionToNewRoundCorners": false,
   "pointRadiusBehaviour": 1,
   "points": [
     {
       "_class": "curvePoint",
-      "cornerRadius": 6,
+      "cornerRadius": 4,
       "curveFrom": "{0, 0}",
       "curveMode": 1,
       "curveTo": "{0, 0}",
@@ -49,7 +49,7 @@
     },
     {
       "_class": "curvePoint",
-      "cornerRadius": 6,
+      "cornerRadius": 4,
       "curveFrom": "{0, 1}",
       "curveMode": 1,
       "curveTo": "{0, 1}",
@@ -59,7 +59,7 @@
     },
     {
       "_class": "curvePoint",
-      "cornerRadius": 6,
+      "cornerRadius": 4,
       "curveFrom": "{1, 1}",
       "curveMode": 1,
       "curveTo": "{1, 1}",
@@ -69,7 +69,7 @@
     },
     {
       "_class": "curvePoint",
-      "cornerRadius": 6,
+      "cornerRadius": 4,
       "curveFrom": "{1, 0}",
       "curveMode": 1,
       "curveTo": "{1, 0}",
@@ -148,8 +148,8 @@
           ],
           "to": "{0.5, 1}"
         },
-        "isEnabled": true,
-        "position": 2,
+        "isEnabled": false,
+        "position": 1,
         "thickness": 1
       }
     ],
@@ -166,7 +166,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "6488B35B-4BC2-4E3F-95F7-0AE8D1A04935",
+    "do_objectID": "BC9033D5-37FC-4F37-9929-82ACB9B7F7E2",
     "endMarkerType": 0,
     "fills": [
       {
@@ -215,7 +215,7 @@
           ],
           "to": "{0.5, 1}"
         },
-        "isEnabled": true,
+        "isEnabled": false,
         "noiseIndex": 0,
         "noiseIntensity": 0,
         "patternFillType": 0,
@@ -231,10 +231,10 @@
         "blurRadius": 4,
         "color": {
           "_class": "color",
-          "alpha": 0.6,
-          "blue": 0.6,
-          "green": 0.6,
-          "red": 0.6
+          "alpha": 0.3,
+          "blue": 0.2352941176470588,
+          "green": 0.1647058823529412,
+          "red": 0.1647058823529412
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
