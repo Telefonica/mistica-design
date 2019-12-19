@@ -60,24 +60,6 @@ If you will go to use Kactus, when you download libraries in your computer, inst
 
 **Be careful updating library updates, make sure that you know what are you doing**
 
-## Wiki <a name="wiki"></a>
-* **Branch**  
-It is a copy from Master or other branch. You can work new things in this copy and when you finish, you can merge in Master.
-* **Merge**  
-The union of one branch and another.
-* **Master**  
-Main branch in the repository. In our case, production branch.
-* **Repositorio**  
-The place where all the files are located.
-* **Commit**  
-It is a confirmation to save and upload all your changes in a branch.
-* **Fetch**  
-Just a refresh action to know if there are something new in the repository. (new commits, new branches, etc.)
-* **Pull**  
-Download new updates to your files.
-* **Push**  
-Upload your work to the branch. When you make push, all of the people on the repository will get a Pull.
-
 ## Problems w/ Kactus <a name="problemsWithKactus"></a>
 1. First time when you will sync Mistica repository you will not see sketch files, to generate this files click in "Regenerate sketch file" in each files in Kactus.
 
