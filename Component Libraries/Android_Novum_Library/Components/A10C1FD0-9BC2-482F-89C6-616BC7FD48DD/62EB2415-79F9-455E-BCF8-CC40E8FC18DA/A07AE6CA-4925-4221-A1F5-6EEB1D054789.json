@@ -1,17 +1,9 @@
 {
-  "_class": "symbolMaster",
-  "allowsOverrides": true,
-  "backgroundColor": {
-    "_class": "color",
-    "alpha": 1,
-    "blue": 0.9490196078431372,
-    "green": 0.9490196078431372,
-    "red": 0.9490196078431372
-  },
-  "booleanOperation": 0,
-  "changeIdentifier": 25810,
+  "_class": "rectangle",
+  "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "04B42763-23E6-4C59-9C43-3DB95A0B2677",
+  "do_objectID": "A07AE6CA-4925-4221-A1F5-6EEB1D054789",
+  "edited": true,
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -21,64 +13,76 @@
     "layerOptions": 0,
     "shouldTrim": false
   },
+  "fixedRadius": 10,
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 24,
-    "width": 24,
-    "x": -60,
-    "y": 6
+    "height": 18,
+    "width": 18,
+    "x": 0,
+    "y": 0
   },
-  "grid": {
-    "_class": "simpleGrid",
-    "gridSize": 8,
-    "isEnabled": false,
-    "thickGridTimes": 8
-  },
-  "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
-  },
-  "hasBackgroundColor": true,
-  "hasClickThrough": true,
   "hasClippingMask": false,
-  "horizontalRulerData": {
-    "_class": "rulerData",
-    "base": 0,
-    "guides": [
-    ]
-  },
-  "includeBackgroundColorInExport": false,
-  "includeBackgroundColorInInstance": true,
-  "includeInCloudUpload": true,
+  "hasConvertedToNewRoundCorners": true,
+  "isClosed": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
-  "isFlowHome": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 2,
-  "layers": [
+  "layerListExpandedType": 0,
+  "maintainScrollPosition": false,
+  "name": "Badge Background",
+  "nameIsFixed": true,
+  "needsConvertionToNewRoundCorners": false,
+  "pointRadiusBehaviour": 1,
+  "points": [
     {
-      "class": "rectangle",
-      "id": "FB00495D-4D64-4AA5-9A1B-394101527B0A"
+      "_class": "curvePoint",
+      "cornerRadius": 10,
+      "curveFrom": "{0, 0}",
+      "curveMode": 1,
+      "curveTo": "{0, 0}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{0, 0}"
     },
     {
-      "class": "group",
-      "id": "192BC2D1-EC41-4A57-8242-A74C962B69AB"
+      "_class": "curvePoint",
+      "cornerRadius": 10,
+      "curveFrom": "{1, 0}",
+      "curveMode": 1,
+      "curveTo": "{1, 0}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{1, 0}"
+    },
+    {
+      "_class": "curvePoint",
+      "cornerRadius": 10,
+      "curveFrom": "{1, 1}",
+      "curveMode": 1,
+      "curveTo": "{1, 1}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{1, 1}"
+    },
+    {
+      "_class": "curvePoint",
+      "cornerRadius": 10,
+      "curveFrom": "{0, 1}",
+      "curveMode": 1,
+      "curveTo": "{0, 1}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{0, 1}"
     }
   ],
-  "maintainScrollPosition": false,
-  "name": "Snackbars/*thumb",
-  "nameIsFixed": true,
-  "overrideProperties": [
-  ],
-  "presetDictionary": {
-  },
-  "resizesContent": true,
-  "resizingConstraint": 63,
+  "resizingConstraint": 47,
   "resizingType": 0,
   "rotation": 0,
-  "shouldBreakMaskChain": true,
+  "sharedStyleID": "C4DA3D20-F924-4763-AA8F-CCE277F9CB3D",
+  "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
     "blur": {
@@ -113,7 +117,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "BBB30C17-AB49-40DC-B79C-808C709C0319",
+    "do_objectID": "F5E62A7F-0FE9-45AC-8CD5-090135367768",
     "endMarkerType": 0,
     "fills": [
       {
@@ -121,9 +125,9 @@
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0.847,
-          "green": 0.847,
-          "red": 0.847
+          "blue": 0.2549019607843137,
+          "green": 0.196078431372549,
+          "red": 0.8431372549019608
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -175,13 +179,12 @@
     "shadows": [
     ],
     "startMarkerType": 0,
-    "windingRule": 1
+    "windingRule": 0
   },
-  "symbolID": "3743185D-19AE-441A-9432-7769360DB16B",
-  "verticalRulerData": {
-    "_class": "rulerData",
-    "base": 0,
-    "guides": [
-    ]
+  "userInfo": {
+    "com.animaapp.stc-sketch-plugin": {
+      "kModelPropertiesKey": {
+      }
+    }
   }
 }
