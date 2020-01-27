@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 1510,
+  "changeIdentifier": 1584,
   "clippingMaskMode": 0,
   "do_objectID": "C9E2693E-64CF-42F2-8CC3-8DFE8433F8BC",
   "exportOptions": {
@@ -25,14 +25,14 @@
     "_class": "rect",
     "constrainProportions": false,
     "height": 72,
-    "width": 96,
-    "x": 30007,
-    "y": 7052
+    "width": 144,
+    "x": 29983,
+    "y": 7195
   },
   "groupLayout": {
     "_class": "MSImmutableFreeformGroupLayout"
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -53,6 +53,10 @@
   "layerListExpandedType": 2,
   "layers": [
     {
+      "class": "rectangle",
+      "id": "DF33E587-AB54-4D3E-A50E-F6F2889AA356"
+    },
+    {
       "class": "text",
       "id": "7B23D84D-E991-44FD-AA0F-50B65AA170C2"
     },
@@ -61,8 +65,8 @@
       "id": "DCAFA775-D266-4A73-9E8C-A25AA394F93C"
     },
     {
-      "class": "shapePath",
-      "id": "453E3FB1-EB4F-4918-9DB4-624AAD501FFE"
+      "class": "symbolInstance",
+      "id": "CA1190A6-3D3A-4464-9A46-41344E5C86AE"
     }
   ],
   "maintainScrollPosition": false,
@@ -73,6 +77,16 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "7B23D84D-E991-44FD-AA0F-50B65AA170C2_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "DF33E587-AB54-4D3E-A50E-F6F2889AA356_layerStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "CA1190A6-3D3A-4464-9A46-41344E5C86AE_symbolID"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -88,16 +102,11 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "DCAFA775-D266-4A73-9E8C-A25AA394F93C_textStyle"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "453E3FB1-EB4F-4918-9DB4-624AAD501FFE_layerStyle"
     }
   ],
   "presetDictionary": {
   },
-  "resizesContent": true,
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,

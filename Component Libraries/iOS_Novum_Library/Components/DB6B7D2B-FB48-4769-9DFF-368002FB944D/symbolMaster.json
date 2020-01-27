@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 1767,
+  "changeIdentifier": 1909,
   "clippingMaskMode": 0,
   "do_objectID": "DB6B7D2B-FB48-4769-9DFF-368002FB944D",
   "exportOptions": {
@@ -25,16 +25,18 @@
     "_class": "rect",
     "constrainProportions": false,
     "height": 88,
-    "width": 96,
+    "width": 144,
     "x": 2002,
-    "y": 3132
+    "y": 3249
   },
   "groupLayout": {
     "_class": "MSImmutableInferredGroupLayout",
     "axis": 1,
-    "layoutAnchor": 0
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -59,23 +61,26 @@
       "id": "253F1E29-ACCC-415F-AB9B-3EAB7416EEBA"
     },
     {
+      "class": "rectangle",
+      "id": "6C92EFB1-9F47-4926-B84D-E082F4050E0A"
+    },
+    {
       "class": "text",
       "id": "0BD71901-2421-45EF-AE7B-563188BACE71"
     },
     {
-      "class": "shapePath",
-      "id": "A19F1448-9637-439D-8D12-E9DA01FDF326"
-    },
-    {
-      "class": "group",
-      "id": "6ABD762B-CA7A-4809-8CF9-E2FB4ED304B6"
+      "class": "text",
+      "id": "42693488-1424-4B54-9A56-AC428EB81D28"
     },
     {
       "class": "text",
       "id": "383B5F16-1B67-4868-9FD7-B0AAD304C50C"
+    },
+    {
+      "class": "symbolInstance",
+      "id": "882CD7E2-7A4D-4DED-B928-5C3C9B5AADEA"
     }
   ],
-  "maintainScrollPosition": false,
   "name": "Input Fields/Card/CVV/☞ FocusedHelp",
   "nameIsFixed": true,
   "overrideProperties": [
@@ -83,6 +88,11 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "42693488-1424-4B54-9A56-AC428EB81D28_stringValue"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "6C92EFB1-9F47-4926-B84D-E082F4050E0A_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -117,11 +127,6 @@
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "A19F1448-9637-439D-8D12-E9DA01FDF326_layerStyle"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
       "overrideName": "42693488-1424-4B54-9A56-AC428EB81D28_textStyle"
     },
     {
@@ -132,7 +137,7 @@
   ],
   "presetDictionary": {
   },
-  "resizesContent": true,
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,

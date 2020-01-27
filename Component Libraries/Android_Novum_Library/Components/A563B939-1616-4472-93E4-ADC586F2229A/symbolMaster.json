@@ -34,7 +34,7 @@
     "axis": 1,
     "layoutAnchor": 0
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -55,6 +55,10 @@
   "layerListExpandedType": 2,
   "layers": [
     {
+      "class": "rectangle",
+      "id": "50A5A257-06EF-4B12-BBDF-F43BFAA150A7"
+    },
+    {
       "class": "text",
       "id": "B687F54A-AB93-4E33-B060-2205DD3489D5"
     },
@@ -63,12 +67,12 @@
       "id": "EE15A94C-0C67-4B71-B282-2ACF3B0DB4A0"
     },
     {
-      "class": "rectangle",
-      "id": "0ACB2A08-38B7-4BC2-A434-4066B37804C9"
+      "class": "symbolInstance",
+      "id": "1D8F582B-9257-4C9C-A3EF-C9C318AC2A1E"
     },
     {
-      "class": "group",
-      "id": "7A6C08EB-8A5A-44AB-9F6D-47BD784A0AA0"
+      "class": "text",
+      "id": "AFEFCDFE-80CE-4852-B850-1F96BCCA3676"
     }
   ],
   "maintainScrollPosition": false,
@@ -79,6 +83,11 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "AFEFCDFE-80CE-4852-B850-1F96BCCA3676_stringValue"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "50A5A257-06EF-4B12-BBDF-F43BFAA150A7_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -99,11 +108,6 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "B687F54A-AB93-4E33-B060-2205DD3489D5_textStyle"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "0ACB2A08-38B7-4BC2-A434-4066B37804C9_layerStyle"
     }
   ],
   "presetDictionary": {

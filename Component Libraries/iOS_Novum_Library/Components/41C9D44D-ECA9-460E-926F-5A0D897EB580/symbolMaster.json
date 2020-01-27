@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 605,
+  "changeIdentifier": 627,
   "clippingMaskMode": 0,
   "do_objectID": "41C9D44D-ECA9-460E-926F-5A0D897EB580",
   "exportOptions": {
@@ -32,9 +32,11 @@
   "groupLayout": {
     "_class": "MSImmutableInferredGroupLayout",
     "axis": 1,
-    "layoutAnchor": 0
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -59,23 +61,22 @@
       "id": "3A171657-B94A-42BC-9EAD-A4757B02CD80"
     },
     {
+      "class": "rectangle",
+      "id": "4B6BA9DF-8477-40CC-9632-14D8C961F8E0"
+    },
+    {
       "class": "text",
       "id": "B208F32B-8818-41DA-84DC-D5CCB4666531"
     },
     {
-      "class": "shapePath",
-      "id": "9EB540E3-7759-4DC1-A6DE-F66B06D42AC9"
-    },
-    {
       "class": "group",
-      "id": "BF58F2F3-4770-4130-9DE7-AE6EA7ED0232"
+      "id": "423A71DF-9C5F-4271-9B3C-6C8C76A4456D"
     },
     {
       "class": "text",
       "id": "580C0EF6-2E8C-407C-A936-3D8D1759EEE5"
     }
   ],
-  "maintainScrollPosition": false,
   "name": "Input Fields/Text/● ActivatedError",
   "nameIsFixed": true,
   "overrideProperties": [
@@ -83,6 +84,11 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "F4A970D7-F64C-4016-ABD5-2ACC135A3E56_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "4B6BA9DF-8477-40CC-9632-14D8C961F8E0_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -103,11 +109,6 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "F1101B22-0227-48E9-8231-4CC5040E8488_symbolID"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "9EB540E3-7759-4DC1-A6DE-F66B06D42AC9_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",

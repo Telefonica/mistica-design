@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 1504,
+  "changeIdentifier": 1711,
   "clippingMaskMode": 0,
   "do_objectID": "017706EC-E724-4F55-B198-E6A089ABBA4B",
   "exportOptions": {
@@ -24,17 +24,19 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 160,
+    "height": 184,
     "width": 375,
     "x": 2562,
-    "y": 755
+    "y": 810
   },
   "groupLayout": {
     "_class": "MSImmutableInferredGroupLayout",
     "axis": 1,
-    "layoutAnchor": 0
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -59,8 +61,8 @@
       "id": "F96A0ECE-49DE-4C56-8253-055A39589501"
     },
     {
-      "class": "shapePath",
-      "id": "D6194933-945B-4447-BB67-76858CB96F50"
+      "class": "rectangle",
+      "id": "1E051F3C-7B66-4D96-815A-8B37C142C256"
     },
     {
       "class": "text",
@@ -75,10 +77,14 @@
       "id": "187FB8EA-7E22-41C0-AD72-498F075F98E7"
     }
   ],
-  "maintainScrollPosition": false,
   "name": "Input Fields/TextArea/☞ Focused",
   "nameIsFixed": true,
   "overrideProperties": [
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "1E051F3C-7B66-4D96-815A-8B37C142C256_layerStyle"
+    },
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
@@ -108,11 +114,6 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "47CBBD28-729F-498C-B9DF-3B1D4588AEED_textStyle"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "D6194933-945B-4447-BB67-76858CB96F50_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",

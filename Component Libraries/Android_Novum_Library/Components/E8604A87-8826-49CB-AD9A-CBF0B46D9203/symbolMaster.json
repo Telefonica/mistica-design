@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 1259,
+  "changeIdentifier": 1260,
   "clippingMaskMode": 0,
   "do_objectID": "E8604A87-8826-49CB-AD9A-CBF0B46D9203",
   "exportOptions": {
@@ -32,7 +32,7 @@
   "groupLayout": {
     "_class": "MSImmutableFreeformGroupLayout"
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -54,6 +54,10 @@
   "layers": [
     {
       "class": "rectangle",
+      "id": "8C60F933-B5C4-4C20-950A-65A480DF5245"
+    },
+    {
+      "class": "rectangle",
       "id": "A9878D8E-E9A6-48ED-BFAC-7B3F49E38137"
     },
     {
@@ -61,8 +65,12 @@
       "id": "8CFEC8B6-7180-4B8C-8452-D16BC0804F1C"
     },
     {
-      "class": "group",
-      "id": "CD1205AE-2BD3-4EA6-A567-F6000BA446E8"
+      "class": "symbolInstance",
+      "id": "56633C45-A4A6-4196-8187-516CDB394352"
+    },
+    {
+      "class": "text",
+      "id": "B8A5B1DE-B705-42D1-9B9F-A362F0F77E6F"
     }
   ],
   "maintainScrollPosition": false,
@@ -73,6 +81,11 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "8CFEC8B6-7180-4B8C-8452-D16BC0804F1C_layerStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "8C60F933-B5C4-4C20-950A-65A480DF5245_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -92,7 +105,7 @@
   ],
   "presetDictionary": {
   },
-  "resizesContent": true,
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,

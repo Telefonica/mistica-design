@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 1757,
+  "changeIdentifier": 1841,
   "clippingMaskMode": 0,
   "do_objectID": "7072871E-85D4-4EC0-8321-527CB72B6341",
   "exportOptions": {
@@ -27,14 +27,16 @@
     "height": 88,
     "width": 184,
     "x": 3125,
-    "y": 3855
+    "y": 3972
   },
   "groupLayout": {
     "_class": "MSImmutableInferredGroupLayout",
     "axis": 1,
-    "layoutAnchor": 0
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -59,26 +61,30 @@
       "id": "A5FEBA79-77E4-4E39-A926-511DFF593358"
     },
     {
-      "class": "text",
-      "id": "56A00BDE-E4F0-47A0-B2EF-E415F9F0FB22"
+      "class": "rectangle",
+      "id": "32476F25-5600-48CE-925E-F7E4DC8541F8"
     },
     {
-      "class": "shapePath",
-      "id": "E2BB7792-D528-476D-AEA0-8C89B17123F3"
+      "class": "text",
+      "id": "56A00BDE-E4F0-47A0-B2EF-E415F9F0FB22"
     },
     {
       "class": "text",
       "id": "9A40C912-166F-4717-B25C-83F2D2F34279"
     }
   ],
-  "maintainScrollPosition": false,
-  "name": "Input Fields/Card/ExpirationDate/○ InactiveHelp",
+  "name": "Input Fields/Card/ExpirationDate/○ InactiveError",
   "nameIsFixed": true,
   "overrideProperties": [
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "9A40C912-166F-4717-B25C-83F2D2F34279_stringValue"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "32476F25-5600-48CE-925E-F7E4DC8541F8_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -94,11 +100,6 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "9A40C912-166F-4717-B25C-83F2D2F34279_textStyle"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "E2BB7792-D528-476D-AEA0-8C89B17123F3_layerStyle"
     }
   ],
   "presetDictionary": {

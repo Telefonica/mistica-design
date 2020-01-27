@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 2294,
+  "changeIdentifier": 2368,
   "clippingMaskMode": 0,
   "do_objectID": "57802F70-30C3-4DF2-808B-95B50B3AEF01",
   "exportOptions": {
@@ -25,14 +25,14 @@
     "_class": "rect",
     "constrainProportions": false,
     "height": 72,
-    "width": 96,
+    "width": 144,
     "x": 2562,
-    "y": 3012
+    "y": 3129
   },
   "groupLayout": {
     "_class": "MSImmutableFreeformGroupLayout"
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -57,26 +57,39 @@
       "id": "DD80A359-04E5-4C29-945C-E6E07DC6D4D7"
     },
     {
-      "class": "shapePath",
-      "id": "CC1709D3-13A2-4652-B57D-FF51F46155A4"
+      "class": "rectangle",
+      "id": "400219B6-E5D2-46EE-A0A2-C95C941ED092"
     },
     {
-      "class": "group",
-      "id": "B6190396-DB14-4E1A-A9DB-3C4A8AD0FFF4"
+      "class": "text",
+      "id": "04018143-C377-426F-8342-4AA501B727CD"
     },
     {
       "class": "text",
       "id": "DCF23194-DBFF-4C95-9F60-E362F17B4DB4"
+    },
+    {
+      "class": "symbolInstance",
+      "id": "921728D3-7AEE-414D-81E9-3F52E99A8C1B"
     }
   ],
-  "maintainScrollPosition": false,
   "name": "Input Fields/Card/CVV/● Activated",
   "nameIsFixed": true,
   "overrideProperties": [
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
+      "overrideName": "400219B6-E5D2-46EE-A0A2-C95C941ED092_layerStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
       "overrideName": "8F0882B2-905B-4E54-AE5D-FD0068B6E3DE_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "921728D3-7AEE-414D-81E9-3F52E99A8C1B_symbolID"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -87,11 +100,6 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "4968BDC8-2495-4C39-B498-6DA072167547_symbolID"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "CC1709D3-13A2-4652-B57D-FF51F46155A4_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -111,7 +119,7 @@
   ],
   "presetDictionary": {
   },
-  "resizesContent": true,
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,

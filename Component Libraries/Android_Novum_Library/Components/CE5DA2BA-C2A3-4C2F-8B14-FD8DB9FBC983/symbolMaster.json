@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 1672,
+  "changeIdentifier": 1732,
   "clippingMaskMode": 0,
   "do_objectID": "CE5DA2BA-C2A3-4C2F-8B14-FD8DB9FBC983",
   "exportOptions": {
@@ -27,14 +27,14 @@
     "height": 88,
     "width": 360,
     "x": 29455,
-    "y": 5790
+    "y": 5933
   },
   "groupLayout": {
     "_class": "MSImmutableInferredGroupLayout",
     "axis": 1,
     "layoutAnchor": 0
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -55,6 +55,10 @@
   "layerListExpandedType": 2,
   "layers": [
     {
+      "class": "rectangle",
+      "id": "4904F0E3-BE79-4C6E-A5CF-A9CE8FEDAE8C"
+    },
+    {
       "class": "text",
       "id": "3628344C-8195-4DD5-8D95-9C05D3A96969"
     },
@@ -63,12 +67,12 @@
       "id": "30DDE918-A18C-4CB5-85E3-F9CA2DAF0664"
     },
     {
-      "class": "rectangle",
-      "id": "1BDA7CF2-15AD-4338-A828-380C030A4881"
+      "class": "symbolInstance",
+      "id": "ADC499E9-2B0C-4765-BFE2-AE5963A02C09"
     },
     {
-      "class": "group",
-      "id": "AD32B069-B9B9-4E11-AACA-80804D58AA2F"
+      "class": "text",
+      "id": "AD997277-87F4-4ABD-9D37-C91D0BB73F68"
     }
   ],
   "maintainScrollPosition": false,
@@ -79,6 +83,11 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "AD997277-87F4-4ABD-9D37-C91D0BB73F68_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "4904F0E3-BE79-4C6E-A5CF-A9CE8FEDAE8C_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -99,11 +108,6 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "ADC499E9-2B0C-4765-BFE2-AE5963A02C09_symbolID"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "1BDA7CF2-15AD-4338-A828-380C030A4881_layerStyle"
     }
   ],
   "presetDictionary": {

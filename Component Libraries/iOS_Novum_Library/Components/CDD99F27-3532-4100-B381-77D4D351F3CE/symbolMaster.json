@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 1771,
+  "changeIdentifier": 1974,
   "clippingMaskMode": 0,
   "do_objectID": "CDD99F27-3532-4100-B381-77D4D351F3CE",
   "exportOptions": {
@@ -27,14 +27,16 @@
     "height": 88,
     "width": 375,
     "x": 2001,
-    "y": 1670
+    "y": 1787
   },
   "groupLayout": {
     "_class": "MSImmutableInferredGroupLayout",
     "axis": 1,
-    "layoutAnchor": 0
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -59,23 +61,22 @@
       "id": "D9DB0203-9183-4E41-91E6-F21AEA7CEC03"
     },
     {
+      "class": "rectangle",
+      "id": "2A8251AC-7169-4F68-BF0B-4473A6F6BB7C"
+    },
+    {
       "class": "text",
       "id": "645E3299-B7B3-42B6-A7C2-0C951D05DD8F"
     },
     {
-      "class": "shapePath",
-      "id": "A3FB5346-7D42-4D83-B643-00C6004F9D66"
-    },
-    {
       "class": "group",
-      "id": "C563AC57-5C83-4A20-B36F-77BFC9937727"
+      "id": "DC82FCEA-DCF8-4C21-A659-0668EF592125"
     },
     {
       "class": "text",
       "id": "0519096F-8F07-47BB-A432-281B96E3DCE5"
     }
   ],
-  "maintainScrollPosition": false,
   "name": "Input Fields/Icon/● ActivatedHelp",
   "nameIsFixed": true,
   "overrideProperties": [
@@ -83,6 +84,11 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "645E3299-B7B3-42B6-A7C2-0C951D05DD8F_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "2A8251AC-7169-4F68-BF0B-4473A6F6BB7C_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -123,11 +129,6 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "F01C3884-82D9-422F-B45F-E7C0C5F54E61_textStyle"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "A3FB5346-7D42-4D83-B643-00C6004F9D66_layerStyle"
     }
   ],
   "presetDictionary": {

@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 967,
+  "changeIdentifier": 1110,
   "clippingMaskMode": 0,
   "do_objectID": "CD7013AE-F7B1-4231-8E7E-307B7A67BBC3",
   "exportOptions": {
@@ -27,14 +27,16 @@
     "height": 88,
     "width": 375,
     "x": 3125,
-    "y": 2616
+    "y": 2733
   },
   "groupLayout": {
     "_class": "MSImmutableInferredGroupLayout",
     "axis": 1,
-    "layoutAnchor": 0
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -59,30 +61,39 @@
       "id": "D0AFC280-CCAF-4796-9755-9CC6DDA71787"
     },
     {
+      "class": "rectangle",
+      "id": "CBDB4C14-E736-4751-BD8B-D962662B8BFD"
+    },
+    {
       "class": "text",
       "id": "F78422BA-190D-4B95-AD20-2DA1FB59CD02"
     },
     {
-      "class": "shapePath",
-      "id": "5E7F967F-583F-485E-A822-C66E6EC087A3"
-    },
-    {
       "class": "group",
-      "id": "B3881202-E56B-4542-B317-838489B399F6"
+      "id": "5CE784F0-6BF6-4E16-B581-BB9C6BF4345C"
     },
     {
       "class": "text",
       "id": "CAD686D6-C4C8-4A7C-B1D1-1C64DE6FA8D3"
     }
   ],
-  "maintainScrollPosition": false,
-  "name": "Input Fields/Card/ ● ActivatedHelp",
+  "name": "Input Fields/Card/ ● ActivatedError",
   "nameIsFixed": true,
   "overrideProperties": [
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "C2B4CED8-6848-4489-ADD2-D4B36B562772_stringValue"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "CA7E2522-C666-4426-94F8-774603B9A13D_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "CBDB4C14-E736-4751-BD8B-D962662B8BFD_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -122,11 +133,6 @@
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "C10D03E3-D336-410E-BBDB-5BA38CB1EC8C_symbolID"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
       "overrideName": "CAD686D6-C4C8-4A7C-B1D1-1C64DE6FA8D3_stringValue"
     },
     {
@@ -138,11 +144,6 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "16C73B6B-E650-4C84-9292-F2EC47BBC590_stringValue"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "5E7F967F-583F-485E-A822-C66E6EC087A3_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",

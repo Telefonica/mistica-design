@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 1855,
+  "changeIdentifier": 1951,
   "clippingMaskMode": 0,
   "do_objectID": "3ADAD622-482E-40B5-B811-8CA603FC1152",
   "exportOptions": {
@@ -25,16 +25,18 @@
     "_class": "rect",
     "constrainProportions": false,
     "height": 88,
-    "width": 96,
+    "width": 144,
     "x": 3125,
-    "y": 2892
+    "y": 3009
   },
   "groupLayout": {
     "_class": "MSImmutableInferredGroupLayout",
     "axis": 1,
-    "layoutAnchor": 0
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -59,19 +61,22 @@
       "id": "E9BDB80E-665A-4D0C-96FF-7E4032B71CE6"
     },
     {
+      "class": "rectangle",
+      "id": "545663CC-18E5-4D77-8F36-15326D6B436D"
+    },
+    {
       "class": "text",
       "id": "4DBA24FE-1C73-4D2D-B9A6-9E5B071A6632"
     },
     {
-      "class": "shapePath",
-      "id": "53DD8886-7FA4-47DE-A3EF-1E291B375588"
+      "class": "symbolInstance",
+      "id": "CB59361C-1538-4484-A50B-B9D12235420B"
     },
     {
-      "class": "group",
-      "id": "52D35822-14AC-45E6-A389-A8E2D1267CAE"
+      "class": "text",
+      "id": "BD4457C3-2675-4338-B8FF-23F8806688CE"
     }
   ],
-  "maintainScrollPosition": false,
   "name": "Input Fields/Card/CVV/○ InactiveError",
   "nameIsFixed": true,
   "overrideProperties": [
@@ -79,6 +84,11 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "4DBA24FE-1C73-4D2D-B9A6-9E5B071A6632_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "545663CC-18E5-4D77-8F36-15326D6B436D_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -104,16 +114,11 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "BD4457C3-2675-4338-B8FF-23F8806688CE_textStyle"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "53DD8886-7FA4-47DE-A3EF-1E291B375588_layerStyle"
     }
   ],
   "presetDictionary": {
   },
-  "resizesContent": true,
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,

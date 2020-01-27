@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 1592,
+  "changeIdentifier": 1839,
   "clippingMaskMode": 0,
   "do_objectID": "73B05EC8-1940-4E0D-BABB-ACCEF1C21689",
   "exportOptions": {
@@ -24,17 +24,19 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 160,
+    "height": 184,
     "width": 375,
     "x": 3125,
-    "y": 531
+    "y": 574
   },
   "groupLayout": {
     "_class": "MSImmutableInferredGroupLayout",
     "axis": 1,
-    "layoutAnchor": 0
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -59,12 +61,12 @@
       "id": "EEFA8481-8E44-487A-9A82-9975DE49F299"
     },
     {
-      "class": "text",
-      "id": "71082DE7-0250-43AC-BCA5-A46069B9D3DD"
+      "class": "rectangle",
+      "id": "01F7A17D-FE98-4291-83D5-470F564773BD"
     },
     {
-      "class": "shapePath",
-      "id": "36F83598-BB90-41A1-87B1-5D17487DE35D"
+      "class": "text",
+      "id": "71082DE7-0250-43AC-BCA5-A46069B9D3DD"
     },
     {
       "class": "text",
@@ -79,7 +81,6 @@
       "id": "87213D2E-8AAE-4249-B762-B6F8F0360EE5"
     }
   ],
-  "maintainScrollPosition": false,
   "name": "Input Fields/TextArea/● ActivatedError",
   "nameIsFixed": true,
   "overrideProperties": [
@@ -87,6 +88,11 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "87213D2E-8AAE-4249-B762-B6F8F0360EE5_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "01F7A17D-FE98-4291-83D5-470F564773BD_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -102,11 +108,6 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "F0B359A7-02C0-4EF5-B8A3-600C0084E299_symbolID"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "36F83598-BB90-41A1-87B1-5D17487DE35D_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",

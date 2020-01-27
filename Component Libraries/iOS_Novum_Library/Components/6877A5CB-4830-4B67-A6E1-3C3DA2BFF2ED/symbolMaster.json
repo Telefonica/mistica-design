@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 2341,
+  "changeIdentifier": 2412,
   "clippingMaskMode": 0,
   "do_objectID": "6877A5CB-4830-4B67-A6E1-3C3DA2BFF2ED",
   "exportOptions": {
@@ -25,14 +25,14 @@
     "_class": "rect",
     "constrainProportions": false,
     "height": 72,
-    "width": 96,
+    "width": 144,
     "x": 2562,
-    "y": 2892
+    "y": 3009
   },
   "groupLayout": {
     "_class": "MSImmutableFreeformGroupLayout"
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -57,15 +57,18 @@
       "id": "A96D156D-8ACC-400E-9C90-97DEFC6AF66E"
     },
     {
-      "class": "shapePath",
-      "id": "DC8F7E3B-A523-4B7D-9EE5-09D56DC58E81"
+      "class": "rectangle",
+      "id": "6FC2843E-CB25-4D4F-A988-2308E47C087B"
     },
     {
-      "class": "group",
-      "id": "59E4E2F3-F1D8-45AE-A454-7A73901CBAE5"
+      "class": "symbolInstance",
+      "id": "2C9421ED-C510-4A1D-AB7E-A40713F1A72E"
+    },
+    {
+      "class": "text",
+      "id": "1F55D8BC-F0F7-46A4-8D61-C52851505D41"
     }
   ],
-  "maintainScrollPosition": false,
   "name": "Input Fields/Card/CVV/○ Inactive",
   "nameIsFixed": true,
   "overrideProperties": [
@@ -73,6 +76,11 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "1F55D8BC-F0F7-46A4-8D61-C52851505D41_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "6FC2843E-CB25-4D4F-A988-2308E47C087B_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -87,11 +95,6 @@
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "DC8F7E3B-A523-4B7D-9EE5-09D56DC58E81_layerStyle"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
       "overrideName": "2C9421ED-C510-4A1D-AB7E-A40713F1A72E_symbolID"
     },
     {
@@ -102,7 +105,7 @@
   ],
   "presetDictionary": {
   },
-  "resizesContent": true,
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
