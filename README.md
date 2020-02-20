@@ -36,13 +36,15 @@
 
 
 ## Release Workflow in Kactus <a name="releaseWorkflow"></a>
-Master branch always be a production version of Mística Design System Libraries. Ensure before of select a branch of the version that you want to work, you always have to work in Development branch, if you don't do that all of your changes will be lost. To know what version of development have to choose, see the first lines of this document.
+Master branch always be a production version of Mística Design System Libraries. Ensure before of select a branch of the version that you want to work, you always have to work in *Develop* branch.
 
 Every Friday, if there are substantial changes, we release a new version of library. So, **don't let anything without commited and pushed!**
 
+![Kactus Regenerate File](https://i.imgur.com/frFVeUR.png)  
+
 
 #### POC Branches (Shouldn't be common)
-If you want to test something to later will be integrated in libraries, you will be going to do that creating a *custom branch*.  
+If you want to test something to later will be integrated in libraries, you will be going to do that creating a *custom branch* from production.  
 
 A custom branch always have to follow a structure in the name:  
 `ACRONYM-VERSION-short-description`  
@@ -51,7 +53,7 @@ A custom branch always have to follow a structure in the name:
 Proof of concept  = POC
 `POC-1.15.0-autolayout-list`  
 
-If this custom branch work fine, we can merge it with development branch.  
+If this custom branch work fine, we can merge it with *develop* branch.  
 
 **When you make a new branch, don't publish immediately, work on this branch and publish it when you consider that your work is substantial. This avoids having a dirty repository.**
 
@@ -64,3 +66,5 @@ If you will go to use Kactus, when you download libraries in your computer, inst
 1. First time when you will sync Mistica repository you will not see sketch files, to generate this files click in "Regenerate sketch file" in each files in Kactus.
 
 2. If Kactus fetching time is longer, better restart Kactus app.
+
+3. If Kactus show a lot of changes when you swap between branches, don't do anything, let Kactus load. (If this loading take a lot of time.. you can close and open Kactus CMD + Q)
