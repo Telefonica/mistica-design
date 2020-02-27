@@ -9,33 +9,36 @@
           "MSAttributedStringColorAttribute": {
             "_class": "color",
             "alpha": 1,
-            "blue": 0,
-            "green": 0,
-            "red": 0
+            "blue": 1,
+            "green": 1,
+            "red": 1
           },
           "MSAttributedStringFontAttribute": {
             "_class": "fontDescriptor",
             "attributes": {
               "name": "Roboto-Medium",
-              "size": 20
+              "size": 14
             }
           },
-          "kerning": 0.2,
+          "kerning": 0,
           "paragraphStyle": {
             "_class": "paragraphStyle",
-            "allowsDefaultTighteningForTruncation": 0
+            "alignment": 2,
+            "allowsDefaultTighteningForTruncation": 0,
+            "maximumLineHeight": 20,
+            "minimumLineHeight": 20
           }
         },
-        "length": 8,
+        "length": 16,
         "location": 0
       }
     ],
-    "string": "Tertiary"
+    "string": "Scroll to anchor"
   },
   "automaticallyDrawOnUnderlyingPath": false,
   "booleanOperation": 0,
   "clippingMaskMode": 0,
-  "do_objectID": "A6E9ECCA-BBF4-4B55-98F8-054C21262207",
+  "do_objectID": "69B52B2C-1575-48B5-9BC0-0B908F675E7A",
   "dontSynchroniseWithSymbol": false,
   "exportOptions": {
     "_class": "exportOptions",
@@ -49,12 +52,12 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 26,
-    "width": 71,
-    "x": 12165,
-    "y": 7142
+    "height": 20,
+    "width": 100,
+    "x": 24,
+    "y": 10
   },
-  "glyphBounds": "{{0, 5}, {70, 21}}",
+  "glyphBounds": "{{0, 4}, {100, 12}}",
   "hasClippingMask": false,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
@@ -62,13 +65,13 @@
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "lineSpacingBehaviour": 0,
-  "name": "Dividers",
+  "lineSpacingBehaviour": 2,
+  "name": "ButtonText",
   "nameIsFixed": true,
-  "resizingConstraint": 47,
+  "resizingConstraint": 5,
   "resizingType": 0,
   "rotation": 0,
-  "sharedStyleID": "254F0E74-0623-49C6-B9B0-248D4FDAA991",
+  "sharedStyleID": "4EB3BA8A-0439-4EB0-AA73-89E605039E39",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -104,7 +107,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "6DDB013B-1F2D-46C7-AF7A-4F482F3221E2",
+    "do_objectID": "799D0589-6F70-4158-BC67-57089C89BDFC",
     "endMarkerType": 0,
     "fills": [
     ],
@@ -120,26 +123,36 @@
         "MSAttributedStringColorAttribute": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0,
-          "green": 0,
-          "red": 0
+          "blue": 1,
+          "green": 1,
+          "red": 1
         },
         "MSAttributedStringFontAttribute": {
           "_class": "fontDescriptor",
           "attributes": {
             "name": "Roboto-Medium",
-            "size": 20
+            "size": 14
           }
         },
-        "kerning": 0.2,
+        "kerning": 0,
         "paragraphStyle": {
           "_class": "paragraphStyle",
-          "allowsDefaultTighteningForTruncation": 0
+          "alignment": 2,
+          "allowsDefaultTighteningForTruncation": 0,
+          "maximumLineHeight": 20,
+          "minimumLineHeight": 20
         }
       },
       "verticalAlignment": 0
     },
     "windingRule": 1
   },
-  "textBehaviour": 0
+  "textBehaviour": 0,
+  "userInfo": {
+    "com.animaapp.stc-sketch-plugin": {
+      "kModelPropertiesKey": {
+        "isAutoWidth": 0
+      }
+    }
+  }
 }
