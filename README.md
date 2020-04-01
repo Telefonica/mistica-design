@@ -67,4 +67,6 @@ If you will go to use Kactus, when you download libraries in your computer, inst
 
 2. If Kactus fetching time is longer, better restart Kactus app.
 
-3. If Kactus show a lot of changes when you swap between branches, don't do anything, let Kactus load. (If this loading take a lot of time.. you can close and open Kactus CMD + Q)
+3. If Kactus show a lot of changes when you swap between branches, don't do anything, let Kactus load. (If this loading take a lot of time.. you can close and open Kactus CMD + Q).
+
+4. Usually, when you change between branches, a bunch of changes to commit appear. NEVER COMMIT THIS CHANGES. That's appear because in the transition between branches Kactus detect changes between new and old branch.
