@@ -36,7 +36,7 @@
 
 
 ## Release Workflow in Kactus <a name="releaseWorkflow"></a>
-Master branch always be a production version of Mística Design System Libraries. Ensure before of select a branch of the version that you want to work, you always have to work in *Develop* branch.
+Master branch always be a production version of Mística Design System Libraries. Ensure before of select a branch of the version that you want to work, you always have to work in a branch created from `Production` branch.
 
 Every Friday, if there are substantial changes, we release a new version of library. So, **don't let anything without commited and pushed!**
 
@@ -47,11 +47,11 @@ Every Friday, if there are substantial changes, we release a new version of libr
 If you want to test something to later will be integrated in libraries, you will be going to do that creating a *custom branch* from production.  
 
 A custom branch always have to follow a structure in the name:  
-`ACRONYM-VERSION-short-description`  
+`ACRONYM-short-description`  
 
 *For example*  
 Proof of concept  = POC
-`POC-1.15.0-autolayout-list`  
+`POC-autolayout-list`  
 
 If this custom branch work fine, we can merge it with *develop* branch.  
 
@@ -67,4 +67,6 @@ If you will go to use Kactus, when you download libraries in your computer, inst
 
 2. If Kactus fetching time is longer, better restart Kactus app.
 
-3. If Kactus show a lot of changes when you swap between branches, don't do anything, let Kactus load. (If this loading take a lot of time.. you can close and open Kactus CMD + Q)
+3. If Kactus show a lot of changes when you swap between branches, don't do anything, let Kactus load. (If this loading take a lot of time.. you can close and open Kactus CMD + Q).
+
+4. Usually, when you change between branches, a bunch of changes to commit appear. *NEVER COMMIT THIS CHANGES*. That appear because in the transition between branches Kactus detect changes between new and the old branch.
