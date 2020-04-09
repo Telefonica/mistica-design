@@ -2,7 +2,7 @@
   <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png">
 </div>
 <h1 align="center">Mística Design Libraries <img src="https://img.shields.io/badge/2.0.5-FFA3A9"></h1>
-<h1 align="center">Mística Manager <img src="https://img.shields.io/badge/2.0.0-FFA3A9"></h1>
+<h1 align="center">Mística Design Libraries <img src="https://img.shields.io/badge/2.0.5-FFA3A9"></h1>
 
 <p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="#gettingStarted">Getting Started</a> •
