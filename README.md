@@ -1,7 +1,7 @@
 <div align="center">
   <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png">
 </div>
-<h1 align="center">Mística Design Libraries</h1> <br>
+<h1 align="center">Mística Design Libraries <img alt="VERSION" src="https://img.shields.io/badge/VERSION-2.0.5-blueviolet"></h1> <br>
 
 <p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="#gettingStarted">Getting Started</a> •
@@ -14,7 +14,7 @@
 <br>
 
 <div align="center">
-  <img alt="VERSION" src="https://img.shields.io/badge/VERSION-2.0.5-blueviolet">
+
 </div>
 
 <br>
