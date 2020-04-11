@@ -1,4 +1,4 @@
-name: "pre-release"
+name: "Release"
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   pre-release:
-    name: "Pre Release"
+    name: "Release"
     runs-on: "ubuntu-latest"
 
     steps:
@@ -20,7 +20,7 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "${{github.event.commits[0].message}}"
-          prerelease: true
+          prerelease: false
           title: "${{github.event.commits[0].message}}"
           files: |
             LICENSE.txt
