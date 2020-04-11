@@ -1,7 +1,7 @@
 <div align="center">
   <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png">
 </div>
-<h1 align="center">Mística Design Libraries</h1> <br>
+<h1 align="center">Mística Design Libraries <img src="https://img.shields.io/badge/2.0.7-ffa3a9"> </h1>
 
 <p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="#gettingStarted">Getting Started</a> •
@@ -13,9 +13,12 @@
 
 <br>
 
-<div align="center">
-  <img alt="VERSION" src="https://img.shields.io/badge/VERSION-2.0.5-blueviolet">
-</div>
+<br>
+
+| Other Mística Repos | Description                                               |
+| :------------------ | :-------------------------------------------------------- |
+| [mistica-icons](https://github.com/Telefonica/mistica-icons)      | The source of truth for icons in our digital products     |
+| [mistica-manager](https://github.com/Telefonica/mistica-manager)     | App to allows designer install al the system in one-click‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌  |
 
 <br>
 
