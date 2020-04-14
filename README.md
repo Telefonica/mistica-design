@@ -21,10 +21,11 @@
 | [mistica-manager](https://github.com/Telefonica/mistica-manager)     | App to allows designer install al the system in one-click‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌  |
 
 <br>
-## Components current status in Mística Design System (design + develop)
+
+## Components current status in Mística Design System (design + develop)  
 To know what is the status and components are already implemented by DesignCore + AppsCore, please visit [this link](https://zpl.io/bJxDLDW)
 
-
+<br>
 ## Getting Started <a name="gettingStarted"></a>
 
 1. Download and install latest version of [Kactus](http://kactus.io)
