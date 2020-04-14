@@ -33,10 +33,12 @@
    `https://github.com/tef-novum/mistica-design-libraries.git`  
 3. Generate Sketch files
     + Click in **Regenerate Sketch File** in each files in Kactus
-      ![Kactus Regenerate File](https://i.imgur.com/8WHdEmf.png)  
+      ![Kactus Regenerate File](https://zpl.io/bJxDLDW)  
 4. Remove old dropbox libraries from Sketch > Libraries (just remove from Sketch! Don't delete the files)
 5. Add Kactus libraries sketch files to Sketch.
 
+
+https://i.imgur.com/8WHdEmf.png
 
 ## Release Workflow in Kactus <a name="releaseWorkflow"></a>
 Master branch always be a production version of Mística Design System Libraries. Ensure before of select a branch of the version that you want to work, you always have to work in a branch created from `Production` branch.
