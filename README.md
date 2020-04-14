@@ -4,6 +4,7 @@
 <h1 align="center">Mística Design Libraries <img src="https://img.shields.io/badge/2.0.7-ffa3a9"> </h1>
 
 <p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
+  <a href="#componentsStatus">Components Status</a> •
   <a href="#gettingStarted">Getting Started</a> •
   <a href="#releaseWorkflow">Release Workflow</a> •
   <a href="#dangerZone">Danger Zone in Kactus</a> •
@@ -22,7 +23,7 @@
 
 <br>
 
-## Current components status (design + develop)  
+## Current components status (design + develop)  <a name="componentsStatus"></a>
 To know what is the status and components are already implemented by DesignCore + AppsCore, please visit [this link](https://zpl.io/bJxDLDW)
 
 <br>
