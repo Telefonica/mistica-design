@@ -1,4 +1,4 @@
-<div align="center">
+<div align="left">
   <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png">
 </div>
 <h1 align="left">Mística Design Libraries <img src="https://img.shields.io/badge/2.0.7-ffa3a9"> </h1>
