@@ -4,10 +4,11 @@
 <h1 align="center">Mística Design Libraries <img src="https://img.shields.io/badge/2.0.7-ffa3a9"> </h1>
 
 <p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
+  <a href="#componentsStatus">Components Status</a> •
   <a href="#gettingStarted">Getting Started</a> •
   <a href="#releaseWorkflow">Release Workflow</a> •
   <a href="#dangerZone">Danger Zone in Kactus</a> •
-  <a href="#wiki">Wiki</a> •
+  <a href="https://github.com/Telefonica/mistica-design-libraries/wiki">Wiki</a> •
   <a href="#problemsWithKactus">Problems w/ Kactus</a>
 </p>
 
@@ -19,6 +20,11 @@
 | :------------------ | :-------------------------------------------------------- |
 | [mistica-icons](https://github.com/Telefonica/mistica-icons)      | The source of truth for icons in our digital products     |
 | [mistica-manager](https://github.com/Telefonica/mistica-manager)     | App to allows designer install al the system in one-click‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌ ‌‌  |
+
+<br>
+
+## Current components status (design + develop)  <a name="componentsStatus"></a>
+To know what is the status and components are already implemented by DesignCore + AppsCore, please visit [this link](https://zpl.io/bJxDLDW)
 
 <br>
 
@@ -36,6 +42,7 @@
       ![Kactus Regenerate File](https://i.imgur.com/8WHdEmf.png)  
 4. Remove old dropbox libraries from Sketch > Libraries (just remove from Sketch! Don't delete the files)
 5. Add Kactus libraries sketch files to Sketch.
+
 
 
 ## Release Workflow in Kactus <a name="releaseWorkflow"></a>
@@ -73,3 +80,4 @@ If you will go to use Kactus, when you download libraries in your computer, inst
 3. If Kactus show a lot of changes when you swap between branches, don't do anything, let Kactus load. (If this loading take a lot of time.. you can close and open Kactus CMD + Q).
 
 4. Usually, when you change between branches, a bunch of changes to commit appear. *NEVER COMMIT THIS CHANGES*. That appear because in the transition between branches Kactus detect changes between new and the old branch.
+
