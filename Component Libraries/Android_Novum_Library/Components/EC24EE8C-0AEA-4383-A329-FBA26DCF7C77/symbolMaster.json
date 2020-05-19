@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 324,
+  "changeIdentifier": 546,
   "clippingMaskMode": 0,
   "do_objectID": "EC24EE8C-0AEA-4383-A329-FBA26DCF7C77",
   "exportOptions": {
@@ -25,15 +25,19 @@
     "_class": "rect",
     "constrainProportions": false,
     "height": 64,
-    "width": 152,
+    "width": 312,
     "x": 8323,
-    "y": 4784
+    "y": 4697
   },
   "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 1,
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
   "hasBackgroundColor": false,
-  "hasClickThrough": false,
+  "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
     "_class": "rulerData",
@@ -50,11 +54,15 @@
   "isFlowHome": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 0,
+  "layerListExpandedType": 2,
   "layers": [
     {
       "class": "group",
       "id": "A5DF1B14-7E71-45ED-983F-A7E943E2611D"
+    },
+    {
+      "class": "symbolInstance",
+      "id": "F7F8FFB2-EFE8-4B13-9AB4-F3B318C7A153"
     }
   ],
   "name": "Ι🔒Resources/Headers/MainWhite/Button/Primary",
@@ -63,12 +71,17 @@
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
+      "overrideName": "F7F8FFB2-EFE8-4B13-9AB4-F3B318C7A153_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
       "overrideName": "15A9C061-B94B-4F81-8281-95BE3A0F7150_symbolID"
     }
   ],
   "presetDictionary": {
   },
-  "resizesContent": false,
+  "resizesContent": true,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,

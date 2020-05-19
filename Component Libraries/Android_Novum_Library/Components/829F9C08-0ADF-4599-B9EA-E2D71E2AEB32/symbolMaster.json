@@ -4,12 +4,12 @@
   "backgroundColor": {
     "_class": "color",
     "alpha": 1,
-    "blue": 1,
-    "green": 1,
-    "red": 1
+    "blue": 0.6327841938405797,
+    "green": 0.6327841938405797,
+    "red": 0.6327841938405797
   },
   "booleanOperation": -1,
-  "changeIdentifier": 262,
+  "changeIdentifier": 517,
   "clippingMaskMode": 0,
   "do_objectID": "829F9C08-0ADF-4599-B9EA-E2D71E2AEB32",
   "exportOptions": {
@@ -25,14 +25,18 @@
     "_class": "rect",
     "constrainProportions": false,
     "height": 64,
-    "width": 152,
+    "width": 312,
     "x": 8323,
-    "y": 4336
+    "y": 4240
   },
   "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 1,
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
-  "hasBackgroundColor": false,
+  "hasBackgroundColor": true,
   "hasClickThrough": false,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -41,7 +45,7 @@
     "guides": [
     ]
   },
-  "includeBackgroundColorInExport": true,
+  "includeBackgroundColorInExport": false,
   "includeBackgroundColorInInstance": false,
   "includeInCloudUpload": true,
   "isFixedToViewport": false,
@@ -50,11 +54,15 @@
   "isFlowHome": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 0,
+  "layerListExpandedType": 2,
   "layers": [
     {
       "class": "group",
       "id": "9B6861B8-83F9-4D4E-8A5F-F20A2E7EDFAA"
+    },
+    {
+      "class": "symbolInstance",
+      "id": "63AFB3D0-E93E-44F0-9734-DD592030D750"
     }
   ],
   "name": "Ι🔒Resources/Headers/Main/Button/Primary",
@@ -64,11 +72,16 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "2C7BA0C1-4EB1-40CB-A94C-DDACB43E5AC1_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "63AFB3D0-E93E-44F0-9734-DD592030D750_symbolID"
     }
   ],
   "presetDictionary": {
   },
-  "resizesContent": false,
+  "resizesContent": true,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,

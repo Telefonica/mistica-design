@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 302,
+  "changeIdentifier": 439,
   "clippingMaskMode": 0,
   "do_objectID": "1095417D-2A2A-4778-BC68-38B1BC21D938",
   "exportOptions": {
@@ -27,13 +27,17 @@
     "height": 40,
     "width": 312,
     "x": 8323,
-    "y": 4872
+    "y": 4873
   },
   "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 1,
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
   "hasBackgroundColor": false,
-  "hasClickThrough": false,
+  "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
     "_class": "rulerData",
@@ -50,11 +54,15 @@
   "isFlowHome": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 0,
+  "layerListExpandedType": 2,
   "layers": [
     {
       "class": "text",
       "id": "1F10DECD-5455-4FCC-9286-0DA2FC2F94A0"
+    },
+    {
+      "class": "symbolInstance",
+      "id": "89FD8823-0451-4343-BD69-5F69906D2577"
     }
   ],
   "name": "Ι🔒Resources/Headers/MainWhite/Texts/Subtitle",
@@ -68,12 +76,17 @@
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
+      "overrideName": "89FD8823-0451-4343-BD69-5F69906D2577_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
       "overrideName": "1F10DECD-5455-4FCC-9286-0DA2FC2F94A0_textStyle"
     }
   ],
   "presetDictionary": {
   },
-  "resizesContent": false,
+  "resizesContent": true,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,

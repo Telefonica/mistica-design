@@ -4,12 +4,12 @@
   "backgroundColor": {
     "_class": "color",
     "alpha": 1,
-    "blue": 1,
-    "green": 1,
-    "red": 1
+    "blue": 0.6327841938405797,
+    "green": 0.6327841938405797,
+    "red": 0.6327841938405797
   },
   "booleanOperation": -1,
-  "changeIdentifier": 187,
+  "changeIdentifier": 322,
   "clippingMaskMode": 0,
   "do_objectID": "94DF7DBA-7A5B-4CB7-B327-6C3EA2C7934B",
   "exportOptions": {
@@ -27,12 +27,16 @@
     "height": 48,
     "width": 312,
     "x": 8323,
-    "y": 4264
+    "y": 4168
   },
   "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 1,
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
-  "hasBackgroundColor": false,
+  "hasBackgroundColor": true,
   "hasClickThrough": false,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -41,7 +45,7 @@
     "guides": [
     ]
   },
-  "includeBackgroundColorInExport": true,
+  "includeBackgroundColorInExport": false,
   "includeBackgroundColorInInstance": false,
   "includeInCloudUpload": true,
   "isFixedToViewport": false,
@@ -50,11 +54,15 @@
   "isFlowHome": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 0,
+  "layerListExpandedType": 2,
   "layers": [
     {
       "class": "text",
       "id": "D46EE3C4-B6D5-4F49-AF69-1EF20E403EFC"
+    },
+    {
+      "class": "symbolInstance",
+      "id": "3F922E5A-BECF-41E5-BC53-7B9B23CD8288"
     }
   ],
   "name": "Ι🔒Resources/Headers/Main/Texts/Amount",
@@ -64,6 +72,11 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "D46EE3C4-B6D5-4F49-AF69-1EF20E403EFC_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "3F922E5A-BECF-41E5-BC53-7B9B23CD8288_symbolID"
     },
     {
       "_class": "MSImmutableOverrideProperty",
