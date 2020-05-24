@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 852,
+  "changeIdentifier": 858,
   "clippingMaskMode": 0,
   "do_objectID": "C2CDCAF0-AA34-458A-BFDD-214F5EC4E477",
   "exportOptions": {
@@ -29,11 +29,17 @@
     "x": 30015,
     "y": 3710
   },
+  "grid": {
+    "_class": "simpleGrid",
+    "gridSize": 20,
+    "isEnabled": false,
+    "thickGridTimes": 10
+  },
   "groupLayout": {
     "_class": "MSImmutableFreeformGroupLayout"
   },
   "hasBackgroundColor": false,
-  "hasClickThrough": true,
+  "hasClickThrough": false,
   "hasClippingMask": false,
   "horizontalRulerData": {
     "_class": "rulerData",
@@ -67,15 +73,24 @@
     {
       "class": "text",
       "id": "C7E9F74E-A1F8-4DED-94EA-5C93A934BD31"
+    },
+    {
+      "class": "symbolInstance",
+      "id": "00875F5A-AFB6-4B6A-9E37-35ECB17F1D74"
     }
   ],
-  "name": "Input Fields/Text/☞ Focused",
+  "name": "ΙΙ Resources/Input Fields/Text/☞ Focused",
   "nameIsFixed": true,
   "overrideProperties": [
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "97837C01-C21A-46A4-A85F-FA8EEA09B93B_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "00875F5A-AFB6-4B6A-9E37-35ECB17F1D74_symbolID"
     },
     {
       "_class": "MSImmutableOverrideProperty",
