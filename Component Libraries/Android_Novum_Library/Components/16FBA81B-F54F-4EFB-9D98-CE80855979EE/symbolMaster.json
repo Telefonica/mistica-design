@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 955,
+  "changeIdentifier": 972,
   "clippingMaskMode": 0,
   "do_objectID": "16FBA81B-F54F-4EFB-9D98-CE80855979EE",
   "exportOptions": {
@@ -28,6 +28,12 @@
     "width": 360,
     "x": 30575,
     "y": 3710
+  },
+  "grid": {
+    "_class": "simpleGrid",
+    "gridSize": 20,
+    "isEnabled": false,
+    "thickGridTimes": 10
   },
   "groupLayout": {
     "_class": "MSImmutableInferredGroupLayout",
@@ -61,8 +67,8 @@
       "id": "EBDC28EC-D746-454C-BE2F-DF708632A202"
     },
     {
-      "class": "text",
-      "id": "4A0849DB-58E5-4F58-96EB-483FEB45533A"
+      "class": "symbolInstance",
+      "id": "0C2A8F77-99EC-475C-B3ED-994522995B32"
     },
     {
       "class": "rectangle",
@@ -80,6 +86,11 @@
   "name": "Input Fields/Text/☞ FocusedError",
   "nameIsFixed": true,
   "overrideProperties": [
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "0C2A8F77-99EC-475C-B3ED-994522995B32_symbolID"
+    },
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
@@ -113,17 +124,7 @@
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "4A0849DB-58E5-4F58-96EB-483FEB45533A_stringValue"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
       "overrideName": "540777FA-BC60-4DD9-BAD1-89B360179667_symbolID"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "4A0849DB-58E5-4F58-96EB-483FEB45533A_textStyle"
     }
   ],
   "presetDictionary": {
