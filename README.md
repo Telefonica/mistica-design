@@ -83,4 +83,3 @@ If you will go to use Kactus, when you download libraries in your computer, inst
 4. Usually, when you change between branches, a bunch of changes to commit appear. *NEVER COMMIT THIS CHANGES*. That appear because in the transition between branches Kactus detect changes between new and the old branch.
 
 <br>
-
