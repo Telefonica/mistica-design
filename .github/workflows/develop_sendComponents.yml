@@ -1,0 +1,24 @@
+name: Cloning folder libraries to mistica-sketch-libraries — DEVELOP
+
+on:
+  push:
+    branches: 
+    - develop
+  schedule:
+    - cron:  "10 03 * * *"
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Copy Components (develop)
+      uses: andstor/copycat-action@v3
+      with:
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
+        src_branch: develop
+        src_path: /ComponentLibraries/.
+        dst_branch: develop
+        dst_path: /ComponentLibraries/.
+        dst_owner: yceballost
+        dst_repo_name: mistica-sketch-libraries
+        clean: true

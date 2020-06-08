@@ -1,0 +1,29 @@
+name: Cloning brands to mistica-sketch-libraries — PRODUCTION
+
+on:
+  push:
+    branches: 
+    - production
+  schedule:
+    - cron:  "03 03 * * *"
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sleep for 90 seconds
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '90s'
+
+    - name: Copy Brands (production)
+      uses: andstor/copycat-action@v3
+      with:
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
+        src_branch: production
+        src_path: /BrandLibraries/.
+        dst_branch: production
+        dst_path: /BrandLibraries/.
+        dst_owner: yceballost
+        dst_repo_name: mistica-sketch-libraries
+        clean: true
