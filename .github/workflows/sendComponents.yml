@@ -9,7 +9,7 @@ jobs:
   copy:
     runs-on: ubuntu-latest
     steps:
-    
+
     - name: Get branch name
       uses: rlespinasse/github-slug-action@v2.x
 
@@ -24,4 +24,4 @@ jobs:
         dst_owner: yceballost
         dst_repo_name: mistica-sketch-libraries
         clean: true
-       
+        
