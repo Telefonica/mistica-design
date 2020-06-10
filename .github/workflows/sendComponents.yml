@@ -20,8 +20,8 @@ jobs:
         src_branch: ${{ env.GITHUB_REF_SLUG_URL }}
         src_path: /Component Libraries/.
         dst_branch: ${{ env.GITHUB_REF_SLUG_URL }}
-        dst_path: /ComponentLibraries/.
+        dst_path: /Component Libraries/.
         dst_owner: yceballost
         dst_repo_name: mistica-sketch-libraries
-        clean: false
+        clean: true
        
