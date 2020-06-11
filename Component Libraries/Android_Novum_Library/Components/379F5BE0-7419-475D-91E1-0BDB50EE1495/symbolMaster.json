@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 6246,
+  "changeIdentifier": 6524,
   "clippingMaskMode": 0,
   "do_objectID": "379F5BE0-7419-475D-91E1-0BDB50EE1495",
   "exportOptions": {
@@ -24,15 +24,15 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 80,
-    "width": 360,
-    "x": 21869,
-    "y": 3403
+    "height": 64,
+    "width": 328,
+    "x": 21885,
+    "y": 3411
   },
   "grid": {
     "_class": "simpleGrid",
     "gridSize": 8,
-    "isEnabled": true,
+    "isEnabled": false,
     "thickGridTimes": 8
   },
   "groupLayout": {
@@ -59,6 +59,10 @@
   "layerListExpandedType": 2,
   "layers": [
     {
+      "class": "group",
+      "id": "BE9A7D95-5D4A-4895-BD70-080FCC873A67"
+    },
+    {
       "class": "rectangle",
       "id": "8D729B91-F1A6-401B-AB40-02ECAAC5BBC0"
     },
@@ -67,17 +71,18 @@
       "id": "48D0068D-B17F-46AF-90DE-56707169BA32"
     },
     {
-      "class": "symbolInstance",
-      "id": "F30AC9F3-7C8D-406F-9A34-86B6682F067B"
-    },
-    {
-      "class": "symbolInstance",
-      "id": "8A9EAE0A-F6BA-4145-B4E0-91B66491A405"
+      "class": "group",
+      "id": "1A9F734B-4F1C-4BB4-9B2B-C6FB2FC34565"
     }
   ],
-  "name": "Lists/Switch/Boxed/Asset/24/1L",
+  "name": "Lists/Control/Boxed — 24 — 1L",
   "nameIsFixed": true,
   "overrideProperties": [
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": false,
+      "overrideName": "B7DBE4A0-A28F-4E12-BC8C-9426EEEE5919_symbolID"
+    },
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
@@ -86,12 +91,17 @@
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "F30AC9F3-7C8D-406F-9A34-86B6682F067B_symbolID"
+      "overrideName": "48D0068D-B17F-46AF-90DE-56707169BA32_symbolID"
     },
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "63BB73BF-35D1-4989-A584-7EA747E1BE6D_symbolID"
+      "overrideName": "8D729B91-F1A6-401B-AB40-02ECAAC5BBC0_layerStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "F30AC9F3-7C8D-406F-9A34-86B6682F067B_symbolID"
     }
   ],
   "presetDictionary": {

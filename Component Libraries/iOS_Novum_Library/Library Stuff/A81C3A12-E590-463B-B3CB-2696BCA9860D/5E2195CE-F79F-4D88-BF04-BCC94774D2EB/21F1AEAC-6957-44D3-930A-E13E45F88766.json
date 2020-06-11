@@ -80,7 +80,6 @@
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 270,
-  "sharedStyleID": "DF5546F0-FF90-4E60-BE8E-9BA88924FEFE",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -102,6 +101,56 @@
       "lineJoinStyle": 0
     },
     "borders": [
+      {
+        "_class": "border",
+        "color": {
+          "_class": "color",
+          "alpha": 1,
+          "blue": 0.592,
+          "green": 0.592,
+          "red": 0.592
+        },
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": 1
+        },
+        "fillType": 0,
+        "gradient": {
+          "_class": "gradient",
+          "elipseLength": 0,
+          "from": "{0.5, 0}",
+          "gradientType": 0,
+          "stops": [
+            {
+              "_class": "gradientStop",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 1,
+                "green": 1,
+                "red": 1
+              },
+              "position": 0
+            },
+            {
+              "_class": "gradientStop",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0,
+                "green": 0,
+                "red": 0
+              },
+              "position": 1
+            }
+          ],
+          "to": "{0.5, 1}"
+        },
+        "isEnabled": false,
+        "position": 0,
+        "thickness": 1
+      }
     ],
     "colorControls": {
       "_class": "colorControls",
@@ -116,17 +165,17 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "22DDDCBB-5555-44FB-A044-F05455A5886D",
+    "do_objectID": "BA673ABB-76A8-47A8-BB30-9DC96C150643",
     "endMarkerType": 0,
     "fills": [
       {
         "_class": "fill",
         "color": {
           "_class": "color",
-          "alpha": 1,
-          "blue": 0.08235294117647059,
-          "green": 0.7137254901960784,
-          "red": 0.3607843137254902
+          "alpha": 0.3,
+          "blue": 1,
+          "green": 0.4705882352941176,
+          "red": 0.2784313725490196
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -178,6 +227,14 @@
     "shadows": [
     ],
     "startMarkerType": 0,
-    "windingRule": 0
+    "windingRule": 1
+  },
+  "userInfo": {
+    "com.sketch.detach": {
+      "sharedStyle": {
+        "sharedStyleId": "DF5546F0-FF90-4E60-BE8E-9BA88924FEFE",
+        "sharedStyleName": "Android/Icons/icon_accent"
+      }
+    }
   }
 }
