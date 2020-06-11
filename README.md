@@ -1,7 +1,7 @@
 <div align="center">
   <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png">
 </div>
-<h1 align="center">Mística Design Libraries <img src="https://img.shields.io/badge/2.1.1-ffa3a9"> </h1>
+<h1 align="center">Mística Design Libraries <img src="https://img.shields.io/badge/2.2.0-ffa3a9"> </h1>
 
 <p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="#componentsStatus">Components Status</a> •
@@ -23,7 +23,6 @@
 | [mistica-manager](https://github.com/Telefonica/mistica-manager)     | App to allows designer install al the system in one-click  |
 
 <br>
-
 
 ## Current components status (design + develop)  <a name="componentsStatus"></a>
 To know what is the status and components are already implemented by DesignCore + AppsCore, please visit [this link](https://zpl.io/bJxDLDW)
