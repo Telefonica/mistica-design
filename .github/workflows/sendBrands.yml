@@ -19,7 +19,7 @@ jobs:
       uses: rlespinasse/github-slug-action@v2.x
 
     - name: Copy Brands (${{ env.GITHUB_REF_SLUG_URL }})
-      uses: yceballost/copycat-action@master
+      uses: andstor/copycat-action@v3
       with:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
         src_branch: ${{ env.GITHUB_REF_SLUG_URL }}
