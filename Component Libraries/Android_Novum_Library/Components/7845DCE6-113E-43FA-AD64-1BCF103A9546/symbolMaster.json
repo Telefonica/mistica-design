@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 6349,
+  "changeIdentifier": 6430,
   "clippingMaskMode": 0,
   "do_objectID": "7845DCE6-113E-43FA-AD64-1BCF103A9546",
   "exportOptions": {
@@ -24,10 +24,10 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 64,
+    "height": 72,
     "width": 328,
     "x": 17638,
-    "y": 3564
+    "y": 3548
   },
   "grid": {
     "_class": "simpleGrid",
@@ -39,7 +39,7 @@
     "_class": "MSImmutableFreeformGroupLayout"
   },
   "hasBackgroundColor": true,
-  "hasClickThrough": true,
+  "hasClickThrough": false,
   "hasClippingMask": false,
   "horizontalRulerData": {
     "_class": "rulerData",
@@ -59,21 +59,35 @@
   "layerListExpandedType": 2,
   "layers": [
     {
+      "class": "group",
+      "id": "33BE5F59-13A0-4DCE-A2F9-33498FC6014E"
+    },
+    {
       "class": "rectangle",
       "id": "DE2404A7-CFD8-4D26-A1B8-23DE012860EB"
     },
     {
       "class": "symbolInstance",
-      "id": "64FD0DB0-000A-4540-8191-4ED1B478D4F1"
+      "id": "002B9254-67B4-45F5-96A8-709BA0DDCED0"
     },
     {
       "class": "group",
       "id": "F5848514-40FC-40F6-988F-AF20C192B1FD"
     }
   ],
-  "name": "Lists/Chevron/Boxed/Asset/40/1L",
+  "name": "Lists/Navigation/Boxed — 40 — 1L",
   "nameIsFixed": true,
   "overrideProperties": [
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "002B9254-67B4-45F5-96A8-709BA0DDCED0_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": false,
+      "overrideName": "7C6110A9-37DB-4991-9C08-F60C2E3F1B7F_symbolID"
+    },
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
@@ -86,23 +100,13 @@
     },
     {
       "_class": "MSImmutableOverrideProperty",
-      "canOverride": false,
-      "overrideName": "64FD0DB0-000A-4540-8191-4ED1B478D4F1_symbolID"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "C83D139F-25D5-4580-A076-414EC1636DF6_symbolID"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": false,
-      "overrideName": "64FD0DB0-000A-4540-8191-4ED1B478D4F1/D123ED69-90C0-4F08-809B-E75E5CFE9F38_symbolID"
     }
   ],
   "presetDictionary": {
   },
-  "resizesContent": true,
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,

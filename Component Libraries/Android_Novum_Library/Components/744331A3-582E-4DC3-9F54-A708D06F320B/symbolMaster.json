@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 6142,
+  "changeIdentifier": 6240,
   "clippingMaskMode": 0,
   "do_objectID": "744331A3-582E-4DC3-9F54-A708D06F320B",
   "exportOptions": {
@@ -27,7 +27,7 @@
     "height": 80,
     "width": 328,
     "x": 17638,
-    "y": 3676
+    "y": 3644
   },
   "grid": {
     "_class": "simpleGrid",
@@ -36,10 +36,14 @@
     "thickGridTimes": 8
   },
   "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 1,
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
   "hasBackgroundColor": true,
-  "hasClickThrough": true,
+  "hasClickThrough": false,
   "hasClippingMask": false,
   "horizontalRulerData": {
     "_class": "rulerData",
@@ -59,19 +63,23 @@
   "layerListExpandedType": 2,
   "layers": [
     {
+      "class": "group",
+      "id": "5E2F3DCD-5C06-43FA-B4D2-82FE6FB7A1EC"
+    },
+    {
       "class": "rectangle",
       "id": "F367741B-37EB-4E1F-A32D-1905D8843815"
     },
     {
       "class": "symbolInstance",
-      "id": "ABD1DB26-0F96-4BC4-BE52-C880D1BA3840"
+      "id": "23FCCE06-FFE0-4F4E-909C-EE27EEA4D9F5"
     },
     {
       "class": "group",
       "id": "E532CA73-1E0F-4C60-BD3C-5F2A31592068"
     }
   ],
-  "name": "Lists/Chevron/Boxed/Asset/40/2L",
+  "name": "Lists/Navigation/Boxed — 40 — 2L",
   "nameIsFixed": true,
   "overrideProperties": [
     {
@@ -81,13 +89,18 @@
     },
     {
       "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "F367741B-37EB-4E1F-A32D-1905D8843815_layerStyle"
+      "canOverride": false,
+      "overrideName": "D9D4D416-FC0E-4DEA-81B1-E53C2D84A6D3_symbolID"
     },
     {
       "_class": "MSImmutableOverrideProperty",
-      "canOverride": false,
-      "overrideName": "ABD1DB26-0F96-4BC4-BE52-C880D1BA3840/D123ED69-90C0-4F08-809B-E75E5CFE9F38_symbolID"
+      "canOverride": true,
+      "overrideName": "23FCCE06-FFE0-4F4E-909C-EE27EEA4D9F5_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "F367741B-37EB-4E1F-A32D-1905D8843815_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -98,11 +111,6 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "A3F356F5-2213-439B-A1A5-C18980612CE9_symbolID"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": false,
-      "overrideName": "ABD1DB26-0F96-4BC4-BE52-C880D1BA3840_symbolID"
     }
   ],
   "presetDictionary": {
