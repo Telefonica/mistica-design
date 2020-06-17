@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png">
+  <img height="80" alt="Mística Logo" src="https://raw.githubusercontent.com/Telefonica/mistica-icons-web/master/images/mistica_logo.svg?token=ABTJE2PLEOMYVFYEGWNL7JC66MAYM">
 </div>
 <h1 align="center">Mística Design Libraries <img src="https://img.shields.io/badge/2.2.0-ffa3a9"> </h1>
 
