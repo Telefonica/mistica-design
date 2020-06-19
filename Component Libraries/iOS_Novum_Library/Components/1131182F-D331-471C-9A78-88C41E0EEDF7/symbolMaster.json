@@ -4,12 +4,12 @@
   "backgroundColor": {
     "_class": "color",
     "alpha": 1,
-    "blue": 1,
-    "green": 1,
-    "red": 1
+    "blue": 0.3752830615942029,
+    "green": 0.3752830615942029,
+    "red": 0.3752830615942029
   },
   "booleanOperation": -1,
-  "changeIdentifier": 2567,
+  "changeIdentifier": 3022,
   "clippingMaskMode": 0,
   "do_objectID": "1131182F-D331-471C-9A78-88C41E0EEDF7",
   "exportOptions": {
@@ -30,9 +30,13 @@
     "y": -100
   },
   "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 1,
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
-  "hasBackgroundColor": false,
+  "hasBackgroundColor": true,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -41,7 +45,7 @@
     "guides": [
     ]
   },
-  "includeBackgroundColorInExport": true,
+  "includeBackgroundColorInExport": false,
   "includeBackgroundColorInInstance": false,
   "includeInCloudUpload": true,
   "isFixedToViewport": false,
@@ -68,6 +72,16 @@
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
+      "overrideName": "5BAA129F-56C2-4CB9-A637-B11EBAB555ED_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "5BAA129F-56C2-4CB9-A637-B11EBAB555ED/573B92E2-9073-448F-8203-A0381922157C_layerStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
       "overrideName": "64F85A37-CDAF-4606-A662-19BB67EA9127_stringValue"
     },
     {
@@ -79,11 +93,6 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "B6E3BBA6-BC57-4D49-BAF3-A584C1279C76_layerStyle"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "FAE35125-0A2D-41E1-8D26-22E6F94A24BB_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -103,7 +112,7 @@
   ],
   "presetDictionary": {
   },
-  "resizesContent": false,
+  "resizesContent": true,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
