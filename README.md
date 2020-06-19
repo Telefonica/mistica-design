@@ -1,7 +1,7 @@
 <div align="center">
   <img height="80" alt="Mística Logo" src="https://raw.githubusercontent.com/Telefonica/mistica-icons-web/master/images/mistica_logo.svg?token=ABTJE2PLEOMYVFYEGWNL7JC66MAYM">
 </div>
-<h1 align="center"><img height="24" src="https://img.shields.io/badge/2.2.0-003245"></h1>
+<h1 align="center"><img height="24" src="https://img.shields.io/badge/2.3.0-003245"></h1>
 
 <p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="#componentsStatus">Components Status</a> •
