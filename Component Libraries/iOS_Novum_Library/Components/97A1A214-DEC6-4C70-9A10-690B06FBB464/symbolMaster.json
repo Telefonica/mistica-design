@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 7213,
+  "changeIdentifier": 7379,
   "clippingMaskMode": 0,
   "do_objectID": "97A1A214-DEC6-4C70-9A10-690B06FBB464",
   "exportOptions": {
@@ -24,10 +24,10 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 120,
-    "width": 375,
-    "x": -10314,
-    "y": 233
+    "height": 104,
+    "width": 343,
+    "x": -10298,
+    "y": 241
   },
   "grid": {
     "_class": "simpleGrid",
@@ -36,7 +36,11 @@
     "thickGridTimes": 8
   },
   "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 1,
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
   "hasBackgroundColor": true,
   "hasClickThrough": true,
@@ -59,35 +63,17 @@
   "layerListExpandedType": 2,
   "layers": [
     {
-      "class": "group",
-      "id": "49AEDD22-C301-49E9-AD8A-2FBB181C689C"
-    },
-    {
       "class": "rectangle",
       "id": "8EC894E9-8520-42E1-9CE5-B5A52BFC8107"
-    },
-    {
-      "class": "group",
-      "id": "DD616E34-92C0-404F-8B17-D401E97666F1"
     },
     {
       "class": "group",
       "id": "64AD131C-3385-4D9D-850C-96323BC22FC7"
     }
   ],
-  "name": "Lists/Chart/NoChevron/3L",
+  "name": "Lists/Chart/3L",
   "nameIsFixed": true,
   "overrideProperties": [
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "B2F30B30-90ED-420B-BD79-B60C8B33CA6E_symbolID"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "971C68E0-4F68-4F7D-88C3-00CB175F4188_symbolID"
-    },
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
@@ -116,7 +102,7 @@
   ],
   "presetDictionary": {
   },
-  "resizesContent": true,
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
