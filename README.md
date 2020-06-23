@@ -1,4 +1,5 @@
-
+<br>
+<br>
 <div align="left">
   <img height="80" alt="Mística Logo" src="https://raw.githubusercontent.com/Telefonica/mistica-icons-web/master/images/mistica_logo.svg?token=ABTJE2PLEOMYVFYEGWNL7JC66MAYM">
 <img align="right" height="24" src="https://img.shields.io/badge/2.3.0-003245">
