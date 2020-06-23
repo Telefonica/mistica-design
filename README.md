@@ -1,9 +1,9 @@
-<div align="center">
+<div align="left">
   <img height="80" alt="Mística Logo" src="https://raw.githubusercontent.com/Telefonica/mistica-icons-web/master/images/mistica_logo.svg?token=ABTJE2PLEOMYVFYEGWNL7JC66MAYM">
 </div>
-<h1 align="center"><img height="24" src="https://img.shields.io/badge/2.3.0-003245"></h1>
+<img height="24" src="https://img.shields.io/badge/2.3.0-003245">
 
-<p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
+<p align="left" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="#componentsStatus">Components Status</a> •
   <a href="#gettingStarted">Getting Started</a> •
   <a href="#releaseWorkflow">Release Workflow</a> •
