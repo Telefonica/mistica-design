@@ -6,8 +6,6 @@
 </div>
 <br>
 <br>
-<br>
-<br>
 <p align="left" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="#componentsStatus">Components Status</a> •
   <a href="#gettingStarted">Getting Started</a> •
