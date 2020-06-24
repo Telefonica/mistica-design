@@ -1,7 +1,7 @@
 <br>
 <br>
 <div align="left">
-  <img height="64" alt="Mística Logo" src="https://raw.githubusercontent.com/Telefonica/mistica/landing/img/misticaLogo.svg?token=ABTJE2PVOM5VWHL7POMHKFC67R4CY">
+  <img height="64" alt="Mística Logo" src="https://raw.githubusercontent.com/Telefonica/mistica/master/img/misticaLogo.svg?token=ABTJE2KH3UGZ6T2XTIR5W7S67R4J4">
 <img align="right" height="24" src="https://img.shields.io/badge/2.3.2-003245">
 </div>
 <br>
