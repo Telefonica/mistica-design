@@ -1,8 +1,9 @@
 {
-  "_class": "shapeGroup",
+  "_class": "rectangle",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "F584B645-DF3E-46D4-9E0E-FF2ECF44F439",
+  "do_objectID": "D8DE1CE7-557B-4C25-B1EE-1FE958B63C7D",
+  "edited": false,
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -12,42 +13,71 @@
     "layerOptions": 0,
     "shouldTrim": false
   },
+  "fixedRadius": 1,
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 12,
-    "width": 22,
-    "x": 0,
-    "y": 0
+    "height": 8,
+    "width": 18,
+    "x": 2,
+    "y": 2
   },
-  "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
-  },
-  "hasClickThrough": false,
   "hasClippingMask": false,
+  "hasConvertedToNewRoundCorners": true,
+  "isClosed": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "layers": [
+  "name": "battery",
+  "nameIsFixed": true,
+  "needsConvertionToNewRoundCorners": false,
+  "pointRadiusBehaviour": 0,
+  "points": [
     {
-      "class": "shapePath",
-      "id": "357CFF9B-79C4-4274-9781-C6764370894F"
+      "_class": "curvePoint",
+      "cornerRadius": 1,
+      "curveFrom": "{0, 0}",
+      "curveMode": 1,
+      "curveTo": "{0, 0}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{0, 0}"
     },
     {
-      "class": "shapePath",
-      "id": "D88D20D4-3841-4816-9626-34D3CE913867"
+      "_class": "curvePoint",
+      "cornerRadius": 1,
+      "curveFrom": "{1, 0}",
+      "curveMode": 1,
+      "curveTo": "{1, 0}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{1, 0}"
     },
     {
-      "class": "shapePath",
-      "id": "FEC3F38B-CEC5-4620-AAE6-615BD706D524"
+      "_class": "curvePoint",
+      "cornerRadius": 1,
+      "curveFrom": "{1, 1}",
+      "curveMode": 1,
+      "curveTo": "{1, 1}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{1, 1}"
+    },
+    {
+      "_class": "curvePoint",
+      "cornerRadius": 1,
+      "curveFrom": "{0, 1}",
+      "curveMode": 1,
+      "curveTo": "{0, 1}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{0, 1}"
     }
   ],
-  "name": "Rectangle 3",
-  "nameIsFixed": false,
-  "resizingConstraint": 63,
+  "resizingConstraint": 12,
   "resizingType": 0,
   "rotation": 0,
   "sharedStyleID": "8F523778-47AF-46FA-BD4C-60543357C028",
@@ -86,7 +116,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "037EE4AE-2197-4F3F-BA1F-AF0ECA42E8BB",
+    "do_objectID": "74661D53-58ED-4DF3-B9A8-792420D34C5B",
     "endMarkerType": 0,
     "fills": [
       {
@@ -149,6 +179,5 @@
     ],
     "startMarkerType": 0,
     "windingRule": 0
-  },
-  "windingRule": 0
+  }
 }
