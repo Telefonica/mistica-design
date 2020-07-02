@@ -10,10 +10,7 @@ jobs:
     runs-on: self-hosted
     steps:
     
-    - name: Sleep for 90 seconds
-      uses: jakejarvis/wait-action@master
-      with:
-        time: '90s'
+
 
     - name: Get branch name
       uses: rlespinasse/github-slug-action@v2.x
