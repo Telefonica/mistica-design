@@ -1,6 +1,7 @@
 name: Cloning folder libraries to mistica-sketch-libraries — PRODUCTION
 
 on:
+  push:
   schedule:
     - cron:  "03 03 * * *"
 
@@ -24,4 +25,3 @@ jobs:
         dst_repo_name: mistica-sketch-libraries
         commit_message: Components uploaded
         clean: true
-       
