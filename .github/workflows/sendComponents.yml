@@ -1,12 +1,13 @@
 name: Cloning folder libraries to mistica-sketch-libraries — PRODUCTION
 
 on:
+  push:
   schedule:
     - cron:  "03 03 * * *"
 
 jobs:
   copy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     
     - name: Get branch name
@@ -24,4 +25,3 @@ jobs:
         dst_repo_name: mistica-sketch-libraries
         commit_message: Components uploaded
         clean: true
-       
