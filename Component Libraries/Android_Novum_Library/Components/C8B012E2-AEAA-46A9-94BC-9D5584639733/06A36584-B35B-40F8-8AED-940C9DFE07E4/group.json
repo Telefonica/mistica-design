@@ -1,8 +1,8 @@
 {
-  "_class": "symbolInstance",
+  "_class": "group",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "61D9A589-4D9B-4B0F-8065-F4736C2382FA",
+  "do_objectID": "06A36584-B35B-40F8-8AED-940C9DFE07E4",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -15,27 +15,37 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 24,
-    "width": 248,
+    "height": 128,
+    "width": 328,
     "x": 0,
-    "y": 24
+    "y": 0
   },
+  "groupLayout": {
+    "_class": "MSImmutableFreeformGroupLayout"
+  },
+  "hasClickThrough": false,
   "hasClippingMask": false,
-  "horizontalSpacing": 0,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "name": "Line 1 Left",
-  "nameIsFixed": true,
-  "overrideValues": [
+  "layers": [
+    {
+      "class": "rectangle",
+      "id": "356FE86F-14CF-4AE0-9D92-17FAEC7D483A"
+    },
+    {
+      "class": "symbolInstance",
+      "id": "FE843D45-D088-43A4-A93C-11A9124FC845"
+    }
   ],
-  "resizingConstraint": 43,
+  "name": "Box 2",
+  "nameIsFixed": false,
+  "resizingConstraint": 58,
   "resizingType": 0,
   "rotation": 0,
-  "scale": 1,
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -63,7 +73,7 @@
       "brightness": 0,
       "contrast": 1,
       "hue": 0,
-      "isEnabled": true,
+      "isEnabled": false,
       "saturation": 1
     },
     "contextSettings": {
@@ -71,7 +81,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "E8566773-1953-4AAE-B88D-FA359A3D088C",
+    "do_objectID": "A89F4061-F9A3-4F09-BE47-367CFC79DD04",
     "endMarkerType": 0,
     "fills": [
     ],
@@ -82,7 +92,5 @@
     ],
     "startMarkerType": 0,
     "windingRule": 1
-  },
-  "symbolID": "D30D1967-EEAA-4949-8EA0-A4A9641D4B5B",
-  "verticalSpacing": 0
+  }
 }
