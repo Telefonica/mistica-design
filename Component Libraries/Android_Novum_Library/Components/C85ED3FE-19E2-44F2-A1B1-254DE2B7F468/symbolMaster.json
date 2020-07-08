@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 2012,
+  "changeIdentifier": 2028,
   "clippingMaskMode": 0,
   "do_objectID": "C85ED3FE-19E2-44F2-A1B1-254DE2B7F468",
   "exportOptions": {
@@ -36,7 +36,11 @@
     "thickGridTimes": 10
   },
   "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 1,
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
   "hasBackgroundColor": false,
   "hasClickThrough": true,
@@ -79,13 +83,18 @@
       "id": "4C271E7C-A18D-45B7-AE13-A4ACCDC84E81"
     }
   ],
-  "name": "Input Fields/Icon/☞ FocusedHelp",
+  "name": "Input Fields/Icon/Focused",
   "nameIsFixed": true,
   "overrideProperties": [
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "8F8B34FC-2637-4A41-941C-E51E9BD21210_stringValue"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "AE188530-F5AC-43CB-B41D-F48C09ABE594_symbolID"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -106,16 +115,6 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "4C271E7C-A18D-45B7-AE13-A4ACCDC84E81_symbolID"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "09F4056B-F2AB-43E3-A53F-98E3066669BE_textStyle"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "09F4056B-F2AB-43E3-A53F-98E3066669BE_stringValue"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -186,7 +185,6 @@
     "_class": "rulerData",
     "base": 0,
     "guides": [
-      -11
     ]
   }
 }
