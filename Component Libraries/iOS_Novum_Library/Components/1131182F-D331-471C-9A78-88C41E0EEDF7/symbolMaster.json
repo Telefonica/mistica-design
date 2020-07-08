@@ -4,12 +4,12 @@
   "backgroundColor": {
     "_class": "color",
     "alpha": 1,
-    "blue": 0.4031646286231884,
-    "green": 0.4031646286231884,
-    "red": 0.4031646286231884
+    "blue": 1,
+    "green": 1,
+    "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 2797,
+  "changeIdentifier": 2567,
   "clippingMaskMode": 0,
   "do_objectID": "1131182F-D331-471C-9A78-88C41E0EEDF7",
   "exportOptions": {
@@ -30,13 +30,9 @@
     "y": -100
   },
   "groupLayout": {
-    "_class": "MSImmutableInferredGroupLayout",
-    "axis": 1,
-    "layoutAnchor": 0,
-    "maxSize": 0,
-    "minSize": 0
+    "_class": "MSImmutableFreeformGroupLayout"
   },
-  "hasBackgroundColor": true,
+  "hasBackgroundColor": false,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -45,7 +41,7 @@
     "guides": [
     ]
   },
-  "includeBackgroundColorInExport": false,
+  "includeBackgroundColorInExport": true,
   "includeBackgroundColorInInstance": false,
   "includeInCloudUpload": true,
   "isFixedToViewport": false,
@@ -57,15 +53,11 @@
   "layerListExpandedType": 2,
   "layers": [
     {
-      "class": "symbolInstance",
-      "id": "C7F53B2A-9B48-4B8B-B817-F2E187882507"
-    },
-    {
       "class": "group",
       "id": "EA85F3B0-FD07-4282-838E-E1E517694B57"
     }
   ],
-  "name": "Bars/StatusBar/iPhone X",
+  "name": "Bars/StatusBar/X",
   "nameIsFixed": true,
   "overrideProperties": [
     {
@@ -75,13 +67,8 @@
     },
     {
       "_class": "MSImmutableOverrideProperty",
-      "canOverride": false,
-      "overrideName": "64F85A37-CDAF-4606-A662-19BB67EA9127_stringValue"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "C7F53B2A-9B48-4B8B-B817-F2E187882507_symbolID"
+      "overrideName": "64F85A37-CDAF-4606-A662-19BB67EA9127_stringValue"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -92,6 +79,11 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "B6E3BBA6-BC57-4D49-BAF3-A584C1279C76_layerStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "FAE35125-0A2D-41E1-8D26-22E6F94A24BB_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -111,7 +103,7 @@
   ],
   "presetDictionary": {
   },
-  "resizesContent": true,
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,

@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 1842,
+  "changeIdentifier": 1809,
   "clippingMaskMode": 0,
   "do_objectID": "2904BE1D-3072-4140-8987-DC65FCAD5B81",
   "exportOptions": {
@@ -36,11 +36,7 @@
     "thickGridTimes": 10
   },
   "groupLayout": {
-    "_class": "MSImmutableInferredGroupLayout",
-    "axis": 1,
-    "layoutAnchor": 0,
-    "maxSize": 0,
-    "minSize": 0
+    "_class": "MSImmutableFreeformGroupLayout"
   },
   "hasBackgroundColor": false,
   "hasClickThrough": true,
@@ -71,18 +67,21 @@
       "id": "BF2B9930-8D34-4645-B638-3512B96ECB70"
     },
     {
-      "class": "group",
-      "id": "20B94A48-94DE-455B-A6EE-8FF855C92660"
+      "class": "text",
+      "id": "10B32FE2-1FD5-4D15-AE05-AC0FCD64406C"
+    },
+    {
+      "class": "text",
+      "id": "B1233E99-C621-4A02-8464-AF332EDF9009"
+    },
+    {
+      "class": "symbolInstance",
+      "id": "40E90B2C-0BFD-4B7D-B8A7-D1E3AB28AD47"
     }
   ],
-  "name": "Input Fields/Card/CVV/FocusedError",
+  "name": "Input Fields/Card/CVV/☞ FocusedError",
   "nameIsFixed": true,
   "overrideProperties": [
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "BF2B9930-8D34-4645-B638-3512B96ECB70_symbolID"
-    },
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
@@ -92,6 +91,16 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "40E90B2C-0BFD-4B7D-B8A7-D1E3AB28AD47_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "C436D9EB-78C5-481E-8DC3-AFC10DB7EBB8_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "C436D9EB-78C5-481E-8DC3-AFC10DB7EBB8_stringValue"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -116,7 +125,7 @@
   ],
   "presetDictionary": {
   },
-  "resizesContent": true,
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,

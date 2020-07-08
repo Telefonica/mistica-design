@@ -9,7 +9,7 @@
     "red": 1
   },
   "booleanOperation": -1,
-  "changeIdentifier": 1628,
+  "changeIdentifier": 1605,
   "clippingMaskMode": 0,
   "do_objectID": "8C4220C9-8D94-4F2D-A9FB-B3C44B41C4F7",
   "exportOptions": {
@@ -36,11 +36,7 @@
     "thickGridTimes": 10
   },
   "groupLayout": {
-    "_class": "MSImmutableInferredGroupLayout",
-    "axis": 1,
-    "layoutAnchor": 0,
-    "maxSize": 0,
-    "minSize": 0
+    "_class": "MSImmutableFreeformGroupLayout"
   },
   "hasBackgroundColor": false,
   "hasClickThrough": true,
@@ -71,17 +67,25 @@
       "id": "DA8A5153-2FAA-49F7-AEA4-41AAD90367C8"
     },
     {
-      "class": "group",
-      "id": "41BACC95-8E84-44B7-A68B-E64BC2DE9B36"
+      "class": "text",
+      "id": "A1CDDD09-8E2F-41CC-AF14-0AAB8CE2E123"
+    },
+    {
+      "class": "text",
+      "id": "307A6009-7B69-494C-A92E-457FD60A3EBF"
+    },
+    {
+      "class": "symbolInstance",
+      "id": "95F53BF0-9E7F-4893-A358-3EE65CBD543B"
     }
   ],
-  "name": "Input Fields/Card/CVV/Activated",
+  "name": "Input Fields/Card/CVV/● ActivatedHelp",
   "nameIsFixed": true,
   "overrideProperties": [
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "DA8A5153-2FAA-49F7-AEA4-41AAD90367C8_symbolID"
+      "overrideName": "79D6C8EA-97D5-41D5-B4EF-238CC8890180_textStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -112,11 +116,16 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "A1CDDD09-8E2F-41CC-AF14-0AAB8CE2E123_stringValue"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "79D6C8EA-97D5-41D5-B4EF-238CC8890180_stringValue"
     }
   ],
   "presetDictionary": {
   },
-  "resizesContent": true,
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,

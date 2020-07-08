@@ -1,12 +1,9 @@
-<br>
-<br>
-<div align="left">
-  <img height="64" alt="Mística Logo" src="https://raw.githubusercontent.com/Telefonica/mistica/master/img/misticaLogo.svg?token=ABTJE2KH3UGZ6T2XTIR5W7S67R4J4">
-<img align="right" height="24" src="https://img.shields.io/badge/2.3.4-003245">
+<div align="center">
+  <img alt="Mística Logo" src="https://i.imgur.com/3H975vE.png">
 </div>
-<br>
-<br>
-<p align="left" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
+<h1 align="center">Mística Design Libraries <img src="https://img.shields.io/badge/2.2.0-ffa3a9"> </h1>
+
+<p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="#componentsStatus">Components Status</a> •
   <a href="#gettingStarted">Getting Started</a> •
   <a href="#releaseWorkflow">Release Workflow</a> •
@@ -14,7 +11,9 @@
   <a href="https://github.com/Telefonica/mistica-design-libraries/wiki">Wiki</a> •
   <a href="#problemsWithKactus">Problems w/ Kactus</a>
 </p>
+
 <br>
+
 <br>
 
 | Other Mística Repos | Description                                               |

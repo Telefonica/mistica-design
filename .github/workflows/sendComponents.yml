@@ -7,7 +7,7 @@ on:
 
 jobs:
   copy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     
     - name: Get branch name
@@ -25,3 +25,4 @@ jobs:
         dst_repo_name: mistica-sketch-libraries
         commit_message: Components uploaded
         clean: true
+       
