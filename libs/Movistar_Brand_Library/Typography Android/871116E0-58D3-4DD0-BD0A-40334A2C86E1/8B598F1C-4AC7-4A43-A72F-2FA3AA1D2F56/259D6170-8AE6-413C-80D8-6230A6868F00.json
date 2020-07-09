@@ -9,37 +9,63 @@
           "MSAttributedStringColorAttribute": {
             "_class": "color",
             "alpha": 1,
-            "blue": 0,
-            "green": 0,
-            "red": 0
+            "blue": 1,
+            "green": 1,
+            "red": 1
           },
           "MSAttributedStringFontAttribute": {
             "_class": "fontDescriptor",
             "attributes": {
-              "name": "Roboto-Regular",
-              "size": 13
+              "name": "SFProDisplay-Light",
+              "size": 64
             }
           },
-          "ligature": 0,
+          "kerning": 0.119999997317791,
           "paragraphStyle": {
             "_class": "paragraphStyle",
-            "alignment": 1,
             "allowsDefaultTighteningForTruncation": 0,
-            "maximumLineHeight": 20,
-            "minimumLineHeight": 20,
-            "paragraphSpacing": 8
+            "maximumLineHeight": 80,
+            "minimumLineHeight": 80
+          }
+        },
+        "length": 27,
+        "location": 0
+      },
+      {
+        "_class": "stringAttribute",
+        "attributes": {
+          "MSAttributedStringColorAttribute": {
+            "_class": "color",
+            "alpha": 1,
+            "blue": 1,
+            "green": 1,
+            "red": 1
+          },
+          "MSAttributedStringFontAttribute": {
+            "_class": "fontDescriptor",
+            "attributes": {
+              "name": "SFProDisplay-Light",
+              "size": 32
+            }
+          },
+          "kerning": 0.119999997317791,
+          "paragraphStyle": {
+            "_class": "paragraphStyle",
+            "allowsDefaultTighteningForTruncation": 0,
+            "maximumLineHeight": 80,
+            "minimumLineHeight": 80
           }
         },
         "length": 14,
-        "location": 0
+        "location": 27
       }
     ],
-    "string": "Version .1.0.0"
+    "string": "text_primary_strikethrough Android (.xml)"
   },
   "automaticallyDrawOnUnderlyingPath": false,
-  "booleanOperation": 0,
+  "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "308693C6-B4E9-4639-B3E9-13375FD1B87A",
+  "do_objectID": "259D6170-8AE6-413C-80D8-6230A6868F00",
   "dontSynchroniseWithSymbol": false,
   "exportOptions": {
     "_class": "exportOptions",
@@ -53,12 +79,12 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 20,
-    "width": 507.6949152542372,
-    "x": 436,
-    "y": 77
+    "height": 80,
+    "width": 1020.303694681283,
+    "x": 195.0000000000001,
+    "y": 247
   },
-  "glyphBounds": "{{428, 5}, {79, 11}}",
+  "glyphBounds": "{{0, 17}, {885, 59}}",
   "hasClippingMask": false,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
@@ -67,9 +93,9 @@
   "isVisible": true,
   "layerListExpandedType": 0,
   "lineSpacingBehaviour": 2,
-  "name": "Version",
-  "nameIsFixed": true,
-  "resizingConstraint": 46,
+  "name": "text_primary_striket",
+  "nameIsFixed": false,
+  "resizingConstraint": 9,
   "resizingType": 0,
   "rotation": 0,
   "shouldBreakMaskChain": false,
@@ -105,9 +131,9 @@
     "contextSettings": {
       "_class": "graphicsContextSettings",
       "blendMode": 0,
-      "opacity": 0.54
+      "opacity": 1
     },
-    "do_objectID": "8700AEFA-F2C7-433E-ADE3-B10D35E1A787",
+    "do_objectID": "6E058F0E-1269-4ED9-8846-87A5FAD3E882",
     "endMarkerType": 0,
     "fills": [
     ],
@@ -123,30 +149,28 @@
         "MSAttributedStringColorAttribute": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0,
-          "green": 0,
-          "red": 0
+          "blue": 1,
+          "green": 1,
+          "red": 1
         },
         "MSAttributedStringFontAttribute": {
           "_class": "fontDescriptor",
           "attributes": {
-            "name": "Roboto-Regular",
-            "size": 13
+            "name": "SFProDisplay-Light",
+            "size": 64
           }
         },
-        "ligature": 0,
+        "kerning": 0.119999997317791,
         "paragraphStyle": {
           "_class": "paragraphStyle",
-          "alignment": 1,
           "allowsDefaultTighteningForTruncation": 0,
-          "maximumLineHeight": 20,
-          "minimumLineHeight": 20,
-          "paragraphSpacing": 8
+          "maximumLineHeight": 80,
+          "minimumLineHeight": 80
         }
       },
       "verticalAlignment": 0
     },
     "windingRule": 1
   },
-  "textBehaviour": 2
+  "textBehaviour": 1
 }
