@@ -1,13 +1,12 @@
 name: Cloning brands to mistica-sketch-libraries
 
 on:
-  push:
   schedule:
     - cron:  "00 03 * * 5"
 
 jobs:
   generator:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
 
     # comando solo para Self-Hosted machines
