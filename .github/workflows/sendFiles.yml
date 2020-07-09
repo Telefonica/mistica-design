@@ -3,7 +3,7 @@ name: Cloning brands to mistica-sketch-libraries
 on:
   push:
   schedule:
-    - cron:  "00 03 * * *"
+    - cron:  "00 03 * * 5"
 
 jobs:
   generator:
@@ -56,7 +56,7 @@ jobs:
         src_path: libs/.
         file_filter: '*.sketch'
         dst_branch: ${{ env.GITHUB_REF_SLUG_URL }}
-        dst_path: /.
+        dst_path: libraries/.
         dst_owner: yceballost
         dst_repo_name: mistica-sketch-libraries
         commit_message: Libs uploaded to ${{ env.GITHUB_REF_SLUG_URL }}
