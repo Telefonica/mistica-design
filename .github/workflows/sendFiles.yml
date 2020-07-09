@@ -45,10 +45,10 @@ jobs:
     - name: commit changed files
       run: git commit -m "sketch generated and folders removed"
 
-    - name: push code to (${{ env.GITHUB_REF_SLUG_URL }})
-      run: git push origin HEAD:(${{ env.GITHUB_REF_SLUG_URL }})
+    - name: push code to ${{ env.GITHUB_REF_SLUG_URL }}
+      run: git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
     
-    - name: Copy Brands to (${{ env.GITHUB_REF_SLUG_URL }})
+    - name: Copy Brands to ${{ env.GITHUB_REF_SLUG_URL }}
       uses: andstor/copycat-action@v3
       with:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
@@ -59,7 +59,7 @@ jobs:
         dst_path: /.
         dst_owner: yceballost
         dst_repo_name: mistica-sketch-libraries
-        commit_message: Libs uploaded to (${{ env.GITHUB_REF_SLUG_URL }})
+        commit_message: Libs uploaded to ${{ env.GITHUB_REF_SLUG_URL }}
         clean: true
     
     - name: removed sketch force
