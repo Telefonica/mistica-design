@@ -1,8 +1,8 @@
-name: Cloning brands to mistica-sketch-libraries
+name: Cloning libraries to mistica-sketch-libraries {{ env.GITHUB_REF_SLUG_URL }}
 
 on:
   schedule:
-    - cron:  "00 03 * * 5"
+    - cron:  "00 03 * * 7"
 
 jobs:
   generator:
