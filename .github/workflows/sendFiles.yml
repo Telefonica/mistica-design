@@ -45,6 +45,7 @@ jobs:
     - name: commit changed files
       run: git commit -m "sketch generated and folders removed"
 
+    # no es necesario hacer push al repo
     # - name: push code to ${{ env.GITHUB_REF_SLUG_URL }}
     #   run: git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
     
@@ -62,8 +63,8 @@ jobs:
         commit_message: Libs uploaded to ${{ env.GITHUB_REF_SLUG_URL }}
         clean: true
     
-    - name: removed sketch force
-      run: |
-        git rm *.sketch
-        git commit -m "sketch removed"
-        git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
+    # - name: removed sketch force
+    #   run: |
+    #     git rm *.sketch
+    #     git commit -m "sketch removed"
+    #     git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
