@@ -1,3 +1,12 @@
+---
+name: Bug report
+about: Create a report to help us improve the libraries
+title: ''
+labels: Bug
+assignees: ''
+
+---
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 
@@ -12,7 +21,7 @@ Steps to reproduce the behavior:
 A clear and concise description of what you expected to happen.
 
 **Sketch file**
-If applicable, add a sketch url to help us to solve the problem.
+If applicable, add a sketch URL to help us to solve the problem.
 
 **Details (please complete the following information):**
 - [x] iOS Library
