@@ -23,12 +23,7 @@ jobs:
     - name: convert folder to sketch file
       run: |
         kactus import libs/Movistar_Brand_Library
-        kactus import libs/O2_Brand_Library
-        kactus import libs/ClassicO2_Brand_Library
-        kactus import libs/Vivo_Brand_Library
-        kactus import libs/Telefonica_Brand_Library
-        kactus import libs/iOS_Novum_Library
-        kactus import libs/Android_Novum_Library
+        
     
     #quizás no es necesario
     # - name: check for changes
