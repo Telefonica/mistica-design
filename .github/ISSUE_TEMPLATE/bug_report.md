@@ -1,12 +1,3 @@
----
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
----
-
 **Describe the bug**
 A clear and concise description of what the bug is.
 
@@ -24,8 +15,9 @@ A clear and concise description of what you expected to happen.
 If applicable, add a sketch url to help us to solve the problem.
 
 **Details (please complete the following information):**
- - Android or iOS library?: [e.g. iOS Library]
- - Sketch version: [e.g. 67.2]
+- [x] iOS Library
+- [ ] Android Library
+- Sketch version: [e.g. 67.2]
 
 **Additional context**
 Add any other context about the problem here.
