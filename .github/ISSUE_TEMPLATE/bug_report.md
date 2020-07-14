@@ -24,6 +24,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add a sketch URL to help us to solve the problem.
 
 **Details (please complete the following information):**
+- Component name: [e.g. bars/navBar/regular]
 - [x] iOS Library
 - [ ] Android Library
 - Sketch version: [e.g. 67.2]
