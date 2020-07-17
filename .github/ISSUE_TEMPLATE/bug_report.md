@@ -21,12 +21,12 @@ Steps to reproduce the behavior:
 A clear and concise description of what you expected to happen.
 
 **Details (please complete the following information):**
-
-- Component name: `e.g. bars/navBar/regular`
+_Mark with [x] what library is applying the issue._
 - [x] iOS Library 
 - [ ] Android Library
 
-- Sketch version: [e.g. 67.2]
+Component name: `e.g. bars/navBar/regular`
+Sketch version: [e.g. 67.2]
 
 **Sketch file**
 If applicable, add a sketch URL to help us to solve the problem.
