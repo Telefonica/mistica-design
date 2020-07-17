@@ -987,7 +987,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "4C825D8D-1F0C-4807-936E-9BF174C8645F",
-        "name": "iOS/Icons/iconAccent",
+        "name": "Icons/iconAccent",
         "value": {
           "_class": "style",
           "blur": {
@@ -1098,7 +1098,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "D3AC1AAF-F8C8-4C22-8B3C-048683FFEE47",
-        "name": "iOS/Tags/tagBackgroundSixth",
+        "name": "Tags/tagBackgroundSixth",
         "value": {
           "_class": "style",
           "blur": {
@@ -1204,12 +1204,12 @@
     },
     {
       "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "54F20011-194A-428D-A279-3E6192F29406",
+      "do_objectID": "656DB2D7-31C6-4749-9E25-63C1982038E2",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
-        "do_objectID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
-        "name": "iOS/Bars/appBar/appBarBackground",
+        "do_objectID": "EC256705-1203-435A-AE6B-4947025D7387[5C60FEF0-FFE0-446C-83BC-5648DB6F28AF]",
+        "name": "iOS/Feedbacks/badge",
         "value": {
           "_class": "style",
           "blur": {
@@ -1232,73 +1232,6 @@
           "borders": [
             {
               "_class": "border",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0.592,
-                "green": 0.592,
-                "red": 0.592
-              },
-              "contextSettings": {
-                "_class": "graphicsContextSettings",
-                "blendMode": 0,
-                "opacity": 1
-              },
-              "fillType": 0,
-              "gradient": {
-                "_class": "gradient",
-                "elipseLength": 0,
-                "from": "{0.5, 0}",
-                "gradientType": 0,
-                "stops": [
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 1,
-                      "green": 1,
-                      "red": 1
-                    },
-                    "position": 0
-                  },
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 0,
-                      "green": 0,
-                      "red": 0
-                    },
-                    "position": 1
-                  }
-                ],
-                "to": "{0.5, 1}"
-              },
-              "isEnabled": false,
-              "position": 1,
-              "thickness": 1
-            }
-          ],
-          "colorControls": {
-            "_class": "colorControls",
-            "brightness": 0,
-            "contrast": 1,
-            "hue": 0,
-            "isEnabled": true,
-            "saturation": 1
-          },
-          "contextSettings": {
-            "_class": "graphicsContextSettings",
-            "blendMode": 0,
-            "opacity": 1
-          },
-          "do_objectID": "1F5AACF3-64A0-45CA-9C80-F39F451D4D2E",
-          "endMarkerType": 0,
-          "fills": [
-            {
-              "_class": "fill",
               "color": {
                 "_class": "color",
                 "alpha": 1,
@@ -1344,60 +1277,16 @@
                 "to": "{0.5, 1}"
               },
               "isEnabled": true,
-              "noiseIndex": 0,
-              "noiseIntensity": 0,
-              "patternFillType": 1,
-              "patternTileScale": 1
+              "position": 2,
+              "thickness": 1.5
             }
-          ],
-          "innerShadows": [
-          ],
-          "miterLimit": 10,
-          "shadows": [
-          ],
-          "startMarkerType": 0,
-          "windingRule": 0
-        }
-      },
-      "remoteStyleID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
-      "sourceLibraryName": "Movistar_Brand_Library",
-      "symbolPrivate": true
-    },
-    {
-      "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "4E49C4ED-9A5E-4D4C-87EE-19FE70DF3131",
-      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
-      "localSharedStyle": {
-        "_class": "sharedStyle",
-        "do_objectID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[2AA3B19C-7EBF-4440-BB97-6B5FE388721D]",
-        "name": "iOS/Dividers/divider",
-        "value": {
-          "_class": "style",
-          "blur": {
-            "_class": "blur",
-            "center": "{0.5, 0.5}",
-            "isEnabled": false,
-            "motionAngle": 0,
-            "radius": 10,
-            "saturation": 1,
-            "type": 0
-          },
-          "borderOptions": {
-            "_class": "borderOptions",
-            "dashPattern": [
-            ],
-            "isEnabled": true,
-            "lineCapStyle": 0,
-            "lineJoinStyle": 0
-          },
-          "borders": [
           ],
           "colorControls": {
             "_class": "colorControls",
             "brightness": 0,
             "contrast": 1,
             "hue": 0,
-            "isEnabled": true,
+            "isEnabled": false,
             "saturation": 1
           },
           "contextSettings": {
@@ -1405,61 +1294,9 @@
             "blendMode": 0,
             "opacity": 1
           },
-          "do_objectID": "36D28346-D08C-45AF-8E01-6787F933BA72",
+          "do_objectID": "8A40ED1F-BCE6-447F-BEA0-CF7BDA56DEA2",
           "endMarkerType": 0,
           "fills": [
-            {
-              "_class": "fill",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0.9333333333333333,
-                "green": 0.9333333333333333,
-                "red": 0.9333333333333333
-              },
-              "contextSettings": {
-                "_class": "graphicsContextSettings",
-                "blendMode": 0,
-                "opacity": 1
-              },
-              "fillType": 0,
-              "gradient": {
-                "_class": "gradient",
-                "elipseLength": 0,
-                "from": "{0.5, 0}",
-                "gradientType": 0,
-                "stops": [
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 1,
-                      "green": 1,
-                      "red": 1
-                    },
-                    "position": 0
-                  },
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 0,
-                      "green": 0,
-                      "red": 0
-                    },
-                    "position": 1
-                  }
-                ],
-                "to": "{0.5, 1}"
-              },
-              "isEnabled": true,
-              "noiseIndex": 0,
-              "noiseIntensity": 0,
-              "patternFillType": 1,
-              "patternTileScale": 1
-            }
           ],
           "innerShadows": [
           ],
@@ -1470,18 +1307,18 @@
           "windingRule": 0
         }
       },
-      "remoteStyleID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[2AA3B19C-7EBF-4440-BB97-6B5FE388721D]",
+      "remoteStyleID": "EC256705-1203-435A-AE6B-4947025D7387[5C60FEF0-FFE0-446C-83BC-5648DB6F28AF]",
       "sourceLibraryName": "Movistar_Brand_Library",
       "symbolPrivate": true
     },
     {
       "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "317FF149-324F-4D23-B593-E2A91B3D6010",
+      "do_objectID": "4ADF1C06-BCD2-48F4-9B96-50DFEDFDE4F2",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "822B9F87-5B6B-4B1B-9A27-AF6F691E0DD5[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
-        "name": "iOS/Bars/appBar/appBarBackground",
+        "name": "Bars/appBar/appBarBackground",
         "value": {
           "_class": "style",
           "blur": {
@@ -1637,12 +1474,12 @@
     },
     {
       "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "8A2D2217-75DF-49F3-8E27-64EA01D757B1",
+      "do_objectID": "60DA0346-BE0F-4152-BB60-A820F0292D2C",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "822B9F87-5B6B-4B1B-9A27-AF6F691E0DD5[2AA3B19C-7EBF-4440-BB97-6B5FE388721D]",
-        "name": "iOS/Dividers/divider",
+        "name": "Dividers/divider",
         "value": {
           "_class": "style",
           "blur": {
@@ -1748,12 +1585,12 @@
     },
     {
       "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "5629D1EE-C00F-4CAA-B50C-0F6515D289D6",
+      "do_objectID": "E6103200-2642-44DC-B922-1566C0608F80",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "2C0B5163-F75C-4E28-9D94-E50EAA1B10AB[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
-        "name": "iOS/Bars/appBar/appBarBackground",
+        "name": "Bars/appBar/appBarBackground",
         "value": {
           "_class": "style",
           "blur": {
@@ -1909,12 +1746,12 @@
     },
     {
       "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "F2D8423F-99A8-4911-B593-8C2606DDF412",
+      "do_objectID": "CE240E7D-7502-4F7F-8D29-85F9DD8870E9",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "2C0B5163-F75C-4E28-9D94-E50EAA1B10AB[2AA3B19C-7EBF-4440-BB97-6B5FE388721D]",
-        "name": "iOS/Dividers/divider",
+        "name": "Dividers/divider",
         "value": {
           "_class": "style",
           "blur": {
@@ -2020,12 +1857,284 @@
     },
     {
       "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "FEB901DD-2AD9-4A90-85CA-AC0AA3C330FF",
+      "do_objectID": "E8A03A1C-0A2A-44C7-BFB6-959E02E5EB4B",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
+        "name": "Bars/appBar/appBarBackground",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+            {
+              "_class": "border",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.592,
+                "green": 0.592,
+                "red": 0.592
+              },
+              "contextSettings": {
+                "_class": "graphicsContextSettings",
+                "blendMode": 0,
+                "opacity": 1
+              },
+              "fillType": 0,
+              "gradient": {
+                "_class": "gradient",
+                "elipseLength": 0,
+                "from": "{0.5, 0}",
+                "gradientType": 0,
+                "stops": [
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 1,
+                      "green": 1,
+                      "red": 1
+                    },
+                    "position": 0
+                  },
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 0,
+                      "green": 0,
+                      "red": 0
+                    },
+                    "position": 1
+                  }
+                ],
+                "to": "{0.5, 1}"
+              },
+              "isEnabled": false,
+              "position": 1,
+              "thickness": 1
+            }
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "1F5AACF3-64A0-45CA-9C80-F39F451D4D2E",
+          "endMarkerType": 0,
+          "fills": [
+            {
+              "_class": "fill",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 1,
+                "green": 1,
+                "red": 1
+              },
+              "contextSettings": {
+                "_class": "graphicsContextSettings",
+                "blendMode": 0,
+                "opacity": 1
+              },
+              "fillType": 0,
+              "gradient": {
+                "_class": "gradient",
+                "elipseLength": 0,
+                "from": "{0.5, 0}",
+                "gradientType": 0,
+                "stops": [
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 1,
+                      "green": 1,
+                      "red": 1
+                    },
+                    "position": 0
+                  },
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 0,
+                      "green": 0,
+                      "red": 0
+                    },
+                    "position": 1
+                  }
+                ],
+                "to": "{0.5, 1}"
+              },
+              "isEnabled": true,
+              "noiseIndex": 0,
+              "noiseIntensity": 0,
+              "patternFillType": 1,
+              "patternTileScale": 1
+            }
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "windingRule": 0
+        }
+      },
+      "remoteStyleID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
+      "sourceLibraryName": "Movistar_Brand_Library",
+      "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignLayerStyle",
+      "do_objectID": "3CCAF302-7907-443E-8295-8FCF1D82AEA4",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[2AA3B19C-7EBF-4440-BB97-6B5FE388721D]",
+        "name": "Dividers/divider",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "36D28346-D08C-45AF-8E01-6787F933BA72",
+          "endMarkerType": 0,
+          "fills": [
+            {
+              "_class": "fill",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.9333333333333333,
+                "green": 0.9333333333333333,
+                "red": 0.9333333333333333
+              },
+              "contextSettings": {
+                "_class": "graphicsContextSettings",
+                "blendMode": 0,
+                "opacity": 1
+              },
+              "fillType": 0,
+              "gradient": {
+                "_class": "gradient",
+                "elipseLength": 0,
+                "from": "{0.5, 0}",
+                "gradientType": 0,
+                "stops": [
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 1,
+                      "green": 1,
+                      "red": 1
+                    },
+                    "position": 0
+                  },
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 0,
+                      "green": 0,
+                      "red": 0
+                    },
+                    "position": 1
+                  }
+                ],
+                "to": "{0.5, 1}"
+              },
+              "isEnabled": true,
+              "noiseIndex": 0,
+              "noiseIntensity": 0,
+              "patternFillType": 1,
+              "patternTileScale": 1
+            }
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "windingRule": 0
+        }
+      },
+      "remoteStyleID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[2AA3B19C-7EBF-4440-BB97-6B5FE388721D]",
+      "sourceLibraryName": "Movistar_Brand_Library",
+      "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignLayerStyle",
+      "do_objectID": "50CB8598-6ECD-47BB-B472-3581992D4242",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "FECCBECD-6EB7-414E-AF2E-2A0BAB6C2F3D[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
-        "name": "iOS/Bars/appBar/appBarBackground",
+        "name": "Bars/appBar/appBarBackground",
         "value": {
           "_class": "style",
           "blur": {
@@ -2181,12 +2290,12 @@
     },
     {
       "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "10DF0017-32F3-418B-93DB-512090DE36BF",
+      "do_objectID": "F5A1727D-C360-4445-B708-662864042C0A",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "FECCBECD-6EB7-414E-AF2E-2A0BAB6C2F3D[2AA3B19C-7EBF-4440-BB97-6B5FE388721D]",
-        "name": "iOS/Dividers/divider",
+        "name": "Dividers/divider",
         "value": {
           "_class": "style",
           "blur": {
@@ -2287,115 +2396,6 @@
         }
       },
       "remoteStyleID": "FECCBECD-6EB7-414E-AF2E-2A0BAB6C2F3D[2AA3B19C-7EBF-4440-BB97-6B5FE388721D]",
-      "sourceLibraryName": "Movistar_Brand_Library",
-      "symbolPrivate": true
-    },
-    {
-      "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "656DB2D7-31C6-4749-9E25-63C1982038E2",
-      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
-      "localSharedStyle": {
-        "_class": "sharedStyle",
-        "do_objectID": "EC256705-1203-435A-AE6B-4947025D7387[5C60FEF0-FFE0-446C-83BC-5648DB6F28AF]",
-        "name": "iOS/Feedbacks/badge",
-        "value": {
-          "_class": "style",
-          "blur": {
-            "_class": "blur",
-            "center": "{0.5, 0.5}",
-            "isEnabled": false,
-            "motionAngle": 0,
-            "radius": 10,
-            "saturation": 1,
-            "type": 0
-          },
-          "borderOptions": {
-            "_class": "borderOptions",
-            "dashPattern": [
-            ],
-            "isEnabled": true,
-            "lineCapStyle": 0,
-            "lineJoinStyle": 0
-          },
-          "borders": [
-            {
-              "_class": "border",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 1,
-                "green": 1,
-                "red": 1
-              },
-              "contextSettings": {
-                "_class": "graphicsContextSettings",
-                "blendMode": 0,
-                "opacity": 1
-              },
-              "fillType": 0,
-              "gradient": {
-                "_class": "gradient",
-                "elipseLength": 0,
-                "from": "{0.5, 0}",
-                "gradientType": 0,
-                "stops": [
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 1,
-                      "green": 1,
-                      "red": 1
-                    },
-                    "position": 0
-                  },
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 0,
-                      "green": 0,
-                      "red": 0
-                    },
-                    "position": 1
-                  }
-                ],
-                "to": "{0.5, 1}"
-              },
-              "isEnabled": true,
-              "position": 2,
-              "thickness": 1.5
-            }
-          ],
-          "colorControls": {
-            "_class": "colorControls",
-            "brightness": 0,
-            "contrast": 1,
-            "hue": 0,
-            "isEnabled": false,
-            "saturation": 1
-          },
-          "contextSettings": {
-            "_class": "graphicsContextSettings",
-            "blendMode": 0,
-            "opacity": 1
-          },
-          "do_objectID": "8A40ED1F-BCE6-447F-BEA0-CF7BDA56DEA2",
-          "endMarkerType": 0,
-          "fills": [
-          ],
-          "innerShadows": [
-          ],
-          "miterLimit": 10,
-          "shadows": [
-          ],
-          "startMarkerType": 0,
-          "windingRule": 0
-        }
-      },
-      "remoteStyleID": "EC256705-1203-435A-AE6B-4947025D7387[5C60FEF0-FFE0-446C-83BC-5648DB6F28AF]",
       "sourceLibraryName": "Movistar_Brand_Library",
       "symbolPrivate": true
     }
@@ -38887,7 +38887,7 @@
           "red": 0.9176470588235294
         },
         "booleanOperation": 0,
-        "changeIdentifier": 20391,
+        "changeIdentifier": 20406,
         "clippingMaskMode": 0,
         "do_objectID": "5AC72AA3-A51B-4D3D-AEA9-8C5CBA5F6A9A",
         "exportOptions": {
@@ -38905,7 +38905,7 @@
           "height": 50,
           "width": 375,
           "x": -26801,
-          "y": 118
+          "y": -1193
         },
         "grid": {
           "_class": "simpleGrid",
@@ -38934,7 +38934,7 @@
         "isFlowHome": false,
         "isLocked": false,
         "isVisible": true,
-        "layerListExpandedType": 2,
+        "layerListExpandedType": 1,
         "layers": [
           {
             "_class": "rectangle",
@@ -39201,7 +39201,7 @@
             "isFlippedVertical": false,
             "isLocked": false,
             "isVisible": true,
-            "layerListExpandedType": 2,
+            "layerListExpandedType": 0,
             "layers": [
               {
                 "_class": "group",
@@ -39235,7 +39235,7 @@
                 "isFlippedVertical": false,
                 "isLocked": false,
                 "isVisible": true,
-                "layerListExpandedType": 2,
+                "layerListExpandedType": 0,
                 "layers": [
                   {
                     "_class": "rectangle",
@@ -41906,7 +41906,7 @@
           "red": 0.9176470588235294
         },
         "booleanOperation": 0,
-        "changeIdentifier": 20425,
+        "changeIdentifier": 20440,
         "clippingMaskMode": 0,
         "do_objectID": "5AC72AA3-A51B-4D3D-AEA9-8C5CBA5F6A9A",
         "exportOptions": {
@@ -41924,7 +41924,7 @@
           "height": 50,
           "width": 375,
           "x": -26801,
-          "y": 118
+          "y": -1193
         },
         "grid": {
           "_class": "simpleGrid",
@@ -41953,7 +41953,7 @@
         "isFlowHome": false,
         "isLocked": false,
         "isVisible": true,
-        "layerListExpandedType": 2,
+        "layerListExpandedType": 1,
         "layers": [
           {
             "_class": "rectangle",
@@ -42220,7 +42220,7 @@
             "isFlippedVertical": false,
             "isLocked": false,
             "isVisible": true,
-            "layerListExpandedType": 2,
+            "layerListExpandedType": 0,
             "layers": [
               {
                 "_class": "group",
@@ -42254,7 +42254,7 @@
                 "isFlippedVertical": false,
                 "isLocked": false,
                 "isVisible": true,
-                "layerListExpandedType": 2,
+                "layerListExpandedType": 0,
                 "layers": [
                   {
                     "_class": "rectangle",
@@ -79226,180 +79226,6 @@
     },
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "D2DD712E-6073-48E9-980C-5BC684988503",
-      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
-      "localSharedStyle": {
-        "_class": "sharedStyle",
-        "do_objectID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[4E3C48AB-1226-4CE1-B58A-D39FB36366CF]",
-        "name": "iOS/6.CAPTION/Caption 4 (10R)/Center/textAppBar",
-        "value": {
-          "_class": "style",
-          "blur": {
-            "_class": "blur",
-            "center": "{0.5, 0.5}",
-            "isEnabled": false,
-            "motionAngle": 0,
-            "radius": 10,
-            "saturation": 1,
-            "type": 0
-          },
-          "borderOptions": {
-            "_class": "borderOptions",
-            "dashPattern": [
-            ],
-            "isEnabled": true,
-            "lineCapStyle": 0,
-            "lineJoinStyle": 0
-          },
-          "borders": [
-          ],
-          "colorControls": {
-            "_class": "colorControls",
-            "brightness": 0,
-            "contrast": 1,
-            "hue": 0,
-            "isEnabled": true,
-            "saturation": 1
-          },
-          "contextSettings": {
-            "_class": "graphicsContextSettings",
-            "blendMode": 0,
-            "opacity": 1
-          },
-          "do_objectID": "3DA3BD90-4A24-42A2-BD0E-48000E10A1DE",
-          "endMarkerType": 0,
-          "fills": [
-          ],
-          "innerShadows": [
-          ],
-          "miterLimit": 10,
-          "shadows": [
-          ],
-          "startMarkerType": 0,
-          "textStyle": {
-            "_class": "textStyle",
-            "encodedAttributes": {
-              "MSAttributedStringColorAttribute": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0.6,
-                "green": 0.6,
-                "red": 0.6
-              },
-              "MSAttributedStringFontAttribute": {
-                "_class": "fontDescriptor",
-                "attributes": {
-                  "name": "SFProText-Regular",
-                  "size": 10
-                }
-              },
-              "kerning": 0,
-              "paragraphStyle": {
-                "_class": "paragraphStyle",
-                "alignment": 2,
-                "allowsDefaultTighteningForTruncation": 0,
-                "maximumLineHeight": 14,
-                "minimumLineHeight": 14
-              }
-            },
-            "verticalAlignment": 0
-          },
-          "windingRule": 1
-        }
-      },
-      "remoteStyleID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[4E3C48AB-1226-4CE1-B58A-D39FB36366CF]",
-      "sourceLibraryName": "Movistar_Brand_Library",
-      "symbolPrivate": true
-    },
-    {
-      "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "F6503E00-8A26-484A-BB78-962CF26F740C",
-      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
-      "localSharedStyle": {
-        "_class": "sharedStyle",
-        "do_objectID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[71FDD2EE-33DB-4175-B69C-03E92804A9CA]",
-        "name": "iOS/6.CAPTION/Caption 4 (10R)/Center/textAppBarSelected",
-        "value": {
-          "_class": "style",
-          "blur": {
-            "_class": "blur",
-            "center": "{0.5, 0.5}",
-            "isEnabled": false,
-            "motionAngle": 0,
-            "radius": 10,
-            "saturation": 1,
-            "type": 0
-          },
-          "borderOptions": {
-            "_class": "borderOptions",
-            "dashPattern": [
-            ],
-            "isEnabled": true,
-            "lineCapStyle": 0,
-            "lineJoinStyle": 0
-          },
-          "borders": [
-          ],
-          "colorControls": {
-            "_class": "colorControls",
-            "brightness": 0,
-            "contrast": 1,
-            "hue": 0,
-            "isEnabled": true,
-            "saturation": 1
-          },
-          "contextSettings": {
-            "_class": "graphicsContextSettings",
-            "blendMode": 0,
-            "opacity": 1
-          },
-          "do_objectID": "18912FD3-EBC7-4CC0-AF44-7F308FDFB24F",
-          "endMarkerType": 0,
-          "fills": [
-          ],
-          "innerShadows": [
-          ],
-          "miterLimit": 10,
-          "shadows": [
-          ],
-          "startMarkerType": 0,
-          "textStyle": {
-            "_class": "textStyle",
-            "encodedAttributes": {
-              "MSAttributedStringColorAttribute": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0.9568627450980391,
-                "green": 0.615686274509804,
-                "red": 0.00392156862745098
-              },
-              "MSAttributedStringFontAttribute": {
-                "_class": "fontDescriptor",
-                "attributes": {
-                  "name": "SFProText-Regular",
-                  "size": 10
-                }
-              },
-              "kerning": 0,
-              "paragraphStyle": {
-                "_class": "paragraphStyle",
-                "alignment": 2,
-                "allowsDefaultTighteningForTruncation": 0,
-                "maximumLineHeight": 14,
-                "minimumLineHeight": 14
-              }
-            },
-            "verticalAlignment": 0
-          },
-          "windingRule": 1
-        }
-      },
-      "remoteStyleID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[71FDD2EE-33DB-4175-B69C-03E92804A9CA]",
-      "sourceLibraryName": "Movistar_Brand_Library",
-      "symbolPrivate": true
-    },
-    {
-      "_class": "MSImmutableForeignTextStyle",
       "do_objectID": "66E59570-912A-4542-A928-E48551A8F421",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
@@ -79922,7 +79748,7 @@
     },
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "7BCBD2F0-1130-4A17-99DA-DA090C75CBF0",
+      "do_objectID": "E51D8661-7E1E-4ADF-B185-15713F8A17A0",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -80009,7 +79835,7 @@
     },
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "BDEDACE0-37DD-4604-97A6-050E4B35DA93",
+      "do_objectID": "BBC3D1F4-136B-4BD9-A8E9-06C1127ACB38",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -80096,7 +79922,7 @@
     },
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "834A8D99-3770-4B8A-8F64-FC84CF97A5FC",
+      "do_objectID": "C404FA44-3FEB-4FFE-B19B-C4940F63CC55",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -80183,7 +80009,7 @@
     },
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "D724B2F6-4800-4218-B936-388A0901FA5F",
+      "do_objectID": "BC816302-60B3-4C46-A1FE-FF390B19DF59",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -80270,7 +80096,181 @@
     },
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "8D05284A-7694-4024-A212-4DF32C66FC09",
+      "do_objectID": "B366314A-407E-4BA9-9DE3-30F51DA6009F",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[4E3C48AB-1226-4CE1-B58A-D39FB36366CF]",
+        "name": "iOS/6.CAPTION/Caption 4 (10R)/Center/textAppBar",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "3DA3BD90-4A24-42A2-BD0E-48000E10A1DE",
+          "endMarkerType": 0,
+          "fills": [
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "textStyle": {
+            "_class": "textStyle",
+            "encodedAttributes": {
+              "MSAttributedStringColorAttribute": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.6,
+                "green": 0.6,
+                "red": 0.6
+              },
+              "MSAttributedStringFontAttribute": {
+                "_class": "fontDescriptor",
+                "attributes": {
+                  "name": "SFProText-Regular",
+                  "size": 10
+                }
+              },
+              "kerning": 0,
+              "paragraphStyle": {
+                "_class": "paragraphStyle",
+                "alignment": 2,
+                "allowsDefaultTighteningForTruncation": 0,
+                "maximumLineHeight": 14,
+                "minimumLineHeight": 14
+              }
+            },
+            "verticalAlignment": 0
+          },
+          "windingRule": 1
+        }
+      },
+      "remoteStyleID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[4E3C48AB-1226-4CE1-B58A-D39FB36366CF]",
+      "sourceLibraryName": "Movistar_Brand_Library",
+      "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignTextStyle",
+      "do_objectID": "7B1E8141-57BD-45FF-B94E-533005D174A1",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[71FDD2EE-33DB-4175-B69C-03E92804A9CA]",
+        "name": "iOS/6.CAPTION/Caption 4 (10R)/Center/textAppBarSelected",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "18912FD3-EBC7-4CC0-AF44-7F308FDFB24F",
+          "endMarkerType": 0,
+          "fills": [
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "textStyle": {
+            "_class": "textStyle",
+            "encodedAttributes": {
+              "MSAttributedStringColorAttribute": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.9568627450980391,
+                "green": 0.615686274509804,
+                "red": 0.00392156862745098
+              },
+              "MSAttributedStringFontAttribute": {
+                "_class": "fontDescriptor",
+                "attributes": {
+                  "name": "SFProText-Regular",
+                  "size": 10
+                }
+              },
+              "kerning": 0,
+              "paragraphStyle": {
+                "_class": "paragraphStyle",
+                "alignment": 2,
+                "allowsDefaultTighteningForTruncation": 0,
+                "maximumLineHeight": 14,
+                "minimumLineHeight": 14
+              }
+            },
+            "verticalAlignment": 0
+          },
+          "windingRule": 1
+        }
+      },
+      "remoteStyleID": "4127CB27-79A7-4E87-A568-D8D23032CAD1[71FDD2EE-33DB-4175-B69C-03E92804A9CA]",
+      "sourceLibraryName": "Movistar_Brand_Library",
+      "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignTextStyle",
+      "do_objectID": "576539A2-CB6F-4DF7-A539-11E0083DAA20",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -80357,7 +80357,7 @@
     },
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "FFD128DC-B1F1-4DAB-A171-76CC6A7B6963",
+      "do_objectID": "42382165-C948-463C-B32C-3283BFFF303E",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
