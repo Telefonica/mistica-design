@@ -15,19 +15,21 @@ A clear and concise description of what the bug is.
 Steps to reproduce the behavior:
 1. Go to '...'
 2. Click on '....'
-3. Scroll down to '....'
-4. See error
+3. See error
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
+**Details (please complete the following information):**
+_Mark with [x] to which library is applying the issue._
+- [x] iOS Library 
+- [ ] Android Library
+
+Component name: `e.g. bars/navBar/regular`
+Sketch version: [e.g. 67.2]
+
 **Sketch file**
 If applicable, add a sketch URL to help us to solve the problem.
-
-**Details (please complete the following information):**
-- [x] iOS Library
-- [ ] Android Library
-- Sketch version: [e.g. 67.2]
 
 **Additional context**
 Add any other context about the problem here.
