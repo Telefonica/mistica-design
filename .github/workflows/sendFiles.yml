@@ -1,6 +1,7 @@
-name: Cloning libraries to mistica-sketch-libraries {{ env.GITHUB_REF_SLUG_URL }}
+name: Cloning libraries to mistica-sketch-libraries
 
 on:
+  push:
   schedule:
     - cron:  "00 03 * * 1"
   pull_request:
@@ -18,7 +19,7 @@ jobs:
 
     - uses: actions/checkout@v2
 
-    - name: Get branch name
+    - name: Get branch name ${BASE_BRANCH}
       uses: rlespinasse/github-slug-action@v2.x
 
     - run: sudo npm install --global kactus-cli
