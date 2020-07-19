@@ -1,7 +1,6 @@
 name: Cloning libraries to mistica-sketch-libraries
 
 on:
-  push:
   schedule:
     - cron:  "00 03 * * 1"
   pull_request:
