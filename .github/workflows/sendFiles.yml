@@ -3,10 +3,6 @@ name: Cloning libraries to mistica-sketch-libraries
 on:
   schedule:
     - cron:  "00 03 * * 1"
-  pull_request:
-    branches: 
-      - production
-      - develop
 
 jobs:
   generator:
@@ -44,25 +40,25 @@ jobs:
     - name: commit changed files
       run: git commit -m "sketch generated and folders removed"
 
-    - name: push code to ${{ env.GITHUB_HEAD_REF_SLUG_URL }}
-      run: git push origin HEAD:${{ env.GITHUB_HEAD_REF_SLUG_URL }}
+    - name: push code to ${{ env.GITHUB_REF_SLUG_URL }}
+      run: git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
     
-    - name: Copy Brands to ${{ env.GITHUB_HEAD_REF_SLUG_URL }}
+    - name: Copy Brands to ${{ env.GITHUB_REF_SLUG_URL }}
       uses: andstor/copycat-action@v3
       with:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
-        src_branch: ${{ env.GITHUB_HEAD_REF_SLUG_URL }}
+        src_branch: ${{ env.GITHUB_REF_SLUG_URL }}
         src_path: libs/.
         file_filter: '*.sketch'
-        dst_branch: ${{ env.GITHUB_HEAD_REF_SLUG_URL }}
+        dst_branch: ${{ env.GITHUB_REF_SLUG_URL }}
         dst_path: libraries/.
         dst_owner: yceballost
         dst_repo_name: mistica-sketch-libraries
-        commit_message: Libs uploaded to ${{ env.GITHUB_HEAD_REF_SLUG_URL }}
+        commit_message: Libs uploaded to ${{ env.GITHUB_REF_SLUG_URL }}
         clean: true
     
     - name: removed sketch force
       run: |
         git rm *.sketch
         git commit -m "sketch removed"
-        git push origin HEAD:${{ env.GITHUB_HEAD_REF_SLUG_URL }}
+        git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
