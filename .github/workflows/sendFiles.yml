@@ -1,6 +1,7 @@
 name: Cloning libraries to mistica-sketch-libraries
 
 on:
+  push:
   schedule:
     - cron:  "00 03 * * 1"
   pull_request:
@@ -44,8 +45,8 @@ jobs:
     - name: commit changed files
       run: git commit -m "sketch generated and folders removed"
 
-    - name: push code to ${{ env.GITHUB_REF_SLUG }}
-      run: git push origin HEAD:${{ env.GITHUB_REF_SLUG }}
+    - name: push code to ${{ github.ref }}
+      run: git push origin HEAD:${{ github.ref }}
     
     - name: Copy Brands to ${{ env.GITHUB_REF_SLUG }}
       uses: andstor/copycat-action@v3
