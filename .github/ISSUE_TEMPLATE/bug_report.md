@@ -3,7 +3,7 @@ name: Bug report
 about: Create a report to help us improve the libraries
 title: ''
 labels: Bug
-assignees: ''
+assignees: '@yceballost'
 
 ---
 _English or spanish is ok._
