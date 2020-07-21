@@ -3,7 +3,10 @@ name: Cloning libraries to mistica-sketch-libraries
 on:
   push:
     branches: 
-      - 'production/libs/*'
+      - production
+    paths:
+        - 'libs/**'
+    
   schedule:
     - cron:  "00 03 * * 1"
 
