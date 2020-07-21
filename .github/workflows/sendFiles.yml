@@ -5,7 +5,7 @@ on:
     branches: 
       - production
     paths:
-        - 'libs/**'
+      - 'libs/**'
     
   schedule:
     - cron:  "00 03 * * 1"
