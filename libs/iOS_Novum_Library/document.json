@@ -11587,6 +11587,117 @@
       "remoteStyleID": "01FED5B9-BBD3-46AE-81F9-15203FA70B2E",
       "sourceLibraryName": "Movistar_Brand_Library",
       "symbolPrivate": false
+    },
+    {
+      "_class": "MSImmutableForeignLayerStyle",
+      "do_objectID": "4B11FB8B-8901-4C2C-ADB4-0C1CE5E4271E",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "3428C9D3-FC3F-4DBB-807F-B349546C134B[A3B0759C-DB0D-48C9-84C6-73E488933E81]",
+        "name": "Icons/iconSecondary",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "FF0D0818-169B-4740-9B26-72020E96F602",
+          "endMarkerType": 0,
+          "fills": [
+            {
+              "_class": "fill",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.6,
+                "green": 0.6,
+                "red": 0.6
+              },
+              "contextSettings": {
+                "_class": "graphicsContextSettings",
+                "blendMode": 0,
+                "opacity": 1
+              },
+              "fillType": 0,
+              "gradient": {
+                "_class": "gradient",
+                "elipseLength": 0,
+                "from": "{0.5, 0}",
+                "gradientType": 0,
+                "stops": [
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 1,
+                      "green": 1,
+                      "red": 1
+                    },
+                    "position": 0
+                  },
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 0,
+                      "green": 0,
+                      "red": 0
+                    },
+                    "position": 1
+                  }
+                ],
+                "to": "{0.5, 1}"
+              },
+              "isEnabled": true,
+              "noiseIndex": 0,
+              "noiseIntensity": 0,
+              "patternFillType": 1,
+              "patternTileScale": 1
+            }
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "windingRule": 0
+        }
+      },
+      "remoteStyleID": "3428C9D3-FC3F-4DBB-807F-B349546C134B[A3B0759C-DB0D-48C9-84C6-73E488933E81]",
+      "sourceLibraryName": "Movistar_Brand_Library",
+      "symbolPrivate": true
     }
   ],
   "foreignSwatches": [
@@ -60815,7 +60926,7 @@
           "red": 0.9176470588235294
         },
         "booleanOperation": 0,
-        "changeIdentifier": 5754,
+        "changeIdentifier": 5775,
         "clippingMaskMode": 0,
         "do_objectID": "B1A44E6E-C852-4E7F-AC42-61305EFBA751",
         "exportOptions": {
@@ -61270,6 +61381,7 @@
                     "resizingConstraint": 63,
                     "resizingType": 0,
                     "rotation": 0,
+                    "sharedStyleID": "A3B0759C-DB0D-48C9-84C6-73E488933E81",
                     "shouldBreakMaskChain": false,
                     "style": {
                       "_class": "style",
@@ -61313,9 +61425,9 @@
                           "color": {
                             "_class": "color",
                             "alpha": 1,
-                            "blue": 0.597376823425293,
-                            "green": 0.5974847078323364,
-                            "red": 0.597396194934845
+                            "blue": 0.6,
+                            "green": 0.6,
+                            "red": 0.6
                           },
                           "contextSettings": {
                             "_class": "graphicsContextSettings",
@@ -61367,9 +61479,9 @@
                       "shadows": [
                       ],
                       "startMarkerType": 0,
-                      "windingRule": 1
+                      "windingRule": 0
                     },
-                    "windingRule": 1
+                    "windingRule": 0
                   },
                   {
                     "_class": "shapeGroup",
@@ -61610,6 +61722,7 @@
                     "resizingConstraint": 63,
                     "resizingType": 0,
                     "rotation": 0,
+                    "sharedStyleID": "A3B0759C-DB0D-48C9-84C6-73E488933E81",
                     "shouldBreakMaskChain": false,
                     "style": {
                       "_class": "style",
@@ -61653,9 +61766,9 @@
                           "color": {
                             "_class": "color",
                             "alpha": 1,
-                            "blue": 0.597376823425293,
-                            "green": 0.5974847078323364,
-                            "red": 0.597396194934845
+                            "blue": 0.6,
+                            "green": 0.6,
+                            "red": 0.6
                           },
                           "contextSettings": {
                             "_class": "graphicsContextSettings",
@@ -61955,7 +62068,7 @@
           "red": 0.9176470588235294
         },
         "booleanOperation": 0,
-        "changeIdentifier": 5754,
+        "changeIdentifier": 5777,
         "clippingMaskMode": 0,
         "do_objectID": "B1A44E6E-C852-4E7F-AC42-61305EFBA751",
         "exportOptions": {
@@ -62410,6 +62523,7 @@
                     "resizingConstraint": 63,
                     "resizingType": 0,
                     "rotation": 0,
+                    "sharedStyleID": "3428C9D3-FC3F-4DBB-807F-B349546C134B[A3B0759C-DB0D-48C9-84C6-73E488933E81]",
                     "shouldBreakMaskChain": false,
                     "style": {
                       "_class": "style",
@@ -62453,9 +62567,9 @@
                           "color": {
                             "_class": "color",
                             "alpha": 1,
-                            "blue": 0.597376823425293,
-                            "green": 0.5974847078323364,
-                            "red": 0.597396194934845
+                            "blue": 0.6,
+                            "green": 0.6,
+                            "red": 0.6
                           },
                           "contextSettings": {
                             "_class": "graphicsContextSettings",
@@ -62507,9 +62621,9 @@
                       "shadows": [
                       ],
                       "startMarkerType": 0,
-                      "windingRule": 1
+                      "windingRule": 0
                     },
-                    "windingRule": 1
+                    "windingRule": 0
                   },
                   {
                     "_class": "shapeGroup",
@@ -62750,6 +62864,7 @@
                     "resizingConstraint": 63,
                     "resizingType": 0,
                     "rotation": 0,
+                    "sharedStyleID": "3428C9D3-FC3F-4DBB-807F-B349546C134B[A3B0759C-DB0D-48C9-84C6-73E488933E81]",
                     "shouldBreakMaskChain": false,
                     "style": {
                       "_class": "style",
@@ -62793,9 +62908,9 @@
                           "color": {
                             "_class": "color",
                             "alpha": 1,
-                            "blue": 0.597376823425293,
-                            "green": 0.5974847078323364,
-                            "red": 0.597396194934845
+                            "blue": 0.6,
+                            "green": 0.6,
+                            "red": 0.6
                           },
                           "contextSettings": {
                             "_class": "graphicsContextSettings",
