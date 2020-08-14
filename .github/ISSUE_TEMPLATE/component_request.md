@@ -8,7 +8,7 @@ assignees: ''
 ---
 <!-- _English or spanish is ok._ -->
 
-Context
+### Context
 Si crees que hay un componente que no existe en Mística y crees que debe existir de manera global para que cualquier equipo pueda usarlo, por favor, sigue este proceso para que podamos integrarlo desde diseño a desarrollo.
 
 ### Have you read the [Contributing Guidelines on Mística](https://google.es)?
