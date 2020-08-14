@@ -1,5 +1,5 @@
 ---
-name: 🤜🤛 · Component request [WIP]
+name: 🤜🤛 Component request [WIP]
 about: Contribute to Mística Design System with integrating core components
 title: ''
 labels: Component request
