@@ -6,7 +6,7 @@ labels: Bug
 assignees: 'yceballost'
 
 ---
-_English or spanish is ok._
+<!-- _English or spanish is ok._ -->
 
 **Describe the bug**
 A clear and concise description of what the bug is.
