@@ -2,7 +2,6 @@
 <br>
 <div align="left">
   <img height="64" alt="Mística Logo" src=".github/resources/misticaLogo.svg">
-<img align="right" height="24" src="https://img.shields.io/badge/3.0.0-003245">
 </div>
 <br>
 <br>
