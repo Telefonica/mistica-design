@@ -71,7 +71,7 @@ If this custom branch work fine, we can merge it with *develop* branch.
 ## Danger Zone in Kactus <a name="dangerZone"></a>
 If you will go to use Kactus, when you download libraries in your computer, install the libraries from Kactus to Sketch (just drag and drop libraries sketch files to the Sketch > Preferences > Libraries). Be careful because if you change the branch in Kactus, libraries will change. Obviously, right?.
 
-**Be careful updating library updates, make sure that you know what are you doing**
+**⚠️ Be careful updating library updates, make sure that you know what are you doing**
 
 ## Problems w/ Kactus <a name="problemsWithKactus"></a>
 1. First time when you will sync Mistica repository you will not see sketch files, to generate this files click in "Regenerate sketch file" in each files in Kactus.
