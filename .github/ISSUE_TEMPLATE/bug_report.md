@@ -1,12 +1,12 @@
 ---
-name: Bug report
+name: 🐛 Bug report
 about: Create a report to help us improve the libraries
 title: ''
 labels: Bug
 assignees: 'yceballost'
 
 ---
-_English or spanish is ok._
+<!-- _English or spanish is ok._ -->
 
 **Describe the bug**
 A clear and concise description of what the bug is.
