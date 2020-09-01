@@ -1,14 +1,10 @@
 name: Cloning libraries to mistica-sketch-libraries
 
 on:
-  push:
-    branches: 
+  pull_request:
+    branches:
       - production
-    paths:
-      - 'libs/**'
-    
-  schedule:
-    - cron:  "00 03 * * 1"
+      - develop
 
 jobs:
   generator:
@@ -48,7 +44,7 @@ jobs:
 
     - name: push code to ${{ env.GITHUB_REF_SLUG_URL }}
       run: git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
-    
+
     - name: Copy Brands to ${{ env.GITHUB_REF_SLUG_URL }}
       uses: andstor/copycat-action@v3
       with:
@@ -62,7 +58,7 @@ jobs:
         dst_repo_name: mistica-sketch-libraries
         commit_message: Libs uploaded to ${{ env.GITHUB_REF_SLUG_URL }}
         clean: true
-    
+
     - name: removed sketch force
       run: |
         git rm *.sketch
