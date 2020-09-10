@@ -14,10 +14,10 @@ Si crees que hay un componente que no existe en Mística y crees que debe existi
 ### Have you read the [Contributing Guidelines on Mística](https://google.es)?
 (Write your answer here.)
 
-**Is your feature request related to a problem? Please describe.**
+**Is your component request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
-**Describe the solution you'd like**
+**Describe the solution you'd like and needs**
 A clear and concise description of what you want to happen.
 
 **Describe alternatives you've considered**
