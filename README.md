@@ -30,7 +30,7 @@ To know what is the status and components are already implemented by DesignCore 
 
 <br>
 
-## Getting Started <a name="gettingStarted"></a>
+## How to install sketch development libraries<a name="gettingStarted"></a>
 
 1. Download and install latest version of [Kactus](http://kactus.io)
 2. Clone repo in **Kactus**:  
