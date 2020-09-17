@@ -4,14 +4,14 @@
   "backgroundColor": {
     "_class": "color",
     "alpha": 1,
-    "blue": 1,
-    "green": 1,
-    "red": 1
+    "blue": 0.9490196078431372,
+    "green": 0.9490196078431372,
+    "red": 0.9490196078431372
   },
   "booleanOperation": 0,
-  "changeIdentifier": 3727,
+  "changeIdentifier": 7999,
   "clippingMaskMode": 0,
-  "do_objectID": "BBBD50A4-E6A5-49C5-ABCC-890C219DA94E",
+  "do_objectID": "9777D669-FF00-484E-9B07-17452591D7D0",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -24,22 +24,22 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 56,
-    "width": 360,
-    "x": 7989,
-    "y": 3766
+    "height": 24,
+    "width": 24,
+    "x": -60,
+    "y": 6
   },
   "grid": {
     "_class": "simpleGrid",
     "gridSize": 8,
     "isEnabled": false,
-    "thickGridTimes": 2
+    "thickGridTimes": 8
   },
   "groupLayout": {
     "_class": "MSImmutableFreeformGroupLayout"
   },
-  "hasBackgroundColor": false,
-  "hasClickThrough": false,
+  "hasBackgroundColor": true,
+  "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
     "_class": "rulerData",
@@ -47,7 +47,7 @@
     "guides": [
     ]
   },
-  "includeBackgroundColorInExport": true,
+  "includeBackgroundColorInExport": false,
   "includeBackgroundColorInInstance": true,
   "includeInCloudUpload": true,
   "isFixedToViewport": false,
@@ -56,30 +56,24 @@
   "isFlowHome": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 0,
+  "layerListExpandedType": 2,
   "layers": [
     {
-      "class": "symbolInstance",
-      "id": "D55D2187-A7D2-46F5-82B0-0F223BA6B448"
+      "class": "rectangle",
+      "id": "E0AB4D61-EE83-440A-BD29-E4CA422C6C4A"
     },
     {
-      "class": "symbolInstance",
-      "id": "61477D43-E0BB-4B98-8F6A-327B42D1FEDF"
+      "class": "rectangle",
+      "id": "D661BFC0-B3F3-41C8-951A-4B2A2C0EBB07"
+    },
+    {
+      "class": "rectangle",
+      "id": "72FBAC05-0B6F-4E4D-99CD-F8C998DA04B9"
     }
   ],
-  "name": "ΙΙΙ Resources/Tabs/TwoShort",
+  "name": "Snackbars/*thumb",
   "nameIsFixed": true,
   "overrideProperties": [
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "61477D43-E0BB-4B98-8F6A-327B42D1FEDF_symbolID"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "D55D2187-A7D2-46F5-82B0-0F223BA6B448_symbolID"
-    }
   ],
   "presetDictionary": {
   },
@@ -122,9 +116,61 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "285E6723-11AF-4026-ABE2-FC58E33D6343",
+    "do_objectID": "F65D025E-601D-4D62-9467-7ED5739B062D",
     "endMarkerType": 0,
     "fills": [
+      {
+        "_class": "fill",
+        "color": {
+          "_class": "color",
+          "alpha": 1,
+          "blue": 0.847,
+          "green": 0.847,
+          "red": 0.847
+        },
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": 1
+        },
+        "fillType": 0,
+        "gradient": {
+          "_class": "gradient",
+          "elipseLength": 0,
+          "from": "{0.5, 0}",
+          "gradientType": 0,
+          "stops": [
+            {
+              "_class": "gradientStop",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 1,
+                "green": 1,
+                "red": 1
+              },
+              "position": 0
+            },
+            {
+              "_class": "gradientStop",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0,
+                "green": 0,
+                "red": 0
+              },
+              "position": 1
+            }
+          ],
+          "to": "{0.5, 1}"
+        },
+        "isEnabled": true,
+        "noiseIndex": 0,
+        "noiseIntensity": 0,
+        "patternFillType": 1,
+        "patternTileScale": 1
+      }
     ],
     "innerShadows": [
     ],
@@ -134,7 +180,7 @@
     "startMarkerType": 0,
     "windingRule": 1
   },
-  "symbolID": "DC8EF7A0-02ED-47C5-9023-A599331C2CDF",
+  "symbolID": "D0FCACC6-E5DC-4AE3-AEB5-F5E8D0D60CE3",
   "verticalRulerData": {
     "_class": "rulerData",
     "base": 0,
