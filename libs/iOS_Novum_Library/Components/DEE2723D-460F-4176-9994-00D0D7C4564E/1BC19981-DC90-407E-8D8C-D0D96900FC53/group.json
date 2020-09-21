@@ -1,9 +1,8 @@
 {
-  "_class": "bitmap",
-  "booleanOperation": 0,
-  "clippingMask": "{{0, 0}, {1, 1}}",
+  "_class": "group",
+  "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "6BDB6163-1951-4F58-889B-E90F44E1D1A9",
+  "do_objectID": "1BC19981-DC90-407E-8D8C-D0D96900FC53",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -13,31 +12,38 @@
     "layerOptions": 0,
     "shouldTrim": false
   },
-  "fillReplacesImage": false,
   "frame": {
     "_class": "rect",
-    "constrainProportions": true,
-    "height": 24,
-    "width": 198,
-    "x": -12,
-    "y": -2
+    "constrainProportions": false,
+    "height": 64,
+    "width": 64,
+    "x": 16,
+    "y": 28
   },
+  "groupLayout": {
+    "_class": "MSImmutableFreeformGroupLayout"
+  },
+  "hasClickThrough": false,
   "hasClippingMask": false,
-  "image": {
-    "_class": "MSJSONFileReference",
-    "_ref": "images/ab1487e7716d9a686dbe6cffbd9664def7eeb878.png",
-    "_ref_class": "MSImageData"
-  },
-  "intendedDPI": 0,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 0,
-  "name": "3.Editable",
-  "nameIsFixed": true,
-  "resizingConstraint": 63,
+  "layerListExpandedType": 2,
+  "layers": [
+    {
+      "class": "rectangle",
+      "id": "3F65B7E5-274D-4FD1-A2A6-710D4AAFE745"
+    },
+    {
+      "class": "symbolInstance",
+      "id": "70D6B71F-8B37-4DE8-BBC1-7AFF777571D9"
+    }
+  ],
+  "name": "Rectangle 2",
+  "nameIsFixed": false,
+  "resizingConstraint": 9,
   "resizingType": 0,
   "rotation": 0,
   "shouldBreakMaskChain": false,
@@ -67,7 +73,7 @@
       "brightness": 0,
       "contrast": 1,
       "hue": 0,
-      "isEnabled": true,
+      "isEnabled": false,
       "saturation": 1
     },
     "contextSettings": {
@@ -75,7 +81,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "FB64ED78-9FF2-412D-9027-1058A06C6957",
+    "do_objectID": "B350E2AB-3714-467B-A7FA-3CCE8E0326DB",
     "endMarkerType": 0,
     "fills": [
     ],

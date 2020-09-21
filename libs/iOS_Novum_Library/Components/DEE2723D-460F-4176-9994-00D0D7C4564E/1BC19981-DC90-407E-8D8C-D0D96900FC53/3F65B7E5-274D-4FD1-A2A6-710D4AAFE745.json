@@ -2,7 +2,7 @@
   "_class": "rectangle",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "97F3986D-798E-4CC6-8D88-9DA77C495432",
+  "do_objectID": "3F65B7E5-274D-4FD1-A2A6-710D4AAFE745",
   "edited": false,
   "exportOptions": {
     "_class": "exportOptions",
@@ -13,12 +13,12 @@
     "layerOptions": 0,
     "shouldTrim": false
   },
-  "fixedRadius": 0,
+  "fixedRadius": 32,
   "frame": {
     "_class": "rect",
-    "constrainProportions": false,
-    "height": 48,
-    "width": 375,
+    "constrainProportions": true,
+    "height": 64,
+    "width": 64,
     "x": 0,
     "y": 0
   },
@@ -28,17 +28,17 @@
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
-  "isLocked": true,
+  "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "name": "TabBarBackground",
-  "nameIsFixed": true,
+  "name": "Rectangle",
+  "nameIsFixed": false,
   "needsConvertionToNewRoundCorners": false,
   "pointRadiusBehaviour": 1,
   "points": [
     {
       "_class": "curvePoint",
-      "cornerRadius": 0,
+      "cornerRadius": 32,
       "curveFrom": "{0, 0}",
       "curveMode": 1,
       "curveTo": "{0, 0}",
@@ -48,39 +48,38 @@
     },
     {
       "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0.99999999999999933, 0}",
+      "cornerRadius": 32,
+      "curveFrom": "{1, 0}",
       "curveMode": 1,
-      "curveTo": "{0.99999999999999933, 0}",
+      "curveTo": "{1, 0}",
       "hasCurveFrom": false,
       "hasCurveTo": false,
-      "point": "{0.99999999999999933, 0}"
+      "point": "{1, 0}"
     },
     {
       "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0.99999999999999933, 1.0000000000000004}",
+      "cornerRadius": 32,
+      "curveFrom": "{1, 1}",
       "curveMode": 1,
-      "curveTo": "{0.99999999999999933, 1.0000000000000004}",
+      "curveTo": "{1, 1}",
       "hasCurveFrom": false,
       "hasCurveTo": false,
-      "point": "{0.99999999999999933, 1.0000000000000004}"
+      "point": "{1, 1}"
     },
     {
       "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0, 1.0000000000000004}",
+      "cornerRadius": 32,
+      "curveFrom": "{0, 1}",
       "curveMode": 1,
-      "curveTo": "{0, 1.0000000000000004}",
+      "curveTo": "{0, 1}",
       "hasCurveFrom": false,
       "hasCurveTo": false,
-      "point": "{0, 1.0000000000000004}"
+      "point": "{0, 1}"
     }
   ],
-  "resizingConstraint": 39,
+  "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
-  "sharedStyleID": "B86A76CD-E6B2-42A8-BD71-F6114EB1FBEA",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -114,9 +113,9 @@
     "contextSettings": {
       "_class": "graphicsContextSettings",
       "blendMode": 0,
-      "opacity": 1
+      "opacity": 0.2000000029802322
     },
-    "do_objectID": "257951FE-C1DF-4B0C-8C32-21F5368564A3",
+    "do_objectID": "ECE5635B-DBD0-4159-AC69-3843E665E31B",
     "endMarkerType": 0,
     "fills": [
       {
@@ -178,6 +177,14 @@
     "shadows": [
     ],
     "startMarkerType": 0,
-    "windingRule": 1
+    "windingRule": 0
+  },
+  "userInfo": {
+    "com.sketch.detach": {
+      "sharedStyle": {
+        "sharedStyleId": "76434D5D-BE1B-4646-AF60-77DEEDC30EEC",
+        "sharedStyleName": "Backgrounds/background"
+      }
+    }
   }
 }
