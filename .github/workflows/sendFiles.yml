@@ -11,13 +11,7 @@ jobs:
     runs-on: [self-hosted, macOS]
     steps:
 
-    # comando solo para Self-Hosted machines
-    - run: sudo chown -R $USER:$USER /home/pi/actions-runner/_work/test-action
-
     - uses: actions/checkout@v2
-
-    - name: Get branch name
-      uses: rlespinasse/github-slug-action@v2.x
 
     - run: sudo npm install --global kactus-cli
 
@@ -44,6 +38,14 @@ jobs:
 
     - name: push code to ${{ env.GITHUB_REF_SLUG_URL }}
       run: git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
+
+    runs-on: [self-hosted, Linux]
+    steps:
+    # comando solo para Self-Hosted machines
+    - run: sudo chown -R $USER:$USER /home/pi/actions-runner/_work/test-action
+
+    - name: Get branch name
+      uses: rlespinasse/github-slug-action@v2.x
 
     - name: Copy Brands to ${{ env.GITHUB_REF_SLUG_URL }}
       uses: andstor/copycat-action@v3
