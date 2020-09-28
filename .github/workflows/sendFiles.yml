@@ -13,9 +13,6 @@ jobs:
 
     - uses: actions/checkout@v2
 
-    - name: Get branch name
-      uses: rlespinasse/github-slug-action@v2.x
-
     - run: sudo npm install --global kactus-cli
 
     - name: convert folder to sketch file
@@ -39,9 +36,9 @@ jobs:
     - name: commit changed files
       run: git commit -m "sketch generated and folders removed"
 
-    - name: push code to ${{ env.GITHUB_REF_SLUG_URL }}
-      run: git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
-
+    - name: push code to ${{ github.head_ref }}
+      run: git push origin HEAD:${{ github.head_ref }}
+  
   send-files:
     needs: generator
     runs-on: [self-hosted, Linux]
