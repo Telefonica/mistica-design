@@ -40,6 +40,7 @@ jobs:
       run: git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
 
   send-files:
+    needs: generator
     runs-on: [self-hosted, Linux]
     steps:
     # comando solo para Self-Hosted machines
