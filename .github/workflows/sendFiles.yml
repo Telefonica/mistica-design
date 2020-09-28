@@ -39,6 +39,7 @@ jobs:
     - name: push code to ${{ env.GITHUB_REF_SLUG_URL }}
       run: git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
 
+  send files:
     runs-on: [self-hosted, Linux]
     steps:
     # comando solo para Self-Hosted machines
