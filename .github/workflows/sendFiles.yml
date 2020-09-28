@@ -1,18 +1,18 @@
 name: Cloning libraries to mistica-sketch-libraries
 
 on:
-  pull_request:
+  push:
     branches:
       - production
       - develop
 
 jobs:
   generator:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, macOS]
     steps:
 
     # comando solo para Self-Hosted machines
-    # - run: sudo chown -R $USER:$USER /home/pi/actions-runner/_work/test-action
+    - run: sudo chown -R $USER:$USER /home/pi/actions-runner/_work/test-action
 
     - uses: actions/checkout@v2
 
