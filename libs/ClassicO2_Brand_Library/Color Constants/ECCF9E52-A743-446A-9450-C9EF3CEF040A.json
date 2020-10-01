@@ -1,17 +1,9 @@
 {
-  "_class": "symbolMaster",
-  "allowsOverrides": true,
-  "backgroundColor": {
-    "_class": "color",
-    "alpha": 1,
-    "blue": 0.9176470588235294,
-    "green": 0.9176470588235294,
-    "red": 0.9176470588235294
-  },
-  "booleanOperation": 0,
-  "changeIdentifier": 4059,
+  "_class": "rectangle",
+  "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "0510CF1C-CB65-4806-88AE-62B81319F4EE",
+  "do_objectID": "ECCF9E52-A743-446A-9450-C9EF3CEF040A",
+  "edited": false,
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -21,57 +13,75 @@
     "layerOptions": 0,
     "shouldTrim": false
   },
+  "fixedRadius": 4,
   "frame": {
     "_class": "rect",
-    "constrainProportions": false,
-    "height": 15,
-    "width": 15,
-    "x": -8945,
-    "y": -463
+    "constrainProportions": true,
+    "height": 24,
+    "width": 24,
+    "x": 1095,
+    "y": -431
   },
-  "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
-  },
-  "hasBackgroundColor": false,
-  "hasClickThrough": true,
   "hasClippingMask": false,
-  "horizontalRulerData": {
-    "_class": "rulerData",
-    "base": 0,
-    "guides": [
-    ]
-  },
-  "includeBackgroundColorInExport": true,
-  "includeBackgroundColorInInstance": false,
-  "includeInCloudUpload": true,
+  "hasConvertedToNewRoundCorners": true,
+  "isClosed": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
-  "isFlowHome": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 2,
-  "layers": [
+  "layerListExpandedType": 0,
+  "name": "buttonDangerBackgroundSelected",
+  "nameIsFixed": true,
+  "needsConvertionToNewRoundCorners": false,
+  "pointRadiusBehaviour": 1,
+  "points": [
     {
-      "class": "rectangle",
-      "id": "98B46019-CE34-4A01-AE71-F7B851CC6F23"
+      "_class": "curvePoint",
+      "cornerRadius": 4,
+      "curveFrom": "{0, 0}",
+      "curveMode": 1,
+      "curveTo": "{0, 0}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{0, 0}"
     },
     {
-      "class": "rectangle",
-      "id": "5EDC592F-3D2E-4F8F-88EF-F9A89D1238AA"
+      "_class": "curvePoint",
+      "cornerRadius": 4,
+      "curveFrom": "{1, 0}",
+      "curveMode": 1,
+      "curveTo": "{1, 0}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{1, 0}"
+    },
+    {
+      "_class": "curvePoint",
+      "cornerRadius": 4,
+      "curveFrom": "{1, 1}",
+      "curveMode": 1,
+      "curveTo": "{1, 1}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{1, 1}"
+    },
+    {
+      "_class": "curvePoint",
+      "cornerRadius": 4,
+      "curveFrom": "{0, 1}",
+      "curveMode": 1,
+      "curveTo": "{0, 1}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{0, 1}"
     }
   ],
-  "name": "Assets/16/*thumb",
-  "nameIsFixed": true,
-  "overrideProperties": [
-  ],
-  "presetDictionary": {
-  },
-  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
-  "shouldBreakMaskChain": true,
+  "sharedStyleID": "E8214DD5-36F1-4566-8432-001D9BAFA08A",
+  "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
     "blur": {
@@ -106,7 +116,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "3E57CB77-5202-4BFA-9136-131325FF6186",
+    "do_objectID": "8728A967-8EFD-4335-B33B-6FE090BE6243",
     "endMarkerType": 0,
     "fills": [
       {
@@ -114,9 +124,9 @@
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 1,
-          "green": 1,
-          "red": 1
+          "blue": 0.2549019607843137,
+          "green": 0.196078431372549,
+          "red": 0.8431372549019608
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -168,13 +178,6 @@
     "shadows": [
     ],
     "startMarkerType": 0,
-    "windingRule": 1
-  },
-  "symbolID": "C2619D57-1468-4C91-BE45-637A4AA5EBF1",
-  "verticalRulerData": {
-    "_class": "rulerData",
-    "base": 0,
-    "guides": [
-    ]
+    "windingRule": 0
   }
 }
