@@ -4,14 +4,14 @@
   "backgroundColor": {
     "_class": "color",
     "alpha": 1,
-    "blue": 0.1150645380434783,
-    "green": 0.1150645380434783,
-    "red": 0.1150645380434783
+    "blue": 1,
+    "green": 1,
+    "red": 1
   },
-  "booleanOperation": -1,
-  "changeIdentifier": 4381,
+  "booleanOperation": 0,
+  "changeIdentifier": 4989,
   "clippingMaskMode": 0,
-  "do_objectID": "5E793C87-C81C-4E70-9734-2CFF2C8DBEE2",
+  "do_objectID": "CFD136ED-C89F-4D7E-BE2D-46E9363CB7EB",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -25,9 +25,9 @@
     "_class": "rect",
     "constrainProportions": false,
     "height": 24,
-    "width": 133,
-    "x": 12625,
-    "y": 3694
+    "width": 24,
+    "x": 4851,
+    "y": 3325
   },
   "grid": {
     "_class": "simpleGrid",
@@ -36,11 +36,7 @@
     "thickGridTimes": 2
   },
   "groupLayout": {
-    "_class": "MSImmutableInferredGroupLayout",
-    "axis": 0,
-    "layoutAnchor": 1,
-    "maxSize": 0,
-    "minSize": 0
+    "_class": "MSImmutableFreeformGroupLayout"
   },
   "hasBackgroundColor": true,
   "hasClickThrough": true,
@@ -51,7 +47,7 @@
     "guides": [
     ]
   },
-  "includeBackgroundColorInExport": true,
+  "includeBackgroundColorInExport": false,
   "includeBackgroundColorInInstance": false,
   "includeInCloudUpload": true,
   "isFixedToViewport": false,
@@ -60,30 +56,20 @@
   "isFlowHome": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 0,
+  "layerListExpandedType": 2,
   "layers": [
     {
-      "class": "group",
-      "id": "6E3BF4B1-A283-4F98-AFCF-68AB819DA65C"
+      "class": "symbolInstance",
+      "id": "5FA7D6F7-5DC8-4BA9-BF31-32483C60E47B"
     }
   ],
-  "name": "ΙΙΙ Resources/Buttons/Primary/LoadingText",
+  "name": "Controls/RadioOn",
   "nameIsFixed": true,
   "overrideProperties": [
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "6721A4E4-C535-4F89-A782-864BF231C1BB_symbolID"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "413DB738-CA60-4041-90EC-DAFFD51142FA_textStyle"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "413DB738-CA60-4041-90EC-DAFFD51142FA_stringValue"
+      "overrideName": "5FA7D6F7-5DC8-4BA9-BF31-32483C60E47B_symbolID"
     }
   ],
   "presetDictionary": {
@@ -127,9 +113,61 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "88FD1594-F506-4C0A-AFC8-EB38B0ACE036",
+    "do_objectID": "A95CC9B3-4BAD-4ABB-B8A9-50C6E9BC3813",
     "endMarkerType": 0,
     "fills": [
+      {
+        "_class": "fill",
+        "color": {
+          "_class": "color",
+          "alpha": 1,
+          "blue": 1,
+          "green": 1,
+          "red": 1
+        },
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": 1
+        },
+        "fillType": 0,
+        "gradient": {
+          "_class": "gradient",
+          "elipseLength": 0,
+          "from": "{0.5, 0}",
+          "gradientType": 0,
+          "stops": [
+            {
+              "_class": "gradientStop",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 1,
+                "green": 1,
+                "red": 1
+              },
+              "position": 0
+            },
+            {
+              "_class": "gradientStop",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0,
+                "green": 0,
+                "red": 0
+              },
+              "position": 1
+            }
+          ],
+          "to": "{0.5, 1}"
+        },
+        "isEnabled": true,
+        "noiseIndex": 0,
+        "noiseIntensity": 0,
+        "patternFillType": 1,
+        "patternTileScale": 1
+      }
     ],
     "innerShadows": [
     ],
@@ -139,7 +177,13 @@
     "startMarkerType": 0,
     "windingRule": 1
   },
-  "symbolID": "08AB6609-9B03-42DB-8C07-E2906B008F03",
+  "symbolID": "1404BB14-ED73-41D8-A7A1-D474D377FA77",
+  "userInfo": {
+    "com.animaapp.stc-sketch-plugin": {
+      "kModelPropertiesKey": {
+      }
+    }
+  },
   "verticalRulerData": {
     "_class": "rulerData",
     "base": 0,

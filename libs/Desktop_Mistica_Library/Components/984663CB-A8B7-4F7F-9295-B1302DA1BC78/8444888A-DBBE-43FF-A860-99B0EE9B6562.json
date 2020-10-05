@@ -1,9 +1,9 @@
 {
-  "_class": "shapePath",
+  "_class": "rectangle",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "CA0DF96F-935A-4492-8F13-0056BC9F2155",
-  "edited": true,
+  "do_objectID": "8444888A-DBBE-43FF-A860-99B0EE9B6562",
+  "edited": false,
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -13,15 +13,17 @@
     "layerOptions": 0,
     "shouldTrim": false
   },
+  "fixedRadius": 0,
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 10,
-    "width": 10,
-    "x": 5,
-    "y": 5
+    "height": 2,
+    "width": 64,
+    "x": 0,
+    "y": 0
   },
   "hasClippingMask": false,
+  "hasConvertedToNewRoundCorners": true,
   "isClosed": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
@@ -29,62 +31,53 @@
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "name": "Path",
+  "name": "Rectangle",
   "nameIsFixed": false,
-  "pointRadiusBehaviour": 0,
+  "needsConvertionToNewRoundCorners": false,
+  "pointRadiusBehaviour": 1,
   "points": [
     {
       "_class": "curvePoint",
       "cornerRadius": 0,
-      "curveFrom": "{0.22000000000000028, 0}",
-      "curveMode": 4,
-      "curveTo": "{0.5, 0}",
-      "hasCurveFrom": true,
-      "hasCurveTo": false,
-      "point": "{0.5, 0}"
-    },
-    {
-      "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0, 0.78000000000000114}",
-      "curveMode": 2,
-      "curveTo": "{0, 0.21999999999999886}",
-      "hasCurveFrom": true,
-      "hasCurveTo": true,
-      "point": "{0, 0.5}"
-    },
-    {
-      "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0.77999999999999969, 1}",
-      "curveMode": 2,
-      "curveTo": "{0.22000000000000028, 1}",
-      "hasCurveFrom": true,
-      "hasCurveTo": true,
-      "point": "{0.5, 1}"
-    },
-    {
-      "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{1, 0.21999999999999886}",
-      "curveMode": 2,
-      "curveTo": "{1, 0.78000000000000114}",
-      "hasCurveFrom": true,
-      "hasCurveTo": true,
-      "point": "{1, 0.5}"
-    },
-    {
-      "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0.5, 0}",
-      "curveMode": 4,
-      "curveTo": "{0.77999999999999969, 0}",
+      "curveFrom": "{0, 0}",
+      "curveMode": 1,
+      "curveTo": "{0, 0}",
       "hasCurveFrom": false,
-      "hasCurveTo": true,
-      "point": "{0.5, 0}"
+      "hasCurveTo": false,
+      "point": "{0, 0}"
+    },
+    {
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{1, 0}",
+      "curveMode": 1,
+      "curveTo": "{1, 0}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{1, 0}"
+    },
+    {
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{1, 1}",
+      "curveMode": 1,
+      "curveTo": "{1, 1}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{1, 1}"
+    },
+    {
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{0, 1}",
+      "curveMode": 1,
+      "curveTo": "{0, 1}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{0, 1}"
     }
   ],
-  "resizingConstraint": 63,
+  "resizingConstraint": 42,
   "resizingType": 0,
   "rotation": 0,
   "shouldBreakMaskChain": false,
@@ -122,7 +115,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "76FC4AFF-535A-4E50-B64A-DBE93F278E30",
+    "do_objectID": "8C093826-BFF8-432D-AF68-6CDAC72B4ACF",
     "endMarkerType": 0,
     "fills": [
       {
@@ -130,9 +123,9 @@
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0.4862745098039218,
-          "green": 0.8549019607843137,
-          "red": 0.03921568627450974
+          "blue": 0.8666666666666667,
+          "green": 0.5568627450980392,
+          "red": 0
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -174,7 +167,7 @@
         "isEnabled": true,
         "noiseIndex": 0,
         "noiseIntensity": 0,
-        "patternFillType": 0,
+        "patternFillType": 1,
         "patternTileScale": 1
       }
     ],
@@ -185,5 +178,13 @@
     ],
     "startMarkerType": 0,
     "windingRule": 1
+  },
+  "userInfo": {
+    "com.sketch.detach": {
+      "sharedStyle": {
+        "sharedStyleId": "5D5B5A30-6F92-4F49-9545-25B0D0EB6364",
+        "sharedStyleName": "Ι Android (deprecated soon)/Bars/primary_dark"
+      }
+    }
   }
 }

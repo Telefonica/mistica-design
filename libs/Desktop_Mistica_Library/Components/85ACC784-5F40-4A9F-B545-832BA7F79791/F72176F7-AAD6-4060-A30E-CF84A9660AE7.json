@@ -1,8 +1,9 @@
 {
-  "_class": "shapeGroup",
-  "booleanOperation": 0,
+  "_class": "rectangle",
+  "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "4F94B9B6-9AC6-4B45-BD4D-374E3A8B5E4A",
+  "do_objectID": "F72176F7-AAD6-4060-A30E-CF84A9660AE7",
+  "edited": false,
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -12,46 +13,74 @@
     "layerOptions": 0,
     "shouldTrim": false
   },
+  "fixedRadius": 0,
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 20,
-    "width": 20,
-    "x": 2,
-    "y": 2
+    "height": 56,
+    "width": 360,
+    "x": 0,
+    "y": 0
   },
-  "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
-  },
-  "hasClickThrough": false,
   "hasClippingMask": false,
+  "hasConvertedToNewRoundCorners": true,
+  "isClosed": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "layers": [
+  "name": "Rectangle",
+  "nameIsFixed": false,
+  "needsConvertionToNewRoundCorners": false,
+  "pointRadiusBehaviour": 1,
+  "points": [
     {
-      "class": "shapePath",
-      "id": "CA0DF96F-935A-4492-8F13-0056BC9F2155"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{0, 0}",
+      "curveMode": 1,
+      "curveTo": "{0, 0}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{0, 0}"
     },
     {
-      "class": "shapePath",
-      "id": "698FC8A9-810E-4060-BFDD-EEE825ED304E"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{1, 0}",
+      "curveMode": 1,
+      "curveTo": "{1, 0}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{1, 0}"
     },
     {
-      "class": "shapePath",
-      "id": "CFB59C4A-C3A4-4A39-9385-FEB7A4C8CE11"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{1, 1}",
+      "curveMode": 1,
+      "curveTo": "{1, 1}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{1, 1}"
+    },
+    {
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{0, 1}",
+      "curveMode": 1,
+      "curveTo": "{0, 1}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{0, 1}"
     }
   ],
-  "name": "Shape",
-  "nameIsFixed": false,
-  "originalObjectID": "899054B1-2BC9-4342-BA2B-CBBA9933E194",
-  "resizingConstraint": 45,
-  "resizingType": 3,
+  "resizingConstraint": 47,
+  "resizingType": 0,
   "rotation": 0,
-  "sharedStyleID": "2DB4BD85-C607-406F-9C94-8B7C1D122DBE",
+  "sharedStyleID": "9DB7A600-EA6D-4113-9137-A4545EE0E399",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -87,7 +116,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "8FEC34C8-9B93-4BED-8935-B25B06E6F35B",
+    "do_objectID": "E65DB987-5024-4E03-824E-A4110290C4E8",
     "endMarkerType": 0,
     "fills": [
       {
@@ -149,7 +178,14 @@
     "shadows": [
     ],
     "startMarkerType": 0,
-    "windingRule": 0
+    "windingRule": 1
   },
-  "windingRule": 0
+  "userInfo": {
+    "com.sketch.detach": {
+      "sharedStyle": {
+        "sharedStyleId": "3B8F0389-9EBC-4725-B1F3-4D3D9E57F48B",
+        "sharedStyleName": "Mistica/Backgrounds/background"
+      }
+    }
+  }
 }
