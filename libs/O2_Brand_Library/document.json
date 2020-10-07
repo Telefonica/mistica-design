@@ -1059,7 +1059,231 @@
   "foreignLayerStyles": [
     {
       "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "DAFEAAF8-522D-4FD3-B325-082538AD15C5",
+      "do_objectID": "F4E298FD-0326-437B-A4B4-759FC0DB5AB2",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
+        "name": "Mistica/Bars/appBar/appBarBackground",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "1948D531-8C2C-4B1A-8650-DA9FF8C456E2",
+          "endMarkerType": 0,
+          "fills": [
+            {
+              "_class": "fill",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 1,
+                "green": 1,
+                "red": 1,
+                "swatchID": "ADC68D41-601D-4191-855C-7220DC630CB6"
+              },
+              "contextSettings": {
+                "_class": "graphicsContextSettings",
+                "blendMode": 0,
+                "opacity": 1
+              },
+              "fillType": 0,
+              "gradient": {
+                "_class": "gradient",
+                "elipseLength": 0,
+                "from": "{0.5, 0}",
+                "gradientType": 0,
+                "stops": [
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 1,
+                      "green": 1,
+                      "red": 1
+                    },
+                    "position": 0
+                  },
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 0,
+                      "green": 0,
+                      "red": 0
+                    },
+                    "position": 1
+                  }
+                ],
+                "to": "{0.5, 1}"
+              },
+              "isEnabled": true,
+              "noiseIndex": 0,
+              "noiseIntensity": 0,
+              "patternFillType": 1,
+              "patternTileScale": 1
+            }
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "windingRule": 0
+        }
+      },
+      "remoteStyleID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
+      "sourceLibraryName": "Movistar_Brand_Library",
+      "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignLayerStyle",
+      "do_objectID": "6B3DB872-F6B8-4C24-9800-9522D139F700",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[2AA3B19C-7EBF-4440-BB97-6B5FE388721D]",
+        "name": "Mistica/Dividers/divider",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "36D28346-D08C-45AF-8E01-6787F933BA72",
+          "endMarkerType": 0,
+          "fills": [
+            {
+              "_class": "fill",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.9333333333333333,
+                "green": 0.9333333333333333,
+                "red": 0.9333333333333333,
+                "swatchID": "2E8D6A52-D0BC-4117-B526-844C49A6351B"
+              },
+              "contextSettings": {
+                "_class": "graphicsContextSettings",
+                "blendMode": 0,
+                "opacity": 1
+              },
+              "fillType": 0,
+              "gradient": {
+                "_class": "gradient",
+                "elipseLength": 0,
+                "from": "{0.5, 0}",
+                "gradientType": 0,
+                "stops": [
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 1,
+                      "green": 1,
+                      "red": 1
+                    },
+                    "position": 0
+                  },
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 0,
+                      "green": 0,
+                      "red": 0
+                    },
+                    "position": 1
+                  }
+                ],
+                "to": "{0.5, 1}"
+              },
+              "isEnabled": true,
+              "noiseIndex": 0,
+              "noiseIntensity": 0,
+              "patternFillType": 1,
+              "patternTileScale": 1
+            }
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "windingRule": 0
+        }
+      },
+      "remoteStyleID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[2AA3B19C-7EBF-4440-BB97-6B5FE388721D]",
+      "sourceLibraryName": "Movistar_Brand_Library",
+      "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignLayerStyle",
+      "do_objectID": "2A82E37A-6F76-4704-8501-6C20FFFC4B9F",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -1163,228 +1387,6 @@
         }
       },
       "remoteStyleID": "2D0798DA-EAD3-4C07-9F47-352F5E0C7916[5C60FEF0-FFE0-446C-83BC-5648DB6F28AF]",
-      "sourceLibraryName": "Movistar_Brand_Library",
-      "symbolPrivate": true
-    },
-    {
-      "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "C423CC6C-ED80-48FE-A807-325CB57D4096",
-      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
-      "localSharedStyle": {
-        "_class": "sharedStyle",
-        "do_objectID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
-        "name": "Mistica/Bars/appBar/appBarBackground",
-        "value": {
-          "_class": "style",
-          "blur": {
-            "_class": "blur",
-            "center": "{0.5, 0.5}",
-            "isEnabled": false,
-            "motionAngle": 0,
-            "radius": 10,
-            "saturation": 1,
-            "type": 0
-          },
-          "borderOptions": {
-            "_class": "borderOptions",
-            "dashPattern": [
-            ],
-            "isEnabled": true,
-            "lineCapStyle": 0,
-            "lineJoinStyle": 0
-          },
-          "borders": [
-          ],
-          "colorControls": {
-            "_class": "colorControls",
-            "brightness": 0,
-            "contrast": 1,
-            "hue": 0,
-            "isEnabled": true,
-            "saturation": 1
-          },
-          "contextSettings": {
-            "_class": "graphicsContextSettings",
-            "blendMode": 0,
-            "opacity": 1
-          },
-          "do_objectID": "08CA332C-7627-41C3-BBD9-967E538999A3",
-          "endMarkerType": 0,
-          "fills": [
-            {
-              "_class": "fill",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 1,
-                "green": 1,
-                "red": 1
-              },
-              "contextSettings": {
-                "_class": "graphicsContextSettings",
-                "blendMode": 0,
-                "opacity": 1
-              },
-              "fillType": 0,
-              "gradient": {
-                "_class": "gradient",
-                "elipseLength": 0,
-                "from": "{0.5, 0}",
-                "gradientType": 0,
-                "stops": [
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 1,
-                      "green": 1,
-                      "red": 1
-                    },
-                    "position": 0
-                  },
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 0,
-                      "green": 0,
-                      "red": 0
-                    },
-                    "position": 1
-                  }
-                ],
-                "to": "{0.5, 1}"
-              },
-              "isEnabled": true,
-              "noiseIndex": 0,
-              "noiseIntensity": 0,
-              "patternFillType": 1,
-              "patternTileScale": 1
-            }
-          ],
-          "innerShadows": [
-          ],
-          "miterLimit": 10,
-          "shadows": [
-          ],
-          "startMarkerType": 0,
-          "windingRule": 0
-        }
-      },
-      "remoteStyleID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
-      "sourceLibraryName": "Movistar_Brand_Library",
-      "symbolPrivate": true
-    },
-    {
-      "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "8F7E2CE6-270A-49F4-9464-B0DD952F1091",
-      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
-      "localSharedStyle": {
-        "_class": "sharedStyle",
-        "do_objectID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[2AA3B19C-7EBF-4440-BB97-6B5FE388721D]",
-        "name": "Mistica/Dividers/divider",
-        "value": {
-          "_class": "style",
-          "blur": {
-            "_class": "blur",
-            "center": "{0.5, 0.5}",
-            "isEnabled": false,
-            "motionAngle": 0,
-            "radius": 10,
-            "saturation": 1,
-            "type": 0
-          },
-          "borderOptions": {
-            "_class": "borderOptions",
-            "dashPattern": [
-            ],
-            "isEnabled": true,
-            "lineCapStyle": 0,
-            "lineJoinStyle": 0
-          },
-          "borders": [
-          ],
-          "colorControls": {
-            "_class": "colorControls",
-            "brightness": 0,
-            "contrast": 1,
-            "hue": 0,
-            "isEnabled": true,
-            "saturation": 1
-          },
-          "contextSettings": {
-            "_class": "graphicsContextSettings",
-            "blendMode": 0,
-            "opacity": 1
-          },
-          "do_objectID": "36D28346-D08C-45AF-8E01-6787F933BA72",
-          "endMarkerType": 0,
-          "fills": [
-            {
-              "_class": "fill",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0.9333333333333333,
-                "green": 0.9333333333333333,
-                "red": 0.9333333333333333
-              },
-              "contextSettings": {
-                "_class": "graphicsContextSettings",
-                "blendMode": 0,
-                "opacity": 1
-              },
-              "fillType": 0,
-              "gradient": {
-                "_class": "gradient",
-                "elipseLength": 0,
-                "from": "{0.5, 0}",
-                "gradientType": 0,
-                "stops": [
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 1,
-                      "green": 1,
-                      "red": 1
-                    },
-                    "position": 0
-                  },
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 0,
-                      "green": 0,
-                      "red": 0
-                    },
-                    "position": 1
-                  }
-                ],
-                "to": "{0.5, 1}"
-              },
-              "isEnabled": true,
-              "noiseIndex": 0,
-              "noiseIntensity": 0,
-              "patternFillType": 1,
-              "patternTileScale": 1
-            }
-          ],
-          "innerShadows": [
-          ],
-          "miterLimit": 10,
-          "shadows": [
-          ],
-          "startMarkerType": 0,
-          "windingRule": 0
-        }
-      },
-      "remoteStyleID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[2AA3B19C-7EBF-4440-BB97-6B5FE388721D]",
       "sourceLibraryName": "Movistar_Brand_Library",
       "symbolPrivate": true
     }
@@ -98757,7 +98759,8 @@
                     "alpha": 1,
                     "blue": 1,
                     "green": 1,
-                    "red": 1
+                    "red": 1,
+                    "swatchID": "B5C82A60-EA7E-417B-AF33-95107B0FCC47"
                   },
                   "contextSettings": {
                     "_class": "graphicsContextSettings",
@@ -99023,7 +99026,8 @@
                               "alpha": 1,
                               "blue": 0.6,
                               "green": 0.6,
-                              "red": 0.6
+                              "red": 0.6,
+                              "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -99137,7 +99141,8 @@
                             "alpha": 1,
                             "blue": 0.6,
                             "green": 0.6,
-                            "red": 0.6
+                            "red": 0.6,
+                            "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -99486,7 +99491,8 @@
                               "alpha": 1,
                               "blue": 0.6,
                               "green": 0.6,
-                              "red": 0.6
+                              "red": 0.6,
+                              "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -99600,7 +99606,8 @@
                             "alpha": 1,
                             "blue": 0.6,
                             "green": 0.6,
-                            "red": 0.6
+                            "red": 0.6,
+                            "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -99949,7 +99956,8 @@
                               "alpha": 1,
                               "blue": 0.6,
                               "green": 0.6,
-                              "red": 0.6
+                              "red": 0.6,
+                              "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -100063,7 +100071,8 @@
                             "alpha": 1,
                             "blue": 0.6,
                             "green": 0.6,
-                            "red": 0.6
+                            "red": 0.6,
+                            "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -100412,7 +100421,8 @@
                               "alpha": 1,
                               "blue": 0.9568627450980391,
                               "green": 0.615686274509804,
-                              "red": 0.00392156862745098
+                              "red": 0.00392156862745098,
+                              "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -100526,7 +100536,8 @@
                             "alpha": 1,
                             "blue": 0.9568627450980391,
                             "green": 0.615686274509804,
-                            "red": 0.00392156862745098
+                            "red": 0.00392156862745098,
+                            "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -100880,7 +100891,8 @@
                     "alpha": 1,
                     "blue": 0.9333333333333333,
                     "green": 0.9333333333333333,
-                    "red": 0.9333333333333333
+                    "red": 0.9333333333333333,
+                    "swatchID": "337E6AA7-B89C-4A5E-BDF6-6AB7F276B087"
                   },
                   "contextSettings": {
                     "_class": "graphicsContextSettings",
@@ -101317,7 +101329,8 @@
                     "alpha": 1,
                     "blue": 1,
                     "green": 1,
-                    "red": 1
+                    "red": 1,
+                    "swatchID": "B5C82A60-EA7E-417B-AF33-95107B0FCC47"
                   },
                   "contextSettings": {
                     "_class": "graphicsContextSettings",
@@ -101583,7 +101596,8 @@
                               "alpha": 1,
                               "blue": 0.6,
                               "green": 0.6,
-                              "red": 0.6
+                              "red": 0.6,
+                              "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -101697,7 +101711,8 @@
                             "alpha": 1,
                             "blue": 0.6,
                             "green": 0.6,
-                            "red": 0.6
+                            "red": 0.6,
+                            "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -102046,7 +102061,8 @@
                               "alpha": 1,
                               "blue": 0.6,
                               "green": 0.6,
-                              "red": 0.6
+                              "red": 0.6,
+                              "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -102160,7 +102176,8 @@
                             "alpha": 1,
                             "blue": 0.6,
                             "green": 0.6,
-                            "red": 0.6
+                            "red": 0.6,
+                            "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -102509,7 +102526,8 @@
                               "alpha": 1,
                               "blue": 0.6,
                               "green": 0.6,
-                              "red": 0.6
+                              "red": 0.6,
+                              "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -102623,7 +102641,8 @@
                             "alpha": 1,
                             "blue": 0.6,
                             "green": 0.6,
-                            "red": 0.6
+                            "red": 0.6,
+                            "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -102972,7 +102991,8 @@
                               "alpha": 1,
                               "blue": 0.9568627450980391,
                               "green": 0.615686274509804,
-                              "red": 0.00392156862745098
+                              "red": 0.00392156862745098,
+                              "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -103086,7 +103106,8 @@
                             "alpha": 1,
                             "blue": 0.9568627450980391,
                             "green": 0.615686274509804,
-                            "red": 0.00392156862745098
+                            "red": 0.00392156862745098,
+                            "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -103440,7 +103461,8 @@
                     "alpha": 1,
                     "blue": 0.9333333333333333,
                     "green": 0.9333333333333333,
-                    "red": 0.9333333333333333
+                    "red": 0.9333333333333333,
+                    "swatchID": "337E6AA7-B89C-4A5E-BDF6-6AB7F276B087"
                   },
                   "contextSettings": {
                     "_class": "graphicsContextSettings",
@@ -104049,7 +104071,8 @@
                           "alpha": 1,
                           "blue": 0.6,
                           "green": 0.6,
-                          "red": 0.6
+                          "red": 0.6,
+                          "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -104095,7 +104118,7 @@
                   "x": 8,
                   "y": 29
                 },
-                "glyphBounds": "{{17, 3}, {38, 11}}",
+                "glyphBounds": "{{17, 2}, {38, 11}}",
                 "hasClippingMask": false,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
@@ -104163,7 +104186,8 @@
                         "alpha": 1,
                         "blue": 0.6,
                         "green": 0.6,
-                        "red": 0.6
+                        "red": 0.6,
+                        "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -104388,7 +104412,8 @@
                           "alpha": 1,
                           "blue": 0.6,
                           "green": 0.6,
-                          "red": 0.6
+                          "red": 0.6,
+                          "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -104434,7 +104459,7 @@
                   "x": 8,
                   "y": 29
                 },
-                "glyphBounds": "{{25, 3}, {21, 9}}",
+                "glyphBounds": "{{25, 2}, {21, 9}}",
                 "hasClippingMask": false,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
@@ -104502,7 +104527,8 @@
                         "alpha": 1,
                         "blue": 0.6,
                         "green": 0.6,
-                        "red": 0.6
+                        "red": 0.6,
+                        "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -104727,7 +104753,8 @@
                           "alpha": 1,
                           "blue": 0.6,
                           "green": 0.6,
-                          "red": 0.6
+                          "red": 0.6,
+                          "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -104773,7 +104800,7 @@
                   "x": 8,
                   "y": 29
                 },
-                "glyphBounds": "{{20, 3}, {33, 11}}",
+                "glyphBounds": "{{20, 2}, {33, 11}}",
                 "hasClippingMask": false,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
@@ -104841,7 +104868,8 @@
                         "alpha": 1,
                         "blue": 0.6,
                         "green": 0.6,
-                        "red": 0.6
+                        "red": 0.6,
+                        "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -105066,7 +105094,8 @@
                           "alpha": 1,
                           "blue": 0.9568627450980391,
                           "green": 0.615686274509804,
-                          "red": 0.00392156862745098
+                          "red": 0.00392156862745098,
+                          "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -105180,7 +105209,8 @@
                         "alpha": 1,
                         "blue": 0.9568627450980391,
                         "green": 0.615686274509804,
-                        "red": 0.00392156862745098
+                        "red": 0.00392156862745098,
+                        "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -105897,7 +105927,8 @@
                           "alpha": 1,
                           "blue": 0.6,
                           "green": 0.6,
-                          "red": 0.6
+                          "red": 0.6,
+                          "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -105943,7 +105974,7 @@
                   "x": 8,
                   "y": 29
                 },
-                "glyphBounds": "{{17, 3}, {38, 11}}",
+                "glyphBounds": "{{17, 2}, {38, 11}}",
                 "hasClippingMask": false,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
@@ -106011,7 +106042,8 @@
                         "alpha": 1,
                         "blue": 0.6,
                         "green": 0.6,
-                        "red": 0.6
+                        "red": 0.6,
+                        "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -106236,7 +106268,8 @@
                           "alpha": 1,
                           "blue": 0.6,
                           "green": 0.6,
-                          "red": 0.6
+                          "red": 0.6,
+                          "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -106282,7 +106315,7 @@
                   "x": 8,
                   "y": 29
                 },
-                "glyphBounds": "{{25, 3}, {21, 9}}",
+                "glyphBounds": "{{25, 2}, {21, 9}}",
                 "hasClippingMask": false,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
@@ -106350,7 +106383,8 @@
                         "alpha": 1,
                         "blue": 0.6,
                         "green": 0.6,
-                        "red": 0.6
+                        "red": 0.6,
+                        "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -106575,7 +106609,8 @@
                           "alpha": 1,
                           "blue": 0.6,
                           "green": 0.6,
-                          "red": 0.6
+                          "red": 0.6,
+                          "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -106621,7 +106656,7 @@
                   "x": 8,
                   "y": 29
                 },
-                "glyphBounds": "{{20, 3}, {33, 11}}",
+                "glyphBounds": "{{20, 2}, {33, 11}}",
                 "hasClippingMask": false,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
@@ -106689,7 +106724,8 @@
                         "alpha": 1,
                         "blue": 0.6,
                         "green": 0.6,
-                        "red": 0.6
+                        "red": 0.6,
+                        "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -106914,7 +106950,8 @@
                           "alpha": 1,
                           "blue": 0.9568627450980391,
                           "green": 0.615686274509804,
-                          "red": 0.00392156862745098
+                          "red": 0.00392156862745098,
+                          "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -107028,7 +107065,8 @@
                         "alpha": 1,
                         "blue": 0.9568627450980391,
                         "green": 0.615686274509804,
-                        "red": 0.00392156862745098
+                        "red": 0.00392156862745098,
+                        "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -109073,181 +109111,7 @@
   "foreignTextStyles": [
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "E0943401-21C0-434D-8EF9-7B2DDBF7E79E",
-      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
-      "localSharedStyle": {
-        "_class": "sharedStyle",
-        "do_objectID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[53B5F5CB-B2FC-4381-A5AD-D5CB959D536E]",
-        "name": "App/Android/text-system/appBar/text_appbar",
-        "value": {
-          "_class": "style",
-          "blur": {
-            "_class": "blur",
-            "center": "{0.5, 0.5}",
-            "isEnabled": false,
-            "motionAngle": 0,
-            "radius": 10,
-            "saturation": 1,
-            "type": 0
-          },
-          "borderOptions": {
-            "_class": "borderOptions",
-            "dashPattern": [
-            ],
-            "isEnabled": true,
-            "lineCapStyle": 0,
-            "lineJoinStyle": 0
-          },
-          "borders": [
-          ],
-          "colorControls": {
-            "_class": "colorControls",
-            "brightness": 0,
-            "contrast": 1,
-            "hue": 0,
-            "isEnabled": true,
-            "saturation": 1
-          },
-          "contextSettings": {
-            "_class": "graphicsContextSettings",
-            "blendMode": 0,
-            "opacity": 1
-          },
-          "do_objectID": "2814DE4E-C433-469F-ACC7-E7AAF7ECEC41",
-          "endMarkerType": 0,
-          "fills": [
-          ],
-          "innerShadows": [
-          ],
-          "miterLimit": 10,
-          "shadows": [
-          ],
-          "startMarkerType": 0,
-          "textStyle": {
-            "_class": "textStyle",
-            "encodedAttributes": {
-              "MSAttributedStringColorAttribute": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0.6,
-                "green": 0.6,
-                "red": 0.6
-              },
-              "MSAttributedStringFontAttribute": {
-                "_class": "fontDescriptor",
-                "attributes": {
-                  "name": "Roboto-Regular",
-                  "size": 10
-                }
-              },
-              "kerning": 0,
-              "paragraphStyle": {
-                "_class": "paragraphStyle",
-                "alignment": 2,
-                "allowsDefaultTighteningForTruncation": 0,
-                "maximumLineHeight": 14,
-                "minimumLineHeight": 14
-              }
-            },
-            "verticalAlignment": 0
-          },
-          "windingRule": 1
-        }
-      },
-      "remoteStyleID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[53B5F5CB-B2FC-4381-A5AD-D5CB959D536E]",
-      "sourceLibraryName": "Movistar_Brand_Library",
-      "symbolPrivate": true
-    },
-    {
-      "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "89965BAC-23D6-4295-BE30-1AD7529F9DD4",
-      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
-      "localSharedStyle": {
-        "_class": "sharedStyle",
-        "do_objectID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[DD4236EC-BEF3-4B45-AD49-A0D3569EA5E3]",
-        "name": "App/Android/text-system/appBar/text_appbar_selected",
-        "value": {
-          "_class": "style",
-          "blur": {
-            "_class": "blur",
-            "center": "{0.5, 0.5}",
-            "isEnabled": false,
-            "motionAngle": 0,
-            "radius": 10,
-            "saturation": 1,
-            "type": 0
-          },
-          "borderOptions": {
-            "_class": "borderOptions",
-            "dashPattern": [
-            ],
-            "isEnabled": true,
-            "lineCapStyle": 0,
-            "lineJoinStyle": 0
-          },
-          "borders": [
-          ],
-          "colorControls": {
-            "_class": "colorControls",
-            "brightness": 0,
-            "contrast": 1,
-            "hue": 0,
-            "isEnabled": true,
-            "saturation": 1
-          },
-          "contextSettings": {
-            "_class": "graphicsContextSettings",
-            "blendMode": 0,
-            "opacity": 1
-          },
-          "do_objectID": "5A08AED7-7B30-4D41-A22F-2774E8CF03B8",
-          "endMarkerType": 0,
-          "fills": [
-          ],
-          "innerShadows": [
-          ],
-          "miterLimit": 10,
-          "shadows": [
-          ],
-          "startMarkerType": 0,
-          "textStyle": {
-            "_class": "textStyle",
-            "encodedAttributes": {
-              "MSAttributedStringColorAttribute": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0.9568627450980391,
-                "green": 0.615686274509804,
-                "red": 0.00392156862745098
-              },
-              "MSAttributedStringFontAttribute": {
-                "_class": "fontDescriptor",
-                "attributes": {
-                  "name": "Roboto-Regular",
-                  "size": 10
-                }
-              },
-              "kerning": 0,
-              "paragraphStyle": {
-                "_class": "paragraphStyle",
-                "alignment": 2,
-                "allowsDefaultTighteningForTruncation": 0,
-                "maximumLineHeight": 14,
-                "minimumLineHeight": 14
-              }
-            },
-            "verticalAlignment": 0
-          },
-          "windingRule": 1
-        }
-      },
-      "remoteStyleID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[DD4236EC-BEF3-4B45-AD49-A0D3569EA5E3]",
-      "sourceLibraryName": "Movistar_Brand_Library",
-      "symbolPrivate": true
-    },
-    {
-      "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "BC3906B6-EE19-4D2E-9439-F2763DBD5ED7",
+      "do_objectID": "65B8E11F-582D-4893-9604-ADAFCB06630D",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -109305,7 +109169,8 @@
                 "alpha": 1,
                 "blue": 0.6,
                 "green": 0.6,
-                "red": 0.6
+                "red": 0.6,
+                "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
               },
               "MSAttributedStringFontAttribute": {
                 "_class": "fontDescriptor",
@@ -109334,7 +109199,7 @@
     },
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "4B4F74DE-B05E-4597-9D17-C705064389DE",
+      "do_objectID": "59DDE885-AED4-4FAB-AB01-5029582428F9",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -109392,7 +109257,8 @@
                 "alpha": 1,
                 "blue": 0.9568627450980391,
                 "green": 0.615686274509804,
-                "red": 0.00392156862745098
+                "red": 0.00392156862745098,
+                "swatchID": "DD33EABB-9632-4ADE-892D-4CAFF6DC05A5"
               },
               "MSAttributedStringFontAttribute": {
                 "_class": "fontDescriptor",
@@ -109416,6 +109282,182 @@
         }
       },
       "remoteStyleID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[71FDD2EE-33DB-4175-B69C-03E92804A9CA]",
+      "sourceLibraryName": "Movistar_Brand_Library",
+      "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignTextStyle",
+      "do_objectID": "02341117-C66A-4C50-B3A3-57DC1BFAA5C2",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[53B5F5CB-B2FC-4381-A5AD-D5CB959D536E]",
+        "name": "App/Android/text-system/appBar/text_appbar",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "2814DE4E-C433-469F-ACC7-E7AAF7ECEC41",
+          "endMarkerType": 0,
+          "fills": [
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "textStyle": {
+            "_class": "textStyle",
+            "encodedAttributes": {
+              "MSAttributedStringColorAttribute": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.6,
+                "green": 0.6,
+                "red": 0.6,
+                "swatchID": "C1A65991-1AA1-4D73-95FB-F3181D905D05"
+              },
+              "MSAttributedStringFontAttribute": {
+                "_class": "fontDescriptor",
+                "attributes": {
+                  "name": "Roboto-Regular",
+                  "size": 10
+                }
+              },
+              "kerning": 0,
+              "paragraphStyle": {
+                "_class": "paragraphStyle",
+                "alignment": 2,
+                "allowsDefaultTighteningForTruncation": 0,
+                "maximumLineHeight": 14,
+                "minimumLineHeight": 14
+              }
+            },
+            "verticalAlignment": 0
+          },
+          "windingRule": 1
+        }
+      },
+      "remoteStyleID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[53B5F5CB-B2FC-4381-A5AD-D5CB959D536E]",
+      "sourceLibraryName": "Movistar_Brand_Library",
+      "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignTextStyle",
+      "do_objectID": "3536B992-986F-4E0C-BA78-4CCBF52FAAE3",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[DD4236EC-BEF3-4B45-AD49-A0D3569EA5E3]",
+        "name": "App/Android/text-system/appBar/text_appbar_selected",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "5A08AED7-7B30-4D41-A22F-2774E8CF03B8",
+          "endMarkerType": 0,
+          "fills": [
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "textStyle": {
+            "_class": "textStyle",
+            "encodedAttributes": {
+              "MSAttributedStringColorAttribute": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.9568627450980391,
+                "green": 0.615686274509804,
+                "red": 0.00392156862745098,
+                "swatchID": "081AFB46-CEEA-4065-8E31-552D2D69A46E"
+              },
+              "MSAttributedStringFontAttribute": {
+                "_class": "fontDescriptor",
+                "attributes": {
+                  "name": "Roboto-Regular",
+                  "size": 10
+                }
+              },
+              "kerning": 0,
+              "paragraphStyle": {
+                "_class": "paragraphStyle",
+                "alignment": 2,
+                "allowsDefaultTighteningForTruncation": 0,
+                "maximumLineHeight": 14,
+                "minimumLineHeight": 14
+              }
+            },
+            "verticalAlignment": 0
+          },
+          "windingRule": 1
+        }
+      },
+      "remoteStyleID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[DD4236EC-BEF3-4B45-AD49-A0D3569EA5E3]",
       "sourceLibraryName": "Movistar_Brand_Library",
       "symbolPrivate": true
     }
