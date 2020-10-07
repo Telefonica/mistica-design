@@ -1,8 +1,16 @@
 {
-  "_class": "group",
-  "booleanOperation": -1,
+  "_class": "symbolMaster",
+  "allowsOverrides": true,
+  "backgroundColor": {
+    "_class": "color",
+    "alpha": 1,
+    "blue": 0.2254585597826087,
+    "green": 0.2254585597826087,
+    "red": 0.2254585597826087
+  },
+  "booleanOperation": 0,
   "clippingMaskMode": 0,
-  "do_objectID": "519F8364-8968-47E5-9D83-04EF74C810F1",
+  "do_objectID": "A351ACD1-5748-4E33-B39D-99C80700E94F",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -15,34 +23,55 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 31,
-    "width": 40,
-    "x": 0,
-    "y": 0
+    "height": 120,
+    "width": 120,
+    "x": -7756,
+    "y": -666
   },
   "groupLayout": {
     "_class": "MSImmutableFreeformGroupLayout"
   },
-  "hasClickThrough": false,
+  "hasBackgroundColor": false,
+  "hasClickThrough": true,
   "hasClippingMask": false,
+  "horizontalRulerData": {
+    "_class": "rulerData",
+    "base": 0,
+    "guides": [
+    ]
+  },
+  "includeBackgroundColorInExport": false,
+  "includeBackgroundColorInInstance": false,
+  "includeInCloudUpload": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
+  "isFlowHome": false,
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 2,
   "layers": [
     {
       "class": "shapePath",
-      "id": "48D0046E-A494-4AEB-8060-9B6F71E35670"
+      "id": "9FD92C74-559D-4FB3-9275-18EBD946B410"
     }
   ],
-  "name": "--- ICON LAYERS ---",
+  "name": "Assets/BrandLogo",
   "nameIsFixed": true,
+  "overrideProperties": [
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "9FD92C74-559D-4FB3-9275-18EBD946B410_layerStyle"
+    }
+  ],
+  "presetDictionary": {
+  },
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
-  "shouldBreakMaskChain": false,
+  "shouldBreakMaskChain": true,
   "style": {
     "_class": "style",
     "blur": {
@@ -50,7 +79,7 @@
       "center": "{0.5, 0.5}",
       "isEnabled": false,
       "motionAngle": 0,
-      "radius": 16.66666666666667,
+      "radius": 10,
       "saturation": 1,
       "type": 0
     },
@@ -77,7 +106,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "A339CB75-1DA0-4AE4-B0D5-E188D012C2F6",
+    "do_objectID": "0C3066BB-56C6-400D-A522-FC16B7A739CD",
     "endMarkerType": 0,
     "fills": [
     ],
@@ -88,5 +117,12 @@
     ],
     "startMarkerType": 0,
     "windingRule": 1
+  },
+  "symbolID": "3CEBFC58-55B1-4BA6-ACBB-7B51B3B4B93E",
+  "verticalRulerData": {
+    "_class": "rulerData",
+    "base": 0,
+    "guides": [
+    ]
   }
 }
