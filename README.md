@@ -1,7 +1,7 @@
 <br>
 <br>
 <div align="left">
-  <img height="64" alt="Mística Logo" src=".github/resources/mistica.svg">
+  <img height="64" alt="Mística Logo" src=".github/resources/mistica.png">
 </div>
 <br>
 <br>
