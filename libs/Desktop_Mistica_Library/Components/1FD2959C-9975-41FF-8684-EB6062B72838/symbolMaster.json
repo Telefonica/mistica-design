@@ -4,13 +4,13 @@
   "backgroundColor": {
     "_class": "color",
     "alpha": 1,
-    "blue": 0.9176470588235294,
-    "green": 0.9176470588235294,
-    "red": 0.9176470588235294
+    "blue": 1,
+    "green": 1,
+    "red": 1
   },
-  "booleanOperation": 0,
+  "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "55B4135B-1169-4191-B0B6-0B51F5F4B29A",
+  "do_objectID": "1FD2959C-9975-41FF-8684-EB6062B72838",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -23,25 +23,25 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 24,
-    "width": 24,
-    "x": 15761,
-    "y": 5304
+    "height": 80,
+    "width": 680,
+    "x": 31574,
+    "y": 3249
   },
   "grid": {
     "_class": "simpleGrid",
     "gridSize": 8,
     "isEnabled": false,
-    "thickGridTimes": 8
+    "thickGridTimes": 2
   },
   "groupLayout": {
     "_class": "MSImmutableInferredGroupLayout",
     "axis": 0,
-    "layoutAnchor": 0,
+    "layoutAnchor": 1,
     "maxSize": 0,
-    "minSize": 0
+    "minSize": 64
   },
-  "hasBackgroundColor": false,
+  "hasBackgroundColor": true,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -63,21 +63,44 @@
   "layers": [
     {
       "class": "symbolInstance",
-      "id": "94E06A96-D5E4-4DE0-A564-64F94A75C2ED"
+      "id": "773535FB-5EBD-45A8-84DF-33901096A782"
+    },
+    {
+      "class": "text",
+      "id": "200253F5-53BF-492A-A79C-59605CAFC478"
+    },
+    {
+      "class": "symbolInstance",
+      "id": "56F5B993-0CF8-4F63-B899-7412F18BD5D4"
     }
   ],
-  "name": "ΙΙΙ Resources/Lists/icon size/24",
+  "name": "ΙΙΙ Resources/Bars/Funnel",
   "nameIsFixed": true,
   "overrideProperties": [
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "94E06A96-D5E4-4DE0-A564-64F94A75C2ED_symbolID"
+      "overrideName": "200253F5-53BF-492A-A79C-59605CAFC478_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "773535FB-5EBD-45A8-84DF-33901096A782_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "56F5B993-0CF8-4F63-B899-7412F18BD5D4_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "200253F5-53BF-492A-A79C-59605CAFC478_stringValue"
     }
   ],
   "presetDictionary": {
   },
-  "resizesContent": true,
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
@@ -116,61 +139,9 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "F6872F00-938E-4BCC-8611-9ECB9291659C",
+    "do_objectID": "912703E3-BFFD-4AB9-8B8B-040543514F9E",
     "endMarkerType": 0,
     "fills": [
-      {
-        "_class": "fill",
-        "color": {
-          "_class": "color",
-          "alpha": 1,
-          "blue": 1,
-          "green": 1,
-          "red": 1
-        },
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": 1
-        },
-        "fillType": 0,
-        "gradient": {
-          "_class": "gradient",
-          "elipseLength": 0,
-          "from": "{0.5, 0}",
-          "gradientType": 0,
-          "stops": [
-            {
-              "_class": "gradientStop",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 1,
-                "green": 1,
-                "red": 1
-              },
-              "position": 0
-            },
-            {
-              "_class": "gradientStop",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0,
-                "green": 0,
-                "red": 0
-              },
-              "position": 1
-            }
-          ],
-          "to": "{0.5, 1}"
-        },
-        "isEnabled": true,
-        "noiseIndex": 0,
-        "noiseIntensity": 0,
-        "patternFillType": 1,
-        "patternTileScale": 1
-      }
     ],
     "innerShadows": [
     ],
@@ -180,13 +151,7 @@
     "startMarkerType": 0,
     "windingRule": 1
   },
-  "symbolID": "E65DE9B4-2CAB-47A9-9E37-15215D085870",
-  "userInfo": {
-    "com.animaapp.stc-sketch-plugin": {
-      "kModelPropertiesKey": {
-      }
-    }
-  },
+  "symbolID": "9D85557E-86DE-438C-9888-7B7B2A8D9094",
   "verticalRulerData": {
     "_class": "rulerData",
     "base": 0,
