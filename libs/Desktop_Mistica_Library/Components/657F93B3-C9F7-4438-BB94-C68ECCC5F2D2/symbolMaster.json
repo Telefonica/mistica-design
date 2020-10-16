@@ -24,7 +24,7 @@
     "_class": "rect",
     "constrainProportions": false,
     "height": 56,
-    "width": 133,
+    "width": 120,
     "x": 8561,
     "y": 3476
   },
@@ -35,11 +35,7 @@
     "thickGridTimes": 2
   },
   "groupLayout": {
-    "_class": "MSImmutableInferredGroupLayout",
-    "axis": 0,
-    "layoutAnchor": 0,
-    "maxSize": 0,
-    "minSize": 0
+    "_class": "MSImmutableFreeformGroupLayout"
   },
   "hasBackgroundColor": false,
   "hasClickThrough": true,
@@ -59,11 +55,15 @@
   "isFlowHome": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 2,
+  "layerListExpandedType": 0,
   "layers": [
     {
-      "class": "group",
-      "id": "3B06B73C-AAFD-4ED0-BCDD-25E3AAB9A363"
+      "class": "symbolInstance",
+      "id": "305A01E6-AB58-42E6-8AFB-E7D944FBA03E"
+    },
+    {
+      "class": "text",
+      "id": "616E77D6-B732-4F58-AF31-5F5813BC958D"
     }
   ],
   "name": "ΙΙΙ Resources/Tabs/Menu/33_Disabled ",
@@ -73,11 +73,6 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "616E77D6-B732-4F58-AF31-5F5813BC958D_textStyle"
-    },
-    {
-      "_class": "MSImmutableOverrideProperty",
-      "canOverride": true,
-      "overrideName": "E8E7FB78-C1C4-4BB6-B1A8-731219F6D6A2_symbolID"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -92,7 +87,7 @@
   ],
   "presetDictionary": {
   },
-  "resizesContent": false,
+  "resizesContent": true,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
