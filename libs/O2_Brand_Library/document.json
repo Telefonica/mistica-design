@@ -1389,6 +1389,118 @@
       "remoteStyleID": "2D0798DA-EAD3-4C07-9F47-352F5E0C7916[5C60FEF0-FFE0-446C-83BC-5648DB6F28AF]",
       "sourceLibraryName": "Movistar_Brand_Library",
       "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignLayerStyle",
+      "do_objectID": "E2B02A7B-7AA9-4E17-B172-9F151B6159E0",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
+        "name": "Mistica/Bars/appBar/appBarBackground",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "1948D531-8C2C-4B1A-8650-DA9FF8C456E2",
+          "endMarkerType": 0,
+          "fills": [
+            {
+              "_class": "fill",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 1,
+                "green": 1,
+                "red": 1,
+                "swatchID": "1268788C-7C40-43C9-8F0F-2F77FC4CE9CA"
+              },
+              "contextSettings": {
+                "_class": "graphicsContextSettings",
+                "blendMode": 0,
+                "opacity": 1
+              },
+              "fillType": 0,
+              "gradient": {
+                "_class": "gradient",
+                "elipseLength": 0,
+                "from": "{0.5, 0}",
+                "gradientType": 0,
+                "stops": [
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 1,
+                      "green": 1,
+                      "red": 1
+                    },
+                    "position": 0
+                  },
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 0,
+                      "green": 0,
+                      "red": 0
+                    },
+                    "position": 1
+                  }
+                ],
+                "to": "{0.5, 1}"
+              },
+              "isEnabled": true,
+              "noiseIndex": 0,
+              "noiseIntensity": 0,
+              "patternFillType": 1,
+              "patternTileScale": 1
+            }
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "windingRule": 0
+        }
+      },
+      "remoteStyleID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
+      "sourceLibraryName": "Movistar_Brand_Library",
+      "symbolPrivate": true
     }
   ],
   "foreignSwatches": [
@@ -103858,6 +103970,7 @@
             "resizingConstraint": 39,
             "resizingType": 0,
             "rotation": 0,
+            "sharedStyleID": "F72986ED-90AC-4E43-BE33-8B1732F7D917",
             "shouldBreakMaskChain": false,
             "style": {
               "_class": "style",
@@ -103903,7 +104016,8 @@
                     "alpha": 1,
                     "blue": 1,
                     "green": 1,
-                    "red": 1
+                    "red": 1,
+                    "swatchID": "1268788C-7C40-43C9-8F0F-2F77FC4CE9CA"
                   },
                   "contextSettings": {
                     "_class": "graphicsContextSettings",
@@ -103953,69 +104067,9 @@
               ],
               "miterLimit": 10,
               "shadows": [
-                {
-                  "_class": "shadow",
-                  "blurRadius": 4,
-                  "color": {
-                    "_class": "color",
-                    "alpha": 0.2,
-                    "blue": 0,
-                    "green": 0,
-                    "red": 0
-                  },
-                  "contextSettings": {
-                    "_class": "graphicsContextSettings",
-                    "blendMode": 0,
-                    "opacity": 1
-                  },
-                  "isEnabled": true,
-                  "offsetX": 0,
-                  "offsetY": 1,
-                  "spread": 0
-                },
-                {
-                  "_class": "shadow",
-                  "blurRadius": 1,
-                  "color": {
-                    "_class": "color",
-                    "alpha": 0.12,
-                    "blue": 0,
-                    "green": 0,
-                    "red": 0
-                  },
-                  "contextSettings": {
-                    "_class": "graphicsContextSettings",
-                    "blendMode": 0,
-                    "opacity": 1
-                  },
-                  "isEnabled": true,
-                  "offsetX": 0,
-                  "offsetY": 2,
-                  "spread": -1
-                },
-                {
-                  "_class": "shadow",
-                  "blurRadius": 1,
-                  "color": {
-                    "_class": "color",
-                    "alpha": 0.14,
-                    "blue": 0,
-                    "green": 0,
-                    "red": 0
-                  },
-                  "contextSettings": {
-                    "_class": "graphicsContextSettings",
-                    "blendMode": 0,
-                    "opacity": 1
-                  },
-                  "isEnabled": true,
-                  "offsetX": 0,
-                  "offsetY": 1,
-                  "spread": 0
-                }
               ],
               "startMarkerType": 0,
-              "windingRule": 1
+              "windingRule": 0
             },
             "userInfo": {
               "com.animaapp.stc-sketch-plugin": {
@@ -105714,6 +105768,7 @@
             "resizingConstraint": 39,
             "resizingType": 0,
             "rotation": 0,
+            "sharedStyleID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
             "shouldBreakMaskChain": false,
             "style": {
               "_class": "style",
@@ -105759,7 +105814,8 @@
                     "alpha": 1,
                     "blue": 1,
                     "green": 1,
-                    "red": 1
+                    "red": 1,
+                    "swatchID": "1268788C-7C40-43C9-8F0F-2F77FC4CE9CA"
                   },
                   "contextSettings": {
                     "_class": "graphicsContextSettings",
@@ -105809,69 +105865,9 @@
               ],
               "miterLimit": 10,
               "shadows": [
-                {
-                  "_class": "shadow",
-                  "blurRadius": 4,
-                  "color": {
-                    "_class": "color",
-                    "alpha": 0.2,
-                    "blue": 0,
-                    "green": 0,
-                    "red": 0
-                  },
-                  "contextSettings": {
-                    "_class": "graphicsContextSettings",
-                    "blendMode": 0,
-                    "opacity": 1
-                  },
-                  "isEnabled": true,
-                  "offsetX": 0,
-                  "offsetY": 1,
-                  "spread": 0
-                },
-                {
-                  "_class": "shadow",
-                  "blurRadius": 1,
-                  "color": {
-                    "_class": "color",
-                    "alpha": 0.12,
-                    "blue": 0,
-                    "green": 0,
-                    "red": 0
-                  },
-                  "contextSettings": {
-                    "_class": "graphicsContextSettings",
-                    "blendMode": 0,
-                    "opacity": 1
-                  },
-                  "isEnabled": true,
-                  "offsetX": 0,
-                  "offsetY": 2,
-                  "spread": -1
-                },
-                {
-                  "_class": "shadow",
-                  "blurRadius": 1,
-                  "color": {
-                    "_class": "color",
-                    "alpha": 0.14,
-                    "blue": 0,
-                    "green": 0,
-                    "red": 0
-                  },
-                  "contextSettings": {
-                    "_class": "graphicsContextSettings",
-                    "blendMode": 0,
-                    "opacity": 1
-                  },
-                  "isEnabled": true,
-                  "offsetX": 0,
-                  "offsetY": 1,
-                  "spread": 0
-                }
               ],
               "startMarkerType": 0,
-              "windingRule": 1
+              "windingRule": 0
             },
             "userInfo": {
               "com.animaapp.stc-sketch-plugin": {
@@ -109287,7 +109283,7 @@
     },
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "02341117-C66A-4C50-B3A3-57DC1BFAA5C2",
+      "do_objectID": "9E433926-D2EE-48B1-9B97-EEA23969E172",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -109375,7 +109371,7 @@
     },
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "3536B992-986F-4E0C-BA78-4CCBF52FAAE3",
+      "do_objectID": "2C9CF10A-8BA9-401B-B502-C8ADC262EB18",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -109469,8 +109465,8 @@
     ]
   },
   "meta": {
-    "appVersion": "69",
-    "build": 107357,
+    "appVersion": "69.1",
+    "build": 107496,
     "version": 134
   },
   "pages": [
