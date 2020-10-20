@@ -47,7 +47,7 @@ jobs:
     runs-on: [self-hosted, Linux]
     steps:
     # comando solo para Self-Hosted machines
-    - run: sudo chown -R $USER:$USER /home/pi/actions-runner/_work/test-action
+    - run: sudo chown -R $USER:$USER /home/pi/actions-github/mistica-design-libraries/_work/
 
     - name: Get branch name
       uses: rlespinasse/github-slug-action@v2.x
