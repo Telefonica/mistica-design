@@ -1,8 +1,8 @@
 {
-  "_class": "oval",
+  "_class": "rectangle",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "FB09EF97-F92C-4593-B795-CB598C960B6C",
+  "do_objectID": "5A781955-ED7B-44EE-8FA9-84DFA2EA266A",
   "edited": false,
   "exportOptions": {
     "_class": "exportOptions",
@@ -13,15 +13,17 @@
     "layerOptions": 0,
     "shouldTrim": false
   },
+  "fixedRadius": 10.5,
   "frame": {
     "_class": "rect",
-    "constrainProportions": true,
+    "constrainProportions": false,
     "height": 24,
     "width": 24,
-    "x": 0,
-    "y": 0
+    "x": 30875,
+    "y": -1924
   },
   "hasClippingMask": false,
+  "hasConvertedToNewRoundCorners": true,
   "isClosed": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
@@ -29,52 +31,53 @@
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "name": "Oval",
+  "name": "Rectangle",
   "nameIsFixed": false,
-  "pointRadiusBehaviour": 1,
+  "needsConvertionToNewRoundCorners": false,
+  "pointRadiusBehaviour": 2,
   "points": [
     {
       "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0.77614237490000004, 1}",
-      "curveMode": 2,
-      "curveTo": "{0.22385762510000001, 1}",
-      "hasCurveFrom": true,
-      "hasCurveTo": true,
-      "point": "{0.5, 1}"
+      "cornerRadius": 10.5,
+      "curveFrom": "{0, 0}",
+      "curveMode": 1,
+      "curveTo": "{0, 0}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{0, 0}"
     },
     {
       "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{1, 0.22385762510000001}",
-      "curveMode": 2,
-      "curveTo": "{1, 0.77614237490000004}",
-      "hasCurveFrom": true,
-      "hasCurveTo": true,
-      "point": "{1, 0.5}"
+      "cornerRadius": 10.5,
+      "curveFrom": "{1, 0}",
+      "curveMode": 1,
+      "curveTo": "{1, 0}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{1, 0}"
     },
     {
       "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0.22385762510000001, 0}",
-      "curveMode": 2,
-      "curveTo": "{0.77614237490000004, 0}",
-      "hasCurveFrom": true,
-      "hasCurveTo": true,
-      "point": "{0.5, 0}"
+      "cornerRadius": 10.5,
+      "curveFrom": "{1, 1}",
+      "curveMode": 1,
+      "curveTo": "{1, 1}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{1, 1}"
     },
     {
       "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0, 0.77614237490000004}",
-      "curveMode": 2,
-      "curveTo": "{0, 0.22385762510000001}",
-      "hasCurveFrom": true,
-      "hasCurveTo": true,
-      "point": "{0, 0.5}"
+      "cornerRadius": 10.5,
+      "curveFrom": "{0, 1}",
+      "curveMode": 1,
+      "curveTo": "{0, 1}",
+      "hasCurveFrom": false,
+      "hasCurveTo": false,
+      "point": "{0, 1}"
     }
   ],
-  "resizingConstraint": 45,
+  "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
   "shouldBreakMaskChain": false,
@@ -103,10 +106,9 @@
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0.9568627450980391,
-          "green": 0.615686274509804,
-          "red": 0.00392156862745098,
-          "swatchID": "DD33EABB-9632-4ADE-892D-4CAFF6DC05A5"
+          "blue": 0.9567429423332214,
+          "green": 0.6157327890396124,
+          "red": 0.002792767714709085
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -146,7 +148,7 @@
           "to": "{0.5, 1}"
         },
         "isEnabled": true,
-        "position": 1,
+        "position": 0,
         "thickness": 1.5
       }
     ],
@@ -155,7 +157,7 @@
       "brightness": 0,
       "contrast": 1,
       "hue": 0,
-      "isEnabled": true,
+      "isEnabled": false,
       "saturation": 1
     },
     "contextSettings": {
@@ -163,7 +165,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "8A3ACE11-D5AD-4AA1-8994-42947C17EB22",
+    "do_objectID": "F9F30C3E-EA7C-42EA-954E-659F0940D951",
     "endMarkerType": 0,
     "fills": [
     ],
@@ -173,14 +175,6 @@
     "shadows": [
     ],
     "startMarkerType": 0,
-    "windingRule": 0
-  },
-  "userInfo": {
-    "com.sketch.detach": {
-      "sharedStyle": {
-        "sharedStyleId": "84B92FF6-18AC-413C-86DD-4FF3DBBAD166[C793D8F8-418D-4384-8CB3-40019B188AD2]",
-        "sharedStyleName": "Mistica/Icons/iconBrand"
-      }
-    }
+    "windingRule": 1
   }
 }
