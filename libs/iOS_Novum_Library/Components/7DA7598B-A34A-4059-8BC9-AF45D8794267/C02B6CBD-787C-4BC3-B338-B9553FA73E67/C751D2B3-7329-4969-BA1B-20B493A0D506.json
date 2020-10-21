@@ -2,7 +2,7 @@
   "_class": "rectangle",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "F535A1A8-4D12-49D1-8614-9C9E13D22829",
+  "do_objectID": "C751D2B3-7329-4969-BA1B-20B493A0D506",
   "edited": false,
   "exportOptions": {
     "_class": "exportOptions",
@@ -13,12 +13,12 @@
     "layerOptions": 0,
     "shouldTrim": false
   },
-  "fixedRadius": 100,
+  "fixedRadius": 0,
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 4,
-    "width": 24,
+    "height": 128,
+    "width": 375,
     "x": 0,
     "y": 0
   },
@@ -30,15 +30,15 @@
   "isFlippedVertical": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 1,
-  "name": "Asset",
+  "layerListExpandedType": 0,
+  "name": "Background",
   "nameIsFixed": true,
   "needsConvertionToNewRoundCorners": false,
   "pointRadiusBehaviour": 1,
   "points": [
     {
       "_class": "curvePoint",
-      "cornerRadius": 2,
+      "cornerRadius": 0,
       "curveFrom": "{0, 0}",
       "curveMode": 1,
       "curveTo": "{0, 0}",
@@ -48,7 +48,7 @@
     },
     {
       "_class": "curvePoint",
-      "cornerRadius": 2,
+      "cornerRadius": 0,
       "curveFrom": "{1, 0}",
       "curveMode": 1,
       "curveTo": "{1, 0}",
@@ -58,7 +58,7 @@
     },
     {
       "_class": "curvePoint",
-      "cornerRadius": 2,
+      "cornerRadius": 0,
       "curveFrom": "{1, 1}",
       "curveMode": 1,
       "curveTo": "{1, 1}",
@@ -68,7 +68,7 @@
     },
     {
       "_class": "curvePoint",
-      "cornerRadius": 2,
+      "cornerRadius": 0,
       "curveFrom": "{0, 1}",
       "curveMode": 1,
       "curveTo": "{0, 1}",
@@ -77,9 +77,10 @@
       "point": "{0, 1}"
     }
   ],
-  "resizingConstraint": 63,
+  "resizingConstraint": 18,
   "resizingType": 0,
   "rotation": 0,
+  "sharedStyleID": "76434D5D-BE1B-4646-AF60-77DEEDC30EEC",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -115,7 +116,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "F3F8BD67-7A51-4994-8E1A-B3CF6DE1A67B",
+    "do_objectID": "0FD00E7B-8819-453C-BBA5-890F0DC1DC4C",
     "endMarkerType": 0,
     "fills": [
       {
@@ -123,9 +124,10 @@
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0.847,
-          "green": 0.847,
-          "red": 0.847
+          "blue": 1,
+          "green": 1,
+          "red": 1,
+          "swatchID": "ADC68D41-601D-4191-855C-7220DC630CB6"
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -177,6 +179,6 @@
     "shadows": [
     ],
     "startMarkerType": 0,
-    "windingRule": 1
+    "windingRule": 0
   }
 }

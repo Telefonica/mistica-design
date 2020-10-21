@@ -2,8 +2,8 @@
   "_class": "rectangle",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "667018D3-1972-4CFD-AAF8-0CC4F81D5E2A",
-  "edited": false,
+  "do_objectID": "1E332CC0-224B-4D89-9900-13C0C97DA61F",
+  "edited": true,
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -13,16 +13,16 @@
     "layerOptions": 0,
     "shouldTrim": false
   },
-  "fixedRadius": 0,
+  "fixedRadius": 9,
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 43,
-    "width": 9,
-    "x": 35.00000000000006,
-    "y": 16
+    "height": 24,
+    "width": 360,
+    "x": 0,
+    "y": 0
   },
-  "hasClippingMask": true,
+  "hasClippingMask": false,
   "hasConvertedToNewRoundCorners": true,
   "isClosed": true,
   "isFixedToViewport": false,
@@ -31,30 +31,30 @@
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "name": "Mask",
+  "name": "Rectangle 2",
   "nameIsFixed": false,
   "needsConvertionToNewRoundCorners": false,
   "pointRadiusBehaviour": 1,
   "points": [
     {
       "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0, 0}",
+      "cornerRadius": 9,
+      "curveFrom": "{4.7369515717340011e-18, 7.0874319249789825e-16}",
       "curveMode": 1,
-      "curveTo": "{0, 0}",
+      "curveTo": "{4.7369515717340011e-18, 7.0874319249789825e-16}",
       "hasCurveFrom": false,
       "hasCurveTo": false,
-      "point": "{0, 0}"
+      "point": "{4.7369515717340011e-18, 7.0874319249789825e-16}"
     },
     {
       "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{1, 0}",
+      "cornerRadius": 9,
+      "curveFrom": "{1, 7.0874319249789825e-16}",
       "curveMode": 1,
-      "curveTo": "{1, 0}",
+      "curveTo": "{1, 7.0874319249789825e-16}",
       "hasCurveFrom": false,
       "hasCurveTo": false,
-      "point": "{1, 0}"
+      "point": "{1, 7.0874319249789825e-16}"
     },
     {
       "_class": "curvePoint",
@@ -77,9 +77,10 @@
       "point": "{0, 1}"
     }
   ],
-  "resizingConstraint": 63,
+  "resizingConstraint": 39,
   "resizingType": 0,
-  "rotation": -37,
+  "rotation": 0,
+  "sharedStyleID": "A3FB11EA-DC93-49AD-A238-BE6FB63A814A",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -115,7 +116,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "25821E23-8C3C-4237-9B71-52F9B4891DE6",
+    "do_objectID": "DD6C7CCB-D09C-4679-B9BA-C17E9FB7DDA0",
     "endMarkerType": 0,
     "fills": [
       {
@@ -125,7 +126,8 @@
           "alpha": 1,
           "blue": 1,
           "green": 1,
-          "red": 1
+          "red": 1,
+          "swatchID": "1268788C-7C40-43C9-8F0F-2F77FC4CE9CA"
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -178,13 +180,5 @@
     ],
     "startMarkerType": 0,
     "windingRule": 0
-  },
-  "userInfo": {
-    "com.sketch.detach": {
-      "sharedStyle": {
-        "sharedStyleId": "FAA73D7B-6A61-4DD5-9B25-7659FB9B5B3A",
-        "sharedStyleName": "Android/Backgrounds/background"
-      }
-    }
   }
 }
