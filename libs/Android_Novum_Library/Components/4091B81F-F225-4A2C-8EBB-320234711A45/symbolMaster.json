@@ -38,7 +38,7 @@
     "_class": "MSImmutableFreeformGroupLayout"
   },
   "hasBackgroundColor": false,
-  "hasClickThrough": true,
+  "hasClickThrough": false,
   "hasClippingMask": false,
   "horizontalRulerData": {
     "_class": "rulerData",
@@ -57,6 +57,10 @@
   "isVisible": true,
   "layerListExpandedType": 0,
   "layers": [
+    {
+      "class": "symbolInstance",
+      "id": "DECB7F33-BE1D-4FAC-AAFE-58C9A3DFDBB5"
+    },
     {
       "class": "rectangle",
       "id": "CDD1BBFE-5424-4C47-97E9-82548C9745CA"
@@ -89,6 +93,16 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "601BDBD7-BFD3-4D25-B494-97F4D1A92AB1_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "CDD1BBFE-5424-4C47-97E9-82548C9745CA_layerStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": false,
+      "overrideName": "DECB7F33-BE1D-4FAC-AAFE-58C9A3DFDBB5_symbolID"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -163,7 +177,7 @@
   ],
   "presetDictionary": {
   },
-  "resizesContent": false,
+  "resizesContent": true,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
