@@ -16,10 +16,10 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": true,
-    "height": 22,
-    "width": 22,
-    "x": 17,
-    "y": 1
+    "height": 27,
+    "width": 27,
+    "x": 22,
+    "y": 2
   },
   "hasClippingMask": false,
   "isClosed": true,
@@ -85,7 +85,7 @@
       "center": "{0.5, 0.5}",
       "isEnabled": false,
       "motionAngle": 0,
-      "radius": 7.84313725490196,
+      "radius": 4.95,
       "saturation": 1,
       "type": 0
     },
@@ -102,7 +102,7 @@
         "_class": "border",
         "color": {
           "_class": "color",
-          "alpha": 0.1,
+          "alpha": 0.04,
           "blue": 0,
           "green": 0,
           "red": 0
@@ -224,50 +224,10 @@
     "shadows": [
       {
         "_class": "shadow",
-        "blurRadius": 2,
-        "color": {
-          "_class": "color",
-          "alpha": 0.05,
-          "blue": 0,
-          "green": 0,
-          "red": 0
-        },
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": 1
-        },
-        "isEnabled": true,
-        "offsetX": 0,
-        "offsetY": 2,
-        "spread": 0
-      },
-      {
-        "_class": "shadow",
-        "blurRadius": 2,
-        "color": {
-          "_class": "color",
-          "alpha": 0.1,
-          "blue": 0,
-          "green": 0,
-          "red": 0
-        },
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": 1
-        },
-        "isEnabled": true,
-        "offsetX": 0,
-        "offsetY": 2,
-        "spread": 0
-      },
-      {
-        "_class": "shadow",
         "blurRadius": 1,
         "color": {
           "_class": "color",
-          "alpha": 0.0510643115942029,
+          "alpha": 0.06,
           "blue": 0,
           "green": 0,
           "red": 0
@@ -279,7 +239,27 @@
         },
         "isEnabled": true,
         "offsetX": 0,
-        "offsetY": 2,
+        "offsetY": 3,
+        "spread": 0
+      },
+      {
+        "_class": "shadow",
+        "blurRadius": 8,
+        "color": {
+          "_class": "color",
+          "alpha": 0.15,
+          "blue": 0,
+          "green": 0,
+          "red": 0
+        },
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": 1
+        },
+        "isEnabled": true,
+        "offsetX": 0,
+        "offsetY": 3,
         "spread": 0
       }
     ],
