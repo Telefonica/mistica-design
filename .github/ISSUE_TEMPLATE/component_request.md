@@ -2,7 +2,7 @@
 name: ✨ Component request
 about: Contribute to Mística Design System with integrating core components
 title: ''
-labels: ✨ New component request
+labels: ✨ Component request
 assignees: ''
 
 ---
