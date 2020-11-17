@@ -1,9 +1,8 @@
 {
-  "_class": "shapePath",
+  "_class": "group",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "9D9764DB-7476-4A4F-9061-967026322788",
-  "edited": true,
+  "do_objectID": "92721747-F818-466A-80F3-D7311AF21A46",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -16,45 +15,35 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 2.214285714285714,
-    "width": 25.4355,
-    "x": 0.2530928571428573,
-    "y": 0.8274785714285703
+    "height": 54,
+    "width": 44,
+    "x": 113,
+    "y": 18
   },
+  "groupLayout": {
+    "_class": "MSImmutableFreeformGroupLayout"
+  },
+  "hasClickThrough": false,
   "hasClippingMask": false,
-  "isClosed": false,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "name": "Stroke 17",
-  "nameIsFixed": false,
-  "pointRadiusBehaviour": 1,
-  "points": [
+  "layers": [
     {
-      "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0, 0.5}",
-      "curveMode": 1,
-      "curveTo": "{0, 0.5}",
-      "hasCurveFrom": false,
-      "hasCurveTo": false,
-      "point": "{0, 0.5}"
+      "class": "shapePath",
+      "id": "21F8FF3B-7BF8-410A-A71D-9F94B21CBFDB"
     },
     {
-      "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{1, 0.5}",
-      "curveMode": 1,
-      "curveTo": "{1, 0.5}",
-      "hasCurveFrom": false,
-      "hasCurveTo": false,
-      "point": "{1, 0.5}"
+      "class": "shapePath",
+      "id": "276C7747-8B80-4ADD-8EA8-482C9BE3CD2B"
     }
   ],
-  "resizingConstraint": 63,
+  "name": "Apple Mac",
+  "nameIsFixed": false,
+  "resizingConstraint": 45,
   "resizingType": 0,
   "rotation": 0,
   "shouldBreakMaskChain": false,
@@ -65,7 +54,7 @@
       "center": "{0.5, 0.5}",
       "isEnabled": false,
       "motionAngle": 0,
-      "radius": 22.14285714285715,
+      "radius": 10,
       "saturation": 1,
       "type": 0
     },
@@ -74,18 +63,35 @@
       "dashPattern": [
       ],
       "isEnabled": true,
-      "lineCapStyle": 1,
-      "lineJoinStyle": 1
+      "lineCapStyle": 0,
+      "lineJoinStyle": 0
     },
     "borders": [
+    ],
+    "colorControls": {
+      "_class": "colorControls",
+      "brightness": 0,
+      "contrast": 1,
+      "hue": 0,
+      "isEnabled": true,
+      "saturation": 1
+    },
+    "contextSettings": {
+      "_class": "graphicsContextSettings",
+      "blendMode": 0,
+      "opacity": 1
+    },
+    "do_objectID": "1507630C-0634-4C35-B3B2-EBA61A235F27",
+    "endMarkerType": 0,
+    "fills": [
       {
-        "_class": "border",
+        "_class": "fill",
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 1,
-          "green": 0.937,
-          "red": 0.384
+          "blue": 0.2078431372549019,
+          "green": 0.196078431372549,
+          "red": 0.192156862745098
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -125,26 +131,11 @@
           "to": "{0.5, 1}"
         },
         "isEnabled": true,
-        "position": 0,
-        "thickness": 3
+        "noiseIndex": 0,
+        "noiseIntensity": 0,
+        "patternFillType": 1,
+        "patternTileScale": 1
       }
-    ],
-    "colorControls": {
-      "_class": "colorControls",
-      "brightness": 0,
-      "contrast": 1,
-      "hue": 0,
-      "isEnabled": false,
-      "saturation": 1
-    },
-    "contextSettings": {
-      "_class": "graphicsContextSettings",
-      "blendMode": 0,
-      "opacity": 1
-    },
-    "do_objectID": "3DF22EBF-7C9B-482B-8720-70A8A377A863",
-    "endMarkerType": 0,
-    "fills": [
     ],
     "innerShadows": [
     ],
@@ -152,6 +143,14 @@
     "shadows": [
     ],
     "startMarkerType": 0,
-    "windingRule": 1
+    "windingRule": 0
+  },
+  "userInfo": {
+    "com.sketch.detach": {
+      "sharedStyle": {
+        "sharedStyleId": "037A7D0E-B432-4E02-A62B-AD4BB3D14CB9",
+        "sharedStyleName": "Icons/iconPrimary"
+      }
+    }
   }
 }
