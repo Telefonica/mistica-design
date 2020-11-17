@@ -17,7 +17,7 @@ If you think there is a component missing in Mística and you feel it is worthy 
 ---
 
 ## Is your component request related to a problem? Please describe.
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+A clear and concise description of what the problem is.
 
 ## Describe the solution you'd like and needs
 A clear and concise description of what you want to happen.
