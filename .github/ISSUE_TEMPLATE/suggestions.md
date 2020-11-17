@@ -1,20 +1,10 @@
 ---
 name: Suggestions
-about: Suggest an idea for Mística
+about: Suggest an idea for Mística enviroment
 title: ''
-labels: Suggestions
+labels: Suggestion
 assignees: ''
 
 ---
-
-**Is your suggestion related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
-
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
-
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+<!-- _English or spanish is ok._ -->
+Would you like to help us improving the Mística environment? A good idea is always welcome! You can leave your suggestion below. If this is not the form you were looking for, please select a different type.

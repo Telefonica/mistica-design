@@ -2,7 +2,7 @@
   "_class": "shapePath",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "7A8A5E14-0130-4637-BBF3-E37DD5E80736",
+  "do_objectID": "2C346F08-E0B6-41D2-9A04-8485055416A7",
   "edited": true,
   "exportOptions": {
     "_class": "exportOptions",
@@ -16,59 +16,47 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 5.999999999999997,
-    "width": 10,
-    "x": 0,
-    "y": 0.5
+    "height": 27.05192857142858,
+    "width": 5.12336507936508,
+    "x": 9.063313492063571,
+    "y": 33.17705714285694
   },
   "hasClippingMask": false,
-  "isClosed": true,
+  "isClosed": false,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 1,
-  "name": "Triangle 4",
+  "layerListExpandedType": 0,
+  "name": "Stroke 19",
   "nameIsFixed": false,
-  "originalObjectID": "925AD3F4-7B18-4452-A5B8-D46BB200945B",
-  "pointRadiusBehaviour": 0,
+  "pointRadiusBehaviour": 1,
   "points": [
     {
       "_class": "curvePoint",
       "cornerRadius": 0,
-      "curveFrom": "{0, 0}",
-      "curveMode": 1,
-      "curveTo": "{0, 0}",
-      "hasCurveFrom": false,
-      "hasCurveTo": false,
-      "point": "{0, 0}"
-    },
-    {
-      "_class": "curvePoint",
-      "cornerRadius": 0,
       "curveFrom": "{1, 0}",
-      "curveMode": 1,
+      "curveMode": 4,
       "curveTo": "{1, 0}",
-      "hasCurveFrom": false,
+      "hasCurveFrom": true,
       "hasCurveTo": false,
       "point": "{1, 0}"
     },
     {
       "_class": "curvePoint",
       "cornerRadius": 0,
-      "curveFrom": "{0.5, 1}",
-      "curveMode": 1,
-      "curveTo": "{0.5, 1}",
+      "curveFrom": "{1, 1}",
+      "curveMode": 4,
+      "curveTo": "{-1.2499999999999998, 0.4416796267496112}",
       "hasCurveFrom": false,
-      "hasCurveTo": false,
-      "point": "{0.5, 1}"
+      "hasCurveTo": true,
+      "point": "{1, 1}"
     }
   ],
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
-  "sharedStyleID": "DD82B635-F1CA-4216-BCEF-AB44DF813B2E",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -77,7 +65,7 @@
       "center": "{0.5, 0.5}",
       "isEnabled": false,
       "motionAngle": 0,
-      "radius": 10,
+      "radius": 22.14285714285715,
       "saturation": 1,
       "type": 0
     },
@@ -86,36 +74,18 @@
       "dashPattern": [
       ],
       "isEnabled": true,
-      "lineCapStyle": 0,
-      "lineJoinStyle": 0
+      "lineCapStyle": 1,
+      "lineJoinStyle": 1
     },
     "borders": [
-    ],
-    "colorControls": {
-      "_class": "colorControls",
-      "brightness": 0,
-      "contrast": 1,
-      "hue": 0,
-      "isEnabled": true,
-      "saturation": 1
-    },
-    "contextSettings": {
-      "_class": "graphicsContextSettings",
-      "blendMode": 0,
-      "opacity": 1
-    },
-    "do_objectID": "566924F5-0F2E-4296-90F7-A1BC0C542937",
-    "endMarkerType": 0,
-    "fills": [
       {
-        "_class": "fill",
+        "_class": "border",
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0.5490196078431373,
-          "green": 0.5333333333333333,
-          "red": 0.5254901960784314,
-          "swatchID": "157FC276-055F-4567-A6A6-9C81F5878D4F"
+          "blue": 1,
+          "green": 0.937,
+          "red": 0.384
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -155,11 +125,26 @@
           "to": "{0.5, 1}"
         },
         "isEnabled": true,
-        "noiseIndex": 0,
-        "noiseIntensity": 0,
-        "patternFillType": 1,
-        "patternTileScale": 1
+        "position": 0,
+        "thickness": 3
       }
+    ],
+    "colorControls": {
+      "_class": "colorControls",
+      "brightness": 0,
+      "contrast": 1,
+      "hue": 0,
+      "isEnabled": false,
+      "saturation": 1
+    },
+    "contextSettings": {
+      "_class": "graphicsContextSettings",
+      "blendMode": 0,
+      "opacity": 1
+    },
+    "do_objectID": "C0089938-A3C9-4FC9-A6EB-CCDAC5DC43E3",
+    "endMarkerType": 0,
+    "fills": [
     ],
     "innerShadows": [
     ],
@@ -167,6 +152,6 @@
     "shadows": [
     ],
     "startMarkerType": 0,
-    "windingRule": 0
+    "windingRule": 1
   }
 }
