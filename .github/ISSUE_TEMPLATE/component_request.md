@@ -6,7 +6,7 @@ labels: ✨ Component request
 assignees: ''
 
 ---
-<!-- _English or spanish is ok._ -->
+<!-- _English or Spanish is ok._ -->
 
 ### Context
 If you think there is a component missing in Mística and you feel it is worthy to create it globally and therefore any team could use it, please follow the process below so we can integrate this new component from Design to Development.
