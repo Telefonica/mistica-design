@@ -6,7 +6,7 @@ on:
       - production
       - develop
 
-jobs:
+jobs:  
   send-files:
     needs: generator
     runs-on: [self-hosted, Linux]
