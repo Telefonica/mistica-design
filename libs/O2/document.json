@@ -1059,7 +1059,119 @@
   "foreignLayerStyles": [
     {
       "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "F4E298FD-0326-437B-A4B4-759FC0DB5AB2",
+      "do_objectID": "7F0BA9AD-2320-4140-BA80-6AC11E2468D5",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
+        "name": "Mistica/Bars/appBar/appBarBackground",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "1948D531-8C2C-4B1A-8650-DA9FF8C456E2",
+          "endMarkerType": 0,
+          "fills": [
+            {
+              "_class": "fill",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 1,
+                "green": 1,
+                "red": 1,
+                "swatchID": "1268788C-7C40-43C9-8F0F-2F77FC4CE9CA"
+              },
+              "contextSettings": {
+                "_class": "graphicsContextSettings",
+                "blendMode": 0,
+                "opacity": 1
+              },
+              "fillType": 0,
+              "gradient": {
+                "_class": "gradient",
+                "elipseLength": 0,
+                "from": "{0.5, 0}",
+                "gradientType": 0,
+                "stops": [
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 1,
+                      "green": 1,
+                      "red": 1
+                    },
+                    "position": 0
+                  },
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 0,
+                      "green": 0,
+                      "red": 0
+                    },
+                    "position": 1
+                  }
+                ],
+                "to": "{0.5, 1}"
+              },
+              "isEnabled": true,
+              "noiseIndex": 0,
+              "noiseIntensity": 0,
+              "patternFillType": 1,
+              "patternTileScale": 1
+            }
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "windingRule": 0
+        }
+      },
+      "remoteStyleID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
+      "sourceLibraryName": "Movistar_Brand_Library",
+      "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignLayerStyle",
+      "do_objectID": "AC6FF3B0-62A1-4E0B-AEFA-22FAF2040049",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -1171,7 +1283,7 @@
     },
     {
       "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "6B3DB872-F6B8-4C24-9800-9522D139F700",
+      "do_objectID": "597028D4-86B5-49DF-B0E6-77C37F73B471",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -1278,118 +1390,6 @@
         }
       },
       "remoteStyleID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[2AA3B19C-7EBF-4440-BB97-6B5FE388721D]",
-      "sourceLibraryName": "Movistar_Brand_Library",
-      "symbolPrivate": true
-    },
-    {
-      "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "C7506F73-DFD8-4607-8482-900F6D6B437B",
-      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
-      "localSharedStyle": {
-        "_class": "sharedStyle",
-        "do_objectID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
-        "name": "Mistica/Bars/appBar/appBarBackground",
-        "value": {
-          "_class": "style",
-          "blur": {
-            "_class": "blur",
-            "center": "{0.5, 0.5}",
-            "isEnabled": false,
-            "motionAngle": 0,
-            "radius": 10,
-            "saturation": 1,
-            "type": 0
-          },
-          "borderOptions": {
-            "_class": "borderOptions",
-            "dashPattern": [
-            ],
-            "isEnabled": true,
-            "lineCapStyle": 0,
-            "lineJoinStyle": 0
-          },
-          "borders": [
-          ],
-          "colorControls": {
-            "_class": "colorControls",
-            "brightness": 0,
-            "contrast": 1,
-            "hue": 0,
-            "isEnabled": true,
-            "saturation": 1
-          },
-          "contextSettings": {
-            "_class": "graphicsContextSettings",
-            "blendMode": 0,
-            "opacity": 1
-          },
-          "do_objectID": "1948D531-8C2C-4B1A-8650-DA9FF8C456E2",
-          "endMarkerType": 0,
-          "fills": [
-            {
-              "_class": "fill",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 1,
-                "green": 1,
-                "red": 1,
-                "swatchID": "1268788C-7C40-43C9-8F0F-2F77FC4CE9CA"
-              },
-              "contextSettings": {
-                "_class": "graphicsContextSettings",
-                "blendMode": 0,
-                "opacity": 1
-              },
-              "fillType": 0,
-              "gradient": {
-                "_class": "gradient",
-                "elipseLength": 0,
-                "from": "{0.5, 0}",
-                "gradientType": 0,
-                "stops": [
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 1,
-                      "green": 1,
-                      "red": 1
-                    },
-                    "position": 0
-                  },
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 0,
-                      "green": 0,
-                      "red": 0
-                    },
-                    "position": 1
-                  }
-                ],
-                "to": "{0.5, 1}"
-              },
-              "isEnabled": true,
-              "noiseIndex": 0,
-              "noiseIntensity": 0,
-              "patternFillType": 1,
-              "patternTileScale": 1
-            }
-          ],
-          "innerShadows": [
-          ],
-          "miterLimit": 10,
-          "shadows": [
-          ],
-          "startMarkerType": 0,
-          "windingRule": 0
-        }
-      },
-      "remoteStyleID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
       "sourceLibraryName": "Movistar_Brand_Library",
       "symbolPrivate": true
     }
@@ -2269,7 +2269,7 @@
           ]
         }
       },
-      "sourceLibraryName": "iOS_Novum_Library",
+      "sourceLibraryName": "Mistica iOS",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -4493,7 +4493,7 @@
           ]
         }
       },
-      "sourceLibraryName": "iOS_Novum_Library",
+      "sourceLibraryName": "Mistica iOS",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -9173,7 +9173,7 @@
           ]
         }
       },
-      "sourceLibraryName": "iOS_Novum_Library",
+      "sourceLibraryName": "Mistica iOS",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -13836,7 +13836,7 @@
           ]
         }
       },
-      "sourceLibraryName": "iOS_Novum_Library",
+      "sourceLibraryName": "Mistica iOS",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -16135,7 +16135,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Android_Novum_Library",
+      "sourceLibraryName": "Mistica Android",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -18630,7 +18630,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Android_Novum_Library",
+      "sourceLibraryName": "Mistica Android",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -23455,7 +23455,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Android_Novum_Library",
+      "sourceLibraryName": "Mistica Android",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -30138,7 +30138,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Android_Novum_Library",
+      "sourceLibraryName": "Mistica Android",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -33807,7 +33807,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -34366,7 +34366,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -34925,7 +34925,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -35484,7 +35484,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -36043,7 +36043,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -36602,7 +36602,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -37161,7 +37161,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -37720,7 +37720,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -38279,7 +38279,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -38838,7 +38838,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -39397,7 +39397,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -39956,7 +39956,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -40515,7 +40515,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -41074,7 +41074,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -41633,7 +41633,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -42192,7 +42192,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -42751,7 +42751,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -43310,7 +43310,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -43869,7 +43869,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -44428,7 +44428,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -44987,7 +44987,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -45546,7 +45546,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -46105,7 +46105,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -46664,7 +46664,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -47223,7 +47223,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -47782,7 +47782,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -48341,7 +48341,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -48900,7 +48900,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -49459,7 +49459,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -50018,7 +50018,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -50577,7 +50577,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -51136,7 +51136,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -51695,7 +51695,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -52254,7 +52254,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -52813,7 +52813,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -53372,7 +53372,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -53931,7 +53931,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -54490,7 +54490,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -55045,7 +55045,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -55596,7 +55596,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -56151,7 +56151,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -56710,7 +56710,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -57364,7 +57364,7 @@
           ]
         }
       },
-      "sourceLibraryName": "iOS_Novum_Library",
+      "sourceLibraryName": "Mistica iOS",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -57769,7 +57769,7 @@
           "constrainProportions": false,
           "height": 50,
           "width": 375,
-          "x": -26801,
+          "x": -28595,
           "y": -1193
         },
         "grid": {
@@ -57930,7 +57930,7 @@
                     "blue": 1,
                     "green": 1,
                     "red": 1,
-                    "swatchID": "B5C82A60-EA7E-417B-AF33-95107B0FCC47"
+                    "swatchID": "ADC68D41-601D-4191-855C-7220DC630CB6"
                   },
                   "contextSettings": {
                     "_class": "graphicsContextSettings",
@@ -58197,7 +58197,7 @@
                               "blue": 0.6,
                               "green": 0.6,
                               "red": 0.6,
-                              "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                              "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -58312,7 +58312,7 @@
                             "blue": 0.6,
                             "green": 0.6,
                             "red": 0.6,
-                            "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                            "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -58372,7 +58372,7 @@
                     "isLocked": false,
                     "isVisible": true,
                     "layerListExpandedType": 0,
-                    "name": "Asset 4",
+                    "name": "Assets/25/Settings",
                     "nameIsFixed": true,
                     "overrideValues": [
                     ],
@@ -58662,7 +58662,7 @@
                               "blue": 0.6,
                               "green": 0.6,
                               "red": 0.6,
-                              "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                              "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -58777,7 +58777,7 @@
                             "blue": 0.6,
                             "green": 0.6,
                             "red": 0.6,
-                            "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                            "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -58837,7 +58837,7 @@
                     "isLocked": false,
                     "isVisible": true,
                     "layerListExpandedType": 0,
-                    "name": "Asset 3",
+                    "name": "Assets/25/Aura",
                     "nameIsFixed": true,
                     "overrideValues": [
                     ],
@@ -59127,7 +59127,7 @@
                               "blue": 0.6,
                               "green": 0.6,
                               "red": 0.6,
-                              "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                              "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -59242,7 +59242,7 @@
                             "blue": 0.6,
                             "green": 0.6,
                             "red": 0.6,
-                            "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                            "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -59302,7 +59302,7 @@
                     "isLocked": false,
                     "isVisible": true,
                     "layerListExpandedType": 0,
-                    "name": "Asset 2",
+                    "name": "Assets/25/Explore",
                     "nameIsFixed": true,
                     "overrideValues": [
                     ],
@@ -59592,7 +59592,7 @@
                               "blue": 0.9568627450980391,
                               "green": 0.615686274509804,
                               "red": 0.00392156862745098,
-                              "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
+                              "swatchID": "DD33EABB-9632-4ADE-892D-4CAFF6DC05A5"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -59707,7 +59707,7 @@
                             "blue": 0.9568627450980391,
                             "green": 0.615686274509804,
                             "red": 0.00392156862745098,
-                            "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
+                            "swatchID": "DD33EABB-9632-4ADE-892D-4CAFF6DC05A5"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -59767,7 +59767,7 @@
                     "isLocked": false,
                     "isVisible": true,
                     "layerListExpandedType": 0,
-                    "name": "Asset 1",
+                    "name": "Assets/25/Account_Active",
                     "nameIsFixed": true,
                     "overrideValues": [
                     ],
@@ -60062,7 +60062,7 @@
                     "blue": 0.9333333333333333,
                     "green": 0.9333333333333333,
                     "red": 0.9333333333333333,
-                    "swatchID": "337E6AA7-B89C-4A5E-BDF6-6AB7F276B087"
+                    "swatchID": "2E8D6A52-D0BC-4117-B526-844C49A6351B"
                   },
                   "contextSettings": {
                     "_class": "graphicsContextSettings",
@@ -60311,7 +60311,7 @@
           ]
         }
       },
-      "sourceLibraryName": "iOS_Novum_Library",
+      "sourceLibraryName": "Mistica iOS",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -60339,7 +60339,7 @@
           "constrainProportions": false,
           "height": 50,
           "width": 375,
-          "x": -26801,
+          "x": -28595,
           "y": -1193
         },
         "grid": {
@@ -60500,7 +60500,7 @@
                     "blue": 1,
                     "green": 1,
                     "red": 1,
-                    "swatchID": "B5C82A60-EA7E-417B-AF33-95107B0FCC47"
+                    "swatchID": "ADC68D41-601D-4191-855C-7220DC630CB6"
                   },
                   "contextSettings": {
                     "_class": "graphicsContextSettings",
@@ -60767,7 +60767,7 @@
                               "blue": 0.6,
                               "green": 0.6,
                               "red": 0.6,
-                              "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                              "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -60882,7 +60882,7 @@
                             "blue": 0.6,
                             "green": 0.6,
                             "red": 0.6,
-                            "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                            "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -60942,7 +60942,7 @@
                     "isLocked": false,
                     "isVisible": true,
                     "layerListExpandedType": 0,
-                    "name": "Asset 4",
+                    "name": "Assets/25/Settings",
                     "nameIsFixed": true,
                     "overrideValues": [
                     ],
@@ -61232,7 +61232,7 @@
                               "blue": 0.6,
                               "green": 0.6,
                               "red": 0.6,
-                              "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                              "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -61347,7 +61347,7 @@
                             "blue": 0.6,
                             "green": 0.6,
                             "red": 0.6,
-                            "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                            "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -61407,7 +61407,7 @@
                     "isLocked": false,
                     "isVisible": true,
                     "layerListExpandedType": 0,
-                    "name": "Asset 3",
+                    "name": "Assets/25/Aura",
                     "nameIsFixed": true,
                     "overrideValues": [
                     ],
@@ -61697,7 +61697,7 @@
                               "blue": 0.6,
                               "green": 0.6,
                               "red": 0.6,
-                              "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                              "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -61812,7 +61812,7 @@
                             "blue": 0.6,
                             "green": 0.6,
                             "red": 0.6,
-                            "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                            "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -61872,7 +61872,7 @@
                     "isLocked": false,
                     "isVisible": true,
                     "layerListExpandedType": 0,
-                    "name": "Asset 2",
+                    "name": "Assets/25/Explore",
                     "nameIsFixed": true,
                     "overrideValues": [
                     ],
@@ -62162,7 +62162,7 @@
                               "blue": 0.9568627450980391,
                               "green": 0.615686274509804,
                               "red": 0.00392156862745098,
-                              "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
+                              "swatchID": "DD33EABB-9632-4ADE-892D-4CAFF6DC05A5"
                             },
                             "MSAttributedStringFontAttribute": {
                               "_class": "fontDescriptor",
@@ -62277,7 +62277,7 @@
                             "blue": 0.9568627450980391,
                             "green": 0.615686274509804,
                             "red": 0.00392156862745098,
-                            "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
+                            "swatchID": "DD33EABB-9632-4ADE-892D-4CAFF6DC05A5"
                           },
                           "MSAttributedStringFontAttribute": {
                             "_class": "fontDescriptor",
@@ -62337,7 +62337,7 @@
                     "isLocked": false,
                     "isVisible": true,
                     "layerListExpandedType": 0,
-                    "name": "Asset 1",
+                    "name": "Assets/25/Account_Active",
                     "nameIsFixed": true,
                     "overrideValues": [
                     ],
@@ -62632,7 +62632,7 @@
                     "blue": 0.9333333333333333,
                     "green": 0.9333333333333333,
                     "red": 0.9333333333333333,
-                    "swatchID": "337E6AA7-B89C-4A5E-BDF6-6AB7F276B087"
+                    "swatchID": "2E8D6A52-D0BC-4117-B526-844C49A6351B"
                   },
                   "contextSettings": {
                     "_class": "graphicsContextSettings",
@@ -63184,7 +63184,7 @@
                           "blue": 0.6,
                           "green": 0.6,
                           "red": 0.6,
-                          "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                          "swatchID": "C1A65991-1AA1-4D73-95FB-F3181D905D05"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -63299,7 +63299,7 @@
                         "blue": 0.6,
                         "green": 0.6,
                         "red": 0.6,
-                        "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                        "swatchID": "C1A65991-1AA1-4D73-95FB-F3181D905D05"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -63359,7 +63359,7 @@
                 "isLocked": false,
                 "isVisible": true,
                 "layerListExpandedType": 0,
-                "name": "Tab 4",
+                "name": "Assets/24/Settings",
                 "nameIsFixed": true,
                 "overrideValues": [
                 ],
@@ -63525,7 +63525,7 @@
                           "blue": 0.6,
                           "green": 0.6,
                           "red": 0.6,
-                          "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                          "swatchID": "C1A65991-1AA1-4D73-95FB-F3181D905D05"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -63640,7 +63640,7 @@
                         "blue": 0.6,
                         "green": 0.6,
                         "red": 0.6,
-                        "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                        "swatchID": "C1A65991-1AA1-4D73-95FB-F3181D905D05"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -63700,7 +63700,7 @@
                 "isLocked": false,
                 "isVisible": true,
                 "layerListExpandedType": 0,
-                "name": "Tab 3",
+                "name": "Assets/24/Aura",
                 "nameIsFixed": true,
                 "overrideValues": [
                 ],
@@ -63866,7 +63866,7 @@
                           "blue": 0.6,
                           "green": 0.6,
                           "red": 0.6,
-                          "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                          "swatchID": "C1A65991-1AA1-4D73-95FB-F3181D905D05"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -63981,7 +63981,7 @@
                         "blue": 0.6,
                         "green": 0.6,
                         "red": 0.6,
-                        "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                        "swatchID": "C1A65991-1AA1-4D73-95FB-F3181D905D05"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -64041,7 +64041,7 @@
                 "isLocked": false,
                 "isVisible": true,
                 "layerListExpandedType": 0,
-                "name": "Tab 2",
+                "name": "Assets/24/Explore",
                 "nameIsFixed": true,
                 "overrideValues": [
                 ],
@@ -64207,7 +64207,7 @@
                           "blue": 0.9568627450980391,
                           "green": 0.615686274509804,
                           "red": 0.00392156862745098,
-                          "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
+                          "swatchID": "081AFB46-CEEA-4065-8E31-552D2D69A46E"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -64322,7 +64322,7 @@
                         "blue": 0.9568627450980391,
                         "green": 0.615686274509804,
                         "red": 0.00392156862745098,
-                        "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
+                        "swatchID": "081AFB46-CEEA-4065-8E31-552D2D69A46E"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -64382,7 +64382,7 @@
                 "isLocked": false,
                 "isVisible": true,
                 "layerListExpandedType": 0,
-                "name": "Tab 1",
+                "name": "Assets/24/Account_Active",
                 "nameIsFixed": true,
                 "overrideValues": [
                 ],
@@ -64684,7 +64684,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Android_Novum_Library",
+      "sourceLibraryName": "Mistica Android",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -64982,7 +64982,7 @@
                           "blue": 0.6,
                           "green": 0.6,
                           "red": 0.6,
-                          "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                          "swatchID": "C1A65991-1AA1-4D73-95FB-F3181D905D05"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -65097,7 +65097,7 @@
                         "blue": 0.6,
                         "green": 0.6,
                         "red": 0.6,
-                        "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                        "swatchID": "C1A65991-1AA1-4D73-95FB-F3181D905D05"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -65157,7 +65157,7 @@
                 "isLocked": false,
                 "isVisible": true,
                 "layerListExpandedType": 0,
-                "name": "Tab 4",
+                "name": "Assets/24/Settings",
                 "nameIsFixed": true,
                 "overrideValues": [
                 ],
@@ -65323,7 +65323,7 @@
                           "blue": 0.6,
                           "green": 0.6,
                           "red": 0.6,
-                          "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                          "swatchID": "C1A65991-1AA1-4D73-95FB-F3181D905D05"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -65438,7 +65438,7 @@
                         "blue": 0.6,
                         "green": 0.6,
                         "red": 0.6,
-                        "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                        "swatchID": "C1A65991-1AA1-4D73-95FB-F3181D905D05"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -65498,7 +65498,7 @@
                 "isLocked": false,
                 "isVisible": true,
                 "layerListExpandedType": 0,
-                "name": "Tab 3",
+                "name": "Assets/24/Aura",
                 "nameIsFixed": true,
                 "overrideValues": [
                 ],
@@ -65664,7 +65664,7 @@
                           "blue": 0.6,
                           "green": 0.6,
                           "red": 0.6,
-                          "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                          "swatchID": "C1A65991-1AA1-4D73-95FB-F3181D905D05"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -65779,7 +65779,7 @@
                         "blue": 0.6,
                         "green": 0.6,
                         "red": 0.6,
-                        "swatchID": "13F00182-248D-4976-AC0E-B54349FCA6D4"
+                        "swatchID": "C1A65991-1AA1-4D73-95FB-F3181D905D05"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -65839,7 +65839,7 @@
                 "isLocked": false,
                 "isVisible": true,
                 "layerListExpandedType": 0,
-                "name": "Tab 2",
+                "name": "Assets/24/Explore",
                 "nameIsFixed": true,
                 "overrideValues": [
                 ],
@@ -66005,7 +66005,7 @@
                           "blue": 0.9568627450980391,
                           "green": 0.615686274509804,
                           "red": 0.00392156862745098,
-                          "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
+                          "swatchID": "081AFB46-CEEA-4065-8E31-552D2D69A46E"
                         },
                         "MSAttributedStringFontAttribute": {
                           "_class": "fontDescriptor",
@@ -66120,7 +66120,7 @@
                         "blue": 0.9568627450980391,
                         "green": 0.615686274509804,
                         "red": 0.00392156862745098,
-                        "swatchID": "AA84ABF5-EBEE-4448-B2B3-EB0594FCD69A"
+                        "swatchID": "081AFB46-CEEA-4065-8E31-552D2D69A46E"
                       },
                       "MSAttributedStringFontAttribute": {
                         "_class": "fontDescriptor",
@@ -66180,7 +66180,7 @@
                 "isLocked": false,
                 "isVisible": true,
                 "layerListExpandedType": 0,
-                "name": "Tab 1",
+                "name": "Assets/24/Account_Active",
                 "nameIsFixed": true,
                 "overrideValues": [
                 ],
@@ -66764,7 +66764,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -67323,7 +67323,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -67882,7 +67882,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -68441,7 +68441,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -69000,7 +69000,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -69559,7 +69559,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -70114,7 +70114,7 @@
           ]
         }
       },
-      "sourceLibraryName": "Movistar_Brand_Library",
+      "sourceLibraryName": "Movistar",
       "symbolMaster": {
         "_class": "symbolMaster",
         "allowsOverrides": true,
@@ -70393,183 +70393,7 @@
   "foreignTextStyles": [
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "65B8E11F-582D-4893-9604-ADAFCB06630D",
-      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
-      "localSharedStyle": {
-        "_class": "sharedStyle",
-        "do_objectID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[4E3C48AB-1226-4CE1-B58A-D39FB36366CF]",
-        "name": "App/iOS/text-system/tabBar/textAppBar",
-        "value": {
-          "_class": "style",
-          "blur": {
-            "_class": "blur",
-            "center": "{0.5, 0.5}",
-            "isEnabled": false,
-            "motionAngle": 0,
-            "radius": 10,
-            "saturation": 1,
-            "type": 0
-          },
-          "borderOptions": {
-            "_class": "borderOptions",
-            "dashPattern": [
-            ],
-            "isEnabled": true,
-            "lineCapStyle": 0,
-            "lineJoinStyle": 0
-          },
-          "borders": [
-          ],
-          "colorControls": {
-            "_class": "colorControls",
-            "brightness": 0,
-            "contrast": 1,
-            "hue": 0,
-            "isEnabled": true,
-            "saturation": 1
-          },
-          "contextSettings": {
-            "_class": "graphicsContextSettings",
-            "blendMode": 0,
-            "opacity": 1
-          },
-          "do_objectID": "3DA3BD90-4A24-42A2-BD0E-48000E10A1DE",
-          "endMarkerType": 0,
-          "fills": [
-          ],
-          "innerShadows": [
-          ],
-          "miterLimit": 10,
-          "shadows": [
-          ],
-          "startMarkerType": 0,
-          "textStyle": {
-            "_class": "textStyle",
-            "encodedAttributes": {
-              "MSAttributedStringColorAttribute": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0.6,
-                "green": 0.6,
-                "red": 0.6,
-                "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
-              },
-              "MSAttributedStringFontAttribute": {
-                "_class": "fontDescriptor",
-                "attributes": {
-                  "name": "SFProText-Regular",
-                  "size": 10
-                }
-              },
-              "kerning": 0,
-              "paragraphStyle": {
-                "_class": "paragraphStyle",
-                "alignment": 2,
-                "allowsDefaultTighteningForTruncation": 0,
-                "maximumLineHeight": 14,
-                "minimumLineHeight": 14
-              }
-            },
-            "verticalAlignment": 0
-          },
-          "windingRule": 1
-        }
-      },
-      "remoteStyleID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[4E3C48AB-1226-4CE1-B58A-D39FB36366CF]",
-      "sourceLibraryName": "Movistar_Brand_Library",
-      "symbolPrivate": true
-    },
-    {
-      "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "59DDE885-AED4-4FAB-AB01-5029582428F9",
-      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
-      "localSharedStyle": {
-        "_class": "sharedStyle",
-        "do_objectID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[71FDD2EE-33DB-4175-B69C-03E92804A9CA]",
-        "name": "App/iOS/text-system/tabBar/textAppBarSelected",
-        "value": {
-          "_class": "style",
-          "blur": {
-            "_class": "blur",
-            "center": "{0.5, 0.5}",
-            "isEnabled": false,
-            "motionAngle": 0,
-            "radius": 10,
-            "saturation": 1,
-            "type": 0
-          },
-          "borderOptions": {
-            "_class": "borderOptions",
-            "dashPattern": [
-            ],
-            "isEnabled": true,
-            "lineCapStyle": 0,
-            "lineJoinStyle": 0
-          },
-          "borders": [
-          ],
-          "colorControls": {
-            "_class": "colorControls",
-            "brightness": 0,
-            "contrast": 1,
-            "hue": 0,
-            "isEnabled": true,
-            "saturation": 1
-          },
-          "contextSettings": {
-            "_class": "graphicsContextSettings",
-            "blendMode": 0,
-            "opacity": 1
-          },
-          "do_objectID": "18912FD3-EBC7-4CC0-AF44-7F308FDFB24F",
-          "endMarkerType": 0,
-          "fills": [
-          ],
-          "innerShadows": [
-          ],
-          "miterLimit": 10,
-          "shadows": [
-          ],
-          "startMarkerType": 0,
-          "textStyle": {
-            "_class": "textStyle",
-            "encodedAttributes": {
-              "MSAttributedStringColorAttribute": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0.9568627450980391,
-                "green": 0.615686274509804,
-                "red": 0.00392156862745098,
-                "swatchID": "DD33EABB-9632-4ADE-892D-4CAFF6DC05A5"
-              },
-              "MSAttributedStringFontAttribute": {
-                "_class": "fontDescriptor",
-                "attributes": {
-                  "name": "SFProText-Regular",
-                  "size": 10
-                }
-              },
-              "kerning": 0,
-              "paragraphStyle": {
-                "_class": "paragraphStyle",
-                "alignment": 2,
-                "allowsDefaultTighteningForTruncation": 0,
-                "maximumLineHeight": 14,
-                "minimumLineHeight": 14
-              }
-            },
-            "verticalAlignment": 0
-          },
-          "windingRule": 1
-        }
-      },
-      "remoteStyleID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[71FDD2EE-33DB-4175-B69C-03E92804A9CA]",
-      "sourceLibraryName": "Movistar_Brand_Library",
-      "symbolPrivate": true
-    },
-    {
-      "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "EF4E9C3A-7101-4412-9A74-F1A5B3D87B61",
+      "do_objectID": "82247594-9E4C-46EB-82DC-FE7D8752E909",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -70657,7 +70481,7 @@
     },
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "8600F580-E12C-4FF3-962A-FC7BB88EA11A",
+      "do_objectID": "05B4C5B5-70DC-4E60-A4EF-4808761BD7A2",
       "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
       "localSharedStyle": {
         "_class": "sharedStyle",
@@ -70742,6 +70566,182 @@
       "remoteStyleID": "FDD01617-982E-47E6-9EA5-79565CEDA80F[DD4236EC-BEF3-4B45-AD49-A0D3569EA5E3]",
       "sourceLibraryName": "Movistar_Brand_Library",
       "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignTextStyle",
+      "do_objectID": "12D2680C-BA8E-4573-8F77-2E4590A0D5E5",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[4E3C48AB-1226-4CE1-B58A-D39FB36366CF]",
+        "name": "App/iOS/text-system/tabBar/textAppBar",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "3DA3BD90-4A24-42A2-BD0E-48000E10A1DE",
+          "endMarkerType": 0,
+          "fills": [
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "textStyle": {
+            "_class": "textStyle",
+            "encodedAttributes": {
+              "MSAttributedStringColorAttribute": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.6,
+                "green": 0.6,
+                "red": 0.6,
+                "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
+              },
+              "MSAttributedStringFontAttribute": {
+                "_class": "fontDescriptor",
+                "attributes": {
+                  "name": "SFProText-Regular",
+                  "size": 10
+                }
+              },
+              "kerning": 0,
+              "paragraphStyle": {
+                "_class": "paragraphStyle",
+                "alignment": 2,
+                "allowsDefaultTighteningForTruncation": 0,
+                "maximumLineHeight": 14,
+                "minimumLineHeight": 14
+              }
+            },
+            "verticalAlignment": 0
+          },
+          "windingRule": 1
+        }
+      },
+      "remoteStyleID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[4E3C48AB-1226-4CE1-B58A-D39FB36366CF]",
+      "sourceLibraryName": "Movistar_Brand_Library",
+      "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignTextStyle",
+      "do_objectID": "7E337C2B-F6D9-4088-91A6-6EE3D47F7D46",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[71FDD2EE-33DB-4175-B69C-03E92804A9CA]",
+        "name": "App/iOS/text-system/tabBar/textAppBarSelected",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "18912FD3-EBC7-4CC0-AF44-7F308FDFB24F",
+          "endMarkerType": 0,
+          "fills": [
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "textStyle": {
+            "_class": "textStyle",
+            "encodedAttributes": {
+              "MSAttributedStringColorAttribute": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.9568627450980391,
+                "green": 0.615686274509804,
+                "red": 0.00392156862745098,
+                "swatchID": "DD33EABB-9632-4ADE-892D-4CAFF6DC05A5"
+              },
+              "MSAttributedStringFontAttribute": {
+                "_class": "fontDescriptor",
+                "attributes": {
+                  "name": "SFProText-Regular",
+                  "size": 10
+                }
+              },
+              "kerning": 0,
+              "paragraphStyle": {
+                "_class": "paragraphStyle",
+                "alignment": 2,
+                "allowsDefaultTighteningForTruncation": 0,
+                "maximumLineHeight": 14,
+                "minimumLineHeight": 14
+              }
+            },
+            "verticalAlignment": 0
+          },
+          "windingRule": 1
+        }
+      },
+      "remoteStyleID": "659B2CCD-E008-4C96-A539-7DF2F7CDB1E1[71FDD2EE-33DB-4175-B69C-03E92804A9CA]",
+      "sourceLibraryName": "Movistar_Brand_Library",
+      "symbolPrivate": true
     }
   ],
   "layerSymbols": {
@@ -70751,8 +70751,8 @@
     ]
   },
   "meta": {
-    "appVersion": "70",
-    "build": 108797,
+    "appVersion": "69.2",
+    "build": 107504,
     "version": 134
   },
   "pages": [
@@ -71162,6 +71162,9 @@
     },
     "com.plant.plantplugin": {
       "plant_doc_id": "467E2158-4C74-4D81-824E-57EA56A4EC5F"
+    },
+    "com.sonburn.sketchplugins.symbol-swapper": {
+      "librarySwapType": 1
     }
   }
 }
