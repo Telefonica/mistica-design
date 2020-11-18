@@ -21,7 +21,7 @@ Steps to reproduce the behavior:
 A clear and concise description of what you expected to happen.
 
 ## Details (please complete the following information):
-_Mark with [x] or [ ] to which library is applying the issue._
+<!-- Mark with [x] or [ ] to which library is applying the issue. -->
 - [x] iOS Library 
 - [ ] Android Library
 
