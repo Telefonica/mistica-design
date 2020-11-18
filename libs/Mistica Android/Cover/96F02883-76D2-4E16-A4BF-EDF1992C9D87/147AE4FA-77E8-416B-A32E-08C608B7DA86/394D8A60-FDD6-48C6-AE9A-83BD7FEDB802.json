@@ -1,8 +1,9 @@
 {
-  "_class": "shapeGroup",
+  "_class": "shapePath",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "4A5AD52C-88EB-42B5-9FC9-8D622BD6E21E",
+  "do_objectID": "394D8A60-FDD6-48C6-AE9A-83BD7FEDB802",
+  "edited": true,
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -15,38 +16,54 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 308,
-    "width": 242.4,
-    "x": 0.8000000000000114,
-    "y": 0
+    "height": 124.385337815126,
+    "width": 248.7706756302521,
+    "x": -5.333250181352281e-14,
+    "y": 29.32794857142746
   },
-  "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
-  },
-  "hasClickThrough": false,
   "hasClippingMask": false,
+  "isClosed": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 1,
-  "layers": [
+  "layerListExpandedType": 0,
+  "name": "Stroke 1",
+  "nameIsFixed": false,
+  "pointRadiusBehaviour": 1,
+  "points": [
     {
-      "class": "shapePath",
-      "id": "DD2525CF-7798-422B-8F83-87EFB06A8DAE"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{0.22387760555852493, 0}",
+      "curveMode": 2,
+      "curveTo": "{0.77618920363442023, 0}",
+      "hasCurveFrom": true,
+      "hasCurveTo": true,
+      "point": "{0.50000000000000011, 0}"
     },
     {
-      "class": "shapePath",
-      "id": "3E94A90D-CEEA-4CC4-9151-0DA4C9117183"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{0, 1}",
+      "curveMode": 4,
+      "curveTo": "{0, 0.44775521111704969}",
+      "hasCurveFrom": false,
+      "hasCurveTo": true,
+      "point": "{0, 1}"
     },
     {
-      "class": "shapePath",
-      "id": "EB9BE6E5-2089-47E0-A1C0-DFE28E1A966D"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{1, 0.44775521111704969}",
+      "curveMode": 4,
+      "curveTo": "{1, 1}",
+      "hasCurveFrom": true,
+      "hasCurveTo": false,
+      "point": "{1, 1}"
     }
   ],
-  "name": "Shape",
-  "nameIsFixed": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
@@ -58,7 +75,7 @@
       "center": "{0.5, 0.5}",
       "isEnabled": false,
       "motionAngle": 0,
-      "radius": 40,
+      "radius": 166.201680672269,
       "saturation": 1,
       "type": 0
     },
@@ -67,35 +84,18 @@
       "dashPattern": [
       ],
       "isEnabled": true,
-      "lineCapStyle": 0,
-      "lineJoinStyle": 0
+      "lineCapStyle": 1,
+      "lineJoinStyle": 1
     },
     "borders": [
-    ],
-    "colorControls": {
-      "_class": "colorControls",
-      "brightness": 0,
-      "contrast": 1,
-      "hue": 0,
-      "isEnabled": false,
-      "saturation": 1
-    },
-    "contextSettings": {
-      "_class": "graphicsContextSettings",
-      "blendMode": 0,
-      "opacity": 1
-    },
-    "do_objectID": "B22462D9-6A0B-4940-863B-6A2C47ACA55D",
-    "endMarkerType": 0,
-    "fills": [
       {
-        "_class": "fill",
+        "_class": "border",
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0,
-          "green": 0,
-          "red": 0
+          "blue": 0.282,
+          "green": 0.212,
+          "red": 0.08600000000000001
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -135,11 +135,26 @@
           "to": "{0.5, 1}"
         },
         "isEnabled": true,
-        "noiseIndex": 0,
-        "noiseIntensity": 0,
-        "patternFillType": 1,
-        "patternTileScale": 1
+        "position": 0,
+        "thickness": 22.51764705882353
       }
+    ],
+    "colorControls": {
+      "_class": "colorControls",
+      "brightness": 0,
+      "contrast": 1,
+      "hue": 0,
+      "isEnabled": false,
+      "saturation": 1
+    },
+    "contextSettings": {
+      "_class": "graphicsContextSettings",
+      "blendMode": 0,
+      "opacity": 1
+    },
+    "do_objectID": "AD4CC7FB-6794-41C4-9AEB-6FB46CF748AA",
+    "endMarkerType": 0,
+    "fills": [
     ],
     "innerShadows": [
     ],
@@ -147,7 +162,6 @@
     "shadows": [
     ],
     "startMarkerType": 0,
-    "windingRule": 0
-  },
-  "windingRule": 0
+    "windingRule": 1
+  }
 }
