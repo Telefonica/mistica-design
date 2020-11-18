@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - production
-      - develop
 
 jobs:
   # generator:
@@ -58,7 +57,6 @@ jobs:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
         src_branch: ${{ env.GITHUB_REF_SLUG_URL }}
         src_path: libs/.
-        file_filter: '*.sketch'
         dst_branch: ${{ env.GITHUB_REF_SLUG_URL }}
         dst_path: libraries/.
         dst_owner: yceballost
