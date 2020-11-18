@@ -4,10 +4,46 @@ on:
   push:
     branches:
       - production
+      - develop
 
-jobs:  
+jobs:
+  # generator:
+  #   runs-on: [self-hosted, macOS]
+  #   steps:
+
+  #   - uses: actions/checkout@v2
+
+  #   - name: Inject slug/short variables
+  #     uses: rlespinasse/github-slug-action@v3.x
+
+  #   - run: npm install --global kactus-cli --force
+
+  #   - name: convert folder to sketch file
+  #     run: |
+  #       kactus import libs/Movistar
+  #       kactus import libs/O2
+  #       kactus import libs/ClassicO2
+  #       kactus import libs/Vivo
+  #       kactus import libs/Telefonica
+  #       kactus import libs/Mistica\ iOS
+  #       kactus import libs/Mistica\ Android
+
+  #   # - name: stage changed files
+  #   #   run: git add -f .
+
+  #   # - name: config
+  #   #   run: |
+  #   #     git config --global user.name "🤖GeneratorBot"
+  #   #     git config --global user.email "users.noreply.github.com"
+
+  #   # - name: commit changed files
+  #   #   run: git commit -m "sketch generated and folders removed"
+
+  #   # - name: push code to ${{ env.GITHUB_REF_SLUG_URL }}
+  #   #   run: git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
+  
   send-files:
-    needs: generator
+    # needs: generator
     runs-on: [self-hosted, Linux]
     steps:
     # comando solo para Self-Hosted machines
@@ -29,3 +65,9 @@ jobs:
         dst_repo_name: mistica-sketch-libraries
         commit_message: Libs uploaded to ${{ env.GITHUB_REF_SLUG_URL }}
         clean: true
+
+    # - name: removed sketch force
+    #   run: |
+    #     git rm *.sketch
+    #     git commit -m "sketch removed"
+    #     git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
