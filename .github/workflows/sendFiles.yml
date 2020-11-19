@@ -14,6 +14,10 @@ jobs:
     # comando solo para Self-Hosted machines
     # - run: sudo chown -R $USER:$USER /home/pi/actions-github/mistica-design-libraries/_work/
     
+    - name: Cleanup
+      run: |
+        sudo chown -R $USER:$USER $GITHUB_WORKSPACE
+
     # Checkout para self-hosted Telefonica
     - uses: actions/checkout@v2
 
