@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - production
+    paths:
+      - 'libs/**'
 
 jobs:
   send-files:
@@ -11,8 +13,10 @@ jobs:
     steps:
     # comando solo para Self-Hosted machines
     # - run: sudo chown -R $USER:$USER /home/pi/actions-github/mistica-design-libraries/_work/
-    - uses: actions/checkout@v2
     
+    # Checkout para self-hosted Telefonica
+    - uses: actions/checkout@v2
+
     - name: Get branch name
       uses: rlespinasse/github-slug-action@v2.x
 
