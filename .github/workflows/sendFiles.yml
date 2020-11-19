@@ -43,7 +43,7 @@ jobs:
   
   send-files:
     # needs: generator
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux]
     steps:
     # comando solo para Self-Hosted machines
     # - run: sudo chown -R $USER:$USER /home/pi/actions-github/mistica-design-libraries/_work/
@@ -69,4 +69,3 @@ jobs:
     #     git rm *.sketch
     #     git commit -m "sketch removed"
     #     git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
-    
