@@ -23,14 +23,9 @@ jobs:
       with:
         config: |
         title: 'Issue Query Example'
-        description: |
-          An example of several issue queries, both those that are showing
-          number widgets with the number of results, and tables that show
-          results.
-          These issues are querying the libgit2/libgit2 repository.
         output:
-          format: 'html'
-          filename: 'dashboard.html'
+          format: html
+          filename: 'out/dashboard.html'
         sections:
         - title: 'Open Issues by Type'
           description: 'Queries of issues by type, using their label.'
