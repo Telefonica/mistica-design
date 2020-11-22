@@ -27,10 +27,13 @@ jobs:
             An example of several issue queries, both those that are showing
             number widgets with the number of results, and tables that show
             results.
+            
             These issues are querying the libgit2/libgit2 repository.
+          
           output:
             format: html
             filename: 'dashboard.html'
+          
           sections:
           - title: 'Open Issues by Type'
             description: 'Queries of issues by type, using their label.'
@@ -51,6 +54,7 @@ jobs:
               title: 'Easy Fix'
               issue_query: 'repo:libgit2/libgit2 is:open is:issue label:"easy fix"'
               color: 'blue'
+          
           - title: 'Open Issues by Age'
             description: 'Queries of open issues by their creation date.'
             widgets:
@@ -76,6 +80,7 @@ jobs:
               - title: '>3 years'
                 issue_query: 'repo:libgit2/libgit2 is:open is:issue created:<{{ date("-365 days") }}'
                 color: 'red'
+          
           - title: 'Pull Requests'
             widgets:
             - type: 'number'
@@ -98,7 +103,7 @@ jobs:
                 value: '{{ date(item.created_date) }}'
               - title: 'Title'
                 property: 'title'
-              issue_query: 'repo:libgit2/libgit2 is:open is:pr review:none sort:created-asc'
+              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:pr review:none sort:created-asc'
               limit: 15
         token: ${{ github.token }}
 
