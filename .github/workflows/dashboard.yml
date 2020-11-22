@@ -1,16 +1,23 @@
-name: Dashboard
+name: Build Dashboard
 
 on:
+  schedule:
+  - cron: 0 * * * *
   push:
-    branches:
-      - system-dashboard
 
 jobs:
-  send-files:
+  build:
     runs-on: [self-hosted, Linux]
+
     steps:
-    # comando solo para Self-Hosted machines
-    # - run: sudo chown -R $USER:$USER /home/pi/actions-github/mistica-design-libraries/_work/
+    - name: Check out repository
+      uses: actions/checkout@v2
+    - name: Check out GitHub Pages branch
+      uses: actions/checkout@v2
+      with:
+        ref: 'gh-pages'
+        path: 'out'
+
     - name: 'Generate Dashboard'
       uses: ethomson/issue-dashboard@v1
       with:
@@ -18,7 +25,7 @@ jobs:
           title: 'Dashboard'
           output:
             format: html
-            filename: 'dashboard.html'
+            filename: 'out/dashboard.html'
           sections:
           - title: 'Pull Requests'
             widgets:
@@ -26,3 +33,12 @@ jobs:
               title: 'New Pull Requests (This Week)'
               issue_query: 'repo:libgit2/libgit2 is:open is:issue created:>{{ date("-7 days") }} sort:created-asc'
         token: ${{ github.token }}
+
+    - name: Publish Documentation
+      run: |
+        git add .
+        git config user.name 'Dashboard User'
+        git config user.email 'nobody@nowhere'
+        git commit -m 'Documentation update' --allow-empty
+        git push origin gh-pages
+      working-directory: out
