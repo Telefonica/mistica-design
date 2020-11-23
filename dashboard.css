@@ -115,10 +115,10 @@ div.number_widget {
     border: solid 1px #dddddd;
     color: #000000;
 }
-div.number_widget.red {
-    background-color: var(--color-red-background);
-    border: solid 1px var(--color-red-border);
-    color: var(--color-red-foreground);
+div.number_widget.bug {
+    background-color: var(--color-bug-background);
+    border: solid 1px var(--color-bug-border);
+    color: var(--color-bug-foreground);
 }
 div.number_widget.yellow {
     background-color: var(--color-yellow-background);
@@ -168,10 +168,10 @@ div.string_widget {
     border: solid 1px #dddddd;
     color: #000000;
 }
-div.string_widget.red {
-    background-color: var(--color-red-background);
-    border: solid 1px var(--color-red-border);
-    color: var(--color-red-foreground);
+div.string_widget.bug {
+    background-color: var(--color-bug-background);
+    border: solid 1px var(--color-bug-border);
+    color: var(--color-bug-foreground);
 }
 div.string_widget.yellow {
     background-color: var(--color-yellow-background);
@@ -238,10 +238,10 @@ span.graph_item_value span.value {
 span.graph_item_value span.empty_value {
     padding-right: 0;
 }
-div.graph_item.red span.graph_item_value span.value {
-    background-color: var(--color-red-background);
-    border: solid 1px var(--color-red-border);
-    color: var(--color-red-foreground);
+div.graph_item.bug span.graph_item_value span.value {
+    background-color: var(--color-bug-background);
+    border: solid 1px var(--color-bug-border);
+    color: var(--color-bug-foreground);
 }
 div.graph_item.yellow span.graph_item_value span.value {
     background-color: var(--color-yellow-background);
@@ -296,10 +296,10 @@ div.table_widget table tr:nth-child(odd) td {
 div.table_widget table th a, div.table_widget table td a {
     display: block;
 }
-div.table_widget table tr th.red, div.table_widget table tr td.red,
-div.table_widget table tr th.red a, div.table_widget table tr td.red a {
-    background-color: var(--color-red-background);
-    color: var(--color-red-foreground);
+div.table_widget table tr th.bug, div.table_widget table tr td.bug,
+div.table_widget table tr th.bug a, div.table_widget table tr td.bug a {
+    background-color: var(--color-bug-background);
+    color: var(--color-bug-foreground);
 }
 div.table_widget table tr th.yellow, div.table_widget table tr td.yellow,
 div.table_widget table tr th.yellow a, div.table_widget table tr td.yellow a {
