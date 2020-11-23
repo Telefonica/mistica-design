@@ -59,7 +59,7 @@ jobs:
                 issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:>{{ date("-7 days") }}'
                 color: 'green'
               - title: '15 days'
-                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:>{{ date("-14 days") }}'
+                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:>{{ date("-15 days") }}'
                 color: 'green'
               - title: '30 days'
                 issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:{{ date("-30 days") }}..{{ date("-7 days") }}'
