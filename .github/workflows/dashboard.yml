@@ -27,7 +27,7 @@ jobs:
             An example of several issue queries, both those that are showing
             number widgets with the number of results, and tables that show
             results.
-            These issues are querying the libgit2/libgit2 repository.
+            These issues are querying the Telefonica/mistica-design-libraries repository.
           output:
             format: html
             filename: 'out/dashboard.html'
@@ -38,19 +38,19 @@ jobs:
             widgets:
             - type: 'number'
               title: 'Bug'
-              issue_query: 'repo:libgit2/libgit2 is:open is:issue label:bug'
+              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue label:bug'
               color: 'red'
             - type: 'number'
               title: 'Feature'
-              issue_query: 'repo:libgit2/libgit2 is:open is:issue label:feature'
+              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue label:feature'
               color: 'green'
             - type: 'number'
               title: 'Up for Grabs'
-              issue_query: 'repo:libgit2/libgit2 is:open is:issue label:"up for grabs"'
+              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue label:"up for grabs"'
               color: 'blue'
             - type: 'number'
               title: 'Easy Fix'
-              issue_query: 'repo:libgit2/libgit2 is:open is:issue label:"easy fix"'
+              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue label:"easy fix"'
               color: 'blue'
 
           - title: 'Open Issues by Age'
@@ -60,38 +60,38 @@ jobs:
               title: 'Age'
               elements:
               - title: '7 days'
-                issue_query: 'repo:libgit2/libgit2 is:open is:issue created:>{{ date("-7 days") }}'
+                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:>{{ date("-7 days") }}'
                 color: 'green'
               - title: '30 days'
-                issue_query: 'repo:libgit2/libgit2 is:open is:issue created:{{ date("-30 days") }}..{{ date("-7 days") }}'
+                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:{{ date("-30 days") }}..{{ date("-7 days") }}'
                 color: 'blue'
               - title: '90 days'
-                issue_query: 'repo:libgit2/libgit2 is:open is:issue created:{{ date("-90 days") }}..{{ date("-30 days") }}'
+                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:{{ date("-90 days") }}..{{ date("-30 days") }}'
               - title: '1 year'
-                issue_query: 'repo:libgit2/libgit2 is:open is:issue created:{{ date("-1 year") }}..{{ date("-90 days") }}'
+                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:{{ date("-1 year") }}..{{ date("-90 days") }}'
               - title: '2 years'
-                issue_query: 'repo:libgit2/libgit2 is:open is:issue created:{{ date("-2 years") }}..{{ date("-1 year") }}'
+                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:{{ date("-2 years") }}..{{ date("-1 year") }}'
                 color: 'red'
               - title: '3 years'
-                issue_query: 'repo:libgit2/libgit2 is:open is:issue created:{{ date("-3 years") }}..{{ date("-2 years") }}'
+                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:{{ date("-3 years") }}..{{ date("-2 years") }}'
                 color: 'red'
               - title: '>3 years'
-                issue_query: 'repo:libgit2/libgit2 is:open is:issue created:<{{ date("-365 days") }}'
+                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:<{{ date("-365 days") }}'
                 color: 'red'
 
           - title: 'Pull Requests'
             widgets:
             - type: 'number'
               title: 'Changes Requested'
-              issue_query: 'repo:libgit2/libgit2 is:open is:pr review:changes_requested'
+              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:pr review:changes_requested'
               color: 'green'
             - type: 'number'
               title: 'Needs Review'
-              issue_query: 'repo:libgit2/libgit2 is:open is:pr review:none'
+              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:pr review:none'
               color: 'red'
             - type: 'table'
               title: 'Pull Requests with Changes Requested'
-              issue_query: 'repo:libgit2/libgit2 is:open is:pr review:changes_requested sort:created-asc'
+              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:pr review:changes_requested sort:created-asc'
             - type: 'table'
               title: 'Oldest Pull Requests without Review'
               fields:
@@ -101,7 +101,7 @@ jobs:
                 value: '{{ date(item.created_date) }}'
               - title: 'Title'
                 property: 'title'
-              issue_query: 'repo:libgit2/libgit2 is:open is:pr review:none sort:created-asc'
+              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:pr review:none sort:created-asc'
               limit: 15
         token: ${{ github.token }}
 
