@@ -59,6 +59,17 @@ jobs:
                 value: '{{ date(item.created_date) }}'
               - title: 'Title'
                 property: 'title'
+              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue label:"Bug 🐞"'
+              limit: 15
+            - type: 'table'
+              title: 'Component request list'
+              fields:
+              - title: 'Issue'
+                property: 'number'
+              - title: 'Date'
+                value: '{{ date(item.created_date) }}'
+              - title: 'Title'
+                property: 'title'
               issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue label:"✨ Component request"'
               limit: 15
 
