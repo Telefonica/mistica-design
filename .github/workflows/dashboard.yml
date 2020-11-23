@@ -103,6 +103,7 @@ jobs:
                 property: 'title'
               issue_query: 'repo:libgit2/libgit2 is:open is:pr review:none sort:created-asc'
               limit: 15
+        token: ${{ github.token }}
 
     - name: Publish Documentation
       run: |
