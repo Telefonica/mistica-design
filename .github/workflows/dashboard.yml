@@ -2,7 +2,7 @@ name: Build Dashboard
 
 on:
   schedule:
-    - cron: '40 * * * *'
+    - cron: '0 * * * *'
   issues:
     types: [opened, closed, reopened]
 
