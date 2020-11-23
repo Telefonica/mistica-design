@@ -3,7 +3,6 @@ name: Build Dashboard
 on:
   schedule:
   - cron: 0 * * * *
-  push:
 
 jobs:
   build:
