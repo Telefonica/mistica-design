@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '40 * * * *'
   issues:
-    types: [opened]
+    types: [opened, closed, reopened]
 
 
 jobs:
