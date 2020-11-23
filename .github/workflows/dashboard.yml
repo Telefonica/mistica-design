@@ -10,6 +10,10 @@ jobs:
     runs-on: [self-hosted, Linux]
 
     steps:
+    - name: Cleanup
+      run: |
+        sudo chown -R $USER:$USER $GITHUB_WORKSPACE
+
     - name: Check out repository
       uses: actions/checkout@v2
     - name: Check out GitHub Pages branch
