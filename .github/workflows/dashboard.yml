@@ -135,6 +135,12 @@ jobs:
               title: 'Bug'
               issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue label:"Bug 🐞"'
               color: 'primary'
+          - title: ''
+            widgets:
+            - type: 'number'
+              title: 'Component Requests'
+              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue label:"✨ Component request"'
+              color: 'primary'
         token: ${{ github.token }}  
 
     - name: Publish Documentation
