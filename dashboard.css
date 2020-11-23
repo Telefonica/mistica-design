@@ -2,7 +2,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
     width: 1000px;
     margin: 0 auto 0 auto;
-    background-color: #eeeeee;
+    background-color: #003245;
 }
 
 a {
@@ -45,10 +45,12 @@ a {
 div#analytics h1 {
     width: 900px;
     margin: 50px 50px 30px 50px;
+    color: white
 }
 div#main_description {
     width: 900px;
     margin: -20px 50px 30px 50px;
+    color: white;
 }
 div#footer {
     margin: 15px 50px 30px 50px;
@@ -62,7 +64,8 @@ div.sections {
     width: 900px;
     min-height: 250px;
     padding: 15px 50px 50px 50px;
-    border: solid 1px #dddddd;
+    /* border: solid 1px #dddddd; */
+    border-radius: 4px;
 }
 
 div.section {
