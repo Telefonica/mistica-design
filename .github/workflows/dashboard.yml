@@ -2,9 +2,9 @@ name: Build Dashboard
 
 on:
   schedule:
-    - cron: '20 * * * *'
+    - cron: '40 * * * *'
   issues:
-    types: [opened, edited, milestoned]
+    types: [opened]
 
 
 jobs:
