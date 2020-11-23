@@ -7,21 +7,29 @@ body {
 
 a {
     text-decoration: none;
-    color: #0366d6;
+    color: #003245;
 }
 
 :root {
-    --color-bug-background: #980098;
-    --color-bug-foreground: #ffffff;
-    --color-bug-border: #980098;
+    --color-primary-background: #003245;
+    --color-primary-foreground: #ffffff;
+    --color-primary-border: #003245;
 
-    --color-yellow-background: #eeee00;
-    --color-yellow-foreground: #000000;
-    --color-yellow-border: #cccc00;
+    --color-secondary-background: #00edff;
+    --color-secondary-foreground: #000000;
+    --color-secondary-border: #00edff;
 
     --color-componentRequest-background: #00FF99;
-    --color-componentRequest-foreground: #ffffff;
+    --color-componentRequest-foreground: #003245;
     --color-componentRequest-border: #00FF99;
+
+    --color-bug-background: #980098;
+    --color-bug-foreground: #fff;
+    --color-bug-border: #980098;
+
+    --color-green-background: #00bb00;
+    --color-green-foreground: #ffffff;
+    --color-green-border: #999900;
 
     --color-blue-background: #0000ee;
     --color-blue-foreground: #ffffff;
@@ -115,20 +123,22 @@ div.number_widget {
     border: solid 1px #dddddd;
     color: #000000;
 }
+div.number_widget.primary {
+    background-color: var(--color-primary-background);
+    border: solid 1px var(--color-primary-border);
+    color: var(--color-primary-foreground);
+}
 div.number_widget.bug {
     background-color: var(--color-bug-background);
     border: solid 1px var(--color-bug-border);
     color: var(--color-bug-foreground);
+    border-radius: 4px;
 }
-div.number_widget.yellow {
-    background-color: var(--color-yellow-background);
-    border: solid 1px var(--color-yellow-border);
-    color: var(--color-yellow-foreground);
-}
-div.number_widget.green {
-    background-color: var(--color-green-background);
-    border: solid 1px var(--color-green-border);
-    color: var(--color-green-foreground);
+div.number_widget.componentRequest {
+    background-color: var(--color-componentRequest-background);
+    border: solid 1px var(--color-componentRequest-border);
+    color: var(--color-componentRequest-foreground);
+    border-radius: 4px;
 }
 div.number_widget.blue {
     background-color: var(--color-blue-background);
@@ -168,10 +178,10 @@ div.string_widget {
     border: solid 1px #dddddd;
     color: #000000;
 }
-div.string_widget.bug {
-    background-color: var(--color-bug-background);
-    border: solid 1px var(--color-bug-border);
-    color: var(--color-bug-foreground);
+div.string_widget.primary {
+    background-color: var(--color-primary-background);
+    border: solid 1px var(--color-primary-border);
+    color: var(--color-primary-foreground);
 }
 div.string_widget.yellow {
     background-color: var(--color-yellow-background);
@@ -238,10 +248,11 @@ span.graph_item_value span.value {
 span.graph_item_value span.empty_value {
     padding-right: 0;
 }
-div.graph_item.bug span.graph_item_value span.value {
-    background-color: var(--color-bug-background);
-    border: solid 1px var(--color-bug-border);
-    color: var(--color-bug-foreground);
+div.graph_item.primary span.graph_item_value span.value {
+    background-color: var(--color-primary-background);
+    border: solid 1px var(--color-primary-border);
+    color: var(--color-primary-foreground);
+    border-radius: 0 40px 40px 0;
 }
 div.graph_item.yellow span.graph_item_value span.value {
     background-color: var(--color-yellow-background);
@@ -296,10 +307,10 @@ div.table_widget table tr:nth-child(odd) td {
 div.table_widget table th a, div.table_widget table td a {
     display: block;
 }
-div.table_widget table tr th.bug, div.table_widget table tr td.bug,
-div.table_widget table tr th.bug a, div.table_widget table tr td.bug a {
-    background-color: var(--color-bug-background);
-    color: var(--color-bug-foreground);
+div.table_widget table tr th.primary, div.table_widget table tr td.primary,
+div.table_widget table tr th.primary a, div.table_widget table tr td.primary a {
+    background-color: var(--color-primary-background);
+    color: var(--color-primary-foreground);
 }
 div.table_widget table tr th.yellow, div.table_widget table tr td.yellow,
 div.table_widget table tr th.yellow a, div.table_widget table tr td.yellow a {
