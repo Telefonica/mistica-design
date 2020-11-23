@@ -63,17 +63,9 @@ jobs:
                 color: 'blue'
               - title: '90 days'
                 issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:{{ date("-90 days") }}..{{ date("-30 days") }}'
-              - title: '1 year'
-                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:{{ date("-1 year") }}..{{ date("-90 days") }}'
-              - title: '2 years'
-                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:{{ date("-2 years") }}..{{ date("-1 year") }}'
-                color: 'red'
-              - title: '3 years'
-                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:{{ date("-3 years") }}..{{ date("-2 years") }}'
-                color: 'red'
-              - title: '>3 years'
-                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:<{{ date("-365 days") }}'
-                color: 'red'
+              - title: '180 days'
+                issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue created:{{ date("-180 days") }}..{{ date("-60 days") }}'
+              
 
           - title: 'Pull Requests'
             widgets:
