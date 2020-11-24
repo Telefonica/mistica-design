@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     runs-on: [self-hosted, Linux]
-    if: (github.event.label.name == 'Bug 🐞') || (github.event.label.name == 'Bug 🐞')
+    if: (github.event.label.name == '✨ Component request') || (github.event.label.name == '✨ Component request')
 
     steps:
     - uses: actions/checkout@v2
@@ -18,4 +18,4 @@ jobs:
         fromMailAddress: 'ignacio.ceballostorres@telefonica.com'
         toMailAddress: 'yceballost@gmail.com'
         subject: 'A new component request!'
-        labelsToMonitor: 'Bug 🐞'
+        labelsToMonitor: '✨ Component request'
