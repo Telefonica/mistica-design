@@ -7,9 +7,11 @@ on:
 jobs:
   build:
     runs-on: [self-hosted, Linux]
+    if: (github.event.label.name == 'Bug 🐞') || (github.event.label.name == 'Bug 🐞')
 
     steps:
-      uses: timheuer/issue-notifier@v1
+    - uses: actions/checkout@v2
+    - uses: timheuer/issue-notifier@v1
       env:
         SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
       with:
