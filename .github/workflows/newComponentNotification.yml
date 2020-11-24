@@ -15,7 +15,7 @@ jobs:
       env:
         SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
       with:
-        fromMailAddress: 'no-reply@mistica.com'
+        fromMailAddress: 'ignacio.ceballostorres@telefonica.com'
         toMailAddress: 'yceballost@gmail.com'
         subject: 'A new component request!'
         labelsToMonitor: 'Bug 🐞'
