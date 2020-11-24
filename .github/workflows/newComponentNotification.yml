@@ -1,0 +1,19 @@
+name: Build Dashboard
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  build:
+    runs-on: [self-hosted, Linux]
+
+    steps:
+      uses: timheuer/issue-notifier@v1
+      env:
+        SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+      with:
+        fromMailAddress: 'no-reply@mistica.com'
+        toMailAddress: 'yceballost@gmail.com'
+        subject: 'A new component request!'
+        labelsToMonitor: 'Bug 🐞'
