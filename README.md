@@ -41,7 +41,7 @@ To know what is the status and components are already implemented by DesignCore 
 3. Generate Sketch files
     + Click in **Regenerate Sketch File** in each files in Kactus
       ![Kactus Regenerate File](https://i.imgur.com/8WHdEmf.png)  
-4. Remove old dropbox libraries from Sketch > Libraries (just remove from Sketch! Don't delete the files)
+4. If you are using Mística libraries in Sketch, remove libraries from Sketch > Libraries (just remove from Sketch! Don't delete the files)
 5. Add Kactus libraries sketch files to Sketch.
 
 
