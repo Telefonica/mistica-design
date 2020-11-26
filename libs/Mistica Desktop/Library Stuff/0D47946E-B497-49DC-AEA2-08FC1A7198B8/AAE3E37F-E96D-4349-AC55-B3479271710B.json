@@ -1,16 +1,9 @@
 {
-  "_class": "symbolMaster",
-  "allowsOverrides": true,
-  "backgroundColor": {
-    "_class": "color",
-    "alpha": 1,
-    "blue": 0.9490196078431372,
-    "green": 0.9490196078431372,
-    "red": 0.9490196078431372
-  },
-  "booleanOperation": 0,
+  "_class": "oval",
+  "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "F58F7326-4FB0-4887-A5AC-080ECA2BA0A9",
+  "do_objectID": "AAE3E37F-E96D-4349-AC55-B3479271710B",
+  "edited": false,
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -22,73 +15,69 @@
   },
   "frame": {
     "_class": "rect",
-    "constrainProportions": false,
-    "height": 24,
-    "width": 24,
-    "x": -60,
-    "y": 38
+    "constrainProportions": true,
+    "height": 8,
+    "width": 8,
+    "x": 2,
+    "y": 8
   },
-  "grid": {
-    "_class": "simpleGrid",
-    "gridSize": 8,
-    "isEnabled": false,
-    "thickGridTimes": 8
-  },
-  "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
-  },
-  "hasBackgroundColor": true,
-  "hasClickThrough": false,
   "hasClippingMask": false,
-  "horizontalRulerData": {
-    "_class": "rulerData",
-    "base": 0,
-    "guides": [
-    ]
-  },
-  "includeBackgroundColorInExport": false,
-  "includeBackgroundColorInInstance": true,
-  "includeInCloudUpload": true,
+  "isClosed": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
-  "isFlowHome": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 2,
-  "layers": [
+  "layerListExpandedType": 0,
+  "name": "Oval",
+  "nameIsFixed": false,
+  "pointRadiusBehaviour": 1,
+  "points": [
     {
-      "class": "rectangle",
-      "id": "4687FF33-A2CC-490E-82F7-1D241BF299A4"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{0.77614237490000004, 1}",
+      "curveMode": 2,
+      "curveTo": "{0.22385762510000001, 1}",
+      "hasCurveFrom": true,
+      "hasCurveTo": true,
+      "point": "{0.5, 1}"
     },
     {
-      "class": "oval",
-      "id": "D0B21A14-F778-4EFA-8790-424F923252DE"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{1, 0.22385762510000001}",
+      "curveMode": 2,
+      "curveTo": "{1, 0.77614237490000004}",
+      "hasCurveFrom": true,
+      "hasCurveTo": true,
+      "point": "{1, 0.5}"
     },
     {
-      "class": "rectangle",
-      "id": "C294064A-D86C-48B2-814B-E587B8F9FADA"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{0.22385762510000001, 0}",
+      "curveMode": 2,
+      "curveTo": "{0.77614237490000004, 0}",
+      "hasCurveFrom": true,
+      "hasCurveTo": true,
+      "point": "{0.5, 0}"
     },
     {
-      "class": "oval",
-      "id": "AA3DD63B-F754-4D24-8A80-7F000DBBECFB"
-    },
-    {
-      "class": "oval",
-      "id": "A9293729-462F-418D-9673-255D764BAA9C"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{0, 0.77614237490000004}",
+      "curveMode": 2,
+      "curveTo": "{0, 0.22385762510000001}",
+      "hasCurveFrom": true,
+      "hasCurveTo": true,
+      "point": "{0, 0.5}"
     }
   ],
-  "name": "Steppers/*thumb",
-  "nameIsFixed": true,
-  "overrideProperties": [
-  ],
-  "presetDictionary": {
-  },
-  "resizesContent": true,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
-  "shouldBreakMaskChain": true,
+  "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
     "blur": {
@@ -123,7 +112,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "61D90821-C2E0-4726-A167-F6671B1EAB0E",
+    "do_objectID": "2D6BEC0B-6DD1-4807-898B-C1D89338A18E",
     "endMarkerType": 0,
     "fills": [
       {
@@ -131,9 +120,9 @@
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0.847,
-          "green": 0.847,
-          "red": 0.847
+          "blue": 1,
+          "green": 0.4698087741383997,
+          "red": 0.2798589939024391
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -186,12 +175,5 @@
     ],
     "startMarkerType": 0,
     "windingRule": 1
-  },
-  "symbolID": "57DEAE24-B9A2-45CF-B763-0488AF1020A7",
-  "verticalRulerData": {
-    "_class": "rulerData",
-    "base": 0,
-    "guides": [
-    ]
   }
 }
