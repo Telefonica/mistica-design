@@ -3108,7 +3108,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "89F5D3E1-0441-471D-920A-E88C0816A143",
-        "name": "Mistica/Icons/iconSecondary",
+        "name": "Icons/iconSecondary",
         "value": {
           "_class": "style",
           "blur": {
@@ -3215,12 +3215,124 @@
     },
     {
       "_class": "MSImmutableForeignLayerStyle",
+      "do_objectID": "DEC1DFFB-FC47-476D-8A2D-AAB04186E6D1",
+      "libraryID": "7CE7B797-7437-4C97-93BD-97DA673C5101",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "AA5797A3-64C6-4F46-872C-B6AED9B0D13F[A3B0759C-DB0D-48C9-84C6-73E488933E81]",
+        "name": "Icons/iconSecondary",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "6BA22A8A-6166-477F-9641-7D6E7C94C27A",
+          "endMarkerType": 0,
+          "fills": [
+            {
+              "_class": "fill",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.5490196078431373,
+                "green": 0.5333333333333333,
+                "red": 0.5254901960784314,
+                "swatchID": "3B8160C6-B48E-4482-A50A-8D67AC0639E9"
+              },
+              "contextSettings": {
+                "_class": "graphicsContextSettings",
+                "blendMode": 0,
+                "opacity": 1
+              },
+              "fillType": 0,
+              "gradient": {
+                "_class": "gradient",
+                "elipseLength": 0,
+                "from": "{0.5, 0}",
+                "gradientType": 0,
+                "stops": [
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 1,
+                      "green": 1,
+                      "red": 1
+                    },
+                    "position": 0
+                  },
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 0,
+                      "green": 0,
+                      "red": 0
+                    },
+                    "position": 1
+                  }
+                ],
+                "to": "{0.5, 1}"
+              },
+              "isEnabled": true,
+              "noiseIndex": 0,
+              "noiseIntensity": 0,
+              "patternFillType": 1,
+              "patternTileScale": 1
+            }
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "windingRule": 0
+        }
+      },
+      "remoteStyleID": "AA5797A3-64C6-4F46-872C-B6AED9B0D13F[A3B0759C-DB0D-48C9-84C6-73E488933E81]",
+      "sourceLibraryName": "Movistar",
+      "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignLayerStyle",
       "do_objectID": "DCC902C4-3FC1-42D7-A580-AF16063A0447",
       "libraryID": "7CE7B797-7437-4C97-93BD-97DA673C5101",
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "6006D496-6569-4838-8CA9-E4EB582B02CF",
-        "name": "Mistica/Icons/iconPrimary",
+        "name": "Icons/iconPrimary",
         "value": {
           "_class": "style",
           "blur": {
@@ -3332,7 +3444,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "B69E0E4A-02CC-4B53-B99C-3708AD303C5F",
-        "name": "Mistica/Backgrounds/backgroundBrand",
+        "name": "Backgrounds/backgroundBrand",
         "value": {
           "_class": "style",
           "blur": {
@@ -3444,7 +3556,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "41B2AE41-A0A3-404B-819F-072F56CB7264",
-        "name": "Mistica/Backgrounds/backgroundPromo",
+        "name": "Backgrounds/backgroundPromo",
         "value": {
           "_class": "style",
           "blur": {
@@ -3556,7 +3668,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "774400DB-DC19-43ED-81EB-C1E24FC96B37",
-        "name": "Mistica/Borders/border",
+        "name": "Borders/border",
         "value": {
           "_class": "style",
           "blur": {
@@ -3719,7 +3831,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "425890C1-64A1-4459-9356-814761AAFFF7",
-        "name": "Mistica/Buttons/Danger/buttonDangerBackground",
+        "name": "Buttons/Danger/buttonDangerBackground",
         "value": {
           "_class": "style",
           "blur": {
@@ -3831,7 +3943,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "61479BCB-5746-4FAB-8466-C08520C56B22",
-        "name": "Mistica/Buttons/Danger/buttonDangerBackgroundDisabled",
+        "name": "Buttons/Danger/buttonDangerBackgroundDisabled",
         "value": {
           "_class": "style",
           "blur": {
@@ -3943,7 +4055,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "B6A2865B-2E60-4FD8-9604-8EC036A5A36A",
-        "name": "Mistica/Buttons/Danger/buttonDangerBackgroundSelected",
+        "name": "Buttons/Danger/buttonDangerBackgroundSelected",
         "value": {
           "_class": "style",
           "blur": {
@@ -4055,7 +4167,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "93EA02FB-1B3D-4F49-BFA6-F2A7748E3C04",
-        "name": "Mistica/Buttons/Link/buttonLinkBackgroundSelected",
+        "name": "Buttons/Link/buttonLinkBackgroundSelected",
         "value": {
           "_class": "style",
           "blur": {
@@ -4167,7 +4279,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "7EF99540-C3CA-4617-86F6-52217389199A",
-        "name": "Mistica/Buttons/Primary/buttonPrimaryBackground",
+        "name": "Buttons/Primary/buttonPrimaryBackground",
         "value": {
           "_class": "style",
           "blur": {
@@ -4279,7 +4391,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "0DB876E9-63D7-4548-902F-075356FE054B",
-        "name": "Mistica/Buttons/Primary/buttonPrimaryBackgroundDisabled",
+        "name": "Buttons/Primary/buttonPrimaryBackgroundDisabled",
         "value": {
           "_class": "style",
           "blur": {
@@ -4391,7 +4503,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "2A667D94-B008-4EF2-BDA4-3B4464B97AF5",
-        "name": "Mistica/Buttons/Primary/buttonPrimaryBackgroundDisabledInverse",
+        "name": "Buttons/Primary/buttonPrimaryBackgroundDisabledInverse",
         "value": {
           "_class": "style",
           "blur": {
@@ -4503,7 +4615,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "158AB4D8-6C2D-4C7A-9C2D-5CC00BEEB553",
-        "name": "Mistica/Buttons/Primary/buttonPrimaryBackgroundSelected",
+        "name": "Buttons/Primary/buttonPrimaryBackgroundSelected",
         "value": {
           "_class": "style",
           "blur": {
@@ -4615,7 +4727,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "31BD06BE-DF32-465B-83A3-15A760782B31",
-        "name": "Mistica/Controls/control",
+        "name": "Controls/control",
         "value": {
           "_class": "style",
           "blur": {
@@ -4727,7 +4839,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "1411720D-A497-4FB7-A551-015D4F95DA22",
-        "name": "Mistica/Dividers/divider",
+        "name": "Dividers/divider",
         "value": {
           "_class": "style",
           "blur": {
@@ -4839,7 +4951,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "674D5814-F338-4680-B438-88FE1F988708",
-        "name": "Mistica/Feedbacks/badge",
+        "name": "Feedbacks/badge",
         "value": {
           "_class": "style",
           "blur": {
@@ -5002,7 +5114,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "22B4CBFA-8AB5-44EF-A54C-C4C726CE569E",
-        "name": "Mistica/Feedbacks/feedbackErrorBackground",
+        "name": "Feedbacks/feedbackErrorBackground",
         "value": {
           "_class": "style",
           "blur": {
@@ -5114,7 +5226,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "DCE3A2F4-EE2F-4739-9AD7-3B05F7EAE37A",
-        "name": "Mistica/Feedbacks/feedbackInfoBackground",
+        "name": "Feedbacks/feedbackInfoBackground",
         "value": {
           "_class": "style",
           "blur": {
@@ -5226,7 +5338,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "9E5CAA61-409F-4DC3-A1FE-E7BA47536EBC",
-        "name": "Mistica/Icons/iconSuccess",
+        "name": "Icons/iconSuccess",
         "value": {
           "_class": "style",
           "blur": {
@@ -5338,7 +5450,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "64AFFBF3-E692-4A75-A3B8-AF635A8170A5",
-        "name": "Mistica/Icons/iconInverse",
+        "name": "Icons/iconInverse",
         "value": {
           "_class": "style",
           "blur": {
@@ -5450,7 +5562,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "198F18BF-26EA-49CE-AB8B-B00CF71A78CC",
-        "name": "Mistica/Buttons/Secondary/buttonSecondaryBackground",
+        "name": "Buttons/Secondary/buttonSecondaryBackground",
         "value": {
           "_class": "style",
           "blur": {
@@ -5560,7 +5672,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "B2D48852-DA7F-4E1E-85B5-1AF7E3D0ABA0",
-        "name": "Mistica/Buttons/Secondary/buttonSecondaryBackgroundDisabled",
+        "name": "Buttons/Secondary/buttonSecondaryBackgroundDisabled",
         "value": {
           "_class": "style",
           "blur": {
@@ -5670,7 +5782,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "A7BE41C4-25AF-4FD1-AA07-29C6F62A29D9",
-        "name": "Mistica/Buttons/Secondary/buttonSecondaryBackgroundSelected",
+        "name": "Buttons/Secondary/buttonSecondaryBackgroundSelected",
         "value": {
           "_class": "style",
           "blur": {
@@ -5780,7 +5892,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "D6806C27-2FD3-442D-AE73-EE24858DBDDA",
-        "name": "Mistica/Buttons/Secondary/buttonSecondaryBorderDisabledInverse",
+        "name": "Buttons/Secondary/buttonSecondaryBorderDisabledInverse",
         "value": {
           "_class": "style",
           "blur": {
@@ -5890,7 +6002,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "A54EB48E-35B0-493B-951C-97489C1C1ED9",
-        "name": "Mistica/Buttons/Secondary/buttonSecondaryBorderInverse",
+        "name": "Buttons/Secondary/buttonSecondaryBorderInverse",
         "value": {
           "_class": "style",
           "blur": {
@@ -6000,7 +6112,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "857D5FBB-1FB2-42B2-9F17-B60512FC41C3",
-        "name": "Mistica/Buttons/Secondary/buttonSecondaryBorderSelectedInverse",
+        "name": "Buttons/Secondary/buttonSecondaryBorderSelectedInverse",
         "value": {
           "_class": "style",
           "blur": {
@@ -6110,7 +6222,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "E72AE810-367C-4494-BC79-023CDD472552",
-        "name": "Mistica/Buttons/Primary/buttonPrimaryBackgroundSelectedInverse",
+        "name": "Buttons/Primary/buttonPrimaryBackgroundSelectedInverse",
         "value": {
           "_class": "style",
           "blur": {
@@ -6222,7 +6334,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "ED85B022-57E8-4351-9D27-2E18EF775E10",
-        "name": "Mistica/Controls/progressBarBackground",
+        "name": "Controls/progressBarBackground",
         "value": {
           "_class": "style",
           "blur": {
@@ -6334,7 +6446,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "DAF4288F-403F-44D9-A0C2-694EF4AF5D6B",
-        "name": "Mistica/Controls/progressBar",
+        "name": "Controls/progressBar",
         "value": {
           "_class": "style",
           "blur": {
@@ -6446,7 +6558,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "F6C94E8E-27A1-4986-865A-26F06757DD38",
-        "name": "Mistica/Controls/progressBarInverse",
+        "name": "Controls/progressBarInverse",
         "value": {
           "_class": "style",
           "blur": {
@@ -6558,7 +6670,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "44334669-631C-43E8-A05E-6607AB71A119",
-        "name": "Mistica/Controls/progressBarBackgroundInverse",
+        "name": "Controls/progressBarBackgroundInverse",
         "value": {
           "_class": "style",
           "blur": {
@@ -6670,7 +6782,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "9F96F397-8BF3-4E0A-B105-913AC2B06B2E",
-        "name": "Mistica/Controls/controlActivated",
+        "name": "Controls/controlActivated",
         "value": {
           "_class": "style",
           "blur": {
@@ -6782,7 +6894,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "7FEDBD71-ECF1-4A17-B408-A9A397A6B0DA",
-        "name": "Mistica/Icons/iconBrand",
+        "name": "Icons/iconBrand",
         "value": {
           "_class": "style",
           "blur": {
@@ -6894,7 +7006,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "B1782BA7-C185-4160-8BB5-78A6F419469E",
-        "name": "Mistica/Icons/iconError",
+        "name": "Icons/iconError",
         "value": {
           "_class": "style",
           "blur": {
@@ -7006,7 +7118,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "FE366937-346E-4006-852B-6541F8BB6077",
-        "name": "Mistica/Icons/iconDisabled",
+        "name": "Icons/iconDisabled",
         "value": {
           "_class": "style",
           "blur": {
@@ -7118,7 +7230,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "3FAE7E79-07BA-4B67-BE3C-140E3175AE37",
-        "name": "Mistica/Backgrounds/background",
+        "name": "Backgrounds/background",
         "value": {
           "_class": "style",
           "blur": {
@@ -7230,7 +7342,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "8B6CC0A1-F062-4ECD-9242-5797532A5513",
-        "name": "Mistica/Bars/appBar/appBarBackground",
+        "name": "Bars/appBar/appBarBackground",
         "value": {
           "_class": "style",
           "blur": {
@@ -7342,7 +7454,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "925FD9F5-DBC1-47AD-A98C-3422998ADAB1",
-        "name": "Mistica/Bars/navigationBar/navigationBarBackground",
+        "name": "Bars/navigationBar/navigationBarBackground",
         "value": {
           "_class": "style",
           "blur": {
@@ -8340,118 +8452,6 @@
         }
       },
       "remoteStyleID": "C14EF4B5-6C60-4F73-A76B-42667E83826D[01FED5B9-BBD3-46AE-81F9-15203FA70B2E]",
-      "sourceLibraryName": "Movistar",
-      "symbolPrivate": true
-    },
-    {
-      "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "5A0A57E3-A8DE-46A6-BAD8-DC1E722A0B06",
-      "libraryID": "7CE7B797-7437-4C97-93BD-97DA673C5101",
-      "localSharedStyle": {
-        "_class": "sharedStyle",
-        "do_objectID": "AA5797A3-64C6-4F46-872C-B6AED9B0D13F[A3B0759C-DB0D-48C9-84C6-73E488933E81]",
-        "name": "Mistica/Icons/iconSecondary",
-        "value": {
-          "_class": "style",
-          "blur": {
-            "_class": "blur",
-            "center": "{0.5, 0.5}",
-            "isEnabled": false,
-            "motionAngle": 0,
-            "radius": 10,
-            "saturation": 1,
-            "type": 0
-          },
-          "borderOptions": {
-            "_class": "borderOptions",
-            "dashPattern": [
-            ],
-            "isEnabled": true,
-            "lineCapStyle": 0,
-            "lineJoinStyle": 0
-          },
-          "borders": [
-          ],
-          "colorControls": {
-            "_class": "colorControls",
-            "brightness": 0,
-            "contrast": 1,
-            "hue": 0,
-            "isEnabled": true,
-            "saturation": 1
-          },
-          "contextSettings": {
-            "_class": "graphicsContextSettings",
-            "blendMode": 0,
-            "opacity": 1
-          },
-          "do_objectID": "6BA22A8A-6166-477F-9641-7D6E7C94C27A",
-          "endMarkerType": 0,
-          "fills": [
-            {
-              "_class": "fill",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0.5490196078431373,
-                "green": 0.5333333333333333,
-                "red": 0.5254901960784314,
-                "swatchID": "3B8160C6-B48E-4482-A50A-8D67AC0639E9"
-              },
-              "contextSettings": {
-                "_class": "graphicsContextSettings",
-                "blendMode": 0,
-                "opacity": 1
-              },
-              "fillType": 0,
-              "gradient": {
-                "_class": "gradient",
-                "elipseLength": 0,
-                "from": "{0.5, 0}",
-                "gradientType": 0,
-                "stops": [
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 1,
-                      "green": 1,
-                      "red": 1
-                    },
-                    "position": 0
-                  },
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 0,
-                      "green": 0,
-                      "red": 0
-                    },
-                    "position": 1
-                  }
-                ],
-                "to": "{0.5, 1}"
-              },
-              "isEnabled": true,
-              "noiseIndex": 0,
-              "noiseIntensity": 0,
-              "patternFillType": 1,
-              "patternTileScale": 1
-            }
-          ],
-          "innerShadows": [
-          ],
-          "miterLimit": 10,
-          "shadows": [
-          ],
-          "startMarkerType": 0,
-          "windingRule": 0
-        }
-      },
-      "remoteStyleID": "AA5797A3-64C6-4F46-872C-B6AED9B0D13F[A3B0759C-DB0D-48C9-84C6-73E488933E81]",
       "sourceLibraryName": "Movistar",
       "symbolPrivate": true
     }
@@ -62162,8 +62162,8 @@
     ]
   },
   "meta": {
-    "appVersion": "70.1",
-    "build": 108880,
+    "appVersion": "70",
+    "build": 108797,
     "version": 134
   },
   "pages": [
