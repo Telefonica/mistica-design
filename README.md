@@ -1,8 +1,8 @@
 <br>
 <br>
 <div align="center">
-  <img height="64" alt="Mística Logo" src=".github/resources/misticaLogo.svg">
-  <img alt="Mística Logo" style="margin-top: 240px;" src=".github/resources/MAIN_22.gif">
+  <img height="64" alt="Mística Logo" src=".github/resources/mistica-logo.svg">
+  <img alt="Mística Logo" src=".github/resources/mistica-animation.gif">
 </div>
 <br>
 <br>
