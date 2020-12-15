@@ -5,7 +5,6 @@
   <img alt="Mística Logo" src=".github/resources/mistica-animation.gif">
 </div>
 <br>
-<br>
 <p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="https://brandfactory.telefonica.com/document/1846#/components/overview">Components Status</a> •
   <a href="#gettingStarted">Getting Started</a> •
@@ -14,7 +13,7 @@
   <a href="#problemsWithKactus">Problems w/ Kactus</a>
 </p>
 
-<br>
+---
 <br>
 
 | Other Mística Repos | Description                                               |
