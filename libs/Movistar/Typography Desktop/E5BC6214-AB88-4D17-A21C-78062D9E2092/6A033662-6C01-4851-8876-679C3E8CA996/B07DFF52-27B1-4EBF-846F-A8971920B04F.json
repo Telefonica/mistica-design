@@ -9,37 +9,63 @@
           "MSAttributedStringColorAttribute": {
             "_class": "color",
             "alpha": 1,
-            "blue": 0.2078431372549019,
-            "green": 0.196078431372549,
-            "red": 0.192156862745098,
-            "swatchID": "F026E99F-F5FD-4A16-9937-A340FF082363"
+            "blue": 1,
+            "green": 1,
+            "red": 1
           },
           "MSAttributedStringFontAttribute": {
             "_class": "fontDescriptor",
             "attributes": {
-              "name": "Roboto-Regular",
-              "size": 12
+              "name": "SFProDisplay-Light",
+              "size": 64
             }
           },
-          "MSAttributedStringTextTransformAttribute": 1,
-          "kerning": 0,
+          "kerning": 0.119999997317791,
           "paragraphStyle": {
             "_class": "paragraphStyle",
             "allowsDefaultTighteningForTruncation": 0,
-            "maximumLineHeight": 16,
-            "minimumLineHeight": 16
+            "maximumLineHeight": 80,
+            "minimumLineHeight": 80
           }
         },
-        "length": 15,
+        "length": 23,
         "location": 0
+      },
+      {
+        "_class": "stringAttribute",
+        "attributes": {
+          "MSAttributedStringColorAttribute": {
+            "_class": "color",
+            "alpha": 1,
+            "blue": 1,
+            "green": 1,
+            "red": 1
+          },
+          "MSAttributedStringFontAttribute": {
+            "_class": "fontDescriptor",
+            "attributes": {
+              "name": "SFProDisplay-Light",
+              "size": 32
+            }
+          },
+          "kerning": 0.119999997317791,
+          "paragraphStyle": {
+            "_class": "paragraphStyle",
+            "allowsDefaultTighteningForTruncation": 0,
+            "maximumLineHeight": 80,
+            "minimumLineHeight": 80
+          }
+        },
+        "length": 14,
+        "location": 23
       }
     ],
-    "string": "MOVISTAR LIKES "
+    "string": "text_primary_uppercase Android (.xml)"
   },
   "automaticallyDrawOnUnderlyingPath": false,
-  "booleanOperation": 0,
+  "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "E8DE368C-021A-464D-B8FF-E773D914184E",
+  "do_objectID": "B07DFF52-27B1-4EBF-846F-A8971920B04F",
   "dontSynchroniseWithSymbol": false,
   "exportOptions": {
     "_class": "exportOptions",
@@ -53,12 +79,12 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 16,
-    "width": 296,
-    "x": 0,
-    "y": 8
+    "height": 80,
+    "width": 1020.303694681283,
+    "x": 195.0000000000001,
+    "y": 247
   },
-  "glyphBounds": "{{1, 4}, {94, 10}}",
+  "glyphBounds": "{{0, 18}, {818, 57}}",
   "hasClippingMask": false,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
@@ -67,12 +93,11 @@
   "isVisible": true,
   "layerListExpandedType": 0,
   "lineSpacingBehaviour": 3,
-  "name": "Subtitle",
-  "nameIsFixed": true,
-  "resizingConstraint": 10,
+  "name": "text_primary_upperca",
+  "nameIsFixed": false,
+  "resizingConstraint": 9,
   "resizingType": 0,
   "rotation": 0,
-  "sharedStyleID": "8088C312-1331-476D-9FD9-7E3E3F54FAA0",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -108,7 +133,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "7FE39243-14F6-45B7-83A9-A2EF88D62F5B",
+    "do_objectID": "72055ADA-B54E-47AC-A5B8-87106201103D",
     "endMarkerType": 0,
     "fills": [
     ],
@@ -124,37 +149,28 @@
         "MSAttributedStringColorAttribute": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0.2078431372549019,
-          "green": 0.196078431372549,
-          "red": 0.192156862745098,
-          "swatchID": "F026E99F-F5FD-4A16-9937-A340FF082363"
+          "blue": 1,
+          "green": 1,
+          "red": 1
         },
         "MSAttributedStringFontAttribute": {
           "_class": "fontDescriptor",
           "attributes": {
-            "name": "Roboto-Regular",
-            "size": 12
+            "name": "SFProDisplay-Light",
+            "size": 64
           }
         },
-        "MSAttributedStringTextTransformAttribute": 1,
-        "kerning": 0,
+        "kerning": 0.119999997317791,
         "paragraphStyle": {
           "_class": "paragraphStyle",
           "allowsDefaultTighteningForTruncation": 0,
-          "maximumLineHeight": 16,
-          "minimumLineHeight": 16
+          "maximumLineHeight": 80,
+          "minimumLineHeight": 80
         }
       },
       "verticalAlignment": 0
     },
     "windingRule": 1
   },
-  "textBehaviour": 2,
-  "userInfo": {
-    "com.animaapp.stc-sketch-plugin": {
-      "kModelPropertiesKey": {
-        "isAutoWidth": 0
-      }
-    }
-  }
+  "textBehaviour": 1
 }
