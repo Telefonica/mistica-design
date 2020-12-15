@@ -6,7 +6,7 @@
 </div>
 <br>
 <br>
-<p align="left" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
+<p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="https://brandfactory.telefonica.com/document/1846#/components/overview">Components Status</a> •
   <a href="#gettingStarted">Getting Started</a> •
   <a href="#dangerZone">Danger Zone in Kactus</a> •
