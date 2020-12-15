@@ -7,9 +7,8 @@
 <br>
 <br>
 <p align="left" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
-  <a href="#componentsStatus">Components Status</a> •
+  <a href="https://brandfactory.telefonica.com/document/1846#/components/overview">Components Status</a> •
   <a href="#gettingStarted">Getting Started</a> •
-  <a href="#releaseWorkflow">Release Workflow</a> •
   <a href="#dangerZone">Danger Zone in Kactus</a> •
   <a href="https://github.com/Telefonica/mistica-design-libraries/wiki">Wiki</a> •
   <a href="#problemsWithKactus">Problems w/ Kactus</a>
@@ -22,11 +21,6 @@
 | :------------------ | :-------------------------------------------------------- |
 | [mistica-icons](https://github.com/Telefonica/mistica-icons)      | The source of truth for icons in our digital products |
 | [mistica-manager](https://github.com/Telefonica/mistica-manager)     | App to allows designer install al the system in one-click  |
-
-<br>
-
-## Current components status (design + develop)  <a name="componentsStatus"></a>
-To know what is the status and components are already implemented by DesignCore + AppsCore, please visit [this link](https://zpl.io/bJxDLDW)
 
 <br>
 
