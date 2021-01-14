@@ -2,7 +2,7 @@
   "_class": "rectangle",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "C0A296F5-6F72-41DF-812E-440E77809CB7",
+  "do_objectID": "B7B773A5-0752-4A73-9D38-93744C13B063",
   "edited": false,
   "exportOptions": {
     "_class": "exportOptions",
@@ -16,23 +16,23 @@
   "fixedRadius": 0,
   "frame": {
     "_class": "rect",
-    "constrainProportions": true,
-    "height": 32,
-    "width": 88,
+    "constrainProportions": false,
+    "height": 124,
+    "width": 296,
     "x": 0,
-    "y": 0
+    "y": 16
   },
   "hasClippingMask": false,
   "hasConvertedToNewRoundCorners": true,
   "isClosed": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
-  "isFlippedVertical": false,
+  "isFlippedVertical": true,
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "name": "Background",
-  "nameIsFixed": true,
+  "name": "Rectangle",
+  "nameIsFixed": false,
   "needsConvertionToNewRoundCorners": false,
   "pointRadiusBehaviour": 1,
   "points": [
@@ -86,11 +86,11 @@
     "blur": {
       "_class": "blur",
       "center": "{0.5, 0.5}",
-      "isEnabled": false,
+      "isEnabled": true,
       "motionAngle": 0,
-      "radius": 10,
-      "saturation": 1,
-      "type": 0
+      "radius": 1,
+      "saturation": 0,
+      "type": 3
     },
     "borderOptions": {
       "_class": "borderOptions",
@@ -101,38 +101,21 @@
       "lineJoinStyle": 0
     },
     "borders": [
-    ],
-    "colorControls": {
-      "_class": "colorControls",
-      "brightness": 0,
-      "contrast": 1,
-      "hue": 0,
-      "isEnabled": true,
-      "saturation": 1
-    },
-    "contextSettings": {
-      "_class": "graphicsContextSettings",
-      "blendMode": 0,
-      "opacity": 1
-    },
-    "do_objectID": "6040F24E-1DE9-41D6-A452-D62D8703E3B9",
-    "endMarkerType": 0,
-    "fills": [
       {
-        "_class": "fill",
+        "_class": "border",
         "color": {
           "_class": "color",
-          "alpha": 0.3,
-          "blue": 0.4995314986617477,
-          "green": 0.4995314986617477,
-          "red": 0.9327434098639455
+          "alpha": 0.3655211975524476,
+          "blue": 0.3991347255319751,
+          "green": 0.8931442481884058,
+          "red": 0.1242369095231586
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
-          "blendMode": 16,
+          "blendMode": 0,
           "opacity": 1
         },
-        "fillType": 4,
+        "fillType": 0,
         "gradient": {
           "_class": "gradient",
           "elipseLength": 0,
@@ -164,10 +147,72 @@
           ],
           "to": "{0.5, 1}"
         },
-        "image": {
-          "_class": "MSJSONFileReference",
-          "_ref": "images/00b279d44c0355e0bede4e0d49d3a0d3e74a024d.png",
-          "_ref_class": "MSImageData"
+        "isEnabled": true,
+        "position": 1,
+        "thickness": 2
+      }
+    ],
+    "colorControls": {
+      "_class": "colorControls",
+      "brightness": 0,
+      "contrast": 1,
+      "hue": 0,
+      "isEnabled": true,
+      "saturation": 1
+    },
+    "contextSettings": {
+      "_class": "graphicsContextSettings",
+      "blendMode": 0,
+      "opacity": 1
+    },
+    "do_objectID": "A26F5D12-8CA0-4D88-837E-82240434EE28",
+    "endMarkerType": 0,
+    "fills": [
+      {
+        "_class": "fill",
+        "color": {
+          "_class": "color",
+          "alpha": 0.5,
+          "blue": 0.694691862092985,
+          "green": 1,
+          "red": 0.12421875
+        },
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": 1
+        },
+        "fillType": 0,
+        "gradient": {
+          "_class": "gradient",
+          "elipseLength": 0,
+          "from": "{0.5, 0}",
+          "gradientType": 0,
+          "stops": [
+            {
+              "_class": "gradientStop",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 1,
+                "green": 1,
+                "red": 1
+              },
+              "position": 0
+            },
+            {
+              "_class": "gradientStop",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0,
+                "green": 0,
+                "red": 0
+              },
+              "position": 1
+            }
+          ],
+          "to": "{0.5, 1}"
         },
         "isEnabled": true,
         "noiseIndex": 0,
@@ -183,8 +228,5 @@
     ],
     "startMarkerType": 0,
     "windingRule": 1
-  },
-  "userInfo": {
-    "datasupplier.key": "~/Dropbox/System/02_System Resources/5_SystemData/PlaceholdersData"
   }
 }

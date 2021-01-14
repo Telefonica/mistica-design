@@ -2,7 +2,7 @@
   "_class": "oval",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "1D29E7FE-0310-4C24-9A19-40D62D7E6883",
+  "do_objectID": "787457FC-D292-435B-B39F-3F2F6FE45961",
   "edited": false,
   "exportOptions": {
     "_class": "exportOptions",
@@ -16,10 +16,10 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": true,
-    "height": 4,
-    "width": 4,
-    "x": 2,
-    "y": 10
+    "height": 40,
+    "width": 40,
+    "x": 0,
+    "y": 0
   },
   "hasClippingMask": false,
   "isClosed": true,
@@ -29,8 +29,8 @@
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "name": "Oval",
-  "nameIsFixed": false,
+  "name": "IconBrackground",
+  "nameIsFixed": true,
   "pointRadiusBehaviour": 1,
   "points": [
     {
@@ -74,9 +74,10 @@
       "point": "{0, 0.5}"
     }
   ],
-  "resizingConstraint": 63,
+  "resizingConstraint": 45,
   "resizingType": 0,
   "rotation": 0,
+  "sharedStyleID": "FE366937-346E-4006-852B-6541F8BB6077",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -98,63 +99,13 @@
       "lineJoinStyle": 0
     },
     "borders": [
-      {
-        "_class": "border",
-        "color": {
-          "_class": "color",
-          "alpha": 1,
-          "blue": 0.592,
-          "green": 0.592,
-          "red": 0.592
-        },
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": 1
-        },
-        "fillType": 0,
-        "gradient": {
-          "_class": "gradient",
-          "elipseLength": 0,
-          "from": "{0.5, 0}",
-          "gradientType": 0,
-          "stops": [
-            {
-              "_class": "gradientStop",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 1,
-                "green": 1,
-                "red": 1
-              },
-              "position": 0
-            },
-            {
-              "_class": "gradientStop",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0,
-                "green": 0,
-                "red": 0
-              },
-              "position": 1
-            }
-          ],
-          "to": "{0.5, 1}"
-        },
-        "isEnabled": false,
-        "position": 0,
-        "thickness": 1
-      }
     ],
     "colorControls": {
       "_class": "colorControls",
       "brightness": 0,
       "contrast": 1,
       "hue": 0,
-      "isEnabled": false,
+      "isEnabled": true,
       "saturation": 1
     },
     "contextSettings": {
@@ -162,7 +113,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "9DBA0970-6BD5-4EBB-91F4-E0473E0606B4",
+    "do_objectID": "AEDDBE10-21FE-4687-AA4B-F77467544647",
     "endMarkerType": 0,
     "fills": [
       {
@@ -170,10 +121,10 @@
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0.2078431372549019,
-          "green": 0.196078431372549,
-          "red": 0.192156862745098,
-          "swatchID": "F026E99F-F5FD-4A16-9937-A340FF082363"
+          "blue": 0.8666666666666667,
+          "green": 0.8666666666666667,
+          "red": 0.8666666666666667,
+          "swatchID": "5382FEEE-A9B4-4CE9-BF61-E1636EF3ACB7"
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -225,6 +176,6 @@
     "shadows": [
     ],
     "startMarkerType": 0,
-    "windingRule": 1
+    "windingRule": 0
   }
 }
