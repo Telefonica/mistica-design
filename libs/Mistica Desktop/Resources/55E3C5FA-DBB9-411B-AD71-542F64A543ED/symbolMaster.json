@@ -1,9 +1,16 @@
 {
-  "_class": "oval",
-  "booleanOperation": -1,
+  "_class": "symbolMaster",
+  "allowsOverrides": true,
+  "backgroundColor": {
+    "_class": "color",
+    "alpha": 1,
+    "blue": 0.9176470588235294,
+    "green": 0.9176470588235294,
+    "red": 0.9176470588235294
+  },
+  "booleanOperation": 0,
   "clippingMaskMode": 0,
-  "do_objectID": "BFA95FBE-0D33-4142-9B72-E871E9614937",
-  "edited": false,
+  "do_objectID": "55E3C5FA-DBB9-411B-AD71-542F64A543ED",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -15,69 +22,66 @@
   },
   "frame": {
     "_class": "rect",
-    "constrainProportions": true,
-    "height": 12,
-    "width": 12,
-    "x": 0,
-    "y": 0
+    "constrainProportions": false,
+    "height": 24,
+    "width": 24,
+    "x": 737,
+    "y": 3172
   },
+  "grid": {
+    "_class": "simpleGrid",
+    "gridSize": 8,
+    "isEnabled": false,
+    "thickGridTimes": 8
+  },
+  "groupLayout": {
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 0,
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
+  },
+  "hasBackgroundColor": false,
+  "hasClickThrough": true,
   "hasClippingMask": false,
-  "isClosed": true,
+  "horizontalRulerData": {
+    "_class": "rulerData",
+    "base": 0,
+    "guides": [
+    ]
+  },
+  "includeBackgroundColorInExport": true,
+  "includeBackgroundColorInInstance": false,
+  "includeInCloudUpload": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
+  "isFlowHome": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 0,
-  "name": "AssetX",
-  "nameIsFixed": true,
-  "pointRadiusBehaviour": 1,
-  "points": [
+  "layerListExpandedType": 2,
+  "layers": [
     {
-      "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0.77614237490000004, 1}",
-      "curveMode": 2,
-      "curveTo": "{0.22385762510000001, 1}",
-      "hasCurveFrom": true,
-      "hasCurveTo": true,
-      "point": "{0.5, 1}"
-    },
-    {
-      "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{1, 0.22385762510000001}",
-      "curveMode": 2,
-      "curveTo": "{1, 0.77614237490000004}",
-      "hasCurveFrom": true,
-      "hasCurveTo": true,
-      "point": "{1, 0.5}"
-    },
-    {
-      "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0.22385762510000001, 0}",
-      "curveMode": 2,
-      "curveTo": "{0.77614237490000004, 0}",
-      "hasCurveFrom": true,
-      "hasCurveTo": true,
-      "point": "{0.5, 0}"
-    },
-    {
-      "_class": "curvePoint",
-      "cornerRadius": 0,
-      "curveFrom": "{0, 0.77614237490000004}",
-      "curveMode": 2,
-      "curveTo": "{0, 0.22385762510000001}",
-      "hasCurveFrom": true,
-      "hasCurveTo": true,
-      "point": "{0, 0.5}"
+      "class": "symbolInstance",
+      "id": "DDFD86F1-D975-4422-8989-C7E8886F4A22"
     }
   ],
+  "name": "ΙΙΙ Resources/+ Icons/24",
+  "nameIsFixed": true,
+  "overrideProperties": [
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "DDFD86F1-D975-4422-8989-C7E8886F4A22_symbolID"
+    }
+  ],
+  "presetDictionary": {
+  },
+  "resizesContent": true,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
-  "shouldBreakMaskChain": false,
+  "shouldBreakMaskChain": true,
   "style": {
     "_class": "style",
     "blur": {
@@ -85,7 +89,7 @@
       "center": "{0.5, 0.5}",
       "isEnabled": false,
       "motionAngle": 0,
-      "radius": 12,
+      "radius": 10,
       "saturation": 1,
       "type": 0
     },
@@ -112,7 +116,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "A18782C5-9F2F-49D8-BE5B-B004451807E0",
+    "do_objectID": "83D27B50-39E4-43C7-A330-FA36B6A442B0",
     "endMarkerType": 0,
     "fills": [
       {
@@ -120,16 +124,16 @@
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0.8666666666666667,
-          "green": 0.8666666666666667,
-          "red": 0.8666666666666667
+          "blue": 1,
+          "green": 1,
+          "red": 1
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
           "blendMode": 0,
           "opacity": 1
         },
-        "fillType": 4,
+        "fillType": 0,
         "gradient": {
           "_class": "gradient",
           "elipseLength": 0,
@@ -161,11 +165,6 @@
           ],
           "to": "{0.5, 1}"
         },
-        "image": {
-          "_class": "MSJSONFileReference",
-          "_ref": "images/00b279d44c0355e0bede4e0d49d3a0d3e74a024d.png",
-          "_ref_class": "MSImageData"
-        },
         "isEnabled": true,
         "noiseIndex": 0,
         "noiseIntensity": 0,
@@ -181,7 +180,17 @@
     "startMarkerType": 0,
     "windingRule": 1
   },
+  "symbolID": "E323DF68-8827-474B-9B61-6EA52BB4C4F2",
   "userInfo": {
-    "datasupplier.key": "~/Dropbox/System/02_System Resources/0_SystemAssets/SystemData/PlaceholdersData"
+    "com.animaapp.stc-sketch-plugin": {
+      "kModelPropertiesKey": {
+      }
+    }
+  },
+  "verticalRulerData": {
+    "_class": "rulerData",
+    "base": 0,
+    "guides": [
+    ]
   }
 }
