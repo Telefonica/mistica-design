@@ -31,9 +31,6 @@ jobs:
       uses: ethomson/issue-dashboard@v1
       with:
         config: |
-          title: Mística dashboard
-          description: |
-            Show the currently status of Mística sketch libraries repository.
           output:
             format: html
             filename: 'out/index.html'
