@@ -80,7 +80,6 @@
   "resizingConstraint": 18,
   "resizingType": 0,
   "rotation": 0,
-  "sharedStyleID": "480D6ED5-D12E-4D0A-95E8-730170457553",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -126,8 +125,7 @@
           "alpha": 1,
           "blue": 1,
           "green": 1,
-          "red": 1,
-          "swatchID": "C6F6D83F-A829-4DC2-BFCE-0BC07BF7DA46"
+          "red": 1
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -177,8 +175,28 @@
     ],
     "miterLimit": 10,
     "shadows": [
+      {
+        "_class": "shadow",
+        "blurRadius": 7,
+        "color": {
+          "_class": "color",
+          "alpha": 0.2,
+          "blue": 0.2352941176470588,
+          "green": 0.1647058823529412,
+          "red": 0.1647058823529412
+        },
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": 1
+        },
+        "isEnabled": true,
+        "offsetX": 0,
+        "offsetY": 0,
+        "spread": 0
+      }
     ],
     "startMarkerType": 0,
-    "windingRule": 0
+    "windingRule": 1
   }
 }

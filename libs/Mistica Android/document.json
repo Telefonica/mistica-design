@@ -10031,6 +10031,46 @@
       "remoteSwatchID": "DFCF4A34-CBB0-4BBD-B3E9-A03BC27F1F51",
       "sourceLibraryName": "Movistar",
       "symbolPrivate": false
+    },
+    {
+      "_class": "MSImmutableForeignSwatch",
+      "do_objectID": "381BD400-3CEE-4AB5-A35F-8CA79493092F",
+      "libraryID": "b8d5c710-4a6d-11ea-b9b5-030662b7af68",
+      "localSwatch": {
+        "_class": "swatch",
+        "do_objectID": "EF8B98E1-2376-485E-9E2D-FABDBDBD61CA",
+        "name": "1. darkBlue",
+        "value": {
+          "_class": "color",
+          "alpha": 1,
+          "blue": 0.2705882352941176,
+          "green": 0.196078431372549,
+          "red": 0
+        }
+      },
+      "remoteSwatchID": "0F23D4A9-4692-446B-B5DC-3556C0CBA860",
+      "sourceLibraryName": "Telefonica",
+      "symbolPrivate": false
+    },
+    {
+      "_class": "MSImmutableForeignSwatch",
+      "do_objectID": "DEA64E92-B015-421B-BB54-47A9948E1B1D",
+      "libraryID": "b8d5c710-4a6d-11ea-b9b5-030662b7af68",
+      "localSwatch": {
+        "_class": "swatch",
+        "do_objectID": "54190D01-F9EB-4956-867D-AFE2842A4A52",
+        "name": "3. lightBlue",
+        "value": {
+          "_class": "color",
+          "alpha": 1,
+          "blue": 1,
+          "green": 0.9294117647058824,
+          "red": 0
+        }
+      },
+      "remoteSwatchID": "9D24A0A9-56D3-42BB-A491-FCC1B099793A",
+      "sourceLibraryName": "Telefonica",
+      "symbolPrivate": false
     }
   ],
   "foreignSymbols": [
@@ -64747,6 +64787,94 @@
         }
       },
       "remoteStyleID": "23E3FFDA-557B-4264-9E0D-5666C9AD553C",
+      "sourceLibraryName": "Movistar",
+      "symbolPrivate": false
+    },
+    {
+      "_class": "MSImmutableForeignTextStyle",
+      "do_objectID": "361C972B-15A3-4089-8927-E467FC392772",
+      "libraryID": "7CE7B797-7437-4C97-93BD-97DA673C5101",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "56709487-D967-4C5D-AD6C-6626EBD43711",
+        "name": "App/Android/text-preset-7/Regular/Right/text_primary",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "E62A8724-E5F9-440D-B723-FDDA29DA13EF",
+          "endMarkerType": 0,
+          "fills": [
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "textStyle": {
+            "_class": "textStyle",
+            "encodedAttributes": {
+              "MSAttributedStringColorAttribute": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.2078431372549019,
+                "green": 0.196078431372549,
+                "red": 0.192156862745098,
+                "swatchID": "F026E99F-F5FD-4A16-9937-A340FF082363"
+              },
+              "MSAttributedStringFontAttribute": {
+                "_class": "fontDescriptor",
+                "attributes": {
+                  "name": "Roboto-Regular",
+                  "size": 14
+                }
+              },
+              "kerning": 0,
+              "paragraphStyle": {
+                "_class": "paragraphStyle",
+                "alignment": 1,
+                "allowsDefaultTighteningForTruncation": 0,
+                "maximumLineHeight": 20,
+                "minimumLineHeight": 20
+              }
+            },
+            "verticalAlignment": 0
+          },
+          "windingRule": 1
+        }
+      },
+      "remoteStyleID": "B0814B0C-98CA-4DEC-9D1E-E11BBD3337D6",
       "sourceLibraryName": "Movistar",
       "symbolPrivate": false
     }
