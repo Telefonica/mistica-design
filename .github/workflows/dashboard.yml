@@ -40,11 +40,11 @@ jobs:
             description: 'Queries of issues by type, using their label.'
             widgets:
             - type: 'number'
-              title: 'Bug'
+              title: 'Bugs'
               issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue label:"Bug 🐞"'
               color: 'primary'
             - type: 'number'
-              title: 'Component request'
+              title: 'Component requests'
               issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue label:"✨ Component request"'
               color: 'secondary'
             - type: 'table'
