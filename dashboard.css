@@ -254,8 +254,9 @@ span.graph_item_value span.value {
     text-align: right;
     padding-right: 5px;
     font-size: 11px;
-    background-color: #000000;
+    background-color: var(--color-primary-background);
     color: #ffffff;
+    border-radius: 0 20px 20px 0;
 }
 span.graph_item_value span.empty_value {
     padding-right: 0;
