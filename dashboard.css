@@ -305,10 +305,11 @@ div.table_widget table {
     width: 100%;
 }
 div.table_widget table th, div.table_widget table td {
-    border: solid 1px #888888;
-    padding: 4px 8px;
+    padding: 16px 16px;
     text-align: left;
     vertical-align: top;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
 }
 div.table_widget table th {
     background-color: #cccccc;
