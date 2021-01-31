@@ -12,6 +12,9 @@ a {
     color: #003245;
 }
 
+h1{font-weight: 300;}
+h2{font-weight: 300;}
+
 :root {
     --color-primary-background: #003245;
     --color-primary-foreground: #ffffff;
@@ -72,7 +75,7 @@ div.sections {
 }
 
 div.section {
-    margin-top: 30px;
+    margin-top: 64px;
     width: 100%;
     position: relative;
     display: inline-block;
@@ -83,8 +86,8 @@ div.section:after {
     display: inline-block;
 }
 div.section_metadata {
-    width: 275px;
-    margin-right: 25px;
+    width: 100%;
+    margin-bottom: 24px;
     float: left;
 }
 div.section_metadata h2 {
@@ -104,7 +107,7 @@ div.section_widgets > *:first-child {
     margin-top: 0;
 }
 div.section_widgets > * {
-    margin-top: 25px;
+    margin-top: 40px;
 }
 
 /* Number widgets */
