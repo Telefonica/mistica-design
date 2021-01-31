@@ -292,6 +292,11 @@ div.graph_item:last-of-type span.graph_item_value {
 
 /* Table widgets */
 
+tbody{
+    border: 1px solid #DDD;
+    border-radius: 4px;
+}
+
 div.table_widget h3.table_title {
     margin: 0 0 20px 0;
 }
@@ -309,13 +314,16 @@ div.table_widget table th, div.table_widget table td {
     text-align: left;
     vertical-align: top;
     border-bottom: 1px solid #eee;
-    border-top: 1px solid #eee;
+    /* border-top: 1px solid #eee; */
+}
+div.table_widget table th, div.table_widget table td:after {
+    border-bottom: 0px solid #eee;
 }
 div.table_widget table th {
-    background-color: #cccccc;
+    background-color: #f3f3f3;
 }
 div.table_widget table tr:nth-child(odd) td {
-    background-color: #e8e8e8;
+    background-color: #fff;
 }
 div.table_widget table th a, div.table_widget table td a {
     display: block;
