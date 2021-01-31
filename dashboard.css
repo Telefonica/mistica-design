@@ -293,7 +293,7 @@ div.graph_item:last-of-type span.graph_item_value {
 /* Table widgets */
 
 tbody{
-    border: 1px solid #DDD;
+    /* border: 1px solid #DDD; */
     border-radius: 4px;
 }
 
@@ -316,8 +316,8 @@ div.table_widget table th, div.table_widget table td {
     border-bottom: 1px solid #eee;
     /* border-top: 1px solid #eee; */
 }
-div.table_widget table th, div.table_widget table td:after {
-    border-bottom: 0px solid #eee;
+div.table_widget table th, div.table_widget table tr:last-child {
+    border-bottom: none;
 }
 div.table_widget table th {
     background-color: #f3f3f3;
