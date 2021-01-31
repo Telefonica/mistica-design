@@ -95,7 +95,7 @@ jobs:
             widgets:
             - type: 'number'
               title: 'Changes Requested'
-              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:pr review:changes_requested'
+              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:pr'
               color: 'primary'
             - type: 'number'
               title: 'Needs Review'
@@ -103,7 +103,7 @@ jobs:
               color: 'secondary'
             - type: 'table'
               title: 'Pull Requests with Changes Requested'
-              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:pr review:changes_requested sort:created-asc'
+              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:pr sort:created-asc'
             - type: 'table'
               title: 'Oldest Pull Requests without Review'
               fields:
