@@ -5,6 +5,7 @@ body {
     /* background-color: #003245; */
     background-color: #fff;
     max-width: 900px;
+    font-weight: 300;
 }
 
 a {
@@ -14,6 +15,7 @@ a {
 
 h1{font-weight: 300;}
 h2{font-weight: 300;}
+h3{font-weight: 300;}
 
 :root {
     --color-primary-background: #003245;
@@ -132,6 +134,7 @@ div.number_widget {
     border: solid 1px #dddddd;
     color: #000000;
     border-radius: 4px;
+    font-weight: 200;
 }
 div.number_widget.primary {
     background-color: var(--color-primary-background);
@@ -320,6 +323,7 @@ div.table_widget table th, div.table_widget table td {
     vertical-align: top;
     border-bottom: 1px solid #eee;
     /* border-top: 1px solid #eee; */
+    font-weight: 200;
 }
 div.table_widget table th, div.table_widget table tr:last-child {
     border-bottom: none;
