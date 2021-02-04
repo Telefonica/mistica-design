@@ -1,8 +1,11 @@
 <br>
 <br>
+<!-- 
 <div align="left">
   <img height="64" alt="Mística Logo" src=".github/resources/misticaLogo.svg">
 </div>
+-->
+  <img alt="Mística Logo" src=".github/resources/misticadesign.png">
 <br>
 <br>
 <p align="left" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
