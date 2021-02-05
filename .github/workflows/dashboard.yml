@@ -31,9 +31,6 @@ jobs:
       uses: ethomson/issue-dashboard@v1
       with:
         config: |
-          title: Mística dashboard
-          description: |
-            Show the currently status of Mística sketch libraries repository.
           output:
             format: html
             filename: 'out/index.html'
@@ -43,11 +40,11 @@ jobs:
             description: 'Queries of issues by type, using their label.'
             widgets:
             - type: 'number'
-              title: 'Bug'
+              title: 'Bugs'
               issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue label:"Bug 🐞"'
               color: 'primary'
             - type: 'number'
-              title: 'Component request'
+              title: 'Component requests'
               issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue label:"✨ Component request"'
               color: 'secondary'
             - type: 'table'
@@ -97,18 +94,11 @@ jobs:
           - title: 'Pull Requests'
             widgets:
             - type: 'number'
-              title: 'Changes Requested'
-              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:pr review:changes_requested'
-              color: 'primary'
-            - type: 'number'
-              title: 'Needs Review'
+              title: 'Opened'
               issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:pr review:none'
-              color: 'secondary'
+              color: 'primary'
             - type: 'table'
-              title: 'Pull Requests with Changes Requested'
-              issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:pr review:changes_requested sort:created-asc'
-            - type: 'table'
-              title: 'Oldest Pull Requests without Review'
+              title: 'Open Pull Requests'
               fields:
               - title: 'Issue'
                 property: 'number'
