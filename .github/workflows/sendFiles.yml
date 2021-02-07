@@ -1,6 +1,9 @@
 name: Cloning libraries to mistica-sketch-libraries
 
 on:
+  pull_request:
+    branches:
+      - production
   push:
     branches:
       - production
