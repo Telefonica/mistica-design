@@ -62,7 +62,7 @@ Every Friday, if there are substantial changes, we release a new version of libr
 #### Creating new branches
 If you want to do a new branch, please, write the branch name with the correct name.
 
-`name-short-description`
+`name-short-description`  
 `iceballos-fix-buttons-size`
 
 #### POC Branches (Shouldn't be common)
@@ -70,8 +70,6 @@ If you want to test something to later will be integrated in libraries, you will
 
 A custom branch always have to follow a structure in the name:  
 `poc-name-short-description`  
-
-*For example*  
 `poc-iceballos-autolayout-list`  
 
 If this custom branch work fine, we can merge it with *develop* branch through a pull request.  
