@@ -8,7 +8,7 @@
   <img alt="Mística Logo" src=".github/resources/misticaDesign.svg">
 <br>
 <br>
-<p align="left" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
+<p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="#componentsStatus">Components Status</a> •
   <a href="#gettingStarted">Getting Started</a> •
   <a href="#releaseWorkflow">Release Workflow</a> •
