@@ -31,7 +31,7 @@
 <br>
 
 ## Current components status (design + develop)  <a name="componentsStatus"></a>
-To know what is the status and components are already implemented by DesignCore + AppsCore, please visit [this link](https://zpl.io/bJxDLDW)
+To know what is the status and components are already implemented by DesignCore + AppsCore, please visit [this link](https://brandfactory.telefonica.com/document/1846#/components/overview)
 
 <br>
 
