@@ -59,18 +59,22 @@ Every Friday, if there are substantial changes, we release a new version of libr
 
 ![Kactus Regenerate File](https://i.imgur.com/frFVeUR.png)  
 
+#### Creating new branches
+If you want to do a new branch, please, write the branch name with the correct name.
+
+`name-short-description`
+`iceballos-fix-buttons-size`
 
 #### POC Branches (Shouldn't be common)
 If you want to test something to later will be integrated in libraries, you will be going to do that creating a *custom branch* from production.  
 
 A custom branch always have to follow a structure in the name:  
-`ACRONYM-short-description`  
+`poc-name-short-description`  
 
 *For example*  
-Proof of concept  = POC
-`POC-autolayout-list`  
+`poc-iceballos-autolayout-list`  
 
-If this custom branch work fine, we can merge it with *develop* branch.  
+If this custom branch work fine, we can merge it with *develop* branch through a pull request.  
 
 **When you make a new branch, don't publish immediately, work on this branch and publish it when you consider that your work is substantial. This avoids having a dirty repository.**
 
