@@ -8,7 +8,7 @@
   <img alt="Mística Logo" src=".github/resources/misticaDesign.svg">
 <br>
 <br>
-<p align="left" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
+<p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="#componentsStatus">Components Status</a> •
   <a href="#gettingStarted">Getting Started</a> •
   <a href="#releaseWorkflow">Release Workflow</a> •
@@ -31,7 +31,7 @@
 <br>
 
 ## Current components status (design + develop)  <a name="componentsStatus"></a>
-To know what is the status and components are already implemented by DesignCore + AppsCore, please visit [this link](https://zpl.io/bJxDLDW)
+To know what is the status and components are already implemented by DesignCore + AppsCore, please visit [this link](https://brandfactory.telefonica.com/document/1846#/components/overview)
 
 <br>
 
@@ -59,18 +59,20 @@ Every Friday, if there are substantial changes, we release a new version of libr
 
 ![Kactus Regenerate File](https://i.imgur.com/frFVeUR.png)  
 
+#### Creating new branches
+If you want to do a new branch, please, write the branch name with the correct name.
+
+`name-short-description`  
+`iceballos-fix-buttons-size`
 
 #### POC Branches (Shouldn't be common)
 If you want to test something to later will be integrated in libraries, you will be going to do that creating a *custom branch* from production.  
 
 A custom branch always have to follow a structure in the name:  
-`ACRONYM-short-description`  
+`poc-name-short-description`  
+`poc-iceballos-autolayout-list`  
 
-*For example*  
-Proof of concept  = POC
-`POC-autolayout-list`  
-
-If this custom branch work fine, we can merge it with *develop* branch.  
+If this custom branch work fine, we can merge it with *develop* branch through a pull request.  
 
 **When you make a new branch, don't publish immediately, work on this branch and publish it when you consider that your work is substantial. This avoids having a dirty repository.**
 
@@ -84,7 +86,7 @@ If you will go to use Kactus, when you download libraries in your computer, inst
 
 2. If Kactus fetching time is longer, better restart Kactus app.
 
-3. If Kactus show a lot of changes when you swap between branches, don't do anything, let Kactus load. (If this loading take a lot of time.. you can close and open Kactus CMD + Q).
+3. If Kactus show a lot of changes when you swap between branches, don't do anything, let Kactus load.
 
 4. Usually, when you change between branches, a bunch of changes to commit appear. *NEVER COMMIT THIS CHANGES*. That appear because in the transition between branches Kactus detect changes between new and the old branch.
 

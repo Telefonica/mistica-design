@@ -1,8 +1,16 @@
 {
-  "_class": "page",
-  "booleanOperation": -1,
+  "_class": "symbolMaster",
+  "allowsOverrides": true,
+  "backgroundColor": {
+    "_class": "color",
+    "alpha": 1,
+    "blue": 0.2,
+    "green": 0.2,
+    "red": 0.2
+  },
+  "booleanOperation": 0,
   "clippingMaskMode": 0,
-  "do_objectID": "38EFDB9A-C4C9-438E-9359-54307BB0E6BE",
+  "do_objectID": "14E79116-731B-4EFC-BFA1-A17292CE4CB2",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -15,20 +23,25 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 0,
-    "width": 0,
-    "x": 0,
-    "y": 0
+    "height": 32,
+    "width": 128,
+    "x": 2843,
+    "y": 2773
   },
   "grid": {
     "_class": "simpleGrid",
     "gridSize": 8,
-    "isEnabled": true,
+    "isEnabled": false,
     "thickGridTimes": 2
   },
   "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 0,
+    "layoutAnchor": 1,
+    "maxSize": 0,
+    "minSize": 104
   },
+  "hasBackgroundColor": true,
   "hasClickThrough": true,
   "hasClippingMask": false,
   "horizontalRulerData": {
@@ -37,21 +50,48 @@
     "guides": [
     ]
   },
+  "includeBackgroundColorInExport": true,
+  "includeBackgroundColorInInstance": false,
   "includeInCloudUpload": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
+  "isFlowHome": false,
   "isLocked": false,
   "isVisible": true,
-  "layerListExpandedType": 2,
+  "layerListExpandedType": 0,
   "layers": [
+    {
+      "class": "group",
+      "id": "CA1FB4C6-7140-431A-954E-8271D11297ED"
+    }
   ],
-  "name": "Components",
+  "name": "Buttons/2.Secondary/Ι Small/Ι Inverse/Hover",
   "nameIsFixed": true,
+  "overrideProperties": [
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "82B62306-7FE1-4FB6-B04F-9689D0DEB93E_layerStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "D61DD21D-ED37-4182-8780-958E99EE8091_stringValue"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "D61DD21D-ED37-4182-8780-958E99EE8091_textStyle"
+    }
+  ],
+  "presetDictionary": {
+  },
+  "resizesContent": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
-  "shouldBreakMaskChain": false,
+  "shouldBreakMaskChain": true,
   "style": {
     "_class": "style",
     "blur": {
@@ -86,7 +126,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "58B3814A-B131-4D45-98D7-B1A86A8674BA",
+    "do_objectID": "3B0216CE-BF99-4DAE-BCB2-19086C74BFDC",
     "endMarkerType": 0,
     "fills": [
     ],
@@ -98,14 +138,11 @@
     "startMarkerType": 0,
     "windingRule": 1
   },
+  "symbolID": "44DA76D7-03A3-4963-B3E6-8C498D2326C6",
   "userInfo": {
-    "com.betterthantomorrow.sketch.distributor": {
-      "distributorCenterSpacing": 0,
-      "distributorDimension": 0,
-      "distributorSpacing": "8"
-    },
-    "com.sonburn.sketchplugins.symbol-organizer": {
-      "globalSettings": 1
+    "com.animaapp.stc-sketch-plugin": {
+      "kModelPropertiesKey": {
+      }
     }
   },
   "verticalRulerData": {
