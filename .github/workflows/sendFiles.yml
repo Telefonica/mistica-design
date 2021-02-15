@@ -4,7 +4,6 @@ on:
   pull_request:
     branches:
       - production
-    types: [closed]
   push:
     branches:
       - production
@@ -15,7 +14,6 @@ on:
 jobs:
   send-files:
     runs-on: [self-hosted, Linux]
-    if: github.event.pull_request.merged == true
     steps:
     # comando solo para Self-Hosted machines
     # - run: sudo chown -R $USER:$USER /home/pi/actions-github/mistica-design-libraries/_work/
