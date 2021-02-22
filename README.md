@@ -10,6 +10,7 @@
 <br>
 <p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
   <a href="#componentsStatus">Components Status</a> •
+  <a href="#contribute">Contribute</a> •
   <a href="#gettingStarted">Getting Started</a> •
   <a href="#releaseWorkflow">Release Workflow</a> •
   <a href="#dangerZone">Danger Zone in Kactus</a> •
@@ -27,6 +28,11 @@
 | [mistica-web](https://github.com/Telefonica/mistica-web)     | Repository with code libraries for Mística in web  |
 | [mistica-ios](https://github.com/Telefonica/mistica-ios)     | Repository with code libraries for Mística in iOS  |
 | [mistica-android](https://github.com/Telefonica/mistica-android)     | Repository with code libraries for Mística in Android  |
+
+<br>
+
+## Contribute to Mística  <a name="contribute"></a>
+To contribute to Mística, please visit [this link](https://brandfactory.telefonica.com/document/1846#/contribute/components-request)
 
 <br>
 
