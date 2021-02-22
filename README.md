@@ -13,9 +13,7 @@
   <a href="#contribute">Contribute</a> •
   <a href="#gettingStarted">Getting Started</a> •
   <a href="#releaseWorkflow">Release Workflow</a> •
-  <a href="#dangerZone">Danger Zone in Kactus</a> •
-  <a href="https://github.com/Telefonica/mistica-design-libraries/wiki">Wiki</a> •
-  <a href="#problemsWithKactus">Problems w/ Kactus</a>
+  <a href="https://github.com/Telefonica/mistica-design-libraries/wiki">Wiki</a>
 </p>
 
 <br>
