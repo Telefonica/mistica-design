@@ -40,20 +40,7 @@ To know what is the status and components are already implemented by DesignCore 
 <br>
 
 ## How to install sketch development libraries<a name="gettingStarted"></a>
-
-1. Download and install latest version of [Kactus](http://kactus.io)
-2. Clone repo in **Kactus**:  
-   You can search mistica-design-libraries repo in the list
-   ![Clone Repo](https://i.imgur.com/iz45eLf.png)  
-
-   You also clone the repo with this url  
-   `https://github.com/tef-novum/mistica-design-libraries.git`  
-3. Generate Sketch files
-    + Click in **Regenerate Sketch File** in each files in Kactus
-      ![Kactus Regenerate File](https://i.imgur.com/8WHdEmf.png)  
-4. If you are using Mística libraries in Sketch, remove libraries from Sketch > Libraries (just remove from Sketch! Don't delete the files)
-5. Add Kactus libraries sketch files to Sketch.
-
+If you want to try development libraries and pull changes to production library, follow [this documentation](https://github.com/Telefonica/mistica-design/wiki/Install-development-libraries-with-Kactus) (please, read [contribution guidelines](https://brandfactory.telefonica.com/document/1846#/contribute/components-request) first) 
 
 
 ## Release Workflow in Kactus <a name="releaseWorkflow"></a>
@@ -79,19 +66,3 @@ A custom branch always have to follow a structure in the name:
 If this custom branch work fine, we can merge it with *develop* branch through a pull request.  
 
 **When you make a new branch, don't publish immediately, work on this branch and publish it when you consider that your work is substantial. This avoids having a dirty repository.**
-
-## Danger Zone in Kactus <a name="dangerZone"></a>
-If you will go to use Kactus, when you download libraries in your computer, install the libraries from Kactus to Sketch (just drag and drop libraries sketch files to the Sketch > Preferences > Libraries). Be careful because if you change the branch in Kactus, libraries will change. Obviously, right?.
-
-**⚠️ Be careful updating library updates, make sure that you know what are you doing**
-
-## Problems w/ Kactus <a name="problemsWithKactus"></a>
-1. First time when you will sync Mistica repository you will not see sketch files, to generate this files click in "Regenerate sketch file" in each files in Kactus.
-
-2. If Kactus fetching time is longer, better restart Kactus app.
-
-3. If Kactus show a lot of changes when you swap between branches, don't do anything, let Kactus load.
-
-4. Usually, when you change between branches, a bunch of changes to commit appear. *NEVER COMMIT THIS CHANGES*. That appear because in the transition between branches Kactus detect changes between new and the old branch.
-
-<br>
