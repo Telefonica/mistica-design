@@ -32,16 +32,11 @@
 ## Contribute to Mística  <a name="contribute"></a>
 To contribute to Mística, please visit [this link](https://brandfactory.telefonica.com/document/1846#/contribute/components-request)
 
-<br>
-
 ## Current components status (design + develop)  <a name="componentsStatus"></a>
 To know what is the status and components are already implemented by DesignCore + AppsCore, please visit [this link](https://brandfactory.telefonica.com/document/1846#/components/overview)
 
-<br>
-
 ## How to install sketch development libraries<a name="gettingStarted"></a>
 If you want to try development libraries and pull changes to production library, follow [this documentation](https://github.com/Telefonica/mistica-design/wiki/Install-development-libraries-with-Kactus) (please, read [contribution guidelines](https://brandfactory.telefonica.com/document/1846#/contribute/components-request) first) 
-
 
 ## Release Workflow in Kactus <a name="releaseWorkflow"></a>
 Master branch always be a production version of Mística Design System Libraries. Ensure before of select a branch of the version that you want to work, you always have to work in a branch created from `Production` branch.
