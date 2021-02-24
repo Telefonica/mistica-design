@@ -35,6 +35,25 @@ buttonSecondaryBorderDisabledInverse = $o2BluePrimaryLight60
 buttonSecondaryBorderInverse = $white
 buttonSecondaryBorderSelectedInverse = $o2BluePrimaryLight60
 
+textButtonPrimary = $white
+textButtonPrimaryInverse = $o2BluePrimary
+textButtonPrimaryInverseDisabled = $o2BluePrimaryLight10
+textButtonPrimaryInverseSelected = $o2BluePrimaryDark // iOS & Web
+textButtonPrimaryInversePressed = $o2BluePrimaryDark // Android
+textButtonSecondary = $o2BluePrimary
+textButtonSecondaryDisabled = $o2BluePrimaryLight10
+textButtonSecondarySelected = $o2BluePrimaryDark // iOS & Web
+textButtonSecondaryPressed = $o2BluePrimaryDark // Android
+textButtonSecondaryInverse = $white
+textButtonSecondaryInverseDisabled = $o2BluePrimaryLight60
+textButtonSecondaryInverseSelected = $white // iOS & Web
+textButtonSecondaryInversePressed = $white // Android
+textLink = $o2BluePrimary
+textLinkDanger = $pepper
+textLinkDangerDisabled = $pepperLight
+textLinkDisabled = $o2BluePrimaryLight60
+textLinkSnackbar = $o2BluePrimaryLight60
+
 // CONTROLS
 control = $grey3
 controlActivated = $o2BluePrimary
@@ -63,6 +82,12 @@ neutralMedium = $grey5 // antes iconSecondary
 promo = $o2Purple // antes backgroundPromo 
 highlight = $o2pink
 
+textPrimary = $grey6
+textPrimaryInverse = $white
+textSecondary = $grey5
+textDisabled = $grey3
+textAmount = $o2BluePrimary
+
 // STATES
 error = $pepper // antes iconError
 success = $o2Teal // antes iconSuccess
@@ -70,3 +95,11 @@ warning = $o2Orange // antes iconWarning
 
 // SHADOWS
 shadow = $grey6 // opacidad 20% // shadow values > 0px 2px 4px 0px
+
+// BARS TEXTS
+textNavigationBarPrimary = $white
+textNavigationBarSecondary = $o2BluePrimaryLight60
+textNavigationSearchBarHint = $o2BluePrimaryLight60 // solo en iOS
+textNavigationSearchBarText = $white // solo en iOS
+textAppBar = $grey4
+textAppBarSelected = $o2BluePrimary

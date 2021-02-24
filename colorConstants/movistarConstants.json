@@ -5,9 +5,9 @@ backgroundBrand = $movistarBlue
 backgroundOverlay = $grey6 // al 60% de opacidad
 backgroundSkeleton = $grey1
 backgroundSkeletonInverse = $movistarBlueDark
+backgroundAlternative = $grey2
 navigationBarBackground = $movistarBlue
 navigationSearchBarBackground = $movistarBlueDark
-backgroundAlternative = $grey2
 
 // BORDERS
 borderLight = $grey2
@@ -34,6 +34,25 @@ buttonSecondaryBackgroundSelected = $movistarGreenDark
 buttonSecondaryBorderDisabledInverse = $movistarBlueLight60
 buttonSecondaryBorderInverse = $white
 buttonSecondaryBorderSelectedInverse = $movistarBlueLight60
+
+textButtonPrimary = $white
+textButtonPrimaryInverse = $movistarBlue
+textButtonPrimaryInverseDisabled = $movistarBlueLight30
+textButtonPrimaryInverseSelected = $movistarBlue // iOS & Web
+textButtonPrimaryInversePressed = $movistarBlue // Android
+textButtonSecondary = $movistarGreen
+textButtonSecondaryDisabled = $movistarGreenLight30
+textButtonSecondarySelected = $movistarGreenDark // iOS & Web
+textButtonSecondaryPressed = $movistarGreenDark // Android
+textButtonSecondaryInverse = $white
+textButtonSecondaryInverseDisabled = $movistarBlueLight50
+textButtonSecondaryInverseSelected = $white // iOS & Web
+textButtonSecondaryInversePressed = $white // Android
+textLink = $movistarBlue
+textLinkDanger = $pepper
+textLinkDangerDisabled = $pepperLight
+textLinkDisabled = $movistarBlueLight50
+textLinkSnackbar = $movistarBlueLight60
 
 // CONTROLS
 control = $grey3
@@ -63,6 +82,12 @@ neutralMedium = $grey5 // antes iconSecondary
 promo = $purple // antes backgroundPromo
 highlight = $pink
 
+textPrimary = $grey6
+textPrimaryInverse = $white
+textSecondary = $grey5
+textDisabled = $grey3
+textAmount = $movistarBlue
+
 // STATES
 error = $pepper // antes iconError
 success = $movistarGreen // antes iconSuccess
@@ -70,3 +95,11 @@ warning = $egg // antes iconWarning
 
 // SHADOWS
 shadow = $grey6 // opacidad 20% // shadow values > 0px 2px 4px 0px
+
+// BARS TEXTS
+textNavigationBarPrimary = $white
+textNavigationBarSecondary = $movistarBlueLight30
+textNavigationSearchBarHint = $movistarBlueLight30 // solo en iOS
+textNavigationSearchBarText = $white // solo en iOS
+textAppBar = $grey4
+textAppBarSelected = $movistarBlue
