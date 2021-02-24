@@ -7,8 +7,10 @@ backgroundSkeleton = $grey1
 backgroundSkeletonInverse = $white // al 20% de opacidad
 navigationBarBackground = $o2BluePrimary
 navigationSearchBarBackground = $o2BluePrimaryDark
+backgroundAlternative = $grey2
 
 // BORDERS
+borderLight = $grey2
 border = $grey3
 borderDark = $grey5
 borderSelected = $o2BluePrimary
@@ -17,12 +19,14 @@ borderSelected = $o2BluePrimary
 buttonDangerBackground = $pepper
 buttonDangerBackgroundDisabled = $pepperLight
 buttonDangerBackgroundSelected = $pepperDark
+buttonDangerBackgroundHover = $pepperDark
 buttonLinkBackgroundSelected = $o2BluePrimaryLight10
 buttonPrimaryBackground = $o2BluePrimary
 buttonPrimaryBackgroundDisabled = $o2BluePrimaryLight10
 buttonPrimaryBackgroundDisabledInverse = $o2BluePrimaryLight60
 buttonPrimaryBackgroundInverse = $white
 buttonPrimaryBackgroundSelected = $o2BluePrimaryDark
+buttonPrimaryBackgroundHover = $o2BluePrimaryDark
 buttonPrimaryBackgroundSelectedInverse = $o2BluePrimaryLight60
 buttonSecondaryBackground = $o2BluePrimary
 buttonSecondaryBackgroundDisabled = $o2BluePrimaryLight10
@@ -35,10 +39,10 @@ buttonSecondaryBorderSelectedInverse = $o2BluePrimaryLight60
 control = $grey3
 controlActivated = $o2BluePrimary
 controlError = $pepper
-progressBar = $o2BluePrimary
-progressBarBackground = $grey1
-progressBarBackgroundInverse = $grey1
-progressBarInverse = $o2BluePrimary
+loadingBar = $o2BluePrimary
+loadingBarBackground = $grey1
+loadingBarBackgroundInverse = $grey1
+loadingBarInverse = $o2BluePrimary
 
 // DIVIDERS
 divider = $grey2
@@ -57,8 +61,12 @@ neutralHigh = $grey6 // antes iconPrimary
 neutralLow = $grey3 // antes iconDisabled 
 neutralMedium = $grey5 // antes iconSecondary 
 promo = $o2Purple // antes backgroundPromo 
+highlight = $o2pink
 
 // STATES
 error = $pepper // antes iconError
 success = $o2Teal // antes iconSuccess
 warning = $o2Orange // antes iconWarning
+
+// SHADOWS
+shadow = $grey6 // opacidad 20% // shadow values > 0px 2px 4px 0px

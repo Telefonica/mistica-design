@@ -7,8 +7,10 @@ backgroundSkeleton = $grey1
 backgroundSkeletonInverse = $white // al 20% de opacidad
 navigationBarBackground = $vivoPurple
 navigationSearchBarBackground = $vivoPurpleDark
+backgroundAlternative = $grey2
 
 // BORDERS
+borderLight = $grey2
 border = $grey3
 borderDark = $grey5
 borderSelected = $vivoPurple
@@ -17,12 +19,14 @@ borderSelected = $vivoPurple
 buttonDangerBackground = $pepper
 buttonDangerBackgroundDisabled = $pepperLight
 buttonDangerBackgroundSelected = $pepperDark
+buttonDangerBackgroundHover = $pepperDark
 buttonLinkBackgroundSelected = $vivoPurpleLight10
 buttonPrimaryBackground = $vivoPurple
 buttonPrimaryBackgroundDisabled = $vivoPurpleLight20
 buttonPrimaryBackgroundDisabledInverse = $vivoPurpleLight40
 buttonPrimaryBackgroundInverse = $white
 buttonPrimaryBackgroundSelected = $vivoPurpleDark
+buttonPrimaryBackgroundHover = $vivoPurpleDark
 buttonPrimaryBackgroundSelectedInverse = $vivoPurpleLight40
 buttonSecondaryBackground = $vivoPurple
 buttonSecondaryBackgroundDisabled = $vivoPurpleLight20
@@ -35,10 +39,10 @@ buttonSecondaryBorderSelectedInverse = $vivoPurpleLight40
 control = $grey3
 controlActivated = $vivoPurple
 controlError = $pepper
-progressBar = $pink
-progressBarBackground = $pepperLight
-progressBarBackgroundInverse = $vivoPurpleLight40
-progressBarInverse = $vivoPurple
+loadingBar = $pink
+loadingBarBackground = $pepperLight
+loadingBarBackgroundInverse = $vivoPurpleLight40
+loadingBarInverse = $vivoPurple
 
 // DIVIDERS
 divider = $grey2
@@ -57,8 +61,12 @@ neutralHigh = $grey6 // antes iconPrimary
 neutralLow = $grey3 // antes iconDisabled
 neutralMedium = $grey5 // antes iconSecondary
 promo = $vivoPurple // antes backgroundPromo
+highlight = $pink
 
 // STATES
 error = $pepper // antes iconError
 success = $Vivo Green // antes iconSuccess
 warning = $orange // antes iconWarning
+
+// SHADOWS
+shadow = $grey6 // opacidad 20% // shadow values > 0px 2px 4px 0px

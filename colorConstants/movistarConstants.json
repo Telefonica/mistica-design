@@ -7,8 +7,10 @@ backgroundSkeleton = $grey1
 backgroundSkeletonInverse = $movistarBlueDark
 navigationBarBackground = $movistarBlue
 navigationSearchBarBackground = $movistarBlueDark
+backgroundAlternative = $grey2
 
 // BORDERS
+borderLight = $grey2
 border = $grey3
 borderDark = $grey5
 borderSelected = $movistarGreen
@@ -17,12 +19,14 @@ borderSelected = $movistarGreen
 buttonDangerBackground = $pepper
 buttonDangerBackgroundDisabled = $pepperLight
 buttonDangerBackgroundSelected = $pepperDark
+buttonDangerBackgroundHover = $pepperDark
 buttonLinkBackgroundSelected = $movistarBlueLight10
 buttonPrimaryBackground = $movistarGreen
 buttonPrimaryBackgroundDisabled = $movistarGreenLight50
 buttonPrimaryBackgroundDisabledInverse = $movistarBlueLight60
 buttonPrimaryBackgroundInverse = $white
 buttonPrimaryBackgroundSelected = $movistarGreenDark
+buttonPrimaryBackgroundHover = $movistarGreenDark
 buttonPrimaryBackgroundSelectedInverse = $movistarBlueLight60
 buttonSecondaryBackground = $movistarGreen
 buttonSecondaryBackgroundDisabled = $movistarGreenLight50
@@ -35,10 +39,10 @@ buttonSecondaryBorderSelectedInverse = $movistarBlueLight60
 control = $grey3
 controlActivated = $movistarBlue
 controlError = $pepper
-progressBar = $movistarGreen
-progressBarBackground = $movistarGreenLight50
-progressBarBackgroundInverse = $movistarBlueDark
-progressBarInverse = $movistarBlueLight60
+loadingBar = $movistarGreen
+loadingBarBackground = $movistarGreenLight50
+loadingBarBackgroundInverse = $movistarBlueDark
+loadingBarInverse = $movistarBlueLight60
 
 // DIVIDERS  
 divider = $grey2
@@ -57,8 +61,12 @@ neutralHigh = $grey6 // antes iconPrimary
 neutralLow = $grey3 // antes iconDisabled
 neutralMedium = $grey5 // antes iconSecondary
 promo = $purple // antes backgroundPromo
+highlight = $pink
 
-// STATES  
+// STATES
 error = $pepper // antes iconError
 success = $movistarGreen // antes iconSuccess
 warning = $egg // antes iconWarning
+
+// SHADOWS
+shadow = $grey6 // opacidad 20% // shadow values > 0px 2px 4px 0px
