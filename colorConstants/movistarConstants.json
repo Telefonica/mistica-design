@@ -1,93 +1,95 @@
+// Las constantes tienen aplicadas dos variables; primero su versión light y a continuación la dark mode. En las constantes que solo se muestra una variable, esta es compartida por ambos modos.
+
 // BACKGROUNDS
-appBarBackground = $white
-background = $white
-backgroundBrand = $movistarBlue
+appBarBackground = $white / $darkModeBlack
+background = $white / $darkModeBlack
+backgroundContainer = $white / $grey6
+backgroundBrand = $movistarBlue / $darkModeBlack
 backgroundOverlay = $grey6 // al 60% de opacidad
-backgroundSkeleton = $grey1
-backgroundSkeletonInverse = $movistarBlueDark
-navigationBarBackground = $movistarBlue
-navigationSearchBarBackground = $movistarBlueDark
-backgroundAlternative = $grey2
-backgroundFeedbackBottom = $movistarBlue
+backgroundSkeleton = $grey1 / $grey6
+backgroundSkeletonInverse = $movistarBlueDark / $darkModeBlack
+navigationBarBackground = $movistarBlue / $darkModeBlack
+navigationSearchBarBackground = $movistarBlueDark / $grey6
+backgroundAlternative = $grey2 / $grey6
 
 // BORDERS
 borderLight = $grey1
-border = $grey3
-borderDark = $grey5
-borderSelected = $movistarGreen
+border = $grey3 / $grey6
+borderDark = $grey5 / $grey1
+borderSelected = $movistarGreen / $movistarGreenLight50
 
 // BUTTONS
-buttonDangerBackground = $pepper
-buttonDangerBackgroundDisabled = $pepperLight30
-buttonDangerBackgroundSelected = $pepperDark
-buttonDangerBackgroundHover = $pepperDark
+buttonDangerBackground = $pepper / $pepperLight50
+buttonDangerBackgroundDisabled = $pepperLight / $pepperLight10
+buttonDangerBackgroundSelected = $pepperDark / $darkModePepperDark
+buttonDangerBackgroundHover = $pepperDark / $darkModePepperDark
 buttonLinkBackgroundSelected = $movistarBlueLight10
-buttonPrimaryBackground = $movistarGreen
-buttonPrimaryBackgroundDisabled = $movistarGreenLight50
-buttonPrimaryBackgroundDisabledInverse = $movistarBlueLight50
-buttonPrimaryBackgroundInverse = $white
-buttonPrimaryBackgroundSelected = $movistarGreenDark
-buttonPrimaryBackgroundHover = $movistarGreenDark
-buttonPrimaryBackgroundSelectedInverse = $movistarBlueLight50
-buttonSecondaryBackground = $movistarGreen
-buttonSecondaryBackgroundDisabled = $movistarGreenLight50
-buttonSecondaryBackgroundSelected = $movistarGreenDark
-buttonSecondaryBorderDisabledInverse = $movistarBlueLight50
-buttonSecondaryBorderInverse = $white
-buttonSecondaryBorderSelectedInverse = $movistarBlueLight50
+buttonPrimaryBackground = $movistarGreen / $movistarGreenLight50
+buttonPrimaryBackgroundDisabled = $movistarGreenLight50 / $darkModeMovistarGreenDark
+buttonPrimaryBackgroundDisabledInverse = $movistarBlueLight50 / $darkModeMovistarGreenDark
+buttonPrimaryBackgroundInverse = $white / $movistarGreenLight50
+buttonPrimaryBackgroundSelected = $movistarGreenDark / $movistarGreenLight10
+buttonPrimaryBackgroundHover = $movistarGreenDark / $movistarGreenLight10
+buttonPrimaryBackgroundSelectedInverse = $movistarBlueLight50 / $movistarGreenLight10
+buttonSecondaryBackground = $movistarGreen / $movistarGreenLight50
+buttonSecondaryBackgroundDisabled = $movistarGreenLight50 / $darkModeMovistarGreenDark
+buttonSecondaryBackgroundSelected = $movistarGreenDark / $movistarGreenLight10
+buttonSecondaryBorderDisabledInverse = $movistarBlueLight50 / $darkModeMovistarGreenDark
+buttonSecondaryBorderInverse = $white / $movistarGreenLight50
+buttonSecondaryBorderSelectedInverse = $movistarBlueLight50 / $movistarGreenLight10
 
-textButtonPrimary = $white
-textButtonPrimaryInverse = $movistarBlue
-textButtonPrimaryInverseDisabled = $movistarBlueLight30
-textButtonPrimaryInverseSelected = $movistarBlue
-textButtonSecondary = $movistarGreen
-textButtonSecondaryDisabled = $movistarGreenLight30
-textButtonSecondarySelected = $movistarGreenDark
-textButtonSecondaryInverse = $white
-textButtonSecondaryInverseDisabled = $movistarBlueLight50
-textButtonSecondaryInverseSelected = $white
-textLink = $movistarBlue
+textButtonPrimary = $white / $darkModeBlack
+textButtonPrimaryInverse = $movistarBlue / $darkModeBlack
+textButtonPrimaryInverseDisabled = $movistarBlueLight30 / $darkModeBlack
+textButtonPrimaryInverseSelected = $movistarBlue / $darkModeBlack // iOS & Web
+textButtonPrimaryInversePressed = $movistarBlue / $darkModeBlack // Android
+textButtonSecondary = $movistarGreen / $movistarGreenLight50
+textButtonSecondaryDisabled = $movistarGreenLight30 / $darkModeMovistarGreenDark
+textButtonSecondarySelected = $movistarGreenDark / $movistarGreenLight10 // iOS & Web
+textButtonSecondaryPressed = $movistarGreenDark / $movistarGreenLight10 // Android
+textButtonSecondaryInverse = $white / $movistarGreenLight50
+textButtonSecondaryInverseDisabled = $movistarBlueLight50 / $darkModeMovistarGreenDark
+textButtonSecondaryInverseSelected = $white / $movistarGreenLight10  // iOS & Web
+textButtonSecondaryInversePressed = $white / $movistarGreenLight10  // Android
+textLink = $movistarBlue / $movistarBlueLight50
 textLinkDanger = $pepper
 textLinkDangerDisabled = $pepperLight30
-textLinkDisabled = $movistarBlueLight50
+textLinkDisabled = $movistarBlueLight50 / $darkModeMovistarBlueDark
 textLinkSnackbar = $movistarBlueLight50
 
 // CONTROLS
-control = $grey3
-controlActivated = $movistarBlue
+control = $grey3 / $grey1
+controlActivated = $movistarBlue / $movistarBlueLight50
 controlError = $pepper
-loadingBar = $movistarGreen
-loadingBarBackground = $movistarGreenLight50
-loadingBarBackgroundInverse = $movistarBlueDark
-loadingBarInverse = $movistarBlueLight50
-
-toggleAndroidInactive = $grey2 // solo web
-toggleAndroidBackgroundActive = $movistarBlueLight30 // solo web
-toggleIosInactive = $white // solo web
+loadingBar = $movistarGreen / $movistarGreenLight50
+loadingBarBackground = $movistarGreenLight50 / $movistarGreenLight10
+loadingBarBackgroundInverse = $movistarBlueDark / $movistarGreenLight10
+loadingBarInverse = $movistarBlueLight50 / $movistarGreenLight50
 
 // DIVIDERS  
-divider = $grey2
-navigationBarDivider = $movistarBlue
+divider = $grey2 / $grey6
+navigationBarDivider = $movistarBlue / $darkModeBlack
 
 // FEEDBACKS  
 badge = $pepperDark
+badgeInverse = $pepperDark
 feedbackErrorBackground = $pepper
 feedbackInfoBackground = $grey6
 
 // GLOBAL  
-brand = $movistarBlue // antes iconBrand
+brand = $movistarBlue / $movistarBlueLight50 // antes iconBrand
 inverse = $white // antes iconInverse
-neutralHigh = $grey6 // antes iconPrimary
-neutralLow = $grey3 // antes iconDisabled
-neutralMedium = $grey5 // antes iconSecondary
+neutralHigh = $grey6 / $white // antes iconPrimary
+neutralLow = $grey3 / $grey5 // antes iconDisabled
+neutralMedium = $grey5 / $grey1 // antes iconSecondary
 promo = $purple // antes backgroundPromo
 highlight = $pink
 
-textPrimary = $grey6
+textPrimary = $grey6 / $white
 textPrimaryInverse = $white
-textSecondary = $grey5
-textDisabled = $grey3
-textAmount = $movistarBlue
+textSecondary = $grey5 / $grey1
+textDisabled = $grey3 / $grey5
+textAmount = $movistarBlue / $movistarBlueLight50
 
 // STATES
 error = $pepper // antes iconError
@@ -99,5 +101,5 @@ textNavigationBarPrimary = $white
 textNavigationBarSecondary = $movistarBlueLight30
 textNavigationSearchBarHint = $movistarBlueLight30 // solo en iOS
 textNavigationSearchBarText = $white // solo en iOS
-textAppBar = $grey4
-textAppBarSelected = $movistarBlue
+textAppBar = $grey4 / $grey1
+textAppBarSelected = $movistarBlue  / $movistarBlueLight50

@@ -1,93 +1,95 @@
+// Las constantes tienen aplicadas dos variables; primero su versión light y a continuación la dark mode. En las constantes que solo se muestra una variable, esta es compartida por ambos modos.
+
 // BACKGROUNDS
-appBarBackground = $white
-background = $white
-backgroundBrand = $o2BluePrimary
+appBarBackground = $white / $darkModeBlack
+background = $white / $darkModeBlack
+backgroundContainer = $white / $grey6
+backgroundBrand = $o2BluePrimary / $darkModeBlack
 backgroundOverlay = $grey6 // al 60% de opacidad
-backgroundSkeleton = $grey1
-backgroundSkeletonInverse = $white // al 20% de opacidad
-navigationBarBackground = $o2BluePrimary
-navigationSearchBarBackground = $o2BluePrimaryDark
-backgroundAlternative = $grey2
-backgroundFeedbackBottom = $o2BluePrimary
+backgroundSkeleton = $grey1 / $grey6
+backgroundSkeletonInverse = $white (al 20% de opacidad)  / $darkModeBlack
+navigationBarBackground = $o2BluePrimary / $darkModeBlack
+navigationSearchBarBackground = $o2BluePrimaryDark / $grey6
+backgroundAlternative = $grey2 / $grey6
 
 // BORDERS
 borderLight = $grey1
-border = $grey3
-borderDark = $grey5
-borderSelected = $o2BluePrimary
+border = $grey3 / $grey6
+borderDark = $grey5 / $grey1
+borderSelected = $o2BluePrimary / $o2BluePrimaryLight50
 
 // BUTTONS
-buttonDangerBackground = $pepper
-buttonDangerBackgroundDisabled = $pepperLight30
-buttonDangerBackgroundSelected = $pepperDark
-buttonDangerBackgroundHover = $pepperDark
+buttonDangerBackground = $pepper / $pepperLight50
+buttonDangerBackgroundDisabled = $pepperLight / $pepperLight10
+buttonDangerBackgroundSelected = $pepperDark / $darkModePepperDark
+buttonDangerBackgroundHover = $pepperDark / $darkModePepperDark
 buttonLinkBackgroundSelected = $o2BluePrimaryLight10
-buttonPrimaryBackground = $o2BluePrimary
-buttonPrimaryBackgroundDisabled = $o2BluePrimaryLight10
-buttonPrimaryBackgroundDisabledInverse = $o2BluePrimaryLight50
-buttonPrimaryBackgroundInverse = $white
-buttonPrimaryBackgroundSelected = $o2BluePrimaryDark
-buttonPrimaryBackgroundHover = $o2BluePrimaryDark
-buttonPrimaryBackgroundSelectedInverse = $o2BluePrimaryLight50
-buttonSecondaryBackground = $o2BluePrimary
-buttonSecondaryBackgroundDisabled = $o2BluePrimaryLight10
-buttonSecondaryBackgroundSelected = $o2BluePrimaryDark
-buttonSecondaryBorderDisabledInverse = $o2BluePrimaryLight50
-buttonSecondaryBorderInverse = $white
-buttonSecondaryBorderSelectedInverse = $o2BluePrimaryLight50
+buttonPrimaryBackground = $o2BluePrimary / $o2BluePrimaryLight50
+buttonPrimaryBackgroundDisabled = $o2BluePrimaryLight10 / $darkModeO2BluePrimaryDark
+buttonPrimaryBackgroundDisabledInverse = $o2BluePrimaryLight50 / $darkModeO2BluePrimaryDark
+buttonPrimaryBackgroundInverse = $white / $o2BluePrimaryLight50
+buttonPrimaryBackgroundSelected = $o2BluePrimaryDark / $o2BluePrimaryLight10
+buttonPrimaryBackgroundHover = $o2BluePrimaryDark / $o2BluePrimaryLight10
+buttonPrimaryBackgroundSelectedInverse = $o2BluePrimaryLight50 / $o2BluePrimaryLight10
+buttonSecondaryBackground = $o2BluePrimary / $o2BluePrimaryLight50
+buttonSecondaryBackgroundDisabled = $o2BluePrimaryLight10 / $darkModeO2BluePrimaryDark
+buttonSecondaryBackgroundSelected = $o2BluePrimaryDark / $o2BluePrimaryLight10
+buttonSecondaryBorderDisabledInverse = $o2BluePrimaryLight50 / $darkModeO2BluePrimaryDark
+buttonSecondaryBorderInverse = $white / $o2BluePrimaryLight50
+buttonSecondaryBorderSelectedInverse = $o2BluePrimaryLight50 / $o2BluePrimaryLight10
 
-textButtonPrimary = $white
-textButtonPrimaryInverse = $o2BluePrimary
-textButtonPrimaryInverseDisabled = $o2BluePrimaryLight10
-textButtonPrimaryInverseSelected = $o2BluePrimaryDark
-textButtonSecondary = $o2BluePrimary
-textButtonSecondaryDisabled = $o2BluePrimaryLight10
-textButtonSecondarySelected = $o2BluePrimaryDark
-textButtonSecondaryInverse = $white
-textButtonSecondaryInverseDisabled = $o2BluePrimaryLight50
-textButtonSecondaryInverseSelected = $white
-textLink = $o2BluePrimary
+textButtonPrimary = $white / $darkModeBlack
+textButtonPrimaryInverse = $o2BluePrimary / $darkModeBlack
+textButtonPrimaryInverseDisabled = $o2BluePrimaryLight10 / $darkModeBlack
+textButtonPrimaryInverseSelected = $o2BluePrimaryDark / $darkModeBlack // iOS & Web
+textButtonPrimaryInversePressed = $o2BluePrimaryDark / $darkModeBlack // Android
+textButtonSecondary = $o2BluePrimary / $o2BluePrimaryLight50
+textButtonSecondaryDisabled = $o2BluePrimaryLight10 / $darkModeO2BluePrimaryDark
+textButtonSecondarySelected = $o2BluePrimaryDark / $o2BluePrimaryLight10 // iOS & Web
+textButtonSecondaryPressed = $o2BluePrimaryDark / $o2BluePrimaryLight10 // Android
+textButtonSecondaryInverse = $white / $o2BluePrimaryLight50
+textButtonSecondaryInverseDisabled = $o2BluePrimaryLight50 / $darkModeO2BluePrimaryDark
+textButtonSecondaryInverseSelected = $white / $o2BluePrimaryLight10 // iOS & Web
+textButtonSecondaryInversePressed = $white / $o2BluePrimaryLight10 // Android
+textLink = $o2BluePrimary / $o2BluePrimaryLight50
 textLinkDanger = $pepper
 textLinkDangerDisabled = $pepperLight30
-textLinkDisabled = $o2BluePrimaryLight50
+textLinkDisabled = $o2BluePrimaryLight50 / $darkModeO2BluePrimaryDark
 textLinkSnackbar = $o2BluePrimaryLight50
 
 // CONTROLS
-control = $grey3
-controlActivated = $o2BluePrimary
+control = $grey3 / $grey1
+controlActivated = $o2BluePrimary / $o2BluePrimaryLight50
 controlError = $pepper
-loadingBar = $o2BluePrimary
-loadingBarBackground = $grey1
-loadingBarBackgroundInverse = $grey1
-loadingBarInverse = $o2BluePrimary
-
-toggleAndroidInactive = $grey2 // solo web
-toggleAndroidBackgroundActive = '#CCD1ED' // solo web
-toggleIosInactive = $white // solo web
+loadingBar = $o2BluePrimary / $o2BluePrimaryLight50
+loadingBarBackground = $grey1 / $o2BluePrimaryLight10
+loadingBarBackgroundInverse = $grey1 / $o2BluePrimaryLight10
+loadingBarInverse = $o2BluePrimary / $o2BluePrimaryLight50
 
 // DIVIDERS
-divider = $grey2
-navigationBarDivider = $o2BluePrimary
+divider = $grey2 / $grey6
+navigationBarDivider = $o2BluePrimary / $darkModeBlack
 
 // FEEDBACKS
 badge = $pepperDark
+badgeInverse = $pepperDark
 feedbackErrorBackground = $pepper
 feedbackInfoBackground = $grey6
 
 // GLOBAL
-brand = $o2BluePrimary // antes iconBrand 
+brand = $o2BluePrimary / $o2BluePrimaryLight50 // antes iconBrand 
 inverse = $white // antes iconInverse 
-neutralHigh = $grey6 // antes iconPrimary 
-neutralLow = $grey3 // antes iconDisabled 
-neutralMedium = $grey5 // antes iconSecondary 
+neutralHigh = $grey6 / $white // antes iconPrimary 
+neutralLow = $grey3 / $grey5 // antes iconDisabled 
+neutralMedium = $grey5 / $grey1 // antes iconSecondary 
 promo = $o2Purple // antes backgroundPromo 
 highlight = $o2pink
 
-textPrimary = $grey6
+textPrimary = $grey6 / $white
 textPrimaryInverse = $white
-textSecondary = $grey5
-textDisabled = $grey3
-textAmount = $o2BluePrimary
+textSecondary = $grey5 / $grey1
+textDisabled = $grey3 / $grey5
+textAmount = $o2BluePrimary / $o2BluePrimaryLight50
 
 // STATES
 error = $pepper // antes iconError
@@ -99,5 +101,5 @@ textNavigationBarPrimary = $white
 textNavigationBarSecondary = $o2BluePrimaryLight50
 textNavigationSearchBarHint = $o2BluePrimaryLight50 // solo en iOS
 textNavigationSearchBarText = $white // solo en iOS
-textAppBar = $grey4
-textAppBarSelected = $o2BluePrimary
+textAppBar = $grey4 / $grey1
+textAppBarSelected = $o2BluePrimary / $o2BluePrimaryLight50

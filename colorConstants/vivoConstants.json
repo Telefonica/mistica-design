@@ -1,93 +1,95 @@
+// Las constantes tienen aplicadas dos variables; primero su versión light y a continuación la dark mode. En las constantes que solo se muestra una variable, esta es compartida por ambos modos.
+
 // BACKGROUNDS
-appBarBackground = $white
-background = $white
-backgroundBrand = $vivoPurple
+appBarBackground = $white / $darkModeBlack
+background = $white / $darkModeBlack
+backgroundContainer = $white / $grey6
+backgroundBrand = $vivoPurple / $darkModeBlack
 backgroundOverlay = $grey6 // al 60% de opacidad
-backgroundSkeleton = $grey1
-backgroundSkeletonInverse = $white // al 20% de opacidad
-navigationBarBackground = $vivoPurple
-navigationSearchBarBackground = $vivoPurpleDark
-backgroundAlternative = $grey2
-backgroundFeedbackBottom = $vivoPurple
+backgroundSkeleton = $grey1 / $grey6
+backgroundSkeletonInverse = $white (al 20% de opacidad)  / $darkModeBlack
+navigationBarBackground = $vivoPurple / $darkModeBlack
+navigationSearchBarBackground = $vivoPurpleDark / $grey6
+backgroundAlternative = $grey2 / $grey6
 
 // BORDERS
 borderLight = $grey1
-border = $grey3
-borderDark = $grey5
-borderSelected = $vivoPurple
+border = $grey3 / $grey6
+borderDark = $grey5 / $grey1
+borderSelected = $vivoPurple / $vivoPurpleLight50
 
 // BUTTONS
-buttonDangerBackground = $pepper
-buttonDangerBackgroundDisabled = $pepperLight30
-buttonDangerBackgroundSelected = $pepperDark
-buttonDangerBackgroundHover = $pepperDark
+buttonDangerBackground = $pepper / $pepperLight50
+buttonDangerBackgroundDisabled = $pepperLight / $pepperLight10
+buttonDangerBackgroundSelected = $pepperDark / $darkModePepperDark
+buttonDangerBackgroundHover = $pepperDark / $darkModePepperDark
 buttonLinkBackgroundSelected = $vivoPurpleLight10
-buttonPrimaryBackground = $vivoPurple
-buttonPrimaryBackgroundDisabled = $vivoPurpleLight20
-buttonPrimaryBackgroundDisabledInverse = $vivoPurpleLight50
-buttonPrimaryBackgroundInverse = $white
-buttonPrimaryBackgroundSelected = $vivoPurpleDark
-buttonPrimaryBackgroundHover = $vivoPurpleDark
-buttonPrimaryBackgroundSelectedInverse = $vivoPurpleLight50
-buttonSecondaryBackground = $vivoPurple
-buttonSecondaryBackgroundDisabled = $vivoPurpleLight20
-buttonSecondaryBackgroundSelected = $vivoPurpleDark
-buttonSecondaryBorderDisabledInverse = $vivoPurpleLight50
-buttonSecondaryBorderInverse = $white
-buttonSecondaryBorderSelectedInverse = $vivoPurpleLight50
+buttonPrimaryBackground = $vivoPurple / $vivoPurpleLight50
+buttonPrimaryBackgroundDisabled = $vivoPurpleLight20 / $darkModeVivoPurpleDark
+buttonPrimaryBackgroundDisabledInverse = $vivoPurpleLight50 / $darkModeVivoPurpleDark
+buttonPrimaryBackgroundInverse = $white / $vivoPurpleLight50
+buttonPrimaryBackgroundSelected = $vivoPurpleDark / $vivoPurpleLight10
+buttonPrimaryBackgroundHover = $vivoPurpleDark / $vivoPurpleLight10
+buttonPrimaryBackgroundSelectedInverse = $vivoPurpleLight50 / $vivoPurpleLight10
+buttonSecondaryBackground = $vivoPurple / $vivoPurpleLight50
+buttonSecondaryBackgroundDisabled = $vivoPurpleLight20 / $darkModeVivoPurpleDark
+buttonSecondaryBackgroundSelected = $vivoPurpleDark / $vivoPurpleLight10
+buttonSecondaryBorderDisabledInverse = $vivoPurpleLight50 / $darkModeVivoPurpleDark
+buttonSecondaryBorderInverse = $white / $vivoPurpleLight50
+buttonSecondaryBorderSelectedInverse = $vivoPurpleLight50 / $vivoPurpleLight10
 
-textButtonPrimary = $white
-textButtonPrimaryInverse = $vivoPurple
-textButtonPrimaryInverseDisabled = $vivoPurpleLight20
-textButtonPrimaryInverseSelected = $vivoPurple 
-textButtonSecondary = $vivoPurple
-textButtonSecondaryDisabled = $vivoPurpleLight20
-textButtonSecondarySelected = $vivoPurpleDark
-textButtonSecondaryInverse = $white
-textButtonSecondaryInverseDisabled = $vivoPurpleLight50
-textButtonSecondaryInverseSelected = $white
-textLink = $vivoPurple
+textButtonPrimary = $white / $darkModeBlack
+textButtonPrimaryInverse = $vivoPurple / $darkModeBlack
+textButtonPrimaryInverseDisabled = $vivoPurpleLight20 / $darkModeBlack
+textButtonPrimaryInverseSelected = $vivoPurple / $darkModeBlack // iOS & Web
+textButtonPrimaryInversePressed = $vivoPurple / $darkModeBlack // Android
+textButtonSecondary = $vivoPurple / $vivoPurpleLight50
+textButtonSecondaryDisabled = $vivoPurpleLight20 / $darkModeVivoPurpleDark
+textButtonSecondarySelected = $vivoPurpleDark / $vivoPurpleLight10 // iOS & Web
+textButtonSecondaryPressed = $vivoPurpleDark / $vivoPurpleLight10 // Android
+textButtonSecondaryInverse = $white / $vivoPurpleLight50
+textButtonSecondaryInverseDisabled = $vivoPurpleLight50 / $darkModeVivoPurpleDark
+textButtonSecondaryInverseSelected = $white / $vivoPurpleLight10 // iOS & Web
+textButtonSecondaryInversePressed = $white / $vivoPurpleLight10 // Android
+textLink = $vivoPurple / $vivoPurpleLight50
 textLinkDanger = $pepper
 textLinkDangerDisabled = $pepperLight30
-textLinkDisabled = $vivoPurpleLight50
+textLinkDisabled = $vivoPurpleLight50 / $darkModeVivoPurpleDark
 textLinkSnackbar = $vivoPurpleLight50
 
 // CONTROLS
-control = $grey3
-controlActivated = $vivoPurple
+control = $grey3 / $grey1
+controlActivated = $vivoPurple / $vivoPurpleLight50
 controlError = $pepper
-loadingBar = $pink
-loadingBarBackground = $pepperLight30
-loadingBarBackgroundInverse = $vivoPurpleLight50
-loadingBarInverse = $vivoPurple
-
-toggleAndroidInactive = $grey2 // solo web
-toggleAndroidBackgroundActive = $vivoPurpleLight20 // solo web
-toggleIosInactive = $white // solo web
+loadingBar = $pink / $vivoPurpleLight50
+loadingBarBackground = $pepperLight / $vivoPurpleLight10
+loadingBarBackgroundInverse = $vivoPurpleLight50 / $vivoPurpleLight10
+loadingBarInverse = $vivoPurple / $vivoPurpleLight50
 
 // DIVIDERS
-divider = $grey2
-navigationBarDivider = $vivoPurple
+divider = $grey2 / $grey6
+navigationBarDivider = $vivoPurple / $darkModeBlack
 
 // FEEDBACKS
 badge = $pepperDark
+badgeInverse = $pepperDark
 feedbackErrorBackground = $pepper
 feedbackInfoBackground = $grey6
 
 // GLOBAL
-brand = $vivoPurple // antes iconBrand
+brand = $vivoPurple / $vivoPurpleLight50 // antes iconBrand
 inverse = $white // antes iconInverse
-neutralHigh = $grey6 // antes iconPrimary
-neutralLow = $grey3 // antes iconDisabled
-neutralMedium = $grey5 // antes iconSecondary
+neutralHigh = $grey6 / $white // antes iconPrimary
+neutralLow = $grey3 / $grey5 // antes iconDisabled
+neutralMedium = $grey5 / $grey1 // antes iconSecondary
 promo = $vivoPurple // antes backgroundPromo
 highlight = $pink
 
-textPrimary = $grey6
+textPrimary = $grey6 / $white
 textPrimaryInverse = $white
-textSecondary = $grey5
-textDisabled = $grey3
-textAmount = $vivoPurple
+textSecondary = $grey5 / $grey1
+textDisabled = $grey3 / $grey5
+textAmount = $vivoPurple / $vivoPurpleLight50
 
 // STATES
 error = $pepper // antes iconError
@@ -99,5 +101,5 @@ textNavigationBarPrimary = $white
 textNavigationBarSecondary = $vivoPurpleLight50
 textNavigationSearchBarHint = $vivoPurpleLight50 // solo en iOS
 textNavigationSearchBarText = $white // solo en iOS
-textAppBar = $grey4
-textAppBarSelected = $vivoPurple
+textAppBar = $grey4 / $grey1
+textAppBarSelected = $vivoPurple / $vivoPurpleLight50
