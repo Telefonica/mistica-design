@@ -1,6 +1,7 @@
 name: New component request notification
 
 on:
+  push:
   issues:
     types: [labeled]
 
