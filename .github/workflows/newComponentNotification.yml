@@ -2,13 +2,13 @@ name: New component request notification
 
 on:
   push:
-  issues:
-    types: [labeled]
+  # issues:
+  #   types: [labeled]
 
 jobs:
   build:
     runs-on: [self-hosted, Linux]
-    if: (github.event.label.name == '✨ Component request') || (github.event.label.name == '✨ Component request')
+    # if: (github.event.label.name == '✨ Component request') || (github.event.label.name == '✨ Component request')
 
     steps:
     - uses: actions/checkout@v2
