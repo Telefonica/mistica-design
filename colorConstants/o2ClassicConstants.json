@@ -5,12 +5,13 @@ appBarBackground = $white / $darkModeBlack
 background = $white / $darkModeBlack
 backgroundContainer = $white / $grey6
 backgroundBrand = gradient de O2Classic / $darkModeBlack  
-backgroundOverlay = $grey6 // al 60% de opacidad
+backgroundOverlay = $grey6 // alpha 60%
 backgroundSkeleton = $grey1 / $grey6
 backgroundSkeletonInverse = $white (al 20% de opacidad)  / $darkModeBlack
 navigationBarBackground = $o2Blue / $darkModeBlack
 navigationSearchBarBackground = $o2BlueDark / $grey6
 backgroundAlternative = $grey1 / $grey6
+backgroundFeedbackBottom = $o2GradientFourth
 
 // BORDERS
 borderLight = $grey1
@@ -24,6 +25,7 @@ buttonDangerBackgroundDisabled = $pepperLight / $pepperLight10
 buttonDangerBackgroundSelected = $pepperDark / $darkModePepperDark
 buttonDangerBackgroundHover = $pepperDark / $darkModePepperDark
 buttonLinkBackgroundSelected = $o2SkyBlueLight10
+buttonLinkBackgroundSelectedInverse = $white // alpha 20%
 buttonPrimaryBackground = $o2SkyBlue / $o2SkyBlueLight50
 buttonPrimaryBackgroundDisabled = $o2SkyBlueLight50 / $darkModeO2SkyBlueDark
 buttonPrimaryBackgroundDisabledInverse = $o2SkyBlueLight50 / $darkModeO2SkyBlueDark
@@ -65,7 +67,7 @@ loadingBarInverse = $o2Gem / $o2GemLight50
 
 // DIVIDERS
 divider = $grey2 / $grey6
-dividerInverse = $white /* al 20% de opacidad */ /  $white /* al 20% de opacidad  */
+dividerInverse = $white /* alpha 20% */ /  $white /* alpha 20%  */
 navigationBarDivider = $o2Blue / $darkModeBlack
 
 // FEEDBACKS

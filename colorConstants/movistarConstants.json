@@ -5,12 +5,13 @@ appBarBackground = $white / $darkModeBlack
 background = $white / $darkModeBlack
 backgroundContainer = $white / $grey6
 backgroundBrand = $movistarBlue / $darkModeBlack
-backgroundOverlay = $grey6 // al 60% de opacidad
+backgroundOverlay = $grey6 // alpha 60%
 backgroundSkeleton = $grey1 / $grey6
 backgroundSkeletonInverse = $movistarBlueDark / $darkModeBlack
 navigationBarBackground = $movistarBlue / $darkModeBlack
 navigationSearchBarBackground = $movistarBlueDark / $grey6
 backgroundAlternative = $grey1 / $grey6
+backgroundFeedbackBottom = $movistarBlue
 
 // BORDERS
 borderLight = $grey1
@@ -24,6 +25,7 @@ buttonDangerBackgroundDisabled = $pepperLight / $pepperLight10
 buttonDangerBackgroundSelected = $pepperDark / $darkModePepperDark
 buttonDangerBackgroundHover = $pepperDark / $darkModePepperDark
 buttonLinkBackgroundSelected = $movistarBlueLight10
+buttonLinkBackgroundSelectedInverse = $white // alpha 20%
 buttonPrimaryBackground = $movistarGreen / $movistarGreenLight50
 buttonPrimaryBackgroundDisabled = $movistarGreenLight50 / $darkModeMovistarGreenDark
 buttonPrimaryBackgroundDisabledInverse = $movistarBlueLight50 / $darkModeMovistarGreenDark
