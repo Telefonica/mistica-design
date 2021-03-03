@@ -2,9 +2,9 @@
 appBarBackground = $white
 background = $white
 backgroundBrand = // Aplica el gradient de O2Classic, que se mantiene como actualmente
-backgroundOverlay = $grey6 // al 60% de opacidad
+backgroundOverlay = $grey6 // alpha 60%
 backgroundSkeleton = $grey1
-backgroundSkeletonInverse = $white // al 20% de opacidad
+backgroundSkeletonInverse = $white // alpha 20%
 navigationBarBackground = $o2Blue
 navigationSearchBarBackground = $o2BlueDark
 backgroundAlternative = $grey1
@@ -22,6 +22,7 @@ buttonDangerBackgroundDisabled = $pepperLight30
 buttonDangerBackgroundSelected = $pepperDark
 buttonDangerBackgroundHover = $pepperDark
 buttonLinkBackgroundSelected = $o2SkyBlueLight10
+buttonLinkBackgroundSelectedInverse = $white // alpha 20%
 buttonPrimaryBackground = $o2SkyBlue
 buttonPrimaryBackgroundDisabled = $o2SkyBlueLight50
 buttonPrimaryBackgroundDisabledInverse = $o2SkyBlueLight50
@@ -67,7 +68,7 @@ toggleIosInactive = $white // solo web
 
 // DIVIDERS
 divider = $grey2
-dividerInverse = $white // al 20% de opacidad
+dividerInverse = $white // // alpha 20%
 navigationBarDivider = $o2Blue
 
 // FEEDBACKS
