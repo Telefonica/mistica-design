@@ -9,7 +9,6 @@ backgroundOverlay = $grey6 // alpha 60%
 backgroundSkeleton = $grey1 / $grey6
 backgroundSkeletonInverse = $movistarBlueDark / $darkModeBlack
 navigationBarBackground = $movistarBlue / $darkModeBlack
-navigationSearchBarBackground = $movistarBlueDark / $grey6
 backgroundAlternative = $grey1 / $grey6
 backgroundFeedbackBottom = $movistarBlue
 
@@ -36,9 +35,9 @@ buttonPrimaryBackgroundSelectedInverse = $movistarBlueLight50 / $movistarGreenLi
 buttonSecondaryBackground = $movistarGreen / $movistarGreenLight50
 buttonSecondaryBackgroundDisabled = $movistarGreenLight50 / $darkModeMovistarGreenDark
 buttonSecondaryBackgroundSelected = $movistarGreenDark / $movistarGreenLight10
-buttonSecondaryBorderDisabledInverse = $movistarBlueLight50 / $darkModeMovistarGreenDark
-buttonSecondaryBorderInverse = $white / $movistarGreenLight50
-buttonSecondaryBorderSelectedInverse = $movistarBlueLight50 / $movistarGreenLight10
+buttonSecondaryBorderDisabledInverse = $movistarBlueLight50 / $darkModeMovistarGreenDark // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
+buttonSecondaryBorderInverse = $white / $movistarGreenLight50 // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
+buttonSecondaryBorderSelectedInverse = $movistarBlueLight50 / $movistarGreenLight10 // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
 
 textButtonPrimary = $white / $darkModeBlack
 textButtonPrimaryInverse = $movistarBlue / $darkModeBlack
@@ -72,16 +71,17 @@ toggleIosInactive = $white // solo web
 // DIVIDERS  
 divider = $grey2 / $grey6
 dividerInverse = $movistarBlueDark / $darkModeMovistarBlueDark
-navigationBarDivider = $movistarBlue / $darkModeBlack
+navigationBarDivider = $movistarBlue / $darkModeBlack // realmente usa el mismo color de la navbar.. igual no lo necesitamos
 
 // FEEDBACKS  
 badge = $pepperDark
 badgeInverse = $pepperDark
-feedbackErrorBackground = $pepper
-feedbackInfoBackground = $grey6
+feedbackErrorBackground = $pepper // se podría usar error en los snackbars
+feedbackInfoBackground = $grey6 // se podría usar neutralHigh en los snackbars
 
 // GLOBAL  
 brand = $movistarBlue / $movistarBlueLight50 // antes iconBrand
+brandDark = $movistarBlueDark / $grey6 // antes navigationSearchBarBackground
 inverse = $white // antes iconInverse
 neutralHigh = $grey6 / $white // antes iconPrimary
 neutralLow = $grey3 / $grey5 // antes iconDisabled

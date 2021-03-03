@@ -7,9 +7,8 @@ backgroundContainer = $white / $grey6
 backgroundBrand = $vivoPurple / $darkModeBlack
 backgroundOverlay = $grey6 // alpha 60%
 backgroundSkeleton = $grey1 / $grey6
-backgroundSkeletonInverse = $white (al 20% de opacidad)  / $darkModeBlack
+backgroundSkeletonInverse = $white /* alpha 20% */  / $darkModeBlack
 navigationBarBackground = $vivoPurple / $darkModeBlack
-navigationSearchBarBackground = $vivoPurpleDark / $grey6
 backgroundAlternative = $grey1 / $grey6
 backgroundFeedbackBottom = $vivoPurple
 
@@ -82,6 +81,7 @@ feedbackInfoBackground = $grey6
 
 // GLOBAL
 brand = $vivoPurple / $vivoPurpleLight50 // antes iconBrand
+brandDark = $vivoPurpleDark / $grey6 // antes navigationSearchBarBackground
 inverse = $white // antes iconInverse
 neutralHigh = $grey6 / $white // antes iconPrimary
 neutralLow = $grey3 / $grey5 // antes iconDisabled
