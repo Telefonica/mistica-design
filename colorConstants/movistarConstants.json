@@ -12,6 +12,8 @@ navigationBarBackground = $movistarBlue / $darkModeBlack
 backgroundAlternative = $grey1 / $grey6
 backgroundFeedbackBottom = $movistarBlue
 
+skeletonWave = $grey2
+
 // BORDERS
 borderLight = $grey1
 border = $grey3 / $grey6
@@ -76,8 +78,8 @@ navigationBarDivider = $movistarBlue / $darkModeBlack // realmente usa el mismo 
 // FEEDBACKS  
 badge = $pepperDark
 badgeInverse = $pepperDark
-feedbackErrorBackground = $pepper // se podría usar error en los snackbars
-feedbackInfoBackground = $grey6 // se podría usar neutralHigh en los snackbars
+feedbackErrorBackground = $pepper // se podría usar neutralHigh en los snackbars y cargarnos esta
+feedbackInfoBackground = $grey6 // se podría usar neutralHigh en los snackbars y cargarnos esta
 
 // GLOBAL  
 brand = $movistarBlue / $movistarBlueLight50 // antes iconBrand
@@ -93,7 +95,7 @@ textPrimary = $grey6 / $white
 textPrimaryInverse = $white
 textSecondary = $grey5 / $grey1
 textSecondaryInverse = $movistarBlueLight30 / $grey1
-textDisabled = $grey3 / $grey5
+textDisabled = $grey3 / $grey5 // veis necesario un textDisabledInverse para textos deshabilitados sobre masa de color?
 textAmount = $movistarBlue / $movistarBlueLight50
 
 // STATES
