@@ -66,9 +66,9 @@ loadingBarBackground = $grey1 / $o2BluePrimaryLight10
 loadingBarBackgroundInverse = $grey1 / $o2BluePrimaryLight10
 loadingBarInverse = $o2BluePrimary / $o2BluePrimaryLight50
 
-toggleAndroidInactive = $grey2 // solo web
-toggleAndroidBackgroundActive = $o2BluePrimaryLight10 // solo web
-toggleIosInactive = $white // solo web
+toggleAndroidInactive = $grey2 // web only
+toggleAndroidBackgroundActive = $o2BluePrimaryLight10 // web only
+toggleIosInactive = $white // web only
 
 // DIVIDERS
 divider = $grey2 / $grey6
@@ -106,7 +106,7 @@ warning = $o2Orange // antes iconWarning
 // BARS TEXTS
 textNavigationBarPrimary = $white
 textNavigationBarSecondary = $o2BluePrimaryLight50
-textNavigationSearchBarHint = $o2BluePrimaryLight50 // solo en iOS
-textNavigationSearchBarText = $white // solo en iOS
+textNavigationSearchBarHint = $o2BluePrimaryLight50 // iOS only
+textNavigationSearchBarText = $white // iOS only
 textAppBar = $grey4 / $grey1
 textAppBarSelected = $o2BluePrimary / $o2BluePrimaryLight50
