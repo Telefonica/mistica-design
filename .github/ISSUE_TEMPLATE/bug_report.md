@@ -22,8 +22,9 @@ A clear and concise description of what you expected to happen.
 
 ## Details (please complete the following information):
 <!-- Mark with [x] or [ ] to which library is applying the issue. -->
-- [x] iOS Library 
-- [ ] Android Library
+- [x] iOS 
+- [ ] Android
+- [ ] Desktop
 
 Component name: `e.g. bars/navBar/regular`
 Sketch version: [e.g. 67.2]
