@@ -90,8 +90,8 @@ brand = "$vivoPurple" // $vivoPurpleLight50
 brandDark = "$vivoPurpleDark" // $grey6
 inverse = "$white"
 neutralHigh = "$grey6" // $white
-neutralLow = "$grey3" // $grey5
 neutralMedium = "$grey5" // $grey1
+neutralLow = "$grey3" // $grey5
 promo = "$vivoPurple"
 highlight = "$pink"
 

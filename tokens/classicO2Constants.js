@@ -86,13 +86,13 @@ feedbackErrorBackground = "$pepper"
 feedbackInfoBackground = "$grey6"
 
 // GLOBAL
-brand = "$o2Blue" // $o2BlueLight50 // antes iconBrand
-brandDark = "$o2BlueDark" // $grey6 // antes navigationSearchBarBackground
-inverse = "$white" // antes iconInverse
-neutralHigh = "$grey6" // $white // antes iconPrimary
-neutralLow = "$grey3" // $grey5 // antes iconDisabled
-neutralMedium = "$grey5" // $grey1 // antes iconSecondary
-promo = "$pink" // antes backgroundPromo
+brand = "$o2Blue" // $o2BlueLight50
+brandDark = "$o2BlueDark" // $grey6
+inverse = "$white"
+neutralHigh = "$grey6" // $white
+neutralMedium = "$grey5" // $grey1
+neutralLow = "$grey3" // $grey5
+promo = "$pink"
 highlight = "$pink"
 
 textPrimary = "$grey6" // $white
@@ -103,9 +103,9 @@ textDisabled = "$grey3" // $grey5
 textAmount = "$o2SkyBlue" // $o2BlueLight50
 
 // STATES
-error = "$pepper" // antes iconError
-success = "$o2Green" // antes iconSuccess
-warning = "$orange" // antes iconWarning
+error = "$pepper"
+success = "$o2Green"
+warning = "$orange"
 
 // BARS TEXTS
 textNavigationBarPrimary = "$white"

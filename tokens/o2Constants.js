@@ -90,8 +90,8 @@ brand = "$o2BluePrimary" // $o2BluePrimaryLight50
 brandDark = "$o2BluePrimaryDark" // $grey6
 inverse = "$white"
 neutralHigh = "$grey6" // $white
-neutralLow = "$grey3" // $grey5 
 neutralMedium = "$grey5" // $grey1 
+neutralLow = "$grey3" // $grey5 
 promo = "$o2Purple"
 highlight = "$o2pink"
 

@@ -5,17 +5,17 @@ appBarBackground = "$white" // "$darkModeGrey"
 background = "$white" // "$darkModeBlack"
 backgroundContainer = "$white" // "$darkModeGrey"
 backgroundBrand = "$movistarBlue" // "$darkModeBlack"
-backgroundOverlay = "$grey6" /* alpha 60% */ 
-backgroundSkeleton = "$grey1" // "$grey6"
-backgroundSkeletonInverse = "$movistarBlueDark"
+backgroundOverlay = "$grey6" /* alpha 60% */ // "$darkModeBlack" /* alpha 80% */
+backgroundSkeleton = "$grey1" // "$grey6" 
+backgroundSkeletonInverse = "$movistarBlueDark" // "$grey6"
 navigationBarBackground = "$movistarBlue" // "$darkModeBlack"
-backgroundAlternative = "$grey1" // "$darkModeGrey"
+backgroundAlternative = "$grey1" // "$darkModeGrey" (seguramente mejor darkModeBlack)
 backgroundFeedbackBottom = "$movistarBlue" // "$darkModeBlack"
 
-skeletonWave = "$grey2"
+skeletonWave = "$grey5"
 
 // BORDERS
-borderLight = "$grey1"
+borderLight = "$grey1" // "$darkModeBlack"
 border = "$grey3" // "$darkModeGrey"
 borderDark = "$grey5" // "$grey5"
 borderSelected = "$movistarGreen"
@@ -30,88 +30,88 @@ buttonLinkBackgroundSelected = "$movistarBlueLight10" // "$darkModeGrey"
 buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // "$darkModeGrey"
 
 buttonPrimaryBackground = "$movistarGreen" // "$movistarGreenLight50"
-buttonPrimaryBackgroundDisabled = "$movistarGreenLight50" // "$darkModeMovistarGreenDark" alpha 40%
-buttonPrimaryBackgroundDisabledInverse = "$movistarBlueLight50" // "$darkModeMovistarGreenDark" alpha 40%
-buttonPrimaryBackgroundInverse = "$white" // "$movistarGreenLight50"
-buttonPrimaryBackgroundSelected = "$movistarGreenDark" // "$movistarGreenLight10"
-buttonPrimaryBackgroundHover = "$movistarGreenDark" // "$movistarGreenLight10" // web only
-buttonPrimaryBackgroundSelectedInverse = "$movistarBlueLight50" // "$movistarGreenLight10"
+buttonPrimaryBackgroundDisabled = "$movistarGreenLight50" // "$movistarGreenLight50" alpha 40%
+buttonPrimaryBackgroundDisabledInverse = "$movistarBlueLight50" // "$movistarGreenLight50" alpha 40%
+buttonPrimaryBackgroundInverse = "$white" // "$movistarGreen"
+buttonPrimaryBackgroundSelected = "$movistarGreenDark" // "$movistarGreenDark"
+buttonPrimaryBackgroundHover = "$movistarGreenDark" // "$movistarGreenDark" // web only
+buttonPrimaryBackgroundSelectedInverse = "$movistarBlueLight50" // "$movistarGreenDark"
 
-buttonSecondaryBackground = "$movistarGreen" // "$movistarGreenLight50"
-buttonSecondaryBackgroundDisabled = "$movistarGreenLight50" // "$darkModeMovistarGreenDark"
-buttonSecondaryBackgroundSelected = "$movistarGreenDark" // "$movistarGreenLight10"
-buttonSecondaryBorderDisabledInverse = "$movistarBlueLight50" // "$darkModeMovistarGreenDark" // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
+buttonSecondaryBackground = "$movistarGreen" // "$movistarGreen"
+buttonSecondaryBackgroundDisabled = "$movistarGreenLight50" // "$movistarGreenLight50"
+buttonSecondaryBackgroundSelected = "$movistarGreenDark" // "$movistarGreenDark"
+buttonSecondaryBorderDisabledInverse = "$movistarBlueLight50" // "$movistarGreenLight50" alpha 40% // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
 buttonSecondaryBorderInverse = "$white" // "$movistarGreenLight50" // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
-buttonSecondaryBorderSelectedInverse = "$movistarBlueLight50" // "$movistarGreenLight10" // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
+buttonSecondaryBorderSelectedInverse = "$movistarBlueLight50" // "$movistarGreenDark" // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
 
-textButtonPrimary = "$white" // "$darkModeBlack"
+textButtonPrimary = "$white" // "$white"
 [NEW] textButtonPrimaryDisabled = "$white" // "$grey5"
-textButtonPrimaryInverse = "$movistarBlue" // "$darkModeBlack"
+textButtonPrimaryInverse = "$movistarBlue" // "$white"
 textButtonPrimaryInverseDisabled = "$movistarBlueLight30" // "$grey5"
-textButtonPrimaryInverseSelected = "$movistarBlue" // "$darkModeBlack"
+textButtonPrimaryInverseSelected = "$movistarBlue" // "$white"
 
-textButtonSecondary = "$movistarGreen" // "$movistarGreenLight50"
-textButtonSecondaryDisabled = "$movistarGreenLight50" // "$darkModeMovistarGreenDark"
-textButtonSecondarySelected = "$movistarGreenDark" // "$movistarGreenLight10"
-textButtonSecondaryInverse = "$white" // "$movistarGreenLight50"
-textButtonSecondaryInverseDisabled = "$movistarBlueLight50" // "$darkModeMovistarGreenDark"
-textButtonSecondaryInverseSelected = "$white" // "$movistarGreenLight10"
+textButtonSecondary = "$movistarGreen" // "$white"
+textButtonSecondaryDisabled = "$movistarGreenLight50" // "$movistarGreenLight50" alpha 40%
+textButtonSecondarySelected = "$movistarGreenDark" // "$movistarGreenDark"
+textButtonSecondaryInverse = "$white" // "$white"
+textButtonSecondaryInverseDisabled = "$movistarBlueLight50" // "$movistarGreenLight50" alpha 40%
+textButtonSecondaryInverseSelected = "$white" // "$white"
 
 textLink = "$movistarBlue" // "$movistarBlueLight50"
 textLinkDanger = "$pepper"
 textLinkDangerDisabled = "$pepperLight30"
 textLinkDisabled = "$movistarBlueLight50" // "$darkModeMovistarBlueDark"
-textLinkSnackbar = "$movistarBlueLight50" // podría usar textLink
+textLinkSnackbar = "$movistarBlueLight50"
 
 // CONTROLS
-control = "$grey3" // "$grey1"
-controlActivated = "$movistarBlue" // "$movistarBlueLight50"
-controlError = "$pepper"
-loadingBar = "$movistarGreen" // "$movistarGreenLight50"
-loadingBarBackground = "$movistarGreenLight50" // "$movistarGreenLight10"
-loadingBarBackgroundInverse = "$movistarBlueDark" // "$movistarGreenLight10"
+control = "$grey3" // "$grey6"
+controlActivated = "$movistarBlue" // "$movistarBlue"
+controlError = "$pepper" // "$pepper"
+loadingBar = "$movistarGreen" // "$movistarGreen"
+loadingBarBackground = "$movistarGreenLight50" // "$movistarGreenLight50"
+loadingBarBackgroundInverse = "$movistarBlueDark" // "$movistarGreenDark"
 loadingBarInverse = "$movistarBlueLight50" // "$movistarGreenLight50"
 
-toggleAndroidInactive = "$grey2" // web only
-toggleAndroidBackgroundActive = "$movistarBlueLight30" // web only
-toggleIosInactive = "$white" // web only
+toggleAndroidInactive = "$grey2" // "$grey5" //web only
+toggleAndroidBackgroundActive = "$movistarBlueLight30" // "$movistarBlueLight30" // web only
+toggleIosInactive = "$white" // "$white //  web only
 
 // DIVIDERS  
 divider = "$grey2" // "$grey6"
-dividerInverse = "$movistarBlueDark" // "$darkModeMovistarBlueDark"
+dividerInverse = "$movistarBlueDark" // "$grey6"
 navigationBarDivider = "$movistarBlue" // "$darkModeBlack" // realmente usa el mismo color de la navbar.. igual no lo necesitamos
 
 // FEEDBACKS  
-badge = "$pepperDark"
-feedbackErrorBackground = "$pepper" // se podría usar neutralHigh en los snackbars y cargarnos esta
-feedbackInfoBackground = "$grey6" // se podría usar neutralHigh en los snackbars y cargarnos esta
+badge = "$pepperDark" 
+feedbackErrorBackground = "$pepper"
+feedbackInfoBackground = "$grey6"
 
 // GLOBAL  
-brand = "$movistarBlue" // "$movistarBlueLight50" // antes iconBrand
-brandDark = "$movistarBlueDark" // "$grey6" // antes navigationSearchBarBackground
-inverse = "$white" // antes iconInverse
-neutralHigh = "$grey6" // "$white" // antes iconPrimary
-neutralLow = "$grey3" // "$grey5" // antes iconDisabled
-neutralMedium = "$grey5" // "$grey1" // antes iconSecondary
-promo = "$purple" // antes backgroundPromo
+brand = "$movistarBlue" // "$movistarBlueLight50"
+brandDark = "$movistarBlueDark" // "$grey6"
+inverse = "$white" // ""$grey2
+neutralHigh = "$grey6" // "$grey4"
+neutralMedium = "$grey5" // "$grey5"
+neutralLow = "$grey3" // "$grey6"
+promo = "$purple"
 highlight = "$pink"
 
 textPrimary = "$grey6" // "$white"
 textPrimaryInverse = "$white"
-textSecondary = "$grey5" // "$grey1"
-textSecondaryInverse = "$movistarBlueLight30" // "$grey1"
+textSecondary = "$grey5" // "$grey4"
+textSecondaryInverse = "$movistarBlueLight30" // "$grey4"
 textDisabled = "$grey3" // "$grey5" // veis necesario un textDisabledInverse para textos deshabilitados sobre masa de color?
-textAmount = "$movistarBlue" // "$movistarBlueLight50"
+textAmount = "$movistarBlue" // "$movistarBlue"
 
 // STATES
-error = "$pepper" // antes iconError
-success = "$movistarGreen" // antes iconSuccess
-warning = "$egg" // antes iconWarning
+error = "$pepper"
+success = "$movistarGreen"
+warning = "$egg"
 
 // BARS TEXTS
-textNavigationBarPrimary = "$white"
-textNavigationBarSecondary = "$movistarBlueLight30"
-textNavigationSearchBarHint = "$movistarBlueLight30" // iOS only
-textNavigationSearchBarText = "$white" // iOS only
-textAppBar = "$grey4" // "$grey1"
-textAppBarSelected = "$movistarBlue"  // "$movistarBlueLight50"
+textNavigationBarPrimary = "$white" // "$white"
+textNavigationBarSecondary = "$movistarBlueLight30" // "$grey4"
+textNavigationSearchBarHint = "$movistarBlueLight30" // "$grey4" // iOS only
+textNavigationSearchBarText = "$white" // "$white" // iOS only
+textAppBar = "$grey4" // "$grey5"
+textAppBarSelected = "$movistarBlue"  // "$white"
