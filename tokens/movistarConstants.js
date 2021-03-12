@@ -22,7 +22,7 @@ borderSelected = "$movistarGreen"
 
 // BUTTONS
 buttonDangerBackground = "$pepper"
-buttonDangerBackgroundDisabled = "$pepperLight"
+buttonDangerBackgroundDisabled = "$pepperLight30"
 buttonDangerBackgroundSelected = "$pepperDark"
 buttonDangerBackgroundHover = "$pepperDark" // web only
 
