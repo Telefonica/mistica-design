@@ -45,7 +45,7 @@ buttonSecondaryBorderInverse = "$white" // "$movistarGreenLight50" // debería l
 buttonSecondaryBorderSelectedInverse = "$movistarBlueLight50" // "$movistarGreenDark" // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
 
 textButtonPrimary = "$white"
-[NEW] textButtonPrimaryDisabled = "$white" // "$grey5"
+[NEW] textButtonPrimaryDisabled = "$white" // "$grey2"
 textButtonPrimaryInverse = "$movistarBlue" // "$white"
 textButtonPrimaryInverseDisabled = "$movistarBlueLight30" // "$grey5"
 textButtonPrimaryInverseSelected = "$movistarBlue" // "$white"
