@@ -109,9 +109,9 @@ success = "$movistarGreen"
 warning = "$egg"
 
 // BARS TEXTS
-textNavigationBarPrimary = "$white" // "$white"
+textNavigationBarPrimary = "$white"
 textNavigationBarSecondary = "$movistarBlueLight30" // "$grey4"
 textNavigationSearchBarHint = "$movistarBlueLight30" // "$grey4" // iOS only
-textNavigationSearchBarText = "$white" // "$white" // iOS only
+textNavigationSearchBarText = "$white"// iOS only
 textAppBar = "$grey4" // "$grey5"
 textAppBarSelected = "$movistarBlue"  // "$white"
