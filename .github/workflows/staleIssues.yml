@@ -2,10 +2,11 @@ name: 'Close stale issues and PR'
 
 on:
   schedule:
-    - cron: '30 1 * * *'
+    - cron: '30 1 * * 1'
 
 jobs:
   stale:
+    # runs-on: [self-hosted, Linux]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/stale@v3
