@@ -29,7 +29,7 @@ buttonDangerBackgroundHover = "$pepperDark" // web only
 buttonLinkBackgroundSelected = "$movistarBlueLight10" // "$darkModeGrey"
 buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // "$darkModeGrey"
 
-buttonPrimaryBackground = "$movistarGreen" // "$movistarGreenLight50"
+buttonPrimaryBackground = "$movistarGreen" // "$movistarGreen"
 buttonPrimaryBackgroundDisabled = "$movistarGreenLight50" // "$movistarGreenLight50" alpha 40%
 buttonPrimaryBackgroundDisabledInverse = "$movistarBlueLight50" // "$movistarGreenLight50" alpha 40%
 buttonPrimaryBackgroundInverse = "$white" // "$movistarGreen"
@@ -41,7 +41,7 @@ buttonSecondaryBackground = "$movistarGreen" // "$movistarGreen"
 buttonSecondaryBackgroundDisabled = "$movistarGreenLight50" // "$movistarGreenLight50"
 buttonSecondaryBackgroundSelected = "$movistarGreenDark" // "$movistarGreenDark"
 buttonSecondaryBorderDisabledInverse = "$movistarBlueLight50" // "$movistarGreenLight50" alpha 40% // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
-buttonSecondaryBorderInverse = "$white" // "$movistarGreenLight50" // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
+buttonSecondaryBorderInverse = "$white" // "$movistarGreen" // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
 buttonSecondaryBorderSelectedInverse = "$movistarBlueLight50" // "$movistarGreenDark" // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
 
 textButtonPrimary = "$white"
@@ -57,7 +57,7 @@ textButtonSecondaryInverse = "$white"
 textButtonSecondaryInverseDisabled = "$movistarBlueLight50" // "$movistarGreenLight50" alpha 40%
 textButtonSecondaryInverseSelected = "$white"
 
-textLink = "$movistarBlue" // "$movistarBlueLight50"
+textLink = "$movistarBlue" // "$movistarBlue"
 textLinkDanger = "$pepper"
 textLinkDangerDisabled = "$pepperLight30"
 textLinkDisabled = "$movistarBlueLight50" // "$darkModeMovistarBlueDark"
