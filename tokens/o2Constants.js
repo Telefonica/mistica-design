@@ -1,7 +1,7 @@
 // Las constantes tienen aplicadas dos variables; primero su versión light y a continuación la dark mode. En las constantes que solo se muestra una variable, esta es compartida por ambos modos.
 
 // BACKGROUNDS
-appBarBackground = "$white" // "$darkModeBlack"
+appBarBackground = "$white" // "$darkModeGrey"
 background = "$white" // "$darkModeBlack"
 backgroundContainer = "$white" // "$darkModeGrey"
 backgroundBrand = "$o2BluePrimary" // "$darkModeBlack"
@@ -18,63 +18,63 @@ skeletonWave = "$grey2" // "$grey5"
 borderLight = "$grey1" // "$darkModeBlack"
 border = "$grey3" // "$darkModeGrey"
 borderDark = "$grey5" // "$grey5"
-borderSelected = "$o2BluePrimary" // "$darkModeO2BluePrimary"
+borderSelected = "$o2BluePrimary" // "$O2BluePrimary" HSL
 
 // BUTTONS
 buttonDangerBackground = "$pepper"
-buttonDangerBackgroundDisabled = "$pepperLight30"
-buttonDangerBackgroundSelected = "$pepperDark"
+buttonDangerBackgroundDisabled = "$pepperLight30" // "$darkModeGrey"
+buttonDangerBackgroundSelected = "$pepperDark" 
 buttonDangerBackgroundHover = "$pepperDark" // web only
 
 buttonLinkBackgroundSelected = "$o2BluePrimaryLight10" // "$darkModeGrey"
 buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // "$darkModeGrey"
 
-buttonPrimaryBackground = "$o2BluePrimary" // "$darkModeO2BluePrimary"
-buttonPrimaryBackgroundDisabled = "$o2BluePrimaryLight10" // "$darkModeO2BluePrimaryLight50" alpha 40%
-buttonPrimaryBackgroundDisabledInverse = "$o2BluePrimaryLight50" // "$o2BluePrimaryLight50" alpha 40%
-buttonPrimaryBackgroundInverse = "$white" // "$darkModeO2BluePrimary"
-buttonPrimaryBackgroundSelected = "$o2BluePrimaryDark" // "$darkModeO2BluePrimaryDark" — miss
-buttonPrimaryBackgroundHover = "$o2BluePrimaryDark" // "$darkModeO2BluePrimaryDark" — miss
-buttonPrimaryBackgroundSelectedInverse = "$o2BluePrimaryLight50" // "$darkModeO2BluePrimaryDark" — miss
+buttonPrimaryBackground = "$o2BluePrimary" // "$O2BluePrimary" HSL
+buttonPrimaryBackgroundDisabled = "$o2BluePrimaryLight10" // "$darkModeGrey"
+buttonPrimaryBackgroundDisabledInverse = "$o2BluePrimaryLight50" // "$darkModeGrey"
+buttonPrimaryBackgroundInverse = "$white" // "$O2BluePrimary" HSL
+buttonPrimaryBackgroundSelected = "$o2BluePrimaryDark" // "$o2BluePrimaryDark" HSL
+buttonPrimaryBackgroundHover = "$o2BluePrimaryDark" // "$o2BluePrimaryDark" HSL
+buttonPrimaryBackgroundSelectedInverse = "$o2BluePrimaryLight50" // "$o2BluePrimaryDark" HSL
 
-buttonSecondaryBackground = "$o2BluePrimary" // "$darkModeO2BluePrimary"
-buttonSecondaryBackgroundDisabled = "$o2BluePrimaryLight10" // "$darkModeO2BluePrimaryLight50" alpha 40%
-buttonSecondaryBackgroundSelected = "$o2BluePrimaryDark" // "$darkModeO2BluePrimaryDark" — miss
-buttonSecondaryBorderDisabledInverse = "$o2BluePrimaryLight50" // "$darkModeO2BluePrimaryLight50" alpha 40%
-buttonSecondaryBorderInverse = "$white" // "$darkModeO2BluePrimary"
-buttonSecondaryBorderSelectedInverse = "$o2BluePrimaryLight50" // "$darkModeO2BluePrimaryDark"
+buttonSecondaryBackground = "$o2BluePrimary" // "$O2BluePrimary" HSL
+buttonSecondaryBackgroundDisabled = "$o2BluePrimaryLight10" // "$darkModeGrey"
+buttonSecondaryBackgroundSelected = "$o2BluePrimaryDark" // "$o2BluePrimaryDark" HSL
+buttonSecondaryBorderDisabledInverse = "$o2BluePrimaryLight50" // "$darkModeGrey"
+buttonSecondaryBorderInverse = "$white" // "$O2BluePrimary" HSL
+buttonSecondaryBorderSelectedInverse = "$o2BluePrimaryLight50" // "$o2BluePrimaryDark" HSL
 
 textButtonPrimary = "$white" // "$grey2"
-[NEW] textButtonPrimaryDisabled = "$white" // "$grey2"
-textButtonPrimaryInverse = "$o2BluePrimary" // "$white"
+[NEW] textButtonPrimaryDisabled = "$white" // "$grey5"
+textButtonPrimaryInverse = "$o2BluePrimary" // "$grey2"
 textButtonPrimaryInverseDisabled = "$o2BluePrimaryLight10" // "$grey5"
 textButtonPrimaryInverseSelected = "$o2BluePrimaryDark" // "$white"
 
-textButtonSecondary = "$o2BluePrimary" // "$white"
-textButtonSecondaryDisabled = "$o2BluePrimaryLight10" // "$darkModeO2BluePrimaryLight50" alpha 40%
-textButtonSecondarySelected = "$o2BluePrimaryDark" // "$darkModeO2BluePrimaryDark"
-textButtonSecondaryInverse = "$white"
-textButtonSecondaryInverseDisabled = "$o2BluePrimaryLight50" // "$darkModeO2BluePrimaryLight50" alpha 40%
-textButtonSecondaryInverseSelected = "$white"
+textButtonSecondary = "$o2BluePrimary" // "$grey2"
+textButtonSecondaryDisabled = "$o2BluePrimaryLight10" // "$grey5"
+textButtonSecondarySelected = "$o2BluePrimaryDark" // "$grey5"
+textButtonSecondaryInverse = "$white" // "$grey2"
+textButtonSecondaryInverseDisabled = "$o2BluePrimaryLight50" // "$grey5"
+textButtonSecondaryInverseSelected = "$white" // "$grey2"
 
 textLink = "$o2BluePrimary" // "$darkModeO2BluePrimaryLight50"
 textLinkDanger = "$pepper"
 textLinkDangerDisabled = "$pepperLight30"
-textLinkDisabled = "$o2BluePrimaryLight50" // "$darkModeO2BluePrimaryDark"
+textLinkDisabled = "$o2BluePrimaryLight50" // "$grey5"
 textLinkSnackbar = "$o2BluePrimaryLight50"
 
 // CONTROLS
 control = "$grey3" // "$darkModeGrey6"
-controlActivated = "$o2BluePrimary" // "$darkModeO2BluePrimary"
+controlActivated = "$o2BluePrimary" // "$o2BluePrimary" HSL
 controlError = "$pepper"
-loadingBar = "$o2BluePrimary" // "$darkModeO2BluePrimaryLight50" — miss
-loadingBarBackground = "$grey1" // "$darkModeO2BluePrimaryLight10" — miss
-loadingBarBackgroundInverse = "$grey1" // "$o2BluePrimaryLight10" // will be deprecated soon
-loadingBarInverse = "$o2BluePrimary" // "$o2BluePrimaryLight50" // will be deprecated soon
+loadingBar = "$o2BluePrimary" // "$o2BluePrimary" HSL
+loadingBarBackground = "$grey1" // "$darkModeGrey6"
+loadingBarBackgroundInverse = "$grey1" // "$grey1" // will be deprecated soon
+loadingBarInverse = "$o2BluePrimary" // "$o2BluePrimary" HSL // will be deprecated soon
 
-toggleAndroidInactive = "$grey2" // "$grey5" // web only
+toggleAndroidInactive = "$grey2" // "$grey4" // web only
 toggleAndroidBackgroundActive = "$o2BluePrimaryLight10" // "$darkModeO2BluePrimaryLight50" // web only
-toggleIosInactive = "$white" // web only
+toggleIosInactive = "$white" // "$grey2" web only
 
 // DIVIDERS
 divider = "$grey2" // "$darkModeGrey"
@@ -87,7 +87,7 @@ feedbackErrorBackground = "$pepper"
 feedbackInfoBackground = "$grey6" // "$darkModeGrey6"
 
 // GLOBAL
-brand = "$o2BluePrimary" // "$darkModeO2BluePrimaryLight50"
+brand = "$o2BluePrimary" // "$o2BluePrimary" HSL
 brandDark = "$o2BluePrimaryDark" // "$darkModeGrey6"
 inverse = "$white" // "$grey2"
 neutralHigh = "$grey6" // "$grey4"
@@ -96,12 +96,12 @@ neutralLow = "$grey3" // "$darkModeGrey6"
 promo = "$o2Purple"
 highlight = "$o2pink"
 
-textPrimary = "$grey6" // "$white"
-textPrimaryInverse = "$white"
+textPrimary = "$grey6" // "$grey2"
+textPrimaryInverse = "$white" // "$grey2"
 textSecondary = "$grey5" // "$grey4"
 textSecondaryInverse = "$white" // "$grey4"
 textDisabled = "$grey3" // "$grey5"
-textAmount = "$o2BluePrimary" // "$darkModeO2BluePrimary"
+textAmount = "$o2BluePrimary" // "$o2BluePrimaryLight10"
 
 // STATES
 error = "$pepper"
@@ -109,9 +109,9 @@ success = "$o2Green"
 warning = "$o2Orange"
 
 // BARS TEXTS
-textNavigationBarPrimary = "$white"
+textNavigationBarPrimary = "$white" // "$grey2"
 textNavigationBarSecondary = "$o2BluePrimaryLight50" // "$grey4"
 textNavigationSearchBarHint = "$o2BluePrimaryLight50" // "$grey4" // iOS only
-textNavigationSearchBarText = "$white" // iOS only
+textNavigationSearchBarText = "$white" // "$grey2" iOS only
 textAppBar = "$grey4" // "$grey5"
-textAppBarSelected = "$o2BluePrimary" // "$white"
+textAppBarSelected = "$o2BluePrimary" // "$grey2"
