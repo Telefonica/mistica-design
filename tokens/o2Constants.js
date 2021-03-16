@@ -52,10 +52,10 @@ textButtonPrimaryInverseSelected = "$o2BluePrimaryDark" // "$grey2"
 
 textButtonSecondary = "$o2BluePrimary" // "$grey2"
 textButtonSecondaryDisabled = "$o2BluePrimaryLight10" // "$grey5"
-textButtonSecondarySelected = "$o2BluePrimaryDark" // "$grey5"
+textButtonSecondarySelected = "$o2BluePrimaryDark" // "$grey4"
 textButtonSecondaryInverse = "$white" // "$grey2"
 textButtonSecondaryInverseDisabled = "$o2BluePrimaryLight50" // "$grey5"
-textButtonSecondaryInverseSelected = "$white" // "$grey2"
+textButtonSecondaryInverseSelected = "$white" // "$grey4"
 
 textLink = "$o2BluePrimary" // "$darkModeO2BluePrimaryLight50"
 textLinkDanger = "$pepper"
