@@ -41,10 +41,10 @@ buttonSecondaryBackground = "$o2BluePrimary" // "$darkModeO2BluePrimary"
 buttonSecondaryBackgroundDisabled = "$o2BluePrimaryLight10" // "$darkModeO2BluePrimaryLight50" alpha 40%
 buttonSecondaryBackgroundSelected = "$o2BluePrimaryDark" // "$darkModeO2BluePrimaryDark" — miss
 buttonSecondaryBorderDisabledInverse = "$o2BluePrimaryLight50" // "$darkModeO2BluePrimaryLight50" alpha 40%
-buttonSecondaryBorderInverse = "$white" // "$darkModeO2BluePrimaryLight50"
+buttonSecondaryBorderInverse = "$white" // "$darkModeO2BluePrimary"
 buttonSecondaryBorderSelectedInverse = "$o2BluePrimaryLight50" // "$darkModeO2BluePrimaryDark"
 
-textButtonPrimary = "$white"
+textButtonPrimary = "$white" // "$grey2"
 [NEW] textButtonPrimaryDisabled = "$white" // "$grey2"
 textButtonPrimaryInverse = "$o2BluePrimary" // "$white"
 textButtonPrimaryInverseDisabled = "$o2BluePrimaryLight10" // "$grey5"

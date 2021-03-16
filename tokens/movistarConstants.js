@@ -22,7 +22,7 @@ borderSelected = "$movistarGreen"
 
 // BUTTONS
 buttonDangerBackground = "$pepper"
-buttonDangerBackgroundDisabled = "$pepperLight30"
+buttonDangerBackgroundDisabled = "$pepperLight30" // "$darkModeGrey"
 buttonDangerBackgroundSelected = "$pepperDark"
 buttonDangerBackgroundHover = "$pepperDark" // web only
 
@@ -30,37 +30,37 @@ buttonLinkBackgroundSelected = "$movistarBlueLight10" // "$darkModeGrey"
 buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // "$darkModeGrey"
 
 buttonPrimaryBackground = "$movistarGreen" // "$movistarGreen"
-buttonPrimaryBackgroundDisabled = "$movistarGreenLight50" // "$movistarGreenLight50" alpha 40%
-buttonPrimaryBackgroundDisabledInverse = "$movistarBlueLight50" // "$movistarGreenLight50" alpha 40%
+buttonPrimaryBackgroundDisabled = "$movistarGreenLight50" // "$darkModeGrey"
+buttonPrimaryBackgroundDisabledInverse = "$movistarBlueLight50" // "$darkModeGrey"
 buttonPrimaryBackgroundInverse = "$white" // "$movistarGreen"
 buttonPrimaryBackgroundSelected = "$movistarGreenDark" // "$movistarGreenDark"
 buttonPrimaryBackgroundHover = "$movistarGreenDark" // "$movistarGreenDark" // web only
 buttonPrimaryBackgroundSelectedInverse = "$movistarBlueLight50" // "$movistarGreenDark"
 
 buttonSecondaryBackground = "$movistarGreen" // "$movistarGreen"
-buttonSecondaryBackgroundDisabled = "$movistarGreenLight50" // "$movistarGreenLight50"
+buttonSecondaryBackgroundDisabled = "$movistarGreenLight50" // "$darkModeGrey"
 buttonSecondaryBackgroundSelected = "$movistarGreenDark" // "$movistarGreenDark"
-buttonSecondaryBorderDisabledInverse = "$movistarBlueLight50" // "$movistarGreenLight50" alpha 40% // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
-buttonSecondaryBorderInverse = "$white" // "$movistarGreen" // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
-buttonSecondaryBorderSelectedInverse = "$movistarBlueLight50" // "$movistarGreenDark" // debería llamarse border? o background? necesitamos consistencia con el resto de los secondary
+buttonSecondaryBorderDisabledInverse = "$movistarBlueLight50" // "$darkModeGrey"
+buttonSecondaryBorderInverse = "$white" // "$movistarGreen"
+buttonSecondaryBorderSelectedInverse = "$movistarBlueLight50" // "$movistarGreenDark"
 
-textButtonPrimary = "$white"
-[NEW] textButtonPrimaryDisabled = "$white" // "$grey2"
-textButtonPrimaryInverse = "$movistarBlue" // "$white"
+textButtonPrimary = "$white" // "$grey2"
+[NEW] textButtonPrimaryDisabled = "$white" // "$grey5"
+textButtonPrimaryInverse = "$movistarBlue" // "$grey2"
 textButtonPrimaryInverseDisabled = "$movistarBlueLight30" // "$grey5"
-textButtonPrimaryInverseSelected = "$movistarBlue" // "$white"
+textButtonPrimaryInverseSelected = "$movistarBlue" // "$grey2"
 
-textButtonSecondary = "$movistarGreen" // "$white"
-textButtonSecondaryDisabled = "$movistarGreenLight50" // "$movistarGreenLight50" alpha 40%
+textButtonSecondary = "$movistarGreen" // "$grey2"
+textButtonSecondaryDisabled = "$movistarGreenLight50" // "$grey5"
 textButtonSecondarySelected = "$movistarGreenDark" // "$movistarGreenDark"
-textButtonSecondaryInverse = "$white"
-textButtonSecondaryInverseDisabled = "$movistarBlueLight50" // "$movistarGreenLight50" alpha 40%
-textButtonSecondaryInverseSelected = "$white"
+textButtonSecondaryInverse = "$white" // "$grey2"
+textButtonSecondaryInverseDisabled = "$movistarBlueLight50" // "$grey5"
+textButtonSecondaryInverseSelected = "$white" // "$grey2"
 
 textLink = "$movistarBlue" // "$movistarBlue"
 textLinkDanger = "$pepper"
 textLinkDangerDisabled = "$pepperLight30"
-textLinkDisabled = "$movistarBlueLight50" // "$darkModeMovistarBlueDark"
+textLinkDisabled = "$movistarBlueLight50" // "$grey5"
 textLinkSnackbar = "$movistarBlueLight50"
 
 // CONTROLS
@@ -72,13 +72,13 @@ loadingBarBackground = "$movistarGreenLight50" // "$movistarGreenLight50"
 loadingBarBackgroundInverse = "$movistarBlueDark" // "$movistarGreenDark" // will be deprecated soon
 loadingBarInverse = "$movistarBlueLight50" // "$movistarGreenLight50" // will be deprecated soon
 
-toggleAndroidInactive = "$grey2" // "$grey5" //web only
+toggleAndroidInactive = "$grey2" // "$grey5" // web only
 toggleAndroidBackgroundActive = "$movistarBlueLight30" // "$movistarBlueLight30" // web only
-toggleIosInactive = "$white" //  web only
+toggleIosInactive = "$white" // "$grey2" web only
 
 // DIVIDERS  
 divider = "$grey2" // "$darkModeGrey"
-dividerInverse = "$movistarBlueDark" // "$darkModeGrey"
+dividerInverse = "$movistarBlueDark" // "$grey6"
 navigationBarDivider = "$movistarBlue" // "$darkModeBlack"
 
 // FEEDBACKS  
@@ -87,7 +87,7 @@ feedbackErrorBackground = "$pepper"
 feedbackInfoBackground = "$grey6"
 
 // GLOBAL  
-brand = "$movistarBlue" // "$movistarBlueLight50"
+brand = "$movistarBlue"
 brandDark = "$movistarBlueDark" // "$grey6"
 inverse = "$white" // "$grey2"
 neutralHigh = "$grey6" // "$grey4"
@@ -96,12 +96,12 @@ neutralLow = "$grey3" // "$grey6"
 promo = "$purple"
 highlight = "$pink"
 
-textPrimary = "$grey6" // "$white"
-textPrimaryInverse = "$white"
+textPrimary = "$grey6" // "$grey2"
+textPrimaryInverse = "$white" // "$grey2"
 textSecondary = "$grey5" // "$grey4"
 textSecondaryInverse = "$white" // "$grey4"
 textDisabled = "$grey3" // "$grey5" // veis necesario un textDisabledInverse para textos deshabilitados sobre masa de color?
-textAmount = "$movistarBlue"
+textAmount = "$movistarBlue" // "$movistarBlueLight50"
 
 // STATES
 error = "$pepper"
@@ -109,9 +109,9 @@ success = "$movistarGreen"
 warning = "$egg"
 
 // BARS TEXTS
-textNavigationBarPrimary = "$white"
+textNavigationBarPrimary = "$white" // "$grey2"
 textNavigationBarSecondary = "$movistarBlueLight30" // "$grey4"
 textNavigationSearchBarHint = "$movistarBlueLight30" // "$grey4" // iOS only
-textNavigationSearchBarText = "$white"// iOS only
+textNavigationSearchBarText = "$white" // "$grey2" iOS only
 textAppBar = "$grey4" // "$grey5"
-textAppBarSelected = "$movistarBlue"  // "$white"
+textAppBarSelected = "$movistarBlue"  // "$grey2"
