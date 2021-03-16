@@ -48,7 +48,7 @@ textButtonPrimary = "$white" // "$grey2"
 [NEW] textButtonPrimaryDisabled = "$white" // "$grey5"
 textButtonPrimaryInverse = "$o2BluePrimary" // "$grey2"
 textButtonPrimaryInverseDisabled = "$o2BluePrimaryLight10" // "$grey5"
-textButtonPrimaryInverseSelected = "$o2BluePrimaryDark" // "$white"
+textButtonPrimaryInverseSelected = "$o2BluePrimaryDark" // "$grey2"
 
 textButtonSecondary = "$o2BluePrimary" // "$grey2"
 textButtonSecondaryDisabled = "$o2BluePrimaryLight10" // "$grey5"
