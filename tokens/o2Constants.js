@@ -99,7 +99,7 @@ highlight = "$o2pink"
 textPrimary = "$grey6" // "$white"
 textPrimaryInverse = "$white"
 textSecondary = "$grey5" // "$grey4"
-textSecondaryInverse = "$o2BlueLight60" // "$grey4"
+textSecondaryInverse = "$white" // "$grey4"
 textDisabled = "$grey3" // "$grey5"
 textAmount = "$o2BluePrimary" // "$darkModeO2BluePrimary"
 

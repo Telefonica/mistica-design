@@ -99,7 +99,7 @@ highlight = "$pink"
 textPrimary = "$grey6" // "$white"
 textPrimaryInverse = "$white"
 textSecondary = "$grey5" // "$grey4"
-textSecondaryInverse = "$movistarBlueLight30" // "$grey4"
+textSecondaryInverse = "$white" // "$grey4"
 textDisabled = "$grey3" // "$grey5" // veis necesario un textDisabledInverse para textos deshabilitados sobre masa de color?
 textAmount = "$movistarBlue"
 

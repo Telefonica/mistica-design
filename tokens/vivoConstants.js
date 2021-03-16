@@ -98,7 +98,7 @@ highlight = "$pink"
 textPrimary = "$grey6" // $white
 textPrimaryInverse = "$white"
 textSecondary = "$grey5" // $grey1
-textSecondaryInverse = "$vivoPurpleLight50" // $grey1 // aunque igual mejor funciona $vivoPurpleLight20
+textSecondaryInverse = "$white" // $grey1 // aunque igual mejor funciona $vivoPurpleLight20
 textDisabled = "$grey3" // $grey5
 textAmount = "$vivoPurple" // $vivoPurpleLight50
 
