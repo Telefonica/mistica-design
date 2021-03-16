@@ -74,7 +74,7 @@ loadingBarInverse = "$movistarBlueLight50" // "$movistarGreenLight50" // will be
 
 toggleAndroidInactive = "$grey2" // "$grey4" // web only
 toggleAndroidBackgroundActive = "$movistarBlueLight30" // "$movistarBlueLight30" // web only
-toggleIosInactive = "$white" // "$grey2" web only
+iosControlKnob = "$white" // "$grey2" web only
 
 // DIVIDERS  
 divider = "$grey2" // "$darkModeGrey"

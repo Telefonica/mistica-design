@@ -73,7 +73,7 @@ loadingBarInverse = "$o2Gem" // $o2GemLight50
 
 toggleAndroidInactive = "$grey2" // solo web
 toggleAndroidBackgroundActive = "$o2GemLight30" // web only
-toggleIosInactive = "$white" // solo web
+iosControlKnob = "$white" // solo web
 
 // DIVIDERS
 divider = "$grey2" // $grey6

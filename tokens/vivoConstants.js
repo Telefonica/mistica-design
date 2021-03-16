@@ -73,7 +73,7 @@ loadingBarInverse = "$vivoPurple" // $vivoPurpleLight50
 
 toggleAndroidInactive = "$grey2" // web only
 toggleAndroidBackgroundActive = "$vivoPurpleLight20" // web only
-toggleIosInactive = "$white" // web only
+iosControlKnob = "$white" // web only
 
 // DIVIDERS
 divider = "$grey2" // $grey6
