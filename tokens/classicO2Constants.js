@@ -61,7 +61,7 @@ textLink = "$o2SkyBlue" // "$o2SkyBlueLight"
 textLinkDanger = "$pepper"
 textLinkDangerDisabled = "$pepperLight30" // "$grey5"
 textLinkDisabled = "$o2SkyBlueLight" // "$grey5"
-textLinkSnackbar = "$o2SkyBlueLight"
+textLinkSnackbar = "$o2SkyBlueLight" // "$o2SkyBlueLight"
 
 // CONTROLS
 control = "$grey3" // "$darkModeGrey6"
@@ -84,24 +84,24 @@ navigationBarDivider = "$o2Blue" // "$darkModeBlack"
 // FEEDBACKS
 badge = "$pepperDark"
 feedbackErrorBackground = "$pepper"
-feedbackInfoBackground = "$grey6"
+feedbackInfoBackground = "$grey6" // "$darkModeGrey6"
 
 // GLOBAL
-brand = "$o2Blue" // "$o2BlueLight50"
-brandDark = "$o2BlueDark" // "$grey6"
-inverse = "$white"
-neutralHigh = "$grey6" // "$white"
-neutralMedium = "$grey5" // "$grey1"
-neutralLow = "$grey3" // "$grey5"
+brand = "$o2Blue" // "$o2SkyBlue"
+brandDark = "$o2BlueDark" // "$darkModeGrey6"
+inverse = "$white" // "$grey2"
+neutralHigh = "$grey6" // "$grey4"
+neutralMedium = "$grey5" // "$grey5"
+neutralLow = "$grey3" // "$darkModeGrey6"
 promo = "$pink"
 highlight = "$pink"
 
-textPrimary = "$grey6" // "$white"
-textPrimaryInverse = "$white"
-textSecondary = "$grey5" // "$grey1"
-textSecondaryInverse = "$white" // "$grey5"
+textPrimary = "$grey6" // "$grey2"
+textPrimaryInverse = "$white" // "$grey2"
+textSecondary = "$grey5" // "$grey4"
+textSecondaryInverse = "$white" // "$grey4"
 textDisabled = "$grey3" // "$grey5"
-textAmount = "$o2SkyBlue" // "$o2BlueLight50"
+textAmount = "$o2SkyBlue" // "$o2SkyBlueLight50"
 
 // STATES
 error = "$pepper"
@@ -109,9 +109,9 @@ success = "$o2Green"
 warning = "$orange"
 
 // BARS TEXTS
-textNavigationBarPrimary = "$white"
-textNavigationBarSecondary = "$o2BlueLight50" 
-textNavigationSearchBarHint = "$o2BlueLight50" // iOS only
-textNavigationSearchBarText = "$white" // iOS only
-textAppBar = "$grey4" // "$grey1"
-textAppBarSelected = "$o2Blue" // "$o2BlueLight50"
+textNavigationBarPrimary = "$white" // "$grey2"
+textNavigationBarSecondary = "$o2BlueLight50" // "$grey4"
+textNavigationSearchBarHint = "$o2BlueLight50" // "$grey4" iOS only
+textNavigationSearchBarText = "$white" // "$grey2" iOS only
+textAppBar = "$grey4" // "$grey5"
+textAppBarSelected = "$o2Blue" // "$grey2"
