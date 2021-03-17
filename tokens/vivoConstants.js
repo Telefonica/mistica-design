@@ -64,7 +64,7 @@ textLinkDisabled = "$vivoPurpleLight50" // "$grey5"
 textLinkSnackbar = "$vivoPurpleLight50"
 
 // CONTROLS
-control = "$grey3" // "$grey5"
+control = "$grey3" // "$darkModeGrey6"
 controlActivated = "$vivoPurple" // "$vivoPurpleLigh80"
 controlError = "$pepper"
 loadingBar = "$pink" // "$vivoPurpleLigh80"

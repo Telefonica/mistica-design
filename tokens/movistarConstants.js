@@ -64,7 +64,7 @@ textLinkDisabled = "$movistarBlueLight50" // "$grey5"
 textLinkSnackbar = "$movistarBlueLight50"
 
 // CONTROLS
-control = "$grey3" // "$grey6"
+control = "$grey3" // "$darkModeGrey6"
 controlActivated = "$movistarBlue" // "$movistarBlue"
 controlError = "$pepper"
 loadingBar = "$movistarGreen" // "$movistarBlue"
