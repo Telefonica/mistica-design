@@ -50,56 +50,56 @@ textButtonPrimaryInverse = "$vivoPurple" // "$grey2"
 textButtonPrimaryInverseDisabled = "$vivoPurpleLight20" // "$grey5"
 textButtonPrimaryInverseSelected = "$vivoPurple" // "$grey2"
 
-textButtonSecondary = "$vivoPurple" // "$vivoPurpleLight50"
-textButtonSecondaryDisabled = "$vivoPurpleLight20" // "$darkModeVivoPurpleDark"
-textButtonSecondarySelected = "$vivoPurpleDark" // "$vivoPurpleLight10"
-textButtonSecondaryInverse = "$white" // "$vivoPurpleLight50"
-textButtonSecondaryInverseDisabled = "$vivoPurpleLight50" // "$darkModeVivoPurpleDark"
-textButtonSecondaryInverseSelected = "$white" // "$vivoPurpleLight10"
+textButtonSecondary = "$vivoPurple" // "$grey2"
+textButtonSecondaryDisabled = "$vivoPurpleLight20" // "$grey5"
+textButtonSecondarySelected = "$vivoPurpleDark" // "$grey4"
+textButtonSecondaryInverse = "$white" // "$grey2"
+textButtonSecondaryInverseDisabled = "$vivoPurpleLight50" // "$grey5"
+textButtonSecondaryInverseSelected = "$white" // "$grey4"
 
 textLink = "$vivoPurple" // "$vivoPurpleLight50"
 textLinkDanger = "$pepper"
 textLinkDangerDisabled = "$pepperLight30"
-textLinkDisabled = "$vivoPurpleLight50" // "$darkModeVivoPurpleDark"
+textLinkDisabled = "$vivoPurpleLight50" // "$grey5"
 textLinkSnackbar = "$vivoPurpleLight50"
 
 // CONTROLS
-control = "$grey3" // "$grey1"
-controlActivated = "$vivoPurple" // "$vivoPurpleLight50"
+control = "$grey3" // "$grey5"
+controlActivated = "$vivoPurple" // "$vivoPurpleLigh80"
 controlError = "$pepper"
-loadingBar = "$pink" // "$vivoPurpleLight50"
-loadingBarBackground = "$pepperLight" // "$vivoPurpleLight10"
-loadingBarBackgroundInverse = "$vivoPurpleLight50" // "$vivoPurpleLight10"
-loadingBarInverse = "$vivoPurple" // "$vivoPurpleLight50"
+loadingBar = "$pink" // "$vivoPurpleLigh80"
+loadingBarBackground = "$pepperLight" // "$darkModeGrey6"
+loadingBarBackgroundInverse = "$vivoPurpleLight50" // "$grey1" // will be deprecated soon
+loadingBarInverse = "$vivoPurple" // "$vivoPurpleLigh80" // will be deprecated soon
 
-toggleAndroidInactive = "$grey2" // web only
-toggleAndroidBackgroundActive = "$vivoPurpleLight20" // web only
-iosControlKnob = "$white" // web only
+toggleAndroidInactive = "$grey2" // "$grey4" // web only
+toggleAndroidBackgroundActive = "$vivoPurpleLight20" // "$vivoPurpleLight50" // web only
+iosControlKnob = "$white" // "$grey2" // web only
 
 // DIVIDERS
-divider = "$grey2" // "$grey6"
-dividerInverse = "$white" /* alpha 20% */ /  $white /* alpha 20% */
+divider = "$grey2" // "$darkModeGrey6"
+dividerInverse = "$white" /* alpha 20% */ //  $darkModeGrey6
 navigationBarDivider = "$vivoPurple" // "$darkModeBlack"
 
 // FEEDBACKS
 badge = "$pepperDark"
 feedbackErrorBackground = "$pepper"
-feedbackInfoBackground = "$grey6"
+feedbackInfoBackground = "$grey6" // "$darkModeGrey6"
 
 // GLOBAL
-brand = "$vivoPurple" // "$vivoPurpleLight50"
-brandDark = "$vivoPurpleDark" // "$grey6"
-inverse = "$white"
-neutralHigh = "$grey6" // "$white"
-neutralMedium = "$grey5" // "$grey1"
-neutralLow = "$grey3" // "$grey5"
-promo = "$vivoPurple"
+brand = "$vivoPurple" // "$vivoPurpleLigh80"
+brandDark = "$vivoPurpleDark" // "$darkModeGrey6"
+inverse = "$white" // "$grey2"
+neutralHigh = "$grey6" // "$grey4"
+neutralMedium = "$grey5" // "$grey5"
+neutralLow = "$grey3" // "$darkModeGrey6"
+promo = "$vivoPurple" // "$vivoPurpleLigh80"
 highlight = "$pink"
 
-textPrimary = "$grey6" // "$white"
-textPrimaryInverse = "$white"
-textSecondary = "$grey5" // "$grey1"
-textSecondaryInverse = "$white" // "$grey1 // aunque igual mejor funciona $vivoPurpleLight20"
+textPrimary = "$grey6" // "$grey2"
+textPrimaryInverse = "$white" // "$grey2"
+textSecondary = "$grey5" // "$grey4"
+textSecondaryInverse = "$white" // "$grey4 
 textDisabled = "$grey3" // "$grey5"
 textAmount = "$vivoPurple" // "$vivoPurpleLight50"
 
@@ -109,9 +109,9 @@ success = "$vivoGreen"
 warning = "$orange"
 
 // BARS TEXTS
-textNavigationBarPrimary = "$white"
-textNavigationBarSecondary = "$vivoPurpleLight50"
-textNavigationSearchBarHint = "$vivoPurpleLight50" // iOS only
-textNavigationSearchBarText = "$white" // iOS only
-textAppBar = "$grey4" // "$grey1"
-textAppBarSelected = "$vivoPurple" // "$vivoPurpleLight50"
+textNavigationBarPrimary = "$white" // "$grey2"
+textNavigationBarSecondary = "$vivoPurpleLight50" // "$grey4"
+textNavigationSearchBarHint = "$vivoPurpleLight50" // "$grey4" // iOS only
+textNavigationSearchBarText = "$white" // "$grey2" // iOS only
+textAppBar = "$grey4" // "$grey5"
+textAppBarSelected = "$vivoPurple" // "$grey2"
