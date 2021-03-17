@@ -78,7 +78,7 @@ iosControlKnob = "$white" // "$grey2" web only
 
 // DIVIDERS  
 divider = "$grey2" // "$darkModeGrey"
-dividerInverse = "$movistarBlueDark" // "$grey6"
+dividerInverse = "$movistarBlueDark" // "$darkModeGrey"
 navigationBarDivider = "$movistarBlue" // "$darkModeBlack"
 
 // FEEDBACKS  
