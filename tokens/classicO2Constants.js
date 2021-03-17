@@ -72,13 +72,13 @@ loadingBarBackground = "$o2GemLight30" // "$darkModeGrey"
 loadingBarBackgroundInverse = "$o2GemLight30" // "$darkModeGrey" // deprecated soon
 loadingBarInverse = "$o2Gem" // "$o2SkyBlue" // deprecated soon
 
-toggleAndroidInactive = "$grey2" // solo web
-toggleAndroidBackgroundActive = "$o2GemLight30" // web only
-iosControlKnob = "$white" // solo web
+toggleAndroidInactive = "$grey2" // "$grey4" solo web
+toggleAndroidBackgroundActive = "$o2GemLight30" // "$o2SkyBlueLight50" web only
+iosControlKnob = "$white" // "$grey2" solo web
 
 // DIVIDERS
-divider = "$grey2" // "$grey6"
-dividerInverse = "$white" /* alpha 20% */ //  $white /* alpha 20%  */
+divider = "$grey2" // "$darkModeGrey"
+dividerInverse = "$white" /* alpha 20% */ // "$darkModeGrey"
 navigationBarDivider = "$o2Blue" // "$darkModeBlack"
 
 // FEEDBACKS
