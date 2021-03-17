@@ -73,7 +73,7 @@ loadingBarBackgroundInverse = "$grey1" // "$grey1" // will be deprecated soon
 loadingBarInverse = "$o2BluePrimary" // "$darkModeO2BluePrimary" // will be deprecated soon
 
 toggleAndroidInactive = "$grey2" // "$grey4" // web only
-toggleAndroidBackgroundActive = "$o2BluePrimaryLight10" // "$o2BluePrimaryLight60" // web only
+toggleAndroidBackgroundActive = "$o2BluePrimaryLight10" // "$o2BlueLight60" // web only
 iosControlKnob = "$white" // "$grey2" web only
 
 // DIVIDERS
