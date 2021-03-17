@@ -3,7 +3,7 @@
 // BACKGROUNDS
 appBarBackground = "$white" // "$darkModeGrey"
 background = "$white" // "$darkModeBlack"
-backgroundContainer = "$white" // "$darkModeGrey"
+[NEW] backgroundContainer = "$white" // "$darkModeGrey"
 backgroundBrand = "$movistarBlue" // "$darkModeBlack"
 backgroundOverlay = "$grey6" /* alpha 60% */ // "$darkModeGrey" /* alpha 80% */
 backgroundSkeleton = "$grey1" // "$grey6" 
