@@ -59,7 +59,7 @@ textButtonSecondaryInverseSelected = "$white" // "$movistarGreenDark"
 
 textLink = "$movistarBlue" // "$movistarBlue"
 textLinkDanger = "$pepper"
-textLinkDangerDisabled = "$pepperLight30"
+textLinkDangerDisabled = "$pepperLight30" // "$grey5"
 textLinkDisabled = "$movistarBlueLight50" // "$grey5"
 textLinkSnackbar = "$movistarBlueLight50"
 
