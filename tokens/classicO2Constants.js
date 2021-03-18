@@ -58,6 +58,7 @@ textButtonSecondaryInverseDisabled = "$o2SkyBlueLight50" // "$grey5"
 textButtonSecondaryInverseSelected = "$white" // "$grey4"
 
 textLink = "$o2SkyBlue" // "$o2SkyBlueLight"
+[NEW] textLinkInverse = "$white" // "$o2SkyBlueLight"
 textLinkDanger = "$pepper"
 textLinkDangerDisabled = "$pepperLight30" // "$grey5"
 textLinkDisabled = "$o2SkyBlueLight" // "$grey5"

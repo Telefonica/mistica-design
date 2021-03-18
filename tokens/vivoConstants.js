@@ -58,6 +58,7 @@ textButtonSecondaryInverseDisabled = "$vivoPurpleLight50" // "$grey5"
 textButtonSecondaryInverseSelected = "$white" // "$grey4"
 
 textLink = "$vivoPurple" // "$vivoPurpleLight50"
+[NEW] textLinkInverse = "$white" // "$vivoPurpleLight50"
 textLinkDanger = "$pepper"
 textLinkDangerDisabled = "$pepperLight30" // "$grey5"
 textLinkDisabled = "$vivoPurpleLight50" // "$grey5"

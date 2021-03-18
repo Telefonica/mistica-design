@@ -58,6 +58,7 @@ textButtonSecondaryInverseDisabled = "$movistarBlueLight50" // "$grey5"
 textButtonSecondaryInverseSelected = "$white" // "$movistarGreenDark"
 
 textLink = "$movistarBlue" // "$movistarBlue"
+[NEW] textLinkInverse = "$white" // "$movistarBlue"
 textLinkDanger = "$pepper"
 textLinkDangerDisabled = "$pepperLight30" // "$grey5"
 textLinkDisabled = "$movistarBlueLight50" // "$grey5"
