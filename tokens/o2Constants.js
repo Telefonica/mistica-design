@@ -61,7 +61,7 @@ textLink = "$o2BluePrimary" // "$o2BluePrimaryLight50"
 [NEW] textLinkInverse = "$white" // "$o2BluePrimaryLight50"
 textLinkDanger = "$pepper"
 textLinkDangerDisabled = "$pepperLight30" // "$grey5"
-textLinkDisabled = "$o2BluePrimaryLight50" // "$grey5"
+textLinkDisabled = "$o2BluePrimaryLight50" // "$darkModeGrey6"
 textLinkSnackbar = "$o2BluePrimaryLight50"
 
 // CONTROLS

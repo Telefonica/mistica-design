@@ -61,7 +61,7 @@ textLink = "$movistarBlue" // "$movistarBlue"
 [NEW] textLinkInverse = "$white" // "$movistarBlue"
 textLinkDanger = "$pepper"
 textLinkDangerDisabled = "$pepperLight30" // "$grey5"
-textLinkDisabled = "$movistarBlueLight50" // "$grey5"
+textLinkDisabled = "$movistarBlueLight50" // "$grey6"
 textLinkSnackbar = "$movistarBlueLight50"
 
 // CONTROLS

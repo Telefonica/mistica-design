@@ -61,7 +61,7 @@ textLink = "$vivoPurple" // "$vivoPurpleLight50"
 [NEW] textLinkInverse = "$white" // "$vivoPurpleLight50"
 textLinkDanger = "$pepper"
 textLinkDangerDisabled = "$pepperLight30" // "$grey5"
-textLinkDisabled = "$vivoPurpleLight50" // "$grey5"
+textLinkDisabled = "$vivoPurpleLight50" // "$darkModeGrey6"
 textLinkSnackbar = "$vivoPurpleLight50"
 
 // CONTROLS
