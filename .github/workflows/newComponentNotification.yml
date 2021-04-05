@@ -3,6 +3,7 @@ name: New component request notification
 on:
   issues:
     types: [labeled]
+  push:
 
 jobs:
   build:
