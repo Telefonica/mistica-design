@@ -3,7 +3,6 @@ name: New component request notification
 on:
   issues:
     types: [labeled]
-  push:
 
 jobs:
   build:
@@ -18,6 +17,6 @@ jobs:
         SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
       with:
         fromMailAddress: 'ignacio.ceballostorres@telefonica.com'
-        toMailAddress: 'yceballost@gmail.com', 'iceballost@gmail.com'
+        toMailAddress: 'yceballost@gmail.com'
         subject: 'A new component request!'
         labelsToMonitor: '✨ Component request'
