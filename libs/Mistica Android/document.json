@@ -97,7 +97,7 @@
       "do_objectID": "28EBDB03-4610-4824-84F0-796BE39ECD21",
       "fontFamilyName": "Roboto",
       "fontFileName": "Roboto-Bold.ttf",
-      "options": 0,
+      "options": 2,
       "postscriptNames": [
         "Roboto-Bold"
       ]
@@ -64453,6 +64453,95 @@
       "remoteStyleID": "CFA47C2F-7D5E-4A99-9051-E3FEEC982D38",
       "sourceLibraryName": "Movistar",
       "symbolPrivate": false
+    },
+    {
+      "_class": "MSImmutableForeignTextStyle",
+      "do_objectID": "04EE5D05-A7A5-4D13-9960-17897AC384F8",
+      "libraryID": "7CE7B797-7437-4C97-93BD-97DA673C5101",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "2BEE15D7-A361-4839-8A7B-5BC406F1FCA7",
+        "name": "App/Android/text-preset-1/Regular/Center/text_primary",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "A23F460D-1DC9-4AD0-BCB7-7B91533E87A4",
+          "endMarkerType": 0,
+          "fills": [
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "textStyle": {
+            "_class": "textStyle",
+            "encodedAttributes": {
+              "MSAttributedStringColorAttribute": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.2078431372549019,
+                "green": 0.196078431372549,
+                "red": 0.192156862745098,
+                "swatchID": "F026E99F-F5FD-4A16-9937-A340FF082363"
+              },
+              "MSAttributedStringFontAttribute": {
+                "_class": "fontDescriptor",
+                "attributes": {
+                  "name": "Roboto-Regular",
+                  "size": 12
+                }
+              },
+              "kerning": 0,
+              "paragraphStyle": {
+                "_class": "paragraphStyle",
+                "alignment": 2,
+                "allowsDefaultTighteningForTruncation": 0,
+                "maximumLineHeight": 16,
+                "minimumLineHeight": 16
+              }
+            },
+            "verticalAlignment": 0
+          },
+          "windingRule": 1
+        }
+      },
+      "missingLibraryFontAcknowledged": false,
+      "remoteStyleID": "0B052EC5-20B3-4D10-B712-4F5C6F64C369",
+      "sourceLibraryName": "Movistar",
+      "symbolPrivate": false
     }
   ],
   "layerSymbols": {
@@ -64462,8 +64551,8 @@
     ]
   },
   "meta": {
-    "appVersion": "71",
-    "build": 115005,
+    "appVersion": "71.1",
+    "build": 115193,
     "version": 136
   },
   "pages": [

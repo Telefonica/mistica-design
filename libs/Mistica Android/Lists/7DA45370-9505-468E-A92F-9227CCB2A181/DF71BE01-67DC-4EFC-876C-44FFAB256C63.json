@@ -17,6 +17,36 @@
           "MSAttributedStringFontAttribute": {
             "_class": "fontDescriptor",
             "attributes": {
+              "name": "Roboto-Bold",
+              "size": 12
+            }
+          },
+          "kerning": 0,
+          "paragraphStyle": {
+            "_class": "paragraphStyle",
+            "alignment": 2,
+            "allowsDefaultTighteningForTruncation": 0,
+            "maximumLineHeight": 16,
+            "minimumLineHeight": 16
+          }
+        },
+        "length": 14,
+        "location": 0
+      },
+      {
+        "_class": "stringAttribute",
+        "attributes": {
+          "MSAttributedStringColorAttribute": {
+            "_class": "color",
+            "alpha": 1,
+            "blue": 0.2078431372549019,
+            "green": 0.196078431372549,
+            "red": 0.192156862745098,
+            "swatchID": "F026E99F-F5FD-4A16-9937-A340FF082363"
+          },
+          "MSAttributedStringFontAttribute": {
+            "_class": "fontDescriptor",
+            "attributes": {
               "name": "Roboto-Regular",
               "size": 12
             }
@@ -24,16 +54,17 @@
           "kerning": 0,
           "paragraphStyle": {
             "_class": "paragraphStyle",
+            "alignment": 2,
             "allowsDefaultTighteningForTruncation": 0,
             "maximumLineHeight": 16,
             "minimumLineHeight": 16
           }
         },
-        "length": 88,
-        "location": 0
+        "length": 12,
+        "location": 14
       }
     ],
-    "string": "This is a “fragment” zone, a flexible space that allows you to design anything you need."
+    "string": "Fragment zone\nwidth: 117px"
   },
   "automaticallyDrawOnUnderlyingPath": false,
   "booleanOperation": -1,
@@ -52,12 +83,12 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 80,
-    "width": 116,
-    "x": 8,
-    "y": 23
+    "height": 32,
+    "width": 82,
+    "x": 18,
+    "y": 32
   },
-  "glyphBounds": "{{0, 3}, {115, 75}}",
+  "glyphBounds": "{{0, 4}, {81, 28}}",
   "hasClippingMask": false,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
@@ -66,12 +97,12 @@
   "isVisible": true,
   "layerListExpandedType": 0,
   "lineSpacingBehaviour": 3,
-  "name": "This is a “fragment”",
+  "name": "Fragment zone width:",
   "nameIsFixed": false,
-  "resizingConstraint": 26,
+  "resizingConstraint": 42,
   "resizingType": 0,
   "rotation": 0,
-  "sharedStyleID": "F2A15D39-594F-4007-80FA-120282AF55B1",
+  "sharedStyleID": "2BEE15D7-A361-4839-8A7B-5BC406F1FCA7",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -131,13 +162,14 @@
         "MSAttributedStringFontAttribute": {
           "_class": "fontDescriptor",
           "attributes": {
-            "name": "Roboto-Regular",
+            "name": "Roboto-Bold",
             "size": 12
           }
         },
         "kerning": 0,
         "paragraphStyle": {
           "_class": "paragraphStyle",
+          "alignment": 2,
           "allowsDefaultTighteningForTruncation": 0,
           "maximumLineHeight": 16,
           "minimumLineHeight": 16
@@ -147,5 +179,5 @@
     },
     "windingRule": 1
   },
-  "textBehaviour": 1
+  "textBehaviour": 0
 }
