@@ -78,8 +78,8 @@ toggleAndroidBackgroundActive = "$o2GemLight30" // "$o2SkyBlueLight50" web only
 iosControlKnob = "$white" // "$grey2" solo web
 
 // DIVIDERS
-divider = "$grey2" // "$darkModeGrey"
-dividerInverse = "$white" /* alpha 20% */ // "$darkModeGrey"
+divider = "$grey2" // "$white alpha 0.05"
+dividerInverse = "$white" /* alpha 20% */ // "$white alpha 0.05"
 navigationBarDivider = "$o2Blue" // "$darkModeBlack"
 
 // FEEDBACKS

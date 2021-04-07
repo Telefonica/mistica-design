@@ -78,8 +78,8 @@ toggleAndroidBackgroundActive = "$movistarBlueLight30" // "$movistarBlueLight30"
 iosControlKnob = "$white" // "$grey2" web only
 
 // DIVIDERS  
-divider = "$grey2" // "$darkModeGrey"
-dividerInverse = "$movistarBlueDark" // "$darkModeGrey"
+divider = "$grey2" // "$white alpha 0.05"
+dividerInverse = "$movistarBlueDark" // "$white alpha 0.05"
 navigationBarDivider = "$movistarBlue" // "$darkModeBlack"
 
 // FEEDBACKS  

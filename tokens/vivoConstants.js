@@ -78,8 +78,8 @@ toggleAndroidBackgroundActive = "$vivoPurpleLight20" // "$vivoPurpleLight50" // 
 iosControlKnob = "$white" // "$grey2" // web only
 
 // DIVIDERS
-divider = "$grey2" // "$darkModeGrey"
-dividerInverse = "$white" /* alpha 20% */ //  $darkModeGrey
+divider = "$grey2" // "$white alpha 0.05"
+dividerInverse = "$white" /* alpha 20% */ //  "$white alpha 0.05"
 navigationBarDivider = "$vivoPurple" // "$darkModeBlack"
 
 // FEEDBACKS
