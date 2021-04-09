@@ -26,8 +26,8 @@ buttonDangerBackgroundDisabled = "$pepperLight30" // "$darkModeGrey"
 buttonDangerBackgroundSelected = "$pepperDark"
 buttonDangerBackgroundHover = "$pepperDark" // web only
 
-buttonLinkBackgroundSelected = "$movistarBlueLight10" // "$darkModeGrey"
-buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // "$darkModeGrey"
+buttonLinkBackgroundSelected = "$movistarBlueLight10" // "$white alpha 0.05"
+buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // "$white alpha 0.05"
 
 buttonPrimaryBackground = "$movistarGreen" // "$movistarGreen"
 buttonPrimaryBackgroundDisabled = "$movistarGreenLight50" // "$darkModeGrey"

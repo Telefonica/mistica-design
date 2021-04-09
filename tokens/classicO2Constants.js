@@ -26,8 +26,8 @@ buttonDangerBackgroundDisabled = "$pepperLight" // "$darkModeGrey"
 buttonDangerBackgroundSelected = "$pepperDark"
 buttonDangerBackgroundHover = "$pepperDark"
 
-buttonLinkBackgroundSelected = "$o2SkyBlueLight10" // "$darkModeGrey"
-buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // // "$darkModeGrey"
+buttonLinkBackgroundSelected = "$o2SkyBlueLight10" // "$white alpha 0.05"
+buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // // "$white alpha 0.05"
 
 buttonPrimaryBackground = "$o2SkyBlue"
 buttonPrimaryBackgroundDisabled = "$o2SkyBlueLight50" // "$darkModeGrey"
