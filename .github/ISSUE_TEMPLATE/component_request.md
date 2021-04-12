@@ -14,6 +14,9 @@ If you think there is a component missing in Mística and you feel it is worthy 
 **Have you read the [Contributing Guidelines on Mística](https://brandfactory.telefonica.com/document/1846#/contribute-to-mistica/new-components-1603450886)?**
 (Write your answer here.)
 
+**When will I receive a reply?**
+We usually review component request Tuesdays at 16:00 (CEST), after the meeting, we will reply in this component request.
+
 ---
 
 ## Is your component request related to a problem? Please describe.
