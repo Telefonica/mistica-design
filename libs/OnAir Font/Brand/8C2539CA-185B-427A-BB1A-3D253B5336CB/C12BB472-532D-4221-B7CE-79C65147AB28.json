@@ -16,15 +16,14 @@
           "MSAttributedStringFontAttribute": {
             "_class": "fontDescriptor",
             "attributes": {
-              "name": "SFProDisplay-Light",
-              "size": 32
+              "name": "OnAir-Bold",
+              "size": 150
             }
           },
           "paragraphStyle": {
             "_class": "paragraphStyle",
-            "allowsDefaultTighteningForTruncation": 0,
-            "maximumLineHeight": 40,
-            "minimumLineHeight": 40
+            "alignment": 2,
+            "allowsDefaultTighteningForTruncation": 0
           },
           "textStyleVerticalAlignmentKey": 0
         },
@@ -51,12 +50,12 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 40,
-    "width": 75,
-    "x": 219,
-    "y": 236
+    "height": 210,
+    "width": 411,
+    "x": 51,
+    "y": 135
   },
-  "glyphBounds": "{{1, 8}, {74, 24}}",
+  "glyphBounds": "{{10, 49}, {397, 112}}",
   "hasClippingMask": false,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
@@ -70,7 +69,6 @@
   "resizingConstraint": 47,
   "resizingType": 0,
   "rotation": 0,
-  "sharedStyleID": "1679C37A-4142-4E81-BDD6-FA3043C77E37",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -129,15 +127,14 @@
         "MSAttributedStringFontAttribute": {
           "_class": "fontDescriptor",
           "attributes": {
-            "name": "SFProDisplay-Light",
-            "size": 32
+            "name": "OnAir-Bold",
+            "size": 150
           }
         },
         "paragraphStyle": {
           "_class": "paragraphStyle",
-          "allowsDefaultTighteningForTruncation": 0,
-          "maximumLineHeight": 40,
-          "minimumLineHeight": 40
+          "alignment": 2,
+          "allowsDefaultTighteningForTruncation": 0
         },
         "textStyleVerticalAlignmentKey": 0
       },
@@ -145,5 +142,13 @@
     },
     "windingRule": 1
   },
-  "textBehaviour": 0
+  "textBehaviour": 1,
+  "userInfo": {
+    "com.sketch.detach": {
+      "sharedStyle": {
+        "sharedStyleId": "1679C37A-4142-4E81-BDD6-FA3043C77E37",
+        "sharedStyleName": "App/iOS/text-preset-10/Center/textPrimaryInverse"
+      }
+    }
+  }
 }
