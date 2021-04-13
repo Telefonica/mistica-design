@@ -70,8 +70,8 @@ controlActivated = "$movistarBlue" // "$movistarBlue"
 controlError = "$pepper"
 loadingBar = "$movistarBlueLight50" // "$movistarBlue"
 loadingBarBackground = "$movistarBlueDark" // "$grey6"
-loadingBarBackgroundInverse = "$movistarBlueDark" // "$movistarGreenDark" // will be deprecated soon
-loadingBarInverse = "$movistarBlueLight50" // "$movistarGreenLight50" // will be deprecated soon
+loadingBarBackgroundInverse = "$movistarBlueDark" // "$grey6" // will be deprecated soon
+loadingBarInverse = "$movistarBlueLight50" // "$movistarBlue" // will be deprecated soon
 
 toggleAndroidInactive = "$grey2" // "$grey4" // web only
 toggleAndroidBackgroundActive = "$movistarBlueLight30" // "$movistarBlueLight30" // web only
