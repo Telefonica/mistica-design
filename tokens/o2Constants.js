@@ -70,8 +70,6 @@ controlActivated = "$o2BluePrimary" // "$o2BluePrimaryLight50"
 controlError = "$pepper"
 loadingBar = "$o2BluePrimary" // "$darkModeO2BluePrimary"
 loadingBarBackground = "$grey1" // "$darkModeGrey6"
-loadingBarBackgroundInverse = "$grey1" // "$grey1" // will be deprecated soon
-loadingBarInverse = "$o2BluePrimary" // "$darkModeO2BluePrimary" // will be deprecated soon
 
 toggleAndroidInactive = "$grey2" // "$grey4" // web only
 toggleAndroidBackgroundActive = "$o2BluePrimaryLight10" // "$o2BlueLight30" // web only

@@ -68,10 +68,8 @@ textLinkSnackbar = "$movistarBlueLight50"
 control = "$grey3" // "$grey6"
 controlActivated = "$movistarBlue" // "$movistarBlue"
 controlError = "$pepper"
-loadingBar = "$movistarGreen" // "$movistarBlue"
-loadingBarBackground = "$movistarGreenLight50" // "$darkModeGrey"
-loadingBarBackgroundInverse = "$movistarBlueDark" // "$movistarGreenDark" // will be deprecated soon
-loadingBarInverse = "$movistarBlueLight50" // "$movistarGreenLight50" // will be deprecated soon
+loadingBar = "$movistarBlueLight50" // "$movistarBlue"
+loadingBarBackground = "$movistarBlueDark" // "$grey6"
 
 toggleAndroidInactive = "$grey2" // "$grey4" // web only
 toggleAndroidBackgroundActive = "$movistarBlueLight30" // "$movistarBlueLight30" // web only

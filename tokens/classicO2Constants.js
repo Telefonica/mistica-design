@@ -70,8 +70,6 @@ controlActivated = "$o2Gem" // "$o2SkyBlue"
 controlError = "$pepper"
 loadingBar = "$o2Gem" // "$o2SkyBlue"
 loadingBarBackground = "$o2GemLight30" // "$darkModeGrey"
-loadingBarBackgroundInverse = "$o2GemLight30" // "$darkModeGrey" // deprecated soon
-loadingBarInverse = "$o2Gem" // "$o2SkyBlue" // deprecated soon
 
 toggleAndroidInactive = "$grey2" // "$grey4" solo web
 toggleAndroidBackgroundActive = "$o2GemLight30" // "$o2SkyBlueLight50" web only
