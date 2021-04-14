@@ -111,8 +111,8 @@ warning = "$orange"
 
 // BARS TEXTS
 textNavigationBarPrimary = "$white" // "$grey2"
-textNavigationBarSecondary = "$o2BlueLight50" // "$grey4"
-textNavigationSearchBarHint = "$o2BlueLight50" // "$grey4" iOS only
+textNavigationBarSecondary = "$o2SkyBlueLight50" // "$grey4"
+textNavigationSearchBarHint = "$o2SkyBlueLight50" // "$grey4" iOS only
 textNavigationSearchBarText = "$white" // "$grey2" iOS only
 textAppBar = "$grey4" // "$grey5"
 textAppBarSelected = "$o2Blue" // "$grey2"
