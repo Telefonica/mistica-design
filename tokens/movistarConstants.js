@@ -26,8 +26,8 @@ buttonDangerBackgroundDisabled = "$pepperLight30" // "$darkModeGrey"
 buttonDangerBackgroundSelected = "$pepperDark"
 buttonDangerBackgroundHover = "$pepperDark" // web only
 
-buttonLinkBackgroundSelected = "$movistarBlueLight10" // "$darkModeGrey"
-buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // "$darkModeGrey"
+buttonLinkBackgroundSelected = "$movistarBlueLight10" // "$white alpha 0.05"
+buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // "$white alpha 0.05"
 
 buttonPrimaryBackground = "$movistarGreen" // "$movistarGreen"
 buttonPrimaryBackgroundDisabled = "$movistarGreenLight50" // "$darkModeGrey"
@@ -68,10 +68,8 @@ textLinkSnackbar = "$movistarBlueLight50"
 control = "$grey3" // "$grey6"
 controlActivated = "$movistarBlue" // "$movistarBlue"
 controlError = "$pepper"
-loadingBar = "$movistarGreen" // "$movistarBlue"
-loadingBarBackground = "$movistarGreenLight50" // "$darkModeGrey"
-loadingBarBackgroundInverse = "$movistarBlueDark" // "$movistarGreenDark" // will be deprecated soon
-loadingBarInverse = "$movistarBlueLight50" // "$movistarGreenLight50" // will be deprecated soon
+loadingBar = "$movistarBlueLight50" // "$movistarBlue"
+loadingBarBackground = "$movistarBlueDark" // "$grey6"
 
 toggleAndroidInactive = "$grey2" // "$grey4" // web only
 toggleAndroidBackgroundActive = "$movistarBlueLight30" // "$movistarBlueLight30" // web only

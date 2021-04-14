@@ -26,8 +26,8 @@ buttonDangerBackgroundDisabled = "$pepperLight30" // "$darkModeGrey"
 buttonDangerBackgroundSelected = "$pepperDark" 
 buttonDangerBackgroundHover = "$pepperDark" // web only
 
-buttonLinkBackgroundSelected = "$o2BluePrimaryLight10" /* deberíamos pasarlo a o2BlueLight10 */ // "$darkModeGrey" 
-buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // "$darkModeGrey"
+buttonLinkBackgroundSelected = "$o2BluePrimaryLight10" /* deberíamos pasarlo a o2BlueLight10 */ // "$white alpha 0.05" 
+buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // "$white alpha 0.05"
 
 buttonPrimaryBackground = "$o2BluePrimary" // "$darkModeO2BluePrimary"
 buttonPrimaryBackgroundDisabled = "$o2BluePrimaryLight10" // "$darkModeGrey"
@@ -70,8 +70,6 @@ controlActivated = "$o2BluePrimary" // "$o2BluePrimaryLight50"
 controlError = "$pepper"
 loadingBar = "$o2BluePrimary" // "$darkModeO2BluePrimary"
 loadingBarBackground = "$grey1" // "$darkModeGrey6"
-loadingBarBackgroundInverse = "$grey1" // "$grey1" // will be deprecated soon
-loadingBarInverse = "$o2BluePrimary" // "$darkModeO2BluePrimary" // will be deprecated soon
 
 toggleAndroidInactive = "$grey2" // "$grey4" // web only
 toggleAndroidBackgroundActive = "$o2BluePrimaryLight10" // "$o2BlueLight30" // web only

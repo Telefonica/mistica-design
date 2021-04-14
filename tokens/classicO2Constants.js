@@ -26,8 +26,8 @@ buttonDangerBackgroundDisabled = "$pepperLight" // "$darkModeGrey"
 buttonDangerBackgroundSelected = "$pepperDark"
 buttonDangerBackgroundHover = "$pepperDark"
 
-buttonLinkBackgroundSelected = "$o2SkyBlueLight10" // "$darkModeGrey"
-buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // // "$darkModeGrey"
+buttonLinkBackgroundSelected = "$o2SkyBlueLight10" // "$white alpha 0.05"
+buttonLinkBackgroundSelectedInverse = "$white" /* alpha 20% */ // // "$white alpha 0.05"
 
 buttonPrimaryBackground = "$o2SkyBlue"
 buttonPrimaryBackgroundDisabled = "$o2SkyBlueLight50" // "$darkModeGrey"
@@ -70,8 +70,6 @@ controlActivated = "$o2Gem" // "$o2SkyBlue"
 controlError = "$pepper"
 loadingBar = "$o2Gem" // "$o2SkyBlue"
 loadingBarBackground = "$o2GemLight30" // "$darkModeGrey"
-loadingBarBackgroundInverse = "$o2GemLight30" // "$darkModeGrey" // deprecated soon
-loadingBarInverse = "$o2Gem" // "$o2SkyBlue" // deprecated soon
 
 toggleAndroidInactive = "$grey2" // "$grey4" solo web
 toggleAndroidBackgroundActive = "$o2GemLight30" // "$o2SkyBlueLight50" web only
@@ -111,8 +109,8 @@ warning = "$orange"
 
 // BARS TEXTS
 textNavigationBarPrimary = "$white" // "$grey2"
-textNavigationBarSecondary = "$o2BlueLight50" // "$grey4"
-textNavigationSearchBarHint = "$o2BlueLight50" // "$grey4" iOS only
+textNavigationBarSecondary = "$o2SkyBlueLight50" // "$grey4"
+textNavigationSearchBarHint = "$o2SkyBlueLight50" // "$grey4" iOS only
 textNavigationSearchBarText = "$white" // "$grey2" iOS only
 textAppBar = "$grey4" // "$grey5"
 textAppBarSelected = "$o2Blue" // "$grey2"
