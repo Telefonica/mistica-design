@@ -70,8 +70,6 @@ controlActivated = "$vivoPurple" // "$vivoPurpleLigh80"
 controlError = "$pepper"
 loadingBar = "$pink" // "$vivoPurpleLigh80"
 loadingBarBackground = "$pepperLight" // "$darkModeGrey6"
-loadingBarBackgroundInverse = "$vivoPurpleLight50" // "$darkModeGrey6" // will be deprecated soon
-loadingBarInverse = "$vivoPurple" // "$vivoPurpleLigh80" // will be deprecated soon
 
 toggleAndroidInactive = "$grey2" // "$grey4" // web only
 toggleAndroidBackgroundActive = "$vivoPurpleLight20" // "$vivoPurpleLight50" // web only
