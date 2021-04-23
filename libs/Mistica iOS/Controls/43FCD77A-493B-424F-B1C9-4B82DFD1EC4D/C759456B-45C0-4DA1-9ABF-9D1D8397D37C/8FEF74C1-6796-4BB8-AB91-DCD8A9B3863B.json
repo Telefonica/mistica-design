@@ -2,7 +2,7 @@
   "_class": "oval",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "A9760825-3C1F-4942-865F-ED330FCC0DFE",
+  "do_objectID": "8FEF74C1-6796-4BB8-AB91-DCD8A9B3863B",
   "edited": false,
   "exportOptions": {
     "_class": "exportOptions",
@@ -29,7 +29,7 @@
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "name": "knobShadow",
+  "name": "knob",
   "nameIsFixed": true,
   "pointRadiusBehaviour": 0,
   "points": [
@@ -77,6 +77,7 @@
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
+  "sharedStyleID": "D187C655-3B97-4102-8B12-6EE314F39496",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -85,7 +86,7 @@
       "center": "{0.5, 0.5}",
       "isEnabled": false,
       "motionAngle": 0,
-      "radius": 4.95,
+      "radius": 10,
       "saturation": 1,
       "type": 0
     },
@@ -98,56 +99,6 @@
       "lineJoinStyle": 0
     },
     "borders": [
-      {
-        "_class": "border",
-        "color": {
-          "_class": "color",
-          "alpha": 0.04,
-          "blue": 0,
-          "green": 0,
-          "red": 0
-        },
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": 1
-        },
-        "fillType": 0,
-        "gradient": {
-          "_class": "gradient",
-          "elipseLength": 0,
-          "from": "{0.5, 0}",
-          "gradientType": 0,
-          "stops": [
-            {
-              "_class": "gradientStop",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 1,
-                "green": 1,
-                "red": 1
-              },
-              "position": 0
-            },
-            {
-              "_class": "gradientStop",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0,
-                "green": 0,
-                "red": 0
-              },
-              "position": 1
-            }
-          ],
-          "to": "{0.5, 1}"
-        },
-        "isEnabled": true,
-        "position": 2,
-        "thickness": 0.5
-      }
     ],
     "colorControls": {
       "_class": "colorControls",
@@ -162,7 +113,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "64D8A35B-C0F3-4B71-94B6-07A0DE9837B8",
+    "do_objectID": "59E61DE4-FFFF-41E1-AFD8-D2A12A4AEEEB",
     "endMarkerType": 0,
     "fills": [
       {
@@ -172,7 +123,8 @@
           "alpha": 1,
           "blue": 1,
           "green": 1,
-          "red": 1
+          "red": 1,
+          "swatchID": "C6F6D83F-A829-4DC2-BFCE-0BC07BF7DA46"
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -214,7 +166,7 @@
         "isEnabled": true,
         "noiseIndex": 0,
         "noiseIntensity": 0,
-        "patternFillType": 0,
+        "patternFillType": 1,
         "patternTileScale": 1
       }
     ],
@@ -222,49 +174,9 @@
     ],
     "miterLimit": 10,
     "shadows": [
-      {
-        "_class": "shadow",
-        "blurRadius": 1,
-        "color": {
-          "_class": "color",
-          "alpha": 0.06,
-          "blue": 0,
-          "green": 0,
-          "red": 0
-        },
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": 1
-        },
-        "isEnabled": true,
-        "offsetX": 0,
-        "offsetY": 3,
-        "spread": 0
-      },
-      {
-        "_class": "shadow",
-        "blurRadius": 8,
-        "color": {
-          "_class": "color",
-          "alpha": 0.15,
-          "blue": 0,
-          "green": 0,
-          "red": 0
-        },
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": 1
-        },
-        "isEnabled": true,
-        "offsetX": 0,
-        "offsetY": 3,
-        "spread": 0
-      }
     ],
     "startMarkerType": 0,
-    "windingRule": 1
+    "windingRule": 0
   },
   "userInfo": {
     "com.animaapp.stc-sketch-plugin": {
