@@ -18,7 +18,7 @@ skeletonWave = "$grey2" // "$grey5" /* alpha 30% */
 borderLight = "$grey1" // "$darkModeBlack"
 border = "$grey3" // "$darkModeGrey"
 borderDark = "$grey5" // "$grey5"
-borderSelected = "$o2Gem" // "$o2SkyBlue"
+borderSelected = "$o2Gem" // "$o2Gem"
 
 // BUTTONS
 buttonDangerBackground = "$pepper"
@@ -66,13 +66,13 @@ textLinkSnackbar = "$o2SkyBlueLight" // "$o2SkyBlueLight"
 
 // CONTROLS
 control = "$grey3" // "$darkModeGrey6"
-controlActivated = "$o2Gem" // "$o2SkyBlue"
+controlActivated = "$o2Gem" // "$o2Gem"
 controlError = "$pepper"
-loadingBar = "$o2Gem" // "$o2SkyBlue"
+loadingBar = "$o2Gem" // "$o2Gem"
 loadingBarBackground = "$o2GemLight30" // "$darkModeGrey"
 
 toggleAndroidInactive = "$grey2" // "$grey4" solo web
-toggleAndroidBackgroundActive = "$o2GemLight30" // "$o2SkyBlueLight50" web only
+toggleAndroidBackgroundActive = "$o2GemLight30" // "$o2GemLight30" web only
 iosControlKnob = "$white" // "$grey2" solo web
 
 // DIVIDERS
