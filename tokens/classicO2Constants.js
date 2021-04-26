@@ -12,7 +12,7 @@ navigationBarBackground = "$o2Blue" // "$darkModeBlack"
 backgroundAlternative = "$grey1" // "$darkModeGrey"
 backgroundFeedbackBottom = "$o2GradientFourth" // "$darkModeBlack"
 
-skeletonWave = "$grey2" // "$grey5"
+skeletonWave = "$grey2" // "$grey5" /* alpha 30% */
 
 // BORDERS
 borderLight = "$grey1" // "$darkModeBlack"
