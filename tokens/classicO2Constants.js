@@ -12,13 +12,13 @@ navigationBarBackground = "$o2Blue" // "$darkModeBlack"
 backgroundAlternative = "$grey1" // "$darkModeGrey"
 backgroundFeedbackBottom = "$o2GradientFourth" // "$darkModeBlack"
 
-skeletonWave = "$grey2" // "$grey5" /* alpha 30% */
+skeletonWave = "$grey2" // "$grey5"
 
 // BORDERS
 borderLight = "$grey1" // "$darkModeBlack"
 border = "$grey3" // "$darkModeGrey"
 borderDark = "$grey5" // "$grey5"
-borderSelected = "$o2Gem" // "$o2Gem"
+borderSelected = "$o2Gem" // "$o2SkyBlue"
 
 // BUTTONS
 buttonDangerBackground = "$pepper"
@@ -66,13 +66,13 @@ textLinkSnackbar = "$o2SkyBlueLight" // "$o2SkyBlueLight"
 
 // CONTROLS
 control = "$grey3" // "$darkModeGrey6"
-controlActivated = "$o2Gem" // "$o2Gem"
+controlActivated = "$o2Gem" // "$o2SkyBlue"
 controlError = "$pepper"
-loadingBar = "$o2Gem" // "$o2Gem"
+loadingBar = "$o2Gem" // "$o2SkyBlue"
 loadingBarBackground = "$o2GemLight30" // "$darkModeGrey"
 
 toggleAndroidInactive = "$grey2" // "$grey4" solo web
-toggleAndroidBackgroundActive = "$o2GemLight30" // "$o2GemLight30" web only
+toggleAndroidBackgroundActive = "$o2GemLight30" // "$o2SkyBlueLight50" web only
 iosControlKnob = "$white" // "$grey2" solo web
 
 // DIVIDERS

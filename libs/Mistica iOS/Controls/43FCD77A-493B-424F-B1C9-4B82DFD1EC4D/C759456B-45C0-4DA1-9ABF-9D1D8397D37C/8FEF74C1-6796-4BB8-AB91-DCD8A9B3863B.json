@@ -1,8 +1,9 @@
 {
-  "_class": "shapeGroup",
+  "_class": "oval",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "D3CC2354-8063-4770-B9ED-C2CC7B696824",
+  "do_objectID": "8FEF74C1-6796-4BB8-AB91-DCD8A9B3863B",
+  "edited": false,
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [
@@ -14,66 +15,69 @@
   },
   "frame": {
     "_class": "rect",
-    "constrainProportions": false,
-    "height": 117,
-    "width": 426,
-    "x": 43,
-    "y": 198
+    "constrainProportions": true,
+    "height": 27,
+    "width": 27,
+    "x": 22,
+    "y": 2
   },
-  "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
-  },
-  "hasClickThrough": false,
   "hasClippingMask": false,
+  "isClosed": true,
   "isFixedToViewport": false,
   "isFlippedHorizontal": false,
   "isFlippedVertical": false,
   "isLocked": false,
   "isVisible": true,
   "layerListExpandedType": 0,
-  "layers": [
+  "name": "knob",
+  "nameIsFixed": true,
+  "pointRadiusBehaviour": 0,
+  "points": [
     {
-      "class": "shapePath",
-      "id": "7F3113DB-BF82-4637-97D6-7A174C16559D"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{0.77614237490000004, 1}",
+      "curveMode": 2,
+      "curveTo": "{0.22385762510000001, 1}",
+      "hasCurveFrom": true,
+      "hasCurveTo": true,
+      "point": "{0.5, 1}"
     },
     {
-      "class": "shapePath",
-      "id": "FFE8382C-119F-4624-AB0E-48798963452E"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{1, 0.22385762510000001}",
+      "curveMode": 2,
+      "curveTo": "{1, 0.77614237490000004}",
+      "hasCurveFrom": true,
+      "hasCurveTo": true,
+      "point": "{1, 0.5}"
     },
     {
-      "class": "shapePath",
-      "id": "A0EF1AC2-A479-4D80-B5C4-6EAA5CC7B91C"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{0.22385762510000001, 0}",
+      "curveMode": 2,
+      "curveTo": "{0.77614237490000004, 0}",
+      "hasCurveFrom": true,
+      "hasCurveTo": true,
+      "point": "{0.5, 0}"
     },
     {
-      "class": "shapePath",
-      "id": "F626CCB3-5F33-4738-8D85-91272D6F5DCC"
-    },
-    {
-      "class": "shapePath",
-      "id": "62C4FF01-1980-4ECC-ACB7-ADBCDE4BA212"
-    },
-    {
-      "class": "shapePath",
-      "id": "05835E18-7C9D-4222-B308-796C7149E767"
-    },
-    {
-      "class": "shapePath",
-      "id": "C7A6F1F7-8A39-46BA-8026-E1F743BF7876"
-    },
-    {
-      "class": "shapePath",
-      "id": "49088613-1458-42AB-BAAD-0C6F29F14446"
-    },
-    {
-      "class": "shapePath",
-      "id": "F5829204-0818-4FCD-AE40-497CC9EA301F"
+      "_class": "curvePoint",
+      "cornerRadius": 0,
+      "curveFrom": "{0, 0.77614237490000004}",
+      "curveMode": 2,
+      "curveTo": "{0, 0.22385762510000001}",
+      "hasCurveFrom": true,
+      "hasCurveTo": true,
+      "point": "{0, 0.5}"
     }
   ],
-  "name": "Fill 3",
-  "nameIsFixed": false,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
+  "sharedStyleID": "D187C655-3B97-4102-8B12-6EE314F39496",
   "shouldBreakMaskChain": false,
   "style": {
     "_class": "style",
@@ -82,7 +86,7 @@
       "center": "{0.5, 0.5}",
       "isEnabled": false,
       "motionAngle": 0,
-      "radius": 30,
+      "radius": 10,
       "saturation": 1,
       "type": 0
     },
@@ -101,7 +105,7 @@
       "brightness": 0,
       "contrast": 1,
       "hue": 0,
-      "isEnabled": false,
+      "isEnabled": true,
       "saturation": 1
     },
     "contextSettings": {
@@ -109,7 +113,7 @@
       "blendMode": 0,
       "opacity": 1
     },
-    "do_objectID": "44632ABB-73C2-46D6-A04F-6479D73048B6",
+    "do_objectID": "59E61DE4-FFFF-41E1-AFD8-D2A12A4AEEEB",
     "endMarkerType": 0,
     "fills": [
       {
@@ -117,9 +121,10 @@
         "color": {
           "_class": "color",
           "alpha": 1,
-          "blue": 0.9961473345756531,
-          "green": 0.9987195134162903,
-          "red": 1
+          "blue": 1,
+          "green": 1,
+          "red": 1,
+          "swatchID": "C6F6D83F-A829-4DC2-BFCE-0BC07BF7DA46"
         },
         "contextSettings": {
           "_class": "graphicsContextSettings",
@@ -171,7 +176,27 @@
     "shadows": [
     ],
     "startMarkerType": 0,
-    "windingRule": 1
+    "windingRule": 0
   },
-  "windingRule": 1
+  "userInfo": {
+    "com.animaapp.stc-sketch-plugin": {
+      "kModelPropertiesKey": {
+        "constraints": {
+          "aspectRatio": {
+            "constant": 28,
+            "enabled": 1,
+            "modelID": "constraint_04250464-2660-4ca3-8734-b73b74a70d26",
+            "model_class": "ADModelConstraint",
+            "model_version": 0.1,
+            "multiplier": 28
+          },
+          "automatic": 1,
+          "modelID": "viewConstraints_029110b9-b33d-4500-a7f2-44426a214851",
+          "model_class": "ADModelViewConstraints",
+          "model_version": 0.1,
+          "scaleFactor": 1
+        }
+      }
+    }
+  }
 }

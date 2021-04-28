@@ -12,7 +12,7 @@ navigationBarBackground = "$vivoPurple" // "$darkModeBlack"
 backgroundAlternative = "$grey1" // "$darkModeGrey"
 backgroundFeedbackBottom = "$vivoPurple" // "$darkModeBlack"
 
-skeletonWave = "$grey2" // "$grey5" /* alpha 30% */
+skeletonWave = "$grey2" // "$grey5"
 
 // BORDERS
 borderLight = "$grey1" // "$darkModeBlack"

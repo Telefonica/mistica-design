@@ -12,7 +12,7 @@ navigationBarBackground = "$movistarBlue" // "$darkModeBlack"
 backgroundAlternative = "$grey1" // "$darkModeGrey" (seguramente mejor darkModeBlack)
 backgroundFeedbackBottom = "$movistarBlue" // "$darkModeBlack"
 
-skeletonWave = "$grey2" // "grey5" /* alpha 30% */
+skeletonWave = "$grey2" // "grey5"
 
 // BORDERS
 borderLight = "$grey1" // "$darkModeBlack"
