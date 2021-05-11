@@ -9,7 +9,7 @@ backgroundOverlay = "$grey6" /* alpha 60% */ // "$darkModeGrey" /* alpha 80% */
 backgroundSkeleton = "$grey1" // "$darkModeGrey6"
 backgroundSkeletonInverse = "$white" /* alpha 20% */  // "$darkModeGrey6"
 navigationBarBackground = "$o2BluePrimary" // "$darkModeBlack"
-backgroundAlternative = "$grey1" // "$darkModeGrey" (seguramente mejor darkModeBlack)
+backgroundAlternative = "$grey1" // "$darkModeGrey"
 backgroundFeedbackBottom = "$o2BluePrimary" // "$darkModeBlack"
 
 skeletonWave = "$grey2" // "$grey5"
