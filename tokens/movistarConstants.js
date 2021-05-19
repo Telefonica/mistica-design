@@ -9,7 +9,7 @@ backgroundOverlay = "$grey6" /* alpha 60% */ // "$darkModeGrey" /* alpha 80% */
 backgroundSkeleton = "$grey1" // "$grey6" 
 backgroundSkeletonInverse = "$movistarBlueDark" // "$grey6"
 navigationBarBackground = "$movistarBlue" // "$darkModeBlack"
-backgroundAlternative = "$grey1" // "$darkModeGrey" (seguramente mejor darkModeBlack)
+backgroundAlternative = "$grey1" // "$darkModeGrey"
 backgroundFeedbackBottom = "$movistarBlue" // "$darkModeBlack"
 
 skeletonWave = "$grey2" // "grey5"
