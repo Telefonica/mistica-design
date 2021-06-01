@@ -3,7 +3,7 @@
 // BACKGROUNDS
 appBarBackground = "$white" // "$darkModeGrey"
 background = "$white" // "$darkModeBlack"
-[NEW] backgroundContainer = "$white" // "$darkModeGrey"
+backgroundContainer = "$white" // "$darkModeGrey"
 backgroundBrand = gradient de O2Classic // "$darkModeBlack"  
 backgroundOverlay = "$grey6" /* alpha 60% */ // "$darkModeGrey" /* alpha 80% */
 backgroundSkeleton = "$grey1" // "$darkModeGrey6"
@@ -45,7 +45,7 @@ buttonSecondaryBorderInverse = "$white" // "$o2SkyBlue"
 buttonSecondaryBorderSelectedInverse = "$o2SkyBlueLight50" // "$o2SkyBlueDark"
 
 textButtonPrimary = "$white" // "$grey2"
-[NEW] textButtonPrimaryDisabled = "$white" // "$grey5"
+textButtonPrimaryDisabled = "$white" // "$grey5"
 textButtonPrimaryInverse = "$o2SkyBlue" // "$grey2"
 textButtonPrimaryInverseDisabled = "$o2SkyBlueLight30" // "$grey5"
 textButtonPrimaryInverseSelected = "$o2SkyBlue" // "$grey2"
@@ -58,7 +58,7 @@ textButtonSecondaryInverseDisabled = "$o2SkyBlueLight50" // "$grey5"
 textButtonSecondaryInverseSelected = "$white" // "$grey4"
 
 textLink = "$o2SkyBlue" // "$o2SkyBlueLight"
-[NEW] textLinkInverse = "$white" // "$o2SkyBlueLight"
+textLinkInverse = "$white" // "$o2SkyBlueLight"
 textLinkDanger = "$pepper"
 textLinkDangerDisabled = "$pepperLight30" // "$grey5"
 textLinkDisabled = "$o2SkyBlueLight" // "$darkModeGrey6"
