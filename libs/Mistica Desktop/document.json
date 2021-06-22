@@ -8397,118 +8397,6 @@
       "remoteStyleID": "A0C2E295-4D43-4404-894D-9254DAA819B3[01FED5B9-BBD3-46AE-81F9-15203FA70B2E]",
       "sourceLibraryName": "Movistar",
       "symbolPrivate": true
-    },
-    {
-      "_class": "MSImmutableForeignLayerStyle",
-      "do_objectID": "007A38F7-9D90-4CD5-9940-39A831FF4CCA",
-      "libraryID": "7CE7B797-7437-4C97-93BD-97DA673C5101",
-      "localSharedStyle": {
-        "_class": "sharedStyle",
-        "do_objectID": "A30435BC-E59E-4531-B6A4-0C77C66FACA0",
-        "name": "Backgrounds/backgroundAlternative",
-        "value": {
-          "_class": "style",
-          "blur": {
-            "_class": "blur",
-            "center": "{0.5, 0.5}",
-            "isEnabled": false,
-            "motionAngle": 0,
-            "radius": 10,
-            "saturation": 1,
-            "type": 0
-          },
-          "borderOptions": {
-            "_class": "borderOptions",
-            "dashPattern": [
-            ],
-            "isEnabled": true,
-            "lineCapStyle": 0,
-            "lineJoinStyle": 0
-          },
-          "borders": [
-          ],
-          "colorControls": {
-            "_class": "colorControls",
-            "brightness": 0,
-            "contrast": 1,
-            "hue": 0,
-            "isEnabled": true,
-            "saturation": 1
-          },
-          "contextSettings": {
-            "_class": "graphicsContextSettings",
-            "blendMode": 0,
-            "opacity": 1
-          },
-          "do_objectID": "15CEBD4E-687C-4CA5-8D7F-1C4ACE80AAFC",
-          "endMarkerType": 0,
-          "fills": [
-            {
-              "_class": "fill",
-              "color": {
-                "_class": "color",
-                "alpha": 1,
-                "blue": 0.9647058823529412,
-                "green": 0.9647058823529412,
-                "red": 0.9647058823529412,
-                "swatchID": "B79C7128-AB06-4F46-9792-9D0A5102267A"
-              },
-              "contextSettings": {
-                "_class": "graphicsContextSettings",
-                "blendMode": 0,
-                "opacity": 1
-              },
-              "fillType": 0,
-              "gradient": {
-                "_class": "gradient",
-                "elipseLength": 0,
-                "from": "{0.5, 0}",
-                "gradientType": 0,
-                "stops": [
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 1,
-                      "green": 1,
-                      "red": 1
-                    },
-                    "position": 0
-                  },
-                  {
-                    "_class": "gradientStop",
-                    "color": {
-                      "_class": "color",
-                      "alpha": 1,
-                      "blue": 0,
-                      "green": 0,
-                      "red": 0
-                    },
-                    "position": 1
-                  }
-                ],
-                "to": "{0.5, 1}"
-              },
-              "isEnabled": true,
-              "noiseIndex": 0,
-              "noiseIntensity": 0,
-              "patternFillType": 1,
-              "patternTileScale": 1
-            }
-          ],
-          "innerShadows": [
-          ],
-          "miterLimit": 10,
-          "shadows": [
-          ],
-          "startMarkerType": 0,
-          "windingRule": 0
-        }
-      },
-      "remoteStyleID": "7508FCC2-D1A3-444D-A5B7-B619F2887CAB",
-      "sourceLibraryName": "Movistar",
-      "symbolPrivate": false
     }
   ],
   "foreignSwatches": [
@@ -38903,8 +38791,8 @@
                 }
               }
             ],
-            "name": "add-more-alarm-regular",
-            "nameIsFixed": false,
+            "name": "bell-add-more-regular",
+            "nameIsFixed": true,
             "resizingConstraint": 63,
             "resizingType": 0,
             "rotation": 0,
@@ -39012,8 +38900,8 @@
             "windingRule": 0
           }
         ],
-        "name": "2.Regular/add-more-alarm-regular",
-        "nameIsFixed": false,
+        "name": "2.Regular/bell-add-more-regular",
+        "nameIsFixed": true,
         "overrideProperties": [
           {
             "_class": "MSImmutableOverrideProperty",
@@ -40483,8 +40371,8 @@
                 }
               }
             ],
-            "name": "add-more-alarm-regular",
-            "nameIsFixed": false,
+            "name": "bell-add-more-regular",
+            "nameIsFixed": true,
             "resizingConstraint": 63,
             "resizingType": 0,
             "rotation": 0,
@@ -40592,8 +40480,8 @@
             "windingRule": 0
           }
         ],
-        "name": "2.Regular/add-more-alarm-regular",
-        "nameIsFixed": false,
+        "name": "2.Regular/bell-add-more-regular",
+        "nameIsFixed": true,
         "overrideProperties": [
           {
             "_class": "MSImmutableOverrideProperty",
@@ -40770,8 +40658,8 @@
             "isLocked": false,
             "isVisible": true,
             "layerListExpandedType": 1,
-            "name": "Path",
-            "nameIsFixed": false,
+            "name": "check-regular",
+            "nameIsFixed": true,
             "pointRadiusBehaviour": 1,
             "points": [
               {
@@ -41163,8 +41051,8 @@
             "isLocked": false,
             "isVisible": true,
             "layerListExpandedType": 1,
-            "name": "Path",
-            "nameIsFixed": false,
+            "name": "check-regular",
+            "nameIsFixed": true,
             "pointRadiusBehaviour": 1,
             "points": [
               {
@@ -41550,7 +41438,7 @@
               "_class": "rect",
               "constrainProportions": false,
               "height": 16,
-              "width": 10,
+              "width": 9,
               "x": 7,
               "y": 4
             },
@@ -41562,8 +41450,8 @@
             "isLocked": false,
             "isVisible": true,
             "layerListExpandedType": 1,
-            "name": "Path",
-            "nameIsFixed": false,
+            "name": "chevron-left-regular",
+            "nameIsFixed": true,
             "pointRadiusBehaviour": 1,
             "points": [
               {
@@ -41963,7 +41851,7 @@
               "_class": "rect",
               "constrainProportions": false,
               "height": 16,
-              "width": 10,
+              "width": 9,
               "x": 7,
               "y": 4
             },
@@ -41975,8 +41863,8 @@
             "isLocked": false,
             "isVisible": true,
             "layerListExpandedType": 1,
-            "name": "Path",
-            "nameIsFixed": false,
+            "name": "chevron-left-regular",
+            "nameIsFixed": true,
             "pointRadiusBehaviour": 1,
             "points": [
               {
@@ -77837,12 +77725,12 @@
     },
     {
       "_class": "MSImmutableForeignTextStyle",
-      "do_objectID": "51D0C067-704A-4E85-B857-9C7B92598AC3",
+      "do_objectID": "D4D8E3E9-6B20-4463-B1FD-DE513767CB83",
       "libraryID": "7CE7B797-7437-4C97-93BD-97DA673C5101",
       "localSharedStyle": {
         "_class": "sharedStyle",
-        "do_objectID": "5F6AB18A-CF63-4BC5-8C26-0756F035BDC5",
-        "name": "Desktop/text-preset-2/Regular/∙ Left/text_link",
+        "do_objectID": "5A1E419D-4D52-4F2A-9040-2E2C0B61CD0D",
+        "name": "Desktop/text-preset-4/Regular/∙ Left/text_primary_inverse",
         "value": {
           "_class": "style",
           "blur": {
@@ -77877,7 +77765,7 @@
             "blendMode": 0,
             "opacity": 1
           },
-          "do_objectID": "AF2520BB-FCDB-419F-85E8-37E59EAEB918",
+          "do_objectID": "9FA698BC-0B17-4771-AD66-18D0C93EEEEA",
           "endMarkerType": 0,
           "fills": [
           ],
@@ -77893,23 +77781,24 @@
               "MSAttributedStringColorAttribute": {
                 "_class": "color",
                 "alpha": 1,
-                "blue": 0.9568627450980391,
-                "green": 0.615686274509804,
-                "red": 0.00392156862745098,
-                "swatchID": "17E71D5F-0D73-4AC9-BDE0-A3AB96F275B9"
+                "blue": 1,
+                "green": 1,
+                "red": 1,
+                "swatchID": "5856EB77-0A9A-495A-9559-FD7EE2198116"
               },
               "MSAttributedStringFontAttribute": {
                 "_class": "fontDescriptor",
                 "attributes": {
                   "name": "Roboto-Regular",
-                  "size": 16
+                  "size": 20
                 }
               },
               "paragraphStyle": {
                 "_class": "paragraphStyle",
+                "alignment": 0,
                 "allowsDefaultTighteningForTruncation": 0,
-                "maximumLineHeight": 24,
-                "minimumLineHeight": 24
+                "maximumLineHeight": 28,
+                "minimumLineHeight": 28
               }
             },
             "verticalAlignment": 0
@@ -77918,7 +77807,95 @@
         }
       },
       "missingLibraryFontAcknowledged": false,
-      "remoteStyleID": "CDE34D49-DB85-4BB1-A720-41C05CBE8C84",
+      "remoteStyleID": "36C62DAB-FAE2-4394-9F78-272E751F8E90",
+      "sourceLibraryName": "Movistar",
+      "symbolPrivate": false
+    },
+    {
+      "_class": "MSImmutableForeignTextStyle",
+      "do_objectID": "F35C83D5-DFEF-4004-86F2-EBBA92CBB407",
+      "libraryID": "7CE7B797-7437-4C97-93BD-97DA673C5101",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "AA7A9701-F702-4E81-BFAF-068D0A681D11",
+        "name": "Desktop/text-preset-4/Regular/∙ Left/text_primary",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "D10A270E-FB20-4F67-B68D-3C4DAEEBE315",
+          "endMarkerType": 0,
+          "fills": [
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "textStyle": {
+            "_class": "textStyle",
+            "encodedAttributes": {
+              "MSAttributedStringColorAttribute": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.2078431372549019,
+                "green": 0.196078431372549,
+                "red": 0.192156862745098,
+                "swatchID": "5F5BB2D9-9F5B-4314-AB11-393FC99221A7"
+              },
+              "MSAttributedStringFontAttribute": {
+                "_class": "fontDescriptor",
+                "attributes": {
+                  "name": "Roboto-Regular",
+                  "size": 20
+                }
+              },
+              "paragraphStyle": {
+                "_class": "paragraphStyle",
+                "alignment": 0,
+                "allowsDefaultTighteningForTruncation": 0,
+                "maximumLineHeight": 28,
+                "minimumLineHeight": 28
+              }
+            },
+            "verticalAlignment": 0
+          },
+          "windingRule": 1
+        }
+      },
+      "missingLibraryFontAcknowledged": false,
+      "remoteStyleID": "A1052830-2B9C-4E17-AD44-10F46CF1A785",
       "sourceLibraryName": "Movistar",
       "symbolPrivate": false
     }
@@ -77930,15 +77907,14 @@
     ]
   },
   "meta": {
-    "appVersion": "72.2",
-    "build": 124462,
+    "appVersion": "72.4",
+    "build": 124482,
     "version": 136
   },
   "pages": [
     "Cover",
     "Bars",
     "Buttons",
-    "Callouts",
     "Cards",
     "Controls",
     "Dividers",
