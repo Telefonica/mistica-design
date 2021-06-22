@@ -7214,6 +7214,118 @@
       "remoteStyleID": "45AF529C-170E-4F38-8294-D10A1BB2670B[01FED5B9-BBD3-46AE-81F9-15203FA70B2E]",
       "sourceLibraryName": "Movistar",
       "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignLayerStyle",
+      "do_objectID": "E6B9691E-4151-4F9C-9D3B-B92E71E688A0",
+      "libraryID": "7CE7B797-7437-4C97-93BD-97DA673C5101",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "BE9CA5E6-E930-41BD-9286-22FD76BCC4DB",
+        "name": "Backgrounds/backgroundAlternative",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "15CEBD4E-687C-4CA5-8D7F-1C4ACE80AAFC",
+          "endMarkerType": 0,
+          "fills": [
+            {
+              "_class": "fill",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 0.9647058823529412,
+                "green": 0.9647058823529412,
+                "red": 0.9647058823529412,
+                "swatchID": "FC8C5C3A-5481-41CF-8518-348C2B5A0601"
+              },
+              "contextSettings": {
+                "_class": "graphicsContextSettings",
+                "blendMode": 0,
+                "opacity": 1
+              },
+              "fillType": 0,
+              "gradient": {
+                "_class": "gradient",
+                "elipseLength": 0,
+                "from": "{0.5, 0}",
+                "gradientType": 0,
+                "stops": [
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 1,
+                      "green": 1,
+                      "red": 1
+                    },
+                    "position": 0
+                  },
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 0,
+                      "green": 0,
+                      "red": 0
+                    },
+                    "position": 1
+                  }
+                ],
+                "to": "{0.5, 1}"
+              },
+              "isEnabled": true,
+              "noiseIndex": 0,
+              "noiseIntensity": 0,
+              "patternFillType": 1,
+              "patternTileScale": 1
+            }
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "windingRule": 0
+        }
+      },
+      "remoteStyleID": "7508FCC2-D1A3-444D-A5B7-B619F2887CAB",
+      "sourceLibraryName": "Movistar",
+      "symbolPrivate": false
     }
   ],
   "foreignSwatches": [
@@ -71762,6 +71874,7 @@
     "Bars",
     "Buttons",
     "Cards",
+    "Callouts",
     "Controls",
     "Crouton",
     "Dividers",
