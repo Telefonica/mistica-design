@@ -83,7 +83,7 @@ navigationBarDivider = "$telefonicaBlue"; // "$darkModeBlack"
 // FEEDBACKS
 badge = "$coralDark";
 feedbackErrorBackground = "$coral";
-feedbackInfoBackground = "$grey6";
+feedbackInfoBackground = "$grey9"; // "$grey8"
 
 // GLOBAL
 brand = "$telefonicaBlue";
