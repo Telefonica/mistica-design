@@ -5,7 +5,7 @@
   <img height="64" alt="Mística Logo" src=".github/resources/misticaLogo.svg">
 </div>
 -->
-  <img alt="Mística Logo" src=".github/resources/misticaDesign.png">
+  <img alt="Mística Logo" src=".github/resources/misticaDesign2.png">
 <br>
 <br>
 <p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
