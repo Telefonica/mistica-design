@@ -1194,7 +1194,7 @@
       "localSharedStyle": {
         "_class": "sharedStyle",
         "do_objectID": "E60A8078-99AF-4ED1-8C6C-8D5ADAEFE816[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
-        "name": "Bars/appBar/appBarBackground",
+        "name": "Backgrounds/appBarBackground",
         "value": {
           "_class": "style",
           "blur": {
@@ -1240,7 +1240,7 @@
                 "blue": 1,
                 "green": 1,
                 "red": 1,
-                "swatchID": "ADC68D41-601D-4191-855C-7220DC630CB6"
+                "swatchID": "E3EA8C67-15B7-427A-80E6-1FE5E04F4452"
               },
               "contextSettings": {
                 "_class": "graphicsContextSettings",
@@ -1352,7 +1352,7 @@
                 "blue": 0.9333333333333333,
                 "green": 0.9333333333333333,
                 "red": 0.9333333333333333,
-                "swatchID": "2E8D6A52-D0BC-4117-B526-844C49A6351B"
+                "swatchID": "3D02C94F-B026-451B-A097-619DEF4A65B1"
               },
               "contextSettings": {
                 "_class": "graphicsContextSettings",
@@ -1464,7 +1464,7 @@
                 "blue": 0.9568627450980391,
                 "green": 0.615686274509804,
                 "red": 0.00392156862745098,
-                "swatchID": "B8793191-FD9A-40CD-94CC-AD3BC359D7CC"
+                "swatchID": "E08E5D4D-3E73-4CFD-9268-B62D4D75063B"
               },
               "contextSettings": {
                 "_class": "graphicsContextSettings",
@@ -1909,6 +1909,118 @@
       "remoteStyleID": "322A8418-817F-43BE-BC9F-74615F0D8B36[90C2D80D-BADC-42A1-B89F-4848F01F3976]",
       "sourceLibraryName": "Movistar",
       "symbolPrivate": true
+    },
+    {
+      "_class": "MSImmutableForeignLayerStyle",
+      "do_objectID": "B8229094-A9B3-4EC3-8975-79DE5E5E759A",
+      "libraryID": "7CE7B797-7437-4C97-93BD-97DA673C5101",
+      "localSharedStyle": {
+        "_class": "sharedStyle",
+        "do_objectID": "3736131F-3756-4E4E-AA01-5BB1BA5FEC6E",
+        "name": "Global/inverse",
+        "value": {
+          "_class": "style",
+          "blur": {
+            "_class": "blur",
+            "center": "{0.5, 0.5}",
+            "isEnabled": false,
+            "motionAngle": 0,
+            "radius": 10,
+            "saturation": 1,
+            "type": 0
+          },
+          "borderOptions": {
+            "_class": "borderOptions",
+            "dashPattern": [
+            ],
+            "isEnabled": true,
+            "lineCapStyle": 0,
+            "lineJoinStyle": 0
+          },
+          "borders": [
+          ],
+          "colorControls": {
+            "_class": "colorControls",
+            "brightness": 0,
+            "contrast": 1,
+            "hue": 0,
+            "isEnabled": true,
+            "saturation": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "do_objectID": "88DD1A87-EF41-40B2-A06A-7999077ED74B",
+          "endMarkerType": 0,
+          "fills": [
+            {
+              "_class": "fill",
+              "color": {
+                "_class": "color",
+                "alpha": 1,
+                "blue": 1,
+                "green": 1,
+                "red": 1,
+                "swatchID": "CE73FF56-9D29-4370-9DE1-677451994478"
+              },
+              "contextSettings": {
+                "_class": "graphicsContextSettings",
+                "blendMode": 0,
+                "opacity": 1
+              },
+              "fillType": 0,
+              "gradient": {
+                "_class": "gradient",
+                "elipseLength": 0,
+                "from": "{0.5, 0}",
+                "gradientType": 0,
+                "stops": [
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 1,
+                      "green": 1,
+                      "red": 1
+                    },
+                    "position": 0
+                  },
+                  {
+                    "_class": "gradientStop",
+                    "color": {
+                      "_class": "color",
+                      "alpha": 1,
+                      "blue": 0,
+                      "green": 0,
+                      "red": 0
+                    },
+                    "position": 1
+                  }
+                ],
+                "to": "{0.5, 1}"
+              },
+              "isEnabled": true,
+              "noiseIndex": 0,
+              "noiseIntensity": 0,
+              "patternFillType": 1,
+              "patternTileScale": 1
+            }
+          ],
+          "innerShadows": [
+          ],
+          "miterLimit": 10,
+          "shadows": [
+          ],
+          "startMarkerType": 0,
+          "windingRule": 0
+        }
+      },
+      "remoteStyleID": "E74B1533-72E4-46D2-BB5F-0AE8B376E71D",
+      "sourceLibraryName": "Movistar",
+      "symbolPrivate": false
     }
   ],
   "foreignSwatches": [
@@ -1970,6 +2082,46 @@
       },
       "remoteSwatchID": "80379F70-7BAE-4180-BE38-81D7D54ED764",
       "sourceLibraryName": "Mistica Android",
+      "symbolPrivate": false
+    },
+    {
+      "_class": "MSImmutableForeignSwatch",
+      "do_objectID": "B157B53C-9788-47F5-B677-7AB0666C1C26",
+      "libraryID": "7CE7B797-7437-4C97-93BD-97DA673C5101",
+      "localSwatch": {
+        "_class": "swatch",
+        "do_objectID": "CE73FF56-9D29-4370-9DE1-677451994478",
+        "name": "3. Neutrals/white",
+        "value": {
+          "_class": "color",
+          "alpha": 1,
+          "blue": 1,
+          "green": 1,
+          "red": 1
+        }
+      },
+      "remoteSwatchID": "B5C82A60-EA7E-417B-AF33-95107B0FCC47",
+      "sourceLibraryName": "Movistar",
+      "symbolPrivate": false
+    },
+    {
+      "_class": "MSImmutableForeignSwatch",
+      "do_objectID": "CC9E6BAA-7862-49F8-937A-AC094337499E",
+      "libraryID": "B2ABF25C-A7A0-4B00-83D9-021205E1449F",
+      "localSwatch": {
+        "_class": "swatch",
+        "do_objectID": "E08E5D4D-3E73-4CFD-9268-B62D4D75063B",
+        "name": "1. Primary/movistarBlue",
+        "value": {
+          "_class": "color",
+          "alpha": 1,
+          "blue": 0.9568627450980391,
+          "green": 0.615686274509804,
+          "red": 0.00392156862745098
+        }
+      },
+      "remoteSwatchID": "B8793191-FD9A-40CD-94CC-AD3BC359D7CC",
+      "sourceLibraryName": "Mistica iOS",
       "symbolPrivate": false
     }
   ],
@@ -28801,7 +28953,6 @@
                       "y": 6
                     },
                     "hasClippingMask": false,
-                    "horizontalSpacing": 0,
                     "isFixedToViewport": false,
                     "isFlippedHorizontal": false,
                     "isFlippedVertical": false,
@@ -28863,8 +29014,7 @@
                       "startMarkerType": 0,
                       "windingRule": 1
                     },
-                    "symbolID": "014525F8-FC22-48BC-9EAD-FA8C494F378C",
-                    "verticalSpacing": 0
+                    "symbolID": "014525F8-FC22-48BC-9EAD-FA8C494F378C"
                   }
                 ],
                 "name": "Tab 4",
@@ -29264,7 +29414,6 @@
                       "y": 6
                     },
                     "hasClippingMask": false,
-                    "horizontalSpacing": 0,
                     "isFixedToViewport": false,
                     "isFlippedHorizontal": false,
                     "isFlippedVertical": false,
@@ -29326,8 +29475,7 @@
                       "startMarkerType": 0,
                       "windingRule": 1
                     },
-                    "symbolID": "B03EF8D6-A17F-4307-AA7B-579C76ADA4A2",
-                    "verticalSpacing": 0
+                    "symbolID": "B03EF8D6-A17F-4307-AA7B-579C76ADA4A2"
                   }
                 ],
                 "name": "Tab 3",
@@ -29727,7 +29875,6 @@
                       "y": 6
                     },
                     "hasClippingMask": false,
-                    "horizontalSpacing": 0,
                     "isFixedToViewport": false,
                     "isFlippedHorizontal": false,
                     "isFlippedVertical": false,
@@ -29789,8 +29936,7 @@
                       "startMarkerType": 0,
                       "windingRule": 1
                     },
-                    "symbolID": "466FCDEA-D3E9-4E9D-BD44-D5B07946276E",
-                    "verticalSpacing": 0
+                    "symbolID": "466FCDEA-D3E9-4E9D-BD44-D5B07946276E"
                   }
                 ],
                 "name": "Tab 2",
@@ -30190,7 +30336,6 @@
                       "y": 6
                     },
                     "hasClippingMask": false,
-                    "horizontalSpacing": 0,
                     "isFixedToViewport": false,
                     "isFlippedHorizontal": false,
                     "isFlippedVertical": false,
@@ -30252,8 +30397,7 @@
                       "startMarkerType": 0,
                       "windingRule": 1
                     },
-                    "symbolID": "2ABCA85E-F9BE-49B0-9F5A-3C6280913E78",
-                    "verticalSpacing": 0
+                    "symbolID": "2ABCA85E-F9BE-49B0-9F5A-3C6280913E78"
                   }
                 ],
                 "name": "Tab 1",
@@ -31367,7 +31511,6 @@
                       "y": 6
                     },
                     "hasClippingMask": false,
-                    "horizontalSpacing": 0,
                     "isFixedToViewport": false,
                     "isFlippedHorizontal": false,
                     "isFlippedVertical": false,
@@ -31429,8 +31572,7 @@
                       "startMarkerType": 0,
                       "windingRule": 1
                     },
-                    "symbolID": "8CB47F91-9B61-426E-A891-19B82526ECAE",
-                    "verticalSpacing": 0
+                    "symbolID": "8CB47F91-9B61-426E-A891-19B82526ECAE"
                   }
                 ],
                 "name": "Tab 4",
@@ -31830,7 +31972,6 @@
                       "y": 6
                     },
                     "hasClippingMask": false,
-                    "horizontalSpacing": 0,
                     "isFixedToViewport": false,
                     "isFlippedHorizontal": false,
                     "isFlippedVertical": false,
@@ -31892,8 +32033,7 @@
                       "startMarkerType": 0,
                       "windingRule": 1
                     },
-                    "symbolID": "982713FF-27F0-48A3-831D-9352E812BFDB",
-                    "verticalSpacing": 0
+                    "symbolID": "982713FF-27F0-48A3-831D-9352E812BFDB"
                   }
                 ],
                 "name": "Tab 3",
@@ -32293,7 +32433,6 @@
                       "y": 6
                     },
                     "hasClippingMask": false,
-                    "horizontalSpacing": 0,
                     "isFixedToViewport": false,
                     "isFlippedHorizontal": false,
                     "isFlippedVertical": false,
@@ -32355,8 +32494,7 @@
                       "startMarkerType": 0,
                       "windingRule": 1
                     },
-                    "symbolID": "FCC916D8-34C6-4026-BF30-31AF16F5D08F",
-                    "verticalSpacing": 0
+                    "symbolID": "FCC916D8-34C6-4026-BF30-31AF16F5D08F"
                   }
                 ],
                 "name": "Tab 2",
@@ -32756,7 +32894,6 @@
                       "y": 6
                     },
                     "hasClippingMask": false,
-                    "horizontalSpacing": 0,
                     "isFixedToViewport": false,
                     "isFlippedHorizontal": false,
                     "isFlippedVertical": false,
@@ -32818,8 +32955,7 @@
                       "startMarkerType": 0,
                       "windingRule": 1
                     },
-                    "symbolID": "9AAFC21F-4DFA-48EA-B429-B6E24DA9208A",
-                    "verticalSpacing": 0
+                    "symbolID": "9AAFC21F-4DFA-48EA-B429-B6E24DA9208A"
                   }
                 ],
                 "name": "Tab 1",
@@ -35055,7 +35191,7 @@
                         "blue": 0.9568627450980391,
                         "green": 0.615686274509804,
                         "red": 0.00392156862745098,
-                        "swatchID": "B8793191-FD9A-40CD-94CC-AD3BC359D7CC"
+                        "swatchID": "E08E5D4D-3E73-4CFD-9268-B62D4D75063B"
                       },
                       "contextSettings": {
                         "_class": "graphicsContextSettings",
@@ -52353,7 +52489,6 @@
                   "y": 0
                 },
                 "hasClippingMask": false,
-                "horizontalSpacing": 0,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
                 "isFlippedVertical": false,
@@ -52415,8 +52550,7 @@
                   "startMarkerType": 0,
                   "windingRule": 1
                 },
-                "symbolID": "4DC2BE42-A920-4AED-9879-F727B6660A74",
-                "verticalSpacing": 0
+                "symbolID": "4DC2BE42-A920-4AED-9879-F727B6660A74"
               }
             ],
             "name": "Tab 4",
@@ -52692,7 +52826,6 @@
                   "y": 0
                 },
                 "hasClippingMask": false,
-                "horizontalSpacing": 0,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
                 "isFlippedVertical": false,
@@ -52754,8 +52887,7 @@
                   "startMarkerType": 0,
                   "windingRule": 1
                 },
-                "symbolID": "78DF0691-7AF8-4AB2-915E-7B4C05DED66B",
-                "verticalSpacing": 0
+                "symbolID": "78DF0691-7AF8-4AB2-915E-7B4C05DED66B"
               }
             ],
             "name": "Tab 3",
@@ -53031,7 +53163,6 @@
                   "y": 0
                 },
                 "hasClippingMask": false,
-                "horizontalSpacing": 0,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
                 "isFlippedVertical": false,
@@ -53093,8 +53224,7 @@
                   "startMarkerType": 0,
                   "windingRule": 1
                 },
-                "symbolID": "336215A8-D97F-4438-BE22-A9CDC900E6DE",
-                "verticalSpacing": 0
+                "symbolID": "336215A8-D97F-4438-BE22-A9CDC900E6DE"
               }
             ],
             "name": "Tab 2",
@@ -53370,7 +53500,6 @@
                   "y": 0
                 },
                 "hasClippingMask": false,
-                "horizontalSpacing": 0,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
                 "isFlippedVertical": false,
@@ -53438,8 +53567,7 @@
                     "kModelPropertiesKey": {
                     }
                   }
-                },
-                "verticalSpacing": 0
+                }
               }
             ],
             "name": "Tab 1",
@@ -54147,7 +54275,6 @@
                   "y": 0
                 },
                 "hasClippingMask": false,
-                "horizontalSpacing": 0,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
                 "isFlippedVertical": false,
@@ -54209,8 +54336,7 @@
                   "startMarkerType": 0,
                   "windingRule": 1
                 },
-                "symbolID": "4D892F02-37AF-47AE-A983-1C4EA1544A17",
-                "verticalSpacing": 0
+                "symbolID": "4D892F02-37AF-47AE-A983-1C4EA1544A17"
               }
             ],
             "name": "Tab 4",
@@ -54486,7 +54612,6 @@
                   "y": 0
                 },
                 "hasClippingMask": false,
-                "horizontalSpacing": 0,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
                 "isFlippedVertical": false,
@@ -54548,8 +54673,7 @@
                   "startMarkerType": 0,
                   "windingRule": 1
                 },
-                "symbolID": "368341F2-924F-4B69-8DC6-DE7DE753D745",
-                "verticalSpacing": 0
+                "symbolID": "368341F2-924F-4B69-8DC6-DE7DE753D745"
               }
             ],
             "name": "Tab 3",
@@ -54825,7 +54949,6 @@
                   "y": 0
                 },
                 "hasClippingMask": false,
-                "horizontalSpacing": 0,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
                 "isFlippedVertical": false,
@@ -54887,8 +55010,7 @@
                   "startMarkerType": 0,
                   "windingRule": 1
                 },
-                "symbolID": "D493EB17-C865-4DD7-A1A7-26D49E17EE73",
-                "verticalSpacing": 0
+                "symbolID": "D493EB17-C865-4DD7-A1A7-26D49E17EE73"
               }
             ],
             "name": "Tab 2",
@@ -55164,7 +55286,6 @@
                   "y": 0
                 },
                 "hasClippingMask": false,
-                "horizontalSpacing": 0,
                 "isFixedToViewport": false,
                 "isFlippedHorizontal": false,
                 "isFlippedVertical": false,
@@ -55232,8 +55353,7 @@
                     "kModelPropertiesKey": {
                     }
                   }
-                },
-                "verticalSpacing": 0
+                }
               }
             ],
             "name": "Tab 1",
@@ -83096,7 +83216,7 @@
             "blendMode": 0,
             "opacity": 1
           },
-          "do_objectID": "3DA3BD90-4A24-42A2-BD0E-48000E10A1DE",
+          "do_objectID": "CAADBA39-C814-4A56-B390-0ADDBF23157B",
           "endMarkerType": 0,
           "fills": [
           ],
@@ -83115,7 +83235,7 @@
                 "blue": 0.6,
                 "green": 0.6,
                 "red": 0.6,
-                "swatchID": "0AF387C1-C913-4631-8129-46B37D3A377B"
+                "swatchID": "49C1E52B-B568-4EB1-9F3E-3F4B8BE137D6"
               },
               "MSAttributedStringFontAttribute": {
                 "_class": "fontDescriptor",
@@ -83124,7 +83244,6 @@
                   "size": 10
                 }
               },
-              "kerning": 0,
               "paragraphStyle": {
                 "_class": "paragraphStyle",
                 "alignment": 2,
@@ -83185,7 +83304,7 @@
             "blendMode": 0,
             "opacity": 1
           },
-          "do_objectID": "18912FD3-EBC7-4CC0-AF44-7F308FDFB24F",
+          "do_objectID": "0425FE68-AD89-4EF7-AA89-805B657C137A",
           "endMarkerType": 0,
           "fills": [
           ],
@@ -83204,7 +83323,7 @@
                 "blue": 0.9568627450980391,
                 "green": 0.615686274509804,
                 "red": 0.00392156862745098,
-                "swatchID": "DD33EABB-9632-4ADE-892D-4CAFF6DC05A5"
+                "swatchID": "E08E5D4D-3E73-4CFD-9268-B62D4D75063B"
               },
               "MSAttributedStringFontAttribute": {
                 "_class": "fontDescriptor",
@@ -83213,7 +83332,6 @@
                   "size": 10
                 }
               },
-              "kerning": 0,
               "paragraphStyle": {
                 "_class": "paragraphStyle",
                 "alignment": 2,
@@ -83416,8 +83534,8 @@
     ]
   },
   "meta": {
-    "appVersion": "72.4",
-    "build": 124482,
+    "appVersion": "73.1",
+    "build": 127209,
     "version": 136
   },
   "pages": [
