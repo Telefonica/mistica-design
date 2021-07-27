@@ -1,0 +1,662 @@
+{
+    "$schema": "./movistar-skin-schema.json",
+    "colors": {
+        "appBarBackground": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            {
+                "color": "darkModeGrey",
+                "opacity": "1"
+            }
+            
+        ],
+        "background": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            {
+                "color": "darkModeBlack",
+                "opacity": "1"
+            }
+        ],
+        "backgroundContainer": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            {
+                "color": "darkModeGrey",
+                "opacity": "1"
+            }
+        ],
+        "backgroundBrand": [
+            {
+                "color": "movistarBlue",
+                "opacity": "1"
+            },
+            {
+                "color": "darkModeBlack",
+                "opacity": "1"
+            }
+        ],
+        "backgroundOverlay": [
+            {
+                "color": "grey6",
+                "opacity": "0.6"
+            },
+            {
+                "color": "darkModeGrey",
+                "opacity": "0.8"
+            }
+        ],
+        "backgroundSkeleton": [
+            {
+                "color": "grey1",
+                "opacity": "1"
+            },
+            {
+                "color": "grey6",
+                "opacity": "1"
+            }
+        ],
+        "backgroundSkeletonInverse": [
+            {
+                "color": "movistarBlueDark",
+                "opacity": "1"
+            },
+            {
+                "color": "grey6",
+                "opacity": "1"
+            }
+        ],
+        "navigationBarBackground": [
+            {
+                "color": "movistarBlue",
+                "opacity": "1"
+            },
+            {
+                "color": "darkModeBlack",
+                "opacity": "1"
+            }
+        ],
+        "backgroundAlternative": [
+            {
+                "color": "grey1",
+                "opacity": "1"
+            },
+            {
+                "color": "darkModeGrey",
+                "opacity": "1"
+            }
+        ],
+        "backgroundFeedbackBottom": [
+            {
+                "color": "movistarBlue",
+                "opacity": "1"
+            },
+            {
+                "color": "darkModeBlack",
+                "opacity": "1"
+            }
+        ],
+        "skeletonWave": [
+            {
+                "color": "grey2",
+                "opacity": "1"
+            },
+            {
+                "color": "grey5",
+                "opacity": "1"
+            }
+        ],
+        "borderLight": [
+            {
+                "color": "grey1",
+                "opacity": "1"
+            },
+            {
+                "color": "darkModeBlack",
+                "opacity": "1"
+            }
+        ],
+        "border": [
+            {
+                "color": "grey3",
+                "opacity": "1"
+            },
+            {
+                "color": "darkModeGrey",
+                "opacity": "1"
+            }
+        ],
+        "borderDark": [
+            {
+                "color": "grey5",
+                "opacity": "1"
+            }
+        ],
+        "borderSelected": [
+            {
+                "color": "movistarGreen",
+                "opacity": "1"
+            }
+        ],
+        "buttonDangerBackground": [
+            {
+                "color": "pepper",
+                "opacity": "1"
+            }
+        ],
+        "buttonDangerBackgroundDisabled": [
+            {
+                "color": "pepperLight30",
+                "opacity": "1"
+            },
+            {
+                "color": "darkModeGrey",
+                "opacity": "1"
+            }
+        ],
+        "buttonDangerBackgroundSelected": [
+            {
+                "color": "pepperDark",
+                "opacity": "1"
+            }
+        ],
+        "buttonDangerBackgroundHover": [
+            {
+                "color": "pepperDark",
+                "opacity": "1"
+            }
+        ],
+        "buttonLinkBackgroundSelected": [
+            {
+                "color": "movistarBlueLight10",
+                "opacity": "1"
+            },
+            {
+                "color": "white",
+                "opacity": "0.05"
+            }
+        ],
+        "buttonLinkBackgroundSelectedInverse": [
+            {
+                "color": "white",
+                "opacity": "0.2"
+            },
+            {
+                "color": "white",
+                "opacity": "0.05"
+            }
+        ],
+        "buttonPrimaryBackground": [
+            {
+                "color": "movistarGreen",
+                "opacity": "1"
+            },
+            {
+                "color": "movistarGreen",
+                "opacity": "1"
+            }
+        ],
+        "buttonPrimaryBackgroundDisabled": [
+            {
+                "color": "movistarGreenLight50",
+                "opacity": "1"
+            },
+            {
+                "color": "darkModeGrey",
+                "opacity": "1"
+            }
+        ],
+        "buttonPrimaryBackgroundDisabledInverse": [
+            {
+                "color": "movistarBlueLight50",
+                "opacity": "1"
+            },
+            {
+                "color": "darkModeGrey",
+                "opacity": "1"
+            }
+        ],
+        "buttonPrimaryBackgroundInverse": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            {
+                "color": "movistarGreen",
+                "opacity": "1"
+            }
+        ],
+        "buttonPrimaryBackgroundSelected": [
+            {
+                "color": "movistarGreenDark",
+                "opacity": "1"
+            },
+            {
+                "color": "movistarGreenDark",
+                "opacity": "1"
+            }
+        ],
+        "buttonPrimaryBackgroundHover": [
+            {
+                "color": "movistarGreenDark",
+                "opacity": "1"
+            },
+            {
+                "color": "movistarGreenDark",
+                "opacity": "1"
+            }
+        ],
+        "buttonPrimaryBackgroundSelectedInverse": [
+            {
+                "color": "movistarBlueLight50",
+                "opacity": "1"
+            },
+            {
+                "color": "movistarGreenDark",
+                "opacity": "1"
+            }
+        ],
+        "buttonSecondaryBackground": [
+            {
+                "color": "movistarGreen",
+                "opacity": "1"
+            },
+            {
+                "color": "movistarGreen",
+                "opacity": "1"
+            }
+        ],
+        "buttonSecondaryBackgroundDisabled": [
+            "movistarGreenLight50",
+            "darkModeGrey"
+        ],
+        "buttonSecondaryBackgroundSelected": [
+            "movistarGreenDark",
+            "movistarGreenDark"
+        ],
+        "buttonSecondaryBorderDisabledInverse": [
+            "movistarBlueLight50",
+            "darkModeGrey"
+        ],
+        "buttonSecondaryBorderInverse": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            "movistarGreen"
+        ],
+        "buttonSecondaryBorderSelectedInverse": [
+            "movistarBlueLight50",
+            "movistarGreenDark"
+        ],
+        "textButtonPrimary": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            "grey2"
+        ],
+        "textButtonPrimaryDisabled": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            "grey5"
+        ],
+        "textButtonPrimaryInverse": [
+            {
+                "color": "movistarBlue",
+                "opacity": "1"
+            },
+            "grey2"
+        ],
+        "textButtonPrimaryInverseDisabled": [
+            {
+                "color": "movistarBlueLight30",
+                "opacity": "1"
+            },
+            "grey5"
+        ],
+        "textButtonPrimaryInverseSelected": [
+            {
+                "color": "movistarBlue",
+                "opacity": "1"
+            },
+            "grey2"
+        ],
+        "textButtonSecondary": [
+            {
+                "color": "movistarGreen",
+                "opacity": "1"
+            },
+            "grey2"
+        ],
+        "textButtonSecondaryDisabled": [
+            {
+                "color": "movistarGreenLight50",
+                "opacity": "1"
+            },
+            "grey5"
+        ],
+        "textButtonSecondarySelected": [
+            {
+                "color": "movistarGreenDark",
+                "opacity": "1"
+            },
+            "movistarGreenDark"
+        ],
+        "textButtonSecondaryInverse": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            "grey2"
+        ],
+        "textButtonSecondaryInverseDisabled": [
+            {
+                "color": "movistarBlueLight50",
+                "opacity": "1"
+            },
+            "grey5"
+        ],
+        "textButtonSecondaryInverseSelected": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            "movistarGreenDark"
+        ],
+        "textLink": [
+            {
+                "color": "movistarBlue",
+                "opacity": "1"
+            },
+            "movistarBlue"
+        ],
+        "textLinkInverse": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            "movistarBlue"
+        ],
+        "textLinkDanger": [
+            {
+                "color": "pepper"
+            ],
+            "opacity": "1"
+        },
+        "textLinkDangerDisabled": [
+            {
+                "color": "pepperLight30",
+                "opacity": "1"
+            },
+            "grey5"
+        ],
+        "textLinkDisabled": [
+            {
+                "color": "movistarBlueLight50",
+                "opacity": "1"
+            },
+            "grey6"
+        ],
+        "textLinkSnackbar": [
+            {
+                "color": "movistarBlueLight50"
+            ],
+            "opacity": "1"
+        },
+        "control": [
+            {
+                "color": "grey3",
+                "opacity": "1"
+            },
+            "grey6"
+        ],
+        "controlActivated": [
+            {
+                "color": "movistarBlue",
+                "opacity": "1"
+            },
+            "movistarBlue"
+        ],
+        "controlError": [
+            {
+                "color": "pepper"
+            ],
+            "opacity": "1"
+        },
+        "loadingBar": [
+            {
+                "color": "movistarBlueLight50",
+                "opacity": "1"
+            },
+            "movistarBlue"
+        ],
+        "loadingBarBackground": [
+            {
+                "color": "movistarBlueDark",
+                "opacity": "1"
+            },
+            "grey6"
+        ],
+        "toggleAndroidInactive": [
+            {
+                "color": "grey2",
+                "opacity": "1"
+            },
+            "grey4"
+        ],
+        "toggleAndroidBackgroundActive": [
+            "movistarBlueLight30",
+            "movistarBlueLight30"
+        ],
+        "iosControlKnob": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            "grey2"
+        ],
+        "divider": [
+            {
+                "color": "grey2",
+                "opacity": "1"
+            },
+            "white, 0.05"
+        ],
+        "dividerInverse": [
+            {
+                "color": "movistarBlueDark",
+                "opacity": "1"
+            },
+            "white, 0.05"
+        ],
+        "navigationBarDivider": [
+            {
+                "color": "movistarBlue",
+                "opacity": "1"
+            },
+            "darkModeBlack"
+        ],
+        "badge": [
+            {
+                "color": "pepperDark"
+            ],
+            "opacity": "1"
+        },
+        "feedbackErrorBackground": [
+            {
+                "color": "pepper"
+            ],
+            "opacity": "1"
+        },
+        "feedbackInfoBackground": [
+            {
+                "color": "grey6"
+            ],
+            "opacity": "1"
+        },
+        "brand": [
+            {
+                "color": "movistarBlue"
+            ],
+            "opacity": "1"
+        },
+        "brandDark": [
+            {
+                "color": "movistarBlueDark",
+                "opacity": "1"
+            },
+            "grey6"
+        ],
+        "inverse": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            "grey2"
+        ],
+        "neutralHigh": [
+            {
+                "color": "grey6",
+                "opacity": "1"
+            },
+            "grey2"
+        ],
+        "neutralMedium": [
+            {
+                "color": "grey5",
+                "opacity": "1"
+            },
+            "grey5"
+        ],
+        "neutralLow": [
+            {
+                "color": "grey3",
+                "opacity": "1"
+            },
+            "grey6"
+        ],
+        "promo": [
+            {
+                "color": "purple"
+            ],
+            "opacity": "1"
+        },
+        "highlight": [
+            {
+                "color": "pink"
+            ],
+            "opacity": "1"
+        },
+        "textPrimary": [
+            {
+                "color": "grey6",
+                "opacity": "1"
+            },
+            "grey2"
+        ],
+        "textPrimaryInverse": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            "grey2"
+        ],
+        "textSecondary": [
+            {
+                "color": "grey5",
+                "opacity": "1"
+            },
+            "grey4"
+        ],
+        "textSecondaryInverse": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            "grey4"
+        ],
+        "textDisabled": [
+            {
+                "color": "grey3",
+                "opacity": "1"
+            },
+            "grey5"
+        ],
+        "textAmount": [
+            {
+                "color": "movistarBlue",
+                "opacity": "1"
+            },
+            "movistarBlueLight50"
+        ],
+        "error": [
+            {
+                "color": "pepper"
+            ],
+            "opacity": "1"
+        },
+        "success": [
+            {
+                "color": "movistarGreen"
+            ],
+            "opacity": "1"
+        },
+        "warning": [
+            {
+                "color": "egg"
+            ],
+            "opacity": "1"
+        },
+        "textNavigationBarPrimary": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            "grey2"
+        ],
+        "textNavigationBarSecondary": [
+            {
+                "color": "movistarBlueLight30",
+                "opacity": "1"
+            },
+            "grey4"
+        ],
+        "textNavigationSearchBarHint": [
+            {
+                "color": "movistarBlueLight30",
+                "opacity": "1"
+            },
+            "grey4"
+        ],
+        "textNavigationSearchBarText": [
+            {
+                "color": "white",
+                "opacity": "1"
+            },
+            "grey2"
+        ],
+        "textAppBar": [
+            {
+                "color": "grey4",
+                "opacity": "1"
+            },
+            "grey5"
+        ],
+        "textAppBarSelected": [
+            {
+                "color": "movistarBlue",
+                "opacity": "1"
+            },
+            "grey2"
+        ]
+    }
+}
