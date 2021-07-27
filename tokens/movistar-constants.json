@@ -1,16 +1,16 @@
 {
   "$schema": "./movistar-skin-schema.json",
   "colors": {
-    "appBarBackground": "white",
     "background": "white",
-    "backgroundContainer": "white",
+    "backgroundAlternative": "grey1",
     "backgroundBrand": "movistarBlue",
+    "backgroundContainer": "white",
     "backgroundOverlay": { "color": "grey6", "opacity": 0.6 },
     "backgroundSkeleton": "grey1",
     "backgroundSkeletonInverse": "movistarBlueDark",
-    "navigationBarBackground": "movistarBlue",
-    "backgroundAlternative": "grey1",
     "backgroundFeedbackBottom": "movistarBlue",
+    "appBarBackground": "white",
+    "navigationBarBackground": "movistarBlue",
     "skeletonWave": "grey2",
 
     "borderLight": "grey1",
@@ -22,8 +22,10 @@
     "buttonDangerBackgroundDisabled": "pepperLight30",
     "buttonDangerBackgroundSelected": "pepperDark",
     "buttonDangerBackgroundHover": "pepperDark",
+
     "buttonLinkBackgroundSelected": "movistarBlueLight10",
     "buttonLinkBackgroundSelectedInverse": { "color": "white", "opacity": 0.2 },
+
     "buttonPrimaryBackground": "movistarGreen",
     "buttonPrimaryBackgroundDisabled": "movistarGreenLight50",
     "buttonPrimaryBackgroundDisabledInverse": "movistarBlueLight50",
@@ -31,6 +33,7 @@
     "buttonPrimaryBackgroundSelected": "movistarGreenDark",
     "buttonPrimaryBackgroundHover": "movistarGreenDark",
     "buttonPrimaryBackgroundSelectedInverse": "movistarBlueLight50",
+
     "buttonSecondaryBackground": "movistarGreen",
     "buttonSecondaryBackgroundDisabled": "movistarGreenLight50",
     "buttonSecondaryBackgroundSelected": "movistarGreenDark",
@@ -43,12 +46,14 @@
     "textButtonPrimaryInverse": "movistarBlue",
     "textButtonPrimaryInverseDisabled": "movistarBlueLight30",
     "textButtonPrimaryInverseSelected": "movistarBlue",
+
     "textButtonSecondary": "movistarGreen",
     "textButtonSecondaryDisabled": "movistarGreenLight50",
     "textButtonSecondarySelected": "movistarGreenDark",
     "textButtonSecondaryInverse": "white",
     "textButtonSecondaryInverseDisabled": "movistarBlueLight50",
     "textButtonSecondaryInverseSelected": "white",
+
     "textLink": "movistarBlue",
     "textLinkInverse": "white",
     "textLinkDanger": "pepper",
@@ -103,17 +108,16 @@
     "textAppBarSelected": "movistarBlue"
   },
   "darkColors": {
-    "brand": "movistarBlue",
-    "appBarBackground": "darkModeGrey",
     "background": "darkModeBlack",
-    "backgroundContainer": "darkModeGrey",
+    "backgroundAlternative": "darkModeGrey",
     "backgroundBrand": "darkModeBlack",
+    "backgroundContainer": "darkModeGrey",
     "backgroundOverlay": { "color": "darkModeGrey", "opacity": 0.8 },
     "backgroundSkeleton": "grey6",
     "backgroundSkeletonInverse": "grey6",
-    "navigationBarBackground": "darkModeBlack",
-    "backgroundAlternative": "darkModeGrey",
     "backgroundFeedbackBottom": "darkModeBlack",
+    "appBarBackground": "darkModeGrey",
+    "navigationBarBackground": "darkModeBlack",
     "skeletonWave": "grey5",
 
     "borderLight": "darkModeBlack",
