@@ -23,7 +23,7 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 533,
+    "height": 563,
     "width": 375,
     "x": -940,
     "y": 661
@@ -35,7 +35,11 @@
     "thickGridTimes": 8
   },
   "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 1,
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
   "hasBackgroundColor": true,
   "hasClickThrough": true,
@@ -57,19 +61,11 @@
   "layerListExpandedType": 2,
   "layers": [
     {
-      "class": "rectangle",
-      "id": "3A618D66-EB8A-4BD6-8765-EB410EBACE46"
-    },
-    {
       "class": "group",
       "id": "46F47C56-1E69-412C-A0A4-04552CE29B78"
-    },
-    {
-      "class": "symbolInstance",
-      "id": "9FF829F7-BC6C-45AB-ADA4-E6AC94B2E75B"
     }
   ],
-  "name": "Empty States/Screen/Large/2Buttons",
+  "name": "Empty States/Large/Secondary",
   "nameIsFixed": true,
   "overrideProperties": [
     {
@@ -81,6 +77,26 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "62322A1A-F645-4CFB-97CB-F8BB7E0943D8_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "830C320D-1FF4-45FB-8BBF-8488A7D9EB03_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "830C320D-1FF4-45FB-8BBF-8488A7D9EB03/96C594B9-D9CA-4ECA-A4F1-1BFDE65717CB_stringValue"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "830C320D-1FF4-45FB-8BBF-8488A7D9EB03/96C594B9-D9CA-4ECA-A4F1-1BFDE65717CB_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "830C320D-1FF4-45FB-8BBF-8488A7D9EB03/72AD797B-C9C1-4058-831F-EC0CECEA7597_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
