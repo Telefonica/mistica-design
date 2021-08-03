@@ -35,10 +35,14 @@
     "thickGridTimes": 2
   },
   "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 1,
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
   "hasBackgroundColor": true,
-  "hasClickThrough": true,
+  "hasClickThrough": false,
   "hasClippingMask": false,
   "horizontalRulerData": {
     "_class": "rulerData",
@@ -63,13 +67,9 @@
     {
       "class": "group",
       "id": "9B6288BC-BC6C-4F03-93E3-60BE4F90DFA4"
-    },
-    {
-      "class": "symbolInstance",
-      "id": "857B6C44-381D-4F58-9024-4ADCF340EFA2"
     }
   ],
-  "name": "Empty States/Screen/Icon/Button",
+  "name": "Empty States/Icon/Primary",
   "nameIsFixed": true,
   "overrideProperties": [
     {
@@ -91,6 +91,26 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "9ACF08BF-D9A3-443B-84FC-8463BCEB50EC_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "B808A277-9B5C-48C7-A72D-80169B41EF33_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "B808A277-9B5C-48C7-A72D-80169B41EF33/B4ED3918-BF08-4872-B53C-074C2DE2B460_stringValue"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "B808A277-9B5C-48C7-A72D-80169B41EF33/B4ED3918-BF08-4872-B53C-074C2DE2B460_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "B808A277-9B5C-48C7-A72D-80169B41EF33/5B34F995-022F-46DF-B05E-CEAD87832ADA_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
