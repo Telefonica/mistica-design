@@ -99,7 +99,7 @@ textPrimary = "$grey9"; // "$grey2"
 textPrimaryInverse = "$white"; // "$grey2"
 textSecondary = "$grey5"; // "$grey4"
 textSecondaryInverse = "$white"; // "$grey4"
-textDisabled = "$grey3"; // "$grey5" // veis necesario un textDisabledInverse para textos deshabilitados sobre masa de color?
+textDisabled = "$grey4"; // "$grey5" // veis necesario un textDisabledInverse para textos deshabilitados sobre masa de color?
 textAmount = "$telefonicaBlue"; // "$telefonicaBlueLight50"
 
 // STATES
