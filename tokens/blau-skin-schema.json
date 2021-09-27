@@ -199,8 +199,15 @@
                 "textNavigationSearchBarHint": {"$ref": "#/definitions/palette-color"},
                 "textNavigationSearchBarText": {"$ref": "#/definitions/palette-color"},
                 "textAppBar": {"$ref": "#/definitions/palette-color"},
-                "textAppBarSelected": {"$ref": "#/definitions/palette-color"}
+                "textAppBarSelected": {"$ref": "#/definitions/palette-color"},
+                "tagBackgroundPromo": {"$ref": "#/definitions/palette-color"},
+                "tagBackgroundActive": {"$ref": "#/definitions/palette-color"},
+                "tagBackgroundSuccess": {"$ref": "#/definitions/palette-color"},
+                "tagBackgroundWarning": {"$ref": "#/definitions/palette-color"},
+                "tagBackgroundError": {"$ref": "#/definitions/palette-color"},
+                "tagBackgroundInactive": {"$ref": "#/definitions/palette-color"},
             },
+        
             "additionalProperties": false
         },
         "palette-color": {
@@ -234,6 +241,13 @@
                 {"const":"blauRed", "description": "#F64417"},
                 {"const":"blauRedLight60", "description": "#FA9E87"},
                 {"const":"blauRedLight20", "description": "#FDDAD1"},
+
+                {"const":"BlauGreen10", "description": "#EAFBE5"},
+                {"const":"BlauGreen70", "description": "#1D7F00"},
+                {"const":"BlauYellow10", "description": "#FFF6E9"},
+                {"const":"Blauyellow70", "description": "#996614"},
+                {"const":"blauRed10", "description": "#FEECE8"},
+                {"const":"blauRed70", "description": "#C93712"},
 
                 {"const":"grey1", "description": "#F3F5F6"},
                 {"const":"grey2", "description": "#F2F2F2"},
