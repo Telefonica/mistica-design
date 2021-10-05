@@ -1,23 +1,23 @@
 {
   "$schema": "./blau-skin-schema.json",
   "colors": {
+    "backgroundBrand": "blauBluePrimary",
     "appBarBackground": "white",
     "background": "white",
     "backgroundContainer": "white",
-    "backgroundBrand": "blauBluePrimary",
     "backgroundOverlay": { "color": "blauBlueSecondary", "opacity": 0.75 },
-    "backgroundSkeleton": "grey1",
+    "backgroundSkeleton": "grey2",
     "backgroundSkeletonInverse": "white",
     "navigationBarBackground": "blauBluePrimary",
-    "backgroundAlternative": "blauBlueLight20",
+    "backgroundAlternative": "blauBluePrimary20",
     "backgroundFeedbackBottom": "blauBluePrimary",
 
-    "skeletonWave": "grey3",
+    "skeletonWave": "grey2",
 
     "borderLight": "grey1",
     "border": "grey2",
     "borderDark": "grey5",
-    "borderSelected": "blauBlueDark",
+    "borderSelected": "blauBlueSecondary60",
 
     "buttonDangerBackground": "blauRed",
     "buttonDangerBackgroundDisabled": "blauRed20",
@@ -28,29 +28,29 @@
     "buttonLinkBackgroundSelectedInverse": { "color": "white", "opacity": 0.3 },
 
     "buttonPrimaryBackground": "blauBlueSecondary",
-    "buttonPrimaryBackgroundDisabled": "blauBlue30",
-    "buttonPrimaryBackgroundDisabledInverse": "blauBlueLight30",
+    "buttonPrimaryBackgroundDisabled": "blauBlueSecondary20",
+    "buttonPrimaryBackgroundDisabledInverse": "blauBluePrimary30",
     "buttonPrimaryBackgroundInverse": "white",
-    "buttonPrimaryBackgroundSelected": "blauBlueDark",
-    "buttonPrimaryBackgroundHover": "blauBlueDark",
-    "buttonPrimaryBackgroundSelectedInverse": "blauBlueLight30",
+    "buttonPrimaryBackgroundSelected": "blauBlueSecondary60",
+    "buttonPrimaryBackgroundHover": "blauBlueSecondary60",
+    "buttonPrimaryBackgroundSelectedInverse": "blauBluePrimary30",
 
     "buttonSecondaryBackground": "blauBlueSecondary",
-    "buttonSecondaryBackgroundDisabled": "blauBlue30",
-    "buttonSecondaryBackgroundSelected": "blauBlueDark",
-    "buttonSecondaryBorderDisabledInverse": "blauBlueLight30",
+    "buttonSecondaryBackgroundDisabled": "blauBlueSecondary20",
+    "buttonSecondaryBackgroundSelected": "blauBlueSecondary60",
+    "buttonSecondaryBorderDisabledInverse": "blauBluePrimary30",
     "buttonSecondaryBorderInverse": "white",
-    "buttonSecondaryBorderSelectedInverse": "blauBlueLight30",
+    "buttonSecondaryBorderSelectedInverse": "blauBluePrimary30",
 
     "textButtonPrimary": "white",
     "textButtonPrimaryDisabled": "white",
     "textButtonPrimaryInverse": "blauBlueSecondary",
-    "textButtonPrimaryInverseDisabled": "blauBlueLight10",
+    "textButtonPrimaryInverseDisabled": "blauBluePrimary10",
     "textButtonPrimaryInverseSelected": "blauBlueDark",
 
     "textButtonSecondary": "blauBlueSecondary",
     "textButtonSecondaryDisabled": "blauBlue60",
-    "textButtonSecondarySelected": "blauBlueDark",
+    "textButtonSecondarySelected": "blauBlueSecondary60",
     "textButtonSecondaryInverse": "white",
     "textButtonSecondaryInverseDisabled": "blauPurple30",
     "textButtonSecondaryInverseSelected": "white",
@@ -65,11 +65,11 @@
     "control": "grey2",
     "controlActivated": "blauBlueSecondary",
     "controlError": "blauRed",
-    "loadingBar": "blauBluePrimary",
-    "loadingBarBackground": "blauBlue10",
+    "loadingBar": "blauBlueSecondary",
+    "loadingBarBackground": "blauBlueSecondary10",
 
     "toggleAndroidInactive": "grey2",
-    "toggleAndroidBackgroundActive": "blauBlue10",
+    "toggleAndroidBackgroundActive": "blauBlueSecondary10",
     "iosControlKnob": "white",
 
     "divider": "grey2",
@@ -85,7 +85,7 @@
     "inverse": "white",
     "neutralHigh": "grey6",
     "neutralMedium": "grey5",
-    "neutralLow": "grey3",
+    "neutralLow": "grey2",
 
     "textPrimary": "grey6",
     "textPrimaryInverse": "white",
@@ -101,14 +101,14 @@
     "highlight": "blauBluePrimary",
 
     "textNavigationBarPrimary": "white",
-    "textNavigationBarSecondary": "blauBlue30",
-    "textNavigationSearchBarHint": "blauBlue30",
+    "textNavigationBarSecondary": "blauBlueSecondary20",
+    "textNavigationSearchBarHint": "blauBlueSecondary20",
     "textNavigationSearchBarText": "white",
     "textAppBar": "grey5",
-    "textAppBarSelected": "blauBlueDark",
+    "textAppBarSelected": "blauBlueSecondary60",
 
     "tagBackgroundPromo": "blauPurpleLight",
-    "tagBackgroundActive": "blauBlueLight20",
+    "tagBackgroundActive": "blauBlueSecondary20",
     "tagBackgroundSuccess": "BlauGreen10",
     "tagBackgroundWarning": "BlauYellow10"},
     "tagBackgroundError": "blauRed10",
@@ -118,7 +118,7 @@
     "textTagSuccess": "BlauGreen70",
     "textTagWarning": "BlauYellow70",
     "textTagError": "BlauRed70",
-    "textTagInactive": "DarkModeGrey6"
+    "textTagInactive": "Grey5"
   }
 
   "darkColors": {
