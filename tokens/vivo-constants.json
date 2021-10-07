@@ -1,111 +1,111 @@
-  {
-  "$schema": "./classicO2-skin-schema.json",
+{
+  "$schema": "./vivo-skin-schema.json",
   "colors": {
-    "appBarBackground": "white",
     "background": "white",
+    "backgroundAlternative": "grey1",
+    "backgroundBrand": "vivoPurple",
     "backgroundContainer": "white",
-    "backgroundBrand": "gradient de O2Classic",
-    "backgroundOverlay": "grey6",
+    "backgroundOverlay": { "color": "grey6", "opacity": 0.6 },
     "backgroundSkeleton": "grey1",
     "backgroundSkeletonInverse": "white",
-    "navigationBarBackground": "o2Blue",
-    "backgroundAlternative": "grey1",
-    "backgroundFeedbackBottom": "o2GradientFourth",
-    
+    "backgroundFeedbackBottom": "vivoPurple",
+    "appBarBackground": "white",
+    "navigationBarBackground": "vivoPurple",
     "skeletonWave": "grey2",
-    
+
     "borderLight": "grey1",
     "border": "grey3",
     "borderDark": "grey5",
-    "borderSelected": "o2Gem",
-    
+    "borderSelected": "vivoPurple",
+
     "buttonDangerBackground": "pepper",
-    "buttonDangerBackgroundDisabled": "pepperLight",
+    "buttonDangerBackgroundDisabled": "pepperLight30",
     "buttonDangerBackgroundSelected": "pepperDark",
     "buttonDangerBackgroundHover": "pepperDark",
-    
-    "buttonLinkBackgroundSelected": "o2SkyBlueLight10",
-    "buttonLinkBackgroundSelectedInverse": "white",
-    
-    "buttonPrimaryBackground": "o2SkyBlue",
-    "buttonPrimaryBackgroundDisabled": "o2SkyBlueLight50",
-    "buttonPrimaryBackgroundDisabledInverse": "o2SkyBlueLight50",
+
+    "buttonLinkBackgroundSelected": "vivoPurpleLight10",
+    "buttonLinkBackgroundSelectedInverse": { "color": "white", "opacity": 0.2 },
+
+    "buttonPrimaryBackground": "vivoPurple",
+    "buttonPrimaryBackgroundDisabled": "vivoPurpleLight20",
+    "buttonPrimaryBackgroundDisabledInverse": "vivoPurpleLight50",
     "buttonPrimaryBackgroundInverse": "white",
-    "buttonPrimaryBackgroundSelected": "o2SkyBlueDark",
-    "buttonPrimaryBackgroundHover": "o2SkyBlueDark",
-    "buttonPrimaryBackgroundSelectedInverse": "o2SkyBlueLight50",
-    
-    "buttonSecondaryBackground": "o2SkyBlue",
-    "buttonSecondaryBackgroundDisabled": "o2SkyBlueLight50",
-    "buttonSecondaryBackgroundSelected": "o2SkyBlueDark",
-    "buttonSecondaryBorderDisabledInverse": "o2SkyBlueLight50",
+    "buttonPrimaryBackgroundSelected": "vivoPurpleDark",
+    "buttonPrimaryBackgroundHover": "vivoPurpleDark",
+    "buttonPrimaryBackgroundSelectedInverse": "vivoPurpleLight50",
+
+    "buttonSecondaryBackground": "vivoPurple",
+    "buttonSecondaryBackgroundDisabled": "vivoPurpleLight20",
+    "buttonSecondaryBackgroundSelected": "vivoPurpleDark",
+    "buttonSecondaryBorderDisabledInverse": "vivoPurpleLight50",
     "buttonSecondaryBorderInverse": "white",
-    "buttonSecondaryBorderSelectedInverse": "o2SkyBlueLight50",
-    
+    "buttonSecondaryBorderSelectedInverse": "vivoPurpleLight50",
+
     "textButtonPrimary": "white",
     "textButtonPrimaryDisabled": "white",
-    "textButtonPrimaryInverse": "o2SkyBlue",
-    "textButtonPrimaryInverseDisabled": "o2SkyBlueLight30",
-    "textButtonPrimaryInverseSelected": "o2SkyBlue",
-    
-    "textButtonSecondary": "o2SkyBlue",
-    "textButtonSecondaryDisabled": "o2SkyBlueLight50",
-    "textButtonSecondarySelected": "o2SkyBlueDark",
+    "textButtonPrimaryInverse": "vivoPurple",
+    "textButtonPrimaryInverseDisabled": "vivoPurpleLight20",
+    "textButtonPrimaryInverseSelected": "vivoPurple",
+
+    "textButtonSecondary": "vivoPurple",
+    "textButtonSecondaryDisabled": "vivoPurpleLight20",
+    "textButtonSecondarySelected": "vivoPurpleDark",
     "textButtonSecondaryInverse": "white",
-    "textButtonSecondaryInverseDisabled": "o2SkyBlueLight50",
+    "textButtonSecondaryInverseDisabled": "vivoPurpleLight50",
     "textButtonSecondaryInverseSelected": "white",
-    
-    "textLink": "o2SkyBlue",
+
+    "textLink": "vivoPurple",
     "textLinkInverse": "white",
     "textLinkDanger": "pepper",
-    "textLinkDangerDisabled": "pepperLight",
-    "textLinkDisabled": "o2SkyBlueLight",
-    "textLinkSnackbar": "o2SkyBlueLight",
-    
+    "textLinkDangerDisabled": "pepperLight30",
+    "textLinkDisabled": "vivoPurpleLight50",
+    "textLinkSnackbar": "vivoPurpleLight50",
+
     "control": "grey3",
-    "controlActivated": "o2Gem",
+    "controlActivated": "vivoPurple",
     "controlError": "pepper",
-    "loadingBar": "o2Gem",
-    "loadingBarBackground": "o2GemLight30",
-    
+    "loadingBar": "pink",
+    "loadingBarBackground": "pepperLight",
+    "loadingBarBackgroundInverse": "pepperLight",
+    "loadingBarInverse": "pink",
     "toggleAndroidInactive": "grey2",
-    "toggleAndroidBackgroundActive": "o2GemLight30",
+    "toggleAndroidBackgroundActive": "vivoPurpleLight20",
     "iosControlKnob": "white",
-    
+
     "divider": "grey2",
     "dividerInverse": "white",
-    "navigationBarDivider": "o2Blue",
-    
+    "navigationBarDivider": "vivoPurple",
+
     "badge": "pepperDark",
     "feedbackErrorBackground": "pepper",
     "feedbackInfoBackground": "grey6",
-    
-    "brand": "o2Blue",
-    "brandDark": "o2BlueDark",
+
+    "brand": "vivoPurple",
+    "brandDark": "vivoPurpleDark",
     "inverse": "white",
     "neutralHigh": "grey6",
     "neutralMedium": "grey5",
     "neutralLow": "grey3",
-    "promo": "pink",
-    "highlight": "pink",
-    
+
     "textPrimary": "grey6",
     "textPrimaryInverse": "white",
     "textSecondary": "grey5",
     "textSecondaryInverse": "white",
     "textDisabled": "grey3",
-    "textAmount": "o2SkyBlue",
-    
-    "error": "pepper",
-    "success": "o2Green",
+    "textAmount": "vivoPurple",
+
+    "success": "vivoGreen",
     "warning": "orange",
-    
+    "error": "pepper",
+    "promo": "vivoPurple",
+    "highlight": "pink",
+
     "textNavigationBarPrimary": "white",
-    "textNavigationBarSecondary": "o2SkyBlueLight50",
-    "textNavigationSearchBarHint": "o2SkyBlueLight50",
+    "textNavigationBarSecondary": "vivoPurpleLight50",
+    "textNavigationSearchBarHint": "vivoPurpleLight50",
     "textNavigationSearchBarText": "white",
     "textAppBar": "grey4",
-    "textAppBarSelected": "o2Blue"
+    "textAppBarSelected": "vivoPurple"
   },
   "darkColors": {
     "background": "darkModeBlack",
@@ -122,57 +122,57 @@
 
     "borderLight": "darkModeBlack",
     "border": "darkModeGrey",
-    "borderSelected": "o2SkyBlue",
 
     "buttonDangerBackgroundDisabled": "darkModeGrey",
     "buttonLinkBackgroundSelected": { "color": "white", "opacity": 0.05 },
     "buttonLinkBackgroundSelectedInverse": {"color": "white","opacity": 0.05},
-    
+    "buttonPrimaryBackground": "vivoPurpleLight80",
     "buttonPrimaryBackgroundDisabled": "darkModeGrey",
     "buttonPrimaryBackgroundDisabledInverse": "darkModeGrey",
-    "buttonPrimaryBackgroundInverse": "o2SkyBlue",
-    "buttonPrimaryBackgroundSelectedInverse": "o2SkyBlueDark",
-    
+    "buttonPrimaryBackgroundInverse": "vivoPurpleLight80",
+    "buttonPrimaryBackgroundSelected": "vivoPurpleDark",
+    "buttonPrimaryBackgroundHover": "vivoPurpleDark",
+    "buttonPrimaryBackgroundSelectedInverse": "vivoPurpleDark",
+    "buttonSecondaryBackground": "vivoPurpleLight80",
     "buttonSecondaryBackgroundDisabled": "darkModeGrey",
+    "buttonSecondaryBackgroundSelected": "vivoPurpleDark",
     "buttonSecondaryBorderDisabledInverse": "darkModeGrey",
-    "buttonSecondaryBorderInverse": "o2SkyBlue",
-    "buttonSecondaryBorderSelectedInverse": "o2SkyBlueDark",
+    "buttonSecondaryBorderInverse": "vivoPurpleLight80",
+    "buttonSecondaryBorderSelectedInverse": "vivoPurpleDark",
 
     "textButtonPrimary": "grey2",
     "textButtonPrimaryDisabled": "grey5",
     "textButtonPrimaryInverse": "grey2",
     "textButtonPrimaryInverseDisabled": "grey5",
     "textButtonPrimaryInverseSelected": "grey2",
-    
+
     "textButtonSecondary": "grey2",
     "textButtonSecondaryDisabled": "grey5",
     "textButtonSecondarySelected": "grey4",
     "textButtonSecondaryInverse": "grey2",
     "textButtonSecondaryInverseDisabled": "grey5",
     "textButtonSecondaryInverseSelected": "grey4",
-    
-    "textLink": "o2SkyBlueLight",
-    "textLinkInverse": "o2SkyBlueLight",
+
+    "textLink": "vivoPurpleLight50",
+    "textLinkInverse": "vivoPurpleLight50",
     "textLinkDisabled": "darkModeGrey6",
     "textLinkDangerDisabled": "grey5",
-    "textLinkSnackbar": "o2SkyBlueLight",
 
     "control": "darkModeGrey6",
-    "controlActivated": "o2SkyBlue",
-    "loadingBar": "o2SkyBlue",
-    "loadingBarBackground": "darkModeGrey",
-    
+    "controlActivated": "vivoPurpleLight80",
+    "loadingBar": "vivoPurpleLight80",
+    "loadingBarBackground": "darkModeGrey6",
+    "loadingBarBackgroundInverse": "darkModeGrey6",
+    "loadingBarInverse": "vivoPurpleLight80",
     "toggleAndroidInactive": "grey4",
-    "toggleAndroidBackgroundActive": "o2SkyBlueLight50",
+    "toggleAndroidBackgroundActive": "vivoPurpleLight50",
     "iosControlKnob": "grey2",
 
     "divider": { "color": "white", "opacity": 0.05 },
     "dividerInverse": { "color": "white", "opacity": 0.05 },
     "navigationBarDivider": "darkModeBlack",
 
-    "feedbackInfoBackground": "darkModeGrey6",
-
-    "brand": "o2SkyBlue",
+    "brand": "vivoPurpleLight80",
     "brandDark": "darkModeGrey6",
     "inverse": "grey2",
     "neutralHigh": "grey2",
@@ -184,7 +184,9 @@
     "textSecondary": "grey4",
     "textSecondaryInverse": "grey4",
     "textDisabled": "grey5",
-    "textAmount": "o2SkyBlueLight50",
+    "textAmount": "vivoPurpleLight50",
+
+    "promo": "vivoPurpleLight80",
 
     "textNavigationBarPrimary": "grey2",
     "textNavigationBarSecondary": "grey4",
