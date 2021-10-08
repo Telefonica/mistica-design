@@ -99,7 +99,7 @@ textPrimary = "$grey6" // "$grey2"
 textPrimaryInverse = "$white" // "$grey2"
 textSecondary = "$grey5" // "$grey4"
 textSecondaryInverse = "$white" // "$grey4"
-textDisabled = "$grey3" // "$grey5"
+textDisabled = "$grey4" // "$grey5"
 textAmount = "$o2SkyBlue" // "$o2SkyBlueLight50"
 
 // STATES

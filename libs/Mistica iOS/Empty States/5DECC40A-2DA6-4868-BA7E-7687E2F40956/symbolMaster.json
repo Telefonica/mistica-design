@@ -23,7 +23,7 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 533,
+    "height": 563,
     "width": 375,
     "x": -1367,
     "y": 661
@@ -35,7 +35,11 @@
     "thickGridTimes": 8
   },
   "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 1,
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
   "hasBackgroundColor": true,
   "hasClickThrough": true,
@@ -57,19 +61,11 @@
   "layerListExpandedType": 2,
   "layers": [
     {
-      "class": "rectangle",
-      "id": "D402DAC1-CF7E-4D3D-B2CD-D3FA0F112F69"
-    },
-    {
       "class": "group",
       "id": "5436B7C4-B901-4E19-823F-EA1352F36F44"
-    },
-    {
-      "class": "symbolInstance",
-      "id": "C80E22D4-755A-4717-A139-1135DD99E85F"
     }
   ],
-  "name": "Empty States/Screen/Large/Button",
+  "name": "Empty States/Large/Primary",
   "nameIsFixed": true,
   "overrideProperties": [
     {
@@ -85,22 +81,22 @@
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "CD2D3FC1-6B50-469D-95D3-934D16DDA3F3_symbolID"
+      "overrideName": "6267E3EC-73AD-44E0-A8EB-502C69B18341_symbolID"
     },
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "CD2D3FC1-6B50-469D-95D3-934D16DDA3F3/79838AA0-40B8-40B4-A3E2-B444F9BC8377_stringValue"
+      "overrideName": "6267E3EC-73AD-44E0-A8EB-502C69B18341/79838AA0-40B8-40B4-A3E2-B444F9BC8377_stringValue"
     },
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "CD2D3FC1-6B50-469D-95D3-934D16DDA3F3/79838AA0-40B8-40B4-A3E2-B444F9BC8377_textStyle"
+      "overrideName": "6267E3EC-73AD-44E0-A8EB-502C69B18341/79838AA0-40B8-40B4-A3E2-B444F9BC8377_textStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
-      "overrideName": "CD2D3FC1-6B50-469D-95D3-934D16DDA3F3/DE3F1204-77ED-4E1D-83A7-162C0E5D155F_layerStyle"
+      "overrideName": "6267E3EC-73AD-44E0-A8EB-502C69B18341/DE3F1204-77ED-4E1D-83A7-162C0E5D155F_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
@@ -130,7 +126,7 @@
   ],
   "presetDictionary": {
   },
-  "resizesContent": false,
+  "resizesContent": true,
   "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,

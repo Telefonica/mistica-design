@@ -23,7 +23,7 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 533,
+    "height": 563,
     "width": 375,
     "x": -513,
     "y": 52
@@ -35,7 +35,11 @@
     "thickGridTimes": 8
   },
   "groupLayout": {
-    "_class": "MSImmutableFreeformGroupLayout"
+    "_class": "MSImmutableInferredGroupLayout",
+    "axis": 1,
+    "layoutAnchor": 0,
+    "maxSize": 0,
+    "minSize": 0
   },
   "hasBackgroundColor": true,
   "hasClickThrough": true,
@@ -57,19 +61,11 @@
   "layerListExpandedType": 2,
   "layers": [
     {
-      "class": "rectangle",
-      "id": "9C5BB520-EF7F-47E6-952E-DD265B0A4B36"
-    },
-    {
       "class": "group",
       "id": "EC0FA9E3-4530-4BFF-BBE1-146C86A15743"
-    },
-    {
-      "class": "symbolInstance",
-      "id": "FEE7CE7D-F6FC-4C16-8C89-6DBA81419648"
     }
   ],
-  "name": "Empty States/Screen/Small/Button + Link",
+  "name": "Empty States/Small/Primary + Link",
   "nameIsFixed": true,
   "overrideProperties": [
     {
@@ -81,6 +77,41 @@
       "_class": "MSImmutableOverrideProperty",
       "canOverride": true,
       "overrideName": "03B3F9ED-BD18-4CDC-8F67-60076AEA8F7C_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "9E62294A-8D1D-45EE-8BD2-DBD599C95BF7_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "9E62294A-8D1D-45EE-8BD2-DBD599C95BF7/DDE06197-76A2-4415-B121-81B04768AA62_stringValue"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "9E62294A-8D1D-45EE-8BD2-DBD599C95BF7/DDE06197-76A2-4415-B121-81B04768AA62_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "699740CE-04A5-446B-BD64-FC0847E771CD_symbolID"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "699740CE-04A5-446B-BD64-FC0847E771CD/79838AA0-40B8-40B4-A3E2-B444F9BC8377_stringValue"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "699740CE-04A5-446B-BD64-FC0847E771CD/79838AA0-40B8-40B4-A3E2-B444F9BC8377_textStyle"
+    },
+    {
+      "_class": "MSImmutableOverrideProperty",
+      "canOverride": true,
+      "overrideName": "699740CE-04A5-446B-BD64-FC0847E771CD/DE3F1204-77ED-4E1D-83A7-162C0E5D155F_layerStyle"
     },
     {
       "_class": "MSImmutableOverrideProperty",
