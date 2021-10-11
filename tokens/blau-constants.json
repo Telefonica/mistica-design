@@ -1,0 +1,197 @@
+{
+  "$schema": "./blau-skin-schema.json",
+  "colors": {
+    "backgroundBrand": "blauBluePrimary",
+    "appBarBackground": "white",
+    "background": "white",
+    "backgroundContainer": "white",
+    "backgroundOverlay": { "color": "blauBlueSecondary", "opacity": 0.75 },
+    "backgroundSkeleton": "grey2",
+    "backgroundSkeletonInverse": "white",
+    "navigationBarBackground": "blauBluePrimary",
+    "backgroundAlternative": "blauBluePrimary20",
+    "backgroundFeedbackBottom": "blauBluePrimary",
+
+    "skeletonWave": "grey2",
+
+    "borderLight": "grey1",
+    "border": "grey2",
+    "borderDark": "grey5",
+    "borderSelected": "blauBlueSecondary60",
+
+    "buttonDangerBackground": "blauRed",
+    "buttonDangerBackgroundDisabled": "blauRed20",
+    "buttonDangerBackgroundSelected": "blauRed70",
+    "buttonDangerBackgroundHover": "blauRed70",
+
+    "buttonLinkBackgroundSelected": "blauPurple10",
+    "buttonLinkBackgroundSelectedInverse": { "color": "white", "opacity": 0.3 },
+
+    "buttonPrimaryBackground": "blauBlueSecondary",
+    "buttonPrimaryBackgroundDisabled": "blauBlueSecondary20",
+    "buttonPrimaryBackgroundDisabledInverse": "blauBluePrimary30",
+    "buttonPrimaryBackgroundInverse": "white",
+    "buttonPrimaryBackgroundSelected": "blauBlueSecondary60",
+    "buttonPrimaryBackgroundHover": "blauBlueSecondary60",
+    "buttonPrimaryBackgroundSelectedInverse": "blauBluePrimary30",
+
+    "buttonSecondaryBackground": "blauBlueSecondary",
+    "buttonSecondaryBackgroundDisabled": "blauBlueSecondary20",
+    "buttonSecondaryBackgroundSelected": "blauBlueSecondary60",
+    "buttonSecondaryBorderDisabledInverse": "blauBluePrimary30",
+    "buttonSecondaryBorderInverse": "white",
+    "buttonSecondaryBorderSelectedInverse": "blauBluePrimary30",
+
+    "textButtonPrimary": "white",
+    "textButtonPrimaryDisabled": "white",
+    "textButtonPrimaryInverse": "blauBlueSecondary",
+    "textButtonPrimaryInverseDisabled": "blauBluePrimary10",
+    "textButtonPrimaryInverseSelected": "blauBlueSecondary60",
+
+    "textButtonSecondary": "blauBlueSecondary",
+    "textButtonSecondaryDisabled": "blauBlueSecondary30",
+    "textButtonSecondarySelected": "blauBlueSecondary60",
+    "textButtonSecondaryInverse": "white",
+    "textButtonSecondaryInverseDisabled": "blauPurple30",
+    "textButtonSecondaryInverseSelected": "white",
+
+    "textLink": "blauPurple",
+    "textLinkInverse": "white",
+    "textLinkDanger": "blauRed",
+    "textLinkDangerDisabled": "blauRed20",
+    "textLinkDisabled": "blauPurple30",
+    "textLinkSnackbar": "blauPurple30",
+
+    "control": "grey2",
+    "controlActivated": "blauBlueSecondary",
+    "controlError": "blauRed",
+    "loadingBar": "blauBlueSecondary",
+    "loadingBarBackground": "blauBlueSecondary10",
+
+    "toggleAndroidInactive": "grey2",
+    "toggleAndroidBackgroundActive": "blauBlueSecondary10",
+    "iosControlKnob": "white",
+
+    "divider": "grey2",
+    "dividerInverse": { "color": "white", "opacity": 0.2 },
+    "navigationBarDivider": "blauBluePrimary",
+
+    "badge": "blauRed",
+    "feedbackErrorBackground": "blauRed",
+    "feedbackInfoBackground": "grey6",
+
+    "brand": "blauBluePrimary",
+    "brandDark": "blauBlueSecondary",
+    "inverse": "white",
+    "neutralHigh": "grey6",
+    "neutralMedium": "grey5",
+    "neutralLow": "grey2",
+
+    "textPrimary": "grey6",
+    "textPrimaryInverse": "white",
+    "textSecondary": "grey5",
+    "textSecondaryInverse": "white",
+    "textDisabled": "grey3",
+    "textAmount": "blauBlueSecondary",
+
+    "error": "blauRed",
+    "success": "blauGreen",
+    "warning": "blauYellow",
+    "promo": "blauPurple",
+    "highlight": "blauBluePrimary",
+
+    "textNavigationBarPrimary": "white",
+    "textNavigationBarSecondary": "blauBlueSecondary20",
+    "textNavigationSearchBarHint": "blauBlueSecondary20",
+    "textNavigationSearchBarText": "white",
+    "textAppBar": "grey5",
+    "textAppBarSelected": "blauBlueSecondary60"
+  },
+
+  "darkColors": {
+    "background": "darkModeBlack",
+    "backgroundAlternative": "darkModeGrey",
+    "backgroundBrand": "darkModeBlack",
+    "backgroundContainer": "darkModeGrey",
+    "backgroundOverlay": { "color": "darkModeGrey", "opacity": 0.8 },
+    "backgroundSkeleton": "darkModeGrey",
+    "backgroundSkeletonInverse": "darkModeGrey",
+    "backgroundFeedbackBottom": "darkModeBlack",
+    "appBarBackground": "darkModeGrey",
+    "navigationBarBackground": "darkModeBlack",
+    "skeletonWave": "grey5",
+
+    "borderLight": "darkModeBlack",
+    "border": "darkModeGrey",
+
+    "buttonDangerBackgroundDisabled": "darkModeGrey",
+
+    "buttonLinkBackgroundSelected": { "color": "blauPurple", "opacity": 0.3 },
+    "buttonLinkBackgroundSelectedInverse": {
+      "color": "blauPurple",
+      "opacity": 0.3
+    },
+
+    "buttonPrimaryBackgroundDisabled": "darkModeGrey",
+    "buttonPrimaryBackgroundDisabledInverse": "darkModeGrey",
+    "buttonPrimaryBackgroundInverse": "blauBluePrimary",
+    "buttonPrimaryBackgroundSelectedInverse": "blauBlueSecondary60",
+
+    "buttonSecondaryBackgroundDisabled": "darkModeGrey",
+    "buttonSecondaryBorderDisabledInverse": "darkModeGrey",
+    "buttonSecondaryBorderInverse": "blauBluePrimary",
+    "buttonSecondaryBorderSelectedInverse": "blauBlueSecondary60",
+
+    "textButtonPrimary": "grey2",
+    "textButtonPrimaryDisabled": "grey5",
+    "textButtonPrimaryInverse": "grey2",
+    "textButtonPrimaryInverseDisabled": "grey5",
+    "textButtonPrimaryInverseSelected": "grey2",
+
+    "textButtonSecondary": "grey2",
+    "textButtonSecondaryDisabled": "grey5",
+    "textButtonSecondarySelected": "blauBlueSecondary60",
+    "textButtonSecondaryInverse": "grey2",
+    "textButtonSecondaryInverseDisabled": "grey5",
+    "textButtonSecondaryInverseSelected": "blauBlueSecondary60",
+
+    "textLinkInverse": "blauPurple",
+    "textLinkDisabled": "grey5",
+    "textLinkDangerDisabled": "grey5",
+
+    "control": "grey5",
+    "loadingBar": "blauBluePrimary",
+    "loadingBarBackground": "darkModeGrey",
+
+    "toggleAndroidInactive": "grey5",
+    "toggleAndroidBackgroundActive": "blauBlueSecondary30",
+    "iosControlKnob": "grey2",
+
+    "divider": { "color": "white", "opacity": 0.05 },
+    "dividerInverse": { "color": "white", "opacity": 0.05 },
+    "navigationBarDivider": "darkModeBlack",
+
+    "feedbackInfoBackground": "darkModeGrey",
+
+    "brand": "blauBluePrimary",
+    "brandDark": "grey5",
+    "inverse": "grey2",
+    "neutralHigh": "grey2",
+    "neutralMedium": "grey5",
+    "neutralLow": "darkModeGrey",
+
+    "textPrimary": "grey2",
+    "textPrimaryInverse": "grey2",
+    "textSecondary": "grey4",
+    "textSecondaryInverse": "grey4",
+    "textDisabled": "grey5",
+    "textAmount": "blauBlueSecondary",
+
+    "textNavigationBarPrimary": "grey2",
+    "textNavigationBarSecondary": "grey4",
+    "textNavigationSearchBarHint": "grey4",
+    "textNavigationSearchBarText": "grey2",
+    "textAppBar": "grey5",
+    "textAppBarSelected": "grey2"
+  }
+}
