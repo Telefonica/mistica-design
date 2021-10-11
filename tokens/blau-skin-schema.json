@@ -11,9 +11,7 @@
     },
     "colors": {
       "allOf": [
-        {
-          "$ref": "#/definitions/colors"
-        },
+        { "$ref": "#/definitions/colors" },
         {
           "required": [
             "appBarBackground",
@@ -128,65 +126,31 @@
         "borderDark": { "$ref": "#/definitions/palette-color" },
         "borderSelected": { "$ref": "#/definitions/palette-color" },
         "buttonDangerBackground": { "$ref": "#/definitions/palette-color" },
-        "buttonDangerBackgroundDisabled": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "buttonDangerBackgroundSelected": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "buttonDangerBackgroundHover": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "buttonLinkBackgroundSelected": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "buttonLinkBackgroundSelectedInverse": {
-          "$ref": "#/definitions/palette-color"
-        },
+        "buttonDangerBackgroundDisabled": { "$ref": "#/definitions/palette-color" },
+        "buttonDangerBackgroundSelected": { "$ref": "#/definitions/palette-color" },
+        "buttonDangerBackgroundHover": { "$ref": "#/definitions/palette-color" },
+        "buttonLinkBackgroundSelected": { "$ref": "#/definitions/palette-color" },
+        "buttonLinkBackgroundSelectedInverse": { "$ref": "#/definitions/palette-color" },
         "buttonPrimaryBackground": { "$ref": "#/definitions/palette-color" },
-        "buttonPrimaryBackgroundDisabled": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "buttonPrimaryBackgroundDisabledInverse": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "buttonPrimaryBackgroundInverse": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "buttonPrimaryBackgroundSelected": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "buttonPrimaryBackgroundSelectedInverse": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "buttonPrimaryBackgroundHover": {
-          "$ref": "#/definitions/palette-color"
-        },
+        "buttonPrimaryBackgroundDisabled": { "$ref": "#/definitions/palette-color" },
+        "buttonPrimaryBackgroundDisabledInverse": { "$ref": "#/definitions/palette-color" },
+        "buttonPrimaryBackgroundInverse": { "$ref": "#/definitions/palette-color" },
+        "buttonPrimaryBackgroundSelected": { "$ref": "#/definitions/palette-color" },
+        "buttonPrimaryBackgroundSelectedInverse": { "$ref": "#/definitions/palette-color" },
+        "buttonPrimaryBackgroundHover": { "$ref": "#/definitions/palette-color" },
         "buttonSecondaryBackground": { "$ref": "#/definitions/palette-color" },
-        "buttonSecondaryBackgroundDisabled": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "buttonSecondaryBackgroundSelected": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "buttonSecondaryBorderDisabledInverse": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "buttonSecondaryBorderInverse": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "buttonSecondaryBorderSelectedInverse": {
-          "$ref": "#/definitions/palette-color"
-        },
+        "buttonSecondaryBackgroundDisabled": { "$ref": "#/definitions/palette-color" },
+        "buttonSecondaryBackgroundSelected": { "$ref": "#/definitions/palette-color" },
+        "buttonSecondaryBorderDisabledInverse": { "$ref": "#/definitions/palette-color" },
+        "buttonSecondaryBorderInverse": { "$ref": "#/definitions/palette-color" },
+        "buttonSecondaryBorderSelectedInverse": { "$ref": "#/definitions/palette-color" },
         "control": { "$ref": "#/definitions/palette-color" },
         "controlActivated": { "$ref": "#/definitions/palette-color" },
         "controlError": { "$ref": "#/definitions/palette-color" },
         "loadingBar": { "$ref": "#/definitions/palette-color" },
         "loadingBarBackground": { "$ref": "#/definitions/palette-color" },
         "toggleAndroidInactive": { "$ref": "#/definitions/palette-color" },
-        "toggleAndroidBackgroundActive": {
-          "$ref": "#/definitions/palette-color"
-        },
+        "toggleAndroidBackgroundActive": { "$ref": "#/definitions/palette-color" },
         "iosControlKnob": { "$ref": "#/definitions/palette-color" },
         "divider": { "$ref": "#/definitions/palette-color" },
         "dividerInverse": { "$ref": "#/definitions/palette-color" },
@@ -214,26 +178,14 @@
         "textButtonPrimary": { "$ref": "#/definitions/palette-color" },
         "textButtonPrimaryDisabled": { "$ref": "#/definitions/palette-color" },
         "textButtonPrimaryInverse": { "$ref": "#/definitions/palette-color" },
-        "textButtonPrimaryInverseDisabled": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "textButtonPrimaryInverseSelected": {
-          "$ref": "#/definitions/palette-color"
-        },
+        "textButtonPrimaryInverseDisabled": { "$ref": "#/definitions/palette-color" },
+        "textButtonPrimaryInverseSelected": { "$ref": "#/definitions/palette-color" },
         "textButtonSecondary": { "$ref": "#/definitions/palette-color" },
-        "textButtonSecondaryDisabled": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "textButtonSecondarySelected": {
-          "$ref": "#/definitions/palette-color"
-        },
+        "textButtonSecondaryDisabled": { "$ref": "#/definitions/palette-color" },
+        "textButtonSecondarySelected": { "$ref": "#/definitions/palette-color" },
         "textButtonSecondaryInverse": { "$ref": "#/definitions/palette-color" },
-        "textButtonSecondaryInverseDisabled": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "textButtonSecondaryInverseSelected": {
-          "$ref": "#/definitions/palette-color"
-        },
+        "textButtonSecondaryInverseDisabled": { "$ref": "#/definitions/palette-color" },
+        "textButtonSecondaryInverseSelected": { "$ref": "#/definitions/palette-color" },
         "textLink": { "$ref": "#/definitions/palette-color" },
         "textLinkInverse": { "$ref": "#/definitions/palette-color" },
         "textLinkDanger": { "$ref": "#/definitions/palette-color" },
@@ -242,12 +194,8 @@
         "textLinkSnackbar": { "$ref": "#/definitions/palette-color" },
         "textNavigationBarPrimary": { "$ref": "#/definitions/palette-color" },
         "textNavigationBarSecondary": { "$ref": "#/definitions/palette-color" },
-        "textNavigationSearchBarHint": {
-          "$ref": "#/definitions/palette-color"
-        },
-        "textNavigationSearchBarText": {
-          "$ref": "#/definitions/palette-color"
-        },
+        "textNavigationSearchBarHint": { "$ref": "#/definitions/palette-color" },
+        "textNavigationSearchBarText": { "$ref": "#/definitions/palette-color" },
         "textAppBar": { "$ref": "#/definitions/palette-color" },
         "textAppBarSelected": { "$ref": "#/definitions/palette-color" }
       },
