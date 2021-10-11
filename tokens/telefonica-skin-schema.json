@@ -11,7 +11,9 @@
     },
     "colors": {
       "allOf": [
-        { "$ref": "#/definitions/colors" },
+        {
+          "$ref": "#/definitions/colors"
+        },
         {
           "required": [
             "appBarBackground",
@@ -257,10 +259,6 @@
         { "const": "turquoise", "description": "#59C2C9" },
         { "const": "turquoiseLight", "description": "#67E0E5" },
         { "const": "turquoiseDark", "description": "#3E8A8A" },
-        { "const": "success10", "description": "#EFF8E8" }, // un color no puede ser success10! será green o whatever xD!
-        { "const": "success70", "description": "#376D0D" }, // un color no puede ser success10! será green o whatever xD!
-        { "const": "warning10", "description": "#FDF9EC" }, // un color no puede ser success10! será green o whatever xD!
-        { "const": "warning70", "description": "#775C08" }, // un color no puede ser success10! será green o whatever xD!
 
         { "const": "grey1", "description": "#F2F4FF" },
         { "const": "grey2", "description": "#D1D5E4" },
