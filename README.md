@@ -38,7 +38,7 @@ Master branch always be a production version of Mística Design System Libraries
 
 Every Friday, if there are substantial changes, we release a new version of library. So, **don't let anything without commited and pushed!**
 
-![Kactus Regenerate File](https://i.imgur.com/frFVeUR.png)
+![Kactus Regenerate File](.github/resources/mistica-release-workflow.png)
 
 #### Creating new branches
 
