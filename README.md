@@ -8,16 +8,6 @@
   <img alt="Mística Logo" src=".github/resources/mistica-design.png">
 <br>
 <br>
-<p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
-  <a href="#componentsStatus">Components Status</a> •
-  <a href="#contribute">Contribute</a> •
-  <a href="#gettingStarted">Getting Started</a> •
-  <a href="#releaseWorkflow">Release Workflow</a> •
-  <a href="https://github.com/Telefonica/mistica-design-libraries/wiki">Wiki</a>
-</p>
-
-<br>
-<br>
 
 | Other Mística Repos                                              | Description                                               |
 | :--------------------------------------------------------------- | :-------------------------------------------------------- |
@@ -29,13 +19,14 @@
 
 <br>
 
-## Contribute to Mística <a name="contribute"></a>
+---
 
-To contribute to Mística, please visit [this link](https://brandfactory.telefonica.com/document/1846#/contribute/components-request)
+-  [Contribute to Mística](https://brandfactory.telefonica.com/document/1846#/contribute/components-request)
+-  [Current components status](https://brandfactory.telefonica.com/document/1846#/components/overview)
 
-## Current components status (design + develop) <a name="componentsStatus"></a>
+---
 
-To know what is the status and components are already implemented by DesignCore + AppsCore, please visit [this link](https://brandfactory.telefonica.com/document/1846#/components/overview)
+<br/>
 
 ## How to install sketch development libraries<a name="gettingStarted"></a>
 
@@ -47,7 +38,7 @@ Master branch always be a production version of Mística Design System Libraries
 
 Every Friday, if there are substantial changes, we release a new version of library. So, **don't let anything without commited and pushed!**
 
-![Kactus Regenerate File](https://i.imgur.com/frFVeUR.png)
+![Kactus Regenerate File](.github/resources/mistica-release-workflow.png)
 
 #### Creating new branches
 
