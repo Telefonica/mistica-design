@@ -8,16 +8,6 @@
   <img alt="Mística Logo" src=".github/resources/mistica-design.png">
 <br>
 <br>
-<p align="center" style="border-bottom: 1px solid #eaecef; padding-bottom: .3em;">
-  <a href="#componentsStatus">Components Status</a> •
-  <a href="#contribute">Contribute</a> •
-  <a href="#gettingStarted">Getting Started</a> •
-  <a href="#releaseWorkflow">Release Workflow</a> •
-  <a href="https://github.com/Telefonica/mistica-design-libraries/wiki">Wiki</a>
-</p>
-
-<br>
-<br>
 
 | Other Mística Repos                                              | Description                                               |
 | :--------------------------------------------------------------- | :-------------------------------------------------------- |
@@ -29,8 +19,14 @@
 
 <br>
 
-- Contribute to Mística <a name="contribute"></a> [Visit documentation](https://brandfactory.telefonica.com/document/1846#/contribute/components-request)
-- Current components status <a name="componentsStatus"></a> [Visit Status](https://brandfactory.telefonica.com/document/1846#/components/overview)
+---
+
+-  [Contribute to Mística](https://brandfactory.telefonica.com/document/1846#/contribute/components-request)
+-  [Current components status](https://brandfactory.telefonica.com/document/1846#/components/overview)
+
+---
+
+<br/>
 
 ## How to install sketch development libraries<a name="gettingStarted"></a>
 
