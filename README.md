@@ -29,13 +29,8 @@
 
 <br>
 
-## Contribute to Mística <a name="contribute"></a>
-
-To contribute to Mística, please visit [this link](https://brandfactory.telefonica.com/document/1846#/contribute/components-request)
-
-## Current components status (design + develop) <a name="componentsStatus"></a>
-
-To know what is the status and components are already implemented by DesignCore + AppsCore, please visit [this link](https://brandfactory.telefonica.com/document/1846#/components/overview)
+- Contribute to Mística <a name="contribute"></a> [Visit documentation](https://brandfactory.telefonica.com/document/1846#/contribute/components-request)
+- Current components status <a name="componentsStatus"></a> [Visit Status](https://brandfactory.telefonica.com/document/1846#/components/overview)
 
 ## How to install sketch development libraries<a name="gettingStarted"></a>
 
