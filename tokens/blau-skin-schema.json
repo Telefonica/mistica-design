@@ -101,7 +101,19 @@
             "textNavigationSearchBarHint",
             "textNavigationSearchBarText",
             "textAppBar",
-            "textAppBarSelected"
+            "textAppBarSelected",
+            "tagBackgroundSuccess",
+            "tagBackgroundWarning",
+            "tagBackgroundError",
+            "tagBackgroundPromo",
+            "tagBackgroundActive",
+            "tagBackgroundInactive",
+            "textTagSuccess",
+            "textTagWarning",
+            "textTagError",
+            "textTagPromo",
+            "textTagActive",
+            "textTagInactive"
           ]
         }
       ]
@@ -197,9 +209,20 @@
         "textNavigationSearchBarHint": { "$ref": "#/definitions/palette-color" },
         "textNavigationSearchBarText": { "$ref": "#/definitions/palette-color" },
         "textAppBar": { "$ref": "#/definitions/palette-color" },
-        "textAppBarSelected": { "$ref": "#/definitions/palette-color" }
+        "textAppBarSelected": { "$ref": "#/definitions/palette-color" },
+        "tagBackgroundSuccess": { "$ref": "#/definitions/palette-color" },
+        "tagBackgroundWarning": { "$ref": "#/definitions/palette-color" },
+        "tagBackgroundError": { "$ref": "#/definitions/palette-color" },
+        "tagBackgroundPromo": { "$ref": "#/definitions/palette-color" },
+        "tagBackgroundActive": { "$ref": "#/definitions/palette-color" },
+        "tagBackgroundInactive": { "$ref": "#/definitions/palette-color" },
+        "textTagSuccess": { "$ref": "#/definitions/palette-color" },
+        "textTagWarning": { "$ref": "#/definitions/palette-color" },
+        "textTagError": { "$ref": "#/definitions/palette-color" },
+        "textTagPromo": { "$ref": "#/definitions/palette-color" },
+        "textTagActive": { "$ref": "#/definitions/palette-color" },
+        "textTagInactive": { "$ref": "#/definitions/palette-color" }
       },
-
       "additionalProperties": false
     },
     "palette-color": {
@@ -214,30 +237,34 @@
           "required": ["color", "opacity"]
         },
         { "const": "blauBluePrimary", "description": "#00B6F1" },
-        { "const": "blauBluePrimary30", "description": "#B3E9FB" },
-        { "const": "blauBluePrimary20", "description": "#E5F6FD" },
         { "const": "blauBluePrimary10", "description": "#F7FDFF" },
-        { "const": "blauBlueSecondary60", "description": "#005A99" },
+        { "const": "blauBluePrimary20", "description": "#E5F6FD" },
+        { "const": "blauBluePrimary30", "description": "#B3E9FB" },
+
         { "const": "blauBlueSecondary", "description": "#0072BC" },
-        { "const": "blauBlueSecondary30", "description": "#80B7DF" },
-        { "const": "blauBlueSecondary20", "description": "#B2D4EC" },
         { "const": "blauBlueSecondary10", "description": "#E5F1F9" },
+        { "const": "blauBlueSecondary20", "description": "#B2D4EC" },
+        { "const": "blauBlueSecondary30", "description": "#80B7DF" },
+        { "const": "blauBlueSecondary60", "description": "#005A99" },
 
         { "const": "blauPurple", "description": "#7814B3" },
         { "const": "blauPurple10", "description": "#F1E7F7" },
         { "const": "blauPurple30", "description": "#BB89D9" },
+
         { "const": "blauYellow", "description": "#FFA922" },
         { "const": "blauYellow10", "description": "#FFF6E9" },
         { "const": "blauYellow60", "description": "#F09500" },
         { "const": "blauYellow70", "description": "#996614" },
+
         { "const": "blauGreen", "description": "#30D300" },
-        { "const": "blauRed", "description": "#F64417" },
-        { "const": "blauRed10", "description": "#FEECE8" },
-        { "const": "blauRed70", "description": "#C93712" },
-        { "const": "blauRed30", "description": "#FA9E87" },
-        { "const": "blauRed20", "description": "#FCC7B9" },
         { "const": "blauGreen10", "description": "#EAFBE5" },
         { "const": "blauGreen70", "description": "#1D7F00" },
+
+        { "const": "blauRed", "description": "#F64417" },
+        { "const": "blauRed10", "description": "#FEECE8" },
+        { "const": "blauRed20", "description": "#FCC7B9" },
+        { "const": "blauRed30", "description": "#FA9E87" },
+        { "const": "blauRed70", "description": "#C93712" },
 
         { "const": "grey1", "description": "#F5F9FA" },
         { "const": "grey2", "description": "#E7E7E7" },
