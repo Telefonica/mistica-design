@@ -11,7 +11,7 @@ assignees: ''
 ### Context
 If you think there is a component missing in Mística and you feel it is worthy to create it globally and therefore any team could use it, please follow the process below so we can integrate this new component from Design to Development.
 
-**Have you read the [Contributing Guidelines on Mística](https://brandfactory.telefonica.com/document/1846#/contribute/how-to-contribute-1)?**
+**Have you read the [Contributing Guidelines on Mística](https://brandfactory.telefonica.com/document/1846#/contribute/how-to-contribute)?**
 - [ ] Check to confirm
 
 **When will I receive a reply?**
