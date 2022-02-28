@@ -18,7 +18,6 @@ jobs:
         with:
           jiraHost: ${{ secrets.JIRA_HOST }}
           jiraUsername: ${{ secrets.JIRA_USERNAME }}
-          fields: '{"customfield_10171": "all"}'
           jiraPassword: ${{ secrets.JIRA_PASSWORD }} # See https://id.atlassian.com/manage/api-tokens
           project: DSNCORE
           assignee: ${{ secrets.JIRA_USERNAME }}
