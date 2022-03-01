@@ -10,7 +10,7 @@
 <br>
 
 
-[![Analytics](https://ga-beacon.appspot.com/UA-136245358-1/mistica-repo)](https://github.com/Telefonica/mistica-design)
+[![Analytics](https://ga-beacon.appspot.com/UA-136245358-1/mistica-design)](https://github.com/Telefonica/mistica-design)
 
 | Other Mística Repos                                              | Description                                               |
 | :--------------------------------------------------------------- | :-------------------------------------------------------- |
