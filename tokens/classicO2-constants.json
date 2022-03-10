@@ -5,7 +5,7 @@
     "background": "white",
     "backgroundContainer": "white",
     "backgroundBrand": ["o2GradientFirst", "o2GradientSecond", "o2GradientThird", "o2GradientFourth"],
-    "backgroundOverlay": "grey6",
+    "backgroundOverlay": { "color": "grey6", "opacity": 0.6 },
     "backgroundSkeleton": "grey1",
     "backgroundSkeletonInverse": "white",
     "navigationBarBackground": "o2Blue",
@@ -62,7 +62,7 @@
     "iosControlKnob": "white",
 
     "divider": "grey2",
-    "dividerInverse": "white",
+    "dividerInverse": { "color": "white", "opacity": 0.2 },
     "navigationBarDivider": "o2Blue",
 
     "badge": "pepper55",
@@ -151,7 +151,7 @@
     "control": "darkModeGrey6",
     "controlActivated": "o2SkyBlue",
     "loadingBar": "o2SkyBlue",
-    "loadingBarBackground": "darkModeGrey",
+    "loadingBarBackground": "darkModeGrey6",
 
     "toggleAndroidInactive": "grey4",
     "toggleAndroidBackgroundActive": "o2SkyBlueLight45",
