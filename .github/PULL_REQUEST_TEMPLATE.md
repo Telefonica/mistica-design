@@ -1,4 +1,4 @@
-### 🎟 Jira Ticekt
+### 🎟 Jira Ticket
 <!-- _Add design Jira Ticket here if exist_ -->
 
 
