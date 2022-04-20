@@ -1,5 +1,5 @@
 {
-  "global": {
+  "movistar": {
     "colors": {
       "movistarBlue": {
         "value": "#019DF4",
@@ -192,7 +192,7 @@
         "type": "color"
       },
       "backgroundOverlay": {
-        "value": "#31323599",
+        "value": "rgba({colors.grey6}, 0.6)",
         "type": "color"
       },
       "backgroundSkeleton": {
@@ -576,19 +576,19 @@
         "type": "color"
       },
       "background": {
-        "value": "#191919",
+        "value": "{colors.darkModeBlack}",
         "type": "color"
       },
       "backgroundContainer": {
-        "value": "#242424",
+        "value": "{colors.darkModeGrey}",
         "type": "color"
       },
       "backgroundBrand": {
-        "value": "#191919",
+        "value": "{colors.darkModeBlack}",
         "type": "color"
       },
       "backgroundOverlay": {
-        "value": "#191919cc",
+        "value": "rgba({colors.darkModeGrey}, 0.8)",
         "type": "color"
       },
       "backgroundSkeleton": {
@@ -600,7 +600,7 @@
         "type": "color"
       },
       "navigationBarBackground": {
-        "value": "#191919",
+        "value": "{colors.darkModeBlack}",
         "type": "color"
       },
       "backgroundAlternative": {
@@ -608,7 +608,7 @@
         "type": "color"
       },
       "backgroundFeedbackBottom": {
-        "value": "#191919",
+        "value": "{colors.darkModeBlack}",
         "type": "color"
       },
       "skeletonWave": {
@@ -616,11 +616,11 @@
         "type": "color"
       },
       "borderLight": {
-        "value": "#191919",
+        "value": "{colors.darkModeBlack}",
         "type": "color"
       },
       "border": {
-        "value": "#242424",
+        "value": "{colors.darkModeGrey}",
         "type": "color"
       },
       "borderDark": {
@@ -668,11 +668,11 @@
         "type": "color"
       },
       "dividerInverse": {
-        "value": "#242424",
+        "value": "{colors.darkModeGrey}",
         "type": "color"
       },
       "navigationBarDivider": {
-        "value": "#191919",
+        "value": "{colors.darkModeBlack}",
         "type": "color"
       },
       "badge": {
@@ -760,11 +760,11 @@
         "type": "color"
       },
       "buttonLinkBackgroundSelected": {
-        "value": "#242424",
+        "value": "{colors.darkModeGrey}",
         "type": "color"
       },
       "buttonLinkBackgroundSelectedInverse": {
-        "value": "#242424",
+        "value": "{colors.darkModeGrey}",
         "type": "color"
       },
       "buttonPrimaryBackground": {
