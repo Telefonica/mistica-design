@@ -113,7 +113,19 @@
             "textTagError",
             "textTagPromo",
             "textTagActive",
-            "textTagInactive"
+            "textTagInactive",
+            "solar",
+            "battery",
+            "import",
+            "export",
+            "consumption",
+            "production",
+            "solarLow",
+            "batteryLow",
+            "importLow",
+            "exportLow",
+            "consumptionLow",
+            "productionLow"
           ]
         }
       ]
@@ -221,7 +233,19 @@
         "textTagError": { "$ref": "#/definitions/palette-color" },
         "textTagPromo": { "$ref": "#/definitions/palette-color" },
         "textTagActive": { "$ref": "#/definitions/palette-color" },
-        "textTagInactive": { "$ref": "#/definitions/palette-color" }
+        "textTagInactive": { "$ref": "#/definitions/palette-color" },
+        "solar": { "$ref": "#/definitions/palette-color" },
+        "battery": { "$ref": "#/definitions/palette-color" },
+        "import": { "$ref": "#/definitions/palette-color" },
+        "export": { "$ref": "#/definitions/palette-color" },
+        "consumption": { "$ref": "#/definitions/palette-color" },
+        "production": { "$ref": "#/definitions/palette-color" },
+        "solarLow": { "$ref": "#/definitions/palette-color" },
+        "batteryLow": { "$ref": "#/definitions/palette-color" },
+        "importLow": { "$ref": "#/definitions/palette-color" },
+        "exportLow": { "$ref": "#/definitions/palette-color" },
+        "consumptionLow": { "$ref": "#/definitions/palette-color" },
+        "productionLow": { "$ref": "#/definitions/palette-color" }
       },
       "additionalProperties": false
     },
@@ -250,7 +274,7 @@
         { "const": "repsolOrange50", "description": "#FF9B33" },
         { "const": "repsolOrange700", "description": "#E64D00" },
 
-        { "const": "repsolYellow", "description": "#FFC800" },
+        { "const": "repsolYellow50", "description": "#FFC800" },
         { "const": "repsolYellow10", "description": "#FFF7DB" },
         { "const": "repsolYellow90", "description": "#806400" },
 
@@ -261,8 +285,9 @@
         { "const": "movistarRed", "description": "#FF374A" },
 
         { "const": "repsolTurquoise10", "description": "#D9F1EA" },
-        { "const": "repsolTurquoise30", "description": "#00ADC3" },
+        { "const": "repsolTurquoise60", "description": "#00ADC3" },
         { "const": "repsolTurquoise80", "description": "#016A7F" },
+      
 
         { "const": "repsolPurple10", "description": "#F4EBFC" },
         { "const": "repsolPurple80", "description": "#6F29A6" },
@@ -274,7 +299,7 @@
         { "const": "grey2", "description": "#E6E8EC" },
         { "const": "grey3", "description": "#B4BBC6" },
         { "const": "grey4", "description": "#818EA0" },
-        { "const": "grey5", "description": "#4F617B" },
+        { "const": "grey5", "description": "#5C718F" },
         { "const": "grey6", "description": "#041E42" },
         { "const": "white", "description": "#FFFFFF" },
 
