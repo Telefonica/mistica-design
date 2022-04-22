@@ -1,559 +1,241 @@
 {
   "light": {
-    "background": { "value": "{white}", "type": "color" },
-    "backgroundAlternative": { "value": "{grey1}", "type": "color" },
-    "backgroundBrand": { "value": "{vivoPurple}", "type": "color" },
-    "backgroundContainer": { "value": "{white}", "type": "color" },
-    "backgroundOverlay": { "value": "rgba({grey6}, 0.6)", "type": "color" },
-    "backgroundSkeleton": { "value": "{grey1}", "type": "color" },
-    "backgroundSkeletonInverse": { "value": "{white}", "type": "color" },
-    "backgroundFeedbackBottom": { "value": "{vivoPurple}", "type": "color" },
-    "appBarBackground": { "value": "{white}", "type": "color" },
-    "navigationBarBackground": { "value": "{vivoPurple}", "type": "color" },
-    "skeletonWave": { "value": "{grey2}", "type": "color" },
+    "background": { "value": "{white}", "type": "color", "description": "white" },
+    "backgroundAlternative": { "value": "{grey1}", "type": "color", "description": "grey1" },
+    "backgroundBrand": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+    "backgroundContainer": { "value": "{white}", "type": "color", "description": "white" },
+    "backgroundOverlay": { "value": "rgba({grey6}, 0.6)", "type": "color", "description": "6" },
+    "backgroundSkeleton": { "value": "{grey1}", "type": "color", "description": "grey1" },
+    "backgroundSkeletonInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "backgroundFeedbackBottom": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+    "appBarBackground": { "value": "{white}", "type": "color", "description": "white" },
+    "navigationBarBackground": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+    "skeletonWave": { "value": "{grey2}", "type": "color", "description": "grey2" },
 
-    "borderLight": { "value": "{grey1}", "type": "color" },
-    "border": { "value": "{grey3}", "type": "color" },
-    "borderDark": { "value": "{grey5}", "type": "color" },
-    "borderSelected": { "value": "{vivoPurple}", "type": "color" },
+    "borderLight": { "value": "{grey1}", "type": "color", "description": "grey1" },
+    "border": { "value": "{grey3}", "type": "color", "description": "grey3" },
+    "borderDark": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "borderSelected": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
 
-    "buttonDangerBackground": { "value": "{pepper}", "type": "color" },
-    "buttonDangerBackgroundDisabled": { "value": "{pepperLight30}", "type": "color" },
-    "buttonDangerBackgroundSelected": { "value": "{pepperDark}", "type": "color" },
-    "buttonDangerBackgroundHover": { "value": "{pepperDark}", "type": "color" },
+    "buttonDangerBackground": { "value": "{pepper}", "type": "color", "description": "pepper" },
+    "buttonDangerBackgroundDisabled": { "value": "{pepperLight30}", "type": "color", "description": "pepperLight30" },
+    "buttonDangerBackgroundSelected": { "value": "{pepperDark}", "type": "color", "description": "pepperDark" },
+    "buttonDangerBackgroundHover": { "value": "{pepperDark}", "type": "color", "description": "pepperDark" },
 
-    "buttonLinkBackgroundSelected": { "value": "{vivoPurpleLight10}", "type": "color" },
-    "buttonLinkBackgroundSelectedInverse": { "value": "rgba({white}, 0.2)", "type": "color" },
+    "buttonLinkBackgroundSelected": { "value": "{vivoPurpleLight10}", "type": "color", "description": "vivoPurpleLight10" },
+    "buttonLinkBackgroundSelectedInverse": { "value": "rgba({white}, 0.2)", "type": "color", "description": "2" },
 
-    "buttonPrimaryBackground": { "value": "{vivoPurple}", "type": "color" },
-    "buttonPrimaryBackgroundDisabled": { "value": "{vivoPurpleLight20}", "type": "color" },
-    "buttonPrimaryBackgroundDisabledInverse": { "value": "{vivoPurpleLight50}", "type": "color" },
-    "buttonPrimaryBackgroundInverse": { "value": "{white}", "type": "color" },
-    "buttonPrimaryBackgroundSelected": { "value": "{vivoPurpleDark}", "type": "color" },
-    "buttonPrimaryBackgroundHover": { "value": "{vivoPurpleDark}", "type": "color" },
-    "buttonPrimaryBackgroundSelectedInverse": { "value": "{vivoPurpleLight50}", "type": "color" },
+    "buttonPrimaryBackground": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+    "buttonPrimaryBackgroundDisabled": { "value": "{vivoPurpleLight20}", "type": "color", "description": "vivoPurpleLight20" },
+    "buttonPrimaryBackgroundDisabledInverse": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
+    "buttonPrimaryBackgroundInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "buttonPrimaryBackgroundSelected": { "value": "{vivoPurpleDark}", "type": "color", "description": "vivoPurpleDark" },
+    "buttonPrimaryBackgroundHover": { "value": "{vivoPurpleDark}", "type": "color", "description": "vivoPurpleDark" },
+    "buttonPrimaryBackgroundSelectedInverse": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
 
-    "buttonSecondaryBackground": { "value": "{vivoPurple}", "type": "color" },
-    "buttonSecondaryBackgroundDisabled": { "value": "{vivoPurpleLight20}", "type": "color" },
-    "buttonSecondaryBackgroundSelected": { "value": "{vivoPurpleDark}", "type": "color" },
-    "buttonSecondaryBorderDisabledInverse": { "value": "{vivoPurpleLight50}", "type": "color" },
-    "buttonSecondaryBorderInverse": { "value": "{white}", "type": "color" },
-    "buttonSecondaryBorderSelectedInverse": { "value": "{vivoPurpleLight50}", "type": "color" },
+    "buttonSecondaryBackground": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+    "buttonSecondaryBackgroundDisabled": { "value": "{vivoPurpleLight20}", "type": "color", "description": "vivoPurpleLight20" },
+    "buttonSecondaryBackgroundSelected": { "value": "{vivoPurpleDark}", "type": "color", "description": "vivoPurpleDark" },
+    "buttonSecondaryBorderDisabledInverse": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
+    "buttonSecondaryBorderInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "buttonSecondaryBorderSelectedInverse": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
 
-    "textButtonPrimary": { "value": "{white}", "type": "color" },
-    "textButtonPrimaryDisabled": { "value": "{white}", "type": "color" },
-    "textButtonPrimaryInverse": { "value": "{vivoPurple}", "type": "color" },
-    "textButtonPrimaryInverseDisabled": { "value": "{vivoPurpleLight20}", "type": "color" },
-    "textButtonPrimaryInverseSelected": { "value": "{vivoPurple}", "type": "color" },
+    "textButtonPrimary": { "value": "{white}", "type": "color", "description": "white" },
+    "textButtonPrimaryDisabled": { "value": "{white}", "type": "color", "description": "white" },
+    "textButtonPrimaryInverse": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+    "textButtonPrimaryInverseDisabled": { "value": "{vivoPurpleLight20}", "type": "color", "description": "vivoPurpleLight20" },
+    "textButtonPrimaryInverseSelected": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
 
-    "textButtonSecondary": { "value": "{vivoPurple}", "type": "color" },
-    "textButtonSecondaryDisabled": { "value": "{vivoPurpleLight20}", "type": "color" },
-    "textButtonSecondarySelected": { "value": "{vivoPurpleDark}", "type": "color" },
-    "textButtonSecondaryInverse": { "value": "{white}", "type": "color" },
-    "textButtonSecondaryInverseDisabled": { "value": "{vivoPurpleLight50}", "type": "color" },
-    "textButtonSecondaryInverseSelected": { "value": "{white}", "type": "color" },
+    "textButtonSecondary": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+    "textButtonSecondaryDisabled": { "value": "{vivoPurpleLight20}", "type": "color", "description": "vivoPurpleLight20" },
+    "textButtonSecondarySelected": { "value": "{vivoPurpleDark}", "type": "color", "description": "vivoPurpleDark" },
+    "textButtonSecondaryInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "textButtonSecondaryInverseDisabled": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
+    "textButtonSecondaryInverseSelected": { "value": "{white}", "type": "color", "description": "white" },
 
-    "textLink": { "value": "{vivoPurple}", "type": "color" },
-    "textLinkInverse": { "value": "{white}", "type": "color" },
-    "textLinkDanger": { "value": "{pepper}", "type": "color" },
-    "textLinkDangerDisabled": { "value": "{pepperLight30}", "type": "color" },
-    "textLinkDisabled": { "value": "{vivoPurpleLight50}", "type": "color" },
-    "textLinkSnackbar": { "value": "{vivoPurpleLight50}", "type": "color" },
+    "textLink": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+    "textLinkInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "textLinkDanger": { "value": "{pepper}", "type": "color", "description": "pepper" },
+    "textLinkDangerDisabled": { "value": "{pepperLight30}", "type": "color", "description": "pepperLight30" },
+    "textLinkDisabled": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
+    "textLinkSnackbar": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
 
-    "control": { "value": "{grey3}", "type": "color" },
-    "controlActivated": { "value": "{vivoPurple}", "type": "color" },
-    "controlError": { "value": "{pepper}", "type": "color" },
-    "loadingBar": { "value": "{pink}", "type": "color" },
-    "loadingBarBackground": { "value": "{pepperLight30}", "type": "color" },
-    "toggleAndroidInactive": { "value": "{grey2}", "type": "color" },
-    "toggleAndroidBackgroundActive": { "value": "{vivoPurpleLight20}", "type": "color" },
-    "iosControlKnob": { "value": "{white}", "type": "color" },
+    "control": { "value": "{grey3}", "type": "color", "description": "grey3" },
+    "controlActivated": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+    "controlError": { "value": "{pepper}", "type": "color", "description": "pepper" },
+    "loadingBar": { "value": "{pink}", "type": "color", "description": "pink" },
+    "loadingBarBackground": { "value": "{pepperLight30}", "type": "color", "description": "pepperLight30" },
+    "toggleAndroidInactive": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "toggleAndroidBackgroundActive": { "value": "{vivoPurpleLight20}", "type": "color", "description": "vivoPurpleLight20" },
+    "iosControlKnob": { "value": "{white}", "type": "color", "description": "white" },
 
-    "divider": { "value": "{grey2}", "type": "color" },
-    "dividerInverse": { "value": "{white}", "type": "color" },
-    "navigationBarDivider": { "value": "{vivoPurple}", "type": "color" },
+    "divider": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "dividerInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "navigationBarDivider": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
 
-    "badge": { "value": "{pepperDark}", "type": "color" },
-    "feedbackErrorBackground": { "value": "{pepper}", "type": "color" },
-    "feedbackInfoBackground": { "value": "{grey6}", "type": "color" },
+    "badge": { "value": "{pepperDark}", "type": "color", "description": "pepperDark" },
+    "feedbackErrorBackground": { "value": "{pepper}", "type": "color", "description": "pepper" },
+    "feedbackInfoBackground": { "value": "{grey6}", "type": "color", "description": "grey6" },
 
-    "brand": { "value": "{vivoPurple}", "type": "color" },
-    "brandDark": { "value": "{vivoPurpleDark}", "type": "color" },
-    "inverse": { "value": "{white}", "type": "color" },
-    "neutralHigh": { "value": "{grey6}", "type": "color" },
-    "neutralMedium": { "value": "{grey5}", "type": "color" },
-    "neutralLow": { "value": "{grey3}", "type": "color" },
+    "brand": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+    "brandDark": { "value": "{vivoPurpleDark}", "type": "color", "description": "vivoPurpleDark" },
+    "inverse": { "value": "{white}", "type": "color", "description": "white" },
+    "neutralHigh": { "value": "{grey6}", "type": "color", "description": "grey6" },
+    "neutralMedium": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "neutralLow": { "value": "{grey3}", "type": "color", "description": "grey3" },
 
-    "textPrimary": { "value": "{grey6}", "type": "color" },
-    "textPrimaryInverse": { "value": "{white}", "type": "color" },
-    "textSecondary": { "value": "{grey5}", "type": "color" },
-    "textSecondaryInverse": { "value": "{white}", "type": "color" },
-    "textDisabled": { "value": "{grey3}", "type": "color" },
-    "textAmount": { "value": "{vivoPurple}", "type": "color" },
+    "textPrimary": { "value": "{grey6}", "type": "color", "description": "grey6" },
+    "textPrimaryInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "textSecondary": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textSecondaryInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "textDisabled": { "value": "{grey3}", "type": "color", "description": "grey3" },
+    "textAmount": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
 
-    "success": { "value": "{vivoGreen}", "type": "color" },
-    "warning": { "value": "{orange}", "type": "color" },
-    "error": { "value": "{pepper}", "type": "color" },
-    "promo": { "value": "{vivoPurple}", "type": "color" },
-    "highlight": { "value": "{pink}", "type": "color" },
+    "success": { "value": "{vivoGreen}", "type": "color", "description": "vivoGreen" },
+    "warning": { "value": "{orange}", "type": "color", "description": "orange" },
+    "error": { "value": "{pepper}", "type": "color", "description": "pepper" },
+    "promo": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+    "highlight": { "value": "{pink}", "type": "color", "description": "pink" },
 
-    "tagBackgroundSuccess": { "value": "{vivoGreenLight10}", "type": "color" },
-    "tagBackgroundWarning": { "value": "{orangeLight10}", "type": "color" },
-    "tagBackgroundError": { "value": "{pepperLight10}", "type": "color" },
-    "tagBackgroundPromo": { "value": "{vivoPurpleLight10}", "type": "color" },
-    "tagBackgroundActive": { "value": "{vivoPurpleLight10}", "type": "color" },
-    "tagBackgroundInactive": { "value": "{grey1}", "type": "color" },
+    "tagBackgroundSuccess": { "value": "{vivoGreenLight10}", "type": "color", "description": "vivoGreenLight10" },
+    "tagBackgroundWarning": { "value": "{orangeLight10}", "type": "color", "description": "orangeLight10" },
+    "tagBackgroundError": { "value": "{pepperLight10}", "type": "color", "description": "pepperLight10" },
+    "tagBackgroundPromo": { "value": "{vivoPurpleLight10}", "type": "color", "description": "vivoPurpleLight10" },
+    "tagBackgroundActive": { "value": "{vivoPurpleLight10}", "type": "color", "description": "vivoPurpleLight10" },
+    "tagBackgroundInactive": { "value": "{grey1}", "type": "color", "description": "grey1" },
 
-    "textTagSuccess": { "value": "{vivoGreenDark}", "type": "color" },
-    "textTagWarning": { "value": "{orangeDark}", "type": "color" },
-    "textTagError": { "value": "{pepperDark80}", "type": "color" },
-    "textTagPromo": { "value": "{vivoPurple}", "type": "color" },
-    "textTagActive": { "value": "{vivoPurple}", "type": "color" },
-    "textTagInactive": { "value": "{grey5}", "type": "color" },
+    "textTagSuccess": { "value": "{vivoGreenDark}", "type": "color", "description": "vivoGreenDark" },
+    "textTagWarning": { "value": "{orangeDark}", "type": "color", "description": "orangeDark" },
+    "textTagError": { "value": "{pepperDark80}", "type": "color", "description": "pepperDark80" },
+    "textTagPromo": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+    "textTagActive": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+    "textTagInactive": { "value": "{grey5}", "type": "color", "description": "grey5" },
 
-    "textNavigationBarPrimary": { "value": "{white}", "type": "color" },
-    "textNavigationBarSecondary": { "value": "{vivoPurpleLight50}", "type": "color" },
-    "textNavigationSearchBarHint": { "value": "{vivoPurpleLight50}", "type": "color" },
-    "textNavigationSearchBarText": { "value": "{white}", "type": "color" },
-    "textAppBar": { "value": "{grey4}", "type": "color" },
+    "textNavigationBarPrimary": { "value": "{white}", "type": "color", "description": "white" },
+    "textNavigationBarSecondary": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
+    "textNavigationSearchBarHint": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
+    "textNavigationSearchBarText": { "value": "{white}", "type": "color", "description": "white" },
+    "textAppBar": { "value": "{grey4}", "type": "color", "description": "grey4" },
     "textAppBarSelected": { "value": "{vivoPurple}", "type": "color" }
   },
   "dark": {
-    "appBarBackground": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "background": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "backgroundAlternative": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "backgroundBrand": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "backgroundContainer": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "backgroundFeedbackBottom": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "backgroundOverlay": {
-      "type": "color",
-      "value": "rgba({darkModeGrey}, 0.8)",
-      "description": "darkModeGrey"
-    },
-    "backgroundSkeleton": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "backgroundSkeletonInverse": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "badge": {
-      "type": "color",
-      "value": "{pepper60}",
-      "description": "pepper60"
-    },
-    "border": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "borderDark": {
-      "type": "color",
-      "value": "{grey5}",
-      "description": "grey5"
-    },
-    "borderLight": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "borderSelected": {
-      "type": "color",
-      "value": "{o2BluePrimary30}",
-      "description": "o2BluePrimary30"
-    },
-    "brand": {
-      "type": "color",
-      "value": "{o2BluePrimary30}",
-      "description": "o2BluePrimary30"
-    },
-    "brandDark": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "buttonDangerBackground": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "buttonDangerBackgroundHover": {
-      "type": "color",
-      "value": "{pepper60}",
-      "description": "pepper60"
-    },
-    "buttonDangerBackgroundSelected": {
-      "type": "color",
-      "value": "{pepper60}",
-      "description": "pepper60"
-    },
-    "buttonLinkBackgroundSelected": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "buttonLinkBackgroundSelectedInverse": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "buttonPrimaryBackground": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimary}",
-      "description": "darkModeO2BluePrimary"
-    },
-    "buttonPrimaryBackgroundHover": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimaryDark}",
-      "description": "darkModeO2BluePrimaryDark"
-    },
-    "buttonPrimaryBackgroundInverse": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimary}",
-      "description": "darkModeO2BluePrimary"
-    },
-    "buttonPrimaryBackgroundSelected": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimaryDark}",
-      "description": "darkModeO2BluePrimaryDark"
-    },
-    "buttonPrimaryBackgroundSelectedInverse": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimaryDark}",
-      "description": "darkModeO2BluePrimaryDark"
-    },
-    "buttonSecondaryBackground": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimary}",
-      "description": "darkModeO2BluePrimary"
-    },
-    "buttonSecondaryBackgroundSelected": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimaryDark}",
-      "description": "darkModeO2BluePrimaryDark"
-    },
-    "buttonSecondaryBorderInverse": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimary}",
-      "description": "darkModeO2BluePrimary"
-    },
-    "buttonSecondaryBorderSelectedInverse": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimaryDark}",
-      "description": "darkModeO2BluePrimaryDark"
-    },
-    "control": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "controlActivated": {
-      "type": "color",
-      "value": "{o2BluePrimary30}",
-      "description": "o2BluePrimary30"
-    },
-    "controlError": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "divider": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "dividerInverse": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "error": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "feedbackErrorBackground": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "feedbackInfoBackground": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "highlight": {
-      "type": "color",
-      "value": "{o2Pink}",
-      "description": "o2Pink"
-    },
-    "inverse": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "iosControlKnob": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "loadingBar": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimary}",
-      "description": "darkModeO2BluePrimary"
-    },
-    "loadingBarBackground": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "navigationBarBackground": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "navigationBarDivider": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "neutralHigh": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "neutralLow": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "neutralMedium": {
-      "type": "color",
-      "value": "{grey5}",
-      "description": "grey5"
-    },
-    "promo": {
-      "type": "color",
-      "value": "{o2Purple}",
-      "description": "o2Purple"
-    },
-    "skeletonWave": {
-      "type": "color",
-      "value": "{grey5}",
-      "description": "grey5"
-    },
-    "success": {
-      "type": "color",
-      "value": "{o2Green}",
-      "description": "o2Green"
-    },
-    "tagBackgroundActive": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundError": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundInactive": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundPromo": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundSuccess": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundWarning": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "textAppBar": {
-      "type": "color",
-      "value": "{grey5}",
-      "description": "grey5"
-    },
-    "textAppBarSelected": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonPrimary": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonPrimaryInverse": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonPrimaryInverseSelected": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonSecondary": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonSecondaryInverse": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonSecondaryInverseSelected": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textButtonSecondarySelected": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textLink": {
-      "type": "color",
-      "value": "{o2BluePrimary30}",
-      "description": "o2BluePrimary30"
-    },
-    "textLinkDanger": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "textLinkInverse": {
-      "type": "color",
-      "value": "{o2BluePrimary30}",
-      "description": "o2BluePrimary30"
-    },
-    "textLinkSnackbar": {
-      "type": "color",
-      "value": "{o2BluePrimary30}",
-      "description": "o2BluePrimary30"
-    },
-    "textNavigationBarPrimary": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textNavigationBarSecondary": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textNavigationSearchBarHint": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textNavigationSearchBarText": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textPrimary": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textPrimaryInverse": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textSecondary": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textSecondaryInverse": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textTagActive": {
-      "type": "color",
-      "value": "{o2BluePrimary15}",
-      "description": "o2BluePrimary15"
-    },
-    "textTagError": {
-      "type": "color",
-      "value": "{pepper40}",
-      "description": "pepper40"
-    },
-    "textTagInactive": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textTagPromo": {
-      "type": "color",
-      "value": "{o2Purple30}",
-      "description": "o2Purple30"
-    },
-    "textTagSuccess": {
-      "type": "color",
-      "value": "{o2Green40}",
-      "description": "o2Green40"
-    },
-    "textTagWarning": {
-      "type": "color",
-      "value": "{o2Orange40}",
-      "description": "o2Orange40"
-    },
-    "toggleAndroidBackgroundActive": {
-      "type": "color",
-      "value": "{o2BlueLight30}",
-      "description": "o2BlueLight30"
-    },
-    "toggleAndroidInactive": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "warning": {
-      "type": "color",
-      "value": "{o2Orange}",
-      "description": "o2Orange"
-    }
+    "background": { "value": "{darkModeBlack}", "type": "color", "description": "darkModeBlack" },
+    "backgroundAlternative": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "backgroundBrand": { "value": "{darkModeBlack}", "type": "color", "description": "darkModeBlack" },
+    "backgroundContainer": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "backgroundOverlay": { "value": "rgba({darkModeGrey}, 0.8)", "type": "color", "description": "darkModeGrey" },
+    "backgroundSkeleton": { "value": "{darkModeGrey6}", "type": "color", "description": "darkModeGrey6" },
+    "backgroundSkeletonInverse": { "value": "{darkModeGrey6}", "type": "color", "description": "darkModeGrey6" },
+    "backgroundFeedbackBottom": { "value": "{darkModeBlack}", "type": "color", "description": "darkModeBlack" },
+    "appBarBackground": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "navigationBarBackground": { "value": "{darkModeBlack}", "type": "color", "description": "darkModeBlack" },
+    "skeletonWave": { "value": "{grey5}", "type": "color", "description": "grey5" },
+
+    "borderLight": { "value": "{darkModeBlack}", "type": "color", "description": "darkModeBlack" },
+    "border": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "borderDark": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "borderSelected": { "value": "{vivoPurple}", "type": "color", "description": "vivoPurple" },
+
+    "buttonDangerBackground": { "value": "{pepper}", "type": "color", "description": "pepper" },
+    "buttonDangerBackgroundDisabled": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "buttonDangerBackgroundSelected": { "value": "{pepperDark}", "type": "color", "description": "pepperDark" },
+    "buttonDangerBackgroundHover": { "value": "{pepperDark}", "type": "color", "description": "pepperDark" },
+
+    "buttonLinkBackgroundSelected": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "buttonLinkBackgroundSelectedInverse": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    
+    "buttonPrimaryBackground": { "value": "{vivoPurpleLight80}", "type": "color", "description": "vivoPurpleLight80" },
+    "buttonPrimaryBackgroundDisabled": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "buttonPrimaryBackgroundDisabledInverse": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "buttonPrimaryBackgroundInverse": { "value": "{vivoPurpleLight80}", "type": "color", "description": "vivoPurpleLight80" },
+    "buttonPrimaryBackgroundSelected": { "value": "{vivoPurpleDark}", "type": "color", "description": "vivoPurpleDark" },
+    "buttonPrimaryBackgroundHover": { "value": "{vivoPurpleDark}", "type": "color", "description": "vivoPurpleDark" },
+    "buttonPrimaryBackgroundSelectedInverse": { "value": "{vivoPurpleDark}", "type": "color", "description": "vivoPurpleDark" },
+    
+    "buttonSecondaryBackground": { "value": "{vivoPurpleLight80}", "type": "color", "description": "vivoPurpleLight80" },
+    "buttonSecondaryBackgroundDisabled": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "buttonSecondaryBackgroundSelected": { "value": "{vivoPurpleDark}", "type": "color", "description": "vivoPurpleDark" },
+    "buttonSecondaryBorderDisabledInverse": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "buttonSecondaryBorderInverse": { "value": "{vivoPurpleLight80}", "type": "color", "description": "vivoPurpleLight80" },
+    "buttonSecondaryBorderSelectedInverse": { "value": "{vivoPurpleDark}", "type": "color", "description": "vivoPurpleDark" },
+
+    "textButtonPrimary": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textButtonPrimaryDisabled": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textButtonPrimaryInverse": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textButtonPrimaryInverseDisabled": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textButtonPrimaryInverseSelected": { "value": "{grey2}", "type": "color", "description": "grey2" },
+
+    "textButtonSecondary": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textButtonSecondaryDisabled": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textButtonSecondarySelected": { "value": "{grey4}", "type": "color", "description": "grey4" },
+    "textButtonSecondaryInverse": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textButtonSecondaryInverseDisabled": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textButtonSecondaryInverseSelected": { "value": "{grey4}", "type": "color", "description": "grey4" },
+
+    "textLink": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
+    "textLinkInverse": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
+    "textLinkDanger": { "value": "{pepper}", "type": "color", "description": "pepper" },
+    "textLinkDisabled": { "value": "{darkModeGrey6}", "type": "color", "description": "darkModeGrey6" },
+    "textLinkDangerDisabled": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textLinkSnackbar": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
+
+    "control": { "value": "{darkModeGrey6}", "type": "color", "description": "darkModeGrey6" },
+    "controlActivated": { "value": "{vivoPurpleLight80}", "type": "color", "description": "vivoPurpleLight80" },
+    "controlError": { "value": "{pepper}", "type": "color", "description": "pepper" },
+    "loadingBar": { "value": "{vivoPurpleLight80}", "type": "color", "description": "vivoPurpleLight80" },
+    "loadingBarBackground": { "value": "{darkModeGrey6}", "type": "color", "description": "darkModeGrey6" },
+    "toggleAndroidInactive": { "value": "{grey4}", "type": "color", "description": "grey4" },
+    "toggleAndroidBackgroundActive": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
+    "iosControlKnob": { "value": "{grey2}", "type": "color", "description": "grey2" },
+
+    "divider": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "dividerInverse": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "navigationBarDivider": { "value": "{darkModeBlack}", "type": "color", "description": "darkModeBlack" },
+
+    "badge": { "value": "{pepperDark}", "type": "color", "description": "pepperDark" },
+    "feedbackErrorBackground": { "value": "{pepper}", "type": "color", "description": "pepper" },
+    "feedbackInfoBackground": { "value": "{grey6}", "type": "color", "description": "grey6" },
+
+    "brand": { "value": "{vivoPurpleLight80}", "type": "color", "description": "vivoPurpleLight80" },
+    "brandDark": { "value": "{darkModeGrey6}", "type": "color", "description": "darkModeGrey6" },
+    "inverse": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "neutralHigh": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "neutralMedium": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "neutralLow": { "value": "{darkModeGrey6}", "type": "color", "description": "darkModeGrey6" },
+
+    "textPrimary": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textPrimaryInverse": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textSecondary": { "value": "{grey4}", "type": "color", "description": "grey4" },
+    "textSecondaryInverse": { "value": "{grey4}", "type": "color", "description": "grey4" },
+    "textDisabled": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textAmount": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
+
+    "success": { "value": "{vivoGreen}", "type": "color", "description": "vivoGreen" },
+    "warning": { "value": "{orange}", "type": "color", "description": "orange" },
+    "error": { "value": "{pepper}", "type": "color", "description": "pepper" },
+    "promo": { "value": "{vivoPurpleLight80}", "type": "color", "description": "vivoPurpleLight80" },
+    "highlight": { "value": "{pink}", "type": "color", "description": "pink" },
+
+    "tagBackgroundSuccess": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "tagBackgroundWarning": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "tagBackgroundError": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "tagBackgroundPromo": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "tagBackgroundActive": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "tagBackgroundInactive": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+
+    "textTagSuccess": { "value": "{vivoGreenLight30}", "type": "color", "description": "vivoGreenLight30" },
+    "textTagWarning": { "value": "{orangeLight40}", "type": "color", "description": "orangeLight40" },
+    "textTagError": { "value": "{pepperLight40}", "type": "color", "description": "pepperLight40" },
+    "textTagPromo": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
+    "textTagActive": { "value": "{vivoPurpleLight50}", "type": "color", "description": "vivoPurpleLight50" },
+    "textTagInactive": { "value": "{grey4}", "type": "color", "description": "grey4" },
+
+    "textNavigationBarPrimary": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textNavigationBarSecondary": { "value": "{grey4}", "type": "color", "description": "grey4" },
+    "textNavigationSearchBarHint": { "value": "{grey4}", "type": "color", "description": "grey4" },
+    "textNavigationSearchBarText": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textAppBar": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textAppBarSelected": { "value": "{grey2}", "type": "color", "description": "grey2" }
   },
   "global": {
     "vivoPurple": { "value": "#660099", "type": "color" },
