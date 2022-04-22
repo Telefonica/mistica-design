@@ -1,561 +1,244 @@
 {
   "light": {
-    "appBarBackground": { "value": "{white}", "type": "color" },
-    "background": { "value": "{white}", "type": "color" },
-    "backgroundContainer": { "value": "{white}", "type": "color" },
-    "backgroundBrand": { "value": "{telefonicaBlue}", "type": "color" },
-    "backgroundOverlay": { "value": "rgba({grey6}, 0.8)", "type": "color" },
-    "backgroundSkeleton": { "value": "{grey1}", "type": "color" },
-    "backgroundSkeletonInverse": { "value": "{telefonicaBlue70}", "type": "color" },
-    "navigationBarBackground": { "value": "{telefonicaBlue}", "type": "color" },
-    "backgroundAlternative": { "value": "{grey1}", "type": "color" },
-    "backgroundFeedbackBottom": { "value": "{telefonicaBlue}", "type": "color" },
+    "appBarBackground": { "value": "{white}", "type": "color", "description": "white" },
+    "background": { "value": "{white}", "type": "color", "description": "white" },
+    "backgroundContainer": { "value": "{white}", "type": "color", "description": "white" },
+    "backgroundBrand": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "backgroundOverlay": { "value": "rgba({grey6}, 0.8)", "type": "color", "description": "grey6" },
+    "backgroundSkeleton": { "value": "{grey1}", "type": "color", "description": "grey1" },
+    "backgroundSkeletonInverse": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
+    "navigationBarBackground": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "backgroundAlternative": { "value": "{grey1}", "type": "color", "description": "grey1" },
+    "backgroundFeedbackBottom": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
 
-    "skeletonWave": { "value": "{grey2}", "type": "color" },
+    "skeletonWave": { "value": "{grey2}", "type": "color", "description": "grey2" },
 
-    "borderLight": { "value": "{grey1}", "type": "color" },
-    "border": { "value": "{grey2}", "type": "color" },
-    "borderDark": { "value": "{grey5}", "type": "color" },
-    "borderSelected": { "value": "{telefonicaBlue}", "type": "color" },
+    "borderLight": { "value": "{grey1}", "type": "color", "description": "grey1" },
+    "border": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "borderDark": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "borderSelected": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
 
-    "buttonDangerBackground": { "value": "{coral}", "type": "color" },
-    "buttonDangerBackgroundDisabled": { "value": "{grey2}", "type": "color" },
-    "buttonDangerBackgroundSelected": { "value": "{coral80}", "type": "color" },
-    "buttonDangerBackgroundHover": { "value": "{coral80}", "type": "color" },
+    "buttonDangerBackground": { "value": "{coral}", "type": "color", "description": "coral" },
+    "buttonDangerBackgroundDisabled": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "buttonDangerBackgroundSelected": { "value": "{coral80}", "type": "color", "description": "coral80" },
+    "buttonDangerBackgroundHover": { "value": "{coral80}", "type": "color", "description": "coral80" },
 
-    "buttonLinkBackgroundSelected": { "value": "{grey1}", "type": "color" },
-    "buttonLinkBackgroundSelectedInverse": { "value": "rgba({white}, 0.2)", "type": "color" },
+    "buttonLinkBackgroundSelected": { "value": "{grey1}", "type": "color", "description": "grey1" },
+    "buttonLinkBackgroundSelectedInverse": { "value": "rgba({white}, 0.2)", "type": "color", "description": "white" },
 
-    "buttonPrimaryBackground": { "value": "{telefonicaBlue}", "type": "color" },
-    "buttonPrimaryBackgroundDisabled": { "value": "{grey2}", "type": "color" },
-    "buttonPrimaryBackgroundDisabledInverse": { "value": "{telefonicaBlue30}", "type": "color" },
-    "buttonPrimaryBackgroundInverse": { "value": "{white}", "type": "color" },
-    "buttonPrimaryBackgroundSelected": { "value": "{telefonicaBlue70}", "type": "color" },
-    "buttonPrimaryBackgroundHover": { "value": "{telefonicaBlue70}", "type": "color" },
-    "buttonPrimaryBackgroundSelectedInverse": { "value": "{telefonicaBlue30}", "type": "color" },
+    "buttonPrimaryBackground": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "buttonPrimaryBackgroundDisabled": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "buttonPrimaryBackgroundDisabledInverse": { "value": "{telefonicaBlue30}", "type": "color", "description": "telefonicaBlue30" },
+    "buttonPrimaryBackgroundInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "buttonPrimaryBackgroundSelected": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
+    "buttonPrimaryBackgroundHover": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
+    "buttonPrimaryBackgroundSelectedInverse": { "value": "{telefonicaBlue30}", "type": "color", "description": "telefonicaBlue30" },
 
-    "buttonSecondaryBackground": { "value": "{telefonicaBlue}", "type": "color" },
-    "buttonSecondaryBackgroundDisabled": { "value": "{grey2}", "type": "color" },
-    "buttonSecondaryBackgroundSelected": { "value": "{telefonicaBlue70}", "type": "color" },
-    "buttonSecondaryBorderDisabledInverse": { "value": "{telefonicaBlue30}", "type": "color" },
-    "buttonSecondaryBorderInverse": { "value": "{white}", "type": "color" },
-    "buttonSecondaryBorderSelectedInverse": { "value": "{telefonicaBlue30}", "type": "color" },
+    "buttonSecondaryBackground": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "buttonSecondaryBackgroundDisabled": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "buttonSecondaryBackgroundSelected": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
+    "buttonSecondaryBorderDisabledInverse": { "value": "{telefonicaBlue30}", "type": "color", "description": "telefonicaBlue30" },
+    "buttonSecondaryBorderInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "buttonSecondaryBorderSelectedInverse": { "value": "{telefonicaBlue30}", "type": "color", "description": "telefonicaBlue30" },
 
-    "textButtonPrimary": { "value": "{white}", "type": "color" },
-    "textButtonPrimaryDisabled": { "value": "{white}", "type": "color" },
-    "textButtonPrimaryInverse": { "value": "{telefonicaBlue}", "type": "color" },
-    "textButtonPrimaryInverseDisabled": { "value": "{telefonicaBlue20}", "type": "color" },
-    "textButtonPrimaryInverseSelected": { "value": "{telefonicaBlue}", "type": "color" },
+    "textButtonPrimary": { "value": "{white}", "type": "color", "description": "white" },
+    "textButtonPrimaryDisabled": { "value": "{white}", "type": "color", "description": "white" },
+    "textButtonPrimaryInverse": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "textButtonPrimaryInverseDisabled": { "value": "{telefonicaBlue20}", "type": "color", "description": "telefonicaBlue20" },
+    "textButtonPrimaryInverseSelected": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
 
-    "textButtonSecondary": { "value": "{telefonicaBlue}", "type": "color" },
-    "textButtonSecondaryDisabled": { "value": "{grey2}", "type": "color" },
-    "textButtonSecondarySelected": { "value": "{telefonicaBlue70}", "type": "color" },
-    "textButtonSecondaryInverse": { "value": "{white}", "type": "color" },
-    "textButtonSecondaryInverseDisabled": { "value": "{telefonicaBlue30}", "type": "color" },
-    "textButtonSecondaryInverseSelected": { "value": "{white}", "type": "color" },
+    "textButtonSecondary": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "textButtonSecondaryDisabled": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textButtonSecondarySelected": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
+    "textButtonSecondaryInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "textButtonSecondaryInverseDisabled": { "value": "{telefonicaBlue30}", "type": "color", "description": "telefonicaBlue30" },
+    "textButtonSecondaryInverseSelected": { "value": "{white}", "type": "color", "description": "white" },
 
-    "textLink": { "value": "{telefonicaBlue}", "type": "color" },
-    "textLinkInverse": { "value": "{white}", "type": "color" },
-    "textLinkDanger": { "value": "{coral}", "type": "color" },
-    "textLinkDangerDisabled": { "value": "{grey2}", "type": "color" },
-    "textLinkDisabled": { "value": "{grey2}", "type": "color" },
-    "textLinkSnackbar": { "value": "{telefonicaBlue30}", "type": "color" },
+    "textLink": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "textLinkInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "textLinkDanger": { "value": "{coral}", "type": "color", "description": "coral" },
+    "textLinkDangerDisabled": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textLinkDisabled": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textLinkSnackbar": { "value": "{telefonicaBlue30}", "type": "color", "description": "telefonicaBlue30" },
 
-    "control": { "value": "{grey3}", "type": "color" },
-    "controlActivated": { "value": "{telefonicaBlue}", "type": "color" },
-    "controlError": { "value": "{coral}", "type": "color" },
-    "loadingBar": { "value": "{telefonicaBlue30}", "type": "color" },
-    "loadingBarBackground": { "value": "{telefonicaBlue70}", "type": "color" },
+    "control": { "value": "{grey3}", "type": "color", "description": "grey3" },
+    "controlActivated": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "controlError": { "value": "{coral}", "type": "color", "description": "coral" },
+    "loadingBar": { "value": "{telefonicaBlue30}", "type": "color", "description": "telefonicaBlue30" },
+    "loadingBarBackground": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
 
-    "toggleAndroidInactive": { "value": "{grey2}", "type": "color" },
-    "toggleAndroidBackgroundActive": { "value": "{grey2}", "type": "color" },
-    "iosControlKnob": { "value": "{white}", "type": "color" },
+    "toggleAndroidInactive": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "toggleAndroidBackgroundActive": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "iosControlKnob": { "value": "{white}", "type": "color", "description": "white" },
 
-    "divider": { "value": "{grey2}", "type": "color" },
-    "dividerInverse": { "value": "rgba({white}, 0.2)", "type": "color" },
-    "navigationBarDivider": { "value": "{telefonicaBlue}", "type": "color" },
+    "divider": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "dividerInverse": { "value": "rgba({white}, 0.2)", "type": "color", "description": "white" },
+    "navigationBarDivider": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
 
-    "badge": { "value": "{coral70}", "type": "color" },
-    "feedbackErrorBackground": { "value": "{coral}", "type": "color" },
-    "feedbackInfoBackground": { "value": "{grey9}", "type": "color" },
+    "badge": { "value": "{coral70}", "type": "color", "description": "coral70" },
+    "feedbackErrorBackground": { "value": "{coral}", "type": "color", "description": "coral" },
+    "feedbackInfoBackground": { "value": "{grey9}", "type": "color", "description": "grey9" },
 
-    "brand": { "value": "{telefonicaBlue}", "type": "color" },
-    "brandDark": { "value": "{telefonicaBlue70}", "type": "color" },
-    "inverse": { "value": "{white}", "type": "color" },
-    "neutralHigh": { "value": "{grey9}", "type": "color" },
-    "neutralMedium": { "value": "{grey5}", "type": "color" },
-    "neutralLow": { "value": "{grey1}", "type": "color" },
+    "brand": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "brandDark": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
+    "inverse": { "value": "{white}", "type": "color", "description": "white" },
+    "neutralHigh": { "value": "{grey9}", "type": "color", "description": "grey9" },
+    "neutralMedium": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "neutralLow": { "value": "{grey1}", "type": "color", "description": "grey1" },
 
-    "textPrimary": { "value": "{grey9}", "type": "color" },
-    "textPrimaryInverse": { "value": "{white}", "type": "color" },
-    "textSecondary": { "value": "{grey5}", "type": "color" },
-    "textSecondaryInverse": { "value": "{white}", "type": "color" },
-    "textDisabled": { "value": "{grey3}", "type": "color" },
-    "textAmount": { "value": "{telefonicaBlue}", "type": "color" },
+    "textPrimary": { "value": "{grey9}", "type": "color", "description": "grey9" },
+    "textPrimaryInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "textSecondary": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textSecondaryInverse": { "value": "{white}", "type": "color", "description": "white" },
+    "textDisabled": { "value": "{grey3}", "type": "color", "description": "grey3" },
+    "textAmount": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
 
-    "error": { "value": "{coral}", "type": "color" },
-    "success": { "value": "{turquoise}", "type": "color" },
-    "warning": { "value": "{ambar}", "type": "color" },
-    "promo": { "value": "{orchid}", "type": "color" },
-    "highlight": { "value": "{coral40}", "type": "color" },
+    "error": { "value": "{coral}", "type": "color", "description": "coral" },
+    "success": { "value": "{turquoise}", "type": "color", "description": "turquoise" },
+    "warning": { "value": "{ambar}", "type": "color", "description": "ambar" },
+    "promo": { "value": "{orchid}", "type": "color", "description": "orchid" },
+    "highlight": { "value": "{coral40}", "type": "color", "description": "coral40" },
 
-    "tagBackgroundSuccess": { "value": "{turquoise10}", "type": "color" },
-    "tagBackgroundWarning": { "value": "{ambar10}", "type": "color" },
-    "tagBackgroundError": { "value": "{coral10}", "type": "color" },
-    "tagBackgroundPromo": { "value": "{orchid10}", "type": "color" },
-    "tagBackgroundActive": { "value": "{grey1}", "type": "color" },
-    "tagBackgroundInactive": { "value": "{grey1}", "type": "color" },
+    "tagBackgroundSuccess": { "value": "{turquoise10}", "type": "color", "description": "turquoise10" },
+    "tagBackgroundWarning": { "value": "{ambar10}", "type": "color", "description": "ambar10" },
+    "tagBackgroundError": { "value": "{coral10}", "type": "color", "description": "coral10" },
+    "tagBackgroundPromo": { "value": "{orchid10}", "type": "color", "description": "orchid10" },
+    "tagBackgroundActive": { "value": "{grey1}", "type": "color", "description": "grey1" },
+    "tagBackgroundInactive": { "value": "{grey1}", "type": "color", "description": "grey1" },
 
-    "textTagSuccess": { "value": "{turquoise70}", "type": "color" },
-    "textTagWarning": { "value": "{ambar70}", "type": "color" },
-    "textTagError": { "value": "{coral70}", "type": "color" },
-    "textTagPromo": { "value": "{orchid70}", "type": "color" },
-    "textTagActive": { "value": "{telefonicaBlue}", "type": "color" },
-    "textTagInactive": { "value": "{grey6}", "type": "color" },
+    "textTagSuccess": { "value": "{turquoise70}", "type": "color", "description": "turquoise70" },
+    "textTagWarning": { "value": "{ambar70}", "type": "color", "description": "ambar70" },
+    "textTagError": { "value": "{coral70}", "type": "color", "description": "coral70" },
+    "textTagPromo": { "value": "{orchid70}", "type": "color", "description": "orchid70" },
+    "textTagActive": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "textTagInactive": { "value": "{grey6}", "type": "color", "description": "grey6" },
 
-    "textNavigationBarPrimary": { "value": "{white}", "type": "color" },
-    "textNavigationBarSecondary": { "value": "{grey1}", "type": "color" },
-    "textNavigationSearchBarHint": { "value": "{grey1}", "type": "color" },
-    "textNavigationSearchBarText": { "value": "{white}", "type": "color" },
-    "textAppBar": { "value": "{grey4}", "type": "color" },
-    "textAppBarSelected": { "value": "{telefonicaBlue}", "type": "color" }
+    "textNavigationBarPrimary": { "value": "{white}", "type": "color", "description": "white" },
+    "textNavigationBarSecondary": { "value": "{grey1}", "type": "color", "description": "grey1" },
+    "textNavigationSearchBarHint": { "value": "{grey1}", "type": "color", "description": "grey1" },
+    "textNavigationSearchBarText": { "value": "{white}", "type": "color", "description": "white" },
+    "textAppBar": { "value": "{grey4}", "type": "color", "description": "grey4" },
+    "textAppBarSelected": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" }
   },
   "dark": {
-    "appBarBackground": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "background": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "backgroundAlternative": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "backgroundBrand": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "backgroundContainer": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "backgroundFeedbackBottom": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "backgroundOverlay": {
-      "type": "color",
-      "value": "rgba({darkModeGrey}, 0.8)",
-      "description": "darkModeGrey"
-    },
-    "backgroundSkeleton": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "backgroundSkeletonInverse": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "badge": {
-      "type": "color",
-      "value": "{pepper60}",
-      "description": "pepper60"
-    },
-    "border": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "borderDark": {
-      "type": "color",
-      "value": "{grey5}",
-      "description": "grey5"
-    },
-    "borderLight": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "borderSelected": {
-      "type": "color",
-      "value": "{o2BluePrimary30}",
-      "description": "o2BluePrimary30"
-    },
-    "brand": {
-      "type": "color",
-      "value": "{o2BluePrimary30}",
-      "description": "o2BluePrimary30"
-    },
-    "brandDark": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "buttonDangerBackground": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "buttonDangerBackgroundHover": {
-      "type": "color",
-      "value": "{pepper60}",
-      "description": "pepper60"
-    },
-    "buttonDangerBackgroundSelected": {
-      "type": "color",
-      "value": "{pepper60}",
-      "description": "pepper60"
-    },
-    "buttonLinkBackgroundSelected": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "buttonLinkBackgroundSelectedInverse": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "buttonPrimaryBackground": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimary}",
-      "description": "darkModeO2BluePrimary"
-    },
-    "buttonPrimaryBackgroundHover": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimaryDark}",
-      "description": "darkModeO2BluePrimaryDark"
-    },
-    "buttonPrimaryBackgroundInverse": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimary}",
-      "description": "darkModeO2BluePrimary"
-    },
-    "buttonPrimaryBackgroundSelected": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimaryDark}",
-      "description": "darkModeO2BluePrimaryDark"
-    },
-    "buttonPrimaryBackgroundSelectedInverse": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimaryDark}",
-      "description": "darkModeO2BluePrimaryDark"
-    },
-    "buttonSecondaryBackground": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimary}",
-      "description": "darkModeO2BluePrimary"
-    },
-    "buttonSecondaryBackgroundSelected": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimaryDark}",
-      "description": "darkModeO2BluePrimaryDark"
-    },
-    "buttonSecondaryBorderInverse": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimary}",
-      "description": "darkModeO2BluePrimary"
-    },
-    "buttonSecondaryBorderSelectedInverse": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimaryDark}",
-      "description": "darkModeO2BluePrimaryDark"
-    },
-    "control": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "controlActivated": {
-      "type": "color",
-      "value": "{o2BluePrimary30}",
-      "description": "o2BluePrimary30"
-    },
-    "controlError": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "divider": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "dividerInverse": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "error": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "feedbackErrorBackground": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "feedbackInfoBackground": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "highlight": {
-      "type": "color",
-      "value": "{o2Pink}",
-      "description": "o2Pink"
-    },
-    "inverse": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "iosControlKnob": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "loadingBar": {
-      "type": "color",
-      "value": "{darkModeO2BluePrimary}",
-      "description": "darkModeO2BluePrimary"
-    },
-    "loadingBarBackground": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "navigationBarBackground": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "navigationBarDivider": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "neutralHigh": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "neutralLow": {
-      "type": "color",
-      "value": "{darkModeGrey6}",
-      "description": "darkModeGrey6"
-    },
-    "neutralMedium": {
-      "type": "color",
-      "value": "{grey5}",
-      "description": "grey5"
-    },
-    "promo": {
-      "type": "color",
-      "value": "{o2Purple}",
-      "description": "o2Purple"
-    },
-    "skeletonWave": {
-      "type": "color",
-      "value": "{grey5}",
-      "description": "grey5"
-    },
-    "success": {
-      "type": "color",
-      "value": "{o2Green}",
-      "description": "o2Green"
-    },
-    "tagBackgroundActive": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundError": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundInactive": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundPromo": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundSuccess": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundWarning": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "textAppBar": {
-      "type": "color",
-      "value": "{grey5}",
-      "description": "grey5"
-    },
-    "textAppBarSelected": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonPrimary": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonPrimaryInverse": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonPrimaryInverseSelected": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonSecondary": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonSecondaryInverse": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonSecondaryInverseSelected": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textButtonSecondarySelected": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textLink": {
-      "type": "color",
-      "value": "{o2BluePrimary30}",
-      "description": "o2BluePrimary30"
-    },
-    "textLinkDanger": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "textLinkInverse": {
-      "type": "color",
-      "value": "{o2BluePrimary30}",
-      "description": "o2BluePrimary30"
-    },
-    "textLinkSnackbar": {
-      "type": "color",
-      "value": "{o2BluePrimary30}",
-      "description": "o2BluePrimary30"
-    },
-    "textNavigationBarPrimary": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textNavigationBarSecondary": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textNavigationSearchBarHint": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textNavigationSearchBarText": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textPrimary": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textPrimaryInverse": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textSecondary": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textSecondaryInverse": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textTagActive": {
-      "type": "color",
-      "value": "{o2BluePrimary15}",
-      "description": "o2BluePrimary15"
-    },
-    "textTagError": {
-      "type": "color",
-      "value": "{pepper40}",
-      "description": "pepper40"
-    },
-    "textTagInactive": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textTagPromo": {
-      "type": "color",
-      "value": "{o2Purple30}",
-      "description": "o2Purple30"
-    },
-    "textTagSuccess": {
-      "type": "color",
-      "value": "{o2Green40}",
-      "description": "o2Green40"
-    },
-    "textTagWarning": {
-      "type": "color",
-      "value": "{o2Orange40}",
-      "description": "o2Orange40"
-    },
-    "toggleAndroidBackgroundActive": {
-      "type": "color",
-      "value": "{o2BlueLight30}",
-      "description": "o2BlueLight30"
-    },
-    "toggleAndroidInactive": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "warning": {
-      "type": "color",
-      "value": "{o2Orange}",
-      "description": "o2Orange"
-    }
+    "background": { "value": "{darkModeBlack}", "type": "color", "description": "darkModeBlack" },
+    "backgroundAlternative": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "backgroundBrand": { "value": "{darkModeBlack}", "type": "color", "description": "darkModeBlack" },
+    "backgroundContainer": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "backgroundOverlay": { "value": "rgba({darkModeGrey}, 0.8)", "type": "color", "description": "darkModeGrey" },
+    "backgroundSkeleton": { "value": "{grey6}", "type": "color", "description": "grey6" },
+    "backgroundSkeletonInverse": { "value": "{grey6}", "type": "color", "description": "grey6" },
+    "backgroundFeedbackBottom": { "value": "{darkModeBlack}", "type": "color", "description": "darkModeBlack" },
+    "appBarBackground": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "navigationBarBackground": { "value": "{darkModeBlack}", "type": "color", "description": "darkModeBlack" },
+    "skeletonWave": { "value": "{grey5}", "type": "color", "description": "grey5" },
+
+    "borderLight": { "value": "{darkModeBlack}", "type": "color", "description": "darkModeBlack" },
+    "border": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "borderDark": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "borderSelected": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+
+    "buttonDangerBackground": { "value": "{coral}", "type": "color", "description": "coral" },
+    "buttonDangerBackgroundDisabled": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "buttonDangerBackgroundSelected": { "value": "{coral80}", "type": "color", "description": "coral80" },
+    "buttonDangerBackgroundHover": { "value": "{coral80}", "type": "color", "description": "coral80" },
+
+    "buttonLinkBackgroundSelected": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "buttonLinkBackgroundSelectedInverse": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+
+    "buttonPrimaryBackground": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "buttonPrimaryBackgroundDisabled": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "buttonPrimaryBackgroundDisabledInverse": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "buttonPrimaryBackgroundInverse": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "buttonPrimaryBackgroundSelected": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
+    "buttonPrimaryBackgroundHover": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
+    "buttonPrimaryBackgroundSelectedInverse": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
+
+    "buttonSecondaryBackground": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "buttonSecondaryBackgroundDisabled": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "buttonSecondaryBackgroundSelected": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
+    "buttonSecondaryBorderDisabledInverse": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "buttonSecondaryBorderInverse": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "buttonSecondaryBorderSelectedInverse": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
+
+    "textButtonPrimary": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textButtonPrimaryDisabled": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textButtonPrimaryInverse": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textButtonPrimaryInverseDisabled": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textButtonPrimaryInverseSelected": { "value": "{grey2}", "type": "color", "description": "grey2" },
+
+    "textButtonSecondary": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textButtonSecondaryDisabled": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textButtonSecondarySelected": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
+    "textButtonSecondaryInverse": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textButtonSecondaryInverseDisabled": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textButtonSecondaryInverseSelected": { "value": "{telefonicaBlue70}", "type": "color", "description": "telefonicaBlue70" },
+
+    "textLink": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "textLinkInverse": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "textLinkDanger": { "value": "{coral}", "type": "color", "description": "coral" },
+    "textLinkDisabled": { "value": "{grey6}", "type": "color", "description": "grey6" },
+    "textLinkDangerDisabled": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textLinkSnackbar": { "value": "{telefonicaBlue30}", "type": "color", "description": "telefonicaBlue30" },
+
+    "control": { "value": "{darkModeGrey}", "type": "color", "description": "darkModeGrey" },
+    "controlActivated": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "controlError": { "value": "{coral}", "type": "color", "description": "coral" },
+    "loadingBar": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "loadingBarBackground": { "value": "{grey6}", "type": "color", "description": "grey6" },
+
+    "toggleAndroidInactive": { "value": "{grey4}", "type": "color", "description": "grey4" },
+    "toggleAndroidBackgroundActive": { "value": "{telefonicaBlue20}", "type": "color", "description": "telefonicaBlue20" },
+    "iosControlKnob": { "value": "{grey2}", "type": "color", "description": "grey2" },
+
+    "divider": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "dividerInverse": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "navigationBarDivider": { "value": "{darkModeBlack}", "type": "color", "description": "darkModeBlack" },
+
+    "badge": { "value": "{coral70}", "type": "color", "description": "coral70" },
+    "feedbackErrorBackground": { "value": "{coral}", "type": "color", "description": "coral" },
+    "feedbackInfoBackground": { "value": "{grey8}", "type": "color", "description": "grey8" },
+
+    "brand": { "value": "{telefonicaBlue}", "type": "color", "description": "telefonicaBlue" },
+    "brandDark": { "value": "{grey6}", "type": "color", "description": "grey6" },
+    "inverse": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "neutralHigh": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "neutralMedium": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "neutralLow": { "value": "{grey6}", "type": "color", "description": "grey6" },
+
+    "textPrimary": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textPrimaryInverse": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textSecondary": { "value": "{grey4}", "type": "color", "description": "grey4" },
+    "textSecondaryInverse": { "value": "{grey4}", "type": "color", "description": "grey4" },
+    "textDisabled": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textAmount": { "value": "{telefonicaBlue30}", "type": "color", "description": "telefonicaBlue30" },
+
+    "error": { "value": "{coral}", "type": "color", "description": "coral" },
+    "success": { "value": "{turquoise}", "type": "color", "description": "turquoise" },
+    "warning": { "value": "{ambar}", "type": "color", "description": "ambar" },
+    "promo": { "value": "{orchid}", "type": "color", "description": "orchid" },
+    "highlight": { "value": "{coral40}", "type": "color", "description": "coral40" },
+
+    "tagBackgroundSuccess": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "tagBackgroundWarning": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "tagBackgroundError": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "tagBackgroundPromo": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "tagBackgroundActive": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+    "tagBackgroundInactive": { "value": "rgba({white}, 0.05)", "type": "color", "description": "white" },
+
+    "textTagSuccess": { "value": "{turquoise40}", "type": "color", "description": "turquoise40" },
+    "textTagWarning": { "value": "{ambar40}", "type": "color", "description": "ambar40" },
+    "textTagError": { "value": "{coral40}", "type": "color", "description": "coral40" },
+    "textTagPromo": { "value": "{orchid40}", "type": "color", "description": "orchid40" },
+    "textTagActive": { "value": "{telefonicaBlue30}", "type": "color", "description": "telefonicaBlue30" },
+    "textTagInactive": { "value": "{grey4}", "type": "color", "description": "grey4" },
+
+    "textNavigationBarPrimary": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textNavigationBarSecondary": { "value": "{grey4}", "type": "color", "description": "grey4" },
+    "textNavigationSearchBarHint": { "value": "{grey4}", "type": "color", "description": "grey4" },
+    "textNavigationSearchBarText": { "value": "{grey2}", "type": "color", "description": "grey2" },
+    "textAppBar": { "value": "{grey5}", "type": "color", "description": "grey5" },
+    "textAppBarSelected": { "value": "{grey2}", "type": "color", "description": "grey2" }
   },
   "global": {
     "telefonicaBlue": { "value": "#0066FF", "type": "color" },
