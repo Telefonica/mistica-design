@@ -12,10 +12,8 @@ jobs:
   validate_configurations:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Validate any json file
-      uses: mcandeia/json-schema-validator@v1.0.0
+      uses: walbo/validate-json@v1.1.0
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        send_comment: true
-        clear_comments: true
+        files: tokens/*
