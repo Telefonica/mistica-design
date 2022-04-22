@@ -1,12 +1,12 @@
 {
   "additionalProperties": true,
-  "required": ["colors", "darkColors"],
+  "required": ["light", "dark"],
   "properties": {
     "$schema": { "type": "string" },
     "global": {
       "$ref": "#/global"
     },
-    "darkColors": {
+    "dark": {
       "allOf": [
         { "$ref": "#/global" },
         {
@@ -115,7 +115,7 @@
         }
       ]
     },
-    "colors": {
+    "light": {
       "allOf": [
         { "$ref": "#/global" },
         {
