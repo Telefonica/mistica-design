@@ -1,0 +1,141 @@
+{
+    "$schema": "./skin-schema.json",
+    "colors": {
+        "background": { "value": "{white}", "type": "color" },
+        "backgroundAlternative": { "value": "{grey1}", "type": "color" },
+        "backgroundBrand": { "value": "{movistarBlue}", "type": "color" },
+        "backgroundContainer": { "value": "{white}", "type": "color" },
+        "backgroundOverlay": { "value": "rgba({repsolBlue200}, 0.8)", "type": "color" },
+        "backgroundSkeleton": { "value": "{grey1}", "type": "color" },
+        "backgroundSkeletonInverse": { "value": "{repsolBlue200}", "type": "color" },
+        "backgroundFeedbackBottom": { "value": "{movistarBlue}", "type": "color" },
+        "appBarBackground": { "value": "{white}", "type": "color" },
+        "navigationBarBackground": { "value": "{movistarBlue}", "type": "color" },
+        "skeletonWave": { "value": "{grey2}", "type": "color" },
+    
+        "borderLight": { "value": "{grey1}", "type": "color" },
+        "border": { "value": "{grey2}", "type": "color" },
+        "borderDark": { "value": "{grey4}", "type": "color" },
+        "borderSelected": { "value": "{repsolOrange700}", "type": "color" },
+    
+        "buttonDangerBackground": { "value": "{movistarRed}", "type": "color" },
+        "buttonDangerBackgroundDisabled": { "value": "{repsolRedDisabled}", "type": "color" },
+        "buttonDangerBackgroundSelected": { "value": "{repsolRed500}", "type": "color" },
+        "buttonDangerBackgroundHover": { "value": "{repsolRed500}", "type": "color" },
+    
+        "buttonLinkBackgroundSelected": { "value": "{repsolOrange10}", "type": "color" },
+        "buttonLinkBackgroundSelectedInverse": { "value": "rgba({white}, 0.2)", "type": "color" },
+    
+        "buttonPrimaryBackground": { "value": "{repsolOrange70}", "type": "color" },
+        "buttonPrimaryBackgroundDisabled": { "value": "{repsolOrangeDisabled}", "type": "color" },
+        "buttonPrimaryBackgroundDisabledInverse": { "value": "{movistarBlue30}", "type": "color" },
+        "buttonPrimaryBackgroundInverse": { "value": "{white}", "type": "color" },
+        "buttonPrimaryBackgroundSelected": { "value": "{repsolOrange700}", "type": "color" },
+        "buttonPrimaryBackgroundHover": { "value": "{repsolOrange700}", "type": "color" },
+        "buttonPrimaryBackgroundSelectedInverse": { "value": "{repsolOrange20}", "type": "color" },
+    
+        "buttonSecondaryBackground": { "value": "{repsolOrange70}", "type": "color" },
+        "buttonSecondaryBackgroundDisabled": { "value": "{repsolOrangeDisabled}", "type": "color" },
+        "buttonSecondaryBackgroundSelected": { "value": "{repsolOrange700}", "type": "color" },
+        "buttonSecondaryBorderDisabledInverse": { "value": "{repsolOrangeDisabled}", "type": "color" },
+        "buttonSecondaryBorderInverse": { "value": "{white}", "type": "color" },
+        "buttonSecondaryBorderSelectedInverse": { "value": "{repsolOrange20}", "type": "color" },
+    
+        "textButtonPrimary": { "value": "{white}", "type": "color" },
+        "textButtonPrimaryDisabled": { "value": "{white}", "type": "color" },
+        "textButtonPrimaryInverse": { "value": "{repsolOrange70}", "type": "color" },
+        "textButtonPrimaryInverseDisabled": { "value": "{repsolOrangeDisabled}", "type": "color" },
+        "textButtonPrimaryInverseSelected": { "value": "{repsolOrange700}", "type": "color" },
+    
+        "textButtonSecondary": { "value": "{repsolOrange70}", "type": "color" },
+        "textButtonSecondaryDisabled": { "value": "{repsolOrangeDisabled}", "type": "color" },
+        "textButtonSecondarySelected": { "value": "{repsolOrange700}", "type": "color" },
+        "textButtonSecondaryInverse": { "value": "{white}", "type": "color" },
+        "textButtonSecondaryInverseDisabled": { "value": "{repsolOrangeDisabled}", "type": "color" },
+        "textButtonSecondaryInverseSelected": { "value": "{white}", "type": "color" },
+    
+        "textLink": { "value": "{repsolOrange700}", "type": "color" },
+        "textLinkInverse": { "value": "{white}", "type": "color" },
+        "textLinkDanger": { "value": "{repsolRed500}", "type": "color" },
+        "textLinkDangerDisabled": { "value": "{repsolRedDisabled}", "type": "color" },
+        "textLinkDisabled": { "value": "{repsolOrange20}", "type": "color" },
+        "textLinkSnackbar": { "value": "{repsolOrange20}", "type": "color" },
+    
+        "control": { "value": "{grey3}", "type": "color" },
+        "controlActivated": { "value": "{movistarBlue}", "type": "color" },
+        "controlError": { "value": "{movistarRed}", "type": "color" },
+        "loadingBar": { "value": "{repsolOrange50}", "type": "color" },
+        "loadingBarBackground": { "value": "{repsolOrange20}", "type": "color" },
+        "toggleAndroidInactive": { "value": "{grey2}", "type": "color" },
+        "toggleAndroidBackgroundActive": { "value": "{movistarBlue20}", "type": "color" },
+        "iosControlKnob": { "value": "{white}", "type": "color" },
+    
+        "divider": { "value": "{grey2}", "type": "color" },
+        "dividerInverse": { "value": "{movistarBlue55}", "type": "color" },
+        "navigationBarDivider": { "value": "{movistarBlue}", "type": "color" },
+    
+        "badge": { "value": "{repsolRed500}", "type": "color" },
+        "feedbackErrorBackground": { "value": "{movistarRed}", "type": "color" },
+        "feedbackInfoBackground": { "value": "{grey6}", "type": "color" },
+    
+        "brand": { "value": "{movistarBlue}", "type": "color" },
+        "brandDark": { "value": "{movistarBlue55}", "type": "color" },
+        "inverse": { "value": "{white}", "type": "color" },
+        "neutralHigh": { "value": "{grey6}", "type": "color" },
+        "neutralMedium": { "value": "{grey4}", "type": "color" },
+        "neutralLow": { "value": "{grey2}", "type": "color" },
+    
+        "textPrimary": { "value": "{grey6}", "type": "color" },
+        "textPrimaryInverse": { "value": "{white}", "type": "color" },
+        "textSecondary": { "value": "{grey5}", "type": "color" },
+        "textSecondaryInverse": { "value": "{white}", "type": "color" },
+        "textDisabled": { "value": "{grey3}", "type": "color" },
+        "textAmount": { "value": "{repsolOrange700}", "type": "color" },
+    
+        "success": { "value": "{repsolTurquoise50}", "type": "color" },
+        "warning": { "value": "{repsolYellow50}", "type": "color" },
+        "error": { "value": "{movistarRed}", "type": "color" },
+        "promo": { "value": "{movistarBlue}", "type": "color" },
+        "highlight": { "value": "{repsolOrange50}", "type": "color" },
+    
+        "tagBackgroundSuccess": { "value": "{repsolTurquoise10}", "type": "color" },
+        "tagBackgroundWarning": { "value": "{repsolYellow10}", "type": "color" },
+        "tagBackgroundError": { "value": "{repsolRed10}", "type": "color" },
+        "tagBackgroundPromo": { "value": "{repsolPurple10}", "type": "color" },
+        "tagBackgroundActive": { "value": "{movistarBlue10}", "type": "color" },
+        "tagBackgroundInactive": { "value": "{grey1}", "type": "color" },
+    
+        "textTagSuccess": { "value": "{repsolTurquoise80}", "type": "color" },
+        "textTagWarning": { "value": "{repsolYellow90}", "type": "color" },
+        "textTagError": { "value": "{repsolRed80}", "type": "color" },
+        "textTagPromo": { "value": "{repsolPurple80}", "type": "color" },
+        "textTagActive": { "value": "{movistarBlue}", "type": "color" },
+        "textTagInactive": { "value": "{grey4}", "type": "color" },
+    
+        "textNavigationBarPrimary": { "value": "{white}", "type": "color" },
+        "textNavigationBarSecondary": { "value": "{movistarBlue20}", "type": "color" },
+        "textNavigationSearchBarHint": { "value": "{movistarBlue20}", "type": "color" },
+        "textNavigationSearchBarText": { "value": "{white}", "type": "color" },
+        "textAppBar": { "value": "{grey4}", "type": "color" },
+        "textAppBarSelected": { "value": "{movistarBlue}", "type": "color" }
+    },
+    "darkColors": {
+      "appBarBackground": {
+        "type": "color",
+        "value": "{darkModeGrey}",
+        "description": "darkModeGrey"
+      },
+      "background": {
+        "type": "color",
+        "value": "{darkModeBlack}",
+        "description": "darkModeBlack"
+      }
+    },
+    "global": {
+      "palette-color": {
+        "movistarBlue": { "value": "#019DF4", "type": "color" },
+        "movistarBlue10": { "value": "#E6F5FD", "type": "color" }
+      }
+    }
+  }
+  
