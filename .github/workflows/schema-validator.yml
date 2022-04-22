@@ -13,11 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Validate BigQuery schema
-      uses: snapcart/json-schema-validator@v1.0.0
+    - name: Validate any json file
+      uses: mcandeia/json-schema-validator@v1.0.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        json_schema: ./tokens/skin-schema.json
-        json_path_pattern: .tokens/brandTest.json
         send_comment: true
         clear_comments: true
