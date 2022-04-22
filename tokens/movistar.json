@@ -1,5 +1,5 @@
 {
-  "movistar-light": {
+  "light": {
     "background": { "value": "{white}", "type": "color" },
     "backgroundAlternative": { "value": "{grey1}", "type": "color" },
     "backgroundBrand": { "value": "{movistarBlue}", "type": "color" },
@@ -118,442 +118,124 @@
     "textAppBar": { "value": "{grey4}", "type": "color" },
     "textAppBarSelected": { "value": "{movistarBlue}", "type": "color" }
   },
-  "movistar-dark": {
-    "appBarBackground": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "background": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "backgroundAlternative": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "backgroundBrand": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "backgroundContainer": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "backgroundFeedbackBottom": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "backgroundOverlay": {
-      "type": "color",
-      "value": "rgba({darkModeGrey}, 0.8)",
-      "description": "darkModeGrey"
-    },
-    "backgroundSkeleton": {
-      "type": "color",
-      "value": "{grey6}",
-      "description": "grey6"
-    },
-    "backgroundSkeletonInverse": {
-      "type": "color",
-      "value": "{grey6}",
-      "description": "grey6"
-    },
-    "badge": {
-      "type": "color",
-      "value": "{pepper55}",
-      "description": "pepper55"
-    },
-    "border": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "borderDark": {
-      "type": "color",
-      "value": "{grey5}",
-      "description": "grey5"
-    },
-    "borderLight": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "borderSelected": {
-      "type": "color",
-      "value": "{movistarGreen}",
-      "description": "movistarGreen"
-    },
-    "brand": {
-      "type": "color",
-      "value": "{movistarBlue}",
-      "description": "movistarBlue"
-    },
-    "brandDark": {
-      "type": "color",
-      "value": "{grey6}",
-      "description": "grey6"
-    },
-    "buttonDangerBackground": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "buttonDangerBackgroundHover": {
-      "type": "color",
-      "value": "{pepper55}",
-      "description": "pepper55"
-    },
-    "buttonDangerBackgroundSelected": {
-      "type": "color",
-      "value": "{pepper55}",
-      "description": "pepper55"
-    },
-    "buttonLinkBackgroundSelected": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "buttonLinkBackgroundSelectedInverse": {
-      "type": "color",
-      "value": "{darkModeGrey}",
-      "description": "darkModeGrey"
-    },
-    "buttonPrimaryBackground": {
-      "type": "color",
-      "value": "{movistarGreen}",
-      "description": "movistarGreen"
-    },
-    "buttonPrimaryBackgroundHover": {
-      "type": "color",
-      "value": "{movistarGreen60}",
-      "description": "movistarGreen60"
-    },
-    "buttonPrimaryBackgroundInverse": {
-      "type": "color",
-      "value": "{movistarGreen}",
-      "description": "movistarGreen"
-    },
-    "buttonPrimaryBackgroundSelected": {
-      "type": "color",
-      "value": "{movistarGreen60}",
-      "description": "movistarGreen60"
-    },
-    "buttonPrimaryBackgroundSelectedInverse": {
-      "type": "color",
-      "value": "{movistarGreen60}",
-      "description": "movistarGreen60"
-    },
-    "buttonSecondaryBackground": {
-      "type": "color",
-      "value": "{movistarGreen}",
-      "description": "movistarGreen"
-    },
-    "buttonSecondaryBackgroundSelected": {
-      "type": "color",
-      "value": "{movistarGreen60}",
-      "description": "movistarGreen60"
-    },
-    "buttonSecondaryBorderInverse": {
-      "type": "color",
-      "value": "{movistarGreen}",
-      "description": "movistarGreen"
-    },
-    "buttonSecondaryBorderSelectedInverse": {
-      "type": "color",
-      "value": "{movistarGreen60}",
-      "description": "movistarGreen60"
-    },
-    "control": {
-      "type": "color",
-      "value": "{grey6}",
-      "description": "grey6"
-    },
-    "controlActivated": {
-      "type": "color",
-      "value": "{movistarBlue}",
-      "description": "movistarBlue"
-    },
-    "controlError": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "divider": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "dividerInverse": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "error": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "feedbackErrorBackground": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "feedbackInfoBackground": {
-      "type": "color",
-      "value": "{grey6}",
-      "description": "grey6"
-    },
-    "highlight": {
-      "type": "color",
-      "value": "{pink}",
-      "description": "pink"
-    },
-    "inverse": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "iosControlKnob": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "loadingBar": {
-      "type": "color",
-      "value": "{movistarBlue}",
-      "description": "movistarBlue"
-    },
-    "loadingBarBackground": {
-      "type": "color",
-      "value": "{grey6}",
-      "description": "grey6"
-    },
-    "navigationBarBackground": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "navigationBarDivider": {
-      "type": "color",
-      "value": "{darkModeBlack}",
-      "description": "darkModeBlack"
-    },
-    "neutralHigh": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "neutralLow": {
-      "type": "color",
-      "value": "{grey6}",
-      "description": "grey6"
-    },
-    "neutralMedium": {
-      "type": "color",
-      "value": "{grey5}",
-      "description": "grey5"
-    },
-    "promo": {
-      "type": "color",
-      "value": "{purple}",
-      "description": "purple"
-    },
-    "skeletonWave": {
-      "type": "color",
-      "value": "{grey5}",
-      "description": "grey5"
-    },
-    "success": {
-      "type": "color",
-      "value": "{movistarGreen}",
-      "description": "movistarGreen"
-    },
-    "tagBackgroundActive": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundError": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundInactive": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundPromo": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundSuccess": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "tagBackgroundWarning": {
-      "type": "color",
-      "value": "rgba({white}, 0.05)",
-      "description": "white"
-    },
-    "textAppBar": {
-      "type": "color",
-      "value": "{grey5}",
-      "description": "grey5"
-    },
-    "textAppBarSelected": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonPrimary": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonPrimaryInverse": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonPrimaryInverseSelected": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonSecondary": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonSecondaryInverse": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textButtonSecondaryInverseSelected": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textButtonSecondarySelected": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textLink": {
-      "type": "color",
-      "value": "{movistarBlue}",
-      "description": "movistarBlue"
-    },
-    "textLinkDanger": {
-      "type": "color",
-      "value": "{pepper}",
-      "description": "pepper"
-    },
-    "textLinkInverse": {
-      "type": "color",
-      "value": "{movistarBlue}",
-      "description": "movistarBlue"
-    },
-    "textLinkSnackbar": {
-      "type": "color",
-      "value": "{movistarBlue30}",
-      "description": "movistarBlue30"
-    },
-    "textNavigationBarPrimary": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textNavigationBarSecondary": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textNavigationSearchBarHint": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textNavigationSearchBarText": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textPrimary": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textPrimaryInverse": {
-      "type": "color",
-      "value": "{grey2}",
-      "description": "grey2"
-    },
-    "textSecondary": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textSecondaryInverse": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textTagActive": {
-      "type": "color",
-      "value": "{movistarBlue40}",
-      "description": "movistarBlue40"
-    },
-    "textTagError": {
-      "type": "color",
-      "value": "{pepper40}",
-      "description": "pepper40"
-    },
-    "textTagInactive": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "textTagPromo": {
-      "type": "color",
-      "value": "{purple40}",
-      "description": "purple40"
-    },
-    "textTagSuccess": {
-      "type": "color",
-      "value": "{movistarGreen40}",
-      "description": "movistarGreen40"
-    },
-    "textTagWarning": {
-      "type": "color",
-      "value": "{egg40}",
-      "description": "egg40"
-    },
-    "toggleAndroidBackgroundActive": {
-      "type": "color",
-      "value": "{movistarBlue20}",
-      "description": "movistarBlue20"
-    },
-    "toggleAndroidInactive": {
-      "type": "color",
-      "value": "{grey4}",
-      "description": "grey4"
-    },
-    "warning": {
-      "type": "color",
-      "value": "{egg}",
-      "description": "egg"
-    }
+  "dark": {
+    "background": { "value": "{white}", "type": "color" },
+    "backgroundAlternative": { "value": "{grey1}", "type": "color" },
+    "backgroundBrand": { "value": "{movistarBlue}", "type": "color" },
+    "backgroundContainer": { "value": "{white}", "type": "color" },
+    "backgroundOverlay": { "value": "rgba({grey6}, 0.6)", "type": "color" },
+    "backgroundSkeleton": { "value": "{grey1}", "type": "color" },
+    "backgroundSkeletonInverse": { "value": "{movistarBlue55}", "type": "color" },
+    "backgroundFeedbackBottom": { "value": "{movistarBlue}", "type": "color" },
+    "appBarBackground": { "value": "{white}", "type": "color" },
+    "navigationBarBackground": { "value": "{movistarBlue}", "type": "color" },
+    "skeletonWave": { "value": "{grey2}", "type": "color" },
+
+    "borderLight": { "value": "{grey1}", "type": "color" },
+    "border": { "value": "{grey3}", "type": "color" },
+    "borderDark": { "value": "{grey5}", "type": "color" },
+    "borderSelected": { "value": "{movistarGreen}", "type": "color" },
+
+    "buttonDangerBackground": { "value": "{pepper}", "type": "color" },
+    "buttonDangerBackgroundDisabled": { "value": "{pepper20}", "type": "color" },
+    "buttonDangerBackgroundSelected": { "value": "{pepper55}", "type": "color" },
+    "buttonDangerBackgroundHover": { "value": "{pepper55}", "type": "color" },
+
+    "buttonLinkBackgroundSelected": { "value": "{movistarBlue10}", "type": "color" },
+    "buttonLinkBackgroundSelectedInverse": { "value": "rgba({white}, 0.2)", "type": "color" },
+
+    "buttonPrimaryBackground": { "value": "{movistarGreen}", "type": "color" },
+    "buttonPrimaryBackgroundDisabled": { "value": "{movistarGreen30}", "type": "color" },
+    "buttonPrimaryBackgroundDisabledInverse": { "value": "{movistarBlue30}", "type": "color" },
+    "buttonPrimaryBackgroundInverse": { "value": "{white}", "type": "color" },
+    "buttonPrimaryBackgroundSelected": { "value": "{movistarGreen60}", "type": "color" },
+    "buttonPrimaryBackgroundHover": { "value": "{movistarGreen60}", "type": "color" },
+    "buttonPrimaryBackgroundSelectedInverse": { "value": "{movistarBlue30}", "type": "color" },
+
+    "buttonSecondaryBackground": { "value": "{movistarGreen}", "type": "color" },
+    "buttonSecondaryBackgroundDisabled": { "value": "{movistarGreen30}", "type": "color" },
+    "buttonSecondaryBackgroundSelected": { "value": "{movistarGreen60}", "type": "color" },
+    "buttonSecondaryBorderDisabledInverse": { "value": "{movistarBlue30}", "type": "color" },
+    "buttonSecondaryBorderInverse": { "value": "{white}", "type": "color" },
+    "buttonSecondaryBorderSelectedInverse": { "value": "{movistarBlue30}", "type": "color" },
+
+    "textButtonPrimary": { "value": "{white}", "type": "color" },
+    "textButtonPrimaryDisabled": { "value": "{white}", "type": "color" },
+    "textButtonPrimaryInverse": { "value": "{movistarBlue}", "type": "color" },
+    "textButtonPrimaryInverseDisabled": { "value": "{movistarBlue20}", "type": "color" },
+    "textButtonPrimaryInverseSelected": { "value": "{movistarBlue}", "type": "color" },
+
+    "textButtonSecondary": { "value": "{movistarGreen}", "type": "color" },
+    "textButtonSecondaryDisabled": { "value": "{movistarGreen30}", "type": "color" },
+    "textButtonSecondarySelected": { "value": "{movistarGreen60}", "type": "color" },
+    "textButtonSecondaryInverse": { "value": "{white}", "type": "color" },
+    "textButtonSecondaryInverseDisabled": { "value": "{movistarBlue30}", "type": "color" },
+    "textButtonSecondaryInverseSelected": { "value": "{white}", "type": "color" },
+
+    "textLink": { "value": "{movistarBlue}", "type": "color" },
+    "textLinkInverse": { "value": "{white}", "type": "color" },
+    "textLinkDanger": { "value": "{pepper}", "type": "color" },
+    "textLinkDangerDisabled": { "value": "{pepper20}", "type": "color" },
+    "textLinkDisabled": { "value": "{movistarBlue30}", "type": "color" },
+    "textLinkSnackbar": { "value": "{movistarBlue30}", "type": "color" },
+
+    "control": { "value": "{grey3}", "type": "color" },
+    "controlActivated": { "value": "{movistarBlue}", "type": "color" },
+    "controlError": { "value": "{pepper}", "type": "color" },
+    "loadingBar": { "value": "{movistarBlue30}", "type": "color" },
+    "loadingBarBackground": { "value": "{movistarBlue55}", "type": "color" },
+    "toggleAndroidInactive": { "value": "{grey2}", "type": "color" },
+    "toggleAndroidBackgroundActive": { "value": "{movistarBlue20}", "type": "color" },
+    "iosControlKnob": { "value": "{white}", "type": "color" },
+
+    "divider": { "value": "{grey2}", "type": "color" },
+    "dividerInverse": { "value": "{movistarBlue55}", "type": "color" },
+    "navigationBarDivider": { "value": "{movistarBlue}", "type": "color" },
+
+    "badge": { "value": "{pepper55}", "type": "color" },
+    "feedbackErrorBackground": { "value": "{pepper}", "type": "color" },
+    "feedbackInfoBackground": { "value": "{grey6}", "type": "color" },
+
+    "brand": { "value": "{movistarBlue}", "type": "color" },
+    "brandDark": { "value": "{movistarBlue55}", "type": "color" },
+    "inverse": { "value": "{white}", "type": "color" },
+    "neutralHigh": { "value": "{grey6}", "type": "color" },
+    "neutralMedium": { "value": "{grey5}", "type": "color" },
+    "neutralLow": { "value": "{grey3}", "type": "color" },
+
+    "textPrimary": { "value": "{grey6}", "type": "color" },
+    "textPrimaryInverse": { "value": "{white}", "type": "color" },
+    "textSecondary": { "value": "{grey5}", "type": "color" },
+    "textSecondaryInverse": { "value": "{white}", "type": "color" },
+    "textDisabled": { "value": "{grey3}", "type": "color" },
+    "textAmount": { "value": "{movistarBlue}", "type": "color" },
+
+    "success": { "value": "{movistarGreen}", "type": "color" },
+    "warning": { "value": "{egg}", "type": "color" },
+    "error": { "value": "{pepper}", "type": "color" },
+    "promo": { "value": "{purple}", "type": "color" },
+    "highlight": { "value": "{pink}", "type": "color" },
+
+    "tagBackgroundSuccess": { "value": "{movistarGreen10}", "type": "color" },
+    "tagBackgroundWarning": { "value": "{egg10}", "type": "color" },
+    "tagBackgroundError": { "value": "{pepper10}", "type": "color" },
+    "tagBackgroundPromo": { "value": "{purple10}", "type": "color" },
+    "tagBackgroundActive": { "value": "{movistarBlue10}", "type": "color" },
+    "tagBackgroundInactive": { "value": "{grey1}", "type": "color" },
+
+    "textTagSuccess": { "value": "{movistarGreen70}", "type": "color" },
+    "textTagWarning": { "value": "{egg80}", "type": "color" },
+    "textTagError": { "value": "{pepper70}", "type": "color" },
+    "textTagPromo": { "value": "{purple70}", "type": "color" },
+    "textTagActive": { "value": "{movistarBlue}", "type": "color" },
+    "textTagInactive": { "value": "{grey5}", "type": "color" },
+
+    "textNavigationBarPrimary": { "value": "{white}", "type": "color" },
+    "textNavigationBarSecondary": { "value": "{movistarBlue20}", "type": "color" },
+    "textNavigationSearchBarHint": { "value": "{movistarBlue20}", "type": "color" },
+    "textNavigationSearchBarText": { "value": "{white}", "type": "color" },
+    "textAppBar": { "value": "{grey4}", "type": "color" },
+    "textAppBarSelected": { "value": "{movistarBlue}", "type": "color" }
   },
   "global": {
     "movistarBlue": { "value": "#019DF4", "type": "color" },
@@ -620,5 +302,6 @@
       "type": "borderRadius",
       "value": "10rem"
     }
-  }
+  },
+  "$schema": "./skin-schema.json"
 }
