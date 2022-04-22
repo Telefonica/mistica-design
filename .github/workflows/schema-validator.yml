@@ -11,8 +11,6 @@ on:
 jobs:
   skins_validation:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.step1.outputs.validations }}
     steps:
     - uses: actions/checkout@v3
     - name: Validate any json file
