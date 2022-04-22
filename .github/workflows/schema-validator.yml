@@ -1,12 +1,7 @@
 name: "Schema validator"
 
 on:
-  push:
-    branches:
-      - tokens
   pull_request:
-    branches:
-      - tokens
 
 jobs:
   skins_validation:
