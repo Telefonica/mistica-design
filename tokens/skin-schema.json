@@ -1,5 +1,5 @@
 {
-  "additionalProperties": true,
+  "additionalProperties": false,
   "required": ["light", "dark"],
   "properties": {
     "$schema": { "type": "string" },
@@ -8,7 +8,7 @@
     },
     "dark": {
       "allOf": [
-        { "$ref": "#/global" },
+        { "$ref": "#/global/palette" },
         {
           "required": [
             "appBarBackground",
@@ -117,7 +117,7 @@
     },
     "light": {
       "allOf": [
-        { "$ref": "#/global" },
+        { "$ref": "#/global/palette" },
         {
           "required": [
             "appBarBackground",
