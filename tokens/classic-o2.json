@@ -1,5 +1,5 @@
 {
-  "classic-o2-light": {
+  "light": {
     "appBarBackground": { "value": "{white}", "type": "color" },
     "background": { "value": "{white}", "type": "color" },
     "backgroundContainer": { "value": "{white}", "type": "color" },
@@ -120,7 +120,7 @@
     "textAppBar": { "value": "{grey4}", "type": "color" },
     "textAppBarSelected": { "value": "{o2Blue}", "type": "color" }
   },
-  "classic-o2-dark": {
+  "dark": {
     "appBarBackground": {
       "type": "color",
       "value": "{darkModeGrey}",
@@ -634,5 +634,6 @@
       "type": "borderRadius",
       "value": "10rem"
     }
-  }
+  },
+  "$schema": "./schema/skin-schema.json"
 }

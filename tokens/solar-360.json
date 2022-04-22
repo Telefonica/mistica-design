@@ -1,5 +1,5 @@
 {
-  "solar-360-light": {
+  "light": {
     "background": { "value": "{white}", "type": "color" },
     "backgroundAlternative": { "value": "{grey1}", "type": "color" },
     "backgroundBrand": { "value": "{movistarBlue}", "type": "color" },
@@ -131,7 +131,7 @@
     "consumptionLow": { "value": "{movistarBlue10}", "type": "color" },
     "productionLow": { "value": "{repsolOrange10}", "type": "color" }
   },
-  "solar-360-dark": {
+  "dark": {
     "appBarBackground": {
       "type": "color",
       "value": "{darkModeGrey}",
@@ -628,5 +628,6 @@
       "type": "borderRadius",
       "value": "10rem"
     }
-  }
+  },
+  "$schema": "./schema/skin-schema.json"
 }

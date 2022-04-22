@@ -1,5 +1,5 @@
 {
-  "blau-light": {
+  "light": {
     "backgroundBrand": { "value": "{blauBluePrimary}", "type": "color" },
     "appBarBackground": { "value": "{white}", "type": "color" },
     "background": { "value": "{white}", "type": "color" },
@@ -120,7 +120,7 @@
     "textAppBar": { "value": "{grey5}", "type": "color" },
     "textAppBarSelected": { "value": "{blauBlueSecondary60}", "type": "color" }
   },
-  "blau-dark": {
+  "dark": {
     "appBarBackground": {
       "type": "color",
       "value": "{darkModeGrey}",
@@ -616,5 +616,6 @@
       "type": "borderRadius",
       "value": "10rem"
     }
-  }
+  },
+  "$schema": "./schema/skin-schema.json"
 }

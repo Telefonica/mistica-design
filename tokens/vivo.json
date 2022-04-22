@@ -1,5 +1,5 @@
 {
-  "vivo-light": {
+  "light": {
     "background": { "value": "{white}", "type": "color" },
     "backgroundAlternative": { "value": "{grey1}", "type": "color" },
     "backgroundBrand": { "value": "{vivoPurple}", "type": "color" },
@@ -118,7 +118,7 @@
     "textAppBar": { "value": "{grey4}", "type": "color" },
     "textAppBarSelected": { "value": "{vivoPurple}", "type": "color" }
   },
-  "vivo-dark": {
+  "dark": {
     "appBarBackground": {
       "type": "color",
       "value": "{darkModeGrey}",
@@ -611,5 +611,6 @@
       "type": "borderRadius",
       "value": "10rem"
     }
-  }
+  },
+  "$schema": "./schema/skin-schema.json"
 }

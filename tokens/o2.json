@@ -1,5 +1,5 @@
 {
-  "o2-light": {
+  "light": {
     "background": { "value": "{white}", "type": "color" },
     "backgroundAlternative": { "value": "{grey1}", "type": "color" },
     "backgroundBrand": { "value": "{o2BluePrimary}", "type": "color" },
@@ -118,7 +118,7 @@
     "textAppBar": { "value": "{grey4}", "type": "color" },
     "textAppBarSelected": { "value": "{o2BluePrimary}", "type": "color" }
   },
-  "o2-dark": {
+  "dark": {
     "appBarBackground": {
       "type": "color",
       "value": "{darkModeGrey}",
@@ -620,5 +620,6 @@
       "type": "borderRadius",
       "value": "10rem"
     }
-  }
+  },
+  "$schema": "./schema/skin-schema.json"
 }

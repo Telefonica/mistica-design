@@ -1,5 +1,5 @@
 {
-  "telefonica-light": {
+  "light": {
     "appBarBackground": { "value": "{white}", "type": "color" },
     "background": { "value": "{white}", "type": "color" },
     "backgroundContainer": { "value": "{white}", "type": "color" },
@@ -120,7 +120,7 @@
     "textAppBar": { "value": "{grey4}", "type": "color" },
     "textAppBarSelected": { "value": "{telefonicaBlue}", "type": "color" }
   },
-  "telefonica-dark": {
+  "dark": {
     "appBarBackground": {
       "type": "color",
       "value": "{darkModeGrey}",
@@ -613,5 +613,6 @@
       "type": "borderRadius",
       "value": "10rem"
     }
-  }
+  },
+  "$schema": "./schema/skin-schema.json"
 }
