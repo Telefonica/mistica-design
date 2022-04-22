@@ -1,21 +1,23 @@
 name: "Schema validator"
 
 on:
+  push:
+    branches:
+      - tokens
   pull_request:
     branches:
       - tokens
 
 jobs:
   validate_configurations:
-    name: Validate configurations
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Validate BigQuery schema
-        uses: snapcart/json-schema-validator@v1.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          json_schema: ./tokens/skin-schema.json
-          json_path_pattern: .tokens/brandTest.json
-          send_comment: true
-          clear_comments: true
+    - uses: actions/checkout@v2
+    - name: Validate BigQuery schema
+      uses: snapcart/json-schema-validator@v1.0.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        json_schema: ./tokens/skin-schema.json
+        json_path_pattern: .tokens/brandTest.json
+        send_comment: true
+        clear_comments: true
