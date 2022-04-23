@@ -86,18 +86,16 @@
             "textNavigationSearchBarText",
             "textAppBar",
             "textAppBarSelected",
-            "tagBackgroundSuccess",
-            "tagBackgroundWarning",
-            "tagBackgroundError",
-            "tagBackgroundPromo",
-            "tagBackgroundActive",
-            "tagBackgroundInactive",
-            "textTagSuccess",
-            "textTagWarning",
-            "textTagError",
-            "textTagPromo",
-            "textTagActive",
-            "textTagInactive"
+            "successLow",
+            "warningLow",
+            "errorLow",
+            "promoLow",
+            "brandLow",
+            "successHigh",
+            "warningHigh",
+            "errorHigh",
+            "promoHigh",
+            "brandHigh"
           ]
         }
       ]
@@ -182,18 +180,16 @@
             "textNavigationSearchBarText",
             "textAppBar",
             "textAppBarSelected",
-            "tagBackgroundSuccess",
-            "tagBackgroundWarning",
-            "tagBackgroundError",
-            "tagBackgroundPromo",
-            "tagBackgroundActive",
-            "tagBackgroundInactive",
-            "textTagSuccess",
-            "textTagWarning",
-            "textTagError",
-            "textTagPromo",
-            "textTagActive",
-            "textTagInactive"
+            "successLow",
+            "warningLow",
+            "errorLow",
+            "promoLow",
+            "brandLow",
+            "successHigh",
+            "warningHigh",
+            "errorHigh",
+            "promoHigh",
+            "brandHigh"
           ]
         }
       ]
@@ -878,7 +874,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "tagBackgroundSuccess": {
+        "successLow": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -887,7 +883,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "tagBackgroundWarning": {
+        "warningLow": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -896,7 +892,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "tagBackgroundError": {
+        "errorLow": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -905,7 +901,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "tagBackgroundPromo": {
+        "promoLow": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -914,7 +910,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "tagBackgroundActive": {
+        "brandLow": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -923,7 +919,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "tagBackgroundInactive": {
+        "successHigh": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -932,7 +928,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "textTagSuccess": {
+        "warningHigh": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -941,7 +937,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "textTagWarning": {
+        "errorHigh": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -950,7 +946,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "textTagError": {
+        "promoHigh": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -959,25 +955,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "textTagPromo": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
-        "textTagActive": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
-        "textTagInactive": {
+        "brandHigh": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
