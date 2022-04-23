@@ -75,7 +75,6 @@
             "textSecondary",
             "textSecondaryInverse",
             "textDisabled",
-            "textAmount",
             "textButtonPrimary",
             "textButtonPrimaryDisabled",
             "textButtonPrimaryInverse",
@@ -184,7 +183,6 @@
             "textSecondary",
             "textSecondaryInverse",
             "textDisabled",
-            "textAmount",
             "textButtonPrimary",
             "textButtonPrimaryDisabled",
             "textButtonPrimaryInverse",
@@ -796,15 +794,6 @@
           "value": { "const": "value" }
         },
         "textDisabled": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
-        "textAmount": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
