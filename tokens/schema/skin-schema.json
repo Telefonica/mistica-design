@@ -27,22 +27,17 @@
             "borderDark",
             "borderSelected",
             "buttonDangerBackground",
-            "buttonDangerBackgroundDisabled",
             "buttonDangerBackgroundSelected",
             "buttonDangerBackgroundHover",
             "buttonLinkBackgroundSelected",
             "buttonLinkBackgroundSelectedInverse",
             "buttonPrimaryBackground",
-            "buttonPrimaryBackgroundDisabled",
-            "buttonPrimaryBackgroundDisabledInverse",
             "buttonPrimaryBackgroundInverse",
             "buttonPrimaryBackgroundSelected",
             "buttonPrimaryBackgroundSelectedInverse",
             "buttonPrimaryBackgroundHover",
             "buttonSecondaryBackground",
-            "buttonSecondaryBackgroundDisabled",
             "buttonSecondaryBackgroundSelected",
-            "buttonSecondaryBorderDisabledInverse",
             "buttonSecondaryBorderInverse",
             "buttonSecondaryBorderSelectedInverse",
             "control",
@@ -74,23 +69,16 @@
             "textPrimaryInverse",
             "textSecondary",
             "textSecondaryInverse",
-            "textDisabled",
             "textButtonPrimary",
-            "textButtonPrimaryDisabled",
             "textButtonPrimaryInverse",
-            "textButtonPrimaryInverseDisabled",
             "textButtonPrimaryInverseSelected",
             "textButtonSecondary",
-            "textButtonSecondaryDisabled",
             "textButtonSecondarySelected",
             "textButtonSecondaryInverse",
-            "textButtonSecondaryInverseDisabled",
             "textButtonSecondaryInverseSelected",
             "textLink",
             "textLinkInverse",
             "textLinkDanger",
-            "textLinkDangerDisabled",
-            "textLinkDisabled",
             "textLinkSnackbar",
             "textNavigationBarPrimary",
             "textNavigationBarSecondary",
@@ -135,22 +123,17 @@
             "borderDark",
             "borderSelected",
             "buttonDangerBackground",
-            "buttonDangerBackgroundDisabled",
             "buttonDangerBackgroundSelected",
             "buttonDangerBackgroundHover",
             "buttonLinkBackgroundSelected",
             "buttonLinkBackgroundSelectedInverse",
             "buttonPrimaryBackground",
-            "buttonPrimaryBackgroundDisabled",
-            "buttonPrimaryBackgroundDisabledInverse",
             "buttonPrimaryBackgroundInverse",
             "buttonPrimaryBackgroundSelected",
             "buttonPrimaryBackgroundSelectedInverse",
             "buttonPrimaryBackgroundHover",
             "buttonSecondaryBackground",
-            "buttonSecondaryBackgroundDisabled",
             "buttonSecondaryBackgroundSelected",
-            "buttonSecondaryBorderDisabledInverse",
             "buttonSecondaryBorderInverse",
             "buttonSecondaryBorderSelectedInverse",
             "control",
@@ -182,23 +165,16 @@
             "textPrimaryInverse",
             "textSecondary",
             "textSecondaryInverse",
-            "textDisabled",
             "textButtonPrimary",
-            "textButtonPrimaryDisabled",
             "textButtonPrimaryInverse",
-            "textButtonPrimaryInverseDisabled",
             "textButtonPrimaryInverseSelected",
             "textButtonSecondary",
-            "textButtonSecondaryDisabled",
             "textButtonSecondarySelected",
             "textButtonSecondaryInverse",
-            "textButtonSecondaryInverseDisabled",
             "textButtonSecondaryInverseSelected",
             "textLink",
             "textLinkInverse",
             "textLinkDanger",
-            "textLinkDangerDisabled",
-            "textLinkDisabled",
             "textLinkSnackbar",
             "textNavigationBarPrimary",
             "textNavigationBarSecondary",
@@ -370,15 +346,6 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "buttonDangerBackgroundDisabled": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
         "buttonDangerBackgroundSelected": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
@@ -416,24 +383,6 @@
           "value": { "const": "value" }
         },
         "buttonPrimaryBackground": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
-        "buttonPrimaryBackgroundDisabled": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
-        "buttonPrimaryBackgroundDisabledInverse": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -487,25 +436,8 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "buttonSecondaryBackgroundDisabled": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
+
         "buttonSecondaryBackgroundSelected": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
-        "buttonSecondaryBorderDisabledInverse": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -793,15 +725,6 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "textDisabled": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
         "textButtonPrimary": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
@@ -811,25 +734,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "textButtonPrimaryDisabled": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
         "textButtonPrimaryInverse": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
-        "textButtonPrimaryInverseDisabled": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -856,15 +761,6 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "textButtonSecondaryDisabled": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
         "textButtonSecondarySelected": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
@@ -875,15 +771,6 @@
           "value": { "const": "value" }
         },
         "textButtonSecondaryInverse": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
-        "textButtonSecondaryInverseDisabled": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -920,24 +807,6 @@
           "value": { "const": "value" }
         },
         "textLinkDanger": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
-        "textLinkDangerDisabled": {
-          "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
-            "type": { "const": "color" },
-            "description": { "type": "string", "pattern": "^[^{}]+$" }
-          },
-          "required": ["value", "type", "description"],
-          "value": { "const": "value" }
-        },
-        "textLinkDisabled": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
