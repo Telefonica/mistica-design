@@ -11,11 +11,7 @@
     },
     "dark": {
       "$ref": "#/global/constants"
-    },
-    "extended-light": {
-    },
-    "extended-dark": {
-    } 
+    }
   },
   "global": {
     "constants": {
@@ -785,6 +781,9 @@
           },
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
+        },
+        "extended": {
+          "additionalProperties": true
         }
       },
       "additionalProperties": false
