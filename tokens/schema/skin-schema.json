@@ -7,193 +7,11 @@
       "$ref": "#/global"
     },
     "dark": {
-      "allOf": [
-        { "$ref": "#/global/constants" },
-        {
-          "required": [
-            "appBarBackground",
-            "background",
-            "backgroundContainer",
-            "backgroundBrand",
-            "backgroundOverlay",
-            "backgroundSkeleton",
-            "backgroundSkeletonInverse",
-            "backgroundAlternative",
-            "backgroundFeedbackBottom",
-            "navigationBarBackground",
-            "skeletonWave",
-            "border",
-            "borderLight",
-            "borderDark",
-            "borderSelected",
-            "buttonDangerBackground",
-            "buttonDangerBackgroundSelected",
-            "buttonDangerBackgroundHover",
-            "buttonLinkBackgroundSelected",
-            "buttonLinkBackgroundSelectedInverse",
-            "buttonPrimaryBackground",
-            "buttonPrimaryBackgroundInverse",
-            "buttonPrimaryBackgroundSelected",
-            "buttonPrimaryBackgroundSelectedInverse",
-            "buttonPrimaryBackgroundHover",
-            "buttonSecondaryBackground",
-            "buttonSecondaryBackgroundSelected",
-            "buttonSecondaryBorderInverse",
-            "buttonSecondaryBorderSelectedInverse",
-            "control",
-            "controlActivated",
-            "controlError",
-            "loadingBar",
-            "loadingBarBackground",
-            "toggleAndroidInactive",
-            "toggleAndroidBackgroundActive",
-            "iosControlKnob",
-            "divider",
-            "dividerInverse",
-            "navigationBarDivider",
-            "badge",
-            "feedbackErrorBackground",
-            "feedbackInfoBackground",
-            "brand",
-            "brandDark",
-            "inverse",
-            "neutralHigh",
-            "neutralLow",
-            "neutralMedium",
-            "promo",
-            "error",
-            "highlight",
-            "success",
-            "warning",
-            "textPrimary",
-            "textPrimaryInverse",
-            "textSecondary",
-            "textSecondaryInverse",
-            "textButtonPrimary",
-            "textButtonPrimaryInverse",
-            "textButtonPrimaryInverseSelected",
-            "textButtonSecondary",
-            "textButtonSecondarySelected",
-            "textButtonSecondaryInverse",
-            "textButtonSecondaryInverseSelected",
-            "textLink",
-            "textLinkInverse",
-            "textLinkDanger",
-            "textLinkSnackbar",
-            "textNavigationBarPrimary",
-            "textNavigationBarSecondary",
-            "textNavigationSearchBarHint",
-            "textNavigationSearchBarText",
-            "textAppBar",
-            "textAppBarSelected",
-            "successLow",
-            "warningLow",
-            "errorLow",
-            "promoLow",
-            "brandLow",
-            "successHigh",
-            "warningHigh",
-            "errorHigh",
-            "promoHigh",
-            "brandHigh"
-          ]
-        }
-      ]
+      "$ref": "#/global/constants"
     },
     "light": {
-      "allOf": [
-        { "$ref": "#/global/constants" },
-        {
-          "required": [
-            "appBarBackground",
-            "background",
-            "backgroundContainer",
-            "backgroundBrand",
-            "backgroundOverlay",
-            "backgroundSkeleton",
-            "backgroundSkeletonInverse",
-            "backgroundAlternative",
-            "backgroundFeedbackBottom",
-            "navigationBarBackground",
-            "skeletonWave",
-            "border",
-            "borderLight",
-            "borderDark",
-            "borderSelected",
-            "buttonDangerBackground",
-            "buttonDangerBackgroundSelected",
-            "buttonDangerBackgroundHover",
-            "buttonLinkBackgroundSelected",
-            "buttonLinkBackgroundSelectedInverse",
-            "buttonPrimaryBackground",
-            "buttonPrimaryBackgroundInverse",
-            "buttonPrimaryBackgroundSelected",
-            "buttonPrimaryBackgroundSelectedInverse",
-            "buttonPrimaryBackgroundHover",
-            "buttonSecondaryBackground",
-            "buttonSecondaryBackgroundSelected",
-            "buttonSecondaryBorderInverse",
-            "buttonSecondaryBorderSelectedInverse",
-            "control",
-            "controlActivated",
-            "controlError",
-            "loadingBar",
-            "loadingBarBackground",
-            "toggleAndroidInactive",
-            "toggleAndroidBackgroundActive",
-            "iosControlKnob",
-            "divider",
-            "dividerInverse",
-            "navigationBarDivider",
-            "badge",
-            "feedbackErrorBackground",
-            "feedbackInfoBackground",
-            "brand",
-            "brandDark",
-            "inverse",
-            "neutralHigh",
-            "neutralLow",
-            "neutralMedium",
-            "promo",
-            "error",
-            "highlight",
-            "success",
-            "warning",
-            "textPrimary",
-            "textPrimaryInverse",
-            "textSecondary",
-            "textSecondaryInverse",
-            "textButtonPrimary",
-            "textButtonPrimaryInverse",
-            "textButtonPrimaryInverseSelected",
-            "textButtonSecondary",
-            "textButtonSecondarySelected",
-            "textButtonSecondaryInverse",
-            "textButtonSecondaryInverseSelected",
-            "textLink",
-            "textLinkInverse",
-            "textLinkDanger",
-            "textLinkSnackbar",
-            "textNavigationBarPrimary",
-            "textNavigationBarSecondary",
-            "textNavigationSearchBarHint",
-            "textNavigationSearchBarText",
-            "textAppBar",
-            "textAppBarSelected",
-            "successLow",
-            "warningLow",
-            "errorLow",
-            "promoLow",
-            "brandLow",
-            "successHigh",
-            "warningHigh",
-            "errorHigh",
-            "promoHigh",
-            "brandHigh"
-          ]
-        }
-      ]
-    }
+      "$ref": "#/global/constants"
+    } 
   },
   "global": {
     "constants": {
@@ -342,6 +160,15 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
+        "buttonDangerBackgroundDisabled": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
         "buttonDangerBackgroundSelected": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
@@ -379,6 +206,24 @@
           "value": { "const": "value" }
         },
         "buttonPrimaryBackground": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
+        "buttonPrimaryBackgroundDisabled": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
+        "buttonPrimaryBackgroundDisabledInverse": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -432,8 +277,25 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-
+        "buttonSecondaryBackgroundDisabled": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
         "buttonSecondaryBackgroundSelected": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
+        "buttonSecondaryBorderDisabledInverse": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -721,6 +583,24 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
+        "textDisabled": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
+        "textAmount": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
         "textButtonPrimary": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
@@ -730,7 +610,25 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
+        "textButtonPrimaryDisabled": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
         "textButtonPrimaryInverse": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
+        "textButtonPrimaryInverseDisabled": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -757,6 +655,15 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
+        "textButtonSecondaryDisabled": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
         "textButtonSecondarySelected": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
@@ -767,6 +674,15 @@
           "value": { "const": "value" }
         },
         "textButtonSecondaryInverse": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
+        "textButtonSecondaryInverseDisabled": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -803,6 +719,24 @@
           "value": { "const": "value" }
         },
         "textLinkDanger": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
+        "textLinkDangerDisabled": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
+        "textLinkDisabled": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -874,7 +808,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "successLow": {
+        "tagBackgroundSuccess": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -883,7 +817,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "warningLow": {
+        "tagBackgroundWarning": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -892,7 +826,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "errorLow": {
+        "tagBackgroundError": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -901,7 +835,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "promoLow": {
+        "tagBackgroundPromo": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -910,7 +844,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "brandLow": {
+        "tagBackgroundActive": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -919,7 +853,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "successHigh": {
+        "tagBackgroundInactive": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -928,7 +862,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "warningHigh": {
+        "textTagSuccess": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -937,7 +871,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "errorHigh": {
+        "textTagWarning": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -946,7 +880,7 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "promoHigh": {
+        "textTagError": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
@@ -955,7 +889,25 @@
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-        "brandHigh": {
+        "textTagPromo": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
+        "textTagActive": {
+          "properties": {
+            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "type": { "const": "color" },
+            "description": { "type": "string", "pattern": "^[^{}]+$" }
+          },
+          "required": ["value", "type", "description"],
+          "value": { "const": "value" }
+        },
+        "textTagInactive": {
           "properties": {
             "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
