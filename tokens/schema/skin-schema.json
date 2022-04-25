@@ -18,7 +18,7 @@
       "properties": {
         "appBarBackground": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -27,7 +27,7 @@
         },
         "background": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -36,7 +36,7 @@
         },
         "backgroundContainer": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -45,7 +45,7 @@
         },
         "backgroundBrand": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -54,7 +54,7 @@
         },
         "backgroundOverlay": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -63,7 +63,7 @@
         },
         "backgroundSkeleton": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -72,7 +72,7 @@
         },
         "backgroundSkeletonInverse": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -81,7 +81,7 @@
         },
         "backgroundAlternative": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -90,7 +90,7 @@
         },
         "backgroundFeedbackBottom": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -99,7 +99,7 @@
         },
         "navigationBarBackground": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -108,7 +108,7 @@
         },
         "skeletonWave": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -117,7 +117,7 @@
         },
         "border": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -126,7 +126,7 @@
         },
         "borderLight": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -135,7 +135,7 @@
         },
         "borderDark": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -144,7 +144,7 @@
         },
         "borderSelected": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -153,7 +153,7 @@
         },
         "buttonDangerBackground": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -162,7 +162,7 @@
         },
         "buttonDangerBackgroundSelected": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -171,7 +171,7 @@
         },
         "buttonDangerBackgroundHover": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -180,7 +180,7 @@
         },
         "buttonLinkBackgroundSelected": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -189,7 +189,7 @@
         },
         "buttonLinkBackgroundSelectedInverse": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -198,7 +198,7 @@
         },
         "buttonPrimaryBackground": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -207,7 +207,7 @@
         },
         "buttonPrimaryBackgroundInverse": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -216,7 +216,7 @@
         },
         "buttonPrimaryBackgroundSelected": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -225,7 +225,7 @@
         },
         "buttonPrimaryBackgroundSelectedInverse": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -234,7 +234,7 @@
         },
         "buttonPrimaryBackgroundHover": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -243,17 +243,16 @@
         },
         "buttonSecondaryBackground": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
           "required": ["value", "type", "description"],
           "value": { "const": "value" }
         },
-
         "buttonSecondaryBackgroundSelected": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -262,7 +261,7 @@
         },
         "buttonSecondaryBorderInverse": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -271,7 +270,7 @@
         },
         "buttonSecondaryBorderSelectedInverse": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -280,7 +279,7 @@
         },
         "control": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -289,7 +288,7 @@
         },
         "controlActivated": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -298,7 +297,7 @@
         },
         "controlError": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -307,7 +306,7 @@
         },
         "loadingBar": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -316,7 +315,7 @@
         },
         "loadingBarBackground": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -325,7 +324,7 @@
         },
         "toggleAndroidInactive": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -334,7 +333,7 @@
         },
         "toggleAndroidBackgroundActive": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -343,7 +342,7 @@
         },
         "iosControlKnob": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -352,7 +351,7 @@
         },
         "divider": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -361,7 +360,7 @@
         },
         "dividerInverse": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -370,7 +369,7 @@
         },
         "navigationBarDivider": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -379,7 +378,7 @@
         },
         "badge": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -388,7 +387,7 @@
         },
         "feedbackErrorBackground": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -397,7 +396,7 @@
         },
         "feedbackInfoBackground": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -406,7 +405,7 @@
         },
         "brand": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -415,7 +414,7 @@
         },
         "brandDark": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -424,7 +423,7 @@
         },
         "inverse": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -433,7 +432,7 @@
         },
         "neutralHigh": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -442,7 +441,7 @@
         },
         "neutralLow": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -451,7 +450,7 @@
         },
         "neutralMedium": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -460,7 +459,7 @@
         },
         "promo": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -469,7 +468,7 @@
         },
         "error": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -478,7 +477,7 @@
         },
         "highlight": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -487,7 +486,7 @@
         },
         "success": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -496,7 +495,7 @@
         },
         "warning": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -505,7 +504,7 @@
         },
         "textPrimary": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -514,7 +513,7 @@
         },
         "textPrimaryInverse": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -523,7 +522,7 @@
         },
         "textSecondary": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -532,7 +531,7 @@
         },
         "textSecondaryInverse": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -541,7 +540,7 @@
         },
         "textButtonPrimary": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -550,7 +549,7 @@
         },
         "textButtonPrimaryInverse": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -559,7 +558,7 @@
         },
         "textButtonPrimaryInverseSelected": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -568,7 +567,7 @@
         },
         "textButtonSecondary": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -577,7 +576,7 @@
         },
         "textButtonSecondarySelected": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -586,7 +585,7 @@
         },
         "textButtonSecondaryInverse": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -595,7 +594,7 @@
         },
         "textButtonSecondaryInverseSelected": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -604,7 +603,7 @@
         },
         "textLink": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -613,7 +612,7 @@
         },
         "textLinkInverse": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -622,7 +621,7 @@
         },
         "textLinkDanger": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -631,7 +630,7 @@
         },
         "textLinkSnackbar": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -640,7 +639,7 @@
         },
         "textNavigationBarPrimary": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -649,7 +648,7 @@
         },
         "textNavigationBarSecondary": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -658,7 +657,7 @@
         },
         "textNavigationSearchBarHint": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -667,7 +666,7 @@
         },
         "textNavigationSearchBarText": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -676,7 +675,7 @@
         },
         "textAppBar": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -685,7 +684,7 @@
         },
         "textAppBarSelected": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -694,7 +693,7 @@
         },
         "successLow": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -703,7 +702,7 @@
         },
         "warningLow": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -712,7 +711,7 @@
         },
         "errorLow": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -721,7 +720,7 @@
         },
         "promoLow": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -730,7 +729,7 @@
         },
         "brandLow": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -739,7 +738,7 @@
         },
         "successHigh": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -748,7 +747,7 @@
         },
         "warningHigh": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -757,7 +756,7 @@
         },
         "errorHigh": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -766,7 +765,7 @@
         },
         "promoHigh": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -775,7 +774,7 @@
         },
         "brandHigh": {
           "properties": {
-            "value": { "type": "string", "pattern": "([{r])+([^{])+([^}])+([})])$" },
+            "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
             "type": { "const": "color" },
             "description": { "type": "string", "pattern": "^[^{}]+$" }
           },
@@ -783,6 +782,17 @@
           "value": { "const": "value" }
         },
         "extended": {
+          "type": "object",
+          "patternProperties": {
+            ".*": {
+              "type": "object",
+              "properties": {
+                "value": { "type": "string", "pattern": "([{]{1})+([^{])+([^}])+([})])$" },
+                "type": { "const": "color" },
+                "description": { "type": "string", "pattern": "^[^{}]+$" }
+              }
+            }
+          },
           "additionalProperties": true
         }
       },
