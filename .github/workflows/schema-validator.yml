@@ -1,0 +1,16 @@
+name: "Schema validator"
+
+on:
+  pull_request:
+
+jobs:
+  skins_validation:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Validate any json file
+      uses: walbo/validate-json@v1.1.0
+      with:
+        files: tokens/*
+        strict: false
+        print-valid-files: true
