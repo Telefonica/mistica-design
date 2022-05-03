@@ -7,10 +7,9 @@ jobs:
   skins_validation:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Validate any json file
-      uses: walbo/validate-json@v1.1.0
-      with:
-        files: tokens/*
-        strict: false
-        print-valid-files: true
+      - uses: actions/checkout@v3
+      - name: Validate action.yml against a remote schema
+        uses: cardinalby/schema-validator-action@v1
+        with:
+          file: "tokens/*.json"
+          schema: "tokens/schema/skin-schema.json"
