@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  Movistar validation:
+  movistar-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,7 +14,7 @@ jobs:
           file: "tokens/movistar.json"
           schema: "tokens/schema/skin-schema.json"
 
-  O2 validation:
+  o2-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +24,7 @@ jobs:
           file: "tokens/o2.json"
           schema: "tokens/schema/skin-schema.json"
 
-  Vivo validation:
+  vico-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -34,7 +34,7 @@ jobs:
           file: "tokens/vivo.json"
           schema: "tokens/schema/skin-schema.json"
 
-  Telefonica validation:
+  telefonica-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -44,7 +44,7 @@ jobs:
           file: "tokens/telefonica.json"
           schema: "tokens/schema/skin-schema.json"
 
-  Blau validation:
+  blau-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -54,7 +54,7 @@ jobs:
           file: "tokens/blau.json"
           schema: "tokens/schema/skin-schema.json"
 
-  Classic O2 validation:
+  classic-o2-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -64,7 +64,7 @@ jobs:
           file: "tokens/classic-o2.json"
           schema: "tokens/schema/skin-schema.json"
 
-  Solar360 validation:
+  solar360-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
