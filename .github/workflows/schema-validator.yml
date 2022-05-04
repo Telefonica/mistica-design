@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  movistar:
+  Movistar:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,7 +14,7 @@ jobs:
           file: "tokens/movistar.json"
           schema: "tokens/schema/skin-schema.json"
 
-  o2:
+  O2:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +24,7 @@ jobs:
           file: "tokens/o2.json"
           schema: "tokens/schema/skin-schema.json"
 
-  vivo:
+  Vivo:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -34,7 +34,7 @@ jobs:
           file: "tokens/vivo.json"
           schema: "tokens/schema/skin-schema.json"
 
-  telefonica:
+  Telefonica:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -54,7 +54,7 @@ jobs:
           file: "tokens/blau.json"
           schema: "tokens/schema/skin-schema.json"
 
-  classic-o2:
+  Classic-O2:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -64,7 +64,7 @@ jobs:
           file: "tokens/classic-o2.json"
           schema: "tokens/schema/skin-schema.json"
 
-  solar360:
+  Solar360:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
