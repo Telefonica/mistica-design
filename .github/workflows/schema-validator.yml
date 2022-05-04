@@ -44,7 +44,7 @@ jobs:
           file: "tokens/telefonica.json"
           schema: "tokens/schema/skin-schema.json"
 
-  blau:
+  Blau:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -64,7 +64,7 @@ jobs:
           file: "tokens/classic-o2.json"
           schema: "tokens/schema/skin-schema.json"
 
-  Solar360:
+  Solar-360:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
