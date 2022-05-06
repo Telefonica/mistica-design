@@ -31,6 +31,25 @@
 
 <br/>
 
+# Figma
+
+## How to sync design tokens
+
+If you want to sync design tokens with Figma files you can use [Figma Tokens plugin](https://www.figma.com/community/plugin/843461159747178978/Figma-Tokens) and setup the plugin with the following information.
+
+1. In Figma Plugin go to `sync` and then `Github`
+2. Add new credentials
+- **Name:** The name of the brand
+- **Personal Access Token:** you have to generate a token from Github and the paste in. [Read how to do it](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+- **Repository:** `Telefonica/mistica-design`
+- **Default Branch:** `production`
+- **File Path:** `tokens/brandName.json` (see files [here](./tokens/))
+
+![image](https://user-images.githubusercontent.com/6722153/166447592-e3d1b545-199d-4155-9024-2fb88351b444.png)
+
+
+
+# Sketch
 ## How to install sketch development libraries<a name="gettingStarted"></a>
 
 If you want to try development libraries and pull changes to production library, follow [this documentation](https://github.com/Telefonica/mistica-design/wiki/Install-development-libraries-with-Kactus) (please, read [contribution guidelines](https://brandfactory.telefonica.com/document/1846#/contribute/components-request) first)

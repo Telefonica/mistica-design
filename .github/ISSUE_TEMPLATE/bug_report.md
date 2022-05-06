@@ -22,15 +22,20 @@ A clear and concise description of what you expected to happen.
 
 ### Details (please complete the following information):
 <!-- Mark with [x] or [ ] to which library is applying the issue. -->
-- [x] iOS 
-- [ ] Android
+
+- [x] Mobile 
 - [ ] Desktop
+- [ ] Movistar
+- [ ] O2
+- [ ] Vivo
+- [ ] Telefónica
+- [ ] Classic O2
+- [ ] Blau
 
 Component name: `e.g. bars/navBar/regular`
-Sketch version: [e.g. 67.2]
 
-### Sketch file
-If applicable, add a sketch URL to help us to solve the problem.
+### Figma file
+If applicable, add a Figma URL to help us to solve the problem.
 
 ### Additional context
 Add any other context about the problem here.
