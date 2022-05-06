@@ -22,6 +22,7 @@ A clear and concise description of what you expected to happen.
 
 ### Details (please complete the following information):
 <!-- Mark with [x] or [ ] to which library is applying the issue. -->
+
 - [x] Mobile 
 - [ ] Desktop
 - [ ] Movistar
