@@ -18,6 +18,7 @@ If you think there is a component missing in Mística and you feel it is worthy 
 We usually review component request Tuesdays at 16:00 (CEST), after the meeting, we will reply in this component request.
 
 ---
+**Team:** _what is your team?_
 
 ### Is your component request related to a problem? Please describe.
 A clear and concise description of what the problem is.
