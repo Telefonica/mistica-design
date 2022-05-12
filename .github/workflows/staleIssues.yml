@@ -15,7 +15,7 @@ jobs:
           stale-issue-message: "This issue is stale because it has been open 180 days with no activity. Remove stale label or comment or this will be closed in 14 days."
           stale-pr-message: "This pr is stale because it has been open 45 days with no activity. Remove stale label or comment or this will be closed in 10 days."
           close-issue-message: "This issue was closed because it has been stalled for 5 days with no activity."
-          days-before-stale: 180
-          days-before-close: 14
+          days-before-stale: 365
+          days-before-close: 30
           days-before-pr-close: -1
-          any-of-labels: Bug 🐞, Documentation, Tokens
+          any-of-labels: Bug 🐞, New component 🔸, Component request ✨
