@@ -108,7 +108,7 @@ jobs:
                 property: 'title'
               issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:pr review:none sort:created-asc'
               limit: 15
-        token: ${{ github.token }}
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: 'Generate bugs'
       uses: ethomson/issue-dashboard@v1
@@ -129,7 +129,7 @@ jobs:
               title: 'Component Requests'
               issue_query: 'repo:Telefonica/mistica-design-libraries is:open is:issue label:"✨ Component request"'
               color: 'secondary'
-        token: ${{ github.token }}  
+        token: ${{ secrets.GITHUB_TOKEN }}  
 
     - name: Publish Documentation
       run: |
