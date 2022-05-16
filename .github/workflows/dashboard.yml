@@ -4,8 +4,6 @@ on:
   push:
     paths:
       - '.github/workflows/dashboard.yml'
-  schedule:
-    - cron: '0 0 * * *'
   issues:
     types: [opened, closed, reopened]
 
