@@ -40,15 +40,19 @@ jobs:
             description: 'Queries of issues by type, using their label.'
             widgets:
             - type: 'number'
-              title: 'Bugs'
-              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"Bug 🐞"'
+              title: 'New components'
+              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"New component 🔸"'
               color: 'primary'
             - type: 'number'
               title: 'Component requests'
               issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"Component request ✨"'
+              color: 'primary'
+            - type: 'number'
+              title: 'Bugs'
+              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"Bug 🐞"'
               color: 'secondary'
             - type: 'table'
-              title: 'Bugs list'
+              title: 'Component request list'
               fields:
               - title: 'Issue'
                 property: 'number'
@@ -56,7 +60,7 @@ jobs:
                 value: '{{ date(item.created_date) }}'
               - title: 'Title'
                 property: 'title'
-              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"Bug 🐞"'
+              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"New component 🔸"'
               limit: 15
             - type: 'table'
               title: 'Component request list'
@@ -68,6 +72,17 @@ jobs:
               - title: 'Title'
                 property: 'title'
               issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"Component request ✨"'
+              limit: 15
+            - type: 'table'
+              title: 'Bugs list'
+              fields:
+              - title: 'Issue'
+                property: 'number'
+              - title: 'Date'
+                value: '{{ date(item.created_date) }}'
+              - title: 'Title'
+                property: 'title'
+              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"Bug 🐞"'
               limit: 15
 
           - title: 'Open Issues by Age'
@@ -96,7 +111,7 @@ jobs:
             - type: 'number'
               title: 'Opened'
               issue_query: 'repo:Telefonica/mistica-design is:open is:pr review:none'
-              color: 'primary'
+              color: 'secondary'
             - type: 'table'
               title: 'Open Pull Requests'
               fields:
