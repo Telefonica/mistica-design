@@ -26,6 +26,10 @@ h3{font-weight: 300;}
     --color-secondary-foreground: #031A34;
     --color-secondary-border: #F2F4FF;
 
+    --color-tertiary-background: #031A34;
+    --color-tertiary-foreground: #ffffff;
+    --color-tertiary-border: #031A34;
+
     /* --color-componentRequest-background: #00FF99;
     --color-componentRequest-foreground: #003245;
     --color-componentRequest-border: #00FF99;
@@ -145,6 +149,11 @@ div.number_widget.secondary {
     background-color: var(--color-secondary-background);
     border: solid 1px var(--color-secondary-border);
     color: var(--color-secondary-foreground);
+}
+div.number_widget.tertiary {
+    background-color: var(--color-tertiary-background);
+    border: solid 1px var(--color-tertiary-border);
+    color: var(--color-tertiary-foreground);
 }
 div.number_widget.bug {
     background-color: var(--color-bug-background);
