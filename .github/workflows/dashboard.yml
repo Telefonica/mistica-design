@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, Linux]
+    runs-on: ubuntu-latest
 
     steps:
     - name: Cleanup
