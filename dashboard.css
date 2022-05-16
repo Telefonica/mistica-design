@@ -34,9 +34,9 @@ h3{font-weight: 300;}
     --color-bug-foreground: #fff;
     --color-bug-border: #980098; */
 
-    --color-green-background: #00bb00;
+    --color-green-background: #59C2C9;
     --color-green-foreground: #ffffff;
-    --color-green-border: #999900;
+    --color-green-border: #59C2C9;
 
     --color-blue-background: #0066FF;
     --color-blue-foreground: #ffffff;
@@ -72,7 +72,7 @@ div.sections {
     width: 100%;
     min-height: 250px;
     padding: 15px 0px 50px 0px;
-    /* border: solid 1px #dddddd; */
+    /* border: solid 1px #F2F4FF; */
     border-radius: 4px;
 }
 
@@ -131,7 +131,7 @@ div.number_widget {
     float: left;
     position: relative;
     background-color: #ffffff;
-    border: solid 1px #dddddd;
+    border: solid 1px #F2F4FF;
     color: #000000;
     border-radius: 4px;
     font-weight: 200;
@@ -193,7 +193,7 @@ div.string_widget {
     width: 558px;
     padding: 15px 20px;
     background-color: #ffffff;
-    border: solid 1px #dddddd;
+    border: solid 1px #F2F4FF;
     color: #000000;
 }
 div.string_widget.primary {
@@ -252,7 +252,7 @@ span.graph_item_value {
     display: table-cell;
     width: 100%;
     padding-right: 7px;
-    border-left: solid 1px #dddddd;
+    border-left: solid 1px #F2F4FF;
 }
 span.graph_item_value span.value {
     display: block;
@@ -294,7 +294,7 @@ div.graph_item.black span.graph_item_value span.value {
     color: var(--color-black-foreground);
 }
 div.graph_item:last-of-type span.graph_item_value {
-    border-bottom: solid 1px #dddddd;
+    border-bottom: solid 1px #F2F4FF;
 }
 
 /* Table widgets */
@@ -329,7 +329,7 @@ div.table_widget table th, div.table_widget table tr:last-child {
     border-bottom: none;
 }
 div.table_widget table th {
-    background-color: #f3f3f3;
+    background-color: #F2F4FF;
 }
 div.table_widget table tr:nth-child(odd) td {
     background-color: #fff;
