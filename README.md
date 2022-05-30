@@ -24,7 +24,7 @@
 
 ---
 
--  [Contribute to Mística](https://brandfactory.telefonica.com/document/1846#/contribute/how-to-contribute-1)
+-  [Contribute to Mística](https://brandfactory.telefonica.com/document/1846#/contribute/how-to-contribute)
 -  [Current components status](https://brandfactory.telefonica.com/document/1846#/components/overview)
 
 ---
