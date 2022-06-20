@@ -10,7 +10,7 @@
 <br>
 
 
-[![Analytics](https://ga-beacon.appspot.com/UA-136245358-1/mistica-design)](https://github.com/Telefonica/mistica-design)
+
 
 | Other Mística Repos                                              | Description                                               |
 | :--------------------------------------------------------------- | :-------------------------------------------------------- |
@@ -24,7 +24,7 @@
 
 ---
 
--  [Contribute to Mística](https://brandfactory.telefonica.com/document/1846#/contribute/how-to-contribute-1)
+-  [Contribute to Mística](https://brandfactory.telefonica.com/document/1846#/contribute/how-to-contribute)
 -  [Current components status](https://brandfactory.telefonica.com/document/1846#/components/overview)
 
 ---
