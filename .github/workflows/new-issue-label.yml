@@ -1,6 +1,7 @@
 name: Bug reported
 
 on:
+  workflow_dispatch:
   issues:
     types: [labeled]
 
