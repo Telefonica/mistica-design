@@ -1,0 +1,1879 @@
+{
+  "additionalProperties": false,
+  "required": ["light", "dark"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "global": {
+      "$ref": "#/global"
+    },
+    "light": {
+      "allOf": [
+        {
+          "$ref": "#/global/constants"
+        },
+        {
+          "required": [
+            "appBarBackground",
+            "background",
+            "backgroundContainer",
+            "backgroundBrand",
+            "backgroundOverlay",
+            "backgroundSkeleton",
+            "backgroundSkeletonInverse",
+            "backgroundAlternative",
+            "backgroundFeedbackBottom",
+            "navigationBarBackground",
+            "skeletonWave",
+            "border",
+            "borderLight",
+            "borderDark",
+            "borderSelected",
+            "buttonDangerBackground",
+            "buttonDangerBackgroundSelected",
+            "buttonDangerBackgroundHover",
+            "buttonLinkBackgroundSelected",
+            "buttonLinkBackgroundSelectedInverse",
+            "buttonPrimaryBackground",
+            "buttonPrimaryBackgroundInverse",
+            "buttonPrimaryBackgroundSelected",
+            "buttonPrimaryBackgroundSelectedInverse",
+            "buttonPrimaryBackgroundHover",
+            "buttonSecondaryBackground",
+            "buttonSecondaryBackgroundSelected",
+            "buttonSecondaryBorderInverse",
+            "buttonSecondaryBorderSelectedInverse",
+            "control",
+            "controlActivated",
+            "controlError",
+            "loadingBar",
+            "loadingBarBackground",
+            "toggleAndroidInactive",
+            "toggleAndroidBackgroundActive",
+            "iosControlKnob",
+            "divider",
+            "dividerInverse",
+            "navigationBarDivider",
+            "badge",
+            "feedbackErrorBackground",
+            "feedbackInfoBackground",
+            "brand",
+            "brandHigh",
+            "inverse",
+            "neutralHigh",
+            "neutralMedium",
+            "neutralLow",
+            "promo",
+            "error",
+            "highlight",
+            "success",
+            "warning",
+            "textPrimary",
+            "textPrimaryInverse",
+            "textSecondary",
+            "textSecondaryInverse",
+            "textButtonPrimary",
+            "textButtonPrimaryInverse",
+            "textButtonPrimaryInverseSelected",
+            "textButtonSecondary",
+            "textButtonSecondarySelected",
+            "textButtonSecondaryInverse",
+            "textButtonSecondaryInverseSelected",
+            "textLink",
+            "textLinkInverse",
+            "textLinkDanger",
+            "textLinkSnackbar",
+            "textNavigationBarPrimary",
+            "textNavigationBarSecondary",
+            "textNavigationSearchBarHint",
+            "textNavigationSearchBarText",
+            "textAppBar",
+            "textAppBarSelected",
+            "successLow",
+            "warningLow",
+            "errorLow",
+            "promoLow",
+            "successHigh",
+            "warningHigh",
+            "errorHigh",
+            "promoHigh"
+          ]
+        }
+      ]
+    },
+    "dark": {
+      "allOf": [
+        {
+          "$ref": "#/global/constants"
+        },
+        {
+          "required": [
+            "appBarBackground",
+            "background",
+            "backgroundContainer",
+            "backgroundBrand",
+            "backgroundOverlay",
+            "backgroundSkeleton",
+            "backgroundSkeletonInverse",
+            "backgroundAlternative",
+            "backgroundFeedbackBottom",
+            "navigationBarBackground",
+            "skeletonWave",
+            "border",
+            "borderLight",
+            "borderDark",
+            "borderSelected",
+            "buttonDangerBackground",
+            "buttonDangerBackgroundSelected",
+            "buttonDangerBackgroundHover",
+            "buttonLinkBackgroundSelected",
+            "buttonLinkBackgroundSelectedInverse",
+            "buttonPrimaryBackground",
+            "buttonPrimaryBackgroundInverse",
+            "buttonPrimaryBackgroundSelected",
+            "buttonPrimaryBackgroundSelectedInverse",
+            "buttonPrimaryBackgroundHover",
+            "buttonSecondaryBackground",
+            "buttonSecondaryBackgroundSelected",
+            "buttonSecondaryBorderInverse",
+            "buttonSecondaryBorderSelectedInverse",
+            "control",
+            "controlActivated",
+            "controlError",
+            "loadingBar",
+            "loadingBarBackground",
+            "toggleAndroidInactive",
+            "toggleAndroidBackgroundActive",
+            "iosControlKnob",
+            "divider",
+            "dividerInverse",
+            "navigationBarDivider",
+            "badge",
+            "feedbackErrorBackground",
+            "feedbackInfoBackground",
+            "brand",
+            "brandHigh",
+            "inverse",
+            "neutralHigh",
+            "neutralMedium",
+            "neutralLow",
+            "promo",
+            "error",
+            "highlight",
+            "success",
+            "warning",
+            "textPrimary",
+            "textPrimaryInverse",
+            "textSecondary",
+            "textSecondaryInverse",
+            "textButtonPrimary",
+            "textButtonPrimaryInverse",
+            "textButtonPrimaryInverseSelected",
+            "textButtonSecondary",
+            "textButtonSecondarySelected",
+            "textButtonSecondaryInverse",
+            "textButtonSecondaryInverseSelected",
+            "textLink",
+            "textLinkInverse",
+            "textLinkDanger",
+            "textLinkSnackbar",
+            "textNavigationBarPrimary",
+            "textNavigationBarSecondary",
+            "textNavigationSearchBarHint",
+            "textNavigationSearchBarText",
+            "textAppBar",
+            "textAppBarSelected",
+            "successLow",
+            "warningLow",
+            "errorLow",
+            "promoLow",
+            "successHigh",
+            "warningHigh",
+            "errorHigh",
+            "promoHigh"
+          ]
+        }
+      ]
+    }
+  },
+  "global": {
+    "constants": {
+      "properties": {
+        "appBarBackground": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "background": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "backgroundContainer": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "backgroundBrand": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "backgroundOverlay": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "backgroundSkeleton": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "backgroundSkeletonInverse": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "backgroundAlternative": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "backgroundFeedbackBottom": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "navigationBarBackground": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "skeletonWave": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "border": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "borderLight": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "borderDark": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "borderSelected": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonDangerBackground": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonDangerBackgroundSelected": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonDangerBackgroundHover": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonLinkBackgroundSelected": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonLinkBackgroundSelectedInverse": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonPrimaryBackground": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonPrimaryBackgroundInverse": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonPrimaryBackgroundSelected": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonPrimaryBackgroundSelectedInverse": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonPrimaryBackgroundHover": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonSecondaryBackground": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonSecondaryBackgroundSelected": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonSecondaryBorderInverse": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "buttonSecondaryBorderSelectedInverse": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "control": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "controlActivated": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "controlError": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "loadingBar": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "loadingBarBackground": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "toggleAndroidInactive": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "toggleAndroidBackgroundActive": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "iosControlKnob": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "divider": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "dividerInverse": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "navigationBarDivider": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "badge": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "feedbackErrorBackground": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "feedbackInfoBackground": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "brand": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "brandHigh": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "inverse": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "neutralHigh": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "neutralLow": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "neutralMedium": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "promo": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "error": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "highlight": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "success": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "warning": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textPrimary": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textPrimaryInverse": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textSecondary": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textSecondaryInverse": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textButtonPrimary": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textButtonPrimaryInverse": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textButtonPrimaryInverseSelected": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textButtonSecondary": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textButtonSecondarySelected": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textButtonSecondaryInverse": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textButtonSecondaryInverseSelected": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textLink": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textLinkInverse": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textLinkDanger": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textLinkSnackbar": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textNavigationBarPrimary": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textNavigationBarSecondary": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textNavigationSearchBarHint": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textNavigationSearchBarText": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textAppBar": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "textAppBarSelected": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "successLow": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "warningLow": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "errorLow": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "promoLow": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "brandLow": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "successHigh": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "warningHigh": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "errorHigh": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "promoHigh": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+            },
+            "type": { "const": "color" },
+            "description": {
+              "type": "string",
+              "pattern": "^[^{}]+$"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "extended": {
+          "type": "object",
+          "patternProperties": {
+            ".*": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+                },
+                "type": { "const": "color" },
+                "description": {
+                  "type": "string",
+                  "pattern": "^[^{}]+$"
+                }
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

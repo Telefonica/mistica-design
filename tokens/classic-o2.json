@@ -80,11 +80,6 @@
       "type": "color",
       "description": "pepper"
     },
-    "buttonDangerBackgroundDisabled": {
-      "value": "{palette.pepper20}",
-      "type": "color",
-      "description": "pepper20"
-    },
     "buttonDangerBackgroundSelected": {
       "value": "{palette.pepper55}",
       "type": "color",
@@ -109,16 +104,6 @@
       "value": "{palette.o2SkyBlue}",
       "type": "color",
       "description": "o2SkyBlue"
-    },
-    "buttonPrimaryBackgroundDisabled": {
-      "value": "{palette.o2SkyBlueLight45}",
-      "type": "color",
-      "description": "o2SkyBlueLight45"
-    },
-    "buttonPrimaryBackgroundDisabledInverse": {
-      "value": "{palette.o2SkyBlueLight45}",
-      "type": "color",
-      "description": "o2SkyBlueLight45"
     },
     "buttonPrimaryBackgroundInverse": {
       "value": "{palette.white}",
@@ -145,20 +130,10 @@
       "type": "color",
       "description": "o2SkyBlue"
     },
-    "buttonSecondaryBackgroundDisabled": {
-      "value": "{palette.o2SkyBlueLight45}",
-      "type": "color",
-      "description": "o2SkyBlueLight45"
-    },
     "buttonSecondaryBackgroundSelected": {
       "value": "{palette.o2SkyBlue55}",
       "type": "color",
       "description": "o2SkyBlue55"
-    },
-    "buttonSecondaryBorderDisabledInverse": {
-      "value": "{palette.o2SkyBlueLight45}",
-      "type": "color",
-      "description": "o2SkyBlueLight45"
     },
     "buttonSecondaryBorderInverse": {
       "value": "{palette.white}",
@@ -175,20 +150,10 @@
       "type": "color",
       "description": "white"
     },
-    "textButtonPrimaryDisabled": {
-      "value": "{palette.white}",
-      "type": "color",
-      "description": "white"
-    },
     "textButtonPrimaryInverse": {
       "value": "{palette.o2SkyBlue}",
       "type": "color",
       "description": "o2SkyBlue"
-    },
-    "textButtonPrimaryInverseDisabled": {
-      "value": "{palette.o2SkyBlueLight20}",
-      "type": "color",
-      "description": "o2SkyBlueLight20"
     },
     "textButtonPrimaryInverseSelected": {
       "value": "{palette.o2SkyBlue}",
@@ -200,11 +165,6 @@
       "type": "color",
       "description": "o2SkyBlue"
     },
-    "textButtonSecondaryDisabled": {
-      "value": "{palette.o2SkyBlueLight45}",
-      "type": "color",
-      "description": "o2SkyBlueLight45"
-    },
     "textButtonSecondarySelected": {
       "value": "{palette.o2SkyBlue55}",
       "type": "color",
@@ -214,11 +174,6 @@
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
-    },
-    "textButtonSecondaryInverseDisabled": {
-      "value": "{palette.o2SkyBlueLight45}",
-      "type": "color",
-      "description": "o2SkyBlueLight45"
     },
     "textButtonSecondaryInverseSelected": {
       "value": "{palette.white}",
@@ -239,16 +194,6 @@
       "value": "{palette.pepper}",
       "type": "color",
       "description": "pepper"
-    },
-    "textLinkDangerDisabled": {
-      "value": "{palette.pepper20}",
-      "type": "color",
-      "description": "pepper20"
-    },
-    "textLinkDisabled": {
-      "value": "{palette.o2SkyBlueLight}",
-      "type": "color",
-      "description": "o2SkyBlueLight"
     },
     "textLinkSnackbar": {
       "value": "{palette.o2SkyBlueLight}",
@@ -330,7 +275,7 @@
       "type": "color",
       "description": "o2Blue"
     },
-    "brandDark": {
+    "brandHigh": {
       "value": "{palette.o2Blue55}",
       "type": "color",
       "description": "o2Blue55"
@@ -351,9 +296,9 @@
       "description": "grey5"
     },
     "neutralLow": {
-      "value": "{palette.grey3}",
+      "value": "{palette.grey1}",
       "type": "color",
-      "description": "grey3"
+      "description": "grey1"
     },
     "textPrimary": {
       "value": "{palette.grey6}",
@@ -374,16 +319,6 @@
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
-    },
-    "textDisabled": {
-      "value": "{palette.grey3}",
-      "type": "color",
-      "description": "grey3"
-    },
-    "textAmount": {
-      "value": "{palette.o2SkyBlue}",
-      "type": "color",
-      "description": "o2SkyBlue"
     },
     "error": {
       "value": "{palette.pepper}",
@@ -410,65 +345,50 @@
       "type": "color",
       "description": "pink"
     },
-    "tagBackgroundSuccess": {
+    "successLow": {
       "value": "{palette.o2Green10}",
       "type": "color",
       "description": "o2Green10"
     },
-    "tagBackgroundWarning": {
+    "warningLow": {
       "value": "{palette.orange10}",
       "type": "color",
       "description": "orange10"
     },
-    "tagBackgroundError": {
+    "errorLow": {
       "value": "{palette.pepper10}",
       "type": "color",
       "description": "pepper10"
     },
-    "tagBackgroundPromo": {
+    "promoLow": {
       "value": "{palette.pink10}",
       "type": "color",
       "description": "pink10"
     },
-    "tagBackgroundActive": {
+    "brandLow": {
       "value": "{palette.o2Blue10}",
       "type": "color",
       "description": "o2Blue10"
     },
-    "tagBackgroundInactive": {
-      "value": "{palette.grey1}",
-      "type": "color",
-      "description": "grey1"
-    },
-    "textTagSuccess": {
+    "successHigh": {
       "value": "{palette.o2Green75}",
       "type": "color",
       "description": "o2Green75"
     },
-    "textTagWarning": {
+    "warningHigh": {
       "value": "{palette.orange80}",
       "type": "color",
       "description": "orange80"
     },
-    "textTagError": {
+    "errorHigh": {
       "value": "{palette.pepper70}",
       "type": "color",
       "description": "pepper70"
     },
-    "textTagPromo": {
+    "promoHigh": {
       "value": "{palette.pink60}",
       "type": "color",
       "description": "pink60"
-    },
-    "textTagActive": {
-      "value": "{palette.o2Blue}",
-      "type": "color",
-      "description": "o2Blue"
-    },
-    "textTagInactive": {
-      "value": "{palette.grey5}",
-      "type": "color",
-      "description": "grey5"
     },
     "textNavigationBarPrimary": {
       "value": "{palette.white}",
@@ -582,11 +502,6 @@
       "type": "color",
       "description": "pepper"
     },
-    "buttonDangerBackgroundDisabled": {
-      "value": "{palette.darkModeGrey}",
-      "type": "color",
-      "description": "darkModeGrey"
-    },
     "buttonDangerBackgroundSelected": {
       "value": "{palette.pepper55}",
       "type": "color",
@@ -611,16 +526,6 @@
       "value": "{palette.o2SkyBlue}",
       "type": "color",
       "description": "o2SkyBlue"
-    },
-    "buttonPrimaryBackgroundDisabled": {
-      "value": "{palette.darkModeGrey}",
-      "type": "color",
-      "description": "darkModeGrey"
-    },
-    "buttonPrimaryBackgroundDisabledInverse": {
-      "value": "{palette.darkModeGrey}",
-      "type": "color",
-      "description": "darkModeGrey"
     },
     "buttonPrimaryBackgroundInverse": {
       "value": "{palette.o2SkyBlue}",
@@ -647,20 +552,10 @@
       "type": "color",
       "description": "o2SkyBlue"
     },
-    "buttonSecondaryBackgroundDisabled": {
-      "value": "{palette.darkModeGrey}",
-      "type": "color",
-      "description": "darkModeGrey"
-    },
     "buttonSecondaryBackgroundSelected": {
       "value": "{palette.o2SkyBlue55}",
       "type": "color",
       "description": "o2SkyBlue55"
-    },
-    "buttonSecondaryBorderDisabledInverse": {
-      "value": "{palette.darkModeGrey}",
-      "type": "color",
-      "description": "darkModeGrey"
     },
     "buttonSecondaryBorderInverse": {
       "value": "{palette.o2SkyBlue}",
@@ -677,20 +572,10 @@
       "type": "color",
       "description": "grey2"
     },
-    "textButtonPrimaryDisabled": {
-      "value": "{palette.grey5}",
-      "type": "color",
-      "description": "grey5"
-    },
     "textButtonPrimaryInverse": {
       "value": "{palette.grey2}",
       "type": "color",
       "description": "grey2"
-    },
-    "textButtonPrimaryInverseDisabled": {
-      "value": "{palette.grey5}",
-      "type": "color",
-      "description": "grey5"
     },
     "textButtonPrimaryInverseSelected": {
       "value": "{palette.grey2}",
@@ -702,11 +587,6 @@
       "type": "color",
       "description": "grey2"
     },
-    "textButtonSecondaryDisabled": {
-      "value": "{palette.grey5}",
-      "type": "color",
-      "description": "grey5"
-    },
     "textButtonSecondarySelected": {
       "value": "{palette.grey4}",
       "type": "color",
@@ -716,11 +596,6 @@
       "value": "{palette.grey2}",
       "type": "color",
       "description": "grey2"
-    },
-    "textButtonSecondaryInverseDisabled": {
-      "value": "{palette.grey5}",
-      "type": "color",
-      "description": "grey5"
     },
     "textButtonSecondaryInverseSelected": {
       "value": "{palette.grey4}",
@@ -741,16 +616,6 @@
       "value": "{palette.pepper}",
       "type": "color",
       "description": "pepper"
-    },
-    "textLinkDisabled": {
-      "value": "{palette.darkModeGrey6}",
-      "type": "color",
-      "description": "darkModeGrey6"
-    },
-    "textLinkDangerDisabled": {
-      "value": "{palette.grey5}",
-      "type": "color",
-      "description": "grey5"
     },
     "textLinkSnackbar": {
       "value": "{palette.o2SkyBlueLight}",
@@ -832,10 +697,10 @@
       "type": "color",
       "description": "o2SkyBlue"
     },
-    "brandDark": {
-      "value": "{palette.darkModeGrey6}",
+    "brandHigh": {
+      "value": "rgba({palette.white}, 0.05)",
       "type": "color",
-      "description": "darkModeGrey6"
+      "description": "white"
     },
     "inverse": {
       "value": "{palette.grey2}",
@@ -877,16 +742,6 @@
       "type": "color",
       "description": "grey4"
     },
-    "textDisabled": {
-      "value": "{palette.grey5}",
-      "type": "color",
-      "description": "grey5"
-    },
-    "textAmount": {
-      "value": "{palette.o2SkyBlueLight45}",
-      "type": "color",
-      "description": "o2SkyBlueLight45"
-    },
     "error": {
       "value": "{palette.pepper}",
       "type": "color",
@@ -912,65 +767,50 @@
       "type": "color",
       "description": "pink"
     },
-    "tagBackgroundSuccess": {
+    "successLow": {
       "value": "rgba({palette.white}, 0.05)",
       "type": "color",
       "description": "white"
     },
-    "tagBackgroundWarning": {
+    "warningLow": {
       "value": "rgba({palette.white}, 0.05)",
       "type": "color",
       "description": "white"
     },
-    "tagBackgroundError": {
+    "errorLow": {
       "value": "rgba({palette.white}, 0.05)",
       "type": "color",
       "description": "white"
     },
-    "tagBackgroundPromo": {
+    "promoLow": {
       "value": "rgba({palette.white}, 0.05)",
       "type": "color",
       "description": "white"
     },
-    "tagBackgroundActive": {
+    "brandLow": {
       "value": "rgba({palette.white}, 0.05)",
       "type": "color",
       "description": "white"
     },
-    "tagBackgroundInactive": {
-      "value": "rgba({palette.white}, 0.05)",
-      "type": "color",
-      "description": "white"
-    },
-    "textTagSuccess": {
+    "successHigh": {
       "value": "{palette.o2Green40}",
       "type": "color",
       "description": "o2Green40"
     },
-    "textTagWarning": {
+    "warningHigh": {
       "value": "{palette.orange40}",
       "type": "color",
       "description": "orange40"
     },
-    "textTagError": {
+    "errorHigh": {
       "value": "{palette.pepper40}",
       "type": "color",
       "description": "pepper40"
     },
-    "textTagPromo": {
+    "promoHigh": {
       "value": "{palette.pink40}",
       "type": "color",
       "description": "pink40"
-    },
-    "textTagActive": {
-      "value": "{palette.o2Blue30}",
-      "type": "color",
-      "description": "o2Blue30"
-    },
-    "textTagInactive": {
-      "value": "{palette.grey4}",
-      "type": "color",
-      "description": "grey4"
     },
     "textNavigationBarPrimary": {
       "value": "{palette.grey2}",
