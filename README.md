@@ -24,6 +24,12 @@
 
 ---
 
+- [Mística Roadmap](https://github.com/Telefonica/mistica-design/projects/2): Have an overview of Mística planning
+- [Mística Discussions](https://github.com/Telefonica/mistica-design/projects/2): The place to discuss all the topics to work in Mística
+- [Mística Issues](https://github.com/Telefonica/mistica-design/projects/2): All the tasks with details
+
+---
+
 -  [Contribute to Mística](https://brandfactory.telefonica.com/document/1846#/contribute/how-to-contribute)
 -  [Current components status](https://brandfactory.telefonica.com/document/1846#/components/overview)
 
