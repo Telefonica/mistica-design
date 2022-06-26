@@ -24,8 +24,8 @@
 
 ---
 
-- [Mística Roadmap](https://github.com/Telefonica/mistica-design/projects/2): Have an overview of Mística planning
 - [Mística Discussions](https://github.com/Telefonica/mistica-design/discussions): The place to discuss all the topics to work in Mística
+- [Mística Roadmap](https://github.com/Telefonica/mistica-design/projects/2): Have an overview of Mística planning
 - [Mística Issues](https://github.com/Telefonica/mistica-design/issues): All the tasks with details
 
 ---
