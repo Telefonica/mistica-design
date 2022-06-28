@@ -1,16 +1,15 @@
 name: Changelog generator
 
 # Trigger the workflow on milestone events
-on: 
+on:
   milestone:
     types: [closed]
   push:
 
-name: Milestone Closure
-  jobs:
-    create-release-notes:
-      runs-on: ubuntu-latest
-      steps:
+jobs:
+  create-release-notes:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@master
       - name: Create Release Notes
         uses: docker://decathlon/release-notes-generator-action:2.0.1
