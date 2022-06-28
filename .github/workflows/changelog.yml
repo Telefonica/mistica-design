@@ -4,7 +4,8 @@ name: Changelog generator
 on: 
   milestone:
     types: [closed]
-    
+  push:
+
 name: Milestone Closure
 jobs:
   create-release-notes:
