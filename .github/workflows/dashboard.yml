@@ -43,11 +43,11 @@ jobs:
               color: 'tertiary'
             - type: 'number'
               title: 'Component requests'
-              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"Component request ✨"'
+              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"request ✨"'
               color: 'primary'
             - type: 'number'
               title: 'Bugs'
-              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"Bug 🐞"'
+              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"bug 🐞"'
               color: 'secondary'
             - type: 'table'
               title: 'New components list'
@@ -69,7 +69,7 @@ jobs:
                 value: '{{ date(item.created_date) }}'
               - title: 'Title'
                 property: 'title'
-              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"Component request ✨"'
+              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"request ✨"'
               limit: 15
             - type: 'table'
               title: 'Bugs list'
@@ -80,7 +80,7 @@ jobs:
                 value: '{{ date(item.created_date) }}'
               - title: 'Title'
                 property: 'title'
-              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"Bug 🐞"'
+              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"bug 🐞"'
               limit: 15
 
           - title: 'Open Issues by Age'
@@ -136,11 +136,11 @@ jobs:
             widgets:
             - type: 'number'
               title: 'Bug'
-              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"Bug 🐞"'
+              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"bug 🐞"'
               color: 'primary'
             - type: 'number'
               title: 'Component Requests'
-              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"Component request ✨"'
+              issue_query: 'repo:Telefonica/mistica-design is:open is:issue label:"request ✨"'
               color: 'secondary'
         token: ${{ github.token }}  
 
