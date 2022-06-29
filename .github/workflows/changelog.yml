@@ -4,7 +4,12 @@ name: Changelog generator
 on:
   milestone:
     types: [closed]
-  push:
+  workflow_dispatch:
+    inputs:
+      milestoneId:
+        description: "Milestone ID"
+        required: true
+        default: "1"
 
 jobs:
   create-release-notes:
