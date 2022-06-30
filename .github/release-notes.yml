@@ -1,12 +1,28 @@
 changelog:
+  issues:
+    exclude:
+      labels:
+        [
+          "suggestions",
+          "stale",
+          "platform: android",
+          "platform: ios",
+          "platform: web",
+          "library: resources",
+        ]
+  contributors:
+    exclude:
+      names: ["yceballost", "aweell", "AnaMontes11"]
   sections:
-    - title: "Breaking changes"
+    - title: "⚠️ Breaking changes"
       labels: ["breaking change"]
-    - title: "Changes in Mística Mobile (Figma)"
+    - title: "✨ New!"
+      labels: ["breaking change"]
+    - title: "📱 Mística Mobile changes (Figma)"
       labels: ["library: mobile"]
-    - title: "Changes in Mística Desktop (Figma)"
+    - title: "🖥 Mística Desktop changes (Figma)"
       labels: ["library: desktop"]
-    - title: "Brand changes"
+    - title: "💅 Brand changes"
       labels:
         [
           "brand: movistar",
@@ -16,7 +32,9 @@ changelog:
           "brand: telefónica",
           "brand: blau",
         ]
-    - title: "Enhancements"
-      labels: ["enhancements"]
-    - title: "Bugs"
+    - title: "📱 Mística Mobile enhancements (Figma)"
+      labels: ["library: mobile"]
+    - title: "🖥 Mística Desktop enhancements (Figma)"
+      labels: ["library: desktop"]
+    - title: "🐞 Bugs"
       labels: ["bug 🐞"]
