@@ -22,7 +22,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           FILENAME: CHANGELOG
           USE_MILESTONE_TITLE: "true"
-          FILENAME_PREFIX: MyMilestone
 
       - name: Commit & Push
         run: |
