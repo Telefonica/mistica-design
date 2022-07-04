@@ -28,6 +28,10 @@ jobs:
           USE_MILESTONE_TITLE: "true"
           FILENAME_PREFIX: ${{ github.event.inputs.releaseVersion }}
 
+      - uses: DaanV2/Markdown-Action-Create-Indexes@v1.5.13
+        with:
+          folder: changelog-versions
+
       - name: Commit & Push
         run: |
           git add . 
@@ -42,13 +46,13 @@ jobs:
           branch: production
           unprotect_reviews: true
 
-      - name: Upload Release Notes to Wiki
-        uses: docker://decathlon/wiki-page-creator-action:latest
-        env:
-          ACTION_MAIL: myuser@users.noreply.github.com
-          ACTION_NAME: místicaBot
-          GH_PAT: ${{ secrets.PERSONAL_TOKEN }}
-          MD_FOLDER: changelog-versions
-          OWNER: Telefonica
-          REPO_NAME: mistica-design
-          SKIP_MD: README.md
+      # - name: Upload Release Notes to Wiki
+      #   uses: docker://decathlon/wiki-page-creator-action:latest
+      #   env:
+      #     ACTION_MAIL: myuser@users.noreply.github.com
+      #     ACTION_NAME: místicaBot
+      #     GH_PAT: ${{ secrets.PERSONAL_TOKEN }}
+      #     MD_FOLDER: changelog-versions
+      #     OWNER: Telefonica
+      #     REPO_NAME: mistica-design
+      #     SKIP_MD: README.md
