@@ -7,17 +7,25 @@ changelog:
       names: ["yceballost", "aweell", "AnaMontes11"]
   sections:
     - title: "⚠️ Breaking changes"
-      labels: ["breaking change"]
+      labels: ["breaking change", "library: mobile"]
+      group: "📱 Mística Mobile"
+    - title: "⚠️ Breaking changes"
+      labels: ["breaking change", "library: desktop"]
+      group: "🖥 Mística Desktop"
     - title: "✨ New!"
       labels: ["new!"]
-    - title: "📱 Mística Mobile changes (Figma)"
+    - title: "Changes (Figma)"
       labels: ["library: mobile"]
-    - title: "🖥 Mística Desktop changes (Figma)"
-      labels: ["library: desktop"]
-    - title: "📱 Mística Mobile bugs (Figma)"
+      group: "📱 Mística Mobile"
+    - title: "Bugs fixed (Figma)"
       labels: ["library: mobile", "bug 🐞"]
-    - title: "🖥 Mística Desktop bugs (Figma)"
+      group: "📱 Mística Mobile"
+    - title: "Changes (Figma)"
+      labels: ["library: desktop"]
+      group: "🖥 Mística Desktop"
+    - title: "Bugs fixed (Figma)"
       labels: ["library: desktop", "bug 🐞"]
+      group: "🖥 Mística Desktop"
     - title: "💅 Brand changes"
       labels:
         [
