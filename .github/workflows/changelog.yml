@@ -20,7 +20,7 @@ jobs:
         uses: docker://decathlon/release-notes-generator-action:3.1.5
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-          OUTPUT_FOLDER: temp_release_notes
+          OUTPUT_FOLDER: changelog-versions
           USE_MILESTONE_TITLE: "true"
 
       - name: Commit & Push
@@ -42,7 +42,7 @@ jobs:
           ACTION_MAIL: myuser@users.noreply.github.com
           ACTION_NAME: místicaBot
           GH_PAT: ${{ secrets.PERSONAL_TOKEN }}
-          MD_FOLDER: temp_release_notes
+          MD_FOLDER: changelog-versions
           OWNER: Telefonica
           REPO_NAME: mistica-design
           SKIP_MD: README.md
