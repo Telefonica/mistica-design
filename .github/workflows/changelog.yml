@@ -21,6 +21,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           FILENAME: CHANGELOG
+          OUTPUT_FOLDER: temp_release_notes
           USE_MILESTONE_TITLE: "true"
 
       - name: Upload Release Notes to Wiki
