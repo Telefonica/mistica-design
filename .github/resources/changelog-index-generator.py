@@ -30,7 +30,7 @@ print(changelog_files_sorted)
 
 changelog_version = ""
 
-for item in sorted(changelog_files_sorted):
+for item in changelog_files_sorted:
     # print(item)
     if item.endswith('.0.0'):
         changelog_version += "- " + "[" + item + "]" + \
