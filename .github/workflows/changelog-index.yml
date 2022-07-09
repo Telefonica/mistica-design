@@ -5,7 +5,6 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - ".github/workflows/changelog-index.yml"
       - ".github/resources/changelog-index-generator.py"
       - "changelog-versions/**"
 
