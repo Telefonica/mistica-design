@@ -22,7 +22,7 @@ changelog_version = ""
 
 for item in sorted(changelog_files, reverse=True):
     changelog_version += "- " + "[" + item.replace(".md", "") + "]" + \
-        "(" + "./changelog-versions/" + item + ")" + BREAK
+        "(" + "changelog-versions/" + item + ")" + BREAK
     # print(changelog_version)
 
 file_content = "# Changelog index" + BREAK + changelog_version
