@@ -40,7 +40,8 @@ for item in changelog_files_sorted:
             "(" + "changelog-versions/" + item + ".md" + ")" + BREAK + BREAK
         # print(changelog_version)
 
-file_content = "# Changelog index" + BREAK + changelog_version
+file_content = "# Changelog index" + BREAK + changelog_version + BREAK + \
+    "[Changelog history →](https://paper.dropbox.com/doc/Changelog-Mistica-Design-System--BlDyPv0kWq8W502b64VVIPMsAQ-il1pWXaGur0Nm88P831X2)"
 # print(file_content)
 
 output_file_path = "./CHANGELOG.md"
