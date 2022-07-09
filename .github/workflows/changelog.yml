@@ -41,6 +41,8 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git commit -am "update changelog"
 
+      # --- DEV MODE ---
+
       - name: Get branch name
         uses: rlespinasse/github-slug-action@v3.x
 
@@ -50,6 +52,8 @@ jobs:
           git config user.email "nobody@nowhere"  
           git commit -am "Changelog generated"
           git push origin ${{ env.GITHUB_REF_SLUG_URL }}
+
+      # --- DEV MODE ---
 
       # - name: Push to protected branch
       #   uses: CasperWA/push-protected@v2
