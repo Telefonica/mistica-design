@@ -33,11 +33,11 @@ changelog_version = ""
 for item in changelog_files_sorted:
     # print(item)
     if item.endswith('.0.0'):
-        changelog_version += "- " + "[" + "**" + item + "**" + "]" + \
-            "(" + "changelog-versions/" + item + ".md" + ")" + BREAK
+        changelog_version += "## " + "[" + "**" + item + "**" + "]" + \
+            "(" + "changelog-versions/" + item + ".md" + ")" + BREAK + BREAK
     else:
-        changelog_version += "- " + "[" + item + "]" + \
-            "(" + "changelog-versions/" + item + ".md" + ")" + BREAK
+        changelog_version += "[" + item + "]" + \
+            "(" + "changelog-versions/" + item + ".md" + ")" + BREAK + BREAK
         # print(changelog_version)
 
 file_content = "# Changelog index" + BREAK + changelog_version
