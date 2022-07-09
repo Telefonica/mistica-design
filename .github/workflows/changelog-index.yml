@@ -1,0 +1,32 @@
+name: Changelog index generator
+
+# Trigger the workflow on milestone events
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/changelog-index.yml"
+      - ".github/resources/changelog-index-generator.py"
+      - "changelog-versions/**"
+
+jobs:
+  create-release-notes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - run: sudo python3 .github/resources/changelog-index-generator.py changelog-versions
+
+      - name: Commit & Push
+        run: |
+          git add .
+          git config user.name "github-actions"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "update changelog"
+
+      - name: Push to protected branch
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          branch: production
+          unprotect_reviews: true
