@@ -14,7 +14,7 @@ for path in os.listdir(dir_path):
     if os.path.isfile(os.path.join(dir_path, path)):
         changelog_files.append(path)
 
-    if path == ".DS_Store" and path == "index.md":
+    if path == ".DS_Store":
         changelog_files.remove(path)
 print(changelog_files)
 
