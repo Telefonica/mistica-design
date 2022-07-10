@@ -36,8 +36,7 @@ changelog_version = ""
 for item in changelog_files_sorted:
     # print(item)
     major = "## " if item.endswith('.0.0') else ""
-    major_bold = "**" if item.endswith('.0.0') else ""
-    changelog_version += major + "[" + major_bold + item + major_bold + "]" + \
+    changelog_version += major + "[" + item + "]" + \
         "(" + "changelog-versions/" + item + ".md" + ")" + BREAK + BREAK
     # print(changelog_version)
 
