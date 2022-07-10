@@ -1,4 +1,6 @@
 import os
+
+# pip install packaging
 from packaging.version import parse as parse_version
 
 BREAK = "\n"
@@ -21,7 +23,7 @@ for path in os.listdir(dir_path):
 # Remove extension from files
 changelog_files = list(
     map(lambda x: x.replace('.md', ''), changelog_files_extension))
-print(changelog_files)
+# print(changelog_files)
 
 # Sort files by version
 changelog_files_sorted = sorted(changelog_files, reverse=True, key=lambda x: [int(
@@ -30,19 +32,22 @@ print(changelog_files_sorted)
 
 changelog_version = ""
 
+# Generate list of versions in markdown format
 for item in changelog_files_sorted:
     # print(item)
-    if item.endswith('.0.0'):
-        changelog_version += "## " + "[" + "**" + item + "**" + "]" + \
-            "(" + "changelog-versions/" + item + ".md" + ")" + BREAK + BREAK
-    else:
-        changelog_version += "[" + item + "]" + \
-            "(" + "changelog-versions/" + item + ".md" + ")" + BREAK + BREAK
-        # print(changelog_version)
+    major = "## " if item.endswith('.0.0') else ""
+    major_bold = "**" if item.endswith('.0.0') else ""
+    changelog_version += major + "[" + major_bold + item + major_bold + "]" + \
+        "(" + "changelog-versions/" + item + ".md" + ")" + BREAK + BREAK
+    # print(changelog_version)
 
+# Empty line
+print()
+
+# Draw markdown file
 file_content = "# Changelog index" + BREAK + changelog_version + BREAK + "---" + BREAK + \
     "[Changelog history →](https://paper.dropbox.com/doc/Changelog-Mistica-Design-System--BlDyPv0kWq8W502b64VVIPMsAQ-il1pWXaGur0Nm88P831X2)"
-# print(file_content)
+print(file_content)
 
 output_file_path = "./CHANGELOG.md"
 file = open(output_file_path, "w+")
