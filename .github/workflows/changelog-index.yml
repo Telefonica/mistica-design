@@ -23,9 +23,15 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git commit -am "update changelog"
 
-      - name: Push to protected branch
-        uses: CasperWA/push-protected@v2
-        with:
-          token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
-          branch: production
-          unprotect_reviews: true
+      - name: commit changed files
+        run: git commit -m "sketch generated and folders removed"
+
+      - name: push code to ${{ env.GITHUB_REF_SLUG_URL }}
+        run: git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
+
+      # - name: Push to protected branch
+      #   uses: CasperWA/push-protected@v2
+      #   with:
+      #     token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+      #     branch: production
+      #     unprotect_reviews: true

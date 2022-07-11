@@ -28,7 +28,7 @@ jobs:
           USE_MILESTONE_TITLE: "true"
           FILENAME_PREFIX: ${{ github.event.inputs.releaseVersion }}
 
-      # - run: sudo python3 .github/resources/changelog-index-generator.py changelog-versions
+      - run: sudo python3 .github/resources/changelog-index-generator.py changelog-versions
 
       # --- DEV MODE ---
 
