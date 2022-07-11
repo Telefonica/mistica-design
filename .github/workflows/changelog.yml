@@ -33,27 +33,16 @@ jobs:
 
       # - run: sudo python3 .github/resources/changelog-index-generator.py changelog-versions
 
-      # --- DEV MODE ---
+      - name: Get branch name
+        uses: rlespinasse/github-slug-action@v3.x
 
-      # - name: Get branch name
-      #   uses: rlespinasse/github-slug-action@v3.x
-
-      # - name: Commit & Push
-      #   run: |
-      #     git config user.name "Bot"
-      #     git config user.email "nobody@nowhere"
-      #     git commit -am "Changelog generated"
-      #     git push origin ${{ env.GITHUB_REF_SLUG_URL }}
-
-      # --- DEV MODE ---
-
-      - name: Commit & Push
+      - name: Commit & Push in ${{ env.GITHUB_REF_SLUG_URL }}
         run: |
           git add .
           git config user.name "github-actions"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git commit -am "update changelog"
-          git push origin production
+          git push origin ${{ env.GITHUB_REF_SLUG_URL }}
 
       # - name: Upload Release Notes to Wiki
       #   uses: docker://decathlon/wiki-page-creator-action:latest
