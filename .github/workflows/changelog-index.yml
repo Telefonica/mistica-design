@@ -24,7 +24,7 @@ jobs:
           git commit -am "update changelog"
 
       - name: push code to ${{ env.GITHUB_REF_SLUG_URL }}
-        run: git push origin HEAD:${{ env.GITHUB_REF_SLUG_URL }}
+        run: git push origin ${{ env.GITHUB_REF_SLUG_URL }}
 
       # - name: Push to protected branch
       #   uses: CasperWA/push-protected@v2
