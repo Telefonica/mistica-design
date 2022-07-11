@@ -35,6 +35,7 @@ changelog_version = ""
 # Generate list of versions in markdown format
 for item in changelog_files_sorted:
     # print(item)
+    # If version is major, then use ## for make this version as a "large" title
     major = "## " if item.endswith('.0.0') else ""
     changelog_version += major + "[" + item + "]" + \
         "(" + "changelog-versions/" + item + ".md" + ")" + BREAK + BREAK
