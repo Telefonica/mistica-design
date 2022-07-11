@@ -49,6 +49,7 @@ file_content = "# Changelog index" + BREAK + BREAK + changelog_version + "---" +
     "[Changelog history →](https://paper.dropbox.com/doc/Changelog-Mistica-Design-System--BlDyPv0kWq8W502b64VVIPMsAQ-il1pWXaGur0Nm88P831X2)" + BREAK
 print(file_content)
 
+# Save file
 output_file_path = "./CHANGELOG.md"
 file = open(output_file_path, "w+")
 file.write(file_content)
