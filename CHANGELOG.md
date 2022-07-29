@@ -1,5 +1,7 @@
 # Changelog index
 
+[5.2.0](changelog-versions/5.2.0.md)
+
 [5.1.0](changelog-versions/5.1.0.md)
 
 ## [5.0.0](changelog-versions/5.0.0.md)
