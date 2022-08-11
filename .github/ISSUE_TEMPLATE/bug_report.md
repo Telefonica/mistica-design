@@ -20,16 +20,17 @@ Steps to reproduce the behavior:
 A clear and concise description of what you expected to happen.
 
 ### Details (please complete the following information):
-<!-- Mark with [x] or [ ] to which library is applying the issue. -->
+<!-- Which library is applying the issue. -->
 
-- [x] Mobile 
-- [ ] Desktop
-- [ ] Movistar
-- [ ] O2
-- [ ] Vivo
-- [ ] Telefónica
-- [ ] Classic O2
-- [ ] Blau
+- Mobile 
+- Desktop
+- Movistar
+- O2
+- Vivo
+- Telefónica
+- Classic O2
+- Blau
+- Solar 360
 
 Component name: `e.g. bars/navBar/regular`
 
