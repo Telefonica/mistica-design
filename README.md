@@ -30,8 +30,8 @@
 
 ---
 
--  [Contribute to Mística](https://brandfactory.telefonica.com/document/1846#/contribute/how-to-contribute)
--  [Current components status](https://brandfactory.telefonica.com/document/1846#/components/overview)
+- [Contribute to Mística](https://brandfactory.telefonica.com/document/1846#/contribute/how-to-contribute)
+- [Current components status](https://brandfactory.telefonica.com/document/1846#/components/overview)
 
 ---
 
@@ -45,6 +45,7 @@ If you want to sync design tokens with Figma files you can use [Figma Tokens plu
 
 1. In Figma Plugin go to `sync` and then `Github`
 2. Add new credentials
+
 - **Name:** The name of the brand
 - **Personal Access Token:** you have to generate a token from Github and the paste in. [Read how to do it](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 - **Repository:** `Telefonica/mistica-design`
@@ -53,9 +54,12 @@ If you want to sync design tokens with Figma files you can use [Figma Tokens plu
 
 ![image](https://user-images.githubusercontent.com/6722153/166447592-e3d1b545-199d-4155-9024-2fb88351b444.png)
 
+### Set up JSON Schema validator
 
+If you want to edit json tokens with validation rules, follow [this configuration.](https://github.com/Telefonica/mistica-design/wiki/Set-up-VScode-with-M%C3%ADstica-JSON-Schema-validator)
 
 # Sketch
+
 ## How to install sketch development libraries<a name="gettingStarted"></a>
 
 If you want to try development libraries and pull changes to production library, follow [this documentation](https://github.com/Telefonica/mistica-design/wiki/Install-development-libraries-with-Kactus) (please, read [contribution guidelines](https://brandfactory.telefonica.com/document/1846#/contribute/components-request) first)
@@ -68,14 +72,14 @@ Every Friday, if there are substantial changes, we release a new version of libr
 
 ![Kactus Regenerate File](.github/resources/mistica-release-workflow.png)
 
-#### Creating new branches
+### Creating new branches
 
 If you want to do a new branch, please, write the branch name with the correct name.
 
 `name-short-description`  
 `iceballos-fix-buttons-size`
 
-#### POC Branches (Shouldn't be common)
+### POC Branches (Shouldn't be common)
 
 If you want to test something to later will be integrated in libraries, you will be going to do that creating a _custom branch_ from production.
 
