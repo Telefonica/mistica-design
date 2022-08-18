@@ -1,10 +1,20 @@
 {
   "additionalProperties": false,
-  "required": ["light", "dark"],
+  "required": ["light", "dark", "global"],
   "properties": {
     "$schema": { "type": "string" },
     "global": {
-      "$ref": "#/global"
+      "$ref": "#/global",
+      "required": "palette",
+      "properties": {
+        "palette": {
+          "anyOf": [
+            {
+              "$ref": "#/global/palette"
+            }
+          ]
+        }
+      }
     },
     "prominent": {
       "additionalProperties": true
@@ -13,93 +23,6 @@
       "allOf": [
         {
           "$ref": "#/global/constants"
-        },
-        {
-          "required": [
-            "appBarBackground",
-            "background",
-            "backgroundContainer",
-            "backgroundBrand",
-            "backgroundOverlay",
-            "backgroundSkeleton",
-            "backgroundSkeletonInverse",
-            "backgroundAlternative",
-            "backgroundFeedbackBottom",
-            "navigationBarBackground",
-            "skeletonWave",
-            "border",
-            "borderLight",
-            "borderDark",
-            "borderSelected",
-            "buttonDangerBackground",
-            "buttonDangerBackgroundSelected",
-            "buttonDangerBackgroundHover",
-            "buttonLinkBackgroundSelected",
-            "buttonLinkBackgroundSelectedInverse",
-            "buttonPrimaryBackground",
-            "buttonPrimaryBackgroundInverse",
-            "buttonPrimaryBackgroundSelected",
-            "buttonPrimaryBackgroundSelectedInverse",
-            "buttonPrimaryBackgroundHover",
-            "buttonSecondaryBackground",
-            "buttonSecondaryBackgroundSelected",
-            "buttonSecondaryBorderInverse",
-            "buttonSecondaryBorderSelectedInverse",
-            "control",
-            "controlActivated",
-            "controlError",
-            "loadingBar",
-            "loadingBarBackground",
-            "toggleAndroidInactive",
-            "toggleAndroidBackgroundActive",
-            "iosControlKnob",
-            "divider",
-            "dividerInverse",
-            "navigationBarDivider",
-            "badge",
-            "feedbackErrorBackground",
-            "feedbackInfoBackground",
-            "brand",
-            "brandHigh",
-            "inverse",
-            "neutralHigh",
-            "neutralMedium",
-            "neutralLow",
-            "promo",
-            "error",
-            "highlight",
-            "success",
-            "warning",
-            "textPrimary",
-            "textPrimaryInverse",
-            "textSecondary",
-            "textSecondaryInverse",
-            "textButtonPrimary",
-            "textButtonPrimaryInverse",
-            "textButtonPrimaryInverseSelected",
-            "textButtonSecondary",
-            "textButtonSecondarySelected",
-            "textButtonSecondaryInverse",
-            "textButtonSecondaryInverseSelected",
-            "textLink",
-            "textLinkInverse",
-            "textLinkDanger",
-            "textLinkSnackbar",
-            "textNavigationBarPrimary",
-            "textNavigationBarSecondary",
-            "textNavigationSearchBarHint",
-            "textNavigationSearchBarText",
-            "textAppBar",
-            "textAppBarSelected",
-            "successLow",
-            "warningLow",
-            "errorLow",
-            "promoLow",
-            "successHigh",
-            "warningHigh",
-            "errorHigh",
-            "promoHigh"
-          ]
         }
       ]
     },
@@ -107,98 +30,1735 @@
       "allOf": [
         {
           "$ref": "#/global/constants"
-        },
-        {
-          "required": [
-            "appBarBackground",
-            "background",
-            "backgroundContainer",
-            "backgroundBrand",
-            "backgroundOverlay",
-            "backgroundSkeleton",
-            "backgroundSkeletonInverse",
-            "backgroundAlternative",
-            "backgroundFeedbackBottom",
-            "navigationBarBackground",
-            "skeletonWave",
-            "border",
-            "borderLight",
-            "borderDark",
-            "borderSelected",
-            "buttonDangerBackground",
-            "buttonDangerBackgroundSelected",
-            "buttonDangerBackgroundHover",
-            "buttonLinkBackgroundSelected",
-            "buttonLinkBackgroundSelectedInverse",
-            "buttonPrimaryBackground",
-            "buttonPrimaryBackgroundInverse",
-            "buttonPrimaryBackgroundSelected",
-            "buttonPrimaryBackgroundSelectedInverse",
-            "buttonPrimaryBackgroundHover",
-            "buttonSecondaryBackground",
-            "buttonSecondaryBackgroundSelected",
-            "buttonSecondaryBorderInverse",
-            "buttonSecondaryBorderSelectedInverse",
-            "control",
-            "controlActivated",
-            "controlError",
-            "loadingBar",
-            "loadingBarBackground",
-            "toggleAndroidInactive",
-            "toggleAndroidBackgroundActive",
-            "iosControlKnob",
-            "divider",
-            "dividerInverse",
-            "navigationBarDivider",
-            "badge",
-            "feedbackErrorBackground",
-            "feedbackInfoBackground",
-            "brand",
-            "brandHigh",
-            "inverse",
-            "neutralHigh",
-            "neutralMedium",
-            "neutralLow",
-            "promo",
-            "error",
-            "highlight",
-            "success",
-            "warning",
-            "textPrimary",
-            "textPrimaryInverse",
-            "textSecondary",
-            "textSecondaryInverse",
-            "textButtonPrimary",
-            "textButtonPrimaryInverse",
-            "textButtonPrimaryInverseSelected",
-            "textButtonSecondary",
-            "textButtonSecondarySelected",
-            "textButtonSecondaryInverse",
-            "textButtonSecondaryInverseSelected",
-            "textLink",
-            "textLinkInverse",
-            "textLinkDanger",
-            "textLinkSnackbar",
-            "textNavigationBarPrimary",
-            "textNavigationBarSecondary",
-            "textNavigationSearchBarHint",
-            "textNavigationSearchBarText",
-            "textAppBar",
-            "textAppBarSelected",
-            "successLow",
-            "warningLow",
-            "errorLow",
-            "promoLow",
-            "successHigh",
-            "warningHigh",
-            "errorHigh",
-            "promoHigh"
-          ]
         }
       ]
     }
   },
   "global": {
+    "palette": {
+      "additionalProperties": false,
+      "properties": {
+        "grey1": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "grey2": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "grey3": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "grey4": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "grey5": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "grey6": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "grey7": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "grey8": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "grey9": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "white": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "darkModeBlack": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "darkModeGrey": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "darkModeGrey6": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauBluePrimary": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauBluePrimary10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauBluePrimary20": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauBluePrimary30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauBlueSecondary": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauBlueSecondary10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauBlueSecondary20": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauBlueSecondary30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauBlueSecondary60": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauPurple": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauPurple10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauPurple30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauYellow": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauYellow10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauYellow40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauYellow60": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauYellow70": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauGreen": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauGreen10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauGreen30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauGreen70": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauRed": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauRed10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauRed20": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauRed30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauRed40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "blauRed70": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Blue": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Blue10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Blue30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Blue45": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Blue55": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2SkyBlue": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2SkyBlue55": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2SkyBlueLight": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2SkyBlueLight45": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2SkyBlueLight20": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2SkyBlueLight10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2DeepSkyBlue": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Gem": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2GemDark": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2GemLight30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Yellow": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Green": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Green10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Green40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Green75": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pepper": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pepper10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pepper20": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pepper40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pepper55": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pepper70": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "orange": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "orange10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "orange40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "orange80": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "coral": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pink": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pink10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pink40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pink60": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2GradientFirst": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2GradientSecond": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2GradientThird": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2GradientFourth": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "vivoPurple": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "vivoPurpleDark": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "vivoPurpleLight10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "vivoPurpleLight20": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "vivoPurpleLight50": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "vivoPurpleLight80": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "vivoPurpleLight90": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "vivoGreen": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "vivoGreenDark": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "vivoGreenLight10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "vivoGreen25": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "vivoGreenLight30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "vivoBlue": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "orange25": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "orangeDark": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "orangeLight10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "orangeLight40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pepperDark": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pepperDark80": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pepperLight10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pepperLight30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pepperLight40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "telefonicaBlue": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "telefonicaBlue10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "telefonicaBlue20": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "telefonicaBlue30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "telefonicaBlue70": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "ambar": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "ambar10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "ambar40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "ambar70": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "coral10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "coral40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "coral70": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "coral80": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "orchid": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "orchid10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "orchid40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "orchid70": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "turquoise": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "turquoise10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "turquoise40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "turquoise70": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarBlue": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarBlue10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarBlue20": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarBlue30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarBlue55": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolBlue200": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolOrange10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolOrange20": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolOrange40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolOrange70": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolOrange700": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolYellow": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolYellow10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolYellow90": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolRed500": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolRed10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolRed80": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarRed": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolTurquoise": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolTurquoise10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolTurquoise80": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolPurple10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolPurple30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "repsolPurple80": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2BluePrimary": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2BluePrimary70": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2BluePrimary30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2BluePrimary15": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2BluePrimary10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2BlueMid": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2BlueLight": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2BlueLight30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2BlueLight35": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Teal": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Green80": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Orange": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Orange10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Orange40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Orange75": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Pink": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Purple": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Purple10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "o2Purple30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "pepper60": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "darkModeO2BluePrimary": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "darkModeO2BluePrimaryDark": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{}3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarBlue40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarGreen": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarGreen10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarGreen20": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarGreen30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarGreen40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarGreen60": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarGreen70": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "egg": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "egg10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "egg25": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "egg40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "egg80": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "purple": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "purple10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "purple40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "purple70": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarBlueDark": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarBlueDark60": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarBlueDark10": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarBlueDark15": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarBlueDark30": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        },
+        "movistarBlueDark40": {
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            },
+            "type": { "const": "color" }
+          }
+        }
+      }
+    },
     "constants": {
       "properties": {
         "appBarBackground": {
