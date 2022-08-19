@@ -39,3535 +39,879 @@
       "additionalProperties": false,
       "properties": {
         "grey1": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "grey2": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "grey3": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "grey4": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "grey5": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "grey6": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "grey7": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "grey8": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "grey9": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "white": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "darkModeBlack": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "darkModeGrey": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "darkModeGrey6": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauBluePrimary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauBluePrimary10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauBluePrimary20": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauBluePrimary30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauBlueSecondary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauBlueSecondary10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauBlueSecondary20": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauBlueSecondary30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauBlueSecondary60": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauPurple": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauPurple10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauPurple30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauYellow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauYellow10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauYellow40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauYellow60": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauYellow70": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauGreen": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauGreen10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauGreen30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauGreen70": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauRed": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauRed10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauRed20": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauRed30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauRed40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "blauRed70": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Blue": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Blue10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Blue30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Blue45": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Blue55": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2SkyBlue": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2SkyBlue55": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2SkyBlueLight": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2SkyBlueLight45": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2SkyBlueLight20": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2SkyBlueLight10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2DeepSkyBlue": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Gem": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2GemDark": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2GemLight30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Yellow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Green": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Green10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Green40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Green75": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pepper": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pepper10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pepper20": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pepper40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pepper55": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pepper70": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "orange": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "orange10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "orange40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "orange80": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "coral": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pink": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pink10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pink40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pink60": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2GradientFirst": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2GradientSecond": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2GradientThird": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2GradientFourth": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "vivoPurple": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "vivoPurpleDark": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "vivoPurpleLight10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "vivoPurpleLight20": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "vivoPurpleLight50": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "vivoPurpleLight80": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "vivoPurpleLight90": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "vivoGreen": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "vivoGreenDark": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "vivoGreenLight10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "vivoGreen25": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "vivoGreenLight30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "vivoBlue": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "orange25": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "orangeDark": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "orangeLight10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "orangeLight40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pepperDark": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pepperDark80": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pepperLight10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pepperLight30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pepperLight40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "telefonicaBlue": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "telefonicaBlue10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "telefonicaBlue20": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "telefonicaBlue30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "telefonicaBlue70": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "ambar": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "ambar10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "ambar40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "ambar70": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "coral10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "coral40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "coral70": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "coral80": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "orchid": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "orchid10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "orchid40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "orchid70": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "turquoise": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "turquoise10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "turquoise40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "turquoise70": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarBlue": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarBlue10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarBlue20": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarBlue30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarBlue55": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolBlue200": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolOrange10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolOrange20": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolOrange40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolOrange70": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolOrange700": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolYellow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolYellow10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolYellow90": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolRed500": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolRed10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolRed80": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarRed": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolTurquoise": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolTurquoise10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolTurquoise80": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolPurple10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolPurple30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "repsolPurple80": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2BluePrimary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2BluePrimary70": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2BluePrimary30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2BluePrimary15": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2BluePrimary10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2BlueMid": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2BlueLight": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2BlueLight30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2BlueLight35": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Teal": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Green80": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Orange": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Orange10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Orange40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Orange75": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Pink": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Purple": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Purple10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "o2Purple30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "pepper60": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "darkModeO2BluePrimary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "darkModeO2BluePrimaryDark": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{}3})$"
-            },
-            "type": { "const": "color" }
-          }
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarBlue40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarGreen": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarGreen10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarGreen20": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarGreen30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarGreen40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarGreen60": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarGreen70": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "egg": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "egg10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "egg25": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "egg40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "egg80": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "purple": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "purple10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "purple40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "purple70": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarBlueDark": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarBlueDark60": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarBlueDark10": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarBlueDark15": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarBlueDark30": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         },
         "movistarBlueDark40": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            },
-            "type": { "const": "color" }
-          },
-          "required": ["value", "type"]
+          "$ref": "#/definitions/colorProperties"
         }
       }
     },
     "constants": {
       "properties": {
         "appBarBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "background": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundContainer": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundBrand": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
+        },
+        "backgroundBrandAlternative": {
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundOverlay": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundSkeleton": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundSkeletonInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundAlternative": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundFeedbackBottom": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "navigationBarBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "skeletonWave": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "border": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "borderLight": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "borderDark": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "borderSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonDangerBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonDangerBackgroundSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonDangerBackgroundHover": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonLinkBackgroundSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonLinkBackgroundSelectedInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonPrimaryBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonPrimaryBackgroundInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonPrimaryBackgroundSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonPrimaryBackgroundSelectedInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonPrimaryBackgroundHover": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonSecondaryBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonSecondaryBackgroundSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonSecondaryBorderInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonSecondaryBorderSelectedInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "control": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "controlActivated": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "controlError": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "loadingBar": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "loadingBarBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "toggleAndroidInactive": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "toggleAndroidBackgroundActive": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "iosControlKnob": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "divider": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "dividerInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "navigationBarDivider": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "badge": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "feedbackErrorBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "feedbackInfoBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "brand": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "brandHigh": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "inverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "neutralHigh": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "neutralLow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "neutralMedium": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "promo": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "error": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "highlight": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "success": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "warning": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textPrimary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textPrimaryInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textSecondary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textSecondaryInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonPrimary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonPrimaryInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonPrimaryInverseSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonSecondary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonSecondarySelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonSecondaryInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonSecondaryInverseSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textLink": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textLinkInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textLinkDanger": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textLinkSnackbar": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textNavigationBarPrimary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textNavigationBarSecondary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textNavigationSearchBarHint": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textNavigationSearchBarText": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textAppBar": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textAppBarSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "successLow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "warningLow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "errorLow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "promoLow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "brandLow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "successHigh": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "warningHigh": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "errorHigh": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "promoHigh": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "extended": {
           "type": "object",
           "patternProperties": {
             ".*": {
               "type": "object",
-              "properties": {
-                "value": {
-                  "type": "string",
-                  "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-                },
-                "type": { "const": "color" },
-                "description": {
-                  "type": "string",
-                  "pattern": "^[^{}]+$"
-                }
-              }
+              "$ref": "#/definitions/constantProperties"
             }
           },
           "additionalProperties": true
         }
       },
+      "additionalProperties": false
+    }
+  },
+  "definitions": {
+    "colorProperties": {
+      "patternProperties": {
+        "value": {
+          "type": "string",
+          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+        },
+        "type": { "const": "color" }
+      },
+      "required": ["value", "type"]
+    },
+    "constantProperties": {
+      "patternProperties": {
+        "value": {
+          "type": "string",
+          "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+        },
+        "type": { "const": "color" },
+        "description": {
+          "type": "string",
+          "pattern": "^[^{}]+$"
+        }
+      },
+      "required": [
+        "value",
+        "type",
+        "description"
+      ],
       "additionalProperties": false
     }
   }
