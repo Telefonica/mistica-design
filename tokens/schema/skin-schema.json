@@ -1,1881 +1,424 @@
 {
   "additionalProperties": false,
-  "required": ["light", "dark"],
+  "required": ["light", "dark", "global"],
   "properties": {
-    "$schema": { "type": "string" },
     "global": {
-      "$ref": "#/global"
+      "$ref": "#/global",
+      "required": "palette",
+      "properties": {
+        "palette": {
+          "anyOf": [
+            { "$ref": "#/global/palette" }
+          ]
+        }
+      }
     },
     "prominent": {
       "additionalProperties": true
     },
     "light": {
-      "allOf": [
-        {
-          "$ref": "#/global/constants"
-        },
-        {
-          "required": [
-            "appBarBackground",
-            "background",
-            "backgroundContainer",
-            "backgroundBrand",
-            "backgroundOverlay",
-            "backgroundSkeleton",
-            "backgroundSkeletonInverse",
-            "backgroundAlternative",
-            "backgroundFeedbackBottom",
-            "navigationBarBackground",
-            "skeletonWave",
-            "border",
-            "borderLight",
-            "borderDark",
-            "borderSelected",
-            "buttonDangerBackground",
-            "buttonDangerBackgroundSelected",
-            "buttonDangerBackgroundHover",
-            "buttonLinkBackgroundSelected",
-            "buttonLinkBackgroundSelectedInverse",
-            "buttonPrimaryBackground",
-            "buttonPrimaryBackgroundInverse",
-            "buttonPrimaryBackgroundSelected",
-            "buttonPrimaryBackgroundSelectedInverse",
-            "buttonPrimaryBackgroundHover",
-            "buttonSecondaryBackground",
-            "buttonSecondaryBackgroundSelected",
-            "buttonSecondaryBorderInverse",
-            "buttonSecondaryBorderSelectedInverse",
-            "control",
-            "controlActivated",
-            "controlError",
-            "loadingBar",
-            "loadingBarBackground",
-            "toggleAndroidInactive",
-            "toggleAndroidBackgroundActive",
-            "iosControlKnob",
-            "divider",
-            "dividerInverse",
-            "navigationBarDivider",
-            "badge",
-            "feedbackErrorBackground",
-            "feedbackInfoBackground",
-            "brand",
-            "brandHigh",
-            "inverse",
-            "neutralHigh",
-            "neutralMedium",
-            "neutralLow",
-            "promo",
-            "error",
-            "highlight",
-            "success",
-            "warning",
-            "textPrimary",
-            "textPrimaryInverse",
-            "textSecondary",
-            "textSecondaryInverse",
-            "textButtonPrimary",
-            "textButtonPrimaryInverse",
-            "textButtonPrimaryInverseSelected",
-            "textButtonSecondary",
-            "textButtonSecondarySelected",
-            "textButtonSecondaryInverse",
-            "textButtonSecondaryInverseSelected",
-            "textLink",
-            "textLinkInverse",
-            "textLinkDanger",
-            "textLinkSnackbar",
-            "textNavigationBarPrimary",
-            "textNavigationBarSecondary",
-            "textNavigationSearchBarHint",
-            "textNavigationSearchBarText",
-            "textAppBar",
-            "textAppBarSelected",
-            "successLow",
-            "warningLow",
-            "errorLow",
-            "promoLow",
-            "successHigh",
-            "warningHigh",
-            "errorHigh",
-            "promoHigh"
-          ]
-        }
-      ]
+      "allOf": [{ "$ref": "#/global/constants" }]
     },
     "dark": {
-      "allOf": [
-        {
-          "$ref": "#/global/constants"
-        },
-        {
-          "required": [
-            "appBarBackground",
-            "background",
-            "backgroundContainer",
-            "backgroundBrand",
-            "backgroundOverlay",
-            "backgroundSkeleton",
-            "backgroundSkeletonInverse",
-            "backgroundAlternative",
-            "backgroundFeedbackBottom",
-            "navigationBarBackground",
-            "skeletonWave",
-            "border",
-            "borderLight",
-            "borderDark",
-            "borderSelected",
-            "buttonDangerBackground",
-            "buttonDangerBackgroundSelected",
-            "buttonDangerBackgroundHover",
-            "buttonLinkBackgroundSelected",
-            "buttonLinkBackgroundSelectedInverse",
-            "buttonPrimaryBackground",
-            "buttonPrimaryBackgroundInverse",
-            "buttonPrimaryBackgroundSelected",
-            "buttonPrimaryBackgroundSelectedInverse",
-            "buttonPrimaryBackgroundHover",
-            "buttonSecondaryBackground",
-            "buttonSecondaryBackgroundSelected",
-            "buttonSecondaryBorderInverse",
-            "buttonSecondaryBorderSelectedInverse",
-            "control",
-            "controlActivated",
-            "controlError",
-            "loadingBar",
-            "loadingBarBackground",
-            "toggleAndroidInactive",
-            "toggleAndroidBackgroundActive",
-            "iosControlKnob",
-            "divider",
-            "dividerInverse",
-            "navigationBarDivider",
-            "badge",
-            "feedbackErrorBackground",
-            "feedbackInfoBackground",
-            "brand",
-            "brandHigh",
-            "inverse",
-            "neutralHigh",
-            "neutralMedium",
-            "neutralLow",
-            "promo",
-            "error",
-            "highlight",
-            "success",
-            "warning",
-            "textPrimary",
-            "textPrimaryInverse",
-            "textSecondary",
-            "textSecondaryInverse",
-            "textButtonPrimary",
-            "textButtonPrimaryInverse",
-            "textButtonPrimaryInverseSelected",
-            "textButtonSecondary",
-            "textButtonSecondarySelected",
-            "textButtonSecondaryInverse",
-            "textButtonSecondaryInverseSelected",
-            "textLink",
-            "textLinkInverse",
-            "textLinkDanger",
-            "textLinkSnackbar",
-            "textNavigationBarPrimary",
-            "textNavigationBarSecondary",
-            "textNavigationSearchBarHint",
-            "textNavigationSearchBarText",
-            "textAppBar",
-            "textAppBarSelected",
-            "successLow",
-            "warningLow",
-            "errorLow",
-            "promoLow",
-            "successHigh",
-            "warningHigh",
-            "errorHigh",
-            "promoHigh"
-          ]
-        }
-      ]
+      "allOf": [{ "$ref": "#/global/constants" }]
     }
   },
   "global": {
+    "palette": {
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "$ref": "#/definitions/paletteProperties"
+        }
+      }
+    },
     "constants": {
+      "additionalProperties": false,
+      "required": [
+        "appBarBackground",
+        "background",
+        "backgroundContainer",
+        "backgroundBrand",
+        "backgroundOverlay",
+        "backgroundSkeleton",
+        "backgroundSkeletonInverse",
+        "backgroundAlternative",
+        "backgroundFeedbackBottom",
+        "navigationBarBackground",
+        "skeletonWave",
+        "border",
+        "borderLight",
+        "borderDark",
+        "borderSelected",
+        "buttonDangerBackground",
+        "buttonDangerBackgroundSelected",
+        "buttonDangerBackgroundHover",
+        "buttonLinkBackgroundSelected",
+        "buttonLinkBackgroundSelectedInverse",
+        "buttonPrimaryBackground",
+        "buttonPrimaryBackgroundInverse",
+        "buttonPrimaryBackgroundSelected",
+        "buttonPrimaryBackgroundSelectedInverse",
+        "buttonPrimaryBackgroundHover",
+        "buttonSecondaryBackground",
+        "buttonSecondaryBackgroundSelected",
+        "buttonSecondaryBorderInverse",
+        "buttonSecondaryBorderSelectedInverse",
+        "control",
+        "controlActivated",
+        "controlError",
+        "loadingBar",
+        "loadingBarBackground",
+        "toggleAndroidInactive",
+        "toggleAndroidBackgroundActive",
+        "iosControlKnob",
+        "divider",
+        "dividerInverse",
+        "navigationBarDivider",
+        "badge",
+        "feedbackErrorBackground",
+        "feedbackInfoBackground",
+        "brand",
+        "brandHigh",
+        "inverse",
+        "neutralHigh",
+        "neutralLow",
+        "neutralMedium",
+        "promo",
+        "error",
+        "highlight",
+        "success",
+        "warning",
+        "textPrimary",
+        "textPrimaryInverse",
+        "textSecondary",
+        "textSecondaryInverse",
+        "textButtonPrimary",
+        "textButtonPrimaryInverse",
+        "textButtonPrimaryInverseSelected",
+        "textButtonSecondary",
+        "textButtonSecondarySelected",
+        "textButtonSecondaryInverse",
+        "textButtonSecondaryInverseSelected",
+        "textLink",
+        "textLinkInverse",
+        "textLinkDanger",
+        "textLinkSnackbar",
+        "textNavigationBarPrimary",
+        "textNavigationBarSecondary",
+        "textNavigationSearchBarHint",
+        "textNavigationSearchBarText",
+        "textAppBar",
+        "textAppBarSelected",
+        "successLow",
+        "warningLow",
+        "errorLow",
+        "promoLow",
+        "brandLow",
+        "successHigh",
+        "warningHigh",
+        "errorHigh",
+        "promoHigh"
+      ],
       "properties": {
         "appBarBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "background": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundContainer": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundBrand": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundOverlay": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundSkeleton": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundSkeletonInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundAlternative": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "backgroundFeedbackBottom": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "navigationBarBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "skeletonWave": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "border": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "borderLight": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "borderDark": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "borderSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonDangerBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonDangerBackgroundSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonDangerBackgroundHover": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonLinkBackgroundSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonLinkBackgroundSelectedInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonPrimaryBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonPrimaryBackgroundInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonPrimaryBackgroundSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonPrimaryBackgroundSelectedInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonPrimaryBackgroundHover": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonSecondaryBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonSecondaryBackgroundSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonSecondaryBorderInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "buttonSecondaryBorderSelectedInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "control": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "controlActivated": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "controlError": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "loadingBar": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "loadingBarBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "toggleAndroidInactive": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "toggleAndroidBackgroundActive": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "iosControlKnob": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "divider": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "dividerInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "navigationBarDivider": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "badge": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "feedbackErrorBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "feedbackInfoBackground": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "brand": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "brandHigh": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "inverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "neutralHigh": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "neutralLow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "neutralMedium": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "promo": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "error": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "highlight": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "success": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "warning": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textPrimary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textPrimaryInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textSecondary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textSecondaryInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonPrimary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonPrimaryInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonPrimaryInverseSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonSecondary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonSecondarySelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonSecondaryInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textButtonSecondaryInverseSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textLink": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textLinkInverse": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textLinkDanger": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textLinkSnackbar": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textNavigationBarPrimary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textNavigationBarSecondary": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textNavigationSearchBarHint": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textNavigationSearchBarText": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textAppBar": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "textAppBarSelected": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "successLow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "warningLow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "errorLow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "promoLow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "brandLow": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "successHigh": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "warningHigh": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "errorHigh": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
         "promoHigh": {
-          "properties": {
-            "value": {
-              "type": "string",
-              "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-            },
-            "type": { "const": "color" },
-            "description": {
-              "type": "string",
-              "pattern": "^[^{}]+$"
-            }
-          },
-          "required": [
-            "value",
-            "type",
-            "description"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/constantProperties"
         },
+
         "extended": {
           "type": "object",
           "patternProperties": {
             ".*": {
               "type": "object",
-              "properties": {
-                "value": {
-                  "type": "string",
-                  "pattern": "([{]{1})+([^{])+([^}])+([})])$"
-                },
-                "type": { "const": "color" },
-                "description": {
-                  "type": "string",
-                  "pattern": "^[^{}]+$"
-                }
-              }
+              "$ref": "#/definitions/constantProperties"
             }
           },
           "additionalProperties": true
         }
+      }
+    }
+  },
+  "definitions": {
+    "paletteProperties": {
+      "patternProperties": {
+        "value": {
+          "type": "string",
+          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+        },
+        "type": {
+          "const": "color"
+        }
       },
+      "required": ["value", "type"]
+    },
+    "constantProperties": {
+      "patternProperties": {
+        "value": {
+          "type": "string",
+          "pattern": "([{]{1})+([^{])+([^}])+([})])$"
+        },
+        "type": {
+          "const": "color"
+        },
+        "description": {
+          "type": "string",
+          "pattern": "^[^{}]+$"
+        }
+      },
+      "required": [
+        "value",
+        "type",
+        "description"
+      ],
       "additionalProperties": false
     }
   }
