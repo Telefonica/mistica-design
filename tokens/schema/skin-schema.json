@@ -14,16 +14,20 @@
       }
     },
     "prominent": {
+      "comment": "Prominent will be deleted soon",
       "additionalProperties": true
     },
     "light": {
+      "comment": "Aquí se obliga a usar las constantes definidas para light mode",
       "allOf": [{ "$ref": "#/global/constants" }]
     },
     "dark": {
+      "comment": "Aquí se obliga a usar las constantes definidas para dark mode",
       "allOf": [{ "$ref": "#/global/constants" }]
     }
   },
   "global": {
+    "comment": "Aquí se definen constantes y paleta (aunque no definimos los colores de la paleta porque de momento queremos dejar libre la creación de nuevos colores)",
     "palette": {
       "patternProperties": {
         ".*": {
@@ -373,7 +377,6 @@
         "promoHigh": {
           "$ref": "#/definitions/constantProperties"
         },
-
         "extended": {
           "type": "object",
           "patternProperties": {
@@ -388,6 +391,7 @@
     }
   },
   "definitions": {
+    "comment": "Aquí se define el formato de un color o de una constante.",
     "paletteProperties": {
       "patternProperties": {
         "value": {
