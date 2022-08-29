@@ -5,10 +5,10 @@
   <img height="64" alt="Mística Logo" src=".github/resources/misticaLogo.svg">
 </div>
 -->
-  <img alt="Mística Logo" src=".github/resources/mistica-design.png">
+  <img alt="Mística Logo" src=".github/resources/mistica-design-light.png?raw=true#gh-light-mode-only">
+  <img alt="Mística Logo" src=".github/resources/mistica-design-dark.png?raw=true#gh-dark-mode-only">
 <br>
 <br>
-
 
 
 
