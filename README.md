@@ -1,26 +1,16 @@
-<br>
-<br>
-<!-- 
-<div align="left">
-  <img height="64" alt="Mística Logo" src=".github/resources/misticaLogo.svg">
-</div>
--->
-  <img alt="Mística Logo" src=".github/resources/mistica-design-light.png?raw=true#gh-light-mode-only">
-  <img alt="Mística Logo" src=".github/resources/mistica-design-dark.png?raw=true#gh-dark-mode-only">
-<br>
-<br>
+<img alt="Mística Logo" src=".github/resources/mistica-design-light.png?raw=true#gh-light-mode-only">
+<img alt="Mística Logo" src=".github/resources/mistica-design-dark.png?raw=true#gh-dark-mode-only">
+&nbsp;
 
-
+&nbsp;
 
 | Other Mística Repos                                              | Description                                               |
 | :--------------------------------------------------------------- | :-------------------------------------------------------- |
-| [mistica-web](https://github.com/Telefonica/mistica-web)         | Repository with code libraries for Mística in web         |
 | [mistica-ios](https://github.com/Telefonica/mistica-ios)         | Repository with code libraries for Mística in iOS         |
+| [mistica-web](https://github.com/Telefonica/mistica-web)         | Repository with code libraries for Mística in web         |
 | [mistica-android](https://github.com/Telefonica/mistica-android) | Repository with code libraries for Mística in Android     |
 | [mistica-icons](https://github.com/Telefonica/mistica-icons)     | The source of truth for icons in our digital products     |
 | [mistica-manager](https://github.com/Telefonica/mistica-manager) | App to allows designer install al the system in one-click |
-
-<br>
 
 ---
 
