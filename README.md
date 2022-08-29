@@ -1,5 +1,5 @@
-![Mistica Design](.github/resources/mistica-design-light.png#gh-light-mode-only)
-![Mistica Design](.github/resources/mistica-design-dark.png#gh-dark-mode-only)
+![Mistica Design](.github/resources/mistica-design-light.svg#gh-light-mode-only)
+![Mistica Design](.github/resources/mistica-design-dark.svg#gh-dark-mode-only)
 &nbsp;
 
 &nbsp;
