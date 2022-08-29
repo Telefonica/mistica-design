@@ -1,5 +1,8 @@
 <img alt="Mística Logo" src=".github/resources/mistica-design-light.png?raw=true#gh-light-mode-only">
 <img alt="Mística Logo" src=".github/resources/mistica-design-dark.png?raw=true#gh-dark-mode-only">
+
+![Mistica Icons](.github/resources/mistica-design-light.png#gh-light-mode-only)
+![Mistica Icons](.github/resources/mistica-design-dark.png#gh-dark-mode-only)
 &nbsp;
 
 &nbsp;
