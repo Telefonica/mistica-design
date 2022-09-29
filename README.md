@@ -1,16 +1,8 @@
-<br>
-<br>
-<!-- 
-<div align="left">
-  <img height="64" alt="Mística Logo" src=".github/resources/misticaLogo.svg">
-</div>
--->
-  <img alt="Mística Logo" src=".github/resources/mistica-design.png">
-<br>
-<br>
+![Mistica Design](.github/resources/mistica-design-light.svg#gh-light-mode-only)
+![Mistica Design](.github/resources/mistica-design-dark.svg#gh-dark-mode-only)
+&nbsp;
 
-
-
+&nbsp;
 
 | Other Mística Repos                                              | Description                                               |
 | :--------------------------------------------------------------- | :-------------------------------------------------------- |
@@ -19,8 +11,6 @@
 | [mistica-android](https://github.com/Telefonica/mistica-android) | Repository with code libraries for Mística in Android     |
 | [mistica-icons](https://github.com/Telefonica/mistica-icons)     | The source of truth for icons in our digital products     |
 | [mistica-manager](https://github.com/Telefonica/mistica-manager) | App to allows designer install al the system in one-click |
-
-<br>
 
 ---
 
