@@ -1,6 +1,6 @@
 # Changelog index
 
-[6.0.0_|_2022_Q3](changelog-versions/6.0.0_|_2022_Q3.md)
+## [6.0.0](changelog-versions/6.0.0.md)
 
 [5.4.0](changelog-versions/5.4.0.md)
 
