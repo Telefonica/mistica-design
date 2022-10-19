@@ -1,12 +1,12 @@
-fetch("https://rickandmortyapi.com/api/character/")
-   .then(response => response.json())
-   .then(characters => showCharacters(characters.results));
-   
-showCharacters = characters => {
-  const charactersDiv = document.querySelector("#rick-and-morty-characters");
-  characters.forEach(character => {
-    const characterElement = document.createElement("p");
-    characterElement.innerText = "Character Name: ${character.name}";
-    charactersDiv.append(characterElement);
-  });
+function getElement(id) {
+  return document.getElementById(id);
 }
+
+fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/tokens/movistar.json")
+.then(res => res.json())
+.then((res) => {
+  const light = res.light;
+  getElement('value').innerHTML =  'Value: ' + light.background.value;
+  getElement('description').innerHTML = 'Description: ' + light.background.description;
+  // do the rest here
+});
