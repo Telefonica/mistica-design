@@ -1,8 +1,8 @@
 ---
-name: ✨ Icon request
+name: Icon request
 about: Contribute to Mística Design System with integrating icons
 title: ''
-labels: 'fundamentals: icons'
+labels: 'fundamentals: icons', 'request ✨'
 
 ---
 <!-- _English or Spanish is ok._ -->
