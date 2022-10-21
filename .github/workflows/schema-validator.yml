@@ -2,6 +2,8 @@ name: "Skin Validator"
 
 on:
   pull_request:
+    paths:
+      - "tokens/**"
 
 jobs:
   Movistar:
