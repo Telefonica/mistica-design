@@ -20,8 +20,8 @@
 
 ---
 
--  [Contribute to Mística](https://brandfactory.telefonica.com/document/1846#/contribute/how-to-contribute)
--  [Current components status](https://brandfactory.telefonica.com/document/1846#/components/overview)
+- [Contribute to Mística](https://brandfactory.telefonica.com/document/1846#/contribute/how-to-contribute)
+- [Current components status](https://brandfactory.telefonica.com/document/1846#/components/overview)
 
 ---
 
@@ -35,6 +35,7 @@ If you want to sync design tokens with Figma files you can use [Figma Tokens plu
 
 1. Open Figma Tokens Plugin, go to `Settings` and select `Github` in Token Storage
 2. Add new credentials
+
 - **Name:** The name of the brand
 - **Personal Access Token:** you have to generate a token from Github and the paste in. [Read how to do it](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 - **Repository:** `Telefonica/mistica-design`
