@@ -44,38 +44,3 @@ If you want to sync design tokens with Figma files you can use [Figma Tokens plu
 
 ![image](https://user-images.githubusercontent.com/6722153/166447592-e3d1b545-199d-4155-9024-2fb88351b444.png)
 3. Finally, go to `Tokens`, select `Global` and `Apply to document` and clic in `Update`
-
-If you want to edit json tokens with validation rules, follow [this configuration.](https://github.com/Telefonica/mistica-design/wiki/Set-up-VScode-with-M%C3%ADstica-JSON-Schema-validator)
-
-# Sketch
-
-## How to install sketch development libraries<a name="gettingStarted"></a>
-
-If you want to try development libraries and pull changes to production library, follow [this documentation](https://github.com/Telefonica/mistica-design/wiki/Install-development-libraries-with-Kactus) (please, read [contribution guidelines](https://brandfactory.telefonica.com/document/1846#/contribute/components-request) first)
-
-## Release Workflow in Kactus <a name="releaseWorkflow"></a>
-
-Master branch always be a production version of Mística Design System Libraries. Ensure before of select a branch of the version that you want to work, you always have to work in a branch created from `Production` branch.
-
-Every Friday, if there are substantial changes, we release a new version of library. So, **don't let anything without commited and pushed!**
-
-![Kactus Regenerate File](.github/resources/mistica-release-workflow.png)
-
-### Creating new branches
-
-If you want to do a new branch, please, write the branch name with the correct name.
-
-`name-short-description`  
-`iceballos-fix-buttons-size`
-
-### POC Branches (Shouldn't be common)
-
-If you want to test something to later will be integrated in libraries, you will be going to do that creating a _custom branch_ from production.
-
-A custom branch always have to follow a structure in the name:  
-`poc-name-short-description`  
-`poc-iceballos-autolayout-list`
-
-If this custom branch work fine, we can merge it with _develop_ branch through a pull request.
-
-**When you make a new branch, don't publish immediately, work on this branch and publish it when you consider that your work is substantial. This avoids having a dirty repository.**
