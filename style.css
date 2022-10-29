@@ -1,0 +1,23 @@
+@import "https://cdn.jsdelivr.net/npm/mistica-css@4.2.1/css/telefonica.css";
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#col1, #col2, #col3{
+    display: flex;
+    flex-direction: column;
+}
+
+#col1 p, #col2 p, #col3 p{
+    margin: 0;
+    border-bottom: 1px solid var(--divider); 
+    padding: 16px 0;
+}
