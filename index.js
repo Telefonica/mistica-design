@@ -6,11 +6,12 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
 .then(res => res.json())
 .then((res) => {
   const light = res.light;
-  const constantName = Object.keys(light)
-  const constantValues = Object.values(light)[2].value
-  const constantDescription = Object.values(light)[2].value
+  const constantName = Object.keys(light);
+  const constantValues = Object.values(light).map(v => v.value);
+  const constantDescription = Object.values(light).map(v => v.description);
 
-  console.log(constantValues);
+  console.log(constantValues)
+  console.log(constantDescription)
 
   constantName.forEach((i) => {
     const sp1 = document.createElement('p');
@@ -23,7 +24,7 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
     parentDiv.insertBefore(sp1, sp2);
   })
 
-  constantName.forEach((i) => {
+  constantValues.forEach((i) => {
     const sp1 = document.createElement('p');
     const newContent = document.createTextNode(i);
     sp1.appendChild(newContent);
@@ -34,7 +35,7 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
     parentDiv.insertBefore(sp1, sp2);
   })
 
-  constantName.forEach((i) => {
+  constantDescription.forEach((i) => {
     const sp1 = document.createElement('p');
     const newContent = document.createTextNode(i);
     sp1.appendChild(newContent);
@@ -44,9 +45,5 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
     const parentDiv = sp2.parentNode;
     parentDiv.insertBefore(sp1, sp2);
   })
-  // getElement('name').innerHTML = 'Name: ' + Object.keys(light));
-  // getElement('value').innerHTML = 'Value: ' + Object.values(light)[15].value;
-  // getElement('description').innerHTML = 'Description: ' + Object.values(light)[15].description;
-  // do the rest here
 });
 
