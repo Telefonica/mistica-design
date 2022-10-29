@@ -3,12 +3,16 @@
 body{
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+        align-items: center;
 }
 
 #table{
+    width: 800px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    align-items: stretch;
 }
 
 #col1, #col2, #col3{
@@ -20,4 +24,8 @@ body{
     margin: 0;
     border-bottom: 1px solid var(--divider); 
     padding: 16px 0;
+}
+
+#col2 p{
+    padding: 16px 24px;
 }
