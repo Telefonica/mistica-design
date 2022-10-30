@@ -4,11 +4,14 @@ function getElement(id) {
 
 fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/tokens/movistar.json")
 .then(res => res.json())
-.then((res) => {
+  .then((res) => {
   const light = res.light;
-  const constantName = Object.keys(light);
-  const constantValues = Object.values(light).map(v => v.value);
-  const constantDescription = Object.values(light).map(v => v.description);
+  const dark = res.dark;
+  const mode = [light, dark]
+  
+  const constantName = Object.keys(mode[0]);
+  const constantValues = Object.values(mode[0]).map(v => v.value);
+  const constantDescription = Object.values(mode[0]).map(v => v.description);
 
   console.log(constantValues)
   console.log(constantDescription)
