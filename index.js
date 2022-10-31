@@ -14,8 +14,24 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
     const constantValues = Object.values(mode[0]).map(v => v.value);
     const constantDescription = Object.values(mode[0]).map(v => v.description);
 
+    const global = res.global;
+    const paletteNames = Object.values(global)[0];
+    const paletteValues = Object.values(paletteNames).map(v => v.value);
+    
+
     // console.log(constantValues)
     // console.log(constantDescription)
+
+    constantValues.forEach((i) => {
+      const sp1 = document.createElement('p');
+      const newContent = document.createTextNode(i);
+      sp1.appendChild(newContent);
+      sp1.innerHTML = '<span>'+'text'+'</span>';
+      //sp1.innerHTML.style.background = "#fabada";
+      const sp2 = document.getElementById("consValues");
+      const parentDiv = sp2.parentNode;
+      parentDiv.insertBefore(sp1, sp2);
+    })
 
     constantName.forEach((i) => {
       const sp1 = document.createElement('p');
@@ -28,12 +44,12 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
       parentDiv.insertBefore(sp1, sp2);
     })
 
-    constantValues.forEach((i) => {
+    paletteValues.forEach((i) => {
       const sp1 = document.createElement('p');
       const newContent = document.createTextNode(i);
       sp1.appendChild(newContent);
 
-      const sp2 = document.getElementById("consValues");
+      const sp2 = document.getElementById("paletteValues");
 
       const parentDiv = sp2.parentNode;
       parentDiv.insertBefore(sp1, sp2);
@@ -51,11 +67,7 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
     })
 
     // TRANSLATE CONSTANT TO PALETTE COLORS
-    const global = res.global;
-    const paletteNames = Object.values(global)[0];
-    
-    const paletteValues = Object.values(paletteNames).map(v => v.value);
-    
+ 
     console.log(paletteNames)
     console.log(paletteValues)
 });
