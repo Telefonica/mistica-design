@@ -11,13 +11,12 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
     const mode = [light, dark]
     
     const constantName = Object.keys(mode[0]);
-    const constantValues = Object.values(mode[0]).map(v => v.value);
-    const constantDescription = Object.values(mode[0]).map(v => v.description);
 
+    const constantDescription = Object.values(mode[0]).map(v => v.description);
     const global = res.global;
     const paletteNames = Object.values(global)[0];
     const paletteValues = Object.values(paletteNames).map(v => v.value);
-    
+    const constantValues = Object.values(paletteNames).map(v => v.value);
 
     // console.log(constantValues)
     // console.log(constantDescription)
@@ -26,8 +25,7 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
       const sp1 = document.createElement('p');
       const newContent = document.createTextNode(i);
       sp1.appendChild(newContent);
-      sp1.innerHTML = '<span>'+'text'+'</span>';
-      //sp1.innerHTML.style.background = "#fabada";
+      sp1.style.background = (i);
       const sp2 = document.getElementById("consValues");
       const parentDiv = sp2.parentNode;
       parentDiv.insertBefore(sp1, sp2);
