@@ -9,18 +9,27 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
     const light = res.light;
     const dark = res.dark;
     const mode = [light, dark]
-    
-    const constantName = Object.keys(mode[0]);
 
-    const constantDescription = Object.values(mode[0]).map(v => v.description);
+    // STORE PALETTE NAMES & VALUES
     const global = res.global;
     const paletteNames = Object.values(global)[0];
     const paletteValues = Object.values(paletteNames).map(v => v.value);
-    const constantValues = Object.values(paletteNames).map(v => v.value);
+
+    const constantName = Object.keys(mode[0]);
+    const constantValues = Object.values(mode[0]).map(v => v.value);
+    const constantDescription = Object.values(mode[0]).map(v => v.description);
 
     // console.log(constantValues)
     // console.log(constantDescription)
 
+    // TRANSLATE CONSTANT TO PALETTE COLORS
+    // console.log(paletteNames)
+    // console.log(paletteValues)
+
+    const color = colorStr.substring(colorStr.indexOf('.') + 1);
+    console.log(color)
+
+    // CREATE TABLE : COL 1
     constantValues.forEach((i) => {
       const sp1 = document.createElement('p');
       const newContent = document.createTextNode(i);
@@ -31,6 +40,7 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
       parentDiv.insertBefore(sp1, sp2);
     })
 
+    // CREATE TABLE : COL 2
     constantName.forEach((i) => {
       const sp1 = document.createElement('p');
       const newContent = document.createTextNode(i);
@@ -42,6 +52,7 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
       parentDiv.insertBefore(sp1, sp2);
     })
 
+    // CREATE TABLE : COL 3
     paletteValues.forEach((i) => {
       const sp1 = document.createElement('p');
       const newContent = document.createTextNode(i);
@@ -53,6 +64,7 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
       parentDiv.insertBefore(sp1, sp2);
     })
 
+    // CREATE TABLE : COL 4
     constantDescription.forEach((i) => {
       const sp1 = document.createElement('p');
       const newContent = document.createTextNode(i);
@@ -64,9 +76,6 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
       parentDiv.insertBefore(sp1, sp2);
     })
 
-    // TRANSLATE CONSTANT TO PALETTE COLORS
- 
-    console.log(paletteNames)
-    console.log(paletteValues)
+
 });
 
