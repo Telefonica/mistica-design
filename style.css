@@ -13,28 +13,10 @@ body{
     display: flex;
     flex-direction: row;
     align-items: stretch;
-}
-
-#col1, #col2, #col4, #col3{
-    display: flex;
-    flex-direction: column;
     color: var(--textPrimary);
 }
 
-#col1 p, #col2 p, #col3 p, #col4 p{
-    margin: 0;
-    border-bottom: 1px solid var(--divider); 
-    padding: 16px 0;
-}
-
-#col2 p{
-    padding: 16px 24px;
-}
-
-#col3 p{
-    padding: 16px 24px;
-}
-
-#col3 p {
+#consDescription {
     color: var(--textSecondary);
 }
+
