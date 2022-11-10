@@ -125,25 +125,52 @@
       "type": "color",
       "description": "vivoPurpleLight50"
     },
-    "buttonSecondaryBackground": {
+    "buttonSecondaryBorder": {
       "value": "{palette.vivoPurple}",
       "type": "color",
       "description": "vivoPurple"
     },
-    "buttonSecondaryBackgroundSelected": {
+  
+    "buttonSecondaryBorderSelected": {
       "value": "{palette.vivoPurpleDark}",
       "type": "color",
       "description": "vivoPurpleDark"
     },
+
+    "buttonSecondaryBackgroundHover": {
+      "value": "{palette.vivoPurpleDark}",
+      "type": "color",
+      "description": "vivoPurpleDark"
+    },
+    
+    "buttonSecondaryBackgroundSelected": {
+      "value": "{palette.vivoPurpleLight10}",
+      "type": "color",
+      "description": "vivoPurpleLight10"
+    },
+
     "buttonSecondaryBorderInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+
     "buttonSecondaryBorderSelectedInverse": {
       "value": "{palette.vivoPurpleLight50}",
       "type": "color",
       "description": "vivoPurpleLight50"
+    },
+
+    "buttonSecondaryBackgroundHoverInverse:": {
+      "value": "rgba({palette.vivoPurpleLight50}, 0.2)",
+      "type": "color",
+      "description": "vivoPurpleLight50"
+    },
+
+    "buttonSecondaryBackgroundSelectedInverse:": {
+      "value": "rgba({palette.vivoPurpleLight50}, 0.2)",
+      "type": "color",
+      "description": "movisvivoPurpleLight50"
     },
     "textButtonPrimary": {
       "value": "{palette.white}",
@@ -547,15 +574,25 @@
       "type": "color",
       "description": "vivoPurpleDark"
     },
-    "buttonSecondaryBackground": {
-      "value": "{palette.vivoPurpleLight80}",
+    "buttonSecondaryBackgroundHover": {
+      "value": "rgba({palette.vivoPurpleLight80}, 0.2)",
       "type": "color",
       "description": "vivoPurpleLight80"
     },
     "buttonSecondaryBackgroundSelected": {
-      "value": "{palette.vivoPurpleDark}",
+      "value": "rgba({palette.vivoPurpleLight80}, 0.2)",
       "type": "color",
-      "description": "vivoPurpleDark"
+      "description": "vivoPurpleLight80"
+    },
+    "buttonSecondaryBorder": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderSelected": {
+      "value": "{palette.vivoPurpleLight80}",
+      "type": "color",
+      "description": "vivoPurpleLight80"
     },
     "buttonSecondaryBorderInverse": {
       "value": "{palette.vivoPurpleLight80}",
@@ -566,6 +603,16 @@
       "value": "{palette.vivoPurpleDark}",
       "type": "color",
       "description": "vivoPurpleDark"
+    },
+    "buttonSecondaryBackgroundHoverInverse:": {
+      "value": "rgba({palette.vivoPurpleLight50}, 0.2)",
+      "type": "color",
+      "description": "vivoPurpleLight50"
+    },
+    "buttonSecondaryBackgroundSelectedInverse:": {
+      "value": "rgba({palette.vivoPurpleLight50}, 0.2)",
+      "type": "color",
+      "description": "movisvivoPurpleLight50"
     },
     "textButtonPrimary": {
       "value": "{palette.grey2}",
