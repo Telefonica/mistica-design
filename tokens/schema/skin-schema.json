@@ -120,7 +120,8 @@
         "successHigh",
         "warningHigh",
         "errorHigh",
-        "promoHigh"
+        "promoHigh",
+        "customTabsBackground"
       ],
       "properties": {
         "appBarBackground": { "$ref": "#/definitions/constantProperties" },
@@ -207,6 +208,7 @@
         "warningHigh": { "$ref": "#/definitions/constantProperties" },
         "errorHigh": { "$ref": "#/definitions/constantProperties" },
         "promoHigh": { "$ref": "#/definitions/constantProperties" },
+        "customTabsBackground": { "$ref": "#/definitions/constantProperties" },
         "extended": {
           "type": "object",
           "patternProperties": {
