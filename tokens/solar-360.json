@@ -125,15 +125,25 @@
       "type": "color",
       "description": "repsolOrange20"
     },
-    "buttonSecondaryBackground": {
+    "buttonSecondaryBorder": {
       "value": "{palette.repsolOrange70}",
       "type": "color",
       "description": "repsolOrange70"
     },
-    "buttonSecondaryBackgroundSelected": {
+    "buttonSecondaryBorderSelected": {
       "value": "{palette.repsolOrange700}",
       "type": "color",
       "description": "repsolOrange700"
+    },
+    "buttonSecondaryBackgroundHover": {
+      "value": "{palette.repsolOrange10}",
+      "type": "color",
+      "description": "repsolOrange10"
+    },
+    "buttonSecondaryBackgroundSelected": {
+      "value": "{palette.repsolOrange10}",
+      "type": "color",
+      "description": "repsolOrange10"
     },
     "buttonSecondaryBorderInverse": {
       "value": "{palette.white}",
@@ -144,6 +154,16 @@
       "value": "{palette.repsolOrange20}",
       "type": "color",
       "description": "repsolOrange20"
+    },
+    "buttonSecondaryBackgroundHoverInverse:": {
+      "value": "rgba({palette.repsolOrange70}, 0.2)",
+      "type": "color",
+      "description": "repsolOrange70"
+    },
+    "buttonSecondaryBackgroundSelectedInverse:": {
+      "value": "rgba({palette.repsolOrange70}, 0.2)",
+      "type": "color",
+      "description": "repsolOrange70"
     },
     "textButtonPrimary": {
       "value": "{palette.white}",
@@ -614,25 +634,45 @@
       "type": "color",
       "description": "repsolOrange700"
     },
-    "buttonSecondaryBackground": {
-      "value": "{palette.repsolOrange70}",
+    "buttonSecondaryBackgroundHover": {
+      "value": "{palette.repsolOrange10}",
       "type": "color",
-      "description": "repsolOrange70"
+      "description": "repsolOrange10"
     },
     "buttonSecondaryBackgroundSelected": {
-      "value": "{palette.repsolOrange700}",
-      "type": "color",
-      "description": "repsolOrange700"
-    },
-    "buttonSecondaryBorderInverse": {
-      "value": "{palette.repsolOrange70}",
+      "value": "rgba({palette.repsolOrange70}, 0.2)",
       "type": "color",
       "description": "repsolOrange70"
     },
-    "buttonSecondaryBorderSelectedInverse": {
-      "value": "{palette.repsolOrange700}",
+    "buttonSecondaryBorder": {
+      "value": "{palette.white}",
       "type": "color",
-      "description": "repsolOrange700"
+      "description": "white"
+    },
+    "buttonSecondaryBorderSelected": {
+      "value": "{palette.movistarBlue30}",
+      "type": "color",
+      "description": "movistarBlue30"
+    },
+    "buttonSecondaryBorderInverse": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderSelectedInverse": {
+      "value": "{palette.repsolOrange20}",
+      "type": "color",
+      "description": "repsolOrange20"
+    },
+    "buttonSecondaryBackgroundHoverInverse:": {
+      "value": "rgba({palette.repsolOrange70}, 0.2)",
+      "type": "color",
+      "description": "repsolOrange70"
+    },
+    "buttonSecondaryBackgroundSelectedInverse:": {
+      "value": "rgba({palette.repsolOrange70}, 0.2)",
+      "type": "color",
+      "description": "repsolOrange70"
     },
     "textButtonPrimary": {
       "value": "{palette.grey1}",
