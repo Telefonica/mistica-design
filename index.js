@@ -26,6 +26,7 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
     // console.log(constantDescription)
     // console.log(colorValue)
 
+
     let constantList = [
       {color: colorValue},
       {constant_name: constantName},
@@ -36,6 +37,7 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
     console.log(constantList)
 
     let createTable = function (tokenList) {
+      let stringTable = "<tr><th>Color</th><th>Constant Name</th><th>Constant Value</th><th>Constant Description</th></tr>";
       for (let constantList of tokenList) {
         let row = "<tr> <td>";
         row += constantList.color;
@@ -58,9 +60,10 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
         stringTable += row;
         console.log(stringTable)
       }
+      return stringTable;
     }
 
-    createTable(constantList)
+    document.getElementById("tokenTable").innerHTML = createTable(constantList);
 
     // TRANSLATE CONSTANT TO PALETTE COLORS
     // console.log(paletteNames)
@@ -99,18 +102,18 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
     //   }
     // })
 
-    // CREATE TABLE : COL 2
-    constantName.forEach((i) => {
-      const sp1 = document.createElement('td');
-      sp1.setAttribute("id", "consNames");
-      const newContent = document.createTextNode(i);
-      sp1.appendChild(newContent);
+    // // CREATE TABLE : COL 2
+    // constantName.forEach((i) => {
+    //   const sp1 = document.createElement('td');
+    //   sp1.setAttribute("id", "consNames");
+    //   const newContent = document.createTextNode(i);
+    //   sp1.appendChild(newContent);
 
-      const sp2 = document.getElementById("consNames");
+    //   const sp2 = document.getElementById("consNames");
 
-      const parentDiv = sp2.parentNode;
-      parentDiv.insertBefore(sp1, sp2);
-    })
+    //   const parentDiv = sp2.parentNode;
+    //   parentDiv.insertBefore(sp1, sp2);
+    // })
 
     
 
