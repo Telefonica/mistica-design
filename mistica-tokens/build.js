@@ -83,7 +83,7 @@ function getTypography(brand, platform) {
     ],
     "platforms": {
       "web": {
-        "transforms": ["attribute/cti", "name/cti/camel", "color/hex", "font-size"],
+        "transforms": ["attribute/cti", "name/cti/camel", "lineToEm", "sizeToRem"],
         "buildPath": `build/web/`,
         "files": [{
           "destination": `${brand}/typography.json`,
@@ -127,7 +127,7 @@ console.log('Build started...');
     const StyleDictionary = StyleDictionaryPackage.extend(getTypography(brand, platform));
 
     StyleDictionary.registerTransform({
-      name: 'font-size',
+      name: 'sizeToRem',
       type: 'value',
       matcher: function(token) {
         return token.attributes.type === 'font-size';
@@ -136,6 +136,18 @@ console.log('Build started...');
         return (parseInt(token.original.value)) / 16 + 'rem';
       }
     });
+
+    StyleDictionary.registerTransform({
+      name: 'lineToEm',
+      type: 'value',
+      matcher: function(token) {
+        return token.attributes.type === 'line-height';
+      },
+      transformer: function(token) {
+        return (parseFloat(token.original.value)) / 100 + 'em';
+      }
+    });
+
 
 
     StyleDictionary.registerFilter({
