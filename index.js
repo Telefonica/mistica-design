@@ -24,46 +24,39 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
 
     // console.log(constantValues)
     // console.log(constantDescription)
-    // console.log(colorValue)
+    console.log(colorName)
 
+    
+    //Static content ---------------------------------------------------------
+    document.write("<table border='1' width='200'>")
+    document.write("<tr><th>Color</th><th>Name</th><th>Value</th><th>Description</th></tr>");
+    
+    //Dynamic content --------------------------------------------------------
+    constantValues.forEach((item) => {
+      if (!item.includes('rgba')) { 
+        const colorName = item.substring(item.indexOf('.') + 1, item.length - 1);
+        const colorValue = res.global.palette[colorName].value;
 
-    let constantList = [
-      {color: colorValue},
-      {constant_name: constantName},
-      {constant_value: constantValues},
-      {constant_description: constantDescription},
-    ]
+        document.write("<tr><td>" + colorName + "</td><td>" + constantName + "</td><td>" + colorValue + "</td><td>" + constantDescription +"</td></tr>");
+    
+    //Static content  --------------------------------------------------------
+    document.write("</table>")
 
-    console.log(constantList)
+        console.log(colorName + " → " + colorValue)
+        
+      } else {
+        const sp1 = document.createElement('p');
+        const newContent = document.createTextNode("⚠️RGBA!!");
+        sp1.appendChild(newContent);
 
-    let createTable = function (tokenList) {
-      let stringTable = "<tr><th>Color</th><th>Constant Name</th><th>Constant Value</th><th>Constant Description</th></tr>";
-      for (let constantList of tokenList) {
-        let row = "<tr> <td>";
-        row += constantList.color;
-        row += "</td>";
+        const sp2 = document.getElementById("consValues");
 
-        row += "<td>";
-        row += constantList.constant_name;
-        row += "</td>";
-
-        row += "<td>";
-        row += constantList.constant_value;
-        row += "</td>";
-
-        row += "<td>";
-        row += constantList.constant_description;
-        row += "</td>";
-
-        row += "</tr>";
-
-        stringTable += row;
-        console.log(stringTable)
+        const parentDiv = sp2.parentNode;
+        parentDiv.insertBefore(sp1, sp2);
       }
-      return stringTable;
-    }
+    })
 
-    document.getElementById("tokenTable").innerHTML = createTable(constantList);
+    
 
     // TRANSLATE CONSTANT TO PALETTE COLORS
     // console.log(paletteNames)
