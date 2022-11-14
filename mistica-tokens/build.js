@@ -144,7 +144,7 @@ console.log('Build started...');
         return token.attributes.type === 'line-height';
       },
       transformer: function(token) {
-        return (parseFloat(token.original.value)) / 100 + 'em';
+        return (parseFloat(token.original.value)) + 'em';
       }
     });
 
