@@ -83,7 +83,7 @@ function getTypography(brand, platform) {
     ],
     "platforms": {
       "web": {
-        "transformGroup": "js",
+        "transforms": ["attribute/cti", "name/cti/camel", "color/hex", "font-size"],
         "buildPath": `build/web/`,
         "files": [{
           "destination": `${brand}/typography.json`,
@@ -125,6 +125,18 @@ console.log('Build started...');
 
 
     const StyleDictionary = StyleDictionaryPackage.extend(getTypography(brand, platform));
+
+    StyleDictionary.registerTransform({
+      name: 'font-size',
+      type: 'value',
+      matcher: function(token) {
+        return token.attributes.type === 'font-size';
+      },
+      transformer: function(token) {
+        return (parseInt(token.original.value)) / 16 + 'rem';
+      }
+    });
+
 
     StyleDictionary.registerFilter({
       name: 'isCore',
