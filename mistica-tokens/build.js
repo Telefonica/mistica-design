@@ -21,11 +21,11 @@ function getColor(brand, platform, mode) {
 
       },
       "android": {
-        "transformGroup": "compose",
+        "transforms": ["color/composeColor"],
         "buildPath": `build/android/${brand}/`,
         "files": [{
           "destination": `tokens.colors_${mode}.xml`,
-          "format": "compose/object"
+          "format": "android/resources"
         }]
 
       },
@@ -88,7 +88,7 @@ function getTypography(brand, platform) {
         "files": [{
           "destination": `${brand}/typography.json`,
           "filter": "isCore",
-          "format": "json/nested",
+          "format": "json/flat",
         }]
 
       },
@@ -96,8 +96,8 @@ function getTypography(brand, platform) {
         "transformGroup": "android",
         "buildPath": `build/android/${brand}/`,
         "files": [{
-          
           "destination": "tokens.font_dimens.xml",
+          "filter": "isCore",
           "format": "android/fontDimens"
         }]
       },
@@ -105,8 +105,9 @@ function getTypography(brand, platform) {
         "transformGroup": "ios",
         "buildPath": `build/ios/${brand}/`,
         "files": [{
-          "destination": "tokens.h",
-          "format": "ios/macros"
+          "destination": "typography.swift",
+          "filter": "isCore",
+          "format": "ios-swift/class.swift"
         }]
       }
     }
