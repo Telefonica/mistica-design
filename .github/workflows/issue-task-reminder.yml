@@ -2,10 +2,6 @@ name: Build Dashboard
 
 on:
   push:
-    paths:
-      - ".github/workflows/dashboard.yml"
-  issues:
-    types: [opened, closed, reopened]
 
 jobs:
   build:
