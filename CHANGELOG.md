@@ -1,7 +1,5 @@
 # Changelog index
 
-[6.3.0](changelog-versions/6.3.0.md)
-
 [6.2.0](changelog-versions/6.2.0.md)
 
 [6.1.0](changelog-versions/6.1.0.md)
