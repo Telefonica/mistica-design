@@ -2,7 +2,7 @@
 //   return document.getElementById(id);
 // }
 
-fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/tokens/telefonica.json")
+fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/tokens/movistar.json")
   .then(res => res.json())
   .then((res) => {
     // STORE CONSTANT NAMES, VALUE AND DESCRIPTION
@@ -41,8 +41,11 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
         const sp1 = document.createElement('p');
         const newContent = document.createTextNode("");
 
+        const circle = document.createElement('span');
+        
         sp1.appendChild(newContent);
-        sp1.style.background = (colorValue);
+        sp1.appendChild(circle);
+        circle.style.background = (colorValue);
 
         const sp2 = document.getElementById("consValues");
         const parentDiv = sp2.parentNode;
@@ -53,8 +56,14 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
         
       } else {
         const sp1 = document.createElement('p');
-        const newContent = document.createTextNode("⚠️RGBA!!");
-        sp1.appendChild(newContent);
+        const newContent = document.createTextNode("⚠️");
+
+        const circle = document.createElement('span');
+        circle.classList.add("error");
+        sp1.classList.add("errorContainer");
+        
+        sp1.appendChild(circle);
+        circle.appendChild(newContent);
 
         const sp2 = document.getElementById("consValues");
 
@@ -96,7 +105,7 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
         
       } else {
         const sp1 = document.createElement('p');
-        const newContent = document.createTextNode("⚠️RGBA!!");
+        const newContent = document.createTextNode("⚠️ RGBA");
         sp1.appendChild(newContent);
 
         const sp2 = document.getElementById("paletteValues");
