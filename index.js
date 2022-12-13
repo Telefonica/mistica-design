@@ -24,7 +24,7 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
 
     // console.log(constantValues)
     // console.log(constantDescription)
-    console.log(colorName)
+    // console.log(colorValues)
     
 
     // TRANSLATE CONSTANT TO PALETTE COLORS
@@ -37,8 +37,7 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
       if (!item.includes('rgba')) { 
         const colorName = item.substring(item.indexOf('.') + 1, item.length - 1);
         const colorValue = res.global.palette[colorName].value;
-      
-      
+            
         const sp1 = document.createElement('p');
         const newContent = document.createTextNode("");
 
@@ -78,15 +77,33 @@ fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/to
     })
 
     // CREATE TABLE : COL 3
-    paletteValues.forEach((i) => {
-      const sp1 = document.createElement('p');
-      const newContent = document.createTextNode(i);
-      sp1.appendChild(newContent);
+    constantValues.forEach((item) => {
+      if (!item.includes('rgba')) { 
+        const colorName = item.substring(item.indexOf('.') + 1, item.length - 1);
+        const colorValue = res.global.palette[colorName].value;
+            
+        const sp1 = document.createElement('p');
+        const newContent = document.createTextNode(colorValue);
 
-      const sp2 = document.getElementById("paletteValues");
+        sp1.appendChild(newContent);
 
-      const parentDiv = sp2.parentNode;
-      parentDiv.insertBefore(sp1, sp2);
+        const sp2 = document.getElementById("paletteValues");
+        const parentDiv = sp2.parentNode;
+
+        parentDiv.insertBefore(sp1, sp2);
+
+        console.log(colorName + " → " + colorValue)
+        
+      } else {
+        const sp1 = document.createElement('p');
+        const newContent = document.createTextNode("⚠️RGBA!!");
+        sp1.appendChild(newContent);
+
+        const sp2 = document.getElementById("paletteValues");
+
+        const parentDiv = sp2.parentNode;
+        parentDiv.insertBefore(sp1, sp2);
+      }
     })
 
     // CREATE TABLE : COL 4
