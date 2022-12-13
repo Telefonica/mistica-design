@@ -96,7 +96,7 @@
       "description": "o2BluePrimary10"
     },
     "buttonLinkBackgroundSelectedInverse": {
-      "value": "rgba({palette.white}, 0.2)",
+      "value": "rgba({palette.white}, 0.08)",
       "type": "color",
       "description": "white"
     },
@@ -125,15 +125,25 @@
       "type": "color",
       "description": "o2BluePrimary30"
     },
-    "buttonSecondaryBackground": {
+    "buttonSecondaryBorder": {
       "value": "{palette.o2BluePrimary}",
       "type": "color",
       "description": "o2BluePrimary"
     },
-    "buttonSecondaryBackgroundSelected": {
+    "buttonSecondaryBorderSelected": {
       "value": "{palette.o2BluePrimary70}",
       "type": "color",
       "description": "o2BluePrimary70"
+    },
+    "buttonSecondaryBackgroundHover": {
+      "value": "{palette.o2BluePrimary10}",
+      "type": "color",
+      "description": "o2BluePrimary10"
+    },
+    "buttonSecondaryBackgroundSelected": {
+      "value": "{palette.o2BluePrimary10}",
+      "type": "color",
+      "description": "o2BluePrimary10"
     },
     "buttonSecondaryBorderInverse": {
       "value": "{palette.white}",
@@ -144,6 +154,16 @@
       "value": "{palette.o2BluePrimary30}",
       "type": "color",
       "description": "o2BluePrimary30"
+    },
+    "buttonSecondaryBackgroundHoverInverse": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundSelectedInverse": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
     },
     "textButtonPrimary": {
       "value": "{palette.white}",
@@ -518,12 +538,12 @@
       "description": "pepper60"
     },
     "buttonLinkBackgroundSelected": {
-      "value": "rgba({palette.white}, 0.05)",
+      "value": "rgba({palette.white}, 0.08)",
       "type": "color",
       "description": "white"
     },
     "buttonLinkBackgroundSelectedInverse": {
-      "value": "rgba({palette.white}, 0.05)",
+      "value": "rgba({palette.white}, 0.08)",
       "type": "color",
       "description": "white"
     },
@@ -552,25 +572,45 @@
       "type": "color",
       "description": "darkModeO2BluePrimaryDark"
     },
-    "buttonSecondaryBackground": {
-      "value": "{palette.darkModeO2BluePrimary}",
-      "type": "color",
-      "description": "darkModeO2BluePrimary"
-    },
     "buttonSecondaryBackgroundSelected": {
-      "value": "{palette.darkModeO2BluePrimaryDark}",
+      "value": "rgba({palette.white}, 0.15)",
       "type": "color",
-      "description": "darkModeO2BluePrimaryDark"
+      "description": "white"
+    },
+    "buttonSecondaryBorder": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderSelected": {
+      "value": "{palette.o2BluePrimary30}",
+      "type": "color",
+      "description": "o2BluePrimary30"
     },
     "buttonSecondaryBorderInverse": {
-      "value": "{palette.darkModeO2BluePrimary}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "darkModeO2BluePrimary"
+      "description": "white"
     },
     "buttonSecondaryBorderSelectedInverse": {
-      "value": "{palette.darkModeO2BluePrimaryDark}",
+      "value": "{palette.o2BluePrimary30}",
       "type": "color",
-      "description": "darkModeO2BluePrimaryDark"
+      "description": "o2BluePrimary30"
+    },
+    "buttonSecondaryBackgroundHover": {
+      "value": "rgba({color.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundHoverInverse": {
+      "value": "rgba({color.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundSelectedInverse": {
+      "value": "rgba({color.white}, 0.15)",
+      "type": "color",
+      "description": "white"
     },
     "textButtonPrimary": {
       "value": "{palette.grey2}",

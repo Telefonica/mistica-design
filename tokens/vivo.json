@@ -96,7 +96,7 @@
       "description": "vivoPurpleLight10"
     },
     "buttonLinkBackgroundSelectedInverse": {
-      "value": "rgba({palette.white}, 0.2)",
+      "value": "rgba({palette.white}, 0.1)",
       "type": "color",
       "description": "2"
     },
@@ -125,25 +125,52 @@
       "type": "color",
       "description": "vivoPurpleLight50"
     },
-    "buttonSecondaryBackground": {
+    "buttonSecondaryBorder": {
       "value": "{palette.vivoPurple}",
       "type": "color",
       "description": "vivoPurple"
     },
-    "buttonSecondaryBackgroundSelected": {
+  
+    "buttonSecondaryBorderSelected": {
       "value": "{palette.vivoPurpleDark}",
       "type": "color",
       "description": "vivoPurpleDark"
     },
+
+    "buttonSecondaryBackgroundHover": {
+      "value": "{palette.vivoPurpleLight10}",
+      "type": "color",
+      "description": "vivoPurpleLight10"
+    },
+    
+    "buttonSecondaryBackgroundSelected": {
+      "value": "{palette.vivoPurpleLight10}",
+      "type": "color",
+      "description": "vivoPurpleLight10"
+    },
+
     "buttonSecondaryBorderInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+
     "buttonSecondaryBorderSelectedInverse": {
       "value": "{palette.vivoPurpleLight50}",
       "type": "color",
       "description": "vivoPurpleLight50"
+    },
+
+    "buttonSecondaryBackgroundHoverInverse": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+
+    "buttonSecondaryBackgroundSelectedInverse": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
     },
     "textButtonPrimary": {
       "value": "{palette.white}",
@@ -518,12 +545,12 @@
       "description": "pepperDark"
     },
     "buttonLinkBackgroundSelected": {
-      "value": "rgba({palette.white}, 0.05)",
+      "value": "rgba({palette.white}, 0.08)",
       "type": "color",
       "description": "white"
     },
     "buttonLinkBackgroundSelectedInverse": {
-      "value": "rgba({palette.white}, 0.05)",
+      "value": "rgba({palette.white}, 0.08)",
       "type": "color",
       "description": "white"
     },
@@ -552,25 +579,45 @@
       "type": "color",
       "description": "vivoPurpleDark"
     },
-    "buttonSecondaryBackground": {
-      "value": "{palette.vivoPurpleLight80}",
+    "buttonSecondaryBackgroundHover": {
+      "value": "rgba({palette.white}, 0.1)",
       "type": "color",
-      "description": "vivoPurpleLight80"
+      "description": "white"
     },
     "buttonSecondaryBackgroundSelected": {
-      "value": "{palette.vivoPurpleDark}",
+      "value": "rgba({palette.white}, 0.1)",
       "type": "color",
-      "description": "vivoPurpleDark"
+      "description": "white"
     },
-    "buttonSecondaryBorderInverse": {
+    "buttonSecondaryBorder": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderSelected": {
       "value": "{palette.vivoPurpleLight80}",
       "type": "color",
       "description": "vivoPurpleLight80"
+    },
+    "buttonSecondaryBorderInverse": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "buttonSecondaryBorderSelectedInverse": {
       "value": "{palette.vivoPurpleDark}",
       "type": "color",
       "description": "vivoPurpleDark"
+    },
+    "buttonSecondaryBackgroundHoverInverse": {
+      "value": "rgba({palette.white}, 0.1)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundSelectedInverse": {
+      "value": "rgba({palette.white}, 0.1)",
+      "type": "color",
+      "description": "white"
     },
     "textButtonPrimary": {
       "value": "{palette.grey2}",
