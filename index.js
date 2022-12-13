@@ -2,7 +2,7 @@
 //   return document.getElementById(id);
 // }
 
-fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/tokens/movistar.json")
+fetch("https://raw.githubusercontent.com/Telefonica/mistica-design/production/tokens/telefonica.json")
   .then(res => res.json())
   .then((res) => {
     // STORE CONSTANT NAMES, VALUE AND DESCRIPTION

@@ -1,4 +1,4 @@
-@import "https://cdn.jsdelivr.net/npm/mistica-css@4.2.1/css/telefonica.css";
+@import "https://cdn.jsdelivr.net/npm/mistica-css@5.0.0/css/telefonica.css";
 
 body{
     margin: 0;
@@ -10,8 +10,10 @@ body{
 
 #table{
     display: grid;
-    grid-template-columns: min-content 524px 1fr min-content;
+    grid-template-columns: min-content 508px 1fr min-content;
     max-width: 800px;
+    font-family: -apple-system, 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    color: var(--textPrimary);
 }
 
 #col1 p, #col2 p, #col3 p, #col4 p{
