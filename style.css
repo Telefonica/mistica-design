@@ -10,7 +10,7 @@ body{
 
 #table{
     display: grid;
-    grid-template-columns: min-content 524px min-content min-content;
+    grid-template-columns: min-content 524px 1fr min-content;
     max-width: 800px;
 }
 
@@ -53,6 +53,7 @@ body{
     justify-content: flex-end;
     font-size: 12px;
     font-family: "monaco", monospace;
+    word-break: break-all;
 }
 
 #col3 p {
