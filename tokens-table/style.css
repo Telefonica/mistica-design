@@ -1,0 +1,83 @@
+@import "https://cdn.jsdelivr.net/npm/mistica-css@5.0.0/css/telefonica.css";
+
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+        align-items: center;
+}
+
+#table{
+    display: grid;
+    grid-template-columns: min-content 508px 1fr min-content;
+    max-width: 800px;
+    font-family: -apple-system, 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    color: var(--textPrimary);
+}
+
+#col1 p, #col2 p, #col3 p, #col4 p{
+    margin: 0;
+    padding: 16px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--divider);
+    box-sizing: border-box;
+    height: 56px;
+}
+#col1 {
+    max-height: 56px;
+    max-height: 56px;
+    width: 56px;
+}
+#col1 p {
+    padding: 8px;
+    height: 56px;
+    height: 56px;
+}
+#col1 span {
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    border-radius: 10rem;
+    border: 1px solid var(--divider);
+    box-sizing: border-box;
+}
+
+#col2 p{
+    padding: 16px 0 16px 16px;
+}
+
+#col3 p{
+    padding: 16px 24px 16px 0;
+    justify-content: flex-end;
+    font-size: 12px;
+    font-family: "monaco", monospace;
+    word-break: break-all;
+}
+
+#col3 p {
+    color: var(--textSecondary);
+}
+
+#col4 p {
+    padding: 16px 0
+}
+
+.errorContainer {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    min-height: 32px;
+    min-width: 32px;
+    border-bottom: 1px solid var(--divider);
+    box-sizing: border-box;
+}
+
+.error {
+    border: none !important;
+    display: inline-flex !important;
+    
+}
