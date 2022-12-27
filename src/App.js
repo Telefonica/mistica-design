@@ -40,7 +40,7 @@ const App = (isDesktopOrBigger) => (
             <IconShopRegular color={skinVars.colors.brand} />
           </Circle>
         }
-        title="Tokens Table"
+        title="Tokens Table --"
         description="Description"
         buttonLink={<ButtonLink href="../dashboard/index.html">Visit</ButtonLink>}
           />
