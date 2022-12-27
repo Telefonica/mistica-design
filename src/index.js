@@ -1,23 +1,23 @@
-import '@telefonica/mistica/css/roboto.css';
-import '@telefonica/mistica/css/reset.css';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import {getMovistarSkin, ThemeContextProvider} from '@telefonica/mistica';
+import "@telefonica/mistica/css/roboto.css";
+import "@telefonica/mistica/css/reset.css";
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { getTelefonicaSkin, ThemeContextProvider } from "@telefonica/mistica";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <ThemeContextProvider
-            theme={{
-                skin: getMovistarSkin(),
-                i18n: {locale: 'es-ES', phoneNumberFormattingRegionCode: 'ES'},
-            }}
-        >
-            <App />
-        </ThemeContextProvider>
-    </React.StrictMode>,
-    document.getElementById('root')
+  <React.StrictMode>
+    <ThemeContextProvider
+      theme={{
+        skin: getTelefonicaSkin(),
+        i18n: { locale: "es-ES", phoneNumberFormattingRegionCode: "ES" },
+      }}
+    >
+      <App />
+    </ThemeContextProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

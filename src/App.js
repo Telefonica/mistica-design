@@ -1,65 +1,99 @@
-import '@telefonica/mistica/css/reset.css';
+import "@telefonica/mistica/css/reset.css";
 import {
   Stack,
   Box,
   ResponsiveLayout,
-  DataCard,
+  MediaCard,
   Circle,
   IconShopRegular,
   ButtonLink,
   Title2,
+  Text7,
+  Text4,
   skinVars,
-  useScreenSize,
-  useTheme,
-  
-} from '@telefonica/mistica';
-import React from 'react';
+  Inline,
+  Header,
+  Image,
+  MainSectionHeader,
+  MainSectionHeaderLayout,
+  HeaderLayout,
+} from "@telefonica/mistica";
+import React from "react";
 
-
-  
 const App = (isDesktopOrBigger) => (
-
-  <Box paddingY={isDesktopOrBigger ? 40 : 800}>
-  <ResponsiveLayout>
-      <Stack space={40}>
-        <Title2>Mística Index</Title2>
+  <Box>
+    <HeaderLayout
+      header={<Header />}
+      extra={
         <Stack space={16}>
-      <DataCard
-        icon={
-          <Circle backgroundColor={skinVars.colors.brandLow} size={40}>
-            <IconShopRegular color={skinVars.colors.brand} />
-          </Circle>
-        }
-        title="Mística Wrapper '22'"
-        description="Description"
-        buttonLink={<ButtonLink onPress={() => {}}>Visit</ButtonLink>}
-          />
-          <DataCard
-        icon={
-          <Circle backgroundColor={skinVars.colors.brandLow} size={40}>
-            <IconShopRegular color={skinVars.colors.brand} />
-          </Circle>
-        }
-        title="Tokens Table"
-        description="Description"
-        buttonLink={<ButtonLink href="tokens-table/index.html">Visit</ButtonLink>}
-          />
-          <DataCard
-        icon={
-          <Circle backgroundColor={skinVars.colors.brandLow} size={40}>
-            <IconShopRegular color={skinVars.colors.brand} />
-          </Circle>
-        }
-        title="Repo Dashboard"
-        description="Description"
-        buttonLink={<ButtonLink href="dashboard/index.html">Visit</ButtonLink>}
-          />
-          </Stack>
-    </Stack>
-  </ResponsiveLayout>
-</Box>
-  
-);
+          <Text7>Mística Index</Text7>
+          <Text4>A list of little internal projects for Mística Design</Text4>
+        </Stack>
+      }
+    />
 
+    <ResponsiveLayout>
+      <Box paddingY={isDesktopOrBigger ? 40 : 800}>
+        <Stack space={40}>
+          {/* <Title2>Mística Index</Title2> */}
+          <Inline space={24} fullWidth>
+            <MediaCard
+              media={
+                <Image
+                  aspectRatio="16:9"
+                  src="https://images.unsplash.com/photo-1597742200172-7f581bbacbab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
+                />
+              }
+              icon={
+                <Circle backgroundColor={skinVars.colors.brandLow} size={40}>
+                  <IconShopRegular color={skinVars.colors.brand} />
+                </Circle>
+              }
+              title="Mística Wrapper '22'"
+              description="Description"
+              buttonLink={<ButtonLink onPress={() => {}}>Visit</ButtonLink>}
+            />
+            <MediaCard
+              media={
+                <Image
+                  aspectRatio="16:9"
+                  src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+                />
+              }
+              icon={
+                <Circle backgroundColor={skinVars.colors.brandLow} size={40}>
+                  <IconShopRegular color={skinVars.colors.brand} />
+                </Circle>
+              }
+              title="Tokens Table"
+              description="Description"
+              buttonLink={
+                <ButtonLink href="tokens-table/index.html">Visit</ButtonLink>
+              }
+            />
+            <MediaCard
+              media={
+                <Image
+                  aspectRatio="16:9"
+                  src="https://images.unsplash.com/photo-1516383274235-5f42d6c6426d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80"
+                />
+              }
+              icon={
+                <Circle backgroundColor={skinVars.colors.brandLow} size={40}>
+                  <IconShopRegular color={skinVars.colors.brand} />
+                </Circle>
+              }
+              title="Repo Dashboard"
+              description="Description"
+              buttonLink={
+                <ButtonLink href="dashboard/index.html">Visit</ButtonLink>
+              }
+            />
+          </Inline>
+        </Stack>
+      </Box>
+    </ResponsiveLayout>
+  </Box>
+);
 
 export default App;
