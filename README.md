@@ -1,46 +1,70 @@
-![Mistica Design](.github/resources/mistica-design-light.svg#gh-light-mode-only)
-![Mistica Design](.github/resources/mistica-design-dark.svg#gh-dark-mode-only)
-&nbsp;
+# Getting Started with Create React App
 
-&nbsp;
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-| Other Mística Repos                                              | Description                                               |
-| :--------------------------------------------------------------- | :-------------------------------------------------------- |
-| [mistica-web](https://github.com/Telefonica/mistica-web)         | Repository with code libraries for Mística in web         |
-| [mistica-ios](https://github.com/Telefonica/mistica-ios)         | Repository with code libraries for Mística in iOS         |
-| [mistica-android](https://github.com/Telefonica/mistica-android) | Repository with code libraries for Mística in Android     |
-| [mistica-icons](https://github.com/Telefonica/mistica-icons)     | The source of truth for icons in our digital products     |
-| [mistica-manager](https://github.com/Telefonica/mistica-manager) | App to allows designer install al the system in one-click |
+## Available Scripts
 
----
+In the project directory, you can run:
 
-- [Mística Discussions](https://github.com/Telefonica/mistica-design/discussions): The place to discuss all the topics to work in Mística
-- [Mística Roadmap](https://github.com/Telefonica/mistica-design/projects/2): An overview of Mística planning
-- [Mística Issues](https://github.com/Telefonica/mistica-design/issues): All the tasks with details
+### `npm start`
 
----
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-- [Contribute to Mística](https://brandfactory.telefonica.com/document/1846#/contribute/how-to-contribute)
-- [Current components status](https://brandfactory.telefonica.com/d/iSp7b1DkYygv/n-a#/components/overview)
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
----
+### `npm test`
 
-<br/>
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-# Figma
+### `npm run build`
 
-## How to sync design tokens
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-If you want to sync design tokens with Figma files you can use [Figma Tokens plugin](https://www.figma.com/community/plugin/843461159747178978/Figma-Tokens) and setup the plugin with the following information.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-1. Open Figma Tokens Plugin, go to `Settings` and select `Github` in Token Storage
-2. Add new credentials
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- **Name:** The name of the brand
-- **Personal Access Token:** you have to generate a token from Github and the paste in. [Read how to do it](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-- **Repository:** `Telefonica/mistica-design`
-- **Default Branch:** `production`
-- **File Path:** `tokens/brandName.json` (see files [here](./tokens/))
+### `npm run eject`
 
-![image](https://user-images.githubusercontent.com/6722153/166447592-e3d1b545-199d-4155-9024-2fb88351b444.png)
-3. Finally, go to `Tokens`, select `Global` and `Apply to document` and clic in `Update`
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
