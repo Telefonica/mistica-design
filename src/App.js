@@ -42,7 +42,7 @@ const App = (isDesktopOrBigger) => (
         }
         title="Tokens Table"
         description="Description"
-        buttonLink={<ButtonLink href="#">Visit</ButtonLink>}
+        buttonLink={<ButtonLink href="tokens-table/index.html">Visit</ButtonLink>}
           />
           <DataCard
         icon={
