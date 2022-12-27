@@ -31,7 +31,7 @@ jobs:
         config: |
           output:
             format: html
-            filename: 'out/index.html'
+            filename: 'dashboard/index.html'
 
           sections:
           - title: 'Open Issues by Type'
@@ -129,7 +129,7 @@ jobs:
         config: |
           output:
             format: html
-            filename: 'out/bugs.html'
+            filename: 'dashboard/bugs.html'
 
           sections:
           - title: 'Test'
