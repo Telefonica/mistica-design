@@ -42,7 +42,7 @@ const App = (isDesktopOrBigger) => (
         }
         title="Tokens Table"
         description="Description"
-        buttonLink={<ButtonLink onPress={() => {}}>Visit</ButtonLink>}
+        buttonLink={<ButtonLink href="../dashboard/index.html">Visit</ButtonLink>}
           />
           </Stack>
     </Stack>
