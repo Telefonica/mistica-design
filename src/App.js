@@ -40,7 +40,17 @@ const App = (isDesktopOrBigger) => (
             <IconShopRegular color={skinVars.colors.brand} />
           </Circle>
         }
-        title="Tokens Table --"
+        title="Tokens Table"
+        description="Description"
+        buttonLink={<ButtonLink href="#">Visit</ButtonLink>}
+          />
+          <DataCard
+        icon={
+          <Circle backgroundColor={skinVars.colors.brandLow} size={40}>
+            <IconShopRegular color={skinVars.colors.brand} />
+          </Circle>
+        }
+        title="Repo Dashboard"
         description="Description"
         buttonLink={<ButtonLink href="dashboard/index.html">Visit</ButtonLink>}
           />
