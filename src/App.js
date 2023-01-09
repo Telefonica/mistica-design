@@ -54,7 +54,11 @@ const App = (isDesktopOrBigger) => (
               }
               title="Mística Wrapper '22'"
               description="Description"
-              buttonLink={<ButtonLink onPress={() => {}}>Visit</ButtonLink>}
+              buttonLink={
+                <ButtonLink href="https://tinyurl.com/2fyfjdnw" newTab={true}>
+                  Visit
+                </ButtonLink>
+              }
             />
             <MediaCard
               media={
