@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - ".github/workflows/dashboard.yml"
+      - "public/**"
+      - "src/**"
   issues:
     types: [opened, closed, reopened]
 
