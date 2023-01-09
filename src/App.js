@@ -10,7 +10,6 @@ import {
   Text7,
   Text4,
   skinVars,
-  Inline,
   Header,
   Image,
   HeaderLayout,
@@ -34,7 +33,13 @@ const App = (isDesktopOrBigger) => (
       <Box paddingY={isDesktopOrBigger ? 40 : 800}>
         <Stack space={40}>
           {/* <Title2>Mística Index</Title2> */}
-          <Inline space={24} fullWidth>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(30%, 1fr))",
+              gap: isDesktopOrBigger ? 24 : 16,
+            }}
+          >
             <MediaCard
               media={
                 <Image
@@ -87,7 +92,7 @@ const App = (isDesktopOrBigger) => (
                 <ButtonLink href="dashboard/index.html">Visit</ButtonLink>
               }
             />
-          </Inline>
+          </div>
         </Stack>
       </Box>
     </ResponsiveLayout>
