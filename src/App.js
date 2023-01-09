@@ -52,7 +52,7 @@ const App = (isDesktopOrBigger) => (
                   <IconShopRegular color={skinVars.colors.brand} />
                 </Circle>
               }
-              title="Mística Wrapper '22'"
+              title="Mística Wrapper '22"
               description="Description"
               buttonLink={
                 <ButtonLink href="https://tinyurl.com/2fyfjdnw" newTab={true}>
