@@ -66,7 +66,7 @@ const App = (isDesktopOrBigger) => (
               title="Tokens Table"
               description="Description"
               buttonLink={
-                <ButtonLink href="tokens-table/index.html">Visit</ButtonLink>
+                <ButtonLink href="tokens/index.html">Visit</ButtonLink>
               }
             />
             <MediaCard
