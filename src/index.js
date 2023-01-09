@@ -10,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <ThemeContextProvider
       theme={{
-        // colorScheme: "light",
+        colorScheme: "light",
         skin: getTelefonicaSkin(),
         i18n: { locale: "es-ES", phoneNumberFormattingRegionCode: "ES" },
       }}
