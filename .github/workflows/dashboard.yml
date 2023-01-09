@@ -4,8 +4,6 @@ on:
   push:
     paths:
       - ".github/workflows/dashboard.yml"
-      - "public/**"
-      - "src/**"
   issues:
     types: [opened, closed, reopened]
 
@@ -32,7 +30,7 @@ jobs:
           config: |
             output:
               format: html
-              filename: './dashboard/index.html'
+              filename: 'dashboard/index.html'
 
             sections:
             - title: 'Open Issues by Type'
@@ -130,7 +128,7 @@ jobs:
           config: |
             output:
               format: html
-              filename: './dashboard/bugs.html'
+              filename: 'dashboard/bugs.html'
 
             sections:
             - title: 'Test'
