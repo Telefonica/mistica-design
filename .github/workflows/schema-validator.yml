@@ -1,0 +1,87 @@
+name: "Skin Validator"
+
+on:
+  pull_request:
+    paths:
+      - "tokens/**"
+
+jobs:
+  Movistar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate action.yml against a remote schema
+        uses: cardinalby/schema-validator-action@v1
+        with:
+          file: "tokens/movistar.json"
+          schema: "tokens/schema/skin-schema.json"
+
+  Movistar-Classic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate action.yml against a remote schema
+        uses: cardinalby/schema-validator-action@v1
+        with:
+          file: "tokens/movistar-classic.json"
+          schema: "tokens/schema/skin-schema.json"
+
+  O2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate action.yml against a remote schema
+        uses: cardinalby/schema-validator-action@v1
+        with:
+          file: "tokens/o2.json"
+          schema: "tokens/schema/skin-schema.json"
+
+  Vivo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate action.yml against a remote schema
+        uses: cardinalby/schema-validator-action@v1
+        with:
+          file: "tokens/vivo.json"
+          schema: "tokens/schema/skin-schema.json"
+
+  Telefonica:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate action.yml against a remote schema
+        uses: cardinalby/schema-validator-action@v1
+        with:
+          file: "tokens/telefonica.json"
+          schema: "tokens/schema/skin-schema.json"
+
+  Blau:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate action.yml against a remote schema
+        uses: cardinalby/schema-validator-action@v1
+        with:
+          file: "tokens/blau.json"
+          schema: "tokens/schema/skin-schema.json"
+
+  O2-Classic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate action.yml against a remote schema
+        uses: cardinalby/schema-validator-action@v1
+        with:
+          file: "tokens/o2-classic.json"
+          schema: "tokens/schema/skin-schema.json"
+
+  Solar-360:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate action.yml against a remote schema
+        uses: cardinalby/schema-validator-action@v1
+        with:
+          file: "tokens/solar-360.json"
+          schema: "tokens/schema/skin-schema.json"

@@ -1,0 +1,59 @@
+.levitation {
+-webkit-animation: levitation 3s ease-in-out infinite;
+-moz-animation: levitation 3s ease-in-out infinite;
+-ms-animation: levitation 3s ease-in-out infinite;
+-o-animation: levitation 3s ease-in-out infinite;
+animation: levitation 3s ease-in-out infinite;
+
+}
+
+@-webkit-keyframes levitation {
+0%, 100% {
+-webkit-transform:translateY(0);
+-moz-transform:translateY(0);
+-ms-transform:translateY(0);
+-o-transform:translateY(0);
+transform:translateY(0);
+}
+50% {
+-webkit-transform:translateY(-25px);
+-moz-transform:translateY(-25px);
+-ms-transform:translateY(-25px);
+-o-transform:translateY(-25px);
+transform:translateY(-25px);
+}
+}
+
+@-moz-keyframes levitation {
+0%, 100% {
+-webkit-transform:translateY(0);
+-moz-transform:translateY(0);
+-ms-transform:translateY(0);
+-o-transform:translateY(0);
+transform:translateY(0);
+}
+50% {
+-webkit-transform:translateY(-25px);
+-moz-transform:translateY(-25px);
+-ms-transform:translateY(-25px);
+-o-transform:translateY(-25px);
+transform:translateY(-25px);
+}
+}
+
+@keyframes levitation {
+0%, 100% {
+-webkit-transform:translateY(0);
+-moz-transform:translateY(0);
+-ms-transform:translateY(0);
+-o-transform:translateY(0);
+transform:translateY(0);
+}
+50% {
+-webkit-transform:translateY(-25px);
+-moz-transform:translateY(-25px);
+-ms-transform:translateY(-25px);
+-o-transform:translateY(-25px);
+transform:translateY(-25px);
+}
+}

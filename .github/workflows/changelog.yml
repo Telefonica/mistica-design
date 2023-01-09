@@ -1,0 +1,56 @@
+name: Changelog generator
+
+# Trigger the workflow on milestone events
+on:
+  milestone:
+    types: [closed]
+  workflow_dispatch:
+    inputs:
+      milestoneId:
+        description: "Milestone ID"
+        required: true
+        default: "1"
+      releaseVersion:
+        description: "Release version"
+        required: true
+        default: "1.0.0"
+
+jobs:
+  create-release-notes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+
+      - name: Get branch name
+        uses: rlespinasse/github-slug-action@v3.x
+
+      - name: Create Release Notes
+        uses: docker://decathlon/release-notes-generator-action:3.1.5
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          OUTPUT_FOLDER: changelog-versions
+          USE_MILESTONE_TITLE: "true"
+          FILENAME_PREFIX: ${{ github.event.inputs.releaseVersion }}
+
+      # - run: sudo python3 .github/resources/changelog-index-generator.py changelog-versions
+
+      - name: Commit & Push in ${{ env.GITHUB_REF_SLUG_URL }}
+        run: |
+          git add .
+          git config user.name "github-actions"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "update changelog"
+          git push origin ${{ env.GITHUB_REF_SLUG_URL }}
+
+      # - name: Upload Release Notes to Wiki
+      #   uses: docker://decathlon/wiki-page-creator-action:latest
+      #   env:
+      #     ACTION_MAIL: myuser@users.noreply.github.com
+      #     ACTION_NAME: místicaBot
+      #     GH_PAT: ${{ secrets.PERSONAL_TOKEN }}
+      #     MD_FOLDER: changelog-versions
+      #     OWNER: Telefonica
+      #     REPO_NAME: mistica-design
+      #     SKIP_MD: README.md
