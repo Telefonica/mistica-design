@@ -7,18 +7,16 @@ import {
   Circle,
   IconShopRegular,
   ButtonLink,
-  Title2,
   Text7,
   Text4,
   skinVars,
   Inline,
   Header,
   Image,
-  MainSectionHeader,
-  MainSectionHeaderLayout,
   HeaderLayout,
 } from "@telefonica/mistica";
 import React from "react";
+import "@telefonica/mistica/css/mistica.css";
 
 const App = (isDesktopOrBigger) => (
   <Box>
