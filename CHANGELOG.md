@@ -1,7 +1,5 @@
 # Changelog index
 
-[7.0.0_|_2022_Q4](changelog-versions/7.0.0_|_2022_Q4.md)
-
 [6.3.0](changelog-versions/6.3.0.md)
 
 [6.2.0](changelog-versions/6.2.0.md)
