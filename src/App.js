@@ -100,9 +100,21 @@ const App = () => {
           right={
             <Box paddingY={isDesktopOrBigger ? 40 : 800}>
               <BoxedRowList>
-                <BoxedRow title="Design Documentation" onPress={() => {}} />
-                <BoxedRow title="GitHub Repository" onPress={() => {}} />
-                <BoxedRow title="Title" onPress={() => {}} />
+                <BoxedRow
+                  title="Design Documentation"
+                  href="https://brandfactory.telefonica.com/mistica"
+                  newTab
+                />
+                <BoxedRow
+                  title="Design Discussions"
+                  href="https://github.com/Telefonica/mistica-design/discussions"
+                  newTab
+                />
+                <BoxedRow
+                  title="Roadmap"
+                  href="https://github.com/Telefonica/mistica-design/projects/2?query=is%3Aopen+sort%3Aupdated-desc"
+                  newTab
+                />
               </BoxedRowList>
             </Box>
           }
