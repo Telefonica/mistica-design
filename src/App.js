@@ -98,7 +98,7 @@ const App = () => {
             </Box>
           }
           right={
-            <Box paddingY={isDesktopOrBigger ? 40 : 800}>
+            <Box paddingY={isDesktopOrBigger ? 40 : 24}>
               <BoxedRowList>
                 <BoxedRow
                   title="Design Documentation"
