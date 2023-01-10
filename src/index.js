@@ -5,15 +5,18 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { getTelefonicaSkin, ThemeContextProvider } from "@telefonica/mistica";
+import BodyBackground from "./components/body-background.tsx";
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeContextProvider
       theme={{
+        // colorScheme: "light",
         skin: getTelefonicaSkin(),
         i18n: { locale: "es-ES", phoneNumberFormattingRegionCode: "ES" },
       }}
     >
+      <BodyBackground />
       <App />
     </ThemeContextProvider>
   </React.StrictMode>,
