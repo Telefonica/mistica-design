@@ -1,16 +1,8 @@
-body {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-    width: 100%;
-    margin: 0 auto 0 auto;
-    /* background-color: #003245; */
-    background-color: #fff;
-    max-width: 900px;
-    font-weight: 300;
-}
+@import "https://cdn.jsdelivr.net/npm/mistica-css@5.0.0/css/telefonica.css";
 
 a {
     text-decoration: none;
-    color: #003245;
+    color: var(--textPrimary);
 }
 
 h1 {
@@ -64,13 +56,13 @@ h3 {
 div#analytics h1 {
     width: 100%;
     margin: 50px 50px 30px 50px;
-    color: white
+    color: var(--textPrimary);
 }
 
 div#main_description {
     width: 100%;
     margin: -20px 50px 30px 50px;
-    color: white;
+    color: var(--textPrimary);
 }
 
 div#footer {
@@ -82,7 +74,7 @@ div#footer {
 /* Sections */
 
 div.sections {
-    background-color: #ffffff;
+    background-color: var(--background);
     width: 100%;
     min-height: 250px;
     padding: 15px 0px 50px 0px;
@@ -112,10 +104,12 @@ div.section_metadata {
 div.section_metadata h2 {
     padding: 0;
     margin: 0;
+    color: var(--textPrimary);
 }
 
 div.section_metadata .description {
     margin-top: 15px;
+    color: var(--textPrimary);
 }
 
 div.section_widgets {
@@ -158,21 +152,21 @@ div.number_widget {
 }
 
 div.number_widget.primary {
-    background-color: var(--color-primary-background);
-    border: solid 1px var(--color-primary-border);
-    color: var(--color-primary-foreground);
+    background-color: var(--backgroundBrand);
+    border: solid 1px var(--backgroundBrand);
+    color: var(--textPrimaryInverse);
 }
 
 div.number_widget.secondary {
-    background-color: var(--color-secondary-background);
-    border: solid 1px var(--color-secondary-border);
-    color: var(--color-secondary-foreground);
+    background-color: var(--backgroundAlternative);
+    border: solid 1px var(--backgroundAlternative);
+    color: var(--textPrimary);
 }
 
 div.number_widget.tertiary {
-    background-color: var(--color-tertiary-background);
-    border: solid 1px var(--color-tertiary-border);
-    color: var(--color-tertiary-foreground);
+    background-color: var(--brandHigh);
+    border: solid 1px var(--brandHigh);
+    color: var(--textPrimaryInverse);
 }
 
 div.number_widget.bug {
@@ -190,15 +184,15 @@ div.number_widget.componentRequest {
 }
 
 div.number_widget.blue {
-    background-color: var(--color-blue-background);
+    background-color: var(--backgroundBrand);
     border: solid 1px var(--color-blue-border);
-    color: var(--color-blue-foreground);
+    color: var(--textPrimary);
 }
 
 div.number_widget.black {
     background-color: var(--color-black-background);
     border: solid 1px var(--color-black-border);
-    color: var(--color-black-foreground);
+    color: var(--textPrimary);
 }
 
 div.number_widget .title {
@@ -228,7 +222,7 @@ div.string_widget {
     padding: 15px 20px;
     background-color: #ffffff;
     border: solid 1px #F2F4FF;
-    color: #000000;
+    color: var(--textPrimary);
 }
 
 div.string_widget.primary {
@@ -269,10 +263,11 @@ div.string_widget h3 {
 
 div.graph_widget h3.graph_title {
     margin: 0 0 20px 0;
+    color: var(--textPrimary);
 }
 
 div.graph_widget h3.graph_title a {
-    color: #222222;
+    color: var(--textPrimary);
 }
 
 div.graph {
@@ -303,7 +298,7 @@ span.graph_item_value span.value {
     text-align: right;
     padding-right: 5px;
     font-size: 11px;
-    background-color: var(--color-primary-background);
+    background-color: var(--brand);
     color: #ffffff;
     border-radius: 0 20px 20px 0;
 }
@@ -360,7 +355,7 @@ div.table_widget h3.table_title {
 }
 
 div.table_widget h3.table_title a {
-    color: #222222;
+    color: var(--textPrimary);
 }
 
 div.table_widget table {
@@ -373,7 +368,7 @@ div.table_widget table td {
     padding: 16px 16px;
     text-align: left;
     vertical-align: top;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--divider);
     /* border-top: 1px solid #eee; */
     font-weight: 300;
 }
@@ -384,11 +379,12 @@ div.table_widget table tr:last-child {
 }
 
 div.table_widget table th {
-    background-color: #F2F4FF;
+    background-color: var(--backgroundAlternative);
+    color: var(--textPrimary);
 }
 
 div.table_widget table tr:nth-child(odd) td {
-    background-color: #fff;
+    background-color: var(--background);
 }
 
 div.table_widget table th a,
@@ -408,16 +404,16 @@ div.table_widget table tr th.yellow,
 div.table_widget table tr td.yellow,
 div.table_widget table tr th.yellow a,
 div.table_widget table tr td.yellow a {
-    background-color: var(--color-yellow-background);
-    color: var(--color-yellow-foreground);
+    background-color: var(--warningHigh);
+    color: var(--warningLow);
 }
 
 div.table_widget table tr th.green,
 div.table_widget table tr td.green,
 div.table_widget table tr th.green a,
 div.table_widget table tr td.green a {
-    background-color: var(--color-green-background);
-    color: var(--color-green-foreground);
+    background-color: var(--successHigh);
+    color: var(--successLow);
 }
 
 div.table_widget table tr th.blue,
