@@ -4,4 +4,4 @@ title: ""
 about: Create a new empty issue
 ---
 
-<!-- _English or Spanish is ok._ -->
+<!-- _English, Portuguese or Spanish is ok!_ -->
