@@ -1,5 +1,7 @@
 # Changelog index
 
+[7.1.0](changelog-versions/7.1.0.md)
+
 [7.0.2](changelog-versions/7.0.2.md)
 
 [7.0.1](changelog-versions/7.0.1.md)
