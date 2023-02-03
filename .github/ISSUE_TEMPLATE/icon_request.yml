@@ -1,0 +1,62 @@
+name: Icon request
+description: Contribute to Mística Design System with integrating icons
+title: "Icon title"
+labels: ["fundamentals: icons", "request ✨"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this icon request to include in Mística!
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: If you think there is a icon missing in Mística and you feel it is worthy to create it globally and therefore any team could use it, please follow the process below so we can integrate this new icon from Design to Development.
+      options:
+        - label: Have you read the [Contributing Guidelines on Mística](https://brandfactory.telefonica.com/document/1846#/contribute/how-to-contribute)?
+          required: true
+        - label: Have you read the [Contributing document for icons](https://github.com/Telefonica/mistica-icons/blob/production/CONTRIBUTING.md)?
+          required: true
+  - type: textarea
+    id: icon-description
+    attributes:
+      label: Is your icon request related to a need?
+      description: A clear and concise description of what the need is.
+      placeholder: I need an icon to symbolize rain [...]
+    validations:
+      required: true
+  - type: textarea
+  id: icon-needs
+  attributes:
+    label: Describe or attach a screenshot of the solution you'd like and needs
+    description: A clear and concise description of what you want to need.
+  validations:
+    required: true
+  - type: textarea
+  id: icon-alternatives
+  attributes:
+    label: Describe icon alternatives you've considered
+    description: Attach a screenshot of other alternatives for the same icon concept.
+  - type: dropdown
+    id: brand
+    attributes:
+      label: What libraries do you need to include these icons?
+      multiple: true
+      options:
+        - Movistar
+        - Vivo
+        - O2
+        - Telefónica
+        - Blau
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context?
+      description: Add any other information about the icon if exists.
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Attach your svg icon with 3 weights (light / regular / filled)
+      placeholder: <!-- Upload your svg icons here -->
+    validations:
+      required: true
