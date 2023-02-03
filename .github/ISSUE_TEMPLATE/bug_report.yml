@@ -1,14 +1,12 @@
-name: Bug Report
-description: File a bug report
-title: "[Bug]: "
-labels: ["bug", "triage"]
-assignees:
-  - octocat
+name: Bug report 🐛
+description: Create a report to help us improve the Mística libraries
+title: ""
+labels: ["bug 🐞"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thanks for taking the time to fill out this bug report to improve Mística!
   - type: input
     id: contact
     attributes:
@@ -20,43 +18,40 @@ body:
   - type: textarea
     id: what-happened
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
-    validations:
-      required: true
-  - type: dropdown
-    id: version
-    attributes:
-      label: Version
-      description: What version of our software are you running?
-      options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: The submit button on the login page is not properly aligned with the rest of the form fields and it appears to be misaligned to the right.
     validations:
       required: true
   - type: dropdown
     id: browsers
     attributes:
-      label: What browsers are you seeing the problem on?
+      label: What libraries are you seeing the problem on?
       multiple: true
       options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
+        - Mobile Library
+        - Desktop Library
+        - Movistar Library
+        - Vivo Library
+        - O2 Library
+        - Telefónica Library
+        - Blau Library
   - type: textarea
     id: logs
     attributes:
-      label: Relevant log output
+      label: Steps to reproduce
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
-  - type: checkboxes
-    id: terms
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: logs
     attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: The submit button should be aligned with the form fields and appear centered.
+    validations:
+      required: true
