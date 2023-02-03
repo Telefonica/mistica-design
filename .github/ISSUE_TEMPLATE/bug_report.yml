@@ -1,9 +1,7 @@
-name: Bug report 🐛
+name: Bug report
 description: Create a report to help us improve the Mística libraries
 title: ""
-labels: ["bug 🐞"]
-assignees:
-  - octocat
+labels: "bug 🐞"
 body:
   - type: markdown
     attributes:
@@ -14,11 +12,11 @@ body:
     attributes:
       label: Contact Details
       description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
+      placeholder: ex. email@telefonica.com
     validations:
       required: false
   - type: textarea
-    id: what-happened
+    id: bug-description
     attributes:
       label: Describe the bug
       description: A clear and concise description of what the bug is.
@@ -26,7 +24,7 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: browsers
+    id: libraries
     attributes:
       label: What libraries are you seeing the problem on?
       multiple: true
@@ -50,7 +48,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: logs
+    id: expected-behavior
     attributes:
       label: Expected behavior
       description: A clear and concise description of what you expected to happen.
