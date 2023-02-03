@@ -2,6 +2,8 @@ name: Bug report 🐛
 description: Create a report to help us improve the Mística libraries
 title: ""
 labels: ["bug 🐞"]
+assignees:
+  - octocat
 body:
   - type: markdown
     attributes:
@@ -41,6 +43,10 @@ body:
     attributes:
       label: Steps to reproduce
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. See error
     validations:
       required: true
   - type: textarea
