@@ -17,6 +17,19 @@ body:
           required: true
         - label: Have you read the [Contributing document for icons](https://github.com/Telefonica/mistica-icons/blob/production/CONTRIBUTING.md)?
           required: true
+  - type: dropdown
+    id: brand
+    attributes:
+      label: What brand do you need to include these icons?
+      multiple: true
+      options:
+        - Movistar
+        - Vivo
+        - O2
+        - Telefónica
+        - Blau
+    validations:
+      required: true
   - type: textarea
     id: icon-description
     attributes:
@@ -37,19 +50,6 @@ body:
     attributes:
       label: Describe icon alternatives you've considered
       description: Attach a screenshot of other alternatives for the same icon concept.
-  - type: dropdown
-    id: brand
-    attributes:
-      label: What brand do you need to include these icons?
-      multiple: true
-      options:
-        - Movistar
-        - Vivo
-        - O2
-        - Telefónica
-        - Blau
-    validations:
-      required: true
   - type: textarea
     id: additional-context
     attributes:
