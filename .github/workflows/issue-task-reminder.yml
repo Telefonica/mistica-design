@@ -1,7 +1,7 @@
-name: Build Dashboard
+name: Pending task notification
 
 on:
-  push:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: allanwsilva/check-pending-tasks@v1.0.0
         with:
-          sendgrid-from-email: valid@email.com
+          sendgrid-from-email: ignacio.ceballostorres@telefonica.com
           email-subject: "Check out these Github tasks assigned to you that are still pending"
         env:
           GITHUB_TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
