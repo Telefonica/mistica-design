@@ -1,0 +1,49 @@
+name: Bug report 🐛
+description: Create a report to help us improve the Mística libraries
+title: "Bug title"
+labels: "bug 🐞"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report to improve Mística!
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: The submit button on the login page is not properly aligned with the rest of the form fields and it appears to be misaligned to the right.
+    validations:
+      required: true
+  - type: dropdown
+    id: libraries
+    attributes:
+      label: What libraries are you seeing the problem on?
+      multiple: true
+      options:
+        - Mobile Library
+        - Desktop Library
+        - Movistar Library
+        - Vivo Library
+        - O2 Library
+        - Telefónica Library
+        - Blau Library
+  - type: textarea
+    id: logs
+    attributes:
+      label: Steps to reproduce
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: The submit button should be aligned with the form fields and appear centered.
+    validations:
+      required: true
