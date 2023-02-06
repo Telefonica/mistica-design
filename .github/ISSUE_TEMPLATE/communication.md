@@ -10,5 +10,5 @@ labels: release
 - [ ] [Update BF changelog](https://brandfactory.telefonica.com/document/1846#/what-s-happening/changelog)
 - [ ] Publish libraries
 - [ ] Update materials
-  - [ ] [UI Kits](https://www.figma.com/file/xsmY1nmS3pI3QBkhhJjnY7/M%C3%ADstica-UI-%26-Template-Kit)
-  - [ ] [Figma & You](https://www.figma.com/file/t4zLZLdqFLHOCf1DIaxS8e/M%C3%ADstica-Figma-and-You)
+- [ ] [UI Kits](https://www.figma.com/file/xsmY1nmS3pI3QBkhhJjnY7/M%C3%ADstica-UI-%26-Template-Kit)
+- [ ] [Figma & You](https://www.figma.com/file/t4zLZLdqFLHOCf1DIaxS8e/M%C3%ADstica-Figma-and-You)

@@ -15,7 +15,7 @@
 ---
 
 - [Mística Discussions](https://github.com/Telefonica/mistica-design/discussions): The place to discuss all the topics to work in Mística
-- [Mística Roadmap](https://github.com/Telefonica/mistica-design/projects/2): An overview of Mística planning
+- [Mística Roadmap](https://github.com/orgs/Telefonica/projects/20/views/2): An overview of Mística planning
 - [Mística Issues](https://github.com/Telefonica/mistica-design/issues): All the tasks with details
 
 ---
@@ -45,5 +45,4 @@ If you want to sync design tokens with Figma files you can use [Figma Tokens plu
 - **Default Branch:** `production`
 - **File Path:** `tokens/brandName.json` (see files [here](./tokens/))
 
-![image](https://user-images.githubusercontent.com/6722153/166447592-e3d1b545-199d-4155-9024-2fb88351b444.png)
-3. Finally, go to `Tokens`, select `Global` and `Apply to document` and clic in `Update`
+![image](https://user-images.githubusercontent.com/6722153/166447592-e3d1b545-199d-4155-9024-2fb88351b444.png) 3. Finally, go to `Tokens`, select `Global` and `Apply to document` and clic in `Update`
