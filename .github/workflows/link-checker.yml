@@ -1,0 +1,16 @@
+name: Link checker
+
+on:
+  workflow_dispatch:
+
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v1.5.1
+        env:
+          GITHUB_TOKEN: ${{secrets.PERSONAL_TOKEN}}
