@@ -11,6 +11,11 @@
       "description": "grey1"
     },
     "backgroundBrand": {
+      "value": "{palette.movistarBlue}",
+      "type": "color",
+      "description": "movistarBlue"
+    },
+    "backgroundBrandSecondary": {
       "value": "{palette.movistarBlueDark}",
       "type": "color",
       "description": "movistarBlueDark"
@@ -31,14 +36,14 @@
       "description": "grey2"
     },
     "backgroundSkeletonInverse": {
-      "value": "{palette.movistarBlueDark60}",
+      "value": "rgba({palette.white}, 0.2)",
       "type": "color",
-      "description": "movistarBlueDark60"
+      "description": "movistarBlue55"
     },
     "backgroundFeedbackBottom": {
-      "value": "{palette.movistarBlueDark}",
+      "value": "{palette.movistarBlue}",
       "type": "color",
-      "description": "movistarBlueDark"
+      "description": "movistarBlue"
     },
     "appBarBackground": {
       "value": "{palette.white}",
@@ -46,9 +51,9 @@
       "description": "white"
     },
     "navigationBarBackground": {
-      "value": "{palette.movistarBlueDark}",
+      "value": "{palette.movistarBlue}",
       "type": "color",
-      "description": "movistarBlueDark"
+      "description": "movistarBlue"
     },
     "skeletonWave": {
       "value": "{palette.grey2}",
@@ -96,7 +101,7 @@
       "description": "movistarBlue10"
     },
     "buttonLinkBackgroundInverseSelected": {
-      "value": "rgba({palette.white}, 0.05)",
+      "value": "rgba({palette.white}, 0.2)",
       "type": "color",
       "description": "white"
     },
@@ -106,9 +111,9 @@
       "description": "movistarBlue"
     },
     "buttonPrimaryBackgroundInverse": {
-      "value": "{palette.movistarBlue}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "movistarBlue"
+      "description": "white"
     },
     "buttonPrimaryBackgroundSelected": {
       "value": "{palette.movistarBlue55}",
@@ -121,9 +126,9 @@
       "description": "movistarBlue55"
     },
     "buttonPrimaryBackgroundInverseSelected": {
-      "value": "{palette.movistarBlue55}",
+      "value": "{palette.movistarBlue30}",
       "type": "color",
-      "description": "movistarBlue55"
+      "description": "movistarBlue30"
     },
     "buttonSecondaryBorder": {
       "value": "{palette.movistarBlue}",
@@ -156,14 +161,14 @@
       "description": "white"
     },
     "buttonSecondaryBackgroundInverseHover": {
-      "value": "rgba({palette.white}, 0.1)",
+      "value": "rgba({palette.white}, 0.2)",
       "type": "color",
-      "description": "movistarBlue"
+      "description": "white"
     },
     "buttonSecondaryBackgroundInverseSelected": {
-      "value": "rgba({palette.white}, 0.1)",
+      "value": "rgba({palette.white}, 0.2)",
       "type": "color",
-      "description": "movistarBlue"
+      "description": "white"
     },
     "textButtonPrimary": {
       "value": "{palette.white}",
@@ -171,9 +176,9 @@
       "description": "white"
     },
     "textButtonPrimaryInverse": {
-      "value": "{palette.white}",
+      "value": "{palette.movistarBlue}",
       "type": "color",
-      "description": "white"
+      "description": "movistarBlue"
     },
     "textButtonPrimaryInverseSelected": {
       "value": "{palette.movistarBlue}",
@@ -271,9 +276,9 @@
       "description": "movistarBlue55"
     },
     "navigationBarDivider": {
-      "value": "{palette.movistarBlueDark}",
+      "value": "{palette.movistarBlue}",
       "type": "color",
-      "description": "movistarBlueDark"
+      "description": "movistarBlue"
     },
     "badge": {
       "value": "{palette.pepper55}",
@@ -441,9 +446,9 @@
       "description": "movistarBlue"
     },
     "customTabsBackground": {
-      "value": "{palette.movistarBlueDark}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "movistarBlueDark"
+      "description": "white"
     }
   },
   "dark": {
@@ -458,6 +463,11 @@
       "description": "darkModeGrey"
     },
     "backgroundBrand": {
+      "value": "{palette.darkModeBlack}",
+      "type": "color",
+      "description": "darkModeBlack"
+    },
+    "backgroundBrandSecondary": {
       "value": "{palette.darkModeBlack}",
       "type": "color",
       "description": "darkModeBlack"
@@ -588,9 +598,9 @@
       "description": "white"
     },
     "buttonSecondaryBorderSelected": {
-      "value": "{palette.movistarBlue30}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "movistarBlue30"
+      "description": "white"
     },
     "buttonSecondaryBorderInverse": {
       "value": "{palette.white}",
@@ -598,9 +608,9 @@
       "description": "white"
     },
     "buttonSecondaryBorderInverseSelected": {
-      "value": "{palette.movistarBlue30}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "movistarBlue30"
+      "description": "white"
     },
     "buttonSecondaryBackgroundInverseHover": {
       "value": "rgba({palette.white}, 0.15)",
@@ -653,9 +663,9 @@
       "description": "movistarBlue"
     },
     "textLinkInverse": {
-      "value": "{palette.white}",
+      "value": "{palette.movistarBlue}",
       "type": "color",
-      "description": "white"
+      "description": "movistarBlue"
     },
     "textLinkDanger": {
       "value": "{palette.pepper}",
@@ -916,7 +926,7 @@
         "type": "color"
       },
       "movistarBlue55": {
-        "value": "#0185CF",
+        "value": "#008EDD",
         "type": "color"
       },
       "movistarGreen": {
@@ -963,7 +973,6 @@
         "value": "#FEF4E8",
         "type": "color"
       },
-
       "egg40": {
         "value": "#F6AF5B",
         "type": "color"
@@ -1022,10 +1031,6 @@
       },
       "movistarBlueDark": {
         "value": "#0B2739",
-        "type": "color"
-      },
-      "movistarBlueDark60": {
-        "value": "#091F2E",
         "type": "color"
       },
       "darkModeBlack": {
