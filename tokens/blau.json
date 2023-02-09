@@ -5,6 +5,11 @@
       "type": "color",
       "description": "blauBluePrimary"
     },
+    "backgroundBrandSecondary": {
+      "value": "{palette.blauBluePrimary}",
+      "type": "color",
+      "description": "blauBluePrimary"
+    },
     "appBarBackground": {
       "value": "{palette.white}",
       "type": "color",
@@ -31,7 +36,7 @@
       "description": "grey2"
     },
     "backgroundSkeletonInverse": {
-      "value": "rgba({palette.white}, 0.2)",
+      "value": "rgba({palette.white}, 0.3)",
       "type": "color",
       "description": "white"
     },
@@ -488,6 +493,11 @@
       "description": "darkModeGrey"
     },
     "backgroundBrand": {
+      "value": "{palette.darkModeBlack}",
+      "type": "color",
+      "description": "darkModeBlack"
+    },
+    "backgroundBrandSecondary": {
       "value": "{palette.darkModeBlack}",
       "type": "color",
       "description": "darkModeBlack"
