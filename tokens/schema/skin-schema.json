@@ -11,6 +11,7 @@
         }
       }
     },
+    "prominent": { "comment": "Prominent will be deleted soon", "additionalProperties": true },
     "light": {
       "comment": "Aquí se obliga a usar las constantes definidas para light mode",
       "allOf": [{ "$ref": "#/global/constants" }]
@@ -126,7 +127,6 @@
         "warningHighInverse",
         "errorHighInverse",
         "promoHighInverse",
-        "brandHighInverse",
         "neutralMediumInverse",
         "customTabsBackground"
       ],
@@ -224,7 +224,6 @@
         "warningHighInverse": { "$ref": "#/definitions/constantProperties" },
         "errorHighInverse": { "$ref": "#/definitions/constantProperties" },
         "promoHighInverse": { "$ref": "#/definitions/constantProperties" },
-        "brandHighInverse": { "$ref": "#/definitions/constantProperties" },
         "neutralMediumInverse": { "$ref": "#/definitions/constantProperties" },
         "customTabsBackground": { "$ref": "#/definitions/constantProperties" },
         "extended": {
