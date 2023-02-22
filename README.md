@@ -40,7 +40,7 @@ If you want to sync design tokens with Figma files you can use [Figma Tokens plu
 2. Add new credentials
 
 - **Name:** The name of the brand
-- **Personal Access Token:** you have to generate a token from Github. [Read how to do it](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+- **Personal Access Token:** you have to generate a token from Github. [Read how to do it](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)
 - **Repository:** `Telefonica/mistica-design`
 - **Default Branch:** `production`
 - **File Path:** `tokens/brandName.json` (see files [here](./tokens/))
