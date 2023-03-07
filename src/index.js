@@ -1,22 +1,15 @@
 import "@telefonica/mistica/css/roboto.css";
 import "@telefonica/mistica/css/reset.css";
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { getTelefonicaSkin, ThemeContextProvider } from "@telefonica/mistica";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
-    <ThemeContextProvider
-      theme={{
-        skin: getTelefonicaSkin(),
-        i18n: { locale: "es-ES", phoneNumberFormattingRegionCode: "ES" },
-      }}
-    >
-      <App />
-    </ThemeContextProvider>
+    <App />
   </React.StrictMode>
 );
 
