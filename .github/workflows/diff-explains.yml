@@ -14,21 +14,21 @@ jobs:
     steps:
       - name: Explain Diff
         id: explain
-        uses: actions/explain-diff
+        uses: actions/explain-diff@
         with:
           diff: ${{ env.DIFF }}
           apikey: ${{ secrets.OPENAI_APIKEY }}
 
-      - name: Post Comment
-        uses: actions/github-script@0.9.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: steps.explain.outputs.explanation
-        run: |
-          const octokit = require('@octokit/rest')({ auth: process.env.GITHUB_TOKEN });
-          octokit.pulls.createComment({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            pull_number: context.payload.pull_request.number,
-            body: steps.explain.outputs.explanation
-          });
+      # - name: Post Comment
+      #   uses: actions/github-script@0.9.1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   if: steps.explain.outputs.explanation
+      #   run: |
+      #     const octokit = require('@octokit/rest')({ auth: process.env.GITHUB_TOKEN });
+      #     octokit.pulls.createComment({
+      #       owner: context.repo.owner,
+      #       repo: context.repo.repo,
+      #       pull_number: context.payload.pull_request.number,
+      #       body: steps.explain.outputs.explanation
+      #     });
