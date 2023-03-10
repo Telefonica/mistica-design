@@ -6,8 +6,8 @@ on:
       - "tokens/**"
 
 jobs:
-build:
-  runs-on: ubuntu-latest
-  steps:
-    - name: GPT Explain Diff
-      uses: thecloudlore/explain-diff@v0.2
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GPT Explain Diff
+        uses: thecloudlore/explain-diff@v0.2
