@@ -1,0 +1,13 @@
+name: "Diff explanations"
+
+on:
+  pull_request:
+    paths:
+      - "tokens/**"
+
+jobs:
+build:
+  runs-on: ubuntu-latest
+  steps:
+    - name: GPT Explain Diff
+      uses: thecloudlore/explain-diff@v0.2
