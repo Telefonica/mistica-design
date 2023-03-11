@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize]
 
 env:
-  DIFF: ${{ github.base_ref == 'production' }}
+  DIFF: ${{ 'production' == github.head_ref }}
 
 jobs:
   explain-diff:
