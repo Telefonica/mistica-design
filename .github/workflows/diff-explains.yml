@@ -1,6 +1,4 @@
-on:
-  pull_request:
-    types: [opened, synchronize]
+on: [pull_request]
 
 jobs:
   hello_world_job:
