@@ -1,17 +1,17 @@
+name: Code Review
+
+permissions:
+  contents: read
+  pull-requests: write
+
 on: [pull_request]
 
 jobs:
-  hello_world_job:
+  test:
     runs-on: ubuntu-latest
-    name: ChatGPT explain code
     steps:
-      - name: ChatGTP explain code
-        uses: cirolini/chatgpt-github-actions@v1.3
-        with:
-          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
-          github_token: ${{ secrets.PERSONAL_TOKEN }}
-          github_pr_id: ${{ github.event.number }}
-          openai_engine: "text-davinci-002" #optional
-          openai_temperature: 0.5 #optional
-          openai_max_tokens: 2048 #optional
-          mode: file # file or patch
+      - uses: anc95/ChatGPT-CodeReview@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          LANGUAGE: Chinese
