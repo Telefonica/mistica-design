@@ -4,17 +4,23 @@ permissions:
   contents: read
   pull-requests: write
 
-on: [pull_request]
+on:
+  pull_request:
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: OpenAI ChatGPT Code Review
-        uses: adshao/chatgpt-code-review-action@main
+      - uses: actions/checkout@v3
         with:
-          PROGRAMMING_LANGUAGE: "JavaScript"
-          REVIEW_COMMENT_PREFIX: "chatgpt:"
-          FULL_REVIEW_COMMENT: "chatgpt"
-          OPENAI_TOKEN: ${{ secrets.OPENAI_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
+          ref: ${{github.event.pull_request.head.ref}}
+          submodules: false
+      - uses: fluxninja/chatgpt-pr-reviewer@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CHATGPT_ACCESS_TOKEN: ${{ secrets.CHATGPT_ACCESS_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        with:
+          debug: false
+          review_comment_lgtm: true
