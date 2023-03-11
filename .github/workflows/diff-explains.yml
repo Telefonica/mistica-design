@@ -1,20 +1,20 @@
-name: Code Review
+name: Explain PR
 
-permissions:
-  contents: read
-  pull-requests: write
+on:
+  pull_request:
+    types: [opened, synchronize]
 
-on: [pull_request]
+env:
+  DIFF: ${{ compare(github.base_ref, github.head_ref) }}
 
 jobs:
-  test:
+  explain-diff:
     runs-on: ubuntu-latest
+
     steps:
-      - name: OpenAI ChatGPT Code Review
-        uses: adshao/chatgpt-code-review-action@main
+      - name: Explain Diff
+        id: explain
+        uses: actions/explain-diff
         with:
-          PROGRAMMING_LANGUAGE: "JavaScript"
-          REVIEW_COMMENT_PREFIX: "chatgpt:"
-          FULL_REVIEW_COMMENT: "chatgpt"
-          OPENAI_TOKEN: ${{ secrets.OPENAI_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          diff: ${{ env.DIFF }}
+          apikey: ${{ secrets.OPENAI_API_KEY }}
