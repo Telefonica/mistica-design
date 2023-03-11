@@ -1,34 +1,18 @@
-name: Code Review
+on: [pull_request]
 
-permissions:
-  contents: read
-  pull-requests: write
-
-on:
-  pull_request:
+name: ChatGPT CodeReview
 
 jobs:
-  test:
+  chatgpt_comment:
     runs-on: ubuntu-latest
+    name: Let chatgpt comment on your PR.
     steps:
-      - uses: actions/checkout@v3
+      - name: ChatGPT comment
+        uses: kxxt/chatgpt-action@v0.3
+        id: chatgpt
         with:
-          repository: ${{github.event.pull_request.head.repo.full_name}}
-          ref: ${{github.event.pull_request.head.ref}}
-          submodules: false
-      - uses: fluxninja/chatgpt-pr-reviewer@main
+          number: ${{ github.event.pull_request.number }}
+          sessionToken: ${{ secrets.CHATGPT_SESSION_TOKEN }}
+          split: "yolo" # Use true to enable the unstable split feature.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CHATGPT_ACCESS_TOKEN: ${{ secrets.CHATGPT_ACCESS_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        with:
-          debug: true
-          review_comment_lgtm: true
-      - uses: unsafecoerce/chatgpt-action@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CHATGPT_ACCESS_TOKEN: ${{ secrets.CHATGPT_ACCESS_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        with:
-          debug: false
-          action: score
