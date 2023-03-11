@@ -1,17 +1,26 @@
-name: GPT Commits summarizer
-# Summary: This action will write a comment about every commit in a pull request, as well as generate a summary for every file that was modified and add it to the review page, compile a PR summary from all commit summaries and file diff summaries, and delete outdated code review comments
+name: Code Review
+
+permissions:
+  contents: read
+  pull-requests: write
 
 on:
   pull_request:
-    types: [opened, synchronize]
 
 jobs:
-  summarize:
+  test:
     runs-on: ubuntu-latest
-    permissions: write-all # Some repositories need this line
-
     steps:
-      - uses: KanHarI/gpt-commit-summarizer@master
+      - uses: actions/checkout@v3
+        with:
+          repository: ${{github.event.pull_request.head.repo.full_name}}
+          ref: ${{github.event.pull_request.head.ref}}
+          submodules: false
+      - uses: fluxninja/chatgpt-pr-reviewer@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CHATGPT_ACCESS_TOKEN: ${{ secrets.CHATGPT_ACCESS_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        with:
+          debug: true
+          review_comment_lgtm: true
