@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: OpenAI ChatGPT Code Review
-      - uses: adshao/chatgpt-code-review-action@v0.2
+        uses: adshao/chatgpt-code-review-action@v0.2
         with:
           PROGRAMMING_LANGUAGE: "JavaScript"
           REVIEW_COMMENT_PREFIX: "chatgpt:"
