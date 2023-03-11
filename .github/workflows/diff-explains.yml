@@ -1,26 +1,34 @@
-name: Code Review
-
-permissions:
-  contents: read
-  pull-requests: write
+name: Explain PR
 
 on:
   pull_request:
+    types: [opened, synchronize]
+
+env:
+  DIFF: ${{ compare(github.base_ref, github.head_ref) }}
 
 jobs:
-  test:
+  explain-diff:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Explain Diff
+        id: explain
+        uses: actions/explain-diff@main
         with:
-          repository: ${{github.event.pull_request.head.repo.full_name}}
-          ref: ${{github.event.pull_request.head.ref}}
-          submodules: false
-      - uses: fluxninja/chatgpt-pr-reviewer@main
+          diff: ${{ env.DIFF }}
+          apikey: ${{ secrets.OPENAI_APIKEY }}
+
+      - name: Post Comment
+        uses: actions/github-script@0.9.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CHATGPT_ACCESS_TOKEN: ${{ secrets.CHATGPT_ACCESS_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        with:
-          debug: true
-          review_comment_lgtm: true
+        if: steps.explain.outputs.explanation
+        run: |
+          const octokit = require('@octokit/rest')({ auth: process.env.GITHUB_TOKEN });
+          octokit.pulls.createComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: context.payload.pull_request.number,
+            body: steps.explain.outputs.explanation
+          });
