@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Explain Diff
         id: explain
-        uses: actions/explain-diff@
+        uses: actions/explain-diff
         with:
           diff: ${{ env.DIFF }}
           apikey: ${{ secrets.OPENAI_APIKEY }}
