@@ -9,7 +9,7 @@ body:
     attributes:
       label: Objective
       description: "Explain the main objective of the discussion, what you hope to achieve with the proposal"
-      value: |
+      placeholder: |
         To discuss and evaluate the proposal for a new accordion component to be added to the design system, and determine if it would be a valuable addition.
       render: bash
     validations:
@@ -19,8 +19,8 @@ body:
     attributes:
       label: Context
       description: "Describe the context of the problem or need that you want to address with the proposal for improvement or creation of a new component"
-      value: |
-        _Our current design system lacks a consistent and reusable accordion component, which has resulted in various teams using their own custom solutions. This has led to inconsistency in the user experience across our products._
+      placeholder: |
+        Our current design system lacks a consistent and reusable accordion component, which has resulted in various teams using their own custom solutions. This has led to inconsistency in the user experience across our products.
       render: bash
     validations:
       required: true
@@ -29,8 +29,8 @@ body:
     attributes:
       label: Impact
       description: "Explain how you expect this proposal to impact the design system and the user experience"
-      value: |
-        _Adding a standardized accordion component would improve consistency in the user experience and reduce development time for teams who currently have to create their own custom solutions. It would also improve accessibility for users who rely on assistive technology._
+      placeholder: |
+        Adding a standardized accordion component would improve consistency in the user experience and reduce development time for teams who currently have to create their own custom solutions. It would also improve accessibility for users who rely on assistive technology.
       render: bash
     validations:
       required: true
@@ -39,8 +39,8 @@ body:
     attributes:
       label: Additional considerations
       description: "Add any additional information that you feel is relevant to the discussion, such as possible limitations or technical challenges to consider"
-      value: |
-        _One potential limitation of this proposal could be ensuring that the customizable options are flexible enough to meet the needs of all teams and use cases. We will need to consider this during the discussion._
+      placeholder: |
+        One potential limitation of this proposal could be ensuring that the customizable options are flexible enough to meet the needs of all teams and use cases. We will need to consider this during the discussion.
       render: bash
     validations:
       required: false
@@ -50,10 +50,10 @@ body:
       label: Discussion Questions
       description: "Formulate specific questions that encourage participation from team members in the discussion and allow for a deeper dive into the proposal's details"
       placeholder: |
-        _What are the benefits of adding a standardized accordion component to our design system?_
-        _Are there any limitations or challenges we should consider before implementing this component?_ 
-        _How can we ensure that the customizable options meet the needs of all teams and use cases?_
-        _Who will be responsible for implementing and maintaining this component if it is approved?_
+        - What are the benefits of adding a standardized accordion component to our design system?
+        - Are there any limitations or challenges we should consider before implementing this component? 
+        - How can we ensure that the customizable options meet the needs of all teams and use cases?
+        - Who will be responsible for implementing and maintaining this component if it is approved?
       render: bash
     validations:
       required: true
