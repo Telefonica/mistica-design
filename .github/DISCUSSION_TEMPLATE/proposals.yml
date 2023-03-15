@@ -5,9 +5,9 @@ body:
       value: |
         This is text that will show up in the template!
   - type: textarea
-    id: objetive
+    id: goal
     attributes:
-      label: Objective
+      label: Goal
       description: "Explain the main objective of the discussion, what you hope to achieve with the proposal"
       placeholder: |
         To discuss and evaluate the proposal for a new accordion component to be added to the design system, and determine if it would be a valuable addition.
@@ -35,16 +35,6 @@ body:
     validations:
       required: true
   - type: textarea
-    id: additional
-    attributes:
-      label: Additional considerations
-      description: "Add any additional information that you feel is relevant to the discussion, such as possible limitations or technical challenges to consider"
-      placeholder: |
-        One potential limitation of this proposal could be ensuring that the customizable options are flexible enough to meet the needs of all teams and use cases. We will need to consider this during the discussion.
-      render: bash
-    validations:
-      required: false
-  - type: textarea
     id: questions
     attributes:
       label: Discussion Questions
@@ -57,6 +47,16 @@ body:
       render: bash
     validations:
       required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional considerations
+      description: "Add any additional information that you feel is relevant to the discussion, such as possible limitations or technical challenges to consider"
+      placeholder: |
+        One potential limitation of this proposal could be ensuring that the customizable options are flexible enough to meet the needs of all teams and use cases. We will need to consider this during the discussion.
+      render: bash
+    validations:
+      required: false
   - type: input
     id: has-id
     attributes:
