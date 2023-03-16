@@ -7,31 +7,28 @@ body:
   - type: textarea
     id: goal
     attributes:
-      label: Goal
+      label: Goal (What)
       description: "Explain the main objective of the discussion, what you hope to achieve with the proposal"
       placeholder: |
         To discuss and evaluate the proposal for a new accordion component to be added to the design system, and determine if it would be a valuable addition.
-      render: bash
     validations:
       required: true
   - type: textarea
     id: context
     attributes:
-      label: Context
+      label: Context ()
       description: "Describe the context of the problem or need that you want to address with the proposal for improvement or creation of a new component"
       placeholder: |
         Our current design system lacks a consistent and reusable accordion component, which has resulted in various teams using their own custom solutions. This has led to inconsistency in the user experience across our products.
-      render: bash
     validations:
       required: true
   - type: textarea
     id: impact
     attributes:
-      label: Impact
+      label: Impact (Why)
       description: "Explain how you expect this proposal to impact the design system and the user experience"
       placeholder: |
         Adding a standardized accordion component would improve consistency in the user experience and reduce development time for teams who currently have to create their own custom solutions. It would also improve accessibility for users who rely on assistive technology.
-      render: bash
     validations:
       required: true
   - type: textarea
@@ -43,7 +40,6 @@ body:
         - Should the accordiong have description?
         - Should we think about add animation to this component?
         - What happend if we...
-      render: bash
     validations:
       required: true
   - type: textarea
@@ -53,7 +49,6 @@ body:
       description: "Add any additional information that you feel is relevant to the discussion, such as possible limitations or technical challenges to consider"
       placeholder: |
         One potential limitation of this proposal could be ensuring that the customizable options are flexible enough to meet the needs of all teams and use cases. We will need to consider this during the discussion.
-      render: bash
     validations:
       required: false
   - type: input
