@@ -35,8 +35,8 @@ jobs:
         with:
           file: "tokens/vivo.json"
           schema: "tokens/schema/skin-schema.json"
-  
-  Vivo:
+
+  Vivo-new:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
