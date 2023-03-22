@@ -43,7 +43,7 @@ jobs:
       - name: Validate action.yml against a remote schema
         uses: cardinalby/schema-validator-action@v1
         with:
-          file: "tokens/vivo[new].json"
+          file: "tokens/vivo-new.json"
           schema: "tokens/schema/skin-schema.json"
 
   Telefonica:
