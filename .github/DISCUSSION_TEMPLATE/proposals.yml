@@ -1,0 +1,61 @@
+title: "Proposal title"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        English, Spanish or Portuguese is allowed!
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: "Explain the main objective of the discussion, what you hope to achieve with the proposal"
+      placeholder: |
+        To discuss and evaluate the proposal for a new accordion component to be added to the design system, and determine if it would be a valuable addition.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: "Describe the context of the problem or need that you want to address with the proposal for improvement or creation of a new component"
+      placeholder: |
+        Our current design system lacks a consistent and reusable accordion component, which has resulted in various teams using their own custom solutions. This has led to inconsistency in the user experience across our products.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: "Explain how you expect this proposal to impact the design system and the user experience"
+      placeholder: |
+        Adding a standardized accordion component would improve consistency in the user experience and reduce development time for teams who currently have to create their own custom solutions. It would also improve accessibility for users who rely on assistive technology.
+    validations:
+      required: true
+  - type: textarea
+    id: questions
+    attributes:
+      label: Discussion Questions
+      description: "Formulate specific questions that encourage participation from team members in the discussion and allow for a deeper dive into the proposal's details"
+      placeholder: |
+        - Should the accordiong have description?
+        - Should we think about add animation to this component?
+        - What happend if we...
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional considerations
+      description: "Add any additional information that you feel is relevant to the discussion, such as possible limitations or technical challenges to consider"
+      placeholder: |
+        One potential limitation of this proposal could be ensuring that the customizable options are flexible enough to meet the needs of all teams and use cases. We will need to consider this during the discussion.
+    validations:
+      required: false
+  - type: input
+    id: has-id
+    attributes:
+      label: Do you have a visual proposal?
+      description: Link a Figma file with your proposal
+      placeholder: https://www.figma.com/file/DrHInk...
+    validations:
+      required: false
