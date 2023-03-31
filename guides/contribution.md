@@ -19,6 +19,13 @@ Your proposal should include:
 * Purpose of the change. 
 * Examples of how the component could be used in different contexts or can it can serve a Global need.
 
+Other information could help to validate the proposal earlier:
+
+* Research data.
+* Examples of current usage
+* Examples of where the proposal could solve a problem more efficiently
+
+
 The discussion is an opportunity to gather feedback from the Mística Design System team and the community. 
 We will review your proposal and provide feedback to help you refine and improve it. We may also ask for additional information or clarification.
 
