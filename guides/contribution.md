@@ -24,21 +24,15 @@ We will review your proposal and provide feedback to help you refine and improve
 
 ## From discussions to issues
 
-The discussions are the first step of our contribution flow. 
-
-### What information is expected from a discussion
-
-### 
-
-
+The discussions are the first step of our contribution flow.  
 
 Proposals will be reviewed by the core design team to ensure the standards are met.
 
 When reviewed and approved a issue related to the discussion will be created.
 
-## Issue required tasks
+## Issues
 
-## Specs
+When the issue is created a new branch will be created by the core team in figma to allow teams to document the new additions in that file
 
 ### Modifying existing components 
 
@@ -58,6 +52,10 @@ If approved, their prefix is ​​changed to [Ready] and they are ready for PR
 
 
 Once they are ready, the JIRA tickets for iOS, Android and web are created and referenced in the issue that started the task
+
+### From design to development
+
+The PR's open in the web, iOS, or Android repositories should always link to the official specs file, this document should be approved and tagged as ready for development.
 
 
 Thank you for your interest in contributing to the Mística Design System.
