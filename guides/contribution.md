@@ -6,20 +6,23 @@ As an external team, you have the opportunity to contribute to the Mística Desi
 Whether you are a designer, developer, or product manager, your contributions can help us improve the system and make it more useful for a wider range of users.
 
 This guide is designed to help you understand how you can contribute to Mística, what kind of contributions we are looking for, and how to make sure your contributions are consistent with our way of working.
-We encourage you to read this guide carefully and get in touch with us if you have any questions or feedback.
 
-Together, we can build a better design system that empowers teams to create great products and experiences for everyone.
+We encourage you to read this guide carefully and get in touch with us if you have any questions or feedback.
 
 ## Index
 
 - [Proposals](#proposals)
 - [Issues](#issues)
 - [Specs](#specs)
-- Development
+- [Development](#from-design-to-development)
+
+## Contribution journey
+
+![Contribution journey](../.github/resources/guides/contribution/contribution_journey.svg)
 
 ## Proposals
 
-Before submitting a proposal, we encourage you to review our existing components and guidelines to ensure that your proposal aligns with our design principles and meets our accessibility standards. You can find all of our design guidelines and documentation on our website.
+Before submitting a proposal, we encourage you to review our existing components and guidelines to ensure that your proposal aligns with our design principles and there's no other discussion already covering the same topic. You can find all of our design guidelines and documentation on [Telefónica's brand factory](https://brandfactory.telefonica.com/d/iSp7b1DkYygv/n-a#/get-started/what-is-mistica).
 
 To submit a proposal, create a [new discussion in the Mística Design GitHub repository](https://github.com/Telefonica/mistica-design/discussions).
 Your proposal should meet the following criteria:
@@ -35,35 +38,66 @@ Other information could help to validate the proposal earlier:
 - Research data.
 - Examples of current usage
 - Examples of where the proposal could solve a problem more efficiently.
-- A validated PRD, or confirmation that APIa can serve this information
+- A validated PRD, or confirmation that APIs can serve this information
 
 The discussion is an opportunity to gather feedback from the Mística Design System team and the community.
 We will review your proposal and provide feedback to help you refine and improve it. We may also ask for additional information or clarification.
 
 ## Issues
 
-When the issue is created a new branch will be created by the core team in figma to allow teams to document the new additions in that file
+When a proposal is approved an issue will be create from the discussion. In this issue all tasks related to the proposal will be included as well as the link to the Figma branch where the specs of the update need to be included.
 
-## Specs
+Issues that are a work in progress can be tracked from:
+
+- [Our milestones](https://github.com/Telefonica/mistica-design/milestones)
+- [Our releases project view](https://github.com/orgs/Telefonica/projects/20/views/2)
+
+If your team has been defined as the asignee for updating the specs based in your proposal, a new branch will be created to allow your team to work on and the link will be shared in the issue.
+
+## Specifications
+
+Specs files are the single source of true for development teams to update Mística libraries. There are two possible scenarios when working with specs.
 
 ### Modifying existing components
 
-The specs are on a branch:
-
-- When they are considered finished, they are asked to merge them, putting design core as reviewer of that branch
-- Design core reviews and if approved it is merged
-- As soon as something is merged it is considered ready for PR
+1. A new branch in an existing file will be created.
+2. When they are considered finished, request the approval adding at least 2 members of the design core team as reviewers of that branch<sup>(1)</sup>.
+3. Design core will review the file and provide feedback when needed.
+4. When considered ready, a reviewer will merge the branch.
+5. As soon as something is merged it is considered ready for development.
 
 ### New components
 
-- A new file is created with the prefix `Draft`
-- When they are ready, a review is requested
-- If approved, their prefix is ​​changed to `Ready` and they are ready for PR
-- Once they are ready, the JIRA tickets for iOS, Android and web are created and referenced in the issue that started the task
+1. A new file is created with the prefix `Draft`
+2. A new branch will be created in that file
+3. When they are considered finished, request the approval adding at least 2 members of the design core team as reviewers of that branch<sup>(1)</sup>.
+4. Design core will review the file and provide feedback when needed.
+5. When considered ready, a reviewer will merge the branch.
+6. As soon as something is merged it is considered ready for development.
 
-### From design to development
+---
 
-The PR's open in the web, iOS, or Android repositories should always link to the official specs file, this document should be approved and tagged as ready for development.
+(1) To learn more about requesting branch reviews, read the [Figma documentation](https://www.figma.com/best-practices/branching-in-figma/best-practices-when-using-branches/#requesting-a-review-on-a-branch).
+
+## From design to development
+
+Depending of the team that will develop the specifications update there are two different paths.
+
+### Mística team
+
+If our team will be the responsible of the development, the design core team will create the ticket and the ticket link will be linked into the issue body.
+
+### External teams
+
+If an external team is the responsible os the task, some rules should be followed to ensure the best workflow possible:
+
+1. Read the CONTRIBUTING files in the repository the PR will be created<sup>(2)</sup>.
+2. Include reviewers from the Mística development team and design core team.
+3. Include the link of the approved specs in the PR description.
+
+---
+
+(2): [Web](https://github.com/Telefonica/mistica-web/blob/master/CONTRIBUTING.md) | [Android](https://github.com/Telefonica/mistica-android/blob/main/CONTRIBUTING.md) | [iOS](https://github.com/Telefonica/mistica-ios/blob/main/CONTRIBUTING.md)
 
 Thank you for your interest in contributing to the Mística Design System.
 We appreciate your efforts to help us improve our system and create better user experiences for everyone.
