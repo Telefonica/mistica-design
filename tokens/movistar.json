@@ -1112,19 +1112,69 @@
         "type": "color"
       }
     },
-    "radius-preset-1": {
-      "description": "No radius",
-      "type": "borderRadius",
-      "value": "0"
+    "radiusValues": {
+      "radius0": {
+        "value": "0",
+        "type": "borderRadius"
+      },
+      "radius4": {
+        "value": "4",
+        "type": "borderRadius"
+      },
+      "radius8": {
+        "value": "8",
+        "type": "borderRadius"
+      },
+      "radius12": {
+        "value": "12",
+        "type": "borderRadius"
+      },
+      "radius16": {
+        "value": "16",
+        "type": "borderRadius"
+      },
+      "radiusStadium": {
+        "value": "999",
+        "type": "borderRadius"
+      },
+      "radiusCircle": {
+        "value": "50%",
+        "type": "borderRadius"
+      }
     },
-    "radius-preset-2": {
-      "type": "borderRadius",
-      "value": "4"
-    },
-    "radius-preset-3": {
-      "description": "Pill radius",
-      "type": "borderRadius",
-      "value": "10rem"
+    "radiusConstants": {
+      "buttonRadius": {
+        "value": "{radiusValues.radius4}",
+        "type": "borderRadius"
+      },
+      "inputRadius": {
+        "value": "{radiusValues.radius4}",
+        "type": "borderRadius"
+      },
+      "containerRadius": {
+        "value": "{radiusValues.radius16}",
+        "type": "borderRadius"
+      },
+      "popupRadius": {
+        "value": "{radiusValues.radius8}",
+        "type": "borderRadius"
+      },
+      "checkboxRadius": {
+        "value": "{radiusValues.radius2}",
+        "type": "borderRadius"
+      },
+      "indicatorRadius": {
+        "value": "{radiusValues.radiusStadium}",
+        "type": "borderRadius"
+      },
+      "sheetRadius": {
+        "value": "{radiusValues.radius16} {radiusValues.radius16} 0 0",
+        "type": "borderRadius"
+      },
+      "barsRadius": {
+        "value": "{radiusValues.radiusStadium}",
+        "type": "borderRadius"
+      }
     }
   }
 }
