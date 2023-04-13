@@ -953,8 +953,46 @@
       "description": "darkModeBlack"
     }
   },
+  "radius": {
+    "bar": {
+      "value": "999",
+      "type": "borderRadius"
+    },
+    "button": {
+      "value": "4",
+      "type": "borderRadius"
+    },
+    "checkbox": {
+      "value": "2",
+      "type": "borderRadius"
+    },
+    "circle": {
+      "value": "50%",
+      "type": "borderRadius"
+    },
+    "container": {
+      "value": "16",
+      "type": "borderRadius"
+    },
+    "indicator": {
+      "value": "999",
+      "type": "borderRadius"
+    },
+    "input": {
+      "value": "4",
+      "type": "borderRadius"
+    },
+    "popup": {
+      "value": "8",
+      "type": "borderRadius"
+    },
+    "sheet": {
+      "value": "16 16 0 0",
+      "type": "borderRadius"
+    }
+  },
   "global": {
-    "palette": {
+    "color": {
       "movistarBlue": {
         "value": "#019DF4",
         "type": "color"
@@ -1110,74 +1148,6 @@
       "darkModeGrey6": {
         "value": "#3C5261",
         "type": "color"
-      }
-    },
-    "radiusValues": {
-      "radius0": {
-        "value": "0",
-        "type": "borderRadius"
-      },
-      "radius2": {
-        "value": "2",
-        "type": "borderRadius"
-      },
-      "radius4": {
-        "value": "4",
-        "type": "borderRadius"
-      },
-      "radius8": {
-        "value": "8",
-        "type": "borderRadius"
-      },
-      "radius12": {
-        "value": "12",
-        "type": "borderRadius"
-      },
-      "radius16": {
-        "value": "16",
-        "type": "borderRadius"
-      },
-      "radiusStadium": {
-        "value": "999",
-        "type": "borderRadius"
-      },
-      "radiusCircle": {
-        "value": "50%",
-        "type": "borderRadius"
-      }
-    },
-    "radiusConstants": {
-      "buttonRadius": {
-        "value": "{radiusValues.radius4}",
-        "type": "borderRadius"
-      },
-      "inputRadius": {
-        "value": "{radiusValues.radius4}",
-        "type": "borderRadius"
-      },
-      "containerRadius": {
-        "value": "{radiusValues.radius16}",
-        "type": "borderRadius"
-      },
-      "popupRadius": {
-        "value": "{radiusValues.radius8}",
-        "type": "borderRadius"
-      },
-      "checkboxRadius": {
-        "value": "{radiusValues.radius2}",
-        "type": "borderRadius"
-      },
-      "indicatorRadius": {
-        "value": "{radiusValues.radiusStadium}",
-        "type": "borderRadius"
-      },
-      "sheetRadius": {
-        "value": "{radiusValues.radius16} {radiusValues.radius16} 0 0",
-        "type": "borderRadius"
-      },
-      "barsRadius": {
-        "value": "{radiusValues.radiusStadium}",
-        "type": "borderRadius"
       }
     }
   }
