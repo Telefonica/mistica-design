@@ -77,10 +77,11 @@ Specs files are the single source of true for development teams to update Místi
 ### Modifying existing components
 
 1. A new branch in an existing file will be created.
-2. When they are considered finished, request the approval adding at least 2 members of the design core team as reviewers of that branch<sup>(1)</sup>.
-3. Design core will review the file and provide feedback when needed.
-4. When considered ready, a reviewer will merge the branch.
-5. As soon as something is merged it is considered ready for development.
+2. Add the component `Dev Status` from the Mistica resources library around the new update areas of the documentation. This will make easier for reviewers and developers to find the new changes they need focus on and to everyone reading the specs to understand what's already available in the component implementation.
+3. When they are considered finished, request the approval adding at least 2 members of the design core team as reviewers of that branch<sup>(1)</sup>.
+4. Design core will review the file and provide feedback when needed.
+5. When considered ready, a reviewer will merge the branch.
+6. As soon as something is merged it is considered ready for development.
 
 ### New components
 
