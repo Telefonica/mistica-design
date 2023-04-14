@@ -1,6 +1,6 @@
 {
   "additionalProperties": false,
-  "required": ["light", "dark", "global"],
+  "required": ["light", "dark", "radius", "global"],
   "properties": {
     "global": {
       "$ref": "#/global",
@@ -21,7 +21,7 @@
       "allOf": [{ "$ref": "#/global/constants" }]
     },
     "radius": {
-      "comment": "Aquí se obliga a usar las constantes definidas para dark mode",
+      "comment": "Aquí se obliga a usar los border radius definidos",
       "allOf": [{ "$ref": "#/global/radius" }]
     }
   },
