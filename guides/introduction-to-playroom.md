@@ -98,6 +98,13 @@ Preview tools ofrece diferentes configuraciones de customización como `floating
 |:---------------- | :------------------- |
 | Formateo de código | <kbd>⌘</kbd> + <kbd>S</kbd> |
 | Abrir snippets | <kbd>⌘</kbd> + <kbd>K</kbd> |
+| Intercambiar por la línea superior | <kbd>⌥</kbd> + <kbd>↑</kbd> |
+| Intercambiar por la línea inferior | <kbd>⌥</kbd> + <kbd>↓</kbd> |
+| Duplicar la linea encima | <kbd>⇧</kbd> + <kbd>⌥</kbd> + <kbd>↑</kbd> |
+| Duplicate la linea debajo | <kbd>⇧</kbd> + <kbd>⌥</kbd> + <kbd>↓</kbd> |
+| Añadir cursor a la línea anterior | <kbd>⌘</kbd> + <kbd>⌥</kbd> + <kbd>↑</kbd> |
+| Añadir cursor a la línea siguiente | <kbd>⌘</kbd> + <kbd>⌥</kbd> + <kbd>↓</kbd> |
+| Seleccionar siguiente ocurrencia | <kbd>⌘</kbd> + <kbd>D</kbd> |
 | Deshacer | <kbd>⌘</kbd> + <kbd>Z</kbd> |
 
 # Básicos
