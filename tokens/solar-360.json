@@ -25,6 +25,16 @@
       "type": "color",
       "description": "white"
     },
+    "backgroundContainerBrand": {
+      "value": "{palette.movistarBlue}",
+      "type": "color",
+      "description": "movistarBlue"
+    },
+    "backgroundContainerAlternative": {
+      "value": "{palette.grey1}",
+      "type": "color",
+      "description": "grey1"
+    },
     "backgroundOverlay": {
       "value": "rgba({palette.grey6}, 0.6)",
       "type": "color",
@@ -330,6 +340,11 @@
       "type": "color",
       "description": "grey1"
     },
+    "neutralLowAlternative": {
+      "value": "{palette.grey2}",
+      "type": "color",
+      "description": "grey2"
+    },
     "textPrimary": {
       "value": "{palette.grey6}",
       "type": "color",
@@ -545,9 +560,9 @@
       "description": "darkModeBlack"
     },
     "backgroundAlternative": {
-      "value": "{palette.darkModeGrey}",
+      "value": "{palette.darkModeBlack}",
       "type": "color",
-      "description": "darkModeGrey"
+      "description": "darkModeBlack"
     },
     "backgroundBrand": {
       "value": "{palette.darkModeBlack}",
@@ -560,6 +575,16 @@
       "description": "darkModeBlack"
     },
     "backgroundContainer": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "backgroundContainerBrand": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "backgroundContainerAlternative": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
@@ -869,6 +894,11 @@
       "type": "color",
       "description": "grey5"
     },
+    "neutralLowAlternative": {
+      "value": "{palette.grey5}",
+      "type": "color",
+      "description": "grey5"
+    },
     "textPrimary": {
       "value": "{palette.grey2}",
       "type": "color",
@@ -1077,6 +1107,44 @@
       }
     }
   },
+  "radius": {
+    "bar": {
+      "value": "999",
+      "type": "borderRadius"
+    },
+    "button": {
+      "value": "4",
+      "type": "borderRadius"
+    },
+    "checkbox": {
+      "value": "2",
+      "type": "borderRadius"
+    },
+    "circle": {
+      "value": "50%",
+      "type": "borderRadius"
+    },
+    "container": {
+      "value": "16",
+      "type": "borderRadius"
+    },
+    "indicator": {
+      "value": "999",
+      "type": "borderRadius"
+    },
+    "input": {
+      "value": "8",
+      "type": "borderRadius"
+    },
+    "popup": {
+      "value": "8",
+      "type": "borderRadius"
+    },
+    "sheet": {
+      "value": "16",
+      "type": "borderRadius"
+    }
+  },
   "global": {
     "palette": {
       "movistarBlue": {
@@ -1211,20 +1279,6 @@
         "value": "#142027",
         "type": "color"
       }
-    },
-    "radius-preset-1": {
-      "description": "No radius",
-      "type": "borderRadius",
-      "value": "0"
-    },
-    "radius-preset-2": {
-      "type": "borderRadius",
-      "value": "4"
-    },
-    "radius-preset-3": {
-      "description": "Pill radius",
-      "type": "borderRadius",
-      "value": "10rem"
     }
   }
 }

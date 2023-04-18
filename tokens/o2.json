@@ -25,6 +25,16 @@
       "type": "color",
       "description": "white"
     },
+    "backgroundContainerBrand": {
+      "value": "{palette.o2BluePrimary}",
+      "type": "color",
+      "description": "o2BluePrimary"
+    },
+    "backgroundContainerAlternative": {
+      "value": "{palette.grey1}",
+      "type": "color",
+      "description": "grey1"
+    },
     "backgroundOverlay": {
       "value": "rgba({palette.grey6}, 0.6)",
       "type": "color",
@@ -330,6 +340,11 @@
       "type": "color",
       "description": "grey1"
     },
+    "neutralLowAlternative": {
+      "value": "{palette.grey2}",
+      "type": "color",
+      "description": "grey2"
+    },
     "textPrimary": {
       "value": "{palette.grey6}",
       "type": "color",
@@ -483,9 +498,9 @@
       "description": "darkModeBlack"
     },
     "backgroundAlternative": {
-      "value": "{palette.darkModeGrey}",
+      "value": "{palette.darkModeBlack}",
       "type": "color",
-      "description": "darkModeGrey"
+      "description": "darkModeBlack"
     },
     "backgroundBrand": {
       "value": "{palette.darkModeBlack}",
@@ -498,6 +513,16 @@
       "description": "darkModeBlack"
     },
     "backgroundContainer": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "backgroundContainerBrand": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "backgroundContainerAlternative": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
@@ -807,6 +832,11 @@
       "type": "color",
       "description": "darkModeGrey6"
     },
+    "neutralLowAlternative": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
     "textPrimary": {
       "value": "{palette.grey2}",
       "type": "color",
@@ -951,6 +981,44 @@
       "value": "{palette.darkModeBlack}",
       "type": "color",
       "description": "darkModeBlack"
+    }
+  },
+  "radius": {
+    "bar": {
+      "value": "999",
+      "type": "borderRadius"
+    },
+    "button": {
+      "value": "4",
+      "type": "borderRadius"
+    },
+    "checkbox": {
+      "value": "2",
+      "type": "borderRadius"
+    },
+    "circle": {
+      "value": "50%",
+      "type": "borderRadius"
+    },
+    "container": {
+      "value": "16",
+      "type": "borderRadius"
+    },
+    "indicator": {
+      "value": "999",
+      "type": "borderRadius"
+    },
+    "input": {
+      "value": "8",
+      "type": "borderRadius"
+    },
+    "popup": {
+      "value": "8",
+      "type": "borderRadius"
+    },
+    "sheet": {
+      "value": "16",
+      "type": "borderRadius"
     }
   },
   "global": {
@@ -1115,20 +1183,6 @@
         "value": "#000099",
         "type": "color"
       }
-    },
-    "radius-preset-1": {
-      "description": "No radius",
-      "type": "borderRadius",
-      "value": "0"
-    },
-    "radius-preset-2": {
-      "type": "borderRadius",
-      "value": "4"
-    },
-    "radius-preset-3": {
-      "description": "Pill radius",
-      "type": "borderRadius",
-      "value": "10rem"
     }
   }
 }

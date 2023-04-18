@@ -10,7 +10,6 @@
 | [mistica-ios](https://github.com/Telefonica/mistica-ios)         | Repository with code libraries for Mística in iOS         |
 | [mistica-android](https://github.com/Telefonica/mistica-android) | Repository with code libraries for Mística in Android     |
 | [mistica-icons](https://github.com/Telefonica/mistica-icons)     | The source of truth for icons in our digital products     |
-| [mistica-manager](https://github.com/Telefonica/mistica-manager) | App to allows designer install al the system in one-click |
 
 ---
 
