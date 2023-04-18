@@ -1,10 +1,11 @@
 {
   "additionalProperties": false,
-  "required": ["light", "dark", "global"],
+  "required": ["light", "dark", "radius", "global"],
   "properties": {
     "global": {
       "$ref": "#/global",
       "required": "palette",
+      "additionalProperties": false,
       "properties": {
         "palette": {
           "anyOf": [{ "$ref": "#/global/palette" }]
@@ -19,6 +20,10 @@
     "dark": {
       "comment": "Aquí se obliga a usar las constantes definidas para dark mode",
       "allOf": [{ "$ref": "#/global/constants" }]
+    },
+    "radius": {
+      "comment": "Aquí se obliga a usar los border radius definidos",
+      "allOf": [{ "$ref": "#/global/radius" }]
     }
   },
   "global": {
@@ -243,6 +248,21 @@
           "additionalProperties": true
         }
       }
+    },
+    "radius": {
+      "additionalProperties": false,
+      "required": ["bar", "button", "checkbox", "circle", "container", "indicator", "input", "popup", "sheet"],
+      "properties": {
+        "bar": { "$ref": "#/definitions/radiusProperties" },
+        "button": { "$ref": "#/definitions/radiusProperties" },
+        "checkbox": { "$ref": "#/definitions/radiusProperties" },
+        "circle": { "$ref": "#/definitions/radiusProperties" },
+        "container": { "$ref": "#/definitions/radiusProperties" },
+        "indicator": { "$ref": "#/definitions/radiusProperties" },
+        "input": { "$ref": "#/definitions/radiusProperties" },
+        "popup": { "$ref": "#/definitions/radiusProperties" },
+        "sheet": { "$ref": "#/definitions/radiusProperties" }
+      }
     }
   },
   "definitions": {
@@ -274,6 +294,19 @@
         }
       },
       "required": ["value", "type", "description"],
+      "additionalProperties": false
+    },
+    "radiusProperties": {
+      "patternProperties": {
+        "value": {
+          "type": "string",
+          "pattern": "^(0|2|4|8|12|16|50%|999|(0|4|8|12|16) (0|4|8|12|16) (0|4|8|12|16) (0|4|8|12|16))$"
+        },
+        "type": {
+          "const": "borderRadius"
+        }
+      },
+      "required": ["value", "type"],
       "additionalProperties": false
     }
   }
