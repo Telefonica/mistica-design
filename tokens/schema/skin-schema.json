@@ -251,12 +251,12 @@
     },
     "radius": {
       "additionalProperties": false,
-      "required": ["bar", "button", "checkbox", "circle", "container", "indicator", "input", "popup", "sheet"],
+      "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "input", "popup", "sheet"],
       "properties": {
         "bar": { "$ref": "#/definitions/radiusProperties" },
         "button": { "$ref": "#/definitions/radiusProperties" },
         "checkbox": { "$ref": "#/definitions/radiusProperties" },
-        "circle": { "$ref": "#/definitions/radiusProperties" },
+        "avatar": { "$ref": "#/definitions/radiusProperties" },
         "container": { "$ref": "#/definitions/radiusProperties" },
         "indicator": { "$ref": "#/definitions/radiusProperties" },
         "input": { "$ref": "#/definitions/radiusProperties" },
