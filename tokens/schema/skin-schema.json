@@ -1,10 +1,8 @@
 {
   "additionalProperties": false,
-  "required": ["light", "dark", "radius", "global"],
+  "required": ["light", "dark", "radius", "text", "global"],
   "properties": {
     "global": {
-      "$ref": "#/global",
-      "required": "palette",
       "additionalProperties": false,
       "properties": {
         "palette": {
@@ -24,6 +22,15 @@
     "radius": {
       "comment": "Aquí se obliga a usar los border radius definidos",
       "allOf": [{ "$ref": "#/global/radius" }]
+    },
+    "text": {
+      "comment": "Aquí se obliga a usar los text weight definidos",
+      "additionalProperties": false,
+      "properties": {
+        "weight": {
+          "allOf": [{ "$ref": "#/global/weight" }]
+        }
+      }
     }
   },
   "global": {
@@ -263,6 +270,18 @@
         "popup": { "$ref": "#/definitions/radiusProperties" },
         "sheet": { "$ref": "#/definitions/radiusProperties" }
       }
+    },
+    "weight": {
+      "additionalProperties": false,
+      "properties": {
+        "cardTitle": { "$ref": "#/definitions/weightProperties" },
+        "preset-5": { "$ref": "#/definitions/weightProperties" },
+        "preset-6": { "$ref": "#/definitions/weightProperties" },
+        "preset-7": { "$ref": "#/definitions/weightProperties" },
+        "preset-8": { "$ref": "#/definitions/weightProperties" },
+        "preset-9": { "$ref": "#/definitions/weightProperties" },
+        "preset-10": { "$ref": "#/definitions/weightProperties" }
+      }
     }
   },
   "definitions": {
@@ -308,6 +327,18 @@
       },
       "required": ["value", "type"],
       "additionalProperties": false
+    },
+    "weightProperties": {
+      "patternProperties": {
+        "value": {
+          "type": "string",
+          "pattern": "^(light|regular|medium|bold)+$"
+        },
+        "type": {
+          "const": "typography"
+        }
+      },
+      "required": ["value", "type"]
     }
   }
 }
