@@ -24,11 +24,11 @@
       "allOf": [{ "$ref": "#/global/radius" }]
     },
     "text": {
-      "comment": "Aquí se obliga a usar los text weights definidos",
+      "comment": "Aquí se obliga a usar los text weight definidos",
       "additionalProperties": false,
       "properties": {
-        "weights": {
-          "allOf": [{ "$ref": "#/global/weights" }]
+        "weight": {
+          "allOf": [{ "$ref": "#/global/weight" }]
         }
       }
     }
@@ -271,16 +271,16 @@
         "sheet": { "$ref": "#/definitions/radiusProperties" }
       }
     },
-    "weights": {
+    "weight": {
       "additionalProperties": false,
       "properties": {
-        "cardTitle": { "$ref": "#/definitions/weightsProperties" },
-        "text-preset-5": { "$ref": "#/definitions/weightsProperties" },
-        "text-preset-6": { "$ref": "#/definitions/weightsProperties" },
-        "text-preset-7": { "$ref": "#/definitions/weightsProperties" },
-        "text-preset-8": { "$ref": "#/definitions/weightsProperties" },
-        "text-preset-9": { "$ref": "#/definitions/weightsProperties" },
-        "text-preset-10": { "$ref": "#/definitions/weightsProperties" }
+        "cardTitle": { "$ref": "#/definitions/weightProperties" },
+        "preset-5": { "$ref": "#/definitions/weightProperties" },
+        "preset-6": { "$ref": "#/definitions/weightProperties" },
+        "preset-7": { "$ref": "#/definitions/weightProperties" },
+        "preset-8": { "$ref": "#/definitions/weightProperties" },
+        "preset-9": { "$ref": "#/definitions/weightProperties" },
+        "preset-10": { "$ref": "#/definitions/weightProperties" }
       }
     }
   },
@@ -328,7 +328,7 @@
       "required": ["value", "type"],
       "additionalProperties": false
     },
-    "weightsProperties": {
+    "weightProperties": {
       "patternProperties": {
         "value": {
           "type": "string",
