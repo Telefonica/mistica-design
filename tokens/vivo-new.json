@@ -25,10 +25,40 @@
       "type": "color",
       "description": "white"
     },
+    "backgroundContainerHover": {
+      "value": "{palette.grey0}",
+      "type": "color",
+      "description": "grey0"
+    },
+    "backgroundContainerPressed": {
+      "value": "{palette.grey1}",
+      "type": "color",
+      "description": "grey1"
+    },
     "backgroundContainerBrand": {
       "value": "{palette.vivoPurple}",
       "type": "color",
       "description": "vivoPurple"
+    },
+    "backgroundContainerBrandHover": {
+      "value": "{palette.vivoPurpleDark50}",
+      "type": "color",
+      "description": "vivoPurpleDark50"
+    },
+    "backgroundContainerBrandPressed": {
+      "value": "{palette.vivoPurpleDark}",
+      "type": "color",
+      "description": "vivoPurpleDark"
+    },
+    "backgroundContainerBrandHoverOverInverse": {
+      "value": "{palette.vivoPurpleDark80}",
+      "type": "color",
+      "description": "vivoPurpleDark80"
+    },
+    "backgroundContainerBrandPressedOverInverse": {
+      "value": "{palette.vivoPurpleDark90}",
+      "type": "color",
+      "description": "vivoPurpleDark90"
     },
     "backgroundContainerAlternative": {
       "value": "{palette.grey1}",
@@ -517,10 +547,40 @@
       "type": "color",
       "description": "darkModeGrey"
     },
+    "backgroundContainerHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerPressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
+    },
     "backgroundContainerBrand": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
+    },
+    "backgroundContainerBrandHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerBrandPressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
+    },
+    "backgroundContainerBrandHoverOverInverse": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerBrandPressedOverInverse": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
     },
     "backgroundContainerAlternative": {
       "value": "{palette.darkModeGrey}",
@@ -1051,6 +1111,18 @@
         "value": "#751AA3",
         "type": "color"
       },
+      "vivoPurpleDark50": {
+        "value": "#0195E4",
+        "type": "color"
+      },
+      "vivoPurpleDark80": {
+        "value": "#0085CC",
+        "type": "color"
+      },
+      "vivoPurpleDark90": {
+        "value": "#0074B3",
+        "type": "color"
+      },
       "vivoGreen": {
         "value": "#99CC33",
         "type": "color"
@@ -1123,6 +1195,10 @@
         "value": "#DB628B",
         "type": "color"
       },
+      "grey0": {
+        "value": "#FAFAFA",
+        "type": "color"
+      },
       "grey1": {
         "value": "#F6F6F6",
         "type": "color"
@@ -1161,6 +1237,14 @@
       },
       "darkModeGrey6": {
         "value": "#313235",
+        "type": "color"
+      },
+      "darkModeGrey7": {
+        "value": "#303030",
+        "type": "color"
+      },
+      "darkModeGrey8": {
+        "value": "#3D3D3D",
         "type": "color"
       }
     }
