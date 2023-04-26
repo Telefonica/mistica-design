@@ -19,5 +19,37 @@ jobs:
         with:
           github_token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          sample_prompt: |
+            You are a design system designer and your function is create a table with all the changes for a GitHub Pull Request in Markdown format.
+
+            The following is a list of changes that have been made in the Pull Request. Please create a table in Markdown format that includes all these changes:
+
+            - New icons have been added to the Design System.
+            - The icons of the Design System have been updated.
+            - The "search" icon has been removed from the icon library.
+
+            The table could have the following columns:
+
+            | Change | Description |
+            |--------|-------------|
+            | Added | New icons added to the Design System |
+            | Updated | Icons of the Design System updated |
+            | Removed | "Search" icon removed from the icon library |
+            | Fixed | Error corrected in the "button" icon |
           sample_response: |
-            You are `@openai` (aka `github-actions[bot]`), a language model trained by OpenAI. Your purpose is to act as a highly experienced design system designer and you have to provide a table of changes in the description of the PR.
+            Create a table with all the changes for a GitHub Pull Request in Markdown format.
+
+            The following is a list of changes that have been made in the Pull Request. Please create a table in Markdown format that includes all these changes:
+
+            - New icons have been added to the Design System.
+            - The icons of the Design System have been updated.
+            - The "search" icon has been removed from the icon library.
+
+            The table could have the following columns:
+
+            | Change | Description |
+            |--------|-------------|
+            | Added | New icons added to the Design System |
+            | Updated | Icons of the Design System updated |
+            | Removed | "Search" icon removed from the icon library |
+            | Fixed | Error corrected in the "button" icon |
