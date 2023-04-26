@@ -270,15 +270,16 @@
     },
     "radius": {
       "additionalProperties": false,
-      "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "input", "popup", "sheet"],
+      "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "input", "legacyDisplay", "popup", "sheet"],
       "properties": {
+        "avatar": { "$ref": "#/definitions/radiusProperties" },
         "bar": { "$ref": "#/definitions/radiusProperties" },
         "button": { "$ref": "#/definitions/radiusProperties" },
         "checkbox": { "$ref": "#/definitions/radiusProperties" },
-        "avatar": { "$ref": "#/definitions/radiusProperties" },
         "container": { "$ref": "#/definitions/radiusProperties" },
         "indicator": { "$ref": "#/definitions/radiusProperties" },
         "input": { "$ref": "#/definitions/radiusProperties" },
+        "legacyDisplay": { "$ref": "#/definitions/radiusProperties" },
         "popup": { "$ref": "#/definitions/radiusProperties" },
         "sheet": { "$ref": "#/definitions/radiusProperties" }
       }
