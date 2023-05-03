@@ -2,6 +2,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Tokens from "./pages/Tokens";
 import Dashboard from "./pages/Dashboard";
+import TokensMap from "./pages/TokensMap";
+import ColorDetail from "./pages/colorDetail";
+import TokenDetail from "./pages/tokenDetail";
 import { skinVars } from "@telefonica/mistica";
 import { getTelefonicaSkin, ThemeContextProvider } from "@telefonica/mistica";
 import { useState } from "react";
@@ -22,6 +25,18 @@ const App = () => {
     {
       path: "/Dashboard",
       element: <Dashboard />,
+    },
+    {
+      path: "/tokens-map",
+      element: <TokensMap />,
+    },
+    {
+      path: `/tokens-map/:branch/:selectedSkin/:tokenType/:selectedColor/:id`,
+      element: <ColorDetail />,
+    },
+    {
+      path: `/tokens-map/:branch/:selectedSkin/:tokenType/:id`,
+      element: <TokenDetail />,
     },
   ]);
   const [theme, setTheme] = useState("light");

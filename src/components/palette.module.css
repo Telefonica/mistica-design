@@ -1,0 +1,52 @@
+.palette {
+    display: flex;
+    gap: 1rem;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  
+  .palette table {
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .palette table td {
+    padding: 0.25rem;
+    vertical-align: middle;
+  }
+  
+  .palette th {
+    padding: 0.25rem;
+    border-bottom: 1px solid black;
+    text-align: left;
+  }
+  
+
+  
+  .palette .arrow {
+    position: absolute;
+ border-left: 1px solid black;
+  }
+
+  .selected {
+    background-color: #ccc;
+  }
+
+  .selected:hover {
+    background-color: #bababa;
+  }
+
+  .palette tr:hover:not(.selected) {
+    background-color: #fafafa;
+  }
+
+ 
+
+  code{
+    background-color: #fafafa;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+  }
