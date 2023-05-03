@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
+import hexToRgbA from "../helpers/hexToRgba";
 import { useParams } from "react-router-dom";
 import {
   ButtonLink,
-  Circle,
   ResponsiveLayout,
   Stack,
   Title2,
   Tag,
   Title1,
   skinVars,
-  TextField,
-  ButtonPrimary,
   Inline,
   Box,
   Text,
@@ -51,21 +49,6 @@ const ColorDetail = () => {
 
     loadSkins();
   }, []);
-
-  function hexToRgbA(hex, alpha) {
-    var c;
-    if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
-      c = hex.substring(1).split("");
-      if (c.length == 3) {
-        c = [c[0], c[0], c[1], c[1], c[2], c[2]];
-      }
-      c = "0x" + c.join("");
-      return `rgba(${[(c >> 16) & 255, (c >> 8) & 255, c & 255].join(
-        ","
-      )},${alpha})`;
-    }
-    throw new Error("Bad Hex");
-  }
 
   const getPaletteValue = (skin, tokenKey, type) => {
     const paletteValue = skin?.[type]?.[tokenKey]?.value;

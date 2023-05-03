@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./borderRadii.module.css";
+import hexToRgbA from "../helpers/hexToRgba";
 import {
   skinVars,
   ResponsiveLayout,
@@ -49,27 +50,6 @@ const Palette = ({
 
     return acc;
   }, 0);
-
-  // Used to convert the colors that have alpha to rgba
-
-  function hexToRgbA(hex, alpha = 1) {
-    var c;
-    if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
-      c = hex.substring(1).split("");
-      if (c.length == 3) {
-        c = [c[0], c[0], c[1], c[1], c[2], c[2]];
-      }
-      c = "0x" + c.join("");
-      return (
-        "rgba(" +
-        [(c >> 16) & 255, (c >> 8) & 255, c & 255].join(",") +
-        "," +
-        alpha +
-        ")"
-      );
-    }
-    throw new Error("Bad Hex");
-  }
 
   // Check if the color has alpha and convert the hx to rgba
 
