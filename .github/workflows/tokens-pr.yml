@@ -14,7 +14,7 @@ jobs:
       - name: Update description
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { data: pr } = await github.pulls.list({
               owner: context.repo.owner,
@@ -22,12 +22,12 @@ jobs:
               head: `${context.repo.owner}:${context.payload.ref}`
             });
             if (pr.length > 0) {
-              const newDescription = 'Checkout [Token tool](https://mistica-design-irq9l3a82-aweell.vercel.app/tokens-map?branch=${{ env.GITHUB_REF_SLUG_URL }}&skin=movistar&tokenType=color&activeColor=undefined)';
-              await github.pulls.update({
+              const newComment = 'Checkout [Token tool](https://mistica-design-irq9l3a82-aweell.vercel.app/tokens-map?branch=${{ env.GITHUB_REF_SLUG_URL }}&skin=movistar&tokenType=color&activeColor=undefined)';
+              await github.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                pull_number: pr[0].number,
-                body: newDescription
+                issue_number: pr[0].number,
+                body: newComment
               });
             } else {
               console.log('No pull request found for this push');
