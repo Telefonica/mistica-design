@@ -98,24 +98,15 @@ function ReferencePalette({
     <ResponsiveLayout>
       <Stack space={16}>
         <div className={styles.palette}>
-          <Boxed width="100%">
-            <Box padding={24}>
-              <Inline space={16}>
-                <Text>
-                  Total variables:{" "}
-                  <Text weight="medium">{Object.keys(palette).length}</Text>
-                </Text>
-                <Text>
-                  Unused variables: <Text weight="medium">{unusedColors}</Text>
-                </Text>
-                <Text>
-                  Constants referenced:{" "}
-                  <Text weight="medium">{totalMatchingCount}</Text> (No. of
-                  constants x2)
-                </Text>
-              </Inline>
-            </Box>
-          </Boxed>
+          <Inline space={8}>
+            <Tag type="inactive">{`Variables (${
+              Object.keys(filteredPaletteKeys).length
+            })`}</Tag>
+
+            {unusedColors != 0 && (
+              <Tag type="warning">{`Unsused variables (${unusedColors})`}</Tag>
+            )}
+          </Inline>
         </div>
         <div className={styles.palette}>
           <Boxed width="100%">
@@ -189,12 +180,12 @@ function ReferencePalette({
                             ) : (
                               <Circle
                                 size={24}
-                                backgroundColor={skinVars.colors.error}
+                                backgroundColor={skinVars.colors.warningLow}
                               >
                                 <Text
                                   size={14}
                                   weight="medium"
-                                  color={skinVars.colors.textPrimaryInverse}
+                                  color={skinVars.colors.warningHigh}
                                 >
                                   {matchingCount}
                                 </Text>

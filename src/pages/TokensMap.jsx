@@ -19,6 +19,9 @@ import {
   Circle,
   Text,
   skinVars,
+  EmptyStateCard,
+  IconErrorRegular,
+  useTheme,
 } from "@telefonica/mistica";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
@@ -45,6 +48,7 @@ const TokensMap = () => {
   );
   const [skins, setSkins] = useState({});
   const [reference, setReference] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   // Fetch branches from GitHub
 
@@ -75,16 +79,21 @@ const TokensMap = () => {
       ];
       const skins = {};
 
-      for (let i = 0; i < skinNames.length; i++) {
-        const skinName = skinNames[i];
-        const response = await fetch(
-          `https://raw.githubusercontent.com/Telefonica/mistica-design/${selectedBranch}/tokens/${skinName}.json`
-        );
-        const data = await response.json();
-        skins[skinName] = data;
-      }
+      try {
+        for (let i = 0; i < skinNames.length; i++) {
+          const skinName = skinNames[i];
+          const response = await fetch(
+            `https://raw.githubusercontent.com/Telefonica/mistica-design/${selectedBranch}/tokens/${skinName}.json`
+          );
+          const data = await response.json();
+          skins[skinName] = data;
+        }
 
-      setSkins(skins);
+        setSkins(skins);
+        setIsError(false); // reset error state when successful
+      } catch (error) {
+        setIsError(true);
+      }
     };
 
     fetchSkins();
@@ -216,80 +225,86 @@ const TokensMap = () => {
   }
 
   return (
-    <>
+    <Box paddingBottom={80}>
       <ResponsiveLayout>
         <Box paddingY={48}>
-          <ButtonLink aligned to={`/`}>
-            Go back
-          </ButtonLink>
-          <Stack space={24}>
-            <Title2>Mística tokens</Title2>
-            <RadioGroup onChange={setActive} name="chip-group" value={active}>
-              <Inline space={8}>
-                <RadioButton
-                  value="color"
-                  render={({ checked, labelId }) => (
-                    <Chip active={checked} id={labelId}>
-                      Color
-                    </Chip>
-                  )}
-                />
-                <RadioButton
-                  value="radius"
-                  render={({ checked, labelId }) => (
-                    <Chip active={checked} id={labelId}>
-                      Border Radii
-                    </Chip>
-                  )}
-                />
-                <RadioButton
-                  value="text"
-                  render={({ checked, labelId }) => (
-                    <Chip active={checked} id={labelId}>
-                      Typography
-                    </Chip>
-                  )}
-                />
-              </Inline>
-            </RadioGroup>
+          <Stack space={32}>
+            <Stack space={24}>
+              <ButtonLink aligned to={`/`}>
+                Go back
+              </ButtonLink>
+              <Title2>Mística tokens</Title2>
+            </Stack>
+            <Stack space={24}>
+              <RadioGroup onChange={setActive} name="chip-group" value={active}>
+                <Inline space={8}>
+                  <RadioButton
+                    value="color"
+                    render={({ checked, labelId }) => (
+                      <Chip active={checked} id={labelId}>
+                        Color
+                      </Chip>
+                    )}
+                  />
+                  <RadioButton
+                    value="radius"
+                    render={({ checked, labelId }) => (
+                      <Chip active={checked} id={labelId}>
+                        Border Radii
+                      </Chip>
+                    )}
+                  />
+                  <RadioButton
+                    value="text"
+                    render={({ checked, labelId }) => (
+                      <Chip active={checked} id={labelId}>
+                        Typography
+                      </Chip>
+                    )}
+                  />
+                </Inline>
+              </RadioGroup>
 
-            <Inline space="between" alignItems="center">
-              <Inline space={8}>
-                <TextField
-                  label="Filter tokens"
-                  value={filter}
-                  onChange={handleFilterChange}
-                  placeholder="Search..."
-                />
-                <Select
-                  label="Skin"
-                  onChangeValue={setSelectedSkin}
-                  value={selectedSkin}
-                  options={[
-                    { value: "movistar", text: "Movistar" },
-                    { value: "movistar-classic", text: "Movistar Classic" },
-                    { value: "vivo", text: "Vivo" },
-                    { value: "vivo-new", text: "Vivo New" },
-                    { value: "o2", text: "O2" },
-                    { value: "blau", text: "Blau" },
-                    { value: "telefonica", text: "Telefonica" },
-                    { value: "solar-360", text: "Solar 360" },
-                  ]}
-                ></Select>
-                <Select
-                  label="Branch"
-                  onChangeValue={setSelectedBranch}
-                  value={selectedBranch}
-                  options={branches.map((branch) => ({
-                    value: branch,
-                    text: branch,
-                  }))}
-                ></Select>
+              <Inline space="between" alignItems="center">
+                <Inline space={8} fullWidth>
+                  <TextField
+                    disabled={isError ? true : false}
+                    label="Filter tokens"
+                    value={filter}
+                    onChange={handleFilterChange}
+                    placeholder="Search..."
+                  />
+                  <Select
+                    disabled={isError ? true : false}
+                    label="Skin"
+                    onChangeValue={setSelectedSkin}
+                    value={selectedSkin}
+                    options={[
+                      { value: "movistar", text: "Movistar" },
+                      { value: "movistar-classic", text: "Movistar Classic" },
+                      { value: "vivo", text: "Vivo" },
+                      { value: "vivo-new", text: "Vivo New" },
+                      { value: "o2", text: "O2" },
+                      { value: "blau", text: "Blau" },
+                      { value: "telefonica", text: "Telefonica" },
+                      { value: "solar-360", text: "Solar 360" },
+                    ]}
+                  ></Select>
+                  <Select
+                    label="Branch"
+                    onChangeValue={setSelectedBranch}
+                    value={selectedBranch}
+                    options={branches.map((branch) => ({
+                      value: branch,
+                      text: branch,
+                    }))}
+                  ></Select>
+                </Inline>
               </Inline>
-            </Inline>
+            </Stack>
           </Stack>
         </Box>
-        {active === "color" && (
+        {active === "color" && isError === false && (
           <Box paddingBottom={24}>
             <Inline space="between" alignItems="center">
               <Switch
@@ -320,8 +335,23 @@ const TokensMap = () => {
         )}
       </ResponsiveLayout>
 
-      {view}
-    </>
+      {isError ? (
+        <ResponsiveLayout>
+          <EmptyStateCard
+            icon={
+              <IconErrorRegular
+                size={40}
+                color={skinVars.colors.error}
+              ></IconErrorRegular>
+            }
+            title="Error retrieving the tokens"
+            description={`The branch ${selectedBranch} may not have token files or there's a problem fetching them from GitHub.`}
+          />
+        </ResponsiveLayout>
+      ) : (
+        view
+      )}
+    </Box>
   );
 };
 

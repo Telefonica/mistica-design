@@ -14,33 +14,18 @@
   .palette table td {
     padding: 0.25rem;
     vertical-align: middle;
+
   }
   
   .palette th {
-    padding: 0.25rem;
-    border-bottom: 1px solid black;
+    padding: 1rem 0.5rem;
     text-align: left;
   }
   
 
-  
-  .palette .arrow {
-    position: absolute;
- border-left: 1px solid black;
-  }
-
   .selected {
     background-color: #ccc;
   }
-
-  .selected:hover {
-    background-color: #bababa;
-  }
-
-  .palette tr:hover:not(.selected) {
-    background-color: #fafafa;
-  }
-
  
 
   code{

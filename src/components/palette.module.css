@@ -19,7 +19,6 @@
   
   .palette th {
     padding: 0.25rem;
-    border-bottom: 1px solid black;
     text-align: left;
   }
   
@@ -33,16 +32,6 @@
   .selected {
     background-color: #ccc;
   }
-
-  .selected:hover {
-    background-color: #bababa;
-  }
-
-  .palette tr:hover:not(.selected) {
-    background-color: #fafafa;
-  }
-
- 
 
   code{
     background-color: #fafafa;
