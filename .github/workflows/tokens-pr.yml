@@ -20,7 +20,7 @@ jobs:
               head: `${context.repo.owner}:${context.payload.ref}`
             });
             if (pr.length > 0) {
-              const newDescription = 'Checkout [Token tool](https://mistica-design-irq9l3a82-aweell.vercel.app/tokens-map?branch=production&skin=movistar&tokenType=color&activeColor=undefined)';
+              const newDescription = 'Checkout [Token tool](https://mistica-design-irq9l3a82-aweell.vercel.app/tokens-map?branch=${{ env.GITHUB_REF_SLUG_URL }}&skin=movistar&tokenType=color&activeColor=undefined)';
               await github.pulls.update({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
