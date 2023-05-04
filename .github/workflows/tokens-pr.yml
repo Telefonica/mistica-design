@@ -21,7 +21,7 @@ jobs:
               head: `${context.repo.owner}:${context.payload.ref}`
             });
             if (pr.length > 0) {
-              const newComment = '✅ Preview [Token tool](https://mistica-design-irq9l3a82-aweell.vercel.app/tokens-map?branch=${{ env.GITHUB_REF_SLUG_URL }}&skin=movistar&tokenType=color&activeColor=undefined) with `${{ env.GITHUB_REF_SLUG_URL }}` as a branch target';
+              const newComment = '✅ [Preview token changes](https://mistica-design.vercel.app/tokens-map?branch=${{ env.GITHUB_REF_SLUG_URL }}&skin=movistar&tokenType=color&activeColor=undefined) with `${{ env.GITHUB_REF_SLUG_URL }}` as a branch target';
               await github.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
