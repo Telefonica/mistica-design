@@ -32,19 +32,55 @@ const Palette = ({
     key.toLowerCase().includes(filter?.toLowerCase())
   );
 
+  // Get the palette key from the token value
+
+  function getPaletteKey(value) {
+    const match = value?.match(/\{palette\.([^\}]+)\}/);
+    return match ? match[1] : null;
+  }
+
+  // Get the color value from the palette
+
+  function getColorValue(color, palette) {
+    if (color.type === "color") {
+      const paletteKey = getPaletteKey(color.value);
+      if (paletteKey) {
+        return palette[paletteKey]?.value || "---";
+      } else {
+        return color.value;
+      }
+    } else {
+      return "---";
+    }
+  }
+
+  // Check if the palette reference matches the description
+
+  function checkDescription(tokenValue, description) {
+    const paletteName = getPaletteKey(tokenValue);
+    return paletteName === description;
+  }
+
+  // Get the alpha value from a token value
+
+  function getAlphaValue(tokenValue) {
+    const match = tokenValue.match(/rgba?\(.*,\s*([\d.]+)\s*\)/);
+    return match ? match[1] : "";
+  }
+
+  // Check if the color has alpha and convert the hex to rgba
+
+  function applyAlpha(value, alphaValue) {
+    return alphaValue < "0" ? value : hexToRgbA(value, alphaValue);
+  }
+
   // Get the number of unrefered colors
 
   const unreferencedCount = colorKeys.reduce((acc, key) => {
     const color = colors[key];
     const darkColor = darkColors[key];
-    const value =
-      color.type === "color"
-        ? palette[color.description]?.value || "---"
-        : color.value || "---";
-    const darkValue =
-      darkColor.type === "color"
-        ? palette[darkColor.description]?.value || "---"
-        : darkColor.value || "---";
+    const value = getColorValue(color, palette);
+    const darkValue = getColorValue(darkColor, palette);
 
     if (value === "---" || darkValue === "---") {
       return acc + 1;
@@ -52,25 +88,6 @@ const Palette = ({
 
     return acc;
   }, 0);
-
-  // Check if the color has alpha and convert the hx to rgba
-
-  function applyAlpha(value, alphaValue) {
-    return alphaValue < "0" ? value : hexToRgbA(value, alphaValue);
-  }
-
-  // Check if the palette reference matches the description
-
-  function checkDescription(tokenValue, description) {
-    const tokenRegex = /{palette\.(.*)}/;
-    const tokenMatches = tokenValue?.match(tokenRegex);
-    if (tokenMatches) {
-      const [, tokenColorName] = tokenMatches;
-      return tokenColorName === description;
-    } else {
-      return false;
-    }
-  }
 
   // Obtain the number of unmatched descriptions
 
@@ -109,54 +126,52 @@ const Palette = ({
                   <Text weight="medium">{Object.keys(palette).length}</Text>
                 </Text>
                 <Text>
-                  <Inline space={4}>
+                  <Inline space={4} alignItems="center">
                     Unreferenced tokens:
                     <Text weight="medium">
-                      {unreferencedCount != 0 ? (
-                        <Circle
-                          size={24}
-                          backgroundColor={skinVars.colors.errorLow}
+                      <Circle
+                        size={24}
+                        backgroundColor={
+                          unreferencedCount !== 0
+                            ? skinVars.colors.errorLow
+                            : skinVars.colors.successLow
+                        }
+                      >
+                        <Text
+                          color={
+                            unreferencedCount !== 0
+                              ? skinVars.colors.errorHigh
+                              : skinVars.colors.successHigh
+                          }
                         >
-                          <Text color={skinVars.colors.errorHigh}>
-                            {unreferencedCount}
-                          </Text>
-                        </Circle>
-                      ) : (
-                        <Circle
-                          size={24}
-                          backgroundColor={skinVars.colors.successLow}
-                        >
-                          <Text color={skinVars.colors.successHigh}>
-                            {unreferencedCount}
-                          </Text>
-                        </Circle>
-                      )}
+                          {unreferencedCount}
+                        </Text>
+                      </Circle>
                     </Text>
                   </Inline>
                 </Text>
                 <Text>
-                  <Inline space={4}>
+                  <Inline space={4} alignItems="center">
                     Unmatched descriptions:
                     <Text weight="medium">
-                      {totalUnmatchedCount != 0 ? (
-                        <Circle
-                          size={24}
-                          backgroundColor={skinVars.colors.errorLow}
+                      <Circle
+                        size={24}
+                        backgroundColor={
+                          totalUnmatchedCount !== 0
+                            ? skinVars.colors.errorLow
+                            : skinVars.colors.successLow
+                        }
+                      >
+                        <Text
+                          color={
+                            totalUnmatchedCount !== 0
+                              ? skinVars.colors.errorHigh
+                              : skinVars.colors.successHigh
+                          }
                         >
-                          <Text color={skinVars.colors.errorHigh}>
-                            {totalUnmatchedCount}
-                          </Text>
-                        </Circle>
-                      ) : (
-                        <Circle
-                          size={24}
-                          backgroundColor={skinVars.colors.successLow}
-                        >
-                          <Text color={skinVars.colors.successHigh}>
-                            {totalUnmatchedCount}
-                          </Text>
-                        </Circle>
-                      )}
+                          {totalUnmatchedCount}
+                        </Text>
+                      </Circle>
                     </Text>
                   </Inline>
                 </Text>
@@ -179,23 +194,16 @@ const Palette = ({
                   {colorKeys.map((key) => {
                     const color = colors[key];
                     const darkColor = darkColors[key];
-                    const lightReference = colors[key]?.description || "";
-                    const darkReference = darkColors[key]?.description || "";
-                    const value =
-                      color.type === "color"
-                        ? palette[color.description]?.value || "---"
-                        : color.value || "---";
-
-                    const darkValue =
-                      darkColor.type === "color"
-                        ? palette[darkColor.description]?.value || "---"
-                        : darkColor.value || "---";
+                    const lightReference = getPaletteKey(color.value);
+                    const darkReference = getPaletteKey(darkColor.value);
+                    let value = getColorValue(color, palette);
+                    let darkValue = getColorValue(darkColor, palette);
 
                     const alphaValue = color.value
-                      ? color.value.match(/rgba\(.*,\s*(.*)\)/)?.[1] || ""
+                      ? getAlphaValue(color.value)
                       : "";
                     const darkAlphaValue = darkColor.value
-                      ? darkColor.value.match(/rgba\(.*,\s*(.*)\)/)?.[1] || ""
+                      ? getAlphaValue(darkColor.value)
                       : "";
 
                     const lightDescriptionMatch = checkDescription(
