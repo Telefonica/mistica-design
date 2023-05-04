@@ -1,0 +1,35 @@
+name: Update PR description
+
+on:
+  pull_request:
+    types: [opened]
+    paths:
+      - "tokens/*"
+
+jobs:
+  update-description:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get branch name
+        uses: rlespinasse/github-slug-action@v3.x
+      - name: Update description
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: pr } = await github.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head: `${context.repo.owner}:${context.payload.ref}`
+            });
+            if (pr.length > 0) {
+              const newComment = '✅ [Preview token changes](https://mistica-design.vercel.app/tokens-map?branch=${{ env.GITHUB_REF_SLUG_URL }}&skin=movistar&tokenType=color&activeColor=undefined) with `${{ env.GITHUB_REF_SLUG_URL }}` as a branch target';
+              await github.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr[0].number,
+                body: newComment
+              });
+            } else {
+              console.log('No pull request found for this push');
+            }
