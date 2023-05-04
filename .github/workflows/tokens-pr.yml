@@ -1,6 +1,7 @@
 name: Update PR description
 
 on:
+  push:
   pull_request:
     types: [opened]
 
@@ -8,24 +9,24 @@ jobs:
   update-description:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
       - name: Update description
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
           script: |
-            const { data: pr } = await github.pulls.get({
+            const { data: pr } = await github.pulls.list({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: context.payload.pull_request.number
+              head: `${context.repo.owner}:${context.payload.ref}`
             });
-            const newDescription = 'New PR description';
-            await github.pulls.update({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.payload.pull_request.number,
-              body: Checkout 
-            });
+            if (pr.length > 0) {
+              const newDescription = 'New PR description';
+              await github.pulls.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr[0].number,
+                body: newDescription
+              });
+            } else {
+              console.log('No pull request found for this push');
+            }
