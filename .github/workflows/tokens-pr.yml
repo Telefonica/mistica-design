@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Get branch name
         uses: rlespinasse/github-slug-action@v3.x
-      - uses: riskledger/update-pr-description@dev
+      - uses: riskledger/update-pr-description@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: "This is a test https://mistica-design-irq9l3a82-aweell.vercel.app/tokens-map?branch=${{ env.GITHUB_REF_SLUG_URL }}&skin=movistar&tokenType=color&activeColor=undefined"
