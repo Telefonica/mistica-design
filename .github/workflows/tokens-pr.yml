@@ -6,13 +6,15 @@ on:
       - "tokens/**"
 
 jobs:
-  test:
+  update-pr-description:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
     steps:
-      - uses: DerekRoberts/action-pr-description-add@main
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Do action
+        uses: nefrob/pr-description@master
         with:
-          github_token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
-          add_markdown: |
-            Checkout [Token tool](https://mistica-design-irq9l3a82-aweell.vercel.app/tokens-map?branch=${{ env.GITHUB_REF_SLUG_URL }}&skin=movistar&tokenType=color&activeColor=undefined)
+          content: "Checkout [Token tool](https://mistica-design-irq9l3a82-aweell.vercel.app/tokens-map?branch=${{ env.GITHUB_REF_SLUG_URL }}&skin=movistar&tokenType=color&activeColor=undefined)"
+          regex: "matchuntilthenend.*"
+          regexFlags: i
+          token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
