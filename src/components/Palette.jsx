@@ -12,6 +12,8 @@ import {
   Circle,
   Inline,
   Stack,
+  IconWarningFilled,
+  Tooltip,
 } from "@telefonica/mistica";
 
 const Palette = ({
@@ -32,7 +34,7 @@ const Palette = ({
 
   // Get the number of unrefered colors
 
-  const count = colorKeys.reduce((acc, key) => {
+  const unreferencedCount = colorKeys.reduce((acc, key) => {
     const color = colors[key];
     const darkColor = darkColors[key];
     const value =
@@ -57,6 +59,40 @@ const Palette = ({
     return alphaValue < "0" ? value : hexToRgbA(value, alphaValue);
   }
 
+  // Check if the palette reference matches the description
+
+  function checkDescription(tokenValue, description) {
+    const tokenRegex = /{palette\.(.*)}/;
+    const tokenMatches = tokenValue?.match(tokenRegex);
+    if (tokenMatches) {
+      const [, tokenColorName] = tokenMatches;
+      return tokenColorName === description;
+    } else {
+      return false;
+    }
+  }
+
+  // Obtain the number of unmatched descriptions
+
+  function countUnmatchedColors(colors) {
+    let unmatchedCount = 0;
+
+    for (let key in colors) {
+      const color = colors[key];
+      const descriptionMatch = checkDescription(color.value, color.description);
+
+      if (!descriptionMatch) {
+        unmatchedCount++;
+      }
+    }
+
+    return unmatchedCount;
+  }
+
+  const lightUnmatchedCount = countUnmatchedColors(colors);
+  const darkUnmatchedCount = countUnmatchedColors(darkColors);
+  const totalUnmatchedCount = lightUnmatchedCount + darkUnmatchedCount;
+
   return (
     <ResponsiveLayout>
       <Stack space={16}>
@@ -73,7 +109,56 @@ const Palette = ({
                   <Text weight="medium">{Object.keys(palette).length}</Text>
                 </Text>
                 <Text>
-                  Unreferenced tokens: <Text weight="medium">{count}</Text>
+                  <Inline space={4}>
+                    Unreferenced tokens:
+                    <Text weight="medium">
+                      {unreferencedCount != 0 ? (
+                        <Circle
+                          size={24}
+                          backgroundColor={skinVars.colors.errorLow}
+                        >
+                          <Text color={skinVars.colors.errorHigh}>
+                            {unreferencedCount}
+                          </Text>
+                        </Circle>
+                      ) : (
+                        <Circle
+                          size={24}
+                          backgroundColor={skinVars.colors.successLow}
+                        >
+                          <Text color={skinVars.colors.successHigh}>
+                            {unreferencedCount}
+                          </Text>
+                        </Circle>
+                      )}
+                    </Text>
+                  </Inline>
+                </Text>
+                <Text>
+                  <Inline space={4}>
+                    Unmatched descriptions:
+                    <Text weight="medium">
+                      {totalUnmatchedCount != 0 ? (
+                        <Circle
+                          size={24}
+                          backgroundColor={skinVars.colors.errorLow}
+                        >
+                          <Text color={skinVars.colors.errorHigh}>
+                            {totalUnmatchedCount}
+                          </Text>
+                        </Circle>
+                      ) : (
+                        <Circle
+                          size={24}
+                          backgroundColor={skinVars.colors.successLow}
+                        >
+                          <Text color={skinVars.colors.successHigh}>
+                            {totalUnmatchedCount}
+                          </Text>
+                        </Circle>
+                      )}
+                    </Text>
+                  </Inline>
                 </Text>
               </Inline>
             </Box>
@@ -112,6 +197,16 @@ const Palette = ({
                     const darkAlphaValue = darkColor.value
                       ? darkColor.value.match(/rgba\(.*,\s*(.*)\)/)?.[1] || ""
                       : "";
+
+                    const lightDescriptionMatch = checkDescription(
+                      color.value,
+                      color.description
+                    );
+
+                    const darkDescriptionMatch = checkDescription(
+                      darkColor.value,
+                      darkColor.description
+                    );
 
                     return (
                       <tr key={key}>
@@ -161,6 +256,17 @@ const Palette = ({
                                   ) : (
                                     <Tag type="warning">hasAlpha</Tag>
                                   )}
+                                  {lightDescriptionMatch ? undefined : (
+                                    <Tooltip
+                                      target={
+                                        <IconWarningFilled
+                                          color={skinVars.colors.error}
+                                          size={16}
+                                        />
+                                      }
+                                      description="Unmatched description"
+                                    ></Tooltip>
+                                  )}
                                 </td>
                               </tr>
                             </tbody>
@@ -206,6 +312,17 @@ const Palette = ({
                                     ""
                                   ) : (
                                     <Tag type="warning">hasAlpha</Tag>
+                                  )}
+                                  {darkDescriptionMatch ? undefined : (
+                                    <Tooltip
+                                      target={
+                                        <IconWarningFilled
+                                          color={skinVars.colors.error}
+                                          size={16}
+                                        />
+                                      }
+                                      description="Unmatched description"
+                                    ></Tooltip>
                                   )}
                                 </td>
                               </tr>
