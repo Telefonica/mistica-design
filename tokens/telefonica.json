@@ -15,20 +15,60 @@
       "type": "color",
       "description": "white"
     },
+    "backgroundContainerHover": {
+      "value": "{palette.grey0}",
+      "type": "color",
+      "description": "grey0"
+    },
+    "backgroundContainerPressed": {
+      "value": "{palette.grey1}",
+      "type": "color",
+      "description": "grey1"
+    },
     "backgroundContainerBrand": {
       "value": "{palette.telefonicaBlue}",
       "type": "color",
       "description": "telefonicaBlue"
+    },
+    "backgroundContainerBrandHover": {
+      "value": "{palette.telefonicaBlue60}",
+      "type": "color",
+      "description": "telefonicaBlue60"
+    },
+    "backgroundContainerBrandPressed": {
+      "value": "{palette.telefonicaBlue70}",
+      "type": "color",
+      "description": "telefonicaBlue70"
     },
     "backgroundContainerBrandOverInverse": {
       "value": "{palette.telefonicaBlue70}",
       "type": "color",
       "description": "telefonicaBlue70"
     },
+    "backgroundContainerBrandOverInverseHover": {
+      "value": "{palette.telefonicaBlue80}",
+      "type": "color",
+      "description": "telefonicaBlue80"
+    },
+    "backgroundContainerBrandOverInversePressed": {
+      "value": "{palette.telefonicaBlue90}",
+      "type": "color",
+      "description": "telefonicaBlue90"
+    },
     "backgroundContainerAlternative": {
       "value": "{palette.grey1}",
       "type": "color",
       "description": "grey1"
+    },
+    "backgroundContainerAlternativeHover": {
+      "value": "rgba({palette.grey5}, 0.1)",
+      "type": "color",
+      "description": "grey5"
+    },
+    "backgroundContainerAlternativePressed": {
+      "value": "rgba({palette.grey5}, 0.2)",
+      "type": "color",
+      "description": "grey5"
     },
     "backgroundBrand": {
       "value": "{palette.telefonicaBlue}",
@@ -522,20 +562,60 @@
       "type": "color",
       "description": "darkModeGrey"
     },
+    "backgroundContainerHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerPressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
+    },
     "backgroundContainerBrand": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
+    },
+    "backgroundContainerBrandHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerBrandPressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
     },
     "backgroundContainerBrandOverInverse": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
     },
+    "backgroundContainerBrandOverInverseHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerBrandOverInversePressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
+    },
     "backgroundContainerAlternative": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
+    },
+    "backgroundContainerAlternativeHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerAlternativePressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
     },
     "backgroundOverlay": {
       "value": "rgba({palette.darkModeGrey}, 0.8)",
@@ -1085,8 +1165,20 @@
         "value": "#80B3FF",
         "type": "color"
       },
+      "telefonicaBlue60": {
+        "value": "#015CE4",
+        "type": "color"
+      },
       "telefonicaBlue70": {
         "value": "#0356C9",
+        "type": "color"
+      },
+      "telefonicaBlue80": {
+        "value": "#034BB0",
+        "type": "color"
+      },
+      "telefonicaBlue90": {
+        "value": "#024097",
         "type": "color"
       },
       "ambar": {
@@ -1157,6 +1249,10 @@
         "value": "#3E888D",
         "type": "color"
       },
+      "grey0": {
+        "value": "#FAFBFF",
+        "type": "color"
+      },
       "grey1": {
         "value": "#F2F4FF",
         "type": "color"
@@ -1207,6 +1303,14 @@
       },
       "darkModeGrey6": {
         "value": "#313235",
+        "type": "color"
+      },
+      "darkModeGrey7": {
+        "value": "#303030",
+        "type": "color"
+      },
+      "darkModeGrey8": {
+        "value": "#3D3D3D",
         "type": "color"
       }
     }

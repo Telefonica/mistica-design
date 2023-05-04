@@ -25,20 +25,60 @@
       "type": "color",
       "description": "white"
     },
+    "backgroundContainerHover": {
+      "value": "{palette.grey0}",
+      "type": "color",
+      "description": "grey0"
+    },
+    "backgroundContainerPressed": {
+      "value": "{palette.grey1}",
+      "type": "color",
+      "description": "grey1"
+    },
     "backgroundContainerBrand": {
       "value": "{palette.movistarBlue}",
       "type": "color",
       "description": "movistarBlue"
+    },
+    "backgroundContainerBrandHover": {
+      "value": "{palette.movistarBlue50}",
+      "type": "color",
+      "description": "movistarBlue50"
+    },
+    "backgroundContainerBrandPressed": {
+      "value": "{palette.movistarBlue55}",
+      "type": "color",
+      "description": "movistarBlue55"
     },
     "backgroundContainerBrandOverInverse": {
       "value": "{palette.movistarBlue55}",
       "type": "color",
       "description": "movistarBlue55"
     },
+    "backgroundContainerBrandOverInverseHover": {
+      "value": "{palette.movistarBlue60}",
+      "type": "color",
+      "description": "movistarBlue60"
+    },
+    "backgroundContainerBrandOverInversePressed": {
+      "value": "{palette.movistarBlue70}",
+      "type": "color",
+      "description": "movistarBlue70"
+    },
     "backgroundContainerAlternative": {
       "value": "{palette.grey1}",
       "type": "color",
       "description": "grey1"
+    },
+    "backgroundContainerAlternativeHover": {
+      "value": "rgba({palette.grey4}, 0.1)",
+      "type": "color",
+      "description": "grey4"
+    },
+    "backgroundContainerAlternativePressed": {
+      "value": "rgba({palette.grey4}, 0.2)",
+      "type": "color",
+      "description": "grey4"
     },
     "backgroundOverlay": {
       "value": "rgba({palette.grey6}, 0.6)",
@@ -584,20 +624,60 @@
       "type": "color",
       "description": "darkModeGrey"
     },
+    "backgroundContainerHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerPressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
+    },
     "backgroundContainerBrand": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
+    },
+    "backgroundContainerBrandHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerBrandPressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
     },
     "backgroundContainerBrandOverInverse": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
     },
+    "backgroundContainerBrandOverInverseHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerBrandOverInversePressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
+    },
     "backgroundContainerAlternative": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
+    },
+    "backgroundContainerAlternativeHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerAlternativePressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
     },
     "backgroundOverlay": {
       "value": "rgba({palette.darkModeGrey}, 0.8)",
@@ -1209,8 +1289,20 @@
         "value": "#80CEF9",
         "type": "color"
       },
+      "movistarBlue50": {
+        "value": "#0195E4",
+        "type": "color"
+      },
       "movistarBlue55": {
         "value": "#008EDD",
+        "type": "color"
+      },
+      "movistarBlue60": {
+        "value": "#0085CC",
+        "type": "color"
+      },
+      "movistarBlue70": {
+        "value": "#0074B3",
         "type": "color"
       },
       "repsolBlue200": {
@@ -1289,6 +1381,10 @@
         "value": "#6F29A6",
         "type": "color"
       },
+      "grey0": {
+        "value": "#F6F7FC",
+        "type": "color"
+      },
       "grey1": {
         "value": "#F6F7FC",
         "type": "color"
@@ -1323,6 +1419,14 @@
       },
       "darkModeGrey": {
         "value": "#142027",
+        "type": "color"
+      },
+      "darkModeGrey7": {
+        "value": "#1D2F39",
+        "type": "color"
+      },
+      "darkModeGrey8": {
+        "value": "#263D4A",
         "type": "color"
       }
     }

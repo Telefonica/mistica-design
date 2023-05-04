@@ -25,20 +25,60 @@
       "type": "color",
       "description": "white"
     },
+    "backgroundContainerHover": {
+      "value": "{palette.grey0}",
+      "type": "color",
+      "description": "grey0"
+    },
+    "backgroundContainerPressed": {
+      "value": "{palette.grey1}",
+      "type": "color",
+      "description": "grey1"
+    },
     "backgroundContainerBrand": {
       "value": "{palette.o2BluePrimary}",
       "type": "color",
       "description": "o2BluePrimary"
+    },
+    "backgroundContainerBrandHover": {
+      "value": "{palette.o2BluePrimary60}",
+      "type": "color",
+      "description": "o2BluePrimary60"
+    },
+    "backgroundContainerBrandPressed": {
+      "value": "{palette.o2BluePrimary70}",
+      "type": "color",
+      "description": "o2BluePrimary70"
     },
     "backgroundContainerBrandOverInverse": {
       "value": "{palette.o2BluePrimary70}",
       "type": "color",
       "description": "o2BluePrimary70"
     },
+    "backgroundContainerBrandOverInverseHover": {
+      "value": "{palette.o2BluePrimary80}",
+      "type": "color",
+      "description": "o2BluePrimary80"
+    },
+    "backgroundContainerBrandOverInversePressed": {
+      "value": "{palette.o2BluePrimary90}",
+      "type": "color",
+      "description": "o2BluePrimary90"
+    },
     "backgroundContainerAlternative": {
       "value": "{palette.grey1}",
       "type": "color",
       "description": "grey1"
+    },
+    "backgroundContainerAlternativeHover": {
+      "value": "rgba({palette.grey5}, 0.1)",
+      "type": "color",
+      "description": "grey5"
+    },
+    "backgroundContainerAlternativePressed": {
+      "value": "rgba({palette.grey5}, 0.2)",
+      "type": "color",
+      "description": "grey5"
     },
     "backgroundOverlay": {
       "value": "rgba({palette.grey6}, 0.6)",
@@ -522,20 +562,60 @@
       "type": "color",
       "description": "darkModeGrey"
     },
+    "backgroundContainerHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerPressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
+    },
     "backgroundContainerBrand": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
+    },
+    "backgroundContainerBrandHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerBrandPressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
     },
     "backgroundContainerBrandOverInverse": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
     },
+    "backgroundContainerBrandOverInverseHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerBrandOverInversePressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
+    },
     "backgroundContainerAlternative": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
+    },
+    "backgroundContainerAlternativeHover": {
+      "value": "{palette.darkModeGrey7}",
+      "type": "color",
+      "description": "darkModeGrey7"
+    },
+    "backgroundContainerAlternativePressed": {
+      "value": "{palette.darkModeGrey8}",
+      "type": "color",
+      "description": "darkModeGrey8"
     },
     "backgroundOverlay": {
       "value": "rgba({palette.darkModeGrey}, 0.8)",
@@ -1073,8 +1153,20 @@
         "value": "#0019A5",
         "type": "color"
       },
+      "o2BluePrimary60": {
+        "value": "#001380",
+        "type": "color"
+      },
       "o2BluePrimary70": {
         "value": "#000066",
+        "type": "color"
+      },
+      "o2BluePrimary80": {
+        "value": "#00004D",
+        "type": "color"
+      },
+      "o2BluePrimary90": {
+        "value": "#000033",
         "type": "color"
       },
       "o2BluePrimary30": {
@@ -1181,6 +1273,10 @@
         "value": "#C32B3D",
         "type": "color"
       },
+      "grey0": {
+        "value": "#FAFAFA",
+        "type": "color"
+      },
       "grey1": {
         "value": "#F6F6F6",
         "type": "color"
@@ -1219,6 +1315,14 @@
       },
       "darkModeGrey6": {
         "value": "#313235",
+        "type": "color"
+      },
+      "darkModeGrey7": {
+        "value": "#303030",
+        "type": "color"
+      },
+      "darkModeGrey8": {
+        "value": "#3D3D3D",
         "type": "color"
       },
       "darkModeO2BluePrimary": {
