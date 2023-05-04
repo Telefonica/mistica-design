@@ -291,7 +291,7 @@ const TokensMap = () => {
         </Box>
         {active === "color" && (
           <Box paddingBottom={24}>
-            <Inline space="between">
+            <Inline space="between" alignItems="center">
               <Switch
                 onChange={setReference}
                 value={reference}
@@ -299,7 +299,7 @@ const TokensMap = () => {
               >
                 See color by reference
               </Switch>
-              <Inline space={8}>
+              <Inline space={8} alignItems="center">
                 <Circle size={24} backgroundColor={skinVars.colors.brandLow}>
                   <Circle
                     size={8}

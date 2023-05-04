@@ -126,7 +126,7 @@ const Palette = ({
         <div className={styles.palette}>
           <Boxed width="100%">
             <Box padding={24}>
-              <Inline space={16}>
+              <Inline space={16} alignItems="center">
                 <Text>
                   Total constants:{" "}
                   <Text weight="medium">{Object.keys(colorKeys).length}</Text>
