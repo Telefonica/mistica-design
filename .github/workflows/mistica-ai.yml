@@ -6,7 +6,7 @@ permissions:
 
 on:
   discussion:
-    types: [created]
+    types: [created, edited]
 
 concurrency:
   group: ${{ github.repository }}-${{ github.event.number || github.head_ref || github.sha }}-${{ github.workflow }}
@@ -33,10 +33,16 @@ jobs:
             3. It should work for mobile and desktop environments
             4. That it is multi-brand
 
+      - name: Set up Octokit
+        uses: octokit/request-action@v2.x
+        id: octokit
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Comment on discussion with generated description
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { data: discussions } = await octokit.rest.search.discussions({
               q: `is:in:public repo:${context.repo.owner}/${context.repo.repo} "${searchQuery}"`,
