@@ -14,7 +14,7 @@ jobs:
       - name: Do action
         uses: nefrob/pr-description@master
         with:
-          content: "Checkout [Token tool](https://mistica-design-irq9l3a82-aweell.vercel.app/tokens-map?branch=${{ env.GITHUB_REF_SLUG_URL }}&skin=movistar&tokenType=color&activeColor=undefined)"
+          content: "Checkout [Token tool](https://mistica-design-irq9l3a82-aweell.vercel.app/tokens-map?branch=production&skin=movistar&tokenType=color&activeColor=undefined)"
           regex: "matchuntilthenend.*"
           regexFlags: i
           token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
