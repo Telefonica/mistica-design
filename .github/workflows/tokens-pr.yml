@@ -1,17 +1,18 @@
-name: Creates and Updates PR
+name: "Add to Pull Request Description"
 on:
   push:
   pull_request:
     paths:
       - "tokens/**"
+
 jobs:
-  pull-request:
+  test:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
-      - uses: actions/checkout@v3
-      - name: Get branch name
-        uses: rlespinasse/github-slug-action@v3.x
-      - uses: riskledger/update-pr-description@main
+      - uses: DerekRoberts/action-pr-description-add@v0.0.2
         with:
-          token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
-          body: "This is a test https://mistica-design-irq9l3a82-aweell.vercel.app/tokens-map?branch=${{ env.GITHUB_REF_SLUG_URL }}&skin=movistar&tokenType=color&activeColor=undefined"
+          github_token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          add_markdown: |
+            Checkout [Token tool](https://mistica-design-irq9l3a82-aweell.vercel.app/tokens-map?branch=${{ env.GITHUB_REF_SLUG_URL }}&skin=movistar&tokenType=color&activeColor=undefined)
