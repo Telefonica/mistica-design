@@ -45,12 +45,12 @@ const Palette = ({
     if (color.type === "color") {
       const paletteKey = getPaletteKey(color.value);
       if (paletteKey) {
-        return palette[paletteKey]?.value || "---";
+        return palette[paletteKey]?.value || undefined;
       } else {
         return color.value;
       }
     } else {
-      return "---";
+      return undefined;
     }
   }
 
@@ -76,18 +76,28 @@ const Palette = ({
 
   // Get the number of unrefered colors
 
-  const unreferencedCount = colorKeys.reduce((acc, key) => {
-    const color = colors[key];
-    const darkColor = darkColors[key];
-    const value = getColorValue(color, palette);
-    const darkValue = getColorValue(darkColor, palette);
+  function countUnreferencedColors(colors, darkColors, palette) {
+    const colorKeys = Object.keys(colors);
+    const unreferencedCount = colorKeys.reduce((acc, key) => {
+      const color = colors[key];
+      const darkColor = darkColors[key];
+      const value = getColorValue(color, palette);
+      const darkValue = getColorValue(darkColor, palette);
 
-    if (value === "---" || darkValue === "---") {
-      return acc + 1;
-    }
+      if (value === undefined || darkValue === undefined) {
+        return acc + 1;
+      }
+      return acc;
+    }, 0);
 
-    return acc;
-  }, 0);
+    return unreferencedCount;
+  }
+
+  const totalUnreferencedCount = countUnreferencedColors(
+    colors,
+    darkColors,
+    palette
+  );
 
   // Obtain the number of unmatched descriptions
 
@@ -132,19 +142,19 @@ const Palette = ({
                       <Circle
                         size={24}
                         backgroundColor={
-                          unreferencedCount !== 0
+                          totalUnreferencedCount !== 0
                             ? skinVars.colors.errorLow
                             : skinVars.colors.successLow
                         }
                       >
                         <Text
                           color={
-                            unreferencedCount !== 0
+                            totalUnreferencedCount !== 0
                               ? skinVars.colors.errorHigh
                               : skinVars.colors.successHigh
                           }
                         >
-                          {unreferencedCount}
+                          {totalUnreferencedCount}
                         </Text>
                       </Circle>
                     </Text>
@@ -232,30 +242,37 @@ const Palette = ({
                             <tbody>
                               <tr>
                                 <td>
-                                  <div
-                                    style={{
-                                      outline: `1px solid ${
-                                        lightReference === ("white" || "grey1")
-                                          ? skinVars.colors.neutralMedium
-                                          : undefined
-                                      }`,
-                                      width: "fit-content",
-                                      borderRadius: "50%",
-                                    }}
-                                  >
-                                    <Circle
-                                      size={16}
-                                      backgroundColor={applyAlpha(
-                                        value,
-                                        alphaValue
-                                      )}
-                                    ></Circle>
-                                  </div>
+                                  {value !== undefined ? (
+                                    <div
+                                      style={{
+                                        outline: `1px solid ${
+                                          lightReference ===
+                                          ("white" || "grey1")
+                                            ? skinVars.colors.neutralMedium
+                                            : undefined
+                                        }`,
+                                        width: "fit-content",
+                                        borderRadius: "50%",
+                                      }}
+                                    >
+                                      <Circle
+                                        size={16}
+                                        backgroundColor={applyAlpha(
+                                          value,
+                                          alphaValue
+                                        )}
+                                      ></Circle>
+                                    </div>
+                                  ) : (
+                                    "Ø"
+                                  )}
                                 </td>
                                 <td>{applyAlpha(value, alphaValue)}</td>
                                 <td>
                                   <Tag
-                                    type={value === "---" ? "error" : "success"}
+                                    type={
+                                      value === undefined ? "error" : "success"
+                                    }
                                   >
                                     {lightReference}
                                   </Tag>
@@ -287,31 +304,37 @@ const Palette = ({
                             <tbody>
                               <tr>
                                 <td>
-                                  <div
-                                    style={{
-                                      outline: `1px solid ${
-                                        darkReference === "white"
-                                          ? skinVars.colors.neutralMedium
-                                          : undefined
-                                      }`,
-                                      width: "fit-content",
-                                      borderRadius: "50%",
-                                    }}
-                                  >
-                                    <Circle
-                                      size={16}
-                                      backgroundColor={applyAlpha(
-                                        darkValue,
-                                        darkAlphaValue
-                                      )}
-                                    ></Circle>
-                                  </div>
+                                  {darkValue !== undefined ? (
+                                    <div
+                                      style={{
+                                        outline: `1px solid ${
+                                          darkReference === ("white" || "grey1")
+                                            ? skinVars.colors.neutralMedium
+                                            : undefined
+                                        }`,
+                                        width: "fit-content",
+                                        borderRadius: "50%",
+                                      }}
+                                    >
+                                      <Circle
+                                        size={16}
+                                        backgroundColor={applyAlpha(
+                                          darkValue,
+                                          darkAlphaValue
+                                        )}
+                                      ></Circle>
+                                    </div>
+                                  ) : (
+                                    "Ø"
+                                  )}
                                 </td>
                                 <td>{applyAlpha(darkValue, darkAlphaValue)}</td>
                                 <td>
                                   <Tag
                                     type={
-                                      darkValue === "---" ? "error" : "success"
+                                      darkValue === undefined
+                                        ? "error"
+                                        : "success"
                                     }
                                   >
                                     {darkReference}
