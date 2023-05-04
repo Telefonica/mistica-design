@@ -1,20 +1,32 @@
-name: "Add to Pull Request Description"
+name: Update PR description
+
 on:
   push:
   pull_request:
-    paths:
-      - "tokens/**"
+    types: [opened]
 
 jobs:
-  update-pr-description:
+  update-description:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Do action
-        uses: nefrob/pr-description@master
+      - name: Checkout code
+        uses: actions/checkout@v2
         with:
-          content: "Checkout [Token tool](https://mistica-design-irq9l3a82-aweell.vercel.app/tokens-map?branch=production&skin=movistar&tokenType=color&activeColor=undefined)"
-          regex: "matchuntilthenend.*"
-          regexFlags: i
-          token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Update description
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: pr } = await github.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number
+            });
+            const newDescription = 'New PR description';
+            await github.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              body: Checkout 
+            });
