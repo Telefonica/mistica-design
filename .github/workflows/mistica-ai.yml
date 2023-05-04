@@ -33,42 +33,12 @@ jobs:
             3. It should work for mobile and desktop environments
             4. That it is multi-brand
 
-      - name: Set up Octokit
-        uses: octokit/request-action@v2.x
-        id: octokit
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Comment on discussion with generated description
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const { data: discussions } = await octokit.rest.search.discussions({
-              q: `is:in:public repo:${context.repo.owner}/${context.repo.repo} "${searchQuery}"`,
-            });
-
-            const discussionUrl = discussions.items[0].url;
-
-            await octokit.rest.reactions.createForDiscussion({
-              discussion_id: discussionUrl.split('/').pop(),
-              content: 'heart',
-            });
-
-            await octokit.rest.reactions.createForDiscussion({
-              discussion_id: discussionUrl.split('/').pop(),
-              content: 'rocket',
-            });
-
-            await octokit.rest.reactions.createForDiscussion({
-              discussion_id: discussionUrl.split('/').pop(),
-              content: 'eyes',
-            });
-
-            await octokit.rest.discussions.createComment({
-              discussion_id: discussionUrl.split('/').pop(),
-              body: `Generated response: ${description}`,
-            });
+      - name: Add comment to discussion
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/{owner}/{repo}/discussions/{discussion_number}/comments \
+            --data-raw '{"body": "Generated response: ${description}"}'
         env:
-          description: ${{ steps.generate_response.outputs.response }}
-          searchQuery: "your search query here"
+          description: ${{ steps.openai-pr-description.outputs.response }}
