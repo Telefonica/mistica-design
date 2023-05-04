@@ -1,0 +1,74 @@
+name: Mística AI Discussions
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  discussion:
+    types: [created, edited]
+
+concurrency:
+  group: ${{ github.repository }}-${{ github.event.number || github.head_ref || github.sha }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  chatgpt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: platisd/openai-pr-description@master
+        with:
+          github_token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          sample_prompt: |
+            It acts as the person who will decide whether a design requirement should enter into an overall design system and complies with the following rules:
+            1. The requirement must be global, i.e. it must work outside the product and/or business logic. It should be as agnostic as possible.
+            2. It must be scalable to another type of product.
+            3. It should work for mobile and desktop environments
+            4. That it is multi-brand
+          sample_response: |
+            Base on rules that Mística defines, evaluate the proposal with the following requirements:
+            1. The requirement must be global, i.e. it must work outside the product and/or business logic. It should be as agnostic as possible.
+            2. It must be scalable to another type of product.
+            3. It should work for mobile and desktop environments
+            4. That it is multi-brand
+
+      - name: Set up Octokit
+        uses: octokit/request-action@v2.x
+        id: octokit
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Comment on discussion with generated description
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: discussions } = await octokit.rest.search.discussions({
+              q: `is:in:public repo:${context.repo.owner}/${context.repo.repo} "${searchQuery}"`,
+            });
+
+            const discussionUrl = discussions.items[0].url;
+
+            await octokit.rest.reactions.createForDiscussion({
+              discussion_id: discussionUrl.split('/').pop(),
+              content: 'heart',
+            });
+
+            await octokit.rest.reactions.createForDiscussion({
+              discussion_id: discussionUrl.split('/').pop(),
+              content: 'rocket',
+            });
+
+            await octokit.rest.reactions.createForDiscussion({
+              discussion_id: discussionUrl.split('/').pop(),
+              content: 'eyes',
+            });
+
+            await octokit.rest.discussions.createComment({
+              discussion_id: discussionUrl.split('/').pop(),
+              body: `Generated response: ${description}`,
+            });
+        env:
+          description: ${{ steps.generate_response.outputs.response }}
+          searchQuery: "your search query here"
