@@ -8,6 +8,8 @@ import {
   Box,
   Touchable,
   Text,
+  Inline,
+  Stack,
 } from "@telefonica/mistica";
 
 const RadiiTable = ({ skin, filter, branch, selectedSkin, tokenType }) => {
@@ -19,59 +21,77 @@ const RadiiTable = ({ skin, filter, branch, selectedSkin, tokenType }) => {
 
   return (
     <ResponsiveLayout>
-      <Boxed>
-        <Box padding={24} className={styles.palette}>
-          {radiusKeys.length > 0 ? (
-            <table>
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Token</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                {radiusKeys.map((key) => {
-                  const value = radius[key]?.value;
+      <Stack space={16}>
+        <div className={styles.palette}>
+          <Inline space={8} alignItems="center">
+            <Tag type="inactive">{`Constants (${
+              Object.keys(radiusKeys).length
+            })`}</Tag>
+          </Inline>
+        </div>
+        <Boxed>
+          <Box paddingX={24} paddingBottom={24} className={styles.palette}>
+            {radiusKeys.length > 0 ? (
+              <table>
+                <thead
+                  style={{
+                    borderBottom: `1px solid ${skinVars.colors.divider}`,
+                  }}
+                >
+                  <tr>
+                    <th>
+                      <Text weight="medium">Example</Text>
+                    </th>
+                    <th>
+                      <Text weight="medium">Token</Text>
+                    </th>
+                    <th>
+                      <Text weight="medium">Value</Text>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {radiusKeys.map((key) => {
+                    const value = radius[key]?.value;
 
-                  return (
-                    <tr key={key}>
-                      <td>
-                        <div
-                          style={{
-                            borderRadius: value.endsWith("%")
-                              ? value
-                              : `${value}px`,
-                            width: 48,
-                            height: 48,
-                            borderColor: skinVars.colors.brand,
-                            borderWidth: 2,
-                            borderStyle: "solid",
-                            backgroundColor: skinVars.colors.brandLow,
-                          }}
-                        ></div>
-                      </td>
-                      <td>
-                        <Touchable
-                          to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${key}`}
-                        >
-                          <Tag type="active">{key}</Tag>
-                        </Touchable>
-                      </td>
-                      <td>{value.endsWith("%") ? value : `${value}px`}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          ) : (
-            <Text size={16}>
-              The <code>radius</code> tokens may not have been implemented in{" "}
-              <code>{branch}</code>
-            </Text>
-          )}
-        </Box>
-      </Boxed>
+                    return (
+                      <tr key={key}>
+                        <td>
+                          <div
+                            style={{
+                              borderRadius: value.endsWith("%")
+                                ? value
+                                : `${value}px`,
+                              width: 48,
+                              height: 48,
+                              borderColor: skinVars.colors.brand,
+                              borderWidth: 2,
+                              borderStyle: "solid",
+                              backgroundColor: skinVars.colors.brandLow,
+                            }}
+                          ></div>
+                        </td>
+                        <td>
+                          <Touchable
+                            to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${key}`}
+                          >
+                            <Tag type="active">{key}</Tag>
+                          </Touchable>
+                        </td>
+                        <td>{value.endsWith("%") ? value : `${value}px`}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            ) : (
+              <Box paddingTop={24}>
+                <Text size={16}>Not matching radius tokens found.</Text>
+              </Box>
+            )}
+          </Box>
+        </Boxed>
+      </Stack>
     </ResponsiveLayout>
   );
 };

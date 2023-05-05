@@ -359,7 +359,7 @@ const Palette = ({
                 </table>
               ) : (
                 <Box paddingTop={24}>
-                  <Text size={16}>No matching tokens</Text>
+                  <Text size={16}>No matching color tokens found.</Text>
                 </Box>
               )}
             </div>

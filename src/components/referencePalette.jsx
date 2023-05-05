@@ -29,6 +29,8 @@ function ReferencePalette({
   const darkColors = skin?.dark || {};
   const palette = skin?.global?.palette || {};
 
+  // Obtain the matching colors for the selected color
+
   const matchingLightColors = Object.keys(lightColors).filter((key) => {
     const color = lightColors[key];
     const value =
@@ -45,6 +47,8 @@ function ReferencePalette({
         : color.value || "fallback value";
     return value === selected || value === palette[selectedColor]?.value;
   });
+
+  // Obtain the number of constants referencing a single variable
 
   const getMatchingCount = (value, colors = ["light", "dark"]) => {
     let matchingCount = 0;
@@ -75,6 +79,8 @@ function ReferencePalette({
     key.toLowerCase().includes(filter.toLowerCase())
   );
 
+  // Obtain the number of unused variables
+
   const unusedColors = Object.keys(palette).filter((key) => {
     const color = palette[key];
     if (color.type !== "color") return false;
@@ -84,15 +90,6 @@ function ReferencePalette({
 
     return matchingCount === 0;
   }).length;
-
-  let totalMatchingCount = 0;
-  filteredPaletteKeys.forEach((key) => {
-    const color = palette[key];
-    if (color.type !== "color") return null;
-    const value = color.value;
-    const matchingCount = getMatchingCount(value);
-    totalMatchingCount += matchingCount;
-  });
 
   return (
     <ResponsiveLayout>
@@ -115,12 +112,19 @@ function ReferencePalette({
                 <Title1>Palette</Title1>
 
                 <table>
-                  <thead>
+                  <thead
+                    style={{
+                      borderBottom: `1px solid ${skinVars.colors.divider}`,
+                    }}
+                  >
                     <tr>
                       <th></th>
-
-                      <th>Description</th>
-                      <th>Count</th>
+                      <th>
+                        <Text weight="medium">Token</Text>
+                      </th>
+                      <th>
+                        <Text weight="medium">Usage</Text>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -168,29 +172,26 @@ function ReferencePalette({
                             <Tag type="success">{key}</Tag>
                           </td>
                           <td>
-                            {matchingCount != 0 ? (
-                              <Circle
-                                size={24}
-                                backgroundColor={skinVars.colors.successLow}
+                            <Circle
+                              size={24}
+                              backgroundColor={
+                                matchingCount != 0
+                                  ? "transparent"
+                                  : skinVars.colors.warningLow
+                              }
+                            >
+                              <Text
+                                size={14}
+                                weight="medium"
+                                color={
+                                  matchingCount != 0
+                                    ? skinVars.colors.textPrimary
+                                    : skinVars.colors.warningHigh
+                                }
                               >
-                                <Text size={14} weight="medium">
-                                  {matchingCount}
-                                </Text>
-                              </Circle>
-                            ) : (
-                              <Circle
-                                size={24}
-                                backgroundColor={skinVars.colors.warningLow}
-                              >
-                                <Text
-                                  size={14}
-                                  weight="medium"
-                                  color={skinVars.colors.warningHigh}
-                                >
-                                  {matchingCount}
-                                </Text>
-                              </Circle>
-                            )}
+                                {matchingCount}
+                              </Text>
+                            </Circle>
                           </td>
                         </tr>
                       );
@@ -205,9 +206,15 @@ function ReferencePalette({
               <div className={styles.tableContainer}>
                 <Title1>Light Colors</Title1>
                 <table>
-                  <thead>
+                  <thead
+                    style={{
+                      borderBottom: `1px solid ${skinVars.colors.divider}`,
+                    }}
+                  >
                     <tr>
-                      <th>Key</th>
+                      <th>
+                        <Text weight="medium">Token</Text>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -240,9 +247,15 @@ function ReferencePalette({
               <div className={styles.tableContainer}>
                 <Title1>Dark Colors</Title1>
                 <table>
-                  <thead>
+                  <thead
+                    style={{
+                      borderBottom: `1px solid ${skinVars.colors.divider}`,
+                    }}
+                  >
                     <tr>
-                      <th>Key</th>
+                      <th>
+                        <Text weight="medium">Token</Text>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
