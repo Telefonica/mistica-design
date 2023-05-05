@@ -34,7 +34,7 @@
 There are exists 2 important branches in this repo:
 
 - `production`: This branch contains the currently live and stable version of the software or application that is being used by Android, iOS & Web platforms.
-- `pre-production`: This branch is a temporary working branch used to test and make final adjustments in tokens values before integrating into production.
+- `pre-production`: This branch is a temporary working branch used to test and make adjustments in features or tokens values. When they are finished, they are merged into production branch.
 
 # Figma
 
