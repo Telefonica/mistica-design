@@ -27,6 +27,7 @@ import {
 import React from "react";
 import "@telefonica/mistica/css/mistica.css";
 import wrappedCover from "../img/wrapper_cover.png";
+import tokensTool from "../img/tokens_tool.png";
 import Footer from "../components/footer";
 import SubGrid from "../components/subGrid";
 import TeamMember from "../components/teamMember";
@@ -36,6 +37,14 @@ const Home = () => {
   const { isDarkMode } = useTheme();
 
   const projects = [
+    {
+      title: "Mística tokens",
+      description:
+        "A tool to help designers and developers to visualize and work with the available mistica tokens.",
+      link: "/tokens-map",
+      buttonLabel: "Visit",
+      image: tokensTool,
+    },
     {
       title: "Mistica wrapped",
       description:
@@ -79,7 +88,7 @@ const Home = () => {
     {
       title: "Roadmap",
       icon: <IconMapFilled color={skinVars.colors.brand} />,
-      link: "https://github.com/Telefonica/mistica-design/projects/2?query=is%3Aopen+sort%3Aupdated-desc",
+      link: "https://github.com/orgs/Telefonica/projects/20/views/4",
       buttonLabel: "Visit",
     },
   ];
@@ -165,9 +174,7 @@ const Home = () => {
               <Stack space={48}>
                 <Stack space={4}>
                   <Text size={32}>Our resources</Text>
-                  <Text4 color={skinVars.colors.textSecondary}>
-                    Description of the section
-                  </Text4>
+                  <Text4 color={skinVars.colors.textSecondary}></Text4>
                 </Stack>
                 <SubGrid columns={isDesktopOrBigger ? resources.length : 1}>
                   {resources.map((resource, index) => (
@@ -197,9 +204,7 @@ const Home = () => {
               <Stack space={48}>
                 <Stack space={4}>
                   <Text size={32}>Meet the team</Text>
-                  <Text4 color={skinVars.colors.textSecondary}>
-                    Description of the section
-                  </Text4>
+                  <Text4 color={skinVars.colors.textSecondary}></Text4>
                 </Stack>
                 <SubGrid columns={isDesktopOrBigger ? 2 : 1} gap={48}>
                   {team.map((member, index) => (

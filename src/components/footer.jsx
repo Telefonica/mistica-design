@@ -36,7 +36,7 @@ const Footer = () => {
                     width={200}
                     aspectRatio={0}
                   ></Image>
-                  <Text>The team behind Telefónica's design system</Text>
+                  <Text>The design team behind Telefónica's design system</Text>
                 </Stack>
               </div>
               <Stack space={8}>

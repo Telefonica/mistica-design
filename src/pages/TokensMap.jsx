@@ -27,7 +27,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
 const TokensMap = () => {
-  // use query params to load the page in the selected state
+  // use query params to load the page in the selected state coming from a detail
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
