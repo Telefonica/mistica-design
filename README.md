@@ -4,12 +4,12 @@
 
 &nbsp;
 
-| Other Mística Repos                                              | Description                                               |
-| :--------------------------------------------------------------- | :-------------------------------------------------------- |
-| [mistica-web](https://github.com/Telefonica/mistica-web)         | Repository with code libraries for Mística in web         |
-| [mistica-ios](https://github.com/Telefonica/mistica-ios)         | Repository with code libraries for Mística in iOS         |
-| [mistica-android](https://github.com/Telefonica/mistica-android) | Repository with code libraries for Mística in Android     |
-| [mistica-icons](https://github.com/Telefonica/mistica-icons)     | The source of truth for icons in our digital products     |
+| Other Mística Repos                                              | Description                                           |
+| :--------------------------------------------------------------- | :---------------------------------------------------- |
+| [mistica-web](https://github.com/Telefonica/mistica-web)         | Repository with code libraries for Mística in web     |
+| [mistica-ios](https://github.com/Telefonica/mistica-ios)         | Repository with code libraries for Mística in iOS     |
+| [mistica-android](https://github.com/Telefonica/mistica-android) | Repository with code libraries for Mística in Android |
+| [mistica-icons](https://github.com/Telefonica/mistica-icons)     | The source of truth for icons in our digital products |
 
 ---
 
@@ -28,6 +28,13 @@
 ---
 
 <br/>
+
+# Branch organization
+
+There are exists 2 important branches in this repo:
+
+- `production`: This branch contains the currently live and stable version of the software or application that is being used by Android, iOS & Web platforms.
+- `pre-production`: This branch is a temporary working branch used to test and make adjustments in features or tokens values. When they are finished, they are merged into production branch.
 
 # Figma
 
