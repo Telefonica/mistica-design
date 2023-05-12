@@ -19,6 +19,16 @@ const RadiiTable = ({ skin, filter, branch, selectedSkin, tokenType }) => {
     key.toLowerCase().includes(filter?.toLowerCase())
   );
 
+  const radiusValue = (value) => {
+    if (value.endsWith("%")) {
+      return value;
+    } else if (value.includes("circle")) {
+      return "50%";
+    } else {
+      return `${value}px`;
+    }
+  };
+
   return (
     <ResponsiveLayout>
       <Stack space={16}>
@@ -59,9 +69,7 @@ const RadiiTable = ({ skin, filter, branch, selectedSkin, tokenType }) => {
                         <td>
                           <div
                             style={{
-                              borderRadius: value.endsWith("%")
-                                ? value
-                                : `${value}px`,
+                              borderRadius: radiusValue(value),
                               width: 48,
                               height: 48,
                               borderColor: skinVars.colors.brand,
@@ -78,7 +86,7 @@ const RadiiTable = ({ skin, filter, branch, selectedSkin, tokenType }) => {
                             <Tag type="active">{key}</Tag>
                           </Touchable>
                         </td>
-                        <td>{value.endsWith("%") ? value : `${value}px`}</td>
+                        <td>{radiusValue(value)}</td>
                       </tr>
                     );
                   })}
