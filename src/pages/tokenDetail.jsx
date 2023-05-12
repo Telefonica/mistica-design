@@ -61,6 +61,16 @@ const TokenDetail = () => {
     return skin?.radius?.[tokenKey]?.value || "";
   };
 
+  const tranformRadiusValue = (value) => {
+    if (value.endsWith("%")) {
+      return value;
+    } else if (value.includes("circle")) {
+      return "50%";
+    } else {
+      return `${value}px`;
+    }
+  };
+
   const getWeightValue = (skin, tokenKey) => {
     return skin?.text?.weight?.[tokenKey]?.value || "";
   };
@@ -82,14 +92,12 @@ const TokenDetail = () => {
               <tr key={index}>
                 <td>{skin.name}</td>
                 <td>
-                  <Tag type="active">
-                    {value.endsWith("%") ? value : `${value}px`}
-                  </Tag>
+                  <Tag type="active">{tranformRadiusValue(value)}</Tag>
                 </td>
                 <td>
                   <div
                     style={{
-                      borderRadius: value.endsWith("%") ? value : `${value}px`,
+                      borderRadius: tranformRadiusValue(value),
                       width: 48,
                       height: 48,
                       borderColor: skinVars.colors.brand,
