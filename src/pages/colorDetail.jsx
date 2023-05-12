@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import hexToRgbA from "../helpers/hexToRgba";
+import getContrastRatio from "../helpers/contrastRatio";
+import ContrastChecker from "../helpers/contrastChecker";
 import { useParams } from "react-router-dom";
 import {
   ButtonLink,
@@ -13,6 +15,7 @@ import {
   Box,
   Text,
   IconChevronLeftRegular,
+  Boxed,
 } from "@telefonica/mistica";
 import styles from "./tokenDetail.module.css";
 
@@ -90,16 +93,66 @@ const ColorDetail = () => {
             <Tag type="warning">{alphaText}</Tag>
           </td>
           <td>{color}</td>
-          <td style={{ backgroundColor: color }}>
+          <td>
             <Inline space={8}>
-              <Text color={getPaletteValue(skin, "textPrimary", colorType)}>
-                Aa
-              </Text>
-              <Text
-                color={getPaletteValue(skin, "textPrimaryInverse", colorType)}
+              <div
+                style={{
+                  backgroundColor: color,
+                  borderRadius: 4,
+                  display: "flex",
+                  alignItems: "center",
+                  height: "100%",
+                  border: `1px solid ${getPaletteValue(
+                    skin,
+                    "border",
+                    colorType
+                  )}`,
+                }}
               >
-                Aa
-              </Text>
+                <Box padding={8}>
+                  <Text color={getPaletteValue(skin, "textPrimary", colorType)}>
+                    Aa
+                  </Text>
+                </Box>
+              </div>
+              <ContrastChecker
+                contrastRatio={getContrastRatio(
+                  color,
+                  getPaletteValue(skin, "textPrimary", colorType)
+                )}
+              ></ContrastChecker>
+              <div
+                style={{
+                  backgroundColor: color,
+                  borderRadius: 4,
+                  display: "flex",
+                  alignItems: "center",
+                  height: "100%",
+                  border: `1px solid ${getPaletteValue(
+                    skin,
+                    "border",
+                    colorType
+                  )}`,
+                }}
+              >
+                <Box padding={8}>
+                  <Text
+                    color={getPaletteValue(
+                      skin,
+                      "textPrimaryInverse",
+                      colorType
+                    )}
+                  >
+                    Aa
+                  </Text>
+                </Box>
+              </div>
+              <ContrastChecker
+                contrastRatio={getContrastRatio(
+                  color,
+                  getPaletteValue(skin, "textPrimaryInverse", colorType)
+                )}
+              ></ContrastChecker>
             </Inline>
           </td>
         </tr>
@@ -118,7 +171,7 @@ const ColorDetail = () => {
               <th>Skin</th>
               <th>Palette Token</th>
               <th>Value</th>
-              <th>Text Example</th>
+              <th>Text contrast (TextPrimary | TextPrimaryInverse)</th>
             </tr>
           </thead>
           <tbody>{lightRows}</tbody>
@@ -130,7 +183,7 @@ const ColorDetail = () => {
               <th>Skin</th>
               <th>Palette Token</th>
               <th>Value</th>
-              <th>Text Example</th>
+              <th>Text contrast (TextPrimary | TextPrimaryInverse)</th>
             </tr>
           </thead>
           <tbody>{darkRows}</tbody>
