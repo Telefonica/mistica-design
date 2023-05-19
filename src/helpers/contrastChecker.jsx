@@ -1,7 +1,7 @@
 import React from "react";
-import { skinVars, Text, Stack } from "@telefonica/mistica";
+import { skinVars, Text, Stack, Tag } from "@telefonica/mistica";
 
-function ContrastChecker({ contrastRatio }) {
+function ContrastChecker({ contrastRatio, textToken }) {
   // Function to check if the contrast ratio meets the WCAG recommendation for text (AA and AAA) and graphical objects (AA)
   function isContrastRatioCompliant(contrastRatio, isGraphicalObject) {
     if (isGraphicalObject) {
@@ -87,18 +87,16 @@ function ContrastChecker({ contrastRatio }) {
   return (
     <div
       style={{
-        minWidth: 120,
         display: "flex",
         height: "100%",
         alignItems: "center",
       }}
     >
       <Stack space={4}>
-        <div>
-          <Text weight="medium">
-            {contrastRatio} {isTextAACompliant}
-          </Text>
-        </div>
+        <Tag type="active">{textToken}</Tag>
+        <Text weight="medium">
+          {contrastRatio} {isTextAACompliant}
+        </Text>
       </Stack>
     </div>
   );

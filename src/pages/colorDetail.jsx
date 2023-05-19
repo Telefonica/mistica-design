@@ -16,12 +16,20 @@ import {
   Text,
   IconChevronLeftRegular,
   Boxed,
+  Circle,
 } from "@telefonica/mistica";
 import styles from "./tokenDetail.module.css";
 
 const ColorDetail = () => {
   const [skins, setSkins] = useState([]);
   const { id, tokenType, branch, selectedSkin, selectedColor } = useParams();
+  const textTokens = [
+    "textPrimary",
+    "textPrimaryInverse",
+    "textSecondary",
+    "textSecondaryInverse",
+    "textLink",
+  ];
 
   const skinFiles = [
     { name: "Movistar", filename: "movistar.json" },
@@ -79,6 +87,30 @@ const ColorDetail = () => {
     return paletteValue;
   };
 
+  const getColorBox = ({ color, skin, colorType, textToken }) => {
+    const borderRadius = "50%";
+    const display = "flex";
+    const alignItems = "center";
+    const border = `1px solid ${getPaletteValue(skin, "border", colorType)}`;
+    const textColor = getPaletteValue(skin, textToken, colorType);
+
+    return (
+      <div
+        style={{
+          borderRadius,
+          display,
+          alignItems,
+
+          border,
+        }}
+      >
+        <Circle size={32} backgroundColor={color}>
+          <Text color={textColor}>Aa</Text>
+        </Circle>
+      </div>
+    );
+  };
+
   const renderColorTable = (skins, tokenKey) => {
     const getColorRow = (skin, colorType) => {
       const color = getPaletteValue(skin, tokenKey, colorType);
@@ -94,65 +126,24 @@ const ColorDetail = () => {
           </td>
           <td>{color}</td>
           <td>
-            <Inline space={8}>
-              <div
-                style={{
-                  backgroundColor: color,
-                  borderRadius: 4,
-                  display: "flex",
-                  alignItems: "center",
-                  height: "100%",
-                  border: `1px solid ${getPaletteValue(
+            <Inline space={16}>
+              {textTokens.map((textToken) => (
+                <Inline key={textToken} space={8}>
+                  {getColorBox({
+                    color,
                     skin,
-                    "border",
-                    colorType
-                  )}`,
-                }}
-              >
-                <Box padding={8}>
-                  <Text color={getPaletteValue(skin, "textPrimary", colorType)}>
-                    Aa
-                  </Text>
-                </Box>
-              </div>
-              <ContrastChecker
-                contrastRatio={getContrastRatio(
-                  color,
-                  getPaletteValue(skin, "textPrimary", colorType)
-                )}
-              ></ContrastChecker>
-              <div
-                style={{
-                  backgroundColor: color,
-                  borderRadius: 4,
-                  display: "flex",
-                  alignItems: "center",
-                  height: "100%",
-                  border: `1px solid ${getPaletteValue(
-                    skin,
-                    "border",
-                    colorType
-                  )}`,
-                }}
-              >
-                <Box padding={8}>
-                  <Text
-                    color={getPaletteValue(
-                      skin,
-                      "textPrimaryInverse",
-                      colorType
+                    colorType,
+                    textToken,
+                  })}
+                  <ContrastChecker
+                    textToken={textToken}
+                    contrastRatio={getContrastRatio(
+                      color,
+                      getPaletteValue(skin, textToken, colorType)
                     )}
-                  >
-                    Aa
-                  </Text>
-                </Box>
-              </div>
-              <ContrastChecker
-                contrastRatio={getContrastRatio(
-                  color,
-                  getPaletteValue(skin, "textPrimaryInverse", colorType)
-                )}
-              ></ContrastChecker>
+                  ></ContrastChecker>
+                </Inline>
+              ))}
             </Inline>
           </td>
         </tr>
@@ -171,7 +162,7 @@ const ColorDetail = () => {
               <th>Skin</th>
               <th>Palette Token</th>
               <th>Value</th>
-              <th>Text contrast (TextPrimary | TextPrimaryInverse)</th>
+              <th>Text contrast</th>
             </tr>
           </thead>
           <tbody>{lightRows}</tbody>
@@ -183,7 +174,7 @@ const ColorDetail = () => {
               <th>Skin</th>
               <th>Palette Token</th>
               <th>Value</th>
-              <th>Text contrast (TextPrimary | TextPrimaryInverse)</th>
+              <th>Text contrast</th>
             </tr>
           </thead>
           <tbody>{darkRows}</tbody>
