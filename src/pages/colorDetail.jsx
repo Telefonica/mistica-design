@@ -15,13 +15,14 @@ import {
   Box,
   Text,
   IconChevronLeftRegular,
-  Boxed,
   Circle,
+  Select,
 } from "@telefonica/mistica";
 import styles from "./tokenDetail.module.css";
 
 const ColorDetail = () => {
   const [skins, setSkins] = useState([]);
+  const [foregroundColor, setForegroundColor] = useState("textPrimary");
   const { id, tokenType, branch, selectedSkin, selectedColor } = useParams();
   const textTokens = [
     "textPrimary",
@@ -30,6 +31,9 @@ const ColorDetail = () => {
     "textSecondaryInverse",
     "textLink",
   ];
+  const colorKeys = Object.keys(skins[0]?.light || {});
+
+  // List of skins to load
 
   const skinFiles = [
     { name: "Movistar", filename: "movistar.json" },
@@ -39,6 +43,8 @@ const ColorDetail = () => {
     { name: "Telefónica", filename: "telefonica.json" },
     { name: "Solar 360", filename: "solar-360.json" },
   ];
+
+  // Load the skins
 
   useEffect(() => {
     const loadSkins = async () => {
@@ -60,6 +66,8 @@ const ColorDetail = () => {
 
     loadSkins();
   }, []);
+
+  // Get the color value from the skin
 
   const getPaletteValue = (skin, tokenKey, type) => {
     const paletteValue = skin?.[type]?.[tokenKey]?.value;
@@ -87,12 +95,14 @@ const ColorDetail = () => {
     return paletteValue;
   };
 
-  const getColorBox = ({ color, skin, colorType, textToken }) => {
+  // Create a box to represent the foreground color against the color of the detail
+
+  const getColorBox = ({ color, skin, colorType, foregroundColor }) => {
     const borderRadius = "50%";
     const display = "flex";
     const alignItems = "center";
     const border = `1px solid ${getPaletteValue(skin, "border", colorType)}`;
-    const textColor = getPaletteValue(skin, textToken, colorType);
+    const textColor = getPaletteValue(skin, foregroundColor, colorType);
 
     return (
       <div
@@ -111,6 +121,8 @@ const ColorDetail = () => {
     );
   };
 
+  // Render the color table
+
   const renderColorTable = (skins, tokenKey) => {
     const getColorRow = (skin, colorType) => {
       const color = getPaletteValue(skin, tokenKey, colorType);
@@ -126,24 +138,19 @@ const ColorDetail = () => {
           </td>
           <td>{color}</td>
           <td>
-            <Inline space={16}>
-              {textTokens.map((textToken) => (
-                <Inline key={textToken} space={8}>
-                  {getColorBox({
-                    color,
-                    skin,
-                    colorType,
-                    textToken,
-                  })}
-                  <ContrastChecker
-                    textToken={textToken}
-                    contrastRatio={getContrastRatio(
-                      color,
-                      getPaletteValue(skin, textToken, colorType)
-                    )}
-                  ></ContrastChecker>
-                </Inline>
-              ))}
+            <Inline key={foregroundColor} space={8}>
+              {getColorBox({
+                color,
+                skin,
+                colorType,
+                foregroundColor,
+              })}
+              <ContrastChecker
+                contrastRatio={getContrastRatio(
+                  color,
+                  getPaletteValue(skin, foregroundColor, colorType)
+                )}
+              ></ContrastChecker>
             </Inline>
           </td>
         </tr>
@@ -155,6 +162,19 @@ const ColorDetail = () => {
 
     return (
       <Stack space={32}>
+        <Inline fullWidth space="between">
+          <div></div>
+          <Select
+            label="Select foreground color"
+            onChangeValue={setForegroundColor}
+            value={foregroundColor}
+            options={colorKeys.map((token) => ({
+              value: token,
+              text: token,
+              key: token,
+            }))}
+          ></Select>
+        </Inline>
         <Title1>Light colors</Title1>
         <table>
           <thead>
@@ -162,7 +182,7 @@ const ColorDetail = () => {
               <th>Skin</th>
               <th>Palette Token</th>
               <th>Value</th>
-              <th>Text contrast</th>
+              <th>Contrast</th>
             </tr>
           </thead>
           <tbody>{lightRows}</tbody>
@@ -174,7 +194,7 @@ const ColorDetail = () => {
               <th>Skin</th>
               <th>Palette Token</th>
               <th>Value</th>
-              <th>Text contrast</th>
+              <th>Contrast</th>
             </tr>
           </thead>
           <tbody>{darkRows}</tbody>
