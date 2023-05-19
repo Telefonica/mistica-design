@@ -1,17 +1,30 @@
 function getContrastRatio(color1, color2) {
-  // Helper function to convert hex color to RGB
-  function hexToRgb(hex) {
-    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-    const fullHexRegex = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
+  // Helper function to convert hex or RGBA color to RGB
+  function convertColorToRgb(color) {
+    if (color.startsWith("#")) {
+      const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      const fullHexRegex = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
 
-    const result = shorthandRegex.exec(hex) || fullHexRegex.exec(hex);
-    return result
-      ? {
-          r: parseInt(result[1], 16),
-          g: parseInt(result[2], 16),
-          b: parseInt(result[3], 16),
-        }
-      : null;
+      const result = shorthandRegex.exec(color) || fullHexRegex.exec(color);
+      return result
+        ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16),
+          }
+        : null;
+    } else if (color.startsWith("rgba")) {
+      const rgbaMatch = color.match(/rgba\((.*?),\s*(.*?),\s*(.*?),\s*(.*?)\)/);
+      if (rgbaMatch) {
+        return {
+          r: parseInt(rgbaMatch[1]),
+          g: parseInt(rgbaMatch[2]),
+          b: parseInt(rgbaMatch[3]),
+        };
+      }
+    }
+
+    return null;
   }
 
   // Helper function to calculate relative luminance
@@ -48,8 +61,8 @@ function getContrastRatio(color1, color2) {
   }
 
   // Calculate the luminance values for each color
-  const color1Rgb = color1.startsWith("#") ? hexToRgb(color1) : null;
-  const color2Rgb = color2.startsWith("#") ? hexToRgb(color2) : null;
+  const color1Rgb = convertColorToRgb(color1);
+  const color2Rgb = convertColorToRgb(color2);
 
   const luminance1 =
     color1Rgb !== null

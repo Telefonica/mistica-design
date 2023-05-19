@@ -19,6 +19,7 @@ import {
   Select,
 } from "@telefonica/mistica";
 import styles from "./tokenDetail.module.css";
+import ColorCode from "../components/colorCode";
 
 const ColorDetail = () => {
   const [skins, setSkins] = useState([]);
@@ -126,7 +127,7 @@ const ColorDetail = () => {
   const renderColorTable = (skins, tokenKey) => {
     const getColorRow = (skin, colorType) => {
       const color = getPaletteValue(skin, tokenKey, colorType);
-      const alphaText = color.includes("rgba") ? "hasAlpha" : "";
+      console.log(color);
       return (
         <tr key={`${skin.name}-${colorType}`}>
           <td>{skin.name}</td>
@@ -134,9 +135,10 @@ const ColorDetail = () => {
             <Tag type="success">
               {skin?.[colorType]?.[tokenKey]?.description}
             </Tag>
-            <Tag type="warning">{alphaText}</Tag>
           </td>
-          <td>{color}</td>
+          <td>
+            <ColorCode color={color}></ColorCode>
+          </td>
           <td>
             <Inline key={foregroundColor} space={8}>
               {getColorBox({
