@@ -127,7 +127,6 @@ const ColorDetail = () => {
   const renderColorTable = (skins, tokenKey) => {
     const getColorRow = (skin, colorType) => {
       const color = getPaletteValue(skin, tokenKey, colorType);
-      console.log(color);
       return (
         <tr key={`${skin.name}-${colorType}`}>
           <td>{skin.name}</td>
@@ -206,8 +205,8 @@ const ColorDetail = () => {
   };
 
   return (
-    <ResponsiveLayout>
-      <Box paddingY={48}>
+    <Box paddingY={48}>
+      <ResponsiveLayout>
         <Inline space="between" alignItems="center">
           <ButtonLink
             to={`/tokens-map/?branch=${branch}&skin=${selectedSkin}&tokenType=${tokenType}&activeColor=${selectedColor}`}
@@ -217,15 +216,15 @@ const ColorDetail = () => {
             Go back
           </ButtonLink>
         </Inline>
-      </Box>
 
-      <div className={styles.tokenDetail}>
-        <Stack space={40}>
-          <Title2>{id}</Title2>
-          <Stack space={24}>{<>{renderColorTable(skins, id)}</>}</Stack>
-        </Stack>
-      </div>
-    </ResponsiveLayout>
+        <div className={styles.tokenDetail}>
+          <Stack space={40}>
+            <Title2>{id}</Title2>
+            <Stack space={24}>{<>{renderColorTable(skins, id)}</>}</Stack>
+          </Stack>
+        </div>
+      </ResponsiveLayout>
+    </Box>
   );
 };
 
