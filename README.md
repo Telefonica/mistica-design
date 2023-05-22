@@ -12,10 +12,20 @@ yarn start
 
 ## CLI deployment
 
+1. Assign to project (if you already have `mistica-design` asing that)
+2. Create `mistica-design` project
+
+### Pre-deploy
+
+```
+yarn predeploy
+```
+
+This will create a preview of the deployment in the vercel project.
+
+### Deploy to production
+
 ```
 yarn deploy
 ```
 
-3. Assign to project (if you already have `mistica-design`)
-4. Create `mistica-design` project
-5. Promote to production the preview created from the branch `mistica-design-site`
