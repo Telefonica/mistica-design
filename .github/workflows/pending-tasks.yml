@@ -25,6 +25,7 @@ jobs:
           TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
         run: |
           python - <<EOF
+          import os
           from github import Github
 
           TOKEN = os.environ['TOKEN']
