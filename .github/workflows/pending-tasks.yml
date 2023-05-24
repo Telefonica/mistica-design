@@ -27,6 +27,8 @@ jobs:
           python - <<EOF
           from github import Github
 
+          TOKEN = os.environ['TOKEN']
+
           # Nombre de usuario y nombre del repositorio
           OWNER = 'Telefonica'
           REPO = 'mistica-design'
