@@ -70,7 +70,9 @@ const TokensMap = () => {
     const fetchSkins = async () => {
       const skinNames = [
         "movistar",
-        "movistar-classic",
+        selectedBranch === "production"
+          ? "movistar-legacy"
+          : "movistar-classic",
         "vivo",
         "vivo-new",
         "blau",
@@ -125,8 +127,8 @@ const TokensMap = () => {
     case "movistar":
       skin = skins.movistar;
       break;
-    case "movistar-classic":
-      skin = skins["movistar-classic"];
+    case "movistar-legacy":
+      skin = skins["movistar-legacy"];
       break;
     case "vivo":
       skin = skins.vivo;
