@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import ReferencePalette from "../components/referencePalette";
 import Palette from "../components/Palette";
+import GlobalPalette from "../components/globalPalette";
 import RadiiTable from "../components/borderRadii";
 import TextTable from "../components/typography";
 import {
@@ -47,7 +48,7 @@ const TokensMap = () => {
     colorFromUrl || "undefined"
   );
   const [skins, setSkins] = useState({});
-  const [reference, setReference] = useState(false);
+  const [colorView, setColorView] = useState("constants");
   const [isError, setIsError] = useState(false);
 
   // Fetch branches from GitHub
@@ -154,28 +155,46 @@ const TokensMap = () => {
   let view;
   switch (active) {
     case "color":
-      view =
-        reference === true ? (
-          <ReferencePalette
-            skin={skin}
-            selectedSkin={selectedSkin}
-            filter={filter}
-            branch={selectedBranch}
-            tokenType={active}
-            selectedColor={selectedColor}
-            setSelectedColor={setSelectedColor}
-          />
-        ) : (
-          <Palette
-            skin={skin}
-            selectedSkin={selectedSkin}
-            filter={filter}
-            branch={selectedBranch}
-            tokenType={active}
-            selectedColor={selectedColor}
-            setSelectedColor={setSelectedColor}
-          />
-        );
+      switch (colorView) {
+        case "constants":
+          view = (
+            <Palette
+              skin={skin}
+              selectedSkin={selectedSkin}
+              filter={filter}
+              branch={selectedBranch}
+              tokenType={active}
+              selectedColor={selectedColor}
+              setSelectedColor={setSelectedColor}
+            />
+          );
+          break;
+        case "variables":
+          view = (
+            <GlobalPalette
+              skin={skin}
+              selectedSkin={selectedSkin}
+              filter={filter}
+              branch={selectedBranch}
+              tokenType={active}
+              selectedColor={selectedColor}
+              setSelectedColor={setSelectedColor}
+            />
+          );
+          break;
+        case "match":
+          view = (
+            <ReferencePalette
+              skin={skin}
+              selectedSkin={selectedSkin}
+              filter={filter}
+              branch={selectedBranch}
+              tokenType={active}
+              selectedColor={selectedColor}
+              setSelectedColor={setSelectedColor}
+            />
+          );
+      }
       break;
     case "radius":
       view = (
@@ -199,29 +218,6 @@ const TokensMap = () => {
         />
       );
       break;
-    default:
-      view =
-        reference === true ? (
-          <ReferencePalette
-            skin={skin}
-            selectedSkin={selectedSkin}
-            filter={filter}
-            branch={selectedBranch}
-            tokenType={active}
-            selectedColor={selectedColor}
-            setSelectedColor={setSelectedColor}
-          />
-        ) : (
-          <Palette
-            skin={skin}
-            selectedSkin={selectedSkin}
-            filter={filter}
-            branch={selectedBranch}
-            tokenType={active}
-            selectedColor={selectedColor}
-            setSelectedColor={setSelectedColor}
-          />
-        );
   }
 
   return (
@@ -307,13 +303,38 @@ const TokensMap = () => {
         {active === "color" && isError === false && (
           <Box paddingBottom={24}>
             <Inline space="between" alignItems="center">
-              <Switch
-                onChange={setReference}
-                value={reference}
-                checked={reference === true}
+              <RadioGroup
+                onChange={setColorView}
+                name="chip-group"
+                value={colorView}
               >
-                See color by reference
-              </Switch>
+                <Inline space={8}>
+                  <RadioButton
+                    value="constants"
+                    render={({ checked, labelId }) => (
+                      <Chip active={checked} id={labelId}>
+                        Constants
+                      </Chip>
+                    )}
+                  />
+                  <RadioButton
+                    value="variables"
+                    render={({ checked, labelId }) => (
+                      <Chip active={checked} id={labelId}>
+                        Variables
+                      </Chip>
+                    )}
+                  />
+                  <RadioButton
+                    value="match"
+                    render={({ checked, labelId }) => (
+                      <Chip active={checked} id={labelId}>
+                        Constants / variables
+                      </Chip>
+                    )}
+                  />
+                </Inline>
+              </RadioGroup>
               <Inline space={8} alignItems="center">
                 <Circle size={24} backgroundColor={skinVars.colors.brandLow}>
                   <Circle
