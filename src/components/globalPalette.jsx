@@ -70,11 +70,7 @@ function GlobalPalette({
                           <Circle backgroundColor={value} size={32}></Circle>
                         </td>
                         <td>
-                          <Touchable
-                            to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${key}`}
-                          >
-                            <Tag type="active">{key}</Tag>
-                          </Touchable>
+                          <Tag type="success">{key}</Tag>
                         </td>
                         <td>{value}</td>
                       </tr>
