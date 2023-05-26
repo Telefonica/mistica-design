@@ -25,13 +25,6 @@ const ColorDetail = () => {
   const [skins, setSkins] = useState([]);
   const [foregroundColor, setForegroundColor] = useState("textPrimary");
   const { id, tokenType, branch, selectedSkin, selectedColor } = useParams();
-  const textTokens = [
-    "textPrimary",
-    "textPrimaryInverse",
-    "textSecondary",
-    "textSecondaryInverse",
-    "textLink",
-  ];
   const colorKeys = Object.keys(skins[0]?.light || {});
 
   // List of skins to load

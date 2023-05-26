@@ -277,7 +277,7 @@ const TokensMap = () => {
                     value={selectedSkin}
                     options={[
                       { value: "movistar", text: "Movistar" },
-                      { value: "movistar-classic", text: "Movistar Classic" },
+                      { value: "movistar-legacy", text: "Movistar Legacy" },
                       { value: "vivo", text: "Vivo" },
                       { value: "vivo-new", text: "Vivo New" },
                       { value: "o2", text: "O2" },
