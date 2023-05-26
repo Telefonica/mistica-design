@@ -16,13 +16,11 @@ import {
   RadioButton,
   RadioGroup,
   Title2,
-  Switch,
   Circle,
   Text,
   skinVars,
   EmptyStateCard,
   IconErrorRegular,
-  useTheme,
 } from "@telefonica/mistica";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
