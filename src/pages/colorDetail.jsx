@@ -40,10 +40,7 @@ const ColorDetail = () => {
     { name: "Movistar", filename: "movistar.json" },
     {
       name: "Movistar-legacy",
-      filename:
-        branch === "production"
-          ? "movistar-legacy.json"
-          : "movistar-classic.json",
+      filename: "movistar-legacy.json",
     },
     { name: "Vivo", filename: "vivo.json" },
     { name: "O2", filename: "o2.json" },
