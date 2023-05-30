@@ -42,16 +42,45 @@ const SkinGenerator = () => {
     fetchSkins();
   }, [selectedSkin]);
 
-  const handleValueChange = (section, key, subKey, newValue) => {
+  const handleValueChange = (section, key, subKey, newKey, newValue) => {
     setJsonData((prevData) => {
-      if (section === "global" && key === "palette") {
+      if (section === "light" || section === "dark") {
+        const updatedValue = {
+          ...prevData[section][key],
+          value: newValue,
+        };
+
+        // Update the description
+        const description = newValue.replace(
+          /{palette\.(.*?)}/g,
+          (match, p1) => {
+            return prevData.global.palette[p1]?.value || match;
+          }
+        );
+        updatedValue.description = description;
+
+        return {
+          ...prevData,
+          [section]: {
+            ...prevData[section],
+            [key]: updatedValue,
+          },
+        };
+      } else if (section === "global" && key === "palette") {
         const updatedPalette = Object.entries(prevData.global.palette).reduce(
           (result, [paletteKey, paletteValue]) => {
             if (paletteKey === subKey) {
-              result[newValue] = {
-                ...paletteValue,
-                value: newValue,
-              };
+              if (newKey) {
+                // Modify the key and/or value
+                const updatedValue = newValue
+                  ? { ...paletteValue, value: newValue }
+                  : paletteValue;
+                delete result[paletteKey]; // Remove the old key
+                result[newKey] = updatedValue; // Add the updated key-value pair
+              } else {
+                // Modify the value only, keep the key unchanged
+                result[paletteKey] = { ...paletteValue, value: newValue };
+              }
             } else {
               result[paletteKey] = paletteValue;
             }
@@ -60,11 +89,41 @@ const SkinGenerator = () => {
           {}
         );
 
+        if (newKey && !prevData.global.palette.hasOwnProperty(newKey)) {
+          // Add a new entry if a new key is provided and it doesn't exist in the current palette
+          updatedPalette[newKey] = { value: newValue };
+        }
+
         return {
           ...prevData,
           global: {
             ...prevData.global,
             palette: updatedPalette,
+          },
+        };
+      } else if (section === "radius") {
+        return {
+          ...prevData,
+          radius: {
+            ...prevData.radius,
+            [key]: {
+              ...prevData.radius[key],
+              value: newValue,
+            },
+          },
+        };
+      } else if (section === "text" && key === "weight") {
+        return {
+          ...prevData,
+          text: {
+            ...prevData.text,
+            weight: {
+              ...prevData.text.weight,
+              [subKey]: {
+                ...prevData.text.weight[subKey],
+                value: newValue,
+              },
+            },
           },
         };
       } else {
@@ -82,71 +141,22 @@ const SkinGenerator = () => {
     });
   };
 
-  const handleKeyChange = (section, key, newKey) => {
-    setJsonData((prevData) => {
-      if (section === "global" && key === "palette") {
-        const updatedPalette = Object.entries(prevData.global.palette).reduce(
-          (result, [paletteKey, paletteValue]) => {
-            if (paletteKey === key) {
-              result[newKey] = {
-                ...paletteValue,
-                value: paletteValue.value,
-              };
-            } else {
-              result[paletteKey] = paletteValue;
-            }
-            return result;
-          },
-          {}
-        );
-
-        return {
-          ...prevData,
-          global: {
-            ...prevData.global,
-            palette: updatedPalette,
-          },
-        };
-      } else {
-        const updatedSection = Object.entries(prevData[section]).reduce(
-          (result, [sectionKey, sectionValue]) => {
-            if (sectionKey === key) {
-              result[newKey] = {
-                ...sectionValue,
-                value: sectionValue.value,
-              };
-            } else {
-              result[sectionKey] = sectionValue;
-            }
-            return result;
-          },
-          {}
-        );
-
-        return {
-          ...prevData,
-          [section]: updatedSection,
-        };
-      }
-    });
-  };
-
-  const generateUpdatedJson = () => {
+  const generateUpdatedJson = (prevData) => {
     const updatedJson = {};
 
-    // Define the order of sections
-    const sectionsOrder = ["light", "dark", "global"];
+    const sectionsOrder = ["light", "dark", "global", "radius", "text"];
 
-    // Iterate over the sections order
     sectionsOrder.forEach((section) => {
       updatedJson[section] = { ...jsonData[section] };
 
-      // Handle specific properties within each section
       if (section === "light" || section === "dark") {
-        Object.entries(jsonData[section]).forEach(([key, value]) => {
+        Object.entries(prevData[section]).forEach(([key, value]) => {
+          const description = value.value.replace(/{palette\.(.*?)}/g, "$1");
+
           updatedJson[section][key] = {
             ...value,
-            value: jsonData[section][key].value,
+            value: value.value,
+            description: description,
           };
         });
       } else if (section === "global") {
@@ -164,8 +174,14 @@ const SkinGenerator = () => {
   };
 
   const handleGenerateJson = () => {
-    const updatedJson = generateUpdatedJson();
+    const updatedJson = generateUpdatedJson(jsonData);
     setGeneratedJson(JSON.stringify(updatedJson, null, 2));
+  };
+
+  const handleInputChange = (event, section, key, subKey, newKey) => {
+    const { name, value } = event.target;
+    // Call the handleValueChange function passing the appropriate arguments
+    handleValueChange(section, key, subKey, newKey, value);
   };
 
   // Render the JSON editor UI
@@ -190,71 +206,123 @@ const SkinGenerator = () => {
       {Object.keys(skins).length === 0 ? (
         <p>No skins available</p>
       ) : (
-        <>
-          <details>
-            <summary>Light</summary>
-            {Object.entries(jsonData.light).map(([key, value]) => (
-              <div key={key}>
-                <h3>{key}:</h3>
-                <label>Value: </label>
-                <input
-                  type="text"
-                  value={value.value || ""}
-                  onChange={(e) =>
-                    handleValueChange("light", key, "value", e.target.value)
-                  }
-                />
-              </div>
-            ))}
-          </details>
-          <details>
-            <summary>Dark</summary>
-            {Object.entries(jsonData.dark).map(([key, value]) => (
-              <div key={key}>
-                <h3>{key}:</h3>
-                <label>Value: </label>
-                <input
-                  type="text"
-                  value={value.value || ""}
-                  onChange={(e) =>
-                    handleValueChange("dark", key, "value", e.target.value)
-                  }
-                />
-              </div>
-            ))}
-          </details>
-          <details>
-            <summary>Palette</summary>
+        <div>
+          {Object.entries(jsonData).map(([section, sectionData]) => {
+            if (section === "light" || section === "dark") {
+              // Render input fields for light and dark sections
+              return Object.entries(sectionData).map(
+                ([key, { value, description }]) => (
+                  <div key={key}>
+                    <span>{key}</span>
+                    <input
+                      type="text"
+                      name={key}
+                      value={value}
+                      onChange={(event) =>
+                        handleInputChange(event, section, key, null, null)
+                      }
+                    />
+                    <span>{description}</span>
+                  </div>
+                )
+              );
+            } else if (section === "global") {
+              // Render input fields for global.palette section
+              if (sectionData.palette) {
+                return Object.entries(sectionData.palette).map(
+                  ([key, { value }]) => {
+                    const handleKeyChange = (event) => {
+                      const newKey = event.target.value;
+                      handleInputChange(
+                        event,
+                        section,
+                        "palette",
+                        key,
+                        newKey,
+                        value
+                      );
+                    };
 
-            {Object.entries(jsonData.global.palette).map(([key, value]) => (
-              <div key={key}>
-                <h3>{key}:</h3>
-                <label>Key: </label>
-                <input
-                  type="text"
-                  value={key}
-                  onChange={(e) =>
-                    handleKeyChange("global", "palette", key, e.target.value)
+                    const handleValueChange = (event) => {
+                      const newValue = event.target.value;
+                      handleInputChange(
+                        event,
+                        section,
+                        "palette",
+                        key,
+                        key,
+                        newValue
+                      );
+                    };
+
+                    return (
+                      <div key={key}>
+                        <input
+                          type="text"
+                          name={`${key}-key`}
+                          value={key}
+                          onChange={handleKeyChange}
+                        />
+                        <input
+                          type="text"
+                          name={`${key}-value`}
+                          value={value}
+                          onChange={handleValueChange}
+                        />
+                      </div>
+                    );
                   }
-                />
-                <label>Value: </label>
-                <input
-                  type="text"
-                  value={value.value || ""}
-                  onChange={(e) =>
-                    handleValueChange(
-                      "global",
-                      "palette",
-                      key,
-                      "value",
-                      e.target.value
-                    )
-                  }
-                />
-              </div>
-            ))}
-          </details>
-        </>
+                );
+              }
+            } else if (section === "radius") {
+              return Object.entries(sectionData).map(([key, { value }]) => (
+                <div key={key}>
+                  <span>{key}</span>
+                  <input
+                    type="text"
+                    name={key}
+                    value={value}
+                    onChange={(event) =>
+                      handleInputChange(event, section, key, null, null)
+                    }
+                  />
+                </div>
+              ));
+            } else if (section === "text") {
+              if (sectionData.weight) {
+                return Object.entries(sectionData.weight).map(
+                  ([key, { value }]) => (
+                    <div key={key}>
+                      <span>{key}</span>
+                      <input
+                        type="text"
+                        name={key}
+                        value={value}
+                        onChange={(event) =>
+                          handleInputChange(event, section, "weight", key, null)
+                        }
+                      />
+                    </div>
+                  )
+                );
+              }
+            } else {
+              // Render input fields for other sections
+              return Object.entries(sectionData).map(([key, { value }]) => (
+                <div key={key}>
+                  <input
+                    type="text"
+                    name={key}
+                    value={value}
+                    onChange={(event) =>
+                      handleInputChange(event, section, "weight", key, null)
+                    }
+                  />
+                </div>
+              ));
+            }
+          })}
+        </div>
       )}
       <button onClick={handleGenerateJson}>Generate Updated JSON</button>
 
