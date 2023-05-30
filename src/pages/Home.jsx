@@ -46,6 +46,14 @@ const Home = () => {
       image: tokensTool,
     },
     {
+      title: "Skin generator",
+      description:
+        "A tool to help designers and developers to visualize and work with the available mistica skins.",
+      link: "/skin-generator",
+      buttonLabel: "Visit",
+      image: tokensTool,
+    },
+    {
       title: "Mistica wrapped",
       description:
         "Data summary on what has happened in the year 2022 in Mística.",

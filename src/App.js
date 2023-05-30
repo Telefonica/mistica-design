@@ -9,6 +9,7 @@ import { skinVars } from "@telefonica/mistica";
 import { getTelefonicaSkin, ThemeContextProvider } from "@telefonica/mistica";
 import { useState } from "react";
 import { createContext } from "react";
+import SkinGenerator from "./pages/skinGenerator";
 
 export const SchemeContext = createContext();
 
@@ -37,6 +38,10 @@ const App = () => {
     {
       path: `/tokens-map/:branch/:selectedSkin/:tokenType/:id`,
       element: <TokenDetail />,
+    },
+    {
+      path: `/skin-generator`,
+      element: <SkinGenerator />,
     },
   ]);
   const [theme, setTheme] = useState("light");
