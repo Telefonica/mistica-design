@@ -17,7 +17,7 @@ import {
   Checkbox,
   Text2,
 } from "@telefonica/mistica";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Palette = ({
   skin,
@@ -29,12 +29,14 @@ const Palette = ({
 }) => {
   const [showProminent, setShowProminent] = useState(false);
 
+  useEffect(() => {
+    setShowProminent(false);
+  }, [selectedSkin]);
+
   const colors = skin?.light || {};
   const darkColors = skin?.dark || {};
   const palette = skin?.global?.palette || {};
   const prominentColors = skin?.prominent || {};
-  const extendedLight = skin?.light?.extended || {};
-  const extendedDark = skin?.dark?.extended || {};
 
   const colorKeys = Object.keys(colors).filter((key) =>
     key.toLowerCase().includes(filter?.toLowerCase())
@@ -43,6 +45,9 @@ const Palette = ({
   // Get the palette key from the token value
 
   function getPaletteKey(value) {
+    if (value === undefined || value === null) {
+      return undefined;
+    }
     const match = value?.match(/\{palette\.([^\}]+)\}/);
     return match ? match[1] : null;
   }
@@ -62,19 +67,7 @@ const Palette = ({
     }
   }
 
-  // Get the extended color value from the skin
-
-  function getExtendedColorValue(skin, color, extended) {
-    const extendedColor = extended?.[color.extended];
-    if (extendedColor) {
-      const paletteKey = getPaletteKey(extendedColor.value);
-      if (paletteKey) {
-        return palette[paletteKey]?.value || undefined;
-      } else {
-        return extendedColor.value;
-      }
-    }
-  }
+  // Get the prominent color value from the palette
 
   function getProminentColorValue(prominentColor, palette) {
     if (prominentColor && Object.keys(prominentColor).length > 0) {
@@ -95,6 +88,10 @@ const Palette = ({
   // Check if the palette reference matches the description
 
   function checkDescription(tokenValue, description) {
+    if (description === undefined || description === null) {
+      return undefined;
+    }
+
     const paletteName = getPaletteKey(tokenValue);
     return paletteName === description;
   }
@@ -102,6 +99,9 @@ const Palette = ({
   // Get the alpha value from a token value
 
   function getAlphaValue(tokenValue) {
+    if (tokenValue === undefined || tokenValue === null) {
+      return "";
+    }
     const match = tokenValue.match(/rgba?\(.*,\s*([\d.]+)\s*\)/);
     return match ? match[1] : "";
   }
@@ -117,6 +117,26 @@ const Palette = ({
     return numericAlphaValue < 0 ? value : hexToRgbA(value, alphaValue);
   }
 
+  function getAllColorInfo(color, scheme) {
+    const value =
+      scheme === ("light" || "dark")
+        ? getColorValue(color, palette)
+        : getProminentColorValue(color, palette);
+    const alphaValue = getAlphaValue(value);
+    const descriptionMatch =
+      scheme === "prominent"
+        ? checkDescription(color?.value, color?.description)
+        : checkDescription(color?.value, color.description);
+    const reference = getPaletteKey(color?.value);
+
+    return {
+      value,
+      alphaValue,
+      descriptionMatch,
+      description: color?.description,
+      reference,
+    };
+  }
   // Get the number of unrefered colors
 
   function countUnreferencedColors(colors, darkColors, palette) {
@@ -168,10 +188,7 @@ const Palette = ({
     alphaValue,
     reference,
     descriptionMatch,
-    tooltipColor,
-    tooltipSize,
-    tooltipErrorDescription,
-    tooltipWarningDescription,
+    description,
   }) => {
     return (
       <table style={{ textAlign: "left", width: "fit-content" }}>
@@ -208,22 +225,22 @@ const Palette = ({
                 <Tooltip
                   target={
                     <IconWarningFilled
-                      color={tooltipColor}
-                      size={tooltipSize}
+                      color={skinVars.colors.error}
+                      size={16}
                     />
                   }
-                  description={tooltipErrorDescription}
+                  description={`The value of this color references an unexistent or wrong palette token (${description})`}
                 ></Tooltip>
               )}
               {descriptionMatch ? undefined : (
                 <Tooltip
                   target={
                     <IconWarningFilled
-                      color={tooltipColor}
-                      size={tooltipSize}
+                      color={skinVars.colors.warning}
+                      size={16}
                     />
                   }
-                  description={tooltipWarningDescription}
+                  description={`Token description doesn't match (${description})`}
                 ></Tooltip>
               )}
             </td>
@@ -236,7 +253,7 @@ const Palette = ({
   return (
     <ResponsiveLayout>
       <Stack space={16}>
-        <div className={styles.palette}>
+        <Inline space="between" fullWidth>
           <Inline space={8} alignItems="center">
             <Tag type="inactive">{`Constants (${
               Object.keys(colorKeys).length
@@ -248,18 +265,18 @@ const Palette = ({
             {totalUnmatchedCount !== 0 ? (
               <Tag type="warning">{`Not matching descriptions (${totalUnmatchedCount})`}</Tag>
             ) : null}
-
-            {prominentColors && Object.keys(prominentColors).length > 0 && (
-              <Inline space={8}>
-                <Checkbox
-                  onChange={() => setShowProminent(!showProminent)}
-                  value={showProminent}
-                />
-                <Text2>Show prominent values</Text2>
-              </Inline>
-            )}
           </Inline>
-        </div>
+          {prominentColors && Object.keys(prominentColors).length > 0 && (
+            <Inline space={8}>
+              <Checkbox
+                onChange={() => setShowProminent(!showProminent)}
+                value={showProminent}
+              />
+              <Text2>Show prominent values</Text2>
+            </Inline>
+          )}
+        </Inline>
+
         <Boxed width={"100%"}>
           <Box paddingX={24} paddingBottom={24}>
             <div className={styles.palette}>
@@ -292,41 +309,15 @@ const Palette = ({
                   </thead>
                   <tbody>
                     {colorKeys.map((key) => {
-                      const color = colors[key];
+                      const lightColor = colors[key];
                       const darkColor = darkColors[key];
                       const prominentColor = prominentColors[key];
 
-                      const lightReference = getPaletteKey(color.value);
-                      const darkReference = getPaletteKey(darkColor.value);
-                      const prominentReference = getPaletteKey(
-                        prominentColor?.value
-                      );
-
-                      let value = getColorValue(color, palette);
-                      let darkValue = getColorValue(darkColor, palette);
-                      let prominentValue = getProminentColorValue(
+                      const lightInfo = getAllColorInfo(lightColor, "light");
+                      const darkInfo = getAllColorInfo(darkColor, "dark");
+                      const prominentInfo = getAllColorInfo(
                         prominentColor,
-                        palette
-                      );
-
-                      const alphaValue = color.value
-                        ? getAlphaValue(color.value)
-                        : "";
-                      const darkAlphaValue = darkColor.value
-                        ? getAlphaValue(darkColor.value)
-                        : "";
-                      const prominentAlphaValue = prominentColor?.value
-                        ? getAlphaValue(prominentColor.value ?? "")
-                        : "";
-
-                      const lightDescriptionMatch = checkDescription(
-                        color.value,
-                        color.description
-                      );
-
-                      const darkDescriptionMatch = checkDescription(
-                        darkColor.value,
-                        darkColor.description
+                        "prominent"
                       );
 
                       return (
@@ -334,9 +325,11 @@ const Palette = ({
                           key={key}
                           style={{
                             background:
-                              value === undefined || darkValue === undefined
+                              lightInfo.value === undefined ||
+                              darkInfo.value === undefined
                                 ? skinVars.colors.errorLow
-                                : lightDescriptionMatch && darkDescriptionMatch
+                                : lightInfo.descriptionMatch &&
+                                  darkInfo.descriptionMatch
                                 ? undefined
                                 : skinVars.colors.warningLow,
                           }}
@@ -352,14 +345,11 @@ const Palette = ({
                           {/* Column 2: Light */}
                           <td>
                             <ColorTable
-                              value={value}
-                              alphaValue={alphaValue}
-                              reference={lightReference}
-                              descriptionMatch={lightDescriptionMatch}
-                              tooltipColor={skinVars.colors.error}
-                              tooltipSize={16}
-                              tooltipErrorDescription={`The value of this color references an unexistent or wrong palette token (${color.description})`}
-                              tooltipWarningDescription={`Token description doesn't match (${color.description})`}
+                              value={lightInfo.value}
+                              alphaValue={lightInfo.alphaValue}
+                              reference={lightInfo.reference}
+                              descriptionMatch={lightInfo.descriptionMatch}
+                              description={lightInfo.description}
                             />
                           </td>
                           {/* Column 3: Prominent */}
@@ -367,28 +357,24 @@ const Palette = ({
                             Object.keys(prominentColors).length > 0 && (
                               <td>
                                 <ColorTable
-                                  value={prominentValue}
-                                  alphaValue={prominentAlphaValue}
-                                  reference={prominentReference}
-                                  descriptionMatch={lightDescriptionMatch}
-                                  tooltipColor={skinVars.colors.error}
-                                  tooltipSize={16}
-                                  tooltipErrorDescription={`The value of this color references an unexistent or wrong palette token (${color.description})`}
-                                  tooltipWarningDescription={`Token description doesn't match (${color.description})`}
+                                  value={prominentInfo.value}
+                                  alphaValue={prominentInfo.alphaValue}
+                                  reference={prominentInfo.reference}
+                                  descriptionMatch={
+                                    prominentInfo.descriptionMatch
+                                  }
+                                  description={prominentInfo.description}
                                 />
                               </td>
                             )}
                           {/* Column 4: Dark */}
                           <td>
                             <ColorTable
-                              value={darkValue}
-                              alphaValue={darkAlphaValue}
-                              reference={darkReference}
-                              descriptionMatch={darkDescriptionMatch}
-                              tooltipColor={skinVars.colors.error}
-                              tooltipSize={16}
-                              tooltipErrorDescription={`The value of this color references an unexistent or wrong palette token (${color.description})`}
-                              tooltipWarningDescription={`Token description doesn't match (${color.description})`}
+                              value={darkInfo.value}
+                              alphaValue={darkInfo.alphaValue}
+                              reference={darkInfo.reference}
+                              descriptionMatch={darkInfo.descriptionMatch}
+                              description={darkInfo.description}
                             />
                           </td>
                         </tr>
