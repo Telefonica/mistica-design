@@ -207,7 +207,7 @@ const Palette = ({
                       <th>
                         <Text weight="medium">Light value</Text>
                       </th>
-                      {!showProminent &&
+                      {showProminent &&
                         prominentColors &&
                         Object.keys(prominentColors).length > 0 && (
                           <th>
@@ -361,7 +361,7 @@ const Palette = ({
                               </tbody>
                             </table>
                           </td>
-                          {!showProminent &&
+                          {showProminent &&
                             prominentColors &&
                             Object.keys(prominentColors).length > 0 && (
                               <td>
