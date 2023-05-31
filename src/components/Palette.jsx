@@ -14,7 +14,10 @@ import {
   Stack,
   IconWarningFilled,
   Tooltip,
+  Checkbox,
+  Text2,
 } from "@telefonica/mistica";
+import { useState } from "react";
 
 const Palette = ({
   skin,
@@ -24,9 +27,14 @@ const Palette = ({
   tokenType,
   selectedColor,
 }) => {
+  const [showProminent, setShowProminent] = useState(false);
+
   const colors = skin?.light || {};
   const darkColors = skin?.dark || {};
   const palette = skin?.global?.palette || {};
+  const prominentColors = skin?.prominent || {};
+  const extendedLight = skin?.light?.extended || {};
+  const extendedDark = skin?.dark?.extended || {};
 
   const colorKeys = Object.keys(colors).filter((key) =>
     key.toLowerCase().includes(filter?.toLowerCase())
@@ -54,6 +62,36 @@ const Palette = ({
     }
   }
 
+  // Get the extended color value from the skin
+
+  function getExtendedColorValue(skin, color, extended) {
+    const extendedColor = extended?.[color.extended];
+    if (extendedColor) {
+      const paletteKey = getPaletteKey(extendedColor.value);
+      if (paletteKey) {
+        return palette[paletteKey]?.value || undefined;
+      } else {
+        return extendedColor.value;
+      }
+    }
+  }
+
+  function getProminentColorValue(prominentColor, palette) {
+    if (prominentColor && Object.keys(prominentColor).length > 0) {
+      if (prominentColor) {
+        const paletteKey = getPaletteKey(prominentColor.value);
+        if (paletteKey) {
+          return palette[paletteKey]?.value || undefined;
+        } else {
+          return prominentColor.value;
+        }
+      }
+    }
+
+    // Return undefined when prominentColors is not defined or empty
+    return undefined;
+  }
+
   // Check if the palette reference matches the description
 
   function checkDescription(tokenValue, description) {
@@ -71,7 +109,12 @@ const Palette = ({
   // Check if the color has alpha and convert the hex to rgba
 
   function applyAlpha(value, alphaValue) {
-    return alphaValue < "0" ? value : hexToRgbA(value, alphaValue);
+    if (!alphaValue || alphaValue === "") {
+      return value;
+    }
+
+    const numericAlphaValue = parseFloat(alphaValue);
+    return numericAlphaValue < 0 ? value : hexToRgbA(value, alphaValue);
   }
 
   // Get the number of unrefered colors
@@ -135,6 +178,16 @@ const Palette = ({
             {totalUnmatchedCount !== 0 ? (
               <Tag type="warning">{`Not matching descriptions (${totalUnmatchedCount})`}</Tag>
             ) : null}
+
+            {prominentColors && Object.keys(prominentColors).length > 0 && (
+              <Inline space={8}>
+                <Checkbox
+                  onChange={() => setShowProminent(!showProminent)}
+                  value={showProminent}
+                />
+                <Text2>Show prominent values</Text2>
+              </Inline>
+            )}
           </Inline>
         </div>
         <Boxed width={"100%"}>
@@ -154,6 +207,14 @@ const Palette = ({
                       <th>
                         <Text weight="medium">Light value</Text>
                       </th>
+                      {!showProminent &&
+                        prominentColors &&
+                        Object.keys(prominentColors).length > 0 && (
+                          <th>
+                            <Text weight="medium">Prominent value</Text>
+                          </th>
+                        )}
+
                       <th>
                         <Text weight="medium">Dark value</Text>
                       </th>
@@ -163,16 +224,39 @@ const Palette = ({
                     {colorKeys.map((key) => {
                       const color = colors[key];
                       const darkColor = darkColors[key];
+                      const extendedLightColor = extendedLight[key];
+                      const extendedDarkColor = extendedDark[key];
+                      const prominentColor = prominentColors[key];
+
                       const lightReference = getPaletteKey(color.value);
                       const darkReference = getPaletteKey(darkColor.value);
+                      const prominentReference = getPaletteKey(
+                        prominentColor?.value
+                      );
+
                       let value = getColorValue(color, palette);
                       let darkValue = getColorValue(darkColor, palette);
+                      let extendedLightValue = getExtendedColorValue(
+                        extendedLightColor,
+                        palette
+                      );
+                      let extendedDarkValue = getExtendedColorValue(
+                        extendedDarkColor,
+                        palette
+                      );
+                      let prominentValue = getProminentColorValue(
+                        prominentColor,
+                        palette
+                      );
 
                       const alphaValue = color.value
                         ? getAlphaValue(color.value)
                         : "";
                       const darkAlphaValue = darkColor.value
                         ? getAlphaValue(darkColor.value)
+                        : "";
+                      const prominentAlphaValue = prominentColor?.value
+                        ? getAlphaValue(prominentColor.value ?? "")
                         : "";
 
                       const lightDescriptionMatch = checkDescription(
@@ -236,7 +320,7 @@ const Palette = ({
                                         ></Circle>
                                       </div>
                                     ) : (
-                                      "Ø"
+                                      <Tag type="error">Undefined</Tag>
                                     )}
                                   </td>
                                   <td>{applyAlpha(value, alphaValue)}</td>
@@ -277,6 +361,90 @@ const Palette = ({
                               </tbody>
                             </table>
                           </td>
+                          {!showProminent &&
+                            prominentColors &&
+                            Object.keys(prominentColors).length > 0 && (
+                              <td>
+                                <table
+                                  style={{
+                                    textAlign: "left",
+                                    width: "fit-content",
+                                  }}
+                                >
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        {prominentValue !== undefined ? (
+                                          <div
+                                            style={{
+                                              outline: `1px solid ${
+                                                prominentReference ===
+                                                ("white" || "grey1")
+                                                  ? skinVars.colors
+                                                      .neutralMedium
+                                                  : undefined
+                                              }`,
+                                              width: "fit-content",
+                                              borderRadius: "50%",
+                                            }}
+                                          >
+                                            <Circle
+                                              size={16}
+                                              backgroundColor={applyAlpha(
+                                                prominentValue,
+                                                prominentAlphaValue
+                                              )}
+                                            ></Circle>
+                                          </div>
+                                        ) : (
+                                          <Tag type="error">Undefined</Tag>
+                                        )}
+                                      </td>
+                                      <td>
+                                        {applyAlpha(
+                                          prominentValue,
+                                          prominentAlphaValue
+                                        )}
+                                      </td>
+                                      <td>
+                                        <Tag
+                                          type={
+                                            prominentValue === undefined
+                                              ? "error"
+                                              : "success"
+                                          }
+                                        >
+                                          {prominentReference}
+                                        </Tag>
+                                        {prominentValue !=
+                                        undefined ? undefined : (
+                                          <Tooltip
+                                            target={
+                                              <IconWarningFilled
+                                                color={skinVars.colors.error}
+                                                size={16}
+                                              />
+                                            }
+                                            description={`The value of this color references an unexistent or wrong palette token (${color.description})`}
+                                          ></Tooltip>
+                                        )}
+                                        {lightDescriptionMatch ? undefined : (
+                                          <Tooltip
+                                            target={
+                                              <IconWarningFilled
+                                                color={skinVars.colors.warning}
+                                                size={16}
+                                              />
+                                            }
+                                            description={`Token description doesn't match (${color.description})`}
+                                          ></Tooltip>
+                                        )}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            )}
                           <td>
                             <table
                               style={{
@@ -309,7 +477,7 @@ const Palette = ({
                                         ></Circle>
                                       </div>
                                     ) : (
-                                      "Ø"
+                                      <Tag type="error">Undefined</Tag>
                                     )}
                                   </td>
                                   <td>
