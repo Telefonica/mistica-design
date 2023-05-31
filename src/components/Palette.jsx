@@ -163,6 +163,76 @@ const Palette = ({
   const darkUnmatchedCount = countUnmatchedColors(darkColors);
   const totalUnmatchedCount = lightUnmatchedCount + darkUnmatchedCount;
 
+  const ColorTable = ({
+    value,
+    alphaValue,
+    reference,
+    descriptionMatch,
+    tooltipColor,
+    tooltipSize,
+    tooltipErrorDescription,
+    tooltipWarningDescription,
+  }) => {
+    return (
+      <table style={{ textAlign: "left", width: "fit-content" }}>
+        <tbody>
+          <tr>
+            <td>
+              {value !== undefined ? (
+                <div
+                  style={{
+                    outline: `1px solid ${
+                      reference === ("white" || "grey1")
+                        ? skinVars.colors.neutralMedium
+                        : undefined
+                    }`,
+                    width: "fit-content",
+                    borderRadius: "50%",
+                  }}
+                >
+                  <Circle
+                    size={16}
+                    backgroundColor={applyAlpha(value, alphaValue)}
+                  ></Circle>
+                </div>
+              ) : (
+                <Tag type="error">Undefined</Tag>
+              )}
+            </td>
+            <td>{applyAlpha(value, alphaValue)}</td>
+            <td>
+              <Tag type={value === undefined ? "error" : "success"}>
+                {reference}
+              </Tag>
+              {value !== undefined ? undefined : (
+                <Tooltip
+                  target={
+                    <IconWarningFilled
+                      color={tooltipColor}
+                      size={tooltipSize}
+                    />
+                  }
+                  description={tooltipErrorDescription}
+                ></Tooltip>
+              )}
+              {descriptionMatch ? undefined : (
+                <Tooltip
+                  target={
+                    <IconWarningFilled
+                      color={tooltipColor}
+                      size={tooltipSize}
+                    />
+                  }
+                  description={tooltipWarningDescription}
+                ></Tooltip>
+              )}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  };
+
   return (
     <ResponsiveLayout>
       <Stack space={16}>
@@ -224,8 +294,6 @@ const Palette = ({
                     {colorKeys.map((key) => {
                       const color = colors[key];
                       const darkColor = darkColors[key];
-                      const extendedLightColor = extendedLight[key];
-                      const extendedDarkColor = extendedDark[key];
                       const prominentColor = prominentColors[key];
 
                       const lightReference = getPaletteKey(color.value);
@@ -236,14 +304,6 @@ const Palette = ({
 
                       let value = getColorValue(color, palette);
                       let darkValue = getColorValue(darkColor, palette);
-                      let extendedLightValue = getExtendedColorValue(
-                        extendedLightColor,
-                        palette
-                      );
-                      let extendedDarkValue = getExtendedColorValue(
-                        extendedDarkColor,
-                        palette
-                      );
                       let prominentValue = getProminentColorValue(
                         prominentColor,
                         palette
@@ -281,6 +341,7 @@ const Palette = ({
                                 : skinVars.colors.warningLow,
                           }}
                         >
+                          {/* Column 1: Key */}
                           <td>
                             <Touchable
                               to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${selectedColor}/${key}/`}
@@ -288,237 +349,47 @@ const Palette = ({
                               <Tag type="active">{key}</Tag>
                             </Touchable>
                           </td>
+                          {/* Column 2: Light */}
                           <td>
-                            <table
-                              style={{
-                                textAlign: "left",
-                                width: "fit-content",
-                              }}
-                            >
-                              <tbody>
-                                <tr>
-                                  <td>
-                                    {value !== undefined ? (
-                                      <div
-                                        style={{
-                                          outline: `1px solid ${
-                                            lightReference ===
-                                            ("white" || "grey1")
-                                              ? skinVars.colors.neutralMedium
-                                              : undefined
-                                          }`,
-                                          width: "fit-content",
-                                          borderRadius: "50%",
-                                        }}
-                                      >
-                                        <Circle
-                                          size={16}
-                                          backgroundColor={applyAlpha(
-                                            value,
-                                            alphaValue
-                                          )}
-                                        ></Circle>
-                                      </div>
-                                    ) : (
-                                      <Tag type="error">Undefined</Tag>
-                                    )}
-                                  </td>
-                                  <td>{applyAlpha(value, alphaValue)}</td>
-                                  <td>
-                                    <Tag
-                                      type={
-                                        value === undefined
-                                          ? "error"
-                                          : "success"
-                                      }
-                                    >
-                                      {lightReference}
-                                    </Tag>
-                                    {value != undefined ? undefined : (
-                                      <Tooltip
-                                        target={
-                                          <IconWarningFilled
-                                            color={skinVars.colors.error}
-                                            size={16}
-                                          />
-                                        }
-                                        description={`The value of this color references an unexistent or wrong palette token (${color.description})`}
-                                      ></Tooltip>
-                                    )}
-                                    {lightDescriptionMatch ? undefined : (
-                                      <Tooltip
-                                        target={
-                                          <IconWarningFilled
-                                            color={skinVars.colors.warning}
-                                            size={16}
-                                          />
-                                        }
-                                        description={`Token description doesn't match (${color.description})`}
-                                      ></Tooltip>
-                                    )}
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
+                            <ColorTable
+                              value={value}
+                              alphaValue={alphaValue}
+                              reference={lightReference}
+                              descriptionMatch={lightDescriptionMatch}
+                              tooltipColor={skinVars.colors.error}
+                              tooltipSize={16}
+                              tooltipErrorDescription={`The value of this color references an unexistent or wrong palette token (${color.description})`}
+                              tooltipWarningDescription={`Token description doesn't match (${color.description})`}
+                            />
                           </td>
+                          {/* Column 3: Prominent */}
                           {showProminent &&
-                            prominentColors &&
                             Object.keys(prominentColors).length > 0 && (
                               <td>
-                                <table
-                                  style={{
-                                    textAlign: "left",
-                                    width: "fit-content",
-                                  }}
-                                >
-                                  <tbody>
-                                    <tr>
-                                      <td>
-                                        {prominentValue !== undefined ? (
-                                          <div
-                                            style={{
-                                              outline: `1px solid ${
-                                                prominentReference ===
-                                                ("white" || "grey1")
-                                                  ? skinVars.colors
-                                                      .neutralMedium
-                                                  : undefined
-                                              }`,
-                                              width: "fit-content",
-                                              borderRadius: "50%",
-                                            }}
-                                          >
-                                            <Circle
-                                              size={16}
-                                              backgroundColor={applyAlpha(
-                                                prominentValue,
-                                                prominentAlphaValue
-                                              )}
-                                            ></Circle>
-                                          </div>
-                                        ) : (
-                                          <Tag type="error">Undefined</Tag>
-                                        )}
-                                      </td>
-                                      <td>
-                                        {applyAlpha(
-                                          prominentValue,
-                                          prominentAlphaValue
-                                        )}
-                                      </td>
-                                      <td>
-                                        <Tag
-                                          type={
-                                            prominentValue === undefined
-                                              ? "error"
-                                              : "success"
-                                          }
-                                        >
-                                          {prominentReference}
-                                        </Tag>
-                                        {prominentValue !=
-                                        undefined ? undefined : (
-                                          <Tooltip
-                                            target={
-                                              <IconWarningFilled
-                                                color={skinVars.colors.error}
-                                                size={16}
-                                              />
-                                            }
-                                            description={`The value of this color references an unexistent or wrong palette token (${color.description})`}
-                                          ></Tooltip>
-                                        )}
-                                        {lightDescriptionMatch ? undefined : (
-                                          <Tooltip
-                                            target={
-                                              <IconWarningFilled
-                                                color={skinVars.colors.warning}
-                                                size={16}
-                                              />
-                                            }
-                                            description={`Token description doesn't match (${color.description})`}
-                                          ></Tooltip>
-                                        )}
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
+                                <ColorTable
+                                  value={prominentValue}
+                                  alphaValue={prominentAlphaValue}
+                                  reference={prominentReference}
+                                  descriptionMatch={lightDescriptionMatch}
+                                  tooltipColor={skinVars.colors.error}
+                                  tooltipSize={16}
+                                  tooltipErrorDescription={`The value of this color references an unexistent or wrong palette token (${color.description})`}
+                                  tooltipWarningDescription={`Token description doesn't match (${color.description})`}
+                                />
                               </td>
                             )}
+                          {/* Column 4: Dark */}
                           <td>
-                            <table
-                              style={{
-                                textAlign: "left",
-                                width: "fit-content",
-                              }}
-                            >
-                              <tbody>
-                                <tr>
-                                  <td>
-                                    {darkValue !== undefined ? (
-                                      <div
-                                        style={{
-                                          outline: `1px solid ${
-                                            darkReference ===
-                                            ("white" || "grey1")
-                                              ? skinVars.colors.neutralMedium
-                                              : undefined
-                                          }`,
-                                          width: "fit-content",
-                                          borderRadius: "50%",
-                                        }}
-                                      >
-                                        <Circle
-                                          size={16}
-                                          backgroundColor={applyAlpha(
-                                            darkValue,
-                                            darkAlphaValue
-                                          )}
-                                        ></Circle>
-                                      </div>
-                                    ) : (
-                                      <Tag type="error">Undefined</Tag>
-                                    )}
-                                  </td>
-                                  <td>
-                                    {applyAlpha(darkValue, darkAlphaValue)}
-                                  </td>
-                                  <td>
-                                    <Tag
-                                      type={
-                                        darkValue === undefined
-                                          ? "error"
-                                          : "success"
-                                      }
-                                    >
-                                      {darkReference}
-                                    </Tag>
-                                    {darkValue != undefined ? undefined : (
-                                      <Tooltip
-                                        target={
-                                          <IconWarningFilled
-                                            color={skinVars.colors.error}
-                                            size={16}
-                                          />
-                                        }
-                                        description={`The value of this color references an unexistent or wrong palette token (${color.description})`}
-                                      ></Tooltip>
-                                    )}
-                                    {darkDescriptionMatch ? undefined : (
-                                      <Tooltip
-                                        target={
-                                          <IconWarningFilled
-                                            color={skinVars.colors.warning}
-                                            size={16}
-                                          />
-                                        }
-                                        description={`Token description doesn't match (${darkColor.description})`}
-                                      ></Tooltip>
-                                    )}
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
+                            <ColorTable
+                              value={darkValue}
+                              alphaValue={darkAlphaValue}
+                              reference={darkReference}
+                              descriptionMatch={darkDescriptionMatch}
+                              tooltipColor={skinVars.colors.error}
+                              tooltipSize={16}
+                              tooltipErrorDescription={`The value of this color references an unexistent or wrong palette token (${color.description})`}
+                              tooltipWarningDescription={`Token description doesn't match (${color.description})`}
+                            />
                           </td>
                         </tr>
                       );
