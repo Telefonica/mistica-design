@@ -16,14 +16,14 @@
       "description": "white"
     },
     "backgroundContainerHover": {
-      "value": "{palette.grey0}",
+      "value": "rgba({palette.telefonicaBlue}, 0.03)",
       "type": "color",
-      "description": "grey0"
+      "description": "telefonicaBlue"
     },
     "backgroundContainerPressed": {
-      "value": "{palette.grey1}",
+      "value": "rgba({palette.telefonicaBlue}, 0.05)",
       "type": "color",
-      "description": "grey1"
+      "description": "telefonicaBlue"
     },
     "backgroundContainerBrand": {
       "value": "{palette.telefonicaBlue}",
@@ -31,44 +31,24 @@
       "description": "telefonicaBlue"
     },
     "backgroundContainerBrandHover": {
-      "value": "{palette.telefonicaBlue60}",
+      "value": "rgba({palette.darkModeBlack}, 0.08)",
       "type": "color",
-      "description": "telefonicaBlue60"
+      "description": "darkModeBlack"
     },
     "backgroundContainerBrandPressed": {
-      "value": "{palette.telefonicaBlue70}",
+      "value": "rgba({palette.darkModeBlack}, 0.16)",
       "type": "color",
-      "description": "telefonicaBlue70"
+      "description": "darkModeBlack"
     },
     "backgroundContainerBrandOverInverse": {
       "value": "{palette.telefonicaBlue70}",
       "type": "color",
       "description": "telefonicaBlue70"
     },
-    "backgroundContainerBrandOverInverseHover": {
-      "value": "{palette.telefonicaBlue80}",
-      "type": "color",
-      "description": "telefonicaBlue80"
-    },
-    "backgroundContainerBrandOverInversePressed": {
-      "value": "{palette.telefonicaBlue90}",
-      "type": "color",
-      "description": "telefonicaBlue90"
-    },
     "backgroundContainerAlternative": {
       "value": "{palette.grey1}",
       "type": "color",
       "description": "grey1"
-    },
-    "backgroundContainerAlternativeHover": {
-      "value": "rgba({palette.grey5}, 0.1)",
-      "type": "color",
-      "description": "grey5"
-    },
-    "backgroundContainerAlternativePressed": {
-      "value": "rgba({palette.grey5}, 0.2)",
-      "type": "color",
-      "description": "grey5"
     },
     "backgroundBrand": {
       "value": "{palette.telefonicaBlue}",
@@ -563,14 +543,14 @@
       "description": "darkModeGrey"
     },
     "backgroundContainerHover": {
-      "value": "{palette.darkModeGrey7}",
+      "value": "rgba({palette.white}, 0.03)",
       "type": "color",
-      "description": "darkModeGrey7"
+      "description": "white"
     },
     "backgroundContainerPressed": {
-      "value": "{palette.darkModeGrey8}",
+      "value": "rgba({palette.white}, 0.05)",
       "type": "color",
-      "description": "darkModeGrey8"
+      "description": "white"
     },
     "backgroundContainerBrand": {
       "value": "{palette.darkModeGrey}",
@@ -578,44 +558,24 @@
       "description": "darkModeGrey"
     },
     "backgroundContainerBrandHover": {
-      "value": "{palette.darkModeGrey7}",
+      "value": "rgba({palette.white}, 0.03)",
       "type": "color",
-      "description": "darkModeGrey7"
+      "description": "white"
     },
     "backgroundContainerBrandPressed": {
-      "value": "{palette.darkModeGrey8}",
+      "value": "rgba({palette.white}, 0.05)",
       "type": "color",
-      "description": "darkModeGrey8"
+      "description": "white"
     },
     "backgroundContainerBrandOverInverse": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
     },
-    "backgroundContainerBrandOverInverseHover": {
-      "value": "{palette.darkModeGrey7}",
-      "type": "color",
-      "description": "darkModeGrey7"
-    },
-    "backgroundContainerBrandOverInversePressed": {
-      "value": "{palette.darkModeGrey8}",
-      "type": "color",
-      "description": "darkModeGrey8"
-    },
     "backgroundContainerAlternative": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
-    },
-    "backgroundContainerAlternativeHover": {
-      "value": "{palette.darkModeGrey7}",
-      "type": "color",
-      "description": "darkModeGrey7"
-    },
-    "backgroundContainerAlternativePressed": {
-      "value": "{palette.darkModeGrey8}",
-      "type": "color",
-      "description": "darkModeGrey8"
     },
     "backgroundOverlay": {
       "value": "rgba({palette.darkModeGrey}, 0.8)",
@@ -820,7 +780,7 @@
     "control": {
       "value": "{palette.darkModeGrey6}",
       "type": "color",
-      "description": "darkModeGrey"
+      "description": "darkModeGrey6"
     },
     "controlActivated": {
       "value": "{palette.telefonicaBlue}",
@@ -1165,20 +1125,8 @@
         "value": "#80B3FF",
         "type": "color"
       },
-      "telefonicaBlue60": {
-        "value": "#015CE4",
-        "type": "color"
-      },
       "telefonicaBlue70": {
         "value": "#0356C9",
-        "type": "color"
-      },
-      "telefonicaBlue80": {
-        "value": "#034BB0",
-        "type": "color"
-      },
-      "telefonicaBlue90": {
-        "value": "#024097",
         "type": "color"
       },
       "ambar": {
@@ -1249,10 +1197,6 @@
         "value": "#3E888D",
         "type": "color"
       },
-      "grey0": {
-        "value": "#FAFBFF",
-        "type": "color"
-      },
       "grey1": {
         "value": "#F2F4FF",
         "type": "color"
@@ -1303,14 +1247,6 @@
       },
       "darkModeGrey6": {
         "value": "#313235",
-        "type": "color"
-      },
-      "darkModeGrey7": {
-        "value": "#303030",
-        "type": "color"
-      },
-      "darkModeGrey8": {
-        "value": "#3D3D3D",
         "type": "color"
       }
     }
