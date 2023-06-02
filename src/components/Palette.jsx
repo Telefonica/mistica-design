@@ -309,14 +309,10 @@ const Palette = ({
                   </thead>
                   <tbody>
                     {colorKeys.map((key) => {
-                      const lightColor = colors[key];
-                      const darkColor = darkColors[key];
-                      const prominentColor = prominentColors[key];
-
-                      const lightInfo = getAllColorInfo(lightColor, "light");
-                      const darkInfo = getAllColorInfo(darkColor, "dark");
+                      const lightInfo = getAllColorInfo(colors[key], "light");
+                      const darkInfo = getAllColorInfo(darkColors[key], "dark");
                       const prominentInfo = getAllColorInfo(
-                        prominentColor,
+                        prominentColors[key],
                         "prominent"
                       );
 
