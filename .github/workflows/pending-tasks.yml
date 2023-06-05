@@ -1,0 +1,73 @@
+name: Looking for issues with pending tasks
+
+on:
+  workflow_dispatch:
+
+jobs:
+  checkboxes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v2
+
+      - name: Configurar Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x # Especifica la versión de Python que necesites
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install PyGithub
+
+      - name: Ejecutar script de búsqueda
+        env:
+          TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+        run: |
+          python - <<EOF
+          import os
+          from github import Github
+
+          TOKEN = os.environ['TOKEN']
+
+          # Nombre de usuario y nombre del repositorio
+          OWNER = 'Telefonica'
+          REPO = 'mistica-design'
+
+          # URL base del repositorio
+          REPO_URL = f'https://github.com/{OWNER}/{REPO}'
+
+          # Crea una instancia de la clase Github usando tu token de acceso
+          g = Github(TOKEN)
+
+          # Obtiene el repositorio
+          repo = g.get_repo(f'{OWNER}/{REPO}')
+
+          # Busca las issues cerradas en el repositorio
+          closed_issues = repo.get_issues(state='closed')
+
+          # Lista para almacenar las issues con checkboxes desactivados
+          issues_con_checkboxes_desactivados = []
+
+          # Itera sobre las issues cerradas
+          for issue in closed_issues:
+              # Verifica que el cuerpo de la issue no sea None
+              if issue.body is not None and '- [ ]' in issue.body:
+                  issues_con_checkboxes_desactivados.append(issue)
+                  continue
+
+              # Obtiene los comentarios de la issue
+              comments = issue.get_comments()
+
+              # Busca checkboxes desactivados en los comentarios
+              for comment in comments:
+                  if '- [ ]' in comment.body:
+                      issues_con_checkboxes_desactivados.append(issue)
+                      break
+
+          # Imprime el listado de issues con checkboxes desactivados
+          print("Issues con checkboxes desactivados:")
+          for issue in issues_con_checkboxes_desactivados:
+              issue_url = f'{REPO_URL}/issues/{issue.number}'
+              print(f"Issue #{issue.number}: {issue.title} ({issue_url})")
+          EOF
