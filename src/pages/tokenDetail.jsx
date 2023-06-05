@@ -22,8 +22,6 @@ const TokenDetail = () => {
   const [skins, setSkins] = useState([]);
   const { id, tokenType, branch, tokenTextType, selectedSkin } = useParams();
 
-  console.log(tokenTextType);
-
   const skinFiles = [
     { name: "Movistar", filename: "movistar.json" },
     { name: "Vivo", filename: "vivo.json" },
@@ -163,7 +161,8 @@ const TokenDetail = () => {
         <thead>
           <tr>
             <th>Skin</th>
-            <th>Value</th>
+            <th>Mobile value</th>
+            <th>Desktop value</th>
             <th>Example</th>
           </tr>
         </thead>
@@ -174,12 +173,20 @@ const TokenDetail = () => {
               <tr key={index}>
                 <td>{skin.name}</td>
                 <td>
-                  <Tag type="active">{value[0]}</Tag>
+                  <Text>{value[0]}px</Text>
                 </td>
                 <td>
-                  <Text size={24} weight={value[1]}>
-                    Aa
-                  </Text>
+                  <Text>{value[1]}px</Text>
+                </td>
+                <td>
+                  <Inline space={16}>
+                    <Text size={value[0]} weight="regular">
+                      Aa
+                    </Text>
+                    <Text size={value[1]} weight="regular">
+                      Aa
+                    </Text>
+                  </Inline>
                 </td>
               </tr>
             );
@@ -189,7 +196,46 @@ const TokenDetail = () => {
     );
   };
 
-  console.log(tokenType);
+  const renderLineHeightTable = () => {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>Skin</th>
+            <th>Mobile value</th>
+            <th>Desktop value</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          {skins.map((skin, index) => {
+            const value = getLineHeightValue(skin, id);
+            return (
+              <tr key={index}>
+                <td>{skin.name}</td>
+                <td>
+                  <Text>{value[0]}px</Text>
+                </td>
+                <td>
+                  <Text>{value[1]}px</Text>
+                </td>
+                <td>
+                  <Inline space={16}>
+                    <Text size={value[0]} weight="regular">
+                      Aa
+                    </Text>
+                    <Text size={value[1]} weight="regular">
+                      Aa
+                    </Text>
+                  </Inline>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    );
+  };
 
   return (
     <ResponsiveLayout>
@@ -212,6 +258,7 @@ const TokenDetail = () => {
             {tokenType === "radius" && <>{renderRadiusTable(skins, id)}</>}
             {tokenTextType === "size" && <>{renderSizeTable(skins, id)}</>}
             {tokenTextType === "weight" && <>{renderWeightTable(skins, id)}</>}
+            {tokenTextType === "lineHeight" && renderLineHeightTable(skins, id)}
           </Stack>
         </Stack>
       </div>
