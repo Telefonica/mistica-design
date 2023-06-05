@@ -26,14 +26,14 @@
       "description": "white"
     },
     "backgroundContainerHover": {
-      "value": "{palette.grey0}",
+      "value": "rgba({palette.blauBluePrimary}, 0.03)",
       "type": "color",
-      "description": "grey0"
+      "description": "blauBluePrimary"
     },
     "backgroundContainerPressed": {
-      "value": "{palette.grey1}",
+      "value": "rgba({palette.blauBluePrimary}, 0.05)",
       "type": "color",
-      "description": "grey1"
+      "description": "blauBluePrimary"
     },
     "backgroundContainerBrand": {
       "value": "{palette.blauBluePrimary}",
@@ -41,44 +41,24 @@
       "description": "blauBluePrimary"
     },
     "backgroundContainerBrandHover": {
-      "value": "{palette.blauBluePrimary60}",
+      "value": "rgba({palette.darkModeBlack}, 0.2)",
       "type": "color",
-      "description": "blauBluePrimary60"
+      "description": "darkModeBlack"
     },
     "backgroundContainerBrandPressed": {
-      "value": "{palette.blauBluePrimary70}",
+      "value": "rgba({palette.darkModeBlack}, 0.4)",
       "type": "color",
-      "description": "blauBluePrimary70"
+      "description": "darkModeBlack"
     },
     "backgroundContainerBrandOverInverse": {
       "value": "{palette.blauBlueSecondary}",
       "type": "color",
       "description": "blauBlueSecondary"
     },
-    "backgroundContainerBrandOverInverseHover": {
-      "value": "{palette.blauBlueSecondary50}",
-      "type": "color",
-      "description": "blauBlueSecondary50"
-    },
-    "backgroundContainerBrandOverInversePressed": {
-      "value": "{palette.blauBlueSecondary60}",
-      "type": "color",
-      "description": "blauBlueSecondary60"
-    },
     "backgroundContainerAlternative": {
       "value": "{palette.blauBluePrimary20}",
       "type": "color",
       "description": "blauBluePrimary20"
-    },
-    "backgroundContainerAlternativeHover": {
-      "value": "rgba({palette.grey5}, 0.1)",
-      "type": "color",
-      "description": "grey5"
-    },
-    "backgroundContainerAlternativePressed": {
-      "value": "rgba({palette.grey5}, 0.2)",
-      "type": "color",
-      "description": "grey5"
     },
     "backgroundOverlay": {
       "value": "rgba({palette.blauBlueSecondary}, 0.75)",
@@ -134,6 +114,16 @@
       "value": "{palette.blauBlueSecondary60}",
       "type": "color",
       "description": "blauBlueSecondary60"
+    },
+    "coverBackgroundHover": {
+      "value": "rgba({palette.darkModeBlack}, 0.25)",
+      "type": "color",
+      "description": "darkModeBlack"
+    },
+    "coverBackgroundPressed": {
+      "value": "rgba({palette.darkModeBlack}, 0.35)",
+      "type": "color",
+      "description": "darkModeBlack"
     },
     "buttonDangerBackground": {
       "value": "{palette.blauRed}",
@@ -563,14 +553,14 @@
       "description": "darkModeGrey"
     },
     "backgroundContainerHover": {
-      "value": "{palette.darkModeGrey7}",
+      "value": "rgba({palette.white}, 0.03)",
       "type": "color",
-      "description": "darkModeGrey7"
+      "description": "white"
     },
     "backgroundContainerPressed": {
-      "value": "{palette.darkModeGrey8}",
+      "value": "rgba({palette.white}, 0.05)",
       "type": "color",
-      "description": "darkModeGrey8"
+      "description": "white"
     },
     "backgroundContainerBrand": {
       "value": "{palette.darkModeGrey}",
@@ -578,24 +568,14 @@
       "description": "darkModeGrey"
     },
     "backgroundContainerBrandHover": {
-      "value": "{palette.darkModeGrey7}",
+      "value": "rgba({palette.white}, 0.03)",
       "type": "color",
-      "description": "darkModeGrey7"
+      "description": "white"
     },
     "backgroundContainerBrandPressed": {
-      "value": "{palette.darkModeGrey8}",
+      "value": "rgba({palette.white}, 0.05)",
       "type": "color",
-      "description": "darkModeGrey8"
-    },
-    "backgroundContainerBrandOverInverseHover": {
-      "value": "{palette.darkModeGrey7}",
-      "type": "color",
-      "description": "darkModeGrey7"
-    },
-    "backgroundContainerBrandOverInversePressed": {
-      "value": "{palette.darkModeGrey8}",
-      "type": "color",
-      "description": "darkModeGrey8"
+      "description": "white"
     },
     "backgroundContainerBrandOverInverse": {
       "value": "{palette.darkModeGrey}",
@@ -606,16 +586,6 @@
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
-    },
-    "backgroundContainerAlternativeHover": {
-      "value": "{palette.darkModeGrey7}",
-      "type": "color",
-      "description": "darkModeGrey7"
-    },
-    "backgroundContainerAlternativePressed": {
-      "value": "{palette.darkModeGrey8}",
-      "type": "color",
-      "description": "darkModeGrey8"
     },
     "backgroundOverlay": {
       "value": "rgba({palette.darkModeGrey}, 0.8)",
@@ -671,6 +641,16 @@
       "value": "{palette.blauBlueSecondary60}",
       "type": "color",
       "description": "blauBlueSecondary60"
+    },
+    "coverBackgroundHover": {
+      "value": "rgba({palette.darkModeBlack}, 0.25)",
+      "type": "color",
+      "description": "darkModeBlack"
+    },
+    "coverBackgroundPressed": {
+      "value": "rgba({palette.darkModeBlack}, 0.35)",
+      "type": "color",
+      "description": "darkModeBlack"
     },
     "buttonDangerBackground": {
       "value": "{palette.blauRed}",
@@ -820,7 +800,7 @@
     "control": {
       "value": "{palette.darkModeGrey6}",
       "type": "color",
-      "description": "darkModeGrey"
+      "description": "darkModeGrey6"
     },
     "controlActivated": {
       "value": "{palette.blauBlueSecondary}",
@@ -1165,14 +1145,6 @@
         "value": "#B3E9FB",
         "type": "color"
       },
-      "blauBluePrimary60": {
-        "value": "#00A2D6",
-        "type": "color"
-      },
-      "blauBluePrimary70": {
-        "value": "#008FBD",
-        "type": "color"
-      },
       "blauBlueSecondary": {
         "value": "#0072BC",
         "type": "color"
@@ -1187,10 +1159,6 @@
       },
       "blauBlueSecondary30": {
         "value": "#80B7DF",
-        "type": "color"
-      },
-      "blauBlueSecondary50": {
-        "value": "#0066AD",
         "type": "color"
       },
       "blauBlueSecondary60": {
@@ -1269,10 +1237,6 @@
         "value": "#C93712",
         "type": "color"
       },
-      "grey0": {
-        "value": "#F6FCFE",
-        "type": "color"
-      },
       "grey1": {
         "value": "#F5F9FA",
         "type": "color"
@@ -1311,14 +1275,6 @@
       },
       "darkModeGrey6": {
         "value": "#313235",
-        "type": "color"
-      },
-      "darkModeGrey7": {
-        "value": "#303030",
-        "type": "color"
-      },
-      "darkModeGrey8": {
-        "value": "#3D3D3D",
         "type": "color"
       }
     }
