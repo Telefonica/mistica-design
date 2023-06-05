@@ -81,7 +81,7 @@ const RadiiTable = ({ skin, filter, branch, selectedSkin, tokenType }) => {
                         </td>
                         <td>
                           <Touchable
-                            to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${key}`}
+                            to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${undefined}/${key}`}
                           >
                             <Tag type="active">{key}</Tag>
                           </Touchable>

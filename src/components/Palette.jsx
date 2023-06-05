@@ -333,7 +333,7 @@ const Palette = ({
                           {/* Column 1: Key */}
                           <td>
                             <Touchable
-                              to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${selectedColor}/${key}/`}
+                              to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${key}/`}
                             >
                               <Tag type="active">{key}</Tag>
                             </Touchable>

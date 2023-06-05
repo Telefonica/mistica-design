@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import {
   ButtonLink,
   Circle,
@@ -20,7 +20,9 @@ import styles from "./tokenDetail.module.css";
 
 const TokenDetail = () => {
   const [skins, setSkins] = useState([]);
-  const { id, tokenType, branch, selectedSkin } = useParams();
+  const { id, tokenType, branch, tokenTextType, selectedSkin } = useParams();
+
+  console.log(tokenTextType);
 
   const skinFiles = [
     { name: "Movistar", filename: "movistar.json" },
@@ -52,11 +54,6 @@ const TokenDetail = () => {
     loadSkins();
   }, []);
 
-  const getPaletteValue = (skin, tokenKey, type) => {
-    const paletteKey = skin?.[type]?.[tokenKey]?.description;
-    return paletteKey ? skin?.global?.palette?.[paletteKey]?.value : "";
-  };
-
   const getRadiusValue = (skin, tokenKey) => {
     return skin?.radius?.[tokenKey]?.value || "";
   };
@@ -73,6 +70,19 @@ const TokenDetail = () => {
 
   const getWeightValue = (skin, tokenKey) => {
     return skin?.text?.weight?.[tokenKey]?.value || "";
+  };
+
+  const getSizeValue = (skin, tokenKey) => {
+    const mobileValue = skin?.text?.size?.[tokenKey]?.value?.mobile || "";
+    const desktopValue = skin?.text?.size?.[tokenKey]?.value?.desktop || "";
+    return [mobileValue, desktopValue];
+  };
+
+  const getLineHeightValue = (skin, tokenKey) => {
+    const mobileValue = skin?.text?.lineHeight?.[tokenKey]?.value?.mobile || "";
+    const desktopValue =
+      skin?.text?.lineHeight?.[tokenKey]?.value?.desktop || "";
+    return [mobileValue, desktopValue];
   };
 
   const renderRadiusTable = () => {
@@ -147,77 +157,39 @@ const TokenDetail = () => {
     );
   };
 
-  const renderDoubleTable = (skins, tokenKey) => {
-    const lightRows = skins.map((skin) => (
-      <tr key={`${skin.name}-light`}>
-        <td>{skin.name}</td>
-        <td>
-          <Tag type="active">{skin?.light?.[tokenKey]?.description}</Tag>
-        </td>
-        <td>{getPaletteValue(skin, tokenKey, "light")}</td>
-        <td
-          style={{ backgroundColor: getPaletteValue(skin, tokenKey, "light") }}
-        >
-          <Inline space={8}>
-            <Text color={getPaletteValue(skin, "textPrimary", "light")}>
-              Aa
-            </Text>
-            <Text color={getPaletteValue(skin, "textPrimaryInverse", "light")}>
-              Aa
-            </Text>
-          </Inline>
-        </td>
-      </tr>
-    ));
-    const darkRows = skins.map((skin) => (
-      <tr key={`${skin.name}-dark`}>
-        <td>{skin.name}</td>
-        <td>
-          <Tag type="active">{skin?.dark?.[tokenKey]?.description}</Tag>
-        </td>
-        <td>{getPaletteValue(skin, tokenKey, "dark")}</td>
-        <td
-          style={{ backgroundColor: getPaletteValue(skin, tokenKey, "dark") }}
-        >
-          <Inline space={8}>
-            <Text color={getPaletteValue(skin, "textPrimary", "dark")}>Aa</Text>
-            <Text color={getPaletteValue(skin, "textPrimaryInverse", "dark")}>
-              Aa
-            </Text>
-          </Inline>
-        </td>
-      </tr>
-    ));
-
+  const renderSizeTable = () => {
     return (
-      <Stack space={24}>
-        <Title1>Light values</Title1>
-        <table>
-          <thead>
-            <tr>
-              <th>Skin</th>
-              <th>Palette token</th>
-              <th>Value</th>
-              <th>Example</th>
-            </tr>
-          </thead>
-          <tbody>{lightRows}</tbody>
-        </table>
-        <Title1>Dark values</Title1>
-        <table>
-          <thead>
-            <tr>
-              <th>Skin</th>
-              <th>Palette token</th>
-              <th>Value</th>
-              <th>Example</th>
-            </tr>
-          </thead>
-          <tbody>{darkRows}</tbody>
-        </table>
-      </Stack>
+      <table>
+        <thead>
+          <tr>
+            <th>Skin</th>
+            <th>Value</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          {skins.map((skin, index) => {
+            const value = getSizeValue(skin, id);
+            return (
+              <tr key={index}>
+                <td>{skin.name}</td>
+                <td>
+                  <Tag type="active">{value[0]}</Tag>
+                </td>
+                <td>
+                  <Text size={24} weight={value[1]}>
+                    Aa
+                  </Text>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     );
   };
+
+  console.log(tokenType);
 
   return (
     <ResponsiveLayout>
@@ -237,9 +209,9 @@ const TokenDetail = () => {
         <Stack space={40}>
           <Title2>{id}</Title2>
           <Stack space={24}>
-            {tokenType === "color" && <>{renderDoubleTable(skins, id)}</>}
             {tokenType === "radius" && <>{renderRadiusTable(skins, id)}</>}
-            {tokenType === "text" && <>{renderWeightTable(skins, id)}</>}
+            {tokenTextType === "size" && <>{renderSizeTable(skins, id)}</>}
+            {tokenTextType === "weight" && <>{renderWeightTable(skins, id)}</>}
           </Stack>
         </Stack>
       </div>

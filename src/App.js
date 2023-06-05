@@ -32,11 +32,11 @@ const App = () => {
       element: <TokensMap />,
     },
     {
-      path: `/tokens-map/:branch/:selectedSkin/:tokenType/:selectedColor/:id`,
+      path: `/tokens-map/:branch/:selectedSkin/:tokenType/:id`,
       element: <ColorDetail />,
     },
     {
-      path: `/tokens-map/:branch/:selectedSkin/:tokenType/:id`,
+      path: `/tokens-map/:branch/:selectedSkin/:tokenType/:tokenTextType/:id`,
       element: <TokenDetail />,
     },
     {

@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import styles from "./borderRadii.module.css";
 import {
   skinVars,
@@ -10,59 +11,158 @@ import {
   Text,
   Inline,
   Stack,
+  RadioGroup,
+  RadioButton,
+  Chip,
 } from "@telefonica/mistica";
 
-const TextTable = ({ skin, filter, branch, selectedSkin, tokenType }) => {
+const TextTable = ({
+  skin,
+  filter,
+  branch,
+  selectedSkin,
+  tokenType,
+  selectedBranch,
+  selectedColor,
+}) => {
   const weight = skin?.text?.weight || {};
+  const size = skin?.text?.size || {};
+  const lineHeight = skin?.text?.lineHeight || {};
+
+  const [active, setActive] = React.useState("size");
+
   const weightKeys = Object.keys(weight).filter((key) =>
     key.toLowerCase().includes(filter?.toLowerCase())
   );
 
+  const sizeKeys = Object.keys(size).filter((key) =>
+    key.toLowerCase().includes(filter?.toLowerCase())
+  );
+
+  const lineHeightKeys = Object.keys(lineHeight).filter((key) =>
+    key.toLowerCase().includes(filter?.toLowerCase())
+  );
+
+  // Filter tokens
+
   return (
     <ResponsiveLayout>
+      <Box paddingBottom={24}>
+        <RadioGroup onChange={setActive} name="chip-group" value={active}>
+          <Inline space={8}>
+            <RadioButton
+              value="size"
+              render={({ checked, labelId }) => (
+                <Chip active={checked} id={labelId}>
+                  Font size
+                </Chip>
+              )}
+            />
+            <RadioButton
+              value="weight"
+              render={({ checked, labelId }) => (
+                <Chip active={checked} id={labelId}>
+                  Font weight
+                </Chip>
+              )}
+            />
+            <RadioButton
+              value="lineHeight"
+              render={({ checked, labelId }) => (
+                <Chip active={checked} id={labelId}>
+                  Line height
+                </Chip>
+              )}
+            />
+          </Inline>
+        </RadioGroup>
+      </Box>
       <Stack space={16}>
         <div className={styles.palette}>
           <Inline space={8} alignItems="center">
             <Tag type="inactive">{`Constants (${
-              Object.keys(weightKeys).length
+              (active === "weight" && Object.keys(weightKeys).length) ||
+              (active === "size" && Object.keys(sizeKeys).length) ||
+              (active === "lineHeight" && Object.keys(lineHeightKeys).length)
             })`}</Tag>
           </Inline>
         </div>
         <Boxed>
           <Box paddingX={24} paddingBottom={24} className={styles.palette}>
-            {weightKeys.length > 0 ? (
-              <table>
-                <thead
-                  style={{
-                    borderBottom: `1px solid ${skinVars.colors.divider}`,
-                  }}
-                >
-                  <tr>
-                    <th>
-                      <Text weight="medium">Example</Text>
-                    </th>
-                    <th>
-                      <Text weight="medium">Token</Text>
-                    </th>
+            <table>
+              <thead
+                style={{
+                  borderBottom: `1px solid ${skinVars.colors.divider}`,
+                }}
+              >
+                <tr>
+                  <th>
+                    <Text weight="medium">Example</Text>
+                  </th>
+                  <th>
+                    <Text weight="medium">Token</Text>
+                  </th>
+                  {active === "size" || active === "lineHeight" ? (
+                    <>
+                      <th>
+                        <Text weight="medium">Mobile value</Text>
+                      </th>
+                      <th>
+                        <Text weight="medium">Desktop value</Text>
+                      </th>
+                    </>
+                  ) : (
                     <th>
                       <Text weight="medium">Value</Text>
                     </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {weightKeys.map((key) => {
+                  )}
+                </tr>
+              </thead>
+              <tbody>
+                {active === "size" &&
+                  sizeKeys.map((key) => {
+                    const mobileValue = size[key]?.value?.mobile;
+                    const desktopValue = size[key]?.value?.desktop;
+                    return (
+                      <tr key={key}>
+                        <td>
+                          <Stack space={8}>
+                            <Inline>
+                              <Text size={mobileValue} weight="regular">
+                                The quick brown fox jumps over the lazy dog
+                              </Text>
+                              <Text>Mobile</Text>
+                            </Inline>
+                            <Text size={desktopValue} weight="regular">
+                              The quick brown fox jumps over the lazy dog
+                            </Text>
+                          </Stack>
+                        </td>
+                        <td>
+                          <Touchable
+                            to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${active}/${key}`}
+                          >
+                            <Tag type="active">{key}</Tag>
+                          </Touchable>
+                        </td>
+                        <td>{mobileValue}px</td>
+                        <td>{desktopValue}px</td>
+                      </tr>
+                    );
+                  })}
+                {active === "weight" &&
+                  weightKeys.map((key) => {
                     const value = weight[key]?.value;
-
                     return (
                       <tr key={key}>
                         <td>
                           <Text size={24} weight={value}>
-                            Aa
+                            The quick brown fox jumps over the lazy dog
                           </Text>
                         </td>
                         <td>
                           <Touchable
-                            to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${key}`}
+                            to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${active}/${key}`}
                           >
                             <Tag type="active">{key}</Tag>
                           </Touchable>
@@ -71,13 +171,46 @@ const TextTable = ({ skin, filter, branch, selectedSkin, tokenType }) => {
                       </tr>
                     );
                   })}
-                </tbody>
-              </table>
-            ) : (
-              <Box paddingTop={24}>
-                <Text size={16}>Not matching text tokens found.</Text>
-              </Box>
-            )}
+                {active === "lineHeight" &&
+                  lineHeightKeys.map((key) => {
+                    const mobileValue = lineHeight[key]?.value?.mobile;
+                    const desktopValue = lineHeight[key]?.value?.desktop;
+
+                    console.log();
+                    return (
+                      <tr key={key}>
+                        <td>
+                          <Stack space={8}>
+                            <Text
+                              size={16}
+                              weight="regular"
+                              lineHeight={mobileValue}
+                            >
+                              The quick brown fox jumps over the lazy dog
+                            </Text>
+                            <Text
+                              size={16}
+                              weight="regular"
+                              lineHeight={desktopValue}
+                            >
+                              The quick brown fox jumps over the lazy dog
+                            </Text>
+                          </Stack>
+                        </td>
+                        <td>
+                          <Touchable
+                            to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${active}/${key}`}
+                          >
+                            <Tag type="active">{key}</Tag>
+                          </Touchable>
+                        </td>
+                        <td>{mobileValue}px</td>
+                        <td>{desktopValue}px</td>
+                      </tr>
+                    );
+                  })}
+              </tbody>
+            </table>
           </Box>
         </Boxed>
       </Stack>
