@@ -10,11 +10,21 @@
     border-collapse: collapse;
     width: 100%;
   }
-  
-  .palette table td {
-    padding: 0.25rem;
+
+  .palette table td{
+    padding: 0.5rem 0.25rem;
     vertical-align: middle;
 
+  }
+
+  .palette table td:first-child{
+    max-width: 360px;
+
+  }
+  
+  .palette table tr:not(:last-child) {
+
+   border-bottom: 1px solid #ccc;
   }
   
   .palette th {
@@ -35,3 +45,4 @@
     font-size: 0.875rem;
     font-family: "Fira Code", monospace;
   }
+

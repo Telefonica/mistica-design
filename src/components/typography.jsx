@@ -123,17 +123,24 @@ const TextTable = ({
                   sizeKeys.map((key) => {
                     const mobileValue = size[key]?.value?.mobile;
                     const desktopValue = size[key]?.value?.desktop;
+                    const mobileLineHeight = lineHeight[key]?.value?.mobile;
+                    const desktopLineHeight = lineHeight[key]?.value?.desktop;
                     return (
                       <tr key={key}>
                         <td>
                           <Stack space={8}>
-                            <Inline>
-                              <Text size={mobileValue} weight="regular">
-                                The quick brown fox jumps over the lazy dog
-                              </Text>
-                              <Text>Mobile</Text>
-                            </Inline>
-                            <Text size={desktopValue} weight="regular">
+                            <Text
+                              size={mobileValue}
+                              weight="regular"
+                              lineHeight={mobileLineHeight}
+                            >
+                              The quick brown fox jumps over the lazy dog
+                            </Text>
+                            <Text
+                              size={desktopValue}
+                              weight="regular"
+                              lineHeight={desktopLineHeight}
+                            >
                               The quick brown fox jumps over the lazy dog
                             </Text>
                           </Stack>
