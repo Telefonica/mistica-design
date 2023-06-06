@@ -311,14 +311,33 @@
     "size": {
       "additionalProperties": false,
       "properties": {
-        "tabsLabel": { "$ref": "#/definitions/sizeProperties" }
+        "tabsLabel": { "$ref": "#/definitions/sizeProperties" },
+        "text1": { "$ref": "#/definitions/sizeProperties" },
+        "text2": { "$ref": "#/definitions/sizeProperties" },
+        "text3": { "$ref": "#/definitions/sizeProperties" },
+        "text4": { "$ref": "#/definitions/sizeProperties" },
+        "text5": { "$ref": "#/definitions/sizeProperties" },
+        "text6": { "$ref": "#/definitions/sizeProperties" },
+        "text7": { "$ref": "#/definitions/sizeProperties" },
+        "text8": { "$ref": "#/definitions/sizeProperties" },
+        "text9": { "$ref": "#/definitions/sizeProperties" },
+        "text10": { "$ref": "#/definitions/sizeProperties" }
       }
     },
     "lineHeight": {
       "additionalProperties": false,
       "properties": {
         "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" },
-        "other": { "$ref": "#/definitions/lineHeightProperties" }
+        "text1": { "$ref": "#/definitions/lineHeightProperties" },
+        "text2": { "$ref": "#/definitions/lineHeightProperties" },
+        "text3": { "$ref": "#/definitions/lineHeightProperties" },
+        "text4": { "$ref": "#/definitions/lineHeightProperties" },
+        "text5": { "$ref": "#/definitions/lineHeightProperties" },
+        "text6": { "$ref": "#/definitions/lineHeightProperties" },
+        "text7": { "$ref": "#/definitions/lineHeightProperties" },
+        "text8": { "$ref": "#/definitions/lineHeightProperties" },
+        "text9": { "$ref": "#/definitions/lineHeightProperties" },
+        "text10": { "$ref": "#/definitions/lineHeightProperties" }
       }
     }
   },
@@ -386,11 +405,11 @@
           "properties": {
             "desktop": {
               "type": "number",
-              "pattern": "^(16|18|20)+$"
+              "pattern": "^(12|14|16|18|20|24|28|32|40|48|56|64)+$"
             },
             "mobile": {
               "type": "number",
-              "pattern": "^(16|18|20)+$"
+              "pattern": "^(12|14|16|18|20|24|28|32|40|48|56|64)+$"
             }
           },
           "required": ["desktop", "mobile"]
