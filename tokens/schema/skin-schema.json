@@ -392,7 +392,7 @@
           "pattern": "^(light|regular|medium|bold)+$"
         },
         "type": {
-          "const": "typography"
+          "const": "fontWeight"
         }
       },
       "required": ["value", "type"]
@@ -415,7 +415,7 @@
           "required": ["desktop", "mobile"]
         },
         "type": {
-          "const": "typography"
+          "const": "dimension"
         }
       },
       "required": ["value", "type"]
@@ -438,7 +438,7 @@
           "required": ["desktop", "mobile"]
         },
         "type": {
-          "const": "typography"
+          "const": "dimension"
         }
       },
       "required": ["value", "type"]
