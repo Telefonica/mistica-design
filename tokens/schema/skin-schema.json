@@ -34,7 +34,7 @@
           "allOf": [{ "$ref": "#/global/size" }]
         },
         "lineHeight": {
-          "allOf": [{ "$ref": "#/global/size" }]
+          "allOf": [{ "$ref": "#/global/lineHeight" }]
         }
       }
     }
@@ -313,8 +313,7 @@
     "lineHeight": {
       "additionalProperties": false,
       "properties": {
-        "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" },
-        "other": { "$ref": "#/definitions/lineHeightProperties" }
+        "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" }
       }
     }
   },
@@ -382,11 +381,11 @@
           "properties": {
             "desktop": {
               "type": "number",
-              "pattern": "^(16|18|20)+$"
+              "enum": [16, 18, 20, 24]
             },
             "mobile": {
               "type": "number",
-              "pattern": "^(16|18|20)+$"
+              "enum": [16, 18, 20, 24]
             }
           },
           "required": ["desktop", "mobile"]
@@ -405,11 +404,11 @@
           "properties": {
             "desktop": {
               "type": "number",
-              "pattern": "^(16|18|20|24)+$"
+              "enum": [24]
             },
             "mobile": {
               "type": "number",
-              "pattern": "^(16|18|20|24)+$"
+              "enum": [24]
             }
           },
           "required": ["desktop", "mobile"]
