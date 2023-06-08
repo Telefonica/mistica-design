@@ -1129,19 +1129,19 @@
     "size": {
       "tabsLabel": {
         "value": {
-          "mobile": 16,
-          "desktop": 18
+          "mobile": "{text.preset3.value.mobile.fontSize}",
+          "desktop": "{text.preset3.value.desktop.fontSize}"
         },
-        "type": "typography"
+        "type": "dimension"
       }
     },
     "lineHeight": {
       "tabsLabel": {
         "value": {
-          "mobile": 24,
-          "desktop": 24
+          "mobile": "{text.preset3.value.mobile.lineHeight}",
+          "desktop": "{text.preset3.value.desktop.lineHeight}"
         },
-        "type": "typography"
+        "type": "dimension"
       }
     }
   },
@@ -1286,6 +1286,138 @@
       "darkModeGrey6": {
         "value": "#313235",
         "type": "color"
+      }
+    },
+    "text": {
+      "preset1": {
+        "value": {
+          "mobile": {
+            "fontSize": "12",
+            "lineHeight": "16"
+          },
+          "desktop": {
+            "fontSize": "14",
+            "lineHeight": "20"
+          }
+        },
+        "type": "typography"
+      },
+      "preset2": {
+        "value": {
+          "mobile": {
+            "fontSize": "14",
+            "lineHeight": "20"
+          },
+          "desktop": {
+            "fontSize": "14",
+            "lineHeight": "24"
+          }
+        },
+        "type": "typography"
+      },
+      "preset3": {
+        "value": {
+          "mobile": {
+            "fontSize": "16",
+            "lineHeight": "24"
+          },
+          "desktop": {
+            "fontSize": "18",
+            "lineHeight": "24"
+          }
+        },
+        "type": "typography"
+      },
+      "preset4": {
+        "value": {
+          "mobile": {
+            "fontSize": "18",
+            "lineHeight": "24"
+          },
+          "desktop": {
+            "fontSize": "20",
+            "lineHeight": "28"
+          }
+        },
+        "type": "typography"
+      },
+      "preset5": {
+        "value": {
+          "mobile": {
+            "fontSize": "20",
+            "lineHeight": "24"
+          },
+          "desktop": {
+            "fontSize": "28",
+            "lineHeight": "32"
+          }
+        },
+        "type": "typography"
+      },
+      "preset6": {
+        "value": {
+          "mobile": {
+            "fontSize": "24",
+            "lineHeight": "32"
+          },
+          "desktop": {
+            "fontSize": "32",
+            "lineHeight": "40"
+          }
+        },
+        "type": "typography"
+      },
+      "preset7": {
+        "value": {
+          "mobile": {
+            "fontSize": "28",
+            "lineHeight": "32"
+          },
+          "desktop": {
+            "fontSize": "40",
+            "lineHeight": "48"
+          }
+        },
+        "type": "typography"
+      },
+      "preset8": {
+        "value": {
+          "mobile": {
+            "fontSize": "32",
+            "lineHeight": "40"
+          },
+          "desktop": {
+            "fontSize": "48",
+            "lineHeight": "56"
+          }
+        },
+        "type": "typography"
+      },
+      "preset9": {
+        "value": {
+          "mobile": {
+            "fontSize": "40",
+            "lineHeight": "48"
+          },
+          "desktop": {
+            "fontSize": "56",
+            "lineHeight": "64"
+          }
+        },
+        "type": "typography"
+      },
+      "preset10": {
+        "value": {
+          "mobile": {
+            "fontSize": "48",
+            "lineHeight": "56"
+          },
+          "desktop": {
+            "fontSize": "64",
+            "lineHeight": "72"
+          }
+        },
+        "type": "typography"
       }
     }
   }

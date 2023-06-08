@@ -7,6 +7,9 @@
       "properties": {
         "palette": {
           "anyOf": [{ "$ref": "#/global/palette" }]
+        },
+        "text": {
+          "anyOf": [{ "$ref": "#/global/text" }]
         }
       }
     },
@@ -315,6 +318,21 @@
       "properties": {
         "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" }
       }
+    },
+    "text": {
+      "additionalProperties": false,
+      "properties": {
+        "preset1": { "$ref": "#/definitions/textProperties" },
+        "preset2": { "$ref": "#/definitions/textProperties" },
+        "preset3": { "$ref": "#/definitions/textProperties" },
+        "preset4": { "$ref": "#/definitions/textProperties" },
+        "preset5": { "$ref": "#/definitions/textProperties" },
+        "preset6": { "$ref": "#/definitions/textProperties" },
+        "preset7": { "$ref": "#/definitions/textProperties" },
+        "preset8": { "$ref": "#/definitions/textProperties" },
+        "preset9": { "$ref": "#/definitions/textProperties" },
+        "preset10": { "$ref": "#/definitions/textProperties" }
+      }
     }
   },
   "definitions": {
@@ -380,18 +398,18 @@
           "type": "object",
           "properties": {
             "desktop": {
-              "type": "number",
-              "enum": [16, 18]
+              "type": "string",
+              "pattern": "^\\{text\\.(preset([1-9]|10)\\.value\\.desktop\\.fontSize)\\}$"
             },
             "mobile": {
-              "type": "number",
-              "enum": [16, 18, 20, 24]
+              "type": "string",
+              "pattern": "^\\{text\\.(preset([1-9]|10)\\.value\\.mobile\\.fontSize)\\}$"
             }
           },
           "required": ["desktop", "mobile"]
         },
         "type": {
-          "const": "typography"
+          "const": "dimension"
         }
       },
       "required": ["value", "type"]
@@ -403,12 +421,41 @@
           "type": "object",
           "properties": {
             "desktop": {
-              "type": "number",
-              "enum": [24]
+              "type": "string",
+              "pattern": "^\\{text\\.(preset([1-9]|10)\\.value\\.desktop\\.lineHeight)\\}$"
             },
             "mobile": {
-              "type": "number",
-              "enum": [24]
+              "type": "string",
+              "pattern": "^\\{text\\.(preset([1-9]|10)\\.value\\.mobile\\.lineHeight)\\}$"
+            }
+          },
+          "required": ["desktop", "mobile"]
+        },
+        "type": {
+          "const": "dimension"
+        }
+      },
+      "required": ["value", "type"]
+    },
+    "textProperties": {
+      "type": "object",
+      "patternProperties": {
+        "value": {
+          "type": "object",
+          "properties": {
+            "desktop": {
+              "type": "object",
+              "value": {
+                "type": "number",
+                "enum": [16, 18]
+              }
+            },
+            "mobile": {
+              "type": "object",
+              "value": {
+                "type": "number",
+                "enum": [24]
+              }
             }
           },
           "required": ["desktop", "mobile"]
