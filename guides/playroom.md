@@ -316,6 +316,16 @@ colors.nombreDelColor
 
 [Ver ejemplo en playroom →](https://rebrand.ly/enphrfu)
 
+#### Opacity in colors
+
+Puedes aplicar opacidad a constantes de Mística
+
+```
+applyAlpha(skinVars.rawColors.inverse, 0.2)
+```
+
+[Ver ejemplo en playroom →](https://tinyurl.com/2luzuq49)
+
 ## Theme variant
 
 ![theme_inverse](https://user-images.githubusercontent.com/44420072/210542968-6460d343-febc-4866-adf4-53bc5ab6eceb.gif)
