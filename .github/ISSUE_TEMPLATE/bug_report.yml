@@ -47,3 +47,10 @@ body:
       placeholder: The submit button should be aligned with the form fields and appear centered.
     validations:
       required: true
+  - type: input
+    id: figma-link
+    attributes:
+      label: Link a Figma file with your bug
+      placeholder: https://www.figma.com/file/DrHInk...
+    validations:
+      required: true
