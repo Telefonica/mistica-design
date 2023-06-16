@@ -29,6 +29,12 @@
       "properties": {
         "weight": {
           "allOf": [{ "$ref": "#/global/weight" }]
+        },
+        "size": {
+          "allOf": [{ "$ref": "#/global/size" }]
+        },
+        "lineHeight": {
+          "allOf": [{ "$ref": "#/global/lineHeight" }]
         }
       }
     }
@@ -301,6 +307,18 @@
         "text9": { "$ref": "#/definitions/weightProperties" },
         "text10": { "$ref": "#/definitions/weightProperties" }
       }
+    },
+    "size": {
+      "additionalProperties": false,
+      "properties": {
+        "tabsLabel": { "$ref": "#/definitions/sizeProperties" }
+      }
+    },
+    "lineHeight": {
+      "additionalProperties": false,
+      "properties": {
+        "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" }
+      }
     }
   },
   "definitions": {
@@ -352,6 +370,52 @@
         "value": {
           "type": "string",
           "pattern": "^(light|regular|medium|bold)+$"
+        },
+        "type": {
+          "const": "typography"
+        }
+      },
+      "required": ["value", "type"]
+    },
+    "sizeProperties": {
+      "type": "object",
+      "patternProperties": {
+        "value": {
+          "type": "object",
+          "properties": {
+            "desktop": {
+              "type": "number",
+              "enum": [16, 18]
+            },
+            "mobile": {
+              "type": "number",
+              "enum": [16, 18, 20, 24]
+            }
+          },
+          "required": ["desktop", "mobile"]
+        },
+        "type": {
+          "const": "typography"
+        }
+      },
+      "required": ["value", "type"]
+    },
+    "lineHeightProperties": {
+      "type": "object",
+      "patternProperties": {
+        "value": {
+          "type": "object",
+          "properties": {
+            "desktop": {
+              "type": "number",
+              "enum": [24]
+            },
+            "mobile": {
+              "type": "number",
+              "enum": [24]
+            }
+          },
+          "required": ["desktop", "mobile"]
         },
         "type": {
           "const": "typography"
