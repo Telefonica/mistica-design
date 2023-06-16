@@ -4,6 +4,12 @@ import {
   useTheme,
   Tag,
   Touchable,
+  Inline,
+  Box,
+  Boxed,
+  Icon,
+  Text,
+  Stack,
 } from "@telefonica/mistica";
 import { useEffect, useState } from "react";
 import "./dashboard.css";
@@ -78,6 +84,43 @@ const Dashboard = () => {
     };
     fetchClosedIssues();
   }, []);
+
+  const calculateMedianClosureTime = () => {
+    const closureTimes = [];
+
+    closedIssues.forEach((issue) => {
+      if (issue.closed_at) {
+        const createdAt = new Date(issue.created_at);
+        const closedAt = new Date(issue.closed_at);
+
+        // Calculate time taken to close the issue in milliseconds
+        const closureTime = closedAt - createdAt;
+        closureTimes.push(closureTime);
+      }
+    });
+
+    // Sort the closure times
+    const sortedTimes = closureTimes.sort((a, b) => a - b);
+
+    // Calculate the median closure time in days
+    let medianTime;
+    const length = sortedTimes.length;
+    if (length % 2 === 0) {
+      const middleIndex = length / 2;
+      medianTime =
+        (sortedTimes[middleIndex - 1] + sortedTimes[middleIndex]) / 2;
+    } else {
+      const middleIndex = Math.floor(length / 2);
+      medianTime = sortedTimes[middleIndex];
+    }
+
+    // Convert median time from milliseconds to days
+    medianTime = medianTime / (1000 * 60 * 60 * 24);
+
+    return medianTime;
+  };
+
+  const medianClosureTime = calculateMedianClosureTime().toFixed(2);
 
   return (
     <ResponsiveLayout>
@@ -169,59 +212,68 @@ const Dashboard = () => {
               ))}
             </div>
           </div>
+          <Inline space={24} fullWidth>
+            <div class="section" style={{ minWidth: "60vw" }}>
+              <Boxed>
+                <Box padding={24}>
+                  <Stack space={24}>
+                    <Text size={14}>Open issues by age</Text>
 
-          <div class="section">
-            <div class="section_metadata">
-              <a name="open-issues-by-age"></a>
-              <h2 class="section_title">Open Issues by Age</h2>
+                    <div class="graph_widget">
+                      <div class="graph">
+                        {days.map((day) => {
+                          const fromDate = new Date();
+                          fromDate.setDate(fromDate.getDate() - day);
+                          const formattedFromDate = fromDate
+                            .toISOString()
+                            .slice(0, 10);
 
-              <div class="description">
-                Queries of open issues by their creation date.
-              </div>
-            </div>
+                          const url = `https://github.com/Telefonica/mistica-design/issues?q=is%3Aopen%20is%3Aissue%20created%3A%3E${formattedFromDate}%20is%3Aopen`;
 
-            <div class="section_widgets">
-              <div class="graph_widget">
-                <a name="age"></a>
-                <h3 class="graph_title">Age</h3>
-                <div class="graph">
-                  {days.map((day) => {
-                    const fromDate = new Date();
-                    fromDate.setDate(fromDate.getDate() - day);
-                    const formattedFromDate = fromDate
-                      .toISOString()
-                      .slice(0, 10);
-
-                    const url = `https://github.com/Telefonica/mistica-design/issues?q=is%3Aopen%20is%3Aissue%20created%3A%3E${formattedFromDate}%20is%3Aopen`;
-
-                    return (
-                      <div class="graph_item primary">
-                        <span class="graph_item_title">
-                          <span class="title">{day} days</span>
-                        </span>
-                        <span class="graph_item_value">
-                          <a href={url} target="_blank">
-                            <span
-                              class="value"
-                              style={{
-                                width: `${
-                                  (filterIssuesByDate(issues, day).length /
-                                    issues.length) *
-                                  100
-                                }%`,
-                              }}
-                            >
-                              {filterIssuesByDate(issues, day).length}
-                            </span>
-                          </a>
-                        </span>
+                          return (
+                            <div class="graph_item primary">
+                              <span class="graph_item_title">
+                                <span class="title">{day} days</span>
+                              </span>
+                              <span class="graph_item_value">
+                                <a href={url} target="_blank">
+                                  <span
+                                    class="value"
+                                    style={{
+                                      width: `${
+                                        (filterIssuesByDate(issues, day)
+                                          .length /
+                                          issues.length) *
+                                        100
+                                      }%`,
+                                    }}
+                                  >
+                                    {filterIssuesByDate(issues, day).length}
+                                  </span>
+                                </a>
+                              </span>
+                            </div>
+                          );
+                        })}
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
+                    </div>
+                  </Stack>
+                </Box>
+              </Boxed>
             </div>
-          </div>
+            <div class="section">
+              <Stack space={24}>
+                <Boxed>
+                  <Box padding={24}>
+                    <Stack space={24}>
+                      <Text size={32}>{medianClosureTime} days</Text>
+                      <Text size={14}>Closure median time</Text>
+                    </Stack>
+                  </Box>
+                </Boxed>
+              </Stack>
+            </div>
+          </Inline>
 
           <div class="section">
             <div class="section_metadata">
