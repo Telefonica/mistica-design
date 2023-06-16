@@ -409,7 +409,7 @@ u mostrar un elemento para una marca en concreto utilizando un operador ternario
 
 A través de `theme.isDarkMode` podemos obtener información del modo en el que nos encontramos
 
-[Ver ejemplo en Playroom →](https://rebrand.ly/relnvmx)
+[Ver ejemplo en Playroom →](https://tinyurl.com/227youkm)
 
 # Construyendo layout
 
