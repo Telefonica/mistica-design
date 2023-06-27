@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   ButtonLink,
-  Circle,
   ResponsiveLayout,
   Stack,
   Title2,
   Tag,
-  Title1,
   skinVars,
-  TextField,
-  ButtonPrimary,
   Inline,
   Box,
   Text,
