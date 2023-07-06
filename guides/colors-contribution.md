@@ -6,9 +6,9 @@ Es por esto que creamos esta guía para facilitar a los diseñadores de operacio
 
 De momento, esta es la lista que creemos que un equipo de diseño externo a Mística puede hacer cambios de forma ágil.
 
-- Paleta
-- Constantes
-- Border Radius
+- [Paleta](#paleta)
+- [Constantes](#constantes)
+- [Border Radius](#border-radius)
 
 ## Pasos para lograr contribuir a mistica-design
 
@@ -34,4 +34,96 @@ Una vez ya tengas el respositorio clonado, deberías de ver en el Finder de tu o
 
 Abre el archivo .json que quieras modificar (por ejemplo, vivo.json)
 
-Haz los cambios
+## Modificando el JSON
+
+El archivo JSON de una marca tiene la siguiente estructura:
+
+```
+{ 
+"light": { ... },
+"dark": { ... },
+"radius": { ... },
+"text": { ... },
+"global": { 
+   "palette": {...}
+}
+```
+
+### Paleta
+
+La paleta está dentro de la está dentro de la categoría `global` / `palette`:
+
+En la paleta de una skin se puede:
+
+#### Modificar valor de un token existente
+
+Se puede modificar el campo `value` de un token de la paleta.
+
+* Siempre tiene que ir entre comillas dobles ("...")
+* El formato válido es el [hexadecimal](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color).
+
+![palette_change](https://github.com/Telefonica/mistica-design/assets/44420072/89cdcab8-5e22-4113-aabd-7283b1c75ace)
+
+#### Crear un nuevo token
+
+Se puede añadir un nuevo token a la paleta para utilizarlo posteriormente en una constante.
+
+Tiene que seguir el siguiente formato:
+
+```
+"nombre": {
+  "value": "valor",
+  "type": "color"
+}
+```
+
+![tokens_new_palette](https://github.com/Telefonica/mistica-design/assets/44420072/3fadf1c9-f1f7-49e4-9c13-c9e9563b33c6)
+
+
+> **Warning**
+>
+> **Cambios que conllevan un breaking change**
+>
+> Aunque es posible realizar estos cambios, la modificación o eliminación de un token de la paleta puede suponer un breaking change en algún producto que consuma directamente estos tokens.
+>
+> * Modificación de nombre
+> * Eliminación de un token existente
+>
+> Si necesitas realizar una modificación de alguno de los dos tipos anteriores valora previamente el impacto que tiene el cambio.
+
+
+### Constantes
+
+Las constantes se encuentran dentro de las categorías `light` y `dark` del json.
+
+Con las constantes se puede:
+
+* Modificar su valor
+
+> **Warning**
+>
+> **Cambios que no se pueden realizar**
+> * Modificación de nombre
+> * Eliminación de un token existente
+>
+> Para añadir una constante a una skin es recomendable abrir una discussion con la necesidad, de manera que pueda evaluarse.
+
+
+### Border radius
+
+Los tokens de border-radius se encuentran dentro de la categoria `radius`
+
+Con los tokens de border-radius se puede:
+
+* Modificar su valor
+
+> **Warning**
+>
+> **Cambios que no se pueden realizar**
+> * Modificación de nombre
+> * Eliminación de un token existente
+>
+> Para añadir una constante a una skin es recomendable abrir una discussion con la necesidad, de manera que pueda evaluarse.
+
+
+
