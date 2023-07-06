@@ -92,28 +92,40 @@ Tiene que seguir el siguiente formato:
 
 ### Constantes
 
-Las constantes se encuentran dentro de las categorías `light` y `dark` del json.
+Las constantes se encuentran dentro de las categorías `light` y `dark` del json. En el value de una constante nunca se utiliza un valor hexadecimal directamente, sino que se referencia un valor pre-existente de la paleta de la siguiente manera:
+
+```
+ "value": "{palette.white}"
+```
+
+Tambien es posible aplicar modificaciones de opacidad a los valores:
+
+```
+ "value": "rgba({palette.white}, 0.5)"
+```
+
+Donde 0.05 es el canal alpha y puede tener un valor entre 0 y 1.
+
+Las constantes permiten las siguientes modificaciones:
+
+> **Warning**
+>
+> **Cambios que no se pueden realizar**
+> * Modificación de nombre
+> * Eliminación de un token existente
+>
+> Para añadir una constante a una skin es recomendable abrir una discussion con la necesidad, de manera que pueda evaluarse.
+
 
 Con las constantes se puede:
 
 * Modificar su valor
 
-> **Warning**
->
-> **Cambios que no se pueden realizar**
-> * Modificación de nombre
-> * Eliminación de un token existente
->
-> Para añadir una constante a una skin es recomendable abrir una discussion con la necesidad, de manera que pueda evaluarse.
 
 
 ### Border radius
 
-Los tokens de border-radius se encuentran dentro de la categoria `radius`
-
-Con los tokens de border-radius se puede:
-
-* Modificar su valor
+Los tokens de border-radius se encuentran dentro de la categoria `radius`, dentro de esta categoría se pueden realizar las siguientes modificaciones:
 
 > **Warning**
 >
@@ -121,7 +133,10 @@ Con los tokens de border-radius se puede:
 > * Modificación de nombre
 > * Eliminación de un token existente
 >
-> Para añadir una constante a una skin es recomendable abrir una discussion con la necesidad, de manera que pueda evaluarse.
+> Para añadir una border-radius a una skin es recomendable abrir una discussion con la necesidad, de manera que pueda evaluarse.
+
+
+#### Modificar su valor
 
 
 
