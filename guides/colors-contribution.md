@@ -51,9 +51,19 @@ El archivo JSON de una marca tiene la siguiente estructura:
 
 ### Paleta
 
-La paleta está dentro de la está dentro de la categoría `global` / `palette`:
+La paleta está dentro de la está dentro de la categoría `global` / `palette` y está compuesta por los diferentes tokens que luego las constantes utilizan como value. Dentro de la paleta se pueden realizar las siguientes modificaciones:
 
-En la paleta de una skin se puede:
+> **Warning**
+>
+> **Cambios que conllevan un breaking change**
+>
+> Aunque es posible realizar estos cambios, la modificación o eliminación de un token de la paleta puede suponer un breaking change en algún producto que consuma directamente estos tokens.
+>
+> * Modificación de nombre
+> * Eliminación de un token existente
+>
+> Si necesitas realizar una modificación de alguno de los dos tipos anteriores valora previamente el impacto que tiene el cambio.
+
 
 #### Modificar valor de un token existente
 
@@ -78,18 +88,6 @@ Tiene que seguir el siguiente formato:
 ```
 
 ![tokens_new_palette](https://github.com/Telefonica/mistica-design/assets/44420072/3fadf1c9-f1f7-49e4-9c13-c9e9563b33c6)
-
-
-> **Warning**
->
-> **Cambios que conllevan un breaking change**
->
-> Aunque es posible realizar estos cambios, la modificación o eliminación de un token de la paleta puede suponer un breaking change en algún producto que consuma directamente estos tokens.
->
-> * Modificación de nombre
-> * Eliminación de un token existente
->
-> Si necesitas realizar una modificación de alguno de los dos tipos anteriores valora previamente el impacto que tiene el cambio.
 
 
 ### Constantes
