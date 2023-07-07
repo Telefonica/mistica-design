@@ -328,7 +328,7 @@
       "patternProperties": {
         "value": {
           "type": "string",
-          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+          "pattern": "^#([A-F0-9]{6}|[A-F0-9]{3})$"
         },
         "type": {
           "const": "color"
