@@ -147,10 +147,9 @@ Las constantes permiten las siguientes modificaciones:
 >
 > Para añadir una constante a una skin es recomendable abrir una discussion con la necesidad, de manera que pueda evaluarse.
 
+####  Modificar su valor
 
-Con las constantes se puede:
 
-* Modificar su valor
 
 
 
@@ -169,7 +168,13 @@ Los tokens de border-radius se encuentran dentro de la categoria `radius`, dentr
 
 #### Modificar su valor
 
+Se puede modificar el valor de una constante, es importante, si se quiere que esa constante cambien en light y dark, cambiar ese valor en la constante que tiene el mismo nombre en las dos categorías.
 
+![tokens_modify_constant](https://github.com/Telefonica/mistica-design/assets/44420072/a0d8f6c8-a25d-41c9-b8dd-13c92773f57f)
+
+> **Note**
+> >
+> Cuando se modifica un `value` el campo `description` tiene que modificarse también con el mismo valor. Ej. si el cambio es de movistarBlue a movistarBlue55 el value será: "{palette.movistarBlue55}" y la description: "movistarBlue55".
 
 
 
