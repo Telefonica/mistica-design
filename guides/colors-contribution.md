@@ -192,4 +192,22 @@ Aquí aparece el listado de los cambios que se han realizado. Comprueba que los 
 
 ## Crea una PR al repositorio de mistica-design
 
-Una vez publicada la rama, es posible realizar una petición de cambios desde esa rama al repositorio original, haciendo una Pull request
+Una vez publicada la rama, es posible realizar una petición de cambios desde esa rama a la rama master, haciendo una Pull request.
+
+1. Desde GitHub desktop y con esa rama seleccionada en el segundo selector de la barra superior, te aparecerá la opción de crear una Pull request.
+
+<img width="926" alt="Screenshot 2023-07-07 at 10 22 38" src="https://github.com/Telefonica/mistica-design/assets/44420072/f73ad68a-ed72-4c76-813a-f743640326af">
+
+2. Al hacer click en el botón de crear Pull Request, una nueva ventana del explorador se abrirá mostrando los campos necesarios a completar.
+3. Comprueba que la rama base es `pre-production` y que la rama que estás comparando es la que acabas de crear
+  
+<img width="937" alt="Screenshot 2023-07-07 at 10 26 02" src="https://github.com/Telefonica/mistica-design/assets/44420072/886a92fd-4688-4124-8d5b-9f5039b98897">
+
+> **Note**
+> >
+> Hay ocasiones en los que la rama base puede que no sea pre-production y sea production, estos casos ocurren normalmente cuando son  cambios que requieren realizarse de manera rápida ya que hay algo que solucionar en alguna de las implementaciones (nativo / web), antes de realizar una PR a production, consulta con design-core.
+
+4. Una vez que todo está correcto, escribe un título descriptivo para la Pull Request y en el campo que se encuentra a la derecha, indica un revisor del equipo de design-core.
+5. Una vez creado el título y asignado un revisor, puede procederse a crear la pull request con el botón de la parte inferior.
+
+
