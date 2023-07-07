@@ -15,16 +15,8 @@ If you want to see formatting errors and disallowed rule violations in your .jso
    {
      "json.schemas": [
        {
-         "fileMatch": [
-           "/blau.json",
-           "/movistar.json",
-           "/movistar-classic.json",
-           "/o2.json",
-           "/solar-360.json",
-           "/telefonica.json",
-           "/vivo.json"
-         ],
-         "url": "/Users/USERNAME/PATH TO MISTICA-DESIGN/mistica-design/tokens/schema/skin-schema.json"
+         "fileMatch": "/Users/USER/YOUR-GITHUB-FOLDER/mistica-design/tokens/*.json",
+         "url": "/Users/USER/YOUR-GITHUB-FOLDER/mistica-design/tokens/schema/skin-schema.json"
        }
      ]
    }
