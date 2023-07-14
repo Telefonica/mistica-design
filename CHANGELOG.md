@@ -1,4 +1,4 @@
-# Changelog index
+# Figma Changelog
 
 ## [9.0.0](changelog-versions/9.0.0.md)
 
