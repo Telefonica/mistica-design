@@ -1,4 +1,4 @@
-# Changelog index
+# Figma Changelog
 
 [8.1.0](changelog-versions/8.1.0.md)
 
