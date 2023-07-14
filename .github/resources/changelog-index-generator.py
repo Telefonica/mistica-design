@@ -45,7 +45,7 @@ for item in changelog_files_sorted:
 print()
 
 # Draw markdown file
-file_content = "# Changelog index" + BREAK + BREAK + changelog_version + "---" + BREAK + \
+file_content = "# Figma Changelog" + BREAK + BREAK + changelog_version + "---" + BREAK + \
     "[Changelog history →](https://paper.dropbox.com/doc/Changelog-Mistica-Design-System--BlDyPv0kWq8W502b64VVIPMsAQ-il1pWXaGur0Nm88P831X2)" + BREAK
 print(file_content)
 
