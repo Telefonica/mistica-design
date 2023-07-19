@@ -1,218 +1,211 @@
-# Make changes in tokens
+# Making Changes in Tokens
 
-Desde Mística, queremos que cualquier diseñador de Telefónica pueda contribuir al Sistema. Aunque es cierto que al ser un sistema multimarca y ser usado por diferentes marcas hay algunos cambios en el sistema que son algo delicados. Sin embargo, hay otros cambios que no impactan de manera global a otros equipos. Creemos que hay partes del sistema que pueden ser controladas directamente por aquellos equipos de las diferentes marcas que trabajan el producto.
+At Mística, we want any Telefónica designer to be able to contribute to the System. While it's true that being a multi-brand system used by different brands, there are some changes in the system that are somewhat delicate. However, there are other changes that do not have a global impact on other teams. We believe that there are parts of the system that can be directly controlled by the design teams of the different brands working on the product.
 
-Es por esto que creamos esta guía para facilitar a los diseñadores de operaciones de las diferentes marcas facilitar cambios de relativos a la marca.
+That's why we created this guide to facilitate designers from different brands in making changes related to their brand.
 
-De momento, esta es la lista que creemos que un equipo de diseño externo a Mística puede hacer cambios de forma ágil.
+Currently, here is the list of changes that we believe an external design team can make efficiently:
 
-- [Paleta](#paleta)
-- [Constantes](#constantes)
+- [Palette](#palette)
+- [Constants](#constants)
 - [Border Radius](#border-radius)
 
-# Pasos para lograr contribuir a mistica-design
+# Steps to Contribute to mistica-design
 
-## Instala un editor de texto
+## Install a Text Editor
 
-Te recomendamos que instales VSCode, pero eres libre de usar el que más te guste.
+We recommend installing VSCode, but you are free to use any editor you prefer.
 
-[Descargar VSCode](https://code.visualstudio.com/download)
+[Download VSCode](https://code.visualstudio.com/download)
 
-💡 Tenemos una configuración para evitar errores a la hora de cambiar tokens en VScode, pues ver cómo configurarlo [aquí](vsco-configuration.md).
+💡 We have a configuration to avoid errors when changing tokens in VSCode. You can learn how to set it up [here](vsco-configuration.md).
 
-## Instala GitHub Desktop
+## Install GitHub Desktop
 
-GitHub Desktop es la app para trabajar directamente con el respositorio, es la manera más fácil y visual que hay para poder entender GitHub.
+GitHub Desktop is the app to work directly with the repository, and it's the easiest and most visual way to understand GitHub.
 
-[Descagar GitHub Desktop](https://desktop.github.com/)
+[Download GitHub Desktop](https://desktop.github.com/)
 
-Sigue esta guía para saber cómo clonar un repositorio
+Follow this guide to learn how to clone a repository using GitHub Desktop:
 
 [Cloning a repository from GitHub to GitHub Desktop](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)
 
-Una vez ya tengas el respositorio clonado, deberías de ver en el Finder de tu ordenador la carpeta `Tokens` y en su interior todos los archivos de tokens.
+Once you have cloned the repository, you should see the `Tokens` folder in your computer's Finder, containing all the token files.
 
-## Abre el repositorio en VS Code
+## Open the Repository in VS Code
 
-Una vez clonado, si en este selector de GitHub Desktop no aparece el repositorio seleccionado, despliega el menú para seleccionarlo. 
+Once cloned, if the repository is not automatically selected in this GitHub Desktop selector, expand the menu to choose it.
 
 <img width="286" alt="Screenshot 2023-07-06 at 17 39 09" src="https://github.com/Telefonica/mistica-design/assets/44420072/198dc196-c236-4855-abe4-d2adc38b30c0">
 
-Desde github desktop una vez seleccionado el repositorio recién clonado, ábrelo en el editor que hayas configurado por defecto:
+From GitHub Desktop, after selecting the freshly cloned repository, open it in the editor you have configured by default:
 
 <img width="638" alt="Screenshot 2023-07-06 at 17 33 44" src="https://github.com/Telefonica/mistica-design/assets/44420072/0083e758-dfb4-4281-8aa7-41aa8f9a54b6">
 
-Si Visual Studio Code no es tu editor por defecto, puedes cambiarlo desde "preferencias" en ese mismo lugar.
+If Visual Studio Code is not your default editor, you can change it from "preferences" in the same place.
 
+## Create a New Branch to Make Changes
 
-## Crea una rama nueva para realizar los cambios
+Before making modifications to the JSON files, it's a good practice to create a new branch in the repository. This will allow you to work in isolation and maintain a clear history of your changes. Follow these steps to create a new branch:
 
-Antes de realizar modificaciones en los archivos JSON, es una buena práctica crear una nueva rama en el repositorio. Esto te permitirá trabajar de manera aislada y mantener un historial claro de tus cambios. Sigue estos pasos para crear una nueva rama:
-
-1. En VS Code, haz clic en el icono del control de código fuente en la esquina inferior izquierda. Normalmente, este icono tiene el símbolo de git:
+1. In VS Code, click on the version control icon in the bottom left corner. Usually, this icon has the git symbol:
 
 <img width="211" alt="Screenshot 2023-07-06 at 17 42 58" src="https://github.com/Telefonica/mistica-design/assets/44420072/588405e8-8a73-4723-829e-8f399e66403d">
 
-2. En la parte superior de la ventana de control de código fuente, encontrarás una caja de texto que indica la rama actual. Haz clic en esa caja de texto y selecciona "Crear nueva rama" en el menú desplegable.
+2. In the top of the version control window, you will find a text box indicating the current branch. Click on that text box and select "Create new branch" from the dropdown menu:
 
 <img width="651" alt="Screenshot 2023-07-06 at 17 42 23" src="https://github.com/Telefonica/mistica-design/assets/44420072/8d45e7a5-e154-48d4-abf3-4bc4f7120e62">
 
-3. Escribe un nombre descriptivo para tu nueva rama y presiona Enter para crearla.
+3. Enter a descriptive name for your new branch and press Enter to create it.
 
-4. Asegúrate de que la nueva rama esté seleccionada como la rama activa antes de continuar con las modificaciones en los archivos JSON.
+4. Make sure the new branch is selected as the active branch before proceeding with the modifications to the JSON files.
 
 ## Modificando el JSON
 
-Los archivos JSON de las diferentes marcas se encuentran en el directorio `tokens`
+The JSON files for different brands are located in the tokens directory.
 
 <img width="431" alt="Screenshot 2023-07-06 at 17 44 33" src="https://github.com/Telefonica/mistica-design/assets/44420072/1b482ecd-4fea-47c3-8b18-9a444c776106">
 
-El archivo JSON de una marca tiene la siguiente estructura:
+The JSON file for a brand has the following structure:
 
 ```
-{ 
+{
 "light": { ... },
 "dark": { ... },
 "radius": { ... },
 "text": { ... },
-"global": { 
+"global": {
    "palette": {...}
 }
 ```
 
 ### Paleta
 
-La paleta está dentro de la está dentro de la categoría `global` / `palette` y está compuesta por los diferentes tokens que luego las constantes utilizan como value. Dentro de la paleta se pueden realizar las siguientes modificaciones:
+The palette is located within the `global` / `palette` category and is composed of different tokens that are later used as values by the constants. Within the palette, the following modifications can be made:
 
 > **Warning**
 >
-> **Cambios que conllevan un breaking change**
+> **Changes that entail a breaking change**
 >
-> Aunque es posible realizar estos cambios, la modificación o eliminación de un token de la paleta puede suponer un breaking change en algún producto que consuma directamente estos tokens.
+> Although these changes are possible, modifying or removing a token from the palette may cause a breaking change in any product that directly consumes these tokens.
 >
-> * Modificación de nombre
-> * Eliminación de un token existente
+> - Name modification
+> - Deletion of an existing token
 >
-> Si necesitas realizar una modificación de alguno de los dos tipos anteriores valora previamente el impacto que tiene el cambio.
+> If you need to make a modification of either of the above types, carefully consider the impact it will have.
 
+#### Modify value of an existing token
 
-#### Modificar valor de un token existente
+The `value` field of a token in the palette can be modified.
 
-Se puede modificar el campo `value` de un token de la paleta.
-
-* Siempre tiene que ir entre comillas dobles ("...")
-* El formato válido es el [hexadecimal](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color).
+- It must always be enclosed in double quotes ("...").
+- The valid format is [hexadecimal](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color).
 
 ![palette_change](https://github.com/Telefonica/mistica-design/assets/44420072/89cdcab8-5e22-4113-aabd-7283b1c75ace)
 
 #### Crear un nuevo token
 
-Se puede añadir un nuevo token a la paleta para utilizarlo posteriormente en una constante.
+A new token can be added to the palette to be used later in a constant.
 
-Tiene que seguir el siguiente formato:
+It must follow the following format:
 
 ```
-"nombre": {
-  "value": "valor",
+"name": {
+  "value": "the desired value",
   "type": "color"
 }
 ```
 
 ![tokens_new_palette](https://github.com/Telefonica/mistica-design/assets/44420072/3fadf1c9-f1f7-49e4-9c13-c9e9563b33c6)
 
-
 ### Constantes
 
-Las constantes se encuentran dentro de las categorías `light` y `dark` del json. En el value de una constante nunca se utiliza un valor hexadecimal directamente, sino que se referencia un valor pre-existente de la paleta de la siguiente manera:
+The constants are located within the `light` and `dark` categories of the JSON. In the value of a constant, a hexadecimal value is never used directly; instead, it references a pre-existing value from the palette as follows:
 
 ```
  "value": "{palette.white}"
 ```
 
-Tambien es posible aplicar modificaciones de opacidad a los valores:
+It's also possible to apply opacity modifications to the values:
 
 ```
  "value": "rgba({palette.white}, 0.5)"
 ```
 
-Donde 0.05 es el canal alpha y puede tener un valor entre 0 y 1.
+Where 0.5 is the alpha channel and can have a value between 0 and 1.
 
-Las constantes permiten las siguientes modificaciones:
+Constants allow the following modifications:
 
 > **Warning**
 >
-> **Cambios que no se pueden realizar**
-> * Modificación de nombre
-> * Eliminación de un token existente
+> **Changes that cannot be made:**
 >
-> Para añadir una constante a una skin es recomendable abrir una discussion con la necesidad, de manera que pueda evaluarse.
+> - Name modification
+> - Deletion of an existing token
+>
+> To add a constant to a skin, it's recommended to open a discussion to evaluate the need.
 
-#### Modificar su valor
+#### Modify its value
 
-Se puede modificar el valor de una constante, es importante, si se quiere que esa constante cambien en light y dark, cambiar ese valor en la constante que tiene el mismo nombre en las dos categorías.
+The value of a constant can be modified. It's important to note that if you want the constant to change in both light and dark, you should change the value in the constant with the same name in both categories.
 
 ![tokens_modify_constant](https://github.com/Telefonica/mistica-design/assets/44420072/a0d8f6c8-a25d-41c9-b8dd-13c92773f57f)
 
 > **Note**
-> >
-> Cuando se modifica un `value` el campo `description` tiene que modificarse también con el mismo valor. Ej. si el cambio es de movistarBlue a movistarBlue55 el value será: "{palette.movistarBlue55}" y la description: "movistarBlue55".
-
+>
+> > When modifying a `value`, the `description` field must also be updated with the same value. For example, if the change is from "movistarBlue" to "movistarBlue55," the value should be: "{palette.movistarBlue55}" and the description: "movistarBlue55".
 
 ### Border radius
 
-Los tokens de border-radius se encuentran dentro de la categoria `radius`, dentro de esta categoría se pueden realizar las siguientes modificaciones:
+The border-radius tokens are located within the `radius` category. In this category, the following modifications can be made:
 
 > **Warning**
 >
-> **Cambios que no se pueden realizar**
-> * Modificación de nombre
-> * Eliminación de un token existente
+> **Changes that cannot be made:**
 >
-> Para añadir una border-radius a una skin es recomendable abrir una discussion con la necesidad, de manera que pueda evaluarse.
+> - Name modification
+> - Deletion of an existing token
+>
+> To add a border-radius to a skin, it's recommended to open a discussion to evaluate the need.
 
+#### Modify its value
 
-#### Modificar su valor
-
-Se puede modificar el campo `value` de un token de border-radius:
+The `value` field of a border-radius token can be modified:
 
 ![tokens_modify_radius](https://github.com/Telefonica/mistica-design/assets/44420072/cb1c7f44-3c09-4fdc-961f-5a3a5e170397)
 
+## Save Changes and Publish Your Branch
 
-## Guarda los cambios y publica tu rama
+Once you have made the necessary modifications to the JSON files, you need to save your changes and publish the branch to the remote repository. Follow these steps:
 
-Una vez que hayas realizado las modificaciones necesarias en los archivos JSON, deberás guardar tus cambios y publicar la rama en el repositorio remoto. Sigue estos pasos:
-
-1. Desde la barra de navegación vete al tercer elemento (Source Control) donde verás lo siguiente:
+1. Go to the third element in the navigation bar (Source Control), where you will see the following:
 
 <img width="420" alt="Screenshot 2023-07-06 at 17 47 26" src="https://github.com/Telefonica/mistica-design/assets/44420072/59c68814-b615-485f-ab7a-306bd5273738">
 
-Aquí aparece el listado de los cambios que se han realizado. Comprueba que los cambios que aparecen listados son los correctos.
+Here, you will find a list of the changes that have been made. Make sure that the listed changes are correct.
 
-2. Introduce en el campo de texto una descripción de los cambios a realizar
-3. Haz click en el botón para hacer un commit de los cambios. Este commit guardará de momento los cambios localmente en tu equipo.
-4. Una vez que los cambios se han guardado, el botón se modificará mostrando la posibilidad de publicar la rama. Haz click en el botón.
+2. Enter a description of the changes to be made in the text field.
+3. Click on the button to commit the changes. This commit will save the changes locally on your computer.
+4. Once the changes have been saved, the button will change, showing the option to publish the branch. Click on the button.
 
 <img width="358" alt="Screenshot 2023-07-06 at 17 51 19" src="https://github.com/Telefonica/mistica-design/assets/44420072/c2610218-5ae2-44b9-bad8-b99ac03a58b5">
 
+## Create a Pull Request to the mistica-design Repository
 
-## Crea una PR al repositorio de mistica-design
+When the branch has been published, you can create a pull request to merge the changes from that branch into the master branch.
 
-Una vez publicada la rama, es posible realizar una petición de cambios desde esa rama a la rama master, haciendo una Pull request.
-
-1. Desde GitHub desktop y con esa rama seleccionada en el segundo selector de la barra superior, te aparecerá la opción de crear una Pull request.
+1. In GitHub Desktop, with the branch selected in the second dropdown of the top bar, you will see the option to create a Pull Request.
 
 <img width="926" alt="Screenshot 2023-07-07 at 10 22 38" src="https://github.com/Telefonica/mistica-design/assets/44420072/f73ad68a-ed72-4c76-813a-f743640326af">
 
-2. Al hacer click en el botón de crear Pull Request, una nueva ventana del explorador se abrirá mostrando los campos necesarios a completar.
-3. Comprueba que la rama base es `pre-production` y que la rama que estás comparando es la que acabas de crear
-  
+2. Clicking on the "Create Pull Request" button will open a new browser window displaying the necessary fields to complete.
+3. Make sure the base branch is set to `production`, and the branch you are comparing is the one you just created.
+
 <img width="937" alt="Screenshot 2023-07-07 at 10 26 02" src="https://github.com/Telefonica/mistica-design/assets/44420072/886a92fd-4688-4124-8d5b-9f5039b98897">
 
 > **Note**
-> >
-> Hay ocasiones en los que la rama base puede que no sea pre-production y sea production, estos casos ocurren normalmente cuando son  cambios que requieren realizarse de manera rápida ya que hay algo que solucionar en alguna de las implementaciones (nativo / web), antes de realizar una PR a production, consulta con design-core.
+>
+> > There may be cases where the base branch is not pre-production but production. This typically happens when there are changes that need to be made quickly to fix something in one of the implementations (native / web). Before creating a PR to production, consult with design-core.
 
-4. Una vez que todo está correcto, escribe un título descriptivo para la Pull Request y en el campo que se encuentra a la derecha, indica un revisor del equipo de design-core.
-5. Una vez creado el título y asignado un revisor, puede procederse a crear la pull request con el botón de la parte inferior.
-
-
+4. When everything is correct, write a descriptive title for the Pull Request, and in the field on the right, assign a reviewer from the design-core team.
+5. After creating the title and assigning a reviewer, you can proceed to create the pull request using the button at the bottom.
