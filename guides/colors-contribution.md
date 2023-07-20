@@ -79,7 +79,7 @@ The JSON file for a brand has the following structure:
 }
 ```
 
-### Paleta
+### Palette
 
 The palette is located within the `global` / `palette` category and is composed of different tokens that are later used as values by the constants. Within the palette, the following modifications can be made:
 
@@ -103,7 +103,7 @@ The `value` field of a token in the palette can be modified.
 
 ![palette_change](https://github.com/Telefonica/mistica-design/assets/44420072/89cdcab8-5e22-4113-aabd-7283b1c75ace)
 
-#### Crear un nuevo token
+#### Create a new token
 
 A new token can be added to the palette to be used later in a constant.
 
@@ -118,7 +118,7 @@ It must follow the following format:
 
 ![tokens_new_palette](https://github.com/Telefonica/mistica-design/assets/44420072/3fadf1c9-f1f7-49e4-9c13-c9e9563b33c6)
 
-### Constantes
+### Constants
 
 The constants are located within the `light` and `dark` categories of the JSON. In the value of a constant, a hexadecimal value is never used directly; instead, it references a pre-existing value from the palette as follows:
 
@@ -176,7 +176,9 @@ The `value` field of a border-radius token can be modified:
 
 ## Save Changes and Publish Your Branch
 
-Once you have made the necessary modifications to the JSON files, you need to save your changes and publish the branch to the remote repository. Follow these steps:
+Once you have made the necessary modifications to the JSON files, you need to save your changes and publish the branch to the remote repository. 
+
+### Visual Studio Code
 
 1. Go to the third element in the navigation bar (Source Control), where you will see the following:
 
@@ -189,6 +191,15 @@ Here, you will find a list of the changes that have been made. Make sure that th
 4. Once the changes have been saved, the button will change, showing the option to publish the branch. Click on the button.
 
 <img width="358" alt="Screenshot 2023-07-06 at 17 51 19" src="https://github.com/Telefonica/mistica-design/assets/44420072/c2610218-5ae2-44b9-bad8-b99ac03a58b5">
+
+### Github Desktop
+
+![Screenshot 2023-07-20 at 15 04 14](https://github.com/Telefonica/mistica-design/assets/44420072/a6003cb0-9760-4d0c-b452-85ae4ec0b317)
+
+1. Open GitHub Desktop and select the repository you are working on.
+
+In the top menu, click on "Changes" to view the changes you have made to the files.
+
 
 ## Create a Pull Request to the mistica-design Repository
 
