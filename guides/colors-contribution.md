@@ -194,12 +194,14 @@ Here, you will find a list of the changes that have been made. Make sure that th
 
 ### Github Desktop
 
-![Screenshot 2023-07-20 at 15 04 14](https://github.com/Telefonica/mistica-design/assets/44420072/a6003cb0-9760-4d0c-b452-85ae4ec0b317)
-
 1. Open GitHub Desktop and select the repository you are working on.
 
-In the top menu, click on "Changes" to view the changes you have made to the files.
+![Screenshot 2023-07-20 at 15 04 14](https://github.com/Telefonica/mistica-design/assets/44420072/a6003cb0-9760-4d0c-b452-85ae4ec0b317)
 
+2. In the top menu, click on "Changes" to view the changes you have made to the files. Here, you will find a list of the changes that have been made. Make sure that the listed changes are correct.
+3. Enter a description of the changes you made in the "Summary" text field at the bottom of the screen.
+4. Click on the "Commit to {the name of your branch}" button. This will create a commit and save the changes locally on your computer.
+5. Once the changes have been committed, click on the "Push origin" button. This will push the changes to the remote repository and publish the branch.
 
 ## Create a Pull Request to the mistica-design Repository
 
