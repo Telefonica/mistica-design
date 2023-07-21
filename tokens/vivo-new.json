@@ -1,1312 +1,2796 @@
 {
-  "light": {
+  "color": {
     "background": {
-      "value": "{palette.white}",
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:0273dacc9dcb8de217da15474c3d73fd5946a1b9,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundAlternative": {
-      "value": "{palette.grey1}",
+    "backgroundalternative": {
+      "description": "grey1",
       "type": "color",
-      "description": "grey1"
+      "value": "#f6f6f6ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:65cee34193a5a786d03c791899c3368f76935a39,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundBrand": {
-      "value": "{palette.vivoPurple}",
+    "backgroundbrand": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:098771d745d10bf8ff20775afcf6be5bb1fa55e8,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundBrandSecondary": {
-      "value": "{palette.vivoPurple}",
+    "backgroundbrandsecondary": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:ffc79a9c10ad8f1ec637ff4edc5be19e3aaf80e3,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundContainer": {
-      "value": "{palette.white}",
+    "backgroundcontainer": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:a972c3e1cc342acb65cad5b5963088d1fb430581,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundContainerHover": {
-      "value": "rgba({palette.darkModeBlack}, 0.03)",
+    "backgroundcontainerhover": {
+      "description": "darkModeBlack",
       "type": "color",
-      "description": "darkModeBlack"
+      "value": "#19191908",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:85b8b861cba415401970e8b3a600ad72f07df475,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundContainerPressed": {
-      "value": "rgba({palette.darkModeBlack}, 0.05)",
+    "backgroundcontainerpressed": {
+      "description": "darkModeBlack",
       "type": "color",
-      "description": "darkModeBlack"
+      "value": "#1919190d",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:ad32ac3f087a91295be5d76be505fad548c4d7bc,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundContainerBrand": {
-      "value": "{palette.vivoPurple}",
+    "backgroundcontainerbrand": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:18b6d385a6df9251b974697038cc9714be6f1239,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundContainerBrandHover": {
-      "value": "rgba({palette.darkModeBlack}, 0.2)",
+    "backgroundcontainerbrandhover": {
+      "description": "darkModeBlack",
       "type": "color",
-      "description": "darkModeBlack"
+      "value": "#19191933",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:b7edf7087a1a98931afd262d05195ce558ff1ae1,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundContainerBrandPressed": {
-      "value": "rgba({palette.darkModeBlack}, 0.4)",
+    "backgroundcontainerbrandpressed": {
+      "description": "darkModeBlack",
       "type": "color",
-      "description": "darkModeBlack"
+      "value": "#19191966",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:a551aaa33fea04058071e540439790c366d1efb1,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundContainerBrandOverInverse": {
-      "value": "{palette.vivoPurpleDark}",
+    "backgroundcontainerbrandoverinverse": {
+      "description": "vivoPurpleDark",
       "type": "color",
-      "description": "vivoPurpleDark"
+      "value": "#461e5fff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:42d8f509773a3e66ed0265903596af0bfd09d2c2,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundContainerAlternative": {
-      "value": "{palette.grey1}",
+    "backgroundcontaineralternative": {
+      "description": "grey1",
       "type": "color",
-      "description": "grey1"
+      "value": "#f6f6f6ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:ad921e920f67b061a1a724161fe69ec5736731b4,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundOverlay": {
-      "value": "rgba({palette.grey6}, 0.6)",
+    "backgroundoverlay": {
+      "description": "grey6",
       "type": "color",
-      "description": "grey6"
+      "value": "#00000099",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:c1ce6fd690f02f3225dd8aba4d7173d1cb892304,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundSkeleton": {
-      "value": "{palette.grey2}",
+    "backgroundskeleton": {
+      "description": "grey2",
       "type": "color",
-      "description": "grey2"
+      "value": "#eeeeeeff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:48b4877fd85c52d68048f2d4d79cd5f15234e8fa,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundSkeletonInverse": {
-      "value": "{palette.vivoPurpleDark}",
+    "backgroundskeletoninverse": {
+      "description": "vivoPurpleDark",
       "type": "color",
-      "description": "vivoPurpleDark"
+      "value": "#461e5fff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:a5f081a1099c60f7de20147cb2c03607c5f02a65,",
+          "exportKey": "color"
+        }
+      }
     },
-    "backgroundFeedbackBottom": {
-      "value": "{palette.vivoPurple}",
+    "backgroundfeedbackbottom": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:4a3939b84b7529dc929ac277fdf51c73d71ad241,",
+          "exportKey": "color"
+        }
+      }
     },
-    "appBarBackground": {
-      "value": "{palette.white}",
+    "appbarbackground": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:5305ee27c7dfb4397421bcb2a13ac43ec7d09d5e,",
+          "exportKey": "color"
+        }
+      }
     },
-    "navigationBarBackground": {
-      "value": "{palette.vivoPurple}",
+    "navigationbarbackground": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:5bcb32a117fa58ddaf5af2df5cc2a4c9698725d9,",
+          "exportKey": "color"
+        }
+      }
     },
-    "skeletonWave": {
-      "value": "{palette.grey2}",
+    "skeletonwave": {
+      "description": "grey2",
       "type": "color",
-      "description": "grey2"
+      "value": "#eeeeeeff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:4aaa19047e2a6eb1a08270fdac4ca54274e7967b,",
+          "exportKey": "color"
+        }
+      }
     },
-    "borderLow": {
-      "value": "{palette.grey1}",
+    "borderlow": {
+      "description": "grey1",
       "type": "color",
-      "description": "grey1"
+      "value": "#f6f6f6ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:d27bfde93375e656a7218707b38c3626e2c83fa8,",
+          "exportKey": "color"
+        }
+      }
     },
     "border": {
-      "value": "{palette.grey3}",
+      "description": "grey3",
       "type": "color",
-      "description": "grey3"
+      "value": "#ddddddff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:a37a1f505f7056ce1d21251d7e41c7f942178916,",
+          "exportKey": "color"
+        }
+      }
     },
-    "borderHigh": {
-      "value": "{palette.grey5}",
+    "borderhigh": {
+      "description": "grey5",
       "type": "color",
-      "description": "grey5"
+      "value": "#666666ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:0cf019f6cb5c768c1357f5a4d90f40e55ef1341f,",
+          "exportKey": "color"
+        }
+      }
     },
-    "borderSelected": {
-      "value": "{palette.vivoPurple}",
+    "borderselected": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:86da2ed0d34561a38c7c7adaf545a1636c0adc96,",
+          "exportKey": "color"
+        }
+      }
     },
-    "coverBackgroundHover": {
-      "value": "rgba({palette.darkModeBlack}, 0.25)",
+    "coverbackgroundhover": {
+      "description": "darkModeBlack",
       "type": "color",
-      "description": "darkModeBlack"
+      "value": "#19191940",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:9de691539eca7896c1405dec22da2a583f743df3,",
+          "exportKey": "color"
+        }
+      }
     },
-    "coverBackgroundPressed": {
-      "value": "rgba({palette.darkModeBlack}, 0.35)",
+    "coverbackgroundpressed": {
+      "description": "darkModeBlack",
       "type": "color",
-      "description": "darkModeBlack"
+      "value": "#19191959",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:cc11520df598fcb30ec08a98e0c322491dfe3120,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonDangerBackground": {
-      "value": "{palette.pepper}",
+    "buttondangerbackground": {
+      "description": "pepper",
       "type": "color",
-      "description": "pepper"
+      "value": "#cc1f59ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:0ded6514741bbe29ab87c1c53a9c708ca183b614,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonDangerBackgroundSelected": {
-      "value": "{palette.pepperDark}",
+    "buttondangerbackgroundselected": {
+      "description": "pepperDark",
       "type": "color",
-      "description": "pepperDark"
+      "value": "#b71d63ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:42bc95e843896d372590073298ac783594ab6f11,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonDangerBackgroundHover": {
-      "value": "{palette.pepperDark}",
+    "buttondangerbackgroundhover": {
+      "description": "pepperDark",
       "type": "color",
-      "description": "pepperDark"
+      "value": "#b71d63ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:c05ce2b9d59383a321bd4a46dc0cfa428d72ff71,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonLinkBackgroundSelected": {
-      "value": "{palette.vivoPurpleLight10}",
+    "buttonlinkbackgroundselected": {
+      "description": "vivoPurpleLight10",
       "type": "color",
-      "description": "vivoPurpleLight10"
+      "value": "#efe5f4ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:30093ade4abd16f668eade7d556c061ae1602ff6,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonLinkBackgroundInverseSelected": {
-      "value": "rgba({palette.white}, 0.1)",
+    "buttonlinkbackgroundinverseselected": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffff1a",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:d682e44ca9db2a7c847fd69ce0496717bf3f1130,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonPrimaryBackground": {
-      "value": "{palette.vivoPurple}",
+    "buttonprimarybackground": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:9aa1781afde014ddbf80261fbf5a7ee63178f7c4,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonPrimaryBackgroundInverse": {
-      "value": "{palette.white}",
+    "buttonprimarybackgroundinverse": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:a40a1e97bb4c1257a0153c355e6e62a2acf3b88d,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonPrimaryBackgroundSelected": {
-      "value": "{palette.vivoPurpleDark}",
+    "buttonprimarybackgroundselected": {
+      "description": "vivoPurpleDark",
       "type": "color",
-      "description": "vivoPurpleDark"
+      "value": "#461e5fff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:22980969ef43a7f0e2c90e19440f9c9636164f37,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonPrimaryBackgroundHover": {
-      "value": "{palette.vivoPurpleDark}",
+    "buttonprimarybackgroundhover": {
+      "description": "vivoPurpleDark",
       "type": "color",
-      "description": "vivoPurpleDark"
+      "value": "#461e5fff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:c24ca4ee7247e84ba009edc10b760f9d605a0133,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonPrimaryBackgroundInverseSelected": {
-      "value": "{palette.vivoPurpleLight50}",
+    "buttonprimarybackgroundinverseselected": {
+      "description": "vivoPurpleLight50",
       "type": "color",
-      "description": "vivoPurpleLight50"
+      "value": "#b280ccff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:dc4f2a47efe59c13b7b6ab571903e45d741297c3,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonSecondaryBorder": {
-      "value": "{palette.vivoPurple}",
+    "buttonsecondaryborder": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:e2068205222a46922af37fa396ad1d4e6adbb865,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonSecondaryBorderSelected": {
-      "value": "{palette.vivoPurpleDark}",
+    "buttonsecondaryborderselected": {
+      "description": "vivoPurpleDark",
       "type": "color",
-      "description": "vivoPurpleDark"
+      "value": "#461e5fff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:66c867cd68aa3abbe30060e96f70c72dc5f76d7a,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonSecondaryBackgroundHover": {
-      "value": "{palette.vivoPurpleLight10}",
+    "buttonsecondarybackgroundhover": {
+      "description": "vivoPurpleLight10",
       "type": "color",
-      "description": "vivoPurpleLight10"
+      "value": "#efe5f4ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:ce353f655748e24001fb2e974a0265db808ff0dd,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonSecondaryBackgroundSelected": {
-      "value": "{palette.vivoPurpleLight10}",
+    "buttonsecondarybackgroundselected": {
+      "description": "vivoPurpleLight10",
       "type": "color",
-      "description": "vivoPurpleLight10"
+      "value": "#efe5f4ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:ea342dc217dd8540ffa010376c2ababf6b9db2c7,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonSecondaryBorderInverse": {
-      "value": "{palette.white}",
+    "buttonsecondaryborderinverse": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:f4b55f1714749253b956c05353cda6267ca0fb8b,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonSecondaryBorderInverseSelected": {
-      "value": "{palette.white}",
+    "buttonsecondaryborderinverseselected": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:5aaa7e07b58f110242f0c6dc03f0e644ff9552d3,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonSecondaryBackgroundInverseHover": {
-      "value": "rgba({palette.white}, 0.15)",
+    "buttonsecondarybackgroundinversehover": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffff26",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:800b1857993371bf4842f58b59df230054bbccd6,",
+          "exportKey": "color"
+        }
+      }
     },
-    "buttonSecondaryBackgroundInverseSelected": {
-      "value": "rgba({palette.white}, 0.15)",
+    "buttonsecondarybackgroundinverseselected": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffff26",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:b0e9b59e5a5bd71abba84b0e987af314653ee59d,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textButtonPrimary": {
-      "value": "{palette.white}",
+    "textbuttonprimary": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:79241e4d933cd7715b8c5397c01fb2c0d2b89358,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textButtonPrimaryInverse": {
-      "value": "{palette.vivoPurple}",
+    "textbuttonprimaryinverse": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:70160befb3faab8a9928a655bae7ce0d29b8e549,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textButtonPrimaryInverseSelected": {
-      "value": "{palette.vivoPurple}",
+    "textbuttonprimaryinverseselected": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:6432ea10fc0eef08ddbd585c83968093a399504d,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textButtonSecondary": {
-      "value": "{palette.vivoPurple}",
+    "textbuttonsecondary": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:9b283339a1e724edb5ab57ba3609ba723841d0cd,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textButtonSecondarySelected": {
-      "value": "{palette.vivoPurpleDark}",
+    "textbuttonsecondaryselected": {
+      "description": "vivoPurpleDark",
       "type": "color",
-      "description": "vivoPurpleDark"
+      "value": "#461e5fff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:f38212107219257be7a06821ee50100c0409a8f7,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textButtonSecondaryInverse": {
-      "value": "{palette.white}",
+    "textbuttonsecondaryinverse": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:2e3ff95d7672d046df2cfd4a2bed5bf64c97c104,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textButtonSecondaryInverseSelected": {
-      "value": "{palette.white}",
+    "textbuttonsecondaryinverseselected": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:6bc1a7ade7f42b76df952c3d5748140226f3eca3,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textLink": {
-      "value": "{palette.vivoPurple}",
+    "textlink": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:0c766ba7925e88636ac21cba0d30c1a8c15fd98d,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textLinkInverse": {
-      "value": "{palette.white}",
+    "textlinkinverse": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:18697e0bfa4d2ed8ea88714d75cded5aadc6c18c,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textLinkDanger": {
-      "value": "{palette.pepper}",
+    "textlinkdanger": {
+      "description": "pepper",
       "type": "color",
-      "description": "pepper"
+      "value": "#cc1f59ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:338e46732c597b6f50dc82d39034e3374fb4375c,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textLinkSnackbar": {
-      "value": "{palette.vivoPurpleLight20}",
+    "textlinksnackbar": {
+      "description": "vivoPurpleLight20",
       "type": "color",
-      "description": "vivoPurpleLight20"
+      "value": "#e0ccebff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:a0afd2a84b2bd1e6e0ffbef2799056a66b67022d,",
+          "exportKey": "color"
+        }
+      }
     },
     "control": {
-      "value": "{palette.grey3}",
+      "description": "grey3",
       "type": "color",
-      "description": "grey3"
+      "value": "#ddddddff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:c6ebabf3ecd8f1d84c62e87ee280d20a2ccf8f86,",
+          "exportKey": "color"
+        }
+      }
     },
-    "controlActivated": {
-      "value": "{palette.vivoPurple}",
+    "controlactivated": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:f5c998ce2328229685df5ea76b8d13d692335f57,",
+          "exportKey": "color"
+        }
+      }
     },
-    "controlError": {
-      "value": "{palette.pepper}",
+    "controlerror": {
+      "description": "pepper",
       "type": "color",
-      "description": "pepper"
+      "value": "#cc1f59ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:84fb64557c7b002ddba8fdf79d7f7d22fcb071ef,",
+          "exportKey": "color"
+        }
+      }
     },
-    "loadingBar": {
-      "value": "{palette.pink}",
+    "loadingbar": {
+      "description": "pink",
       "type": "color",
-      "description": "pink"
+      "value": "#eb3d7dff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:24247e69b4aba19fd100f9f6fefd84d814b9e314,",
+          "exportKey": "color"
+        }
+      }
     },
-    "loadingBarBackground": {
-      "value": "{palette.pepperLight30}",
+    "loadingbarbackground": {
+      "description": "pepperLight30",
       "type": "color",
-      "description": "pepperLight30"
+      "value": "#f7b1cbff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:c1c5db253c4e7f835d5103f8f1e8f35e44b9b9ac,",
+          "exportKey": "color"
+        }
+      }
     },
-    "toggleAndroidInactive": {
-      "value": "{palette.grey2}",
+    "toggleandroidinactive": {
+      "description": "grey2",
       "type": "color",
-      "description": "grey2"
+      "value": "#eeeeeeff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:441537e12100f9b2ff51a82fbaaa5b81c5859a9d,",
+          "exportKey": "color"
+        }
+      }
     },
-    "toggleAndroidBackgroundActive": {
-      "value": "{palette.vivoPurpleLight20}",
+    "toggleandroidbackgroundactive": {
+      "description": "vivoPurpleLight20",
       "type": "color",
-      "description": "vivoPurpleLight20"
+      "value": "#e0ccebff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:275a0afb815e6285b8d42529cee2e5994e8d7434,",
+          "exportKey": "color"
+        }
+      }
     },
-    "iosControlKnob": {
-      "value": "{palette.white}",
+    "ioscontrolknob": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:452f8dcdcad1e049f46348e7eea6aeeeb24aba0d,",
+          "exportKey": "color"
+        }
+      }
     },
     "divider": {
-      "value": "{palette.grey2}",
+      "description": "grey2",
       "type": "color",
-      "description": "grey2"
+      "value": "#eeeeeeff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:d8cf835aeb46261bbd448073207248232c7cec6c,",
+          "exportKey": "color"
+        }
+      }
     },
-    "dividerInverse": {
-      "value": "rgba({palette.white}, 0.2)",
+    "dividerinverse": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffff33",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:2ac0115934b029babd8e771c1fe6de3d2b10f9ba,",
+          "exportKey": "color"
+        }
+      }
     },
-    "navigationBarDivider": {
-      "value": "{palette.vivoPurple}",
+    "navigationbardivider": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:ffa29d9ffad8df065d34cd1f174da1d28820bfbe,",
+          "exportKey": "color"
+        }
+      }
     },
     "badge": {
-      "value": "{palette.pepperDark}",
+      "description": "pepperDark",
       "type": "color",
-      "description": "pepperDark"
+      "value": "#b71d63ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:ae1d81d097b8e19fdd718f1aaf6b8fa1148355fc,",
+          "exportKey": "color"
+        }
+      }
     },
-    "feedbackErrorBackground": {
-      "value": "{palette.pepper}",
+    "feedbackerrorbackground": {
+      "description": "pepper",
       "type": "color",
-      "description": "pepper"
+      "value": "#cc1f59ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:a08b54cebd971898c923c284a8062c1e0bd921ba,",
+          "exportKey": "color"
+        }
+      }
     },
-    "feedbackInfoBackground": {
-      "value": "{palette.vivoPurpleDark}",
+    "feedbackinfobackground": {
+      "description": "vivoPurpleDark",
       "type": "color",
-      "description": "vivoPurpleDark"
+      "value": "#461e5fff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:be3107377f2e61c2fba244bf9829c0963eb27156,",
+          "exportKey": "color"
+        }
+      }
     },
     "brand": {
-      "value": "{palette.vivoPurple}",
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:0c9236f3c783a9a2deba69d8b909759ddd1346bd,",
+          "exportKey": "color"
+        }
+      }
     },
-    "brandHigh": {
-      "value": "{palette.vivoPurpleDark}",
+    "brandhigh": {
+      "description": "vivoPurpleDark",
       "type": "color",
-      "description": "vivoPurpleDark"
+      "value": "#461e5fff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:2bb1644ddd43e22fbbf53c5cc35e32a354e71fef,",
+          "exportKey": "color"
+        }
+      }
     },
     "inverse": {
-      "value": "{palette.white}",
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:136d5a699d523f7356177ae53cf216778131cf07,",
+          "exportKey": "color"
+        }
+      }
     },
-    "neutralHigh": {
-      "value": "{palette.grey6}",
+    "neutralhigh": {
+      "description": "grey6",
       "type": "color",
-      "description": "grey6"
+      "value": "#000000ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:af4bf750f30eeb81b1c5688df60bacb62b60e840,",
+          "exportKey": "color"
+        }
+      }
     },
-    "neutralMedium": {
-      "value": "{palette.grey5}",
+    "neutralmedium": {
+      "description": "grey5",
       "type": "color",
-      "description": "grey5"
+      "value": "#666666ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:f7617c09b580da75027e53a923fea32e03981293,",
+          "exportKey": "color"
+        }
+      }
     },
-    "neutralMediumInverse": {
-      "value": "{palette.grey5}",
+    "neutralmediuminverse": {
+      "description": "grey5",
       "type": "color",
-      "description": "grey5"
+      "value": "#666666ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:f3d76f9186b39b750bbfce01b04a6f90af86a0c2,",
+          "exportKey": "color"
+        }
+      }
     },
-    "neutralLow": {
-      "value": "{palette.grey1}",
+    "neutrallow": {
+      "description": "grey1",
       "type": "color",
-      "description": "grey1"
+      "value": "#f6f6f6ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:0a25238f03f44a4ee97f146cffa76e8cfa571cdf,",
+          "exportKey": "color"
+        }
+      }
     },
-    "neutralLowAlternative": {
-      "value": "{palette.grey2}",
+    "neutrallowalternative": {
+      "description": "grey2",
       "type": "color",
-      "description": "grey2"
+      "value": "#eeeeeeff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:9fbf4386249d5710c7f1c0517d216cd4139796dc,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textPrimary": {
-      "value": "{palette.grey6}",
+    "textprimary": {
+      "description": "grey6",
       "type": "color",
-      "description": "grey6"
+      "value": "#000000ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:8eaf8f1d80d3d271b0b9ba7f741efb76ad77de46,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textPrimaryInverse": {
-      "value": "{palette.white}",
+    "textprimaryinverse": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:6a1a06c2e907ab596ac57d97b0b7dbb5d832eb1e,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textSecondary": {
-      "value": "{palette.grey5}",
+    "textsecondary": {
+      "description": "grey5",
       "type": "color",
-      "description": "grey5"
+      "value": "#666666ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:289fc92a72c9be8cd8a1f08a25309d71ed5c88ef,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textSecondaryInverse": {
-      "value": "{palette.vivoPurpleLight20}",
+    "textsecondaryinverse": {
+      "description": "vivoPurpleLight20",
       "type": "color",
-      "description": "vivoPurpleLight20"
+      "value": "#e0ccebff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:c6fb53dd2d07b8bf4e8995dd723540b8f271beba,",
+          "exportKey": "color"
+        }
+      }
     },
     "success": {
-      "value": "{palette.vivoGreen}",
+      "description": "vivoGreen",
       "type": "color",
-      "description": "vivoGreen"
+      "value": "#99cc33ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:dc943519f541df624704fce9581461aa7050cf84,",
+          "exportKey": "color"
+        }
+      }
     },
     "warning": {
-      "value": "{palette.orange}",
+      "description": "orange",
       "type": "color",
-      "description": "orange"
+      "value": "#ff9900ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:7603140a7715b4d34ff802a90298280b2413e26d,",
+          "exportKey": "color"
+        }
+      }
     },
     "error": {
-      "value": "{palette.pepper}",
+      "description": "pepper",
       "type": "color",
-      "description": "pepper"
+      "value": "#cc1f59ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:e194ca8bf24933aa8a4dbfb9e5b2aea9bc7e1707,",
+          "exportKey": "color"
+        }
+      }
     },
     "promo": {
-      "value": "{palette.vivoPurple}",
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:b0ca50f2b841bef898629b1ca85f10050fd314f9,",
+          "exportKey": "color"
+        }
+      }
     },
     "highlight": {
-      "value": "{palette.pink}",
+      "description": "pink",
       "type": "color",
-      "description": "pink"
+      "value": "#eb3d7dff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:b08baf76977e251bb25c26914d974d146e0e1d08,",
+          "exportKey": "color"
+        }
+      }
     },
-    "successLow": {
-      "value": "{palette.vivoGreenLight10}",
+    "successlow": {
+      "description": "vivoGreenLight10",
       "type": "color",
-      "description": "vivoGreenLight10"
+      "value": "#edf8e8ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:1f224405d534bb6bf3d9bd5cce9befaaac84acfa,",
+          "exportKey": "color"
+        }
+      }
     },
-    "warningLow": {
-      "value": "{palette.orangeLight10}",
+    "warninglow": {
+      "description": "orangeLight10",
       "type": "color",
-      "description": "orangeLight10"
+      "value": "#ffefe1ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:21f1527dfe9fdd7bd03daffe793abb2fb5d4b895,",
+          "exportKey": "color"
+        }
+      }
     },
-    "errorLow": {
-      "value": "{palette.pepperLight10}",
+    "errorlow": {
+      "description": "pepperLight10",
       "type": "color",
-      "description": "pepperLight10"
+      "value": "#fce4efff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:8a7a6d33e839f6ae9dbcaeb24027ff06e963afb9,",
+          "exportKey": "color"
+        }
+      }
     },
-    "promoLow": {
-      "value": "{palette.vivoPurpleLight10}",
+    "promolow": {
+      "description": "vivoPurpleLight10",
       "type": "color",
-      "description": "vivoPurpleLight10"
+      "value": "#efe5f4ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:1b0479f666b299167bd9d4562cfe6200a272f976,",
+          "exportKey": "color"
+        }
+      }
     },
-    "brandLow": {
-      "value": "{palette.vivoPurpleLight10}",
+    "brandlow": {
+      "description": "vivoPurpleLight10",
       "type": "color",
-      "description": "vivoPurpleLight10"
+      "value": "#efe5f4ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:c3953f7dc5481ccb449af41d6d4b66ac56c951b8,",
+          "exportKey": "color"
+        }
+      }
     },
-    "successHigh": {
-      "value": "{palette.vivoGreenDark}",
+    "successhigh": {
+      "description": "vivoGreenDark",
       "type": "color",
-      "description": "vivoGreenDark"
+      "value": "#225c3dff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:14cba7c93d3a35ee31413375f0aefb8de8296a42,",
+          "exportKey": "color"
+        }
+      }
     },
-    "warningHigh": {
-      "value": "{palette.orangeDark}",
+    "warninghigh": {
+      "description": "orangeDark",
       "type": "color",
-      "description": "orangeDark"
+      "value": "#972a1dff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:8ff4f9f4956508919a25cd102e1ceb5f14edc1aa,",
+          "exportKey": "color"
+        }
+      }
     },
-    "errorHigh": {
-      "value": "{palette.pepperDark80}",
+    "errorhigh": {
+      "description": "pepperDark80",
       "type": "color",
-      "description": "pepperDark80"
+      "value": "#8f2052ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:c00154b602774f03ef40d491f1c2f2cccec04e88,",
+          "exportKey": "color"
+        }
+      }
     },
-    "promoHigh": {
-      "value": "{palette.vivoPurple}",
+    "promohigh": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:58182ee337b5bd614874e54fa834c44f0d8c49e5,",
+          "exportKey": "color"
+        }
+      }
     },
-    "successHighInverse": {
-      "value": "{palette.vivoGreenDark}",
+    "successhighinverse": {
+      "description": "vivoGreenDark",
       "type": "color",
-      "description": "vivoGreenDark"
+      "value": "#225c3dff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:75d23c1754bb7bc8d862ccaeddcbf63f8574e95e,",
+          "exportKey": "color"
+        }
+      }
     },
-    "warningHighInverse": {
-      "value": "{palette.orangeDark}",
+    "warninghighinverse": {
+      "description": "orangeDark",
       "type": "color",
-      "description": "orangeDark"
+      "value": "#972a1dff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:1bebc73a47257ca876b1c4919e4b679ca4a469e4,",
+          "exportKey": "color"
+        }
+      }
     },
-    "errorHighInverse": {
-      "value": "{palette.pepperDark80}",
+    "errorhighinverse": {
+      "description": "pepperDark80",
       "type": "color",
-      "description": "pepperDark80"
+      "value": "#8f2052ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:a21acbcb1fba019c100bd79e7ecfca1d165834ce,",
+          "exportKey": "color"
+        }
+      }
     },
-    "promoHighInverse": {
-      "value": "{palette.vivoPurple}",
+    "promohighinverse": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:9a0ef5663982f9cb952713f6ab5cc606e13d7fc9,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textNavigationBarPrimary": {
-      "value": "{palette.white}",
+    "textnavigationbarprimary": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:555985bc8a8624e207a9de5955578b24e8ef208f,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textNavigationBarSecondary": {
-      "value": "{palette.vivoPurpleLight50}",
+    "textnavigationbarsecondary": {
+      "description": "vivoPurpleLight50",
       "type": "color",
-      "description": "vivoPurpleLight50"
+      "value": "#b280ccff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:6c82ca67edcc90f9052fb56dcb16257afd3214e6,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textNavigationSearchBarHint": {
-      "value": "{palette.vivoPurpleLight50}",
+    "textnavigationsearchbarhint": {
+      "description": "vivoPurpleLight50",
       "type": "color",
-      "description": "vivoPurpleLight50"
+      "value": "#b280ccff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:29f0963ce4202c46d2c19b63eba78e334028ef44,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textNavigationSearchBarText": {
-      "value": "{palette.white}",
+    "textnavigationsearchbartext": {
+      "description": "white",
       "type": "color",
-      "description": "white"
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:f64f59b2ebed92d000be0d946691ef726316d136,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textAppBar": {
-      "value": "{palette.grey4}",
+    "textappbar": {
+      "description": "grey4",
       "type": "color",
-      "description": "grey4"
+      "value": "#999999ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:2c7facce52d3556046ec12a4c9aa4fd1dc053a25,",
+          "exportKey": "color"
+        }
+      }
     },
-    "textAppBarSelected": {
-      "value": "{palette.vivoPurple}",
+    "textappbarselected": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:56469c49182fd66a66ede184ef958fe819265252,",
+          "exportKey": "color"
+        }
+      }
     },
-    "customTabsBackground": {
-      "value": "{palette.vivoPurple}",
+    "customtabsbackground": {
+      "description": "vivoPurple",
       "type": "color",
-      "description": "vivoPurple"
+      "value": "#660099ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:66e0c617f5e7b141a3e3ca2aabbce1fd8894fa6c,",
+          "exportKey": "color"
+        }
+      }
+    },
+    "palette": {
+      "vivopurple": {
+        "description": "",
+        "type": "color",
+        "value": "#660099ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:314472ea564cec8fda470e87cb131a9209184715,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "vivopurpledark": {
+        "description": "",
+        "type": "color",
+        "value": "#461e5fff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:07d715ffb0b14df18ed0f999ebc0c2d36333638f,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "vivopurplelight10": {
+        "description": "",
+        "type": "color",
+        "value": "#efe5f4ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:126705b7d4008cabc8432804f8703b9a29d77384,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "vivopurplelight20": {
+        "description": "",
+        "type": "color",
+        "value": "#e0ccebff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:4abfbb197f477c68f0fb2bd58f76d693c343777d,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "vivopurplelight50": {
+        "description": "",
+        "type": "color",
+        "value": "#b280ccff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:4ba509983e490c1ceb598799c36ff5319b5dc661,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "vivopurplelight80": {
+        "description": "",
+        "type": "color",
+        "value": "#8433adff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:b463dbd3ff54789488f3a7e0c2b51c2ee6c37bcf,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "vivopurplelight90": {
+        "description": "",
+        "type": "color",
+        "value": "#751aa3ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:cc7c3a7485e225b02b781a543453e9dab79ea0ef,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "vivogreen": {
+        "description": "",
+        "type": "color",
+        "value": "#99cc33ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:d61fe9ee2cfe0642bd55c024eaab6aa5a97c2bb8,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "vivogreendark": {
+        "description": "",
+        "type": "color",
+        "value": "#225c3dff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:d0d8f96e57b44d0c67412b71c31147ff906ea08a,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "vivogreenlight10": {
+        "description": "",
+        "type": "color",
+        "value": "#edf8e8ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:c539973919b7e1993f79ecf8d738b8a4b3f03c1b,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "vivogreen25": {
+        "description": "",
+        "type": "color",
+        "value": "#d6ebadff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:e97d4e7d9f65fba29bd23b7f289bef5abbaa52f7,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "vivogreenlight30": {
+        "description": "",
+        "type": "color",
+        "value": "#91ae9eff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:8048da6ba1523170ba285d9f40114db8fd051a16,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "vivoblue": {
+        "description": "",
+        "type": "color",
+        "value": "#00abdbff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:9d8d666f713731d8de3313da56f7a08514170676,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "orange": {
+        "description": "",
+        "type": "color",
+        "value": "#ff9900ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:c39b78abcde172dc48545a9bdfb337473b747156,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "orange25": {
+        "description": "",
+        "type": "color",
+        "value": "#ffd699ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:731b7b15645a623481a06077c55f0de88556812a,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "orangedark": {
+        "description": "",
+        "type": "color",
+        "value": "#972a1dff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:e0d5370186a255a1c6f7da83c0dfe3fdc2877032,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "orangelight10": {
+        "description": "",
+        "type": "color",
+        "value": "#ffefe1ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:f150cb7f222a4b36edae70c1c4c754efff1f9c44,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "orangelight40": {
+        "description": "",
+        "type": "color",
+        "value": "#ffb84cff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:a6033933890a6745b0abfb96842b1f96c9f65455,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "pink": {
+        "description": "",
+        "type": "color",
+        "value": "#eb3d7dff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:3da08fea0a2c6a0ae152a9f1964dcd5913e9fbbc,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "pepper": {
+        "description": "",
+        "type": "color",
+        "value": "#cc1f59ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:5e67225b9ff7a745b738134edf00b2047892f3d2,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "pepperdark": {
+        "description": "",
+        "type": "color",
+        "value": "#b71d63ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:5b3d4f269fab7f431dc3e43cc9f2ad3c41383529,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "pepperdark80": {
+        "description": "",
+        "type": "color",
+        "value": "#8f2052ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:558349862acdcf163eb298926b00b64697c3bf21,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "pepperlight10": {
+        "description": "",
+        "type": "color",
+        "value": "#fce4efff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:b689e046e2789349e98e563f32b2c812164f794f,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "pepperlight30": {
+        "description": "",
+        "type": "color",
+        "value": "#f7b1cbff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:1575e8738103e545099722a44f2a72e489c9f26f,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "pepperlight40": {
+        "description": "",
+        "type": "color",
+        "value": "#db628bff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:9020994995d722961d06d510ab00832af1756487,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "grey1": {
+        "description": "",
+        "type": "color",
+        "value": "#f6f6f6ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:d074f7e5b06853d5e35252a45e0431b3004b9ef7,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "grey2": {
+        "description": "",
+        "type": "color",
+        "value": "#eeeeeeff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:c75807ba90f4c831981e3591c878815424806542,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "grey3": {
+        "description": "",
+        "type": "color",
+        "value": "#ddddddff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:353f2a56703dc001464725be023fa84dcba00fef,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "grey4": {
+        "description": "",
+        "type": "color",
+        "value": "#999999ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:90a9ee09e8766bfa9e37a7f32a6d1e25e505be1e,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "grey5": {
+        "description": "",
+        "type": "color",
+        "value": "#666666ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:38ca2572632ae0b920ca004a96a704bc90e78447,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "grey6": {
+        "description": "",
+        "type": "color",
+        "value": "#000000ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:cbc12788fa28ac1935ec86ea52bae32b46316b4b,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "white": {
+        "description": "",
+        "type": "color",
+        "value": "#ffffffff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:eb84d6c5ad7b3d39d9b5746d754ca6ca03869f7a,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "darkmodeblack": {
+        "description": "",
+        "type": "color",
+        "value": "#191919ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:f2f177cdfa3784e4fb96159123310a68d594821c,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "darkmodegrey": {
+        "description": "",
+        "type": "color",
+        "value": "#242424ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:dcc9fd9819f9d67f4336e093b5e65dc207811c7c,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "darkmodegrey6": {
+        "description": "",
+        "type": "color",
+        "value": "#313235ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:24f9b94f9ee15a533434f0212d902f4b2a23dd85,",
+            "exportKey": "color"
+          }
+        }
+      }
     }
   },
-  "dark": {
-    "background": {
-      "value": "{palette.darkModeBlack}",
-      "type": "color",
-      "description": "darkModeBlack"
+  "font": {
+    "20": {
+      "value": "20",
+      "type": "fontSizes"
+    },
+    "24": {
+      "value": "24",
+      "type": "fontSizes"
+    },
+    "28": {
+      "value": "28",
+      "type": "fontSizes"
+    },
+    "32": {
+      "value": "32",
+      "type": "fontSizes"
+    },
+    "40": {
+      "value": "40",
+      "type": "fontSizes"
+    },
+    "48": {
+      "value": "48",
+      "type": "fontSizes"
     },
-    "backgroundAlternative": {
-      "value": "{palette.darkModeBlack}",
-      "type": "color",
-      "description": "darkModeGrey"
-    },
-    "backgroundBrand": {
-      "value": "{palette.darkModeBlack}",
-      "type": "color",
-      "description": "darkModeBlack"
-    },
-    "backgroundBrandSecondary": {
-      "value": "{palette.darkModeBlack}",
-      "type": "color",
-      "description": "darkModeBlack"
-    },
-    "backgroundContainer": {
-      "value": "{palette.darkModeGrey}",
-      "type": "color",
-      "description": "darkModeGrey"
-    },
-    "backgroundContainerHover": {
-      "value": "rgba({palette.white}, 0.03)",
-      "type": "color",
-      "description": "white"
-    },
-    "backgroundContainerPressed": {
-      "value": "rgba({palette.white}, 0.05)",
-      "type": "color",
-      "description": "white"
-    },
-    "backgroundContainerBrand": {
-      "value": "{palette.darkModeGrey}",
-      "type": "color",
-      "description": "darkModeGrey"
-    },
-    "backgroundContainerBrandHover": {
-      "value": "rgba({palette.white}, 0.03)",
-      "type": "color",
-      "description": "white"
-    },
-    "backgroundContainerBrandPressed": {
-      "value": "rgba({palette.white}, 0.05)",
-      "type": "color",
-      "description": "white"
-    },
-    "backgroundContainerBrandOverInverse": {
-      "value": "{palette.darkModeGrey}",
-      "type": "color",
-      "description": "darkModeGrey"
-    },
-    "backgroundContainerAlternative": {
-      "value": "{palette.darkModeGrey}",
-      "type": "color",
-      "description": "darkModeGrey"
-    },
-    "backgroundOverlay": {
-      "value": "rgba({palette.darkModeGrey}, 0.8)",
-      "type": "color",
-      "description": "darkModeGrey"
-    },
-    "backgroundSkeleton": {
-      "value": "{palette.darkModeGrey6}",
-      "type": "color",
-      "description": "darkModeGrey6"
-    },
-    "backgroundSkeletonInverse": {
-      "value": "{palette.darkModeGrey6}",
-      "type": "color",
-      "description": "darkModeGrey6"
-    },
-    "backgroundFeedbackBottom": {
-      "value": "{palette.darkModeBlack}",
-      "type": "color",
-      "description": "darkModeBlack"
-    },
-    "appBarBackground": {
-      "value": "{palette.darkModeGrey}",
-      "type": "color",
-      "description": "darkModeGrey"
-    },
-    "navigationBarBackground": {
-      "value": "{palette.darkModeBlack}",
-      "type": "color",
-      "description": "darkModeBlack"
-    },
-    "skeletonWave": {
-      "value": "{palette.grey5}",
-      "type": "color",
-      "description": "grey5"
-    },
-    "borderLow": {
-      "value": "{palette.darkModeBlack}",
-      "type": "color",
-      "description": "darkModeBlack"
-    },
-    "border": {
-      "value": "{palette.darkModeGrey}",
-      "type": "color",
-      "description": "darkModeGrey"
-    },
-    "borderHigh": {
-      "value": "{palette.grey5}",
-      "type": "color",
-      "description": "grey5"
-    },
-    "borderSelected": {
-      "value": "{palette.vivoPurple}",
-      "type": "color",
-      "description": "vivoPurple"
-    },
-    "coverBackgroundHover": {
-      "value": "rgba({palette.darkModeBlack}, 0.25)",
-      "type": "color",
-      "description": "darkModeBlack"
-    },
-    "coverBackgroundPressed": {
-      "value": "rgba({palette.darkModeBlack}, 0.35)",
-      "type": "color",
-      "description": "darkModeBlack"
-    },
-    "buttonDangerBackground": {
-      "value": "{palette.pepper}",
-      "type": "color",
-      "description": "pepper"
-    },
-    "buttonDangerBackgroundSelected": {
-      "value": "{palette.pepperDark}",
-      "type": "color",
-      "description": "pepperDark"
-    },
-    "buttonDangerBackgroundHover": {
-      "value": "{palette.pepperDark}",
-      "type": "color",
-      "description": "pepperDark"
-    },
-    "buttonLinkBackgroundSelected": {
-      "value": "rgba({palette.white}, 0.08)",
-      "type": "color",
-      "description": "white"
-    },
-    "buttonLinkBackgroundInverseSelected": {
-      "value": "rgba({palette.white}, 0.08)",
-      "type": "color",
-      "description": "white"
-    },
-    "buttonPrimaryBackground": {
-      "value": "{palette.vivoPurpleLight80}",
-      "type": "color",
-      "description": "vivoPurpleLight80"
-    },
-    "buttonPrimaryBackgroundInverse": {
-      "value": "{palette.vivoPurpleLight80}",
-      "type": "color",
-      "description": "vivoPurpleLight80"
-    },
-    "buttonPrimaryBackgroundSelected": {
-      "value": "{palette.vivoPurpleDark}",
-      "type": "color",
-      "description": "vivoPurpleDark"
-    },
-    "buttonPrimaryBackgroundHover": {
-      "value": "{palette.vivoPurpleDark}",
-      "type": "color",
-      "description": "vivoPurpleDark"
-    },
-    "buttonPrimaryBackgroundInverseSelected": {
-      "value": "{palette.vivoPurpleDark}",
-      "type": "color",
-      "description": "vivoPurpleDark"
-    },
-    "buttonSecondaryBackgroundHover": {
-      "value": "rgba({palette.white}, 0.15)",
-      "type": "color",
-      "description": "white"
-    },
-    "buttonSecondaryBackgroundSelected": {
-      "value": "rgba({palette.white}, 0.15)",
-      "type": "color",
-      "description": "white"
-    },
-    "buttonSecondaryBorder": {
-      "value": "{palette.white}",
-      "type": "color",
-      "description": "white"
-    },
-    "buttonSecondaryBorderSelected": {
-      "value": "{palette.white}",
-      "type": "color",
-      "description": "white"
-    },
-    "buttonSecondaryBorderInverse": {
-      "value": "{palette.white}",
-      "type": "color",
-      "description": "white"
-    },
-    "buttonSecondaryBorderInverseSelected": {
-      "value": "{palette.white}",
-      "type": "color",
-      "description": "white"
-    },
-    "buttonSecondaryBackgroundInverseHover": {
-      "value": "rgba({palette.white}, 0.15)",
-      "type": "color",
-      "description": "white"
-    },
-    "buttonSecondaryBackgroundInverseSelected": {
-      "value": "rgba({palette.white}, 0.15)",
-      "type": "color",
-      "description": "white"
-    },
-    "textButtonPrimary": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "textButtonPrimaryInverse": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "textButtonPrimaryInverseSelected": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "textButtonSecondary": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "textButtonSecondarySelected": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "textButtonSecondaryInverse": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "textButtonSecondaryInverseSelected": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "textLink": {
-      "value": "{palette.vivoPurpleLight50}",
-      "type": "color",
-      "description": "vivoPurpleLight50"
-    },
-    "textLinkInverse": {
-      "value": "{palette.vivoPurpleLight50}",
-      "type": "color",
-      "description": "vivoPurpleLight50"
-    },
-    "textLinkDanger": {
-      "value": "{palette.pepper}",
-      "type": "color",
-      "description": "pepper"
-    },
-    "textLinkSnackbar": {
-      "value": "{palette.vivoPurpleLight50}",
-      "type": "color",
-      "description": "vivoPurpleLight50"
-    },
-    "control": {
-      "value": "{palette.darkModeGrey6}",
-      "type": "color",
-      "description": "darkModeGrey6"
-    },
-    "controlActivated": {
-      "value": "{palette.vivoPurpleLight80}",
-      "type": "color",
-      "description": "vivoPurpleLight80"
-    },
-    "controlError": {
-      "value": "{palette.pepper}",
-      "type": "color",
-      "description": "pepper"
-    },
-    "loadingBar": {
-      "value": "{palette.vivoPurpleLight80}",
-      "type": "color",
-      "description": "vivoPurpleLight80"
-    },
-    "loadingBarBackground": {
-      "value": "{palette.darkModeGrey6}",
-      "type": "color",
-      "description": "darkModeGrey6"
-    },
-    "toggleAndroidInactive": {
-      "value": "{palette.grey4}",
-      "type": "color",
-      "description": "grey4"
-    },
-    "toggleAndroidBackgroundActive": {
-      "value": "{palette.vivoPurpleLight50}",
-      "type": "color",
-      "description": "vivoPurpleLight50"
-    },
-    "iosControlKnob": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "divider": {
-      "value": "rgba({palette.white}, 0.05)",
-      "type": "color",
-      "description": "white"
-    },
-    "dividerInverse": {
-      "value": "rgba({palette.white}, 0.05)",
-      "type": "color",
-      "description": "white"
-    },
-    "navigationBarDivider": {
-      "value": "{palette.darkModeBlack}",
-      "type": "color",
-      "description": "darkModeBlack"
-    },
-    "badge": {
-      "value": "{palette.pepperDark}",
-      "type": "color",
-      "description": "pepperDark"
-    },
-    "feedbackErrorBackground": {
-      "value": "{palette.pepper}",
-      "type": "color",
-      "description": "pepper"
-    },
-    "feedbackInfoBackground": {
-      "value": "{palette.grey6}",
-      "type": "color",
-      "description": "grey6"
-    },
-    "brand": {
-      "value": "{palette.vivoPurpleLight80}",
-      "type": "color",
-      "description": "vivoPurpleLight80"
-    },
-    "brandHigh": {
-      "value": "rgba({palette.white}, 0.05)",
-      "type": "color",
-      "description": "white"
-    },
-    "inverse": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "neutralHigh": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "neutralMedium": {
-      "value": "{palette.grey5}",
-      "type": "color",
-      "description": "grey5"
-    },
-    "neutralMediumInverse": {
-      "value": "{palette.grey5}",
-      "type": "color",
-      "description": "grey5"
-    },
-    "neutralLow": {
-      "value": "{palette.darkModeGrey6}",
-      "type": "color",
-      "description": "darkModeGrey6"
-    },
-    "neutralLowAlternative": {
-      "value": "{palette.darkModeGrey6}",
-      "type": "color",
-      "description": "darkModeGrey6"
-    },
-    "textPrimary": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "textPrimaryInverse": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "textSecondary": {
-      "value": "{palette.grey4}",
-      "type": "color",
-      "description": "grey4"
-    },
-    "textSecondaryInverse": {
-      "value": "{palette.grey4}",
-      "type": "color",
-      "description": "grey4"
-    },
-    "success": {
-      "value": "{palette.vivoGreen}",
-      "type": "color",
-      "description": "vivoGreen"
-    },
-    "warning": {
-      "value": "{palette.orange}",
-      "type": "color",
-      "description": "orange"
-    },
-    "error": {
-      "value": "{palette.pepper}",
-      "type": "color",
-      "description": "pepper"
-    },
-    "promo": {
-      "value": "{palette.vivoPurpleLight80}",
-      "type": "color",
-      "description": "vivoPurpleLight80"
-    },
-    "highlight": {
-      "value": "{palette.pink}",
-      "type": "color",
-      "description": "pink"
-    },
-    "successLow": {
-      "value": "{palette.darkModeGrey6}",
-      "type": "color",
-      "description": "darkModeGrey6"
-    },
-    "warningLow": {
-      "value": "{palette.darkModeGrey6}",
-      "type": "color",
-      "description": "darkModeGrey6"
-    },
-    "errorLow": {
-      "value": "{palette.darkModeGrey6}",
-      "type": "color",
-      "description": "darkModeGrey6"
-    },
-    "promoLow": {
-      "value": "{palette.darkModeGrey6}",
-      "type": "color",
-      "description": "darkModeGrey6"
-    },
-    "brandLow": {
-      "value": "{palette.darkModeGrey6}",
-      "type": "color",
-      "description": "darkModeGrey6"
-    },
-    "successHigh": {
-      "value": "{palette.vivoGreenLight30}",
-      "type": "color",
-      "description": "vivoGreenLight30"
-    },
-    "warningHigh": {
-      "value": "{palette.orangeLight40}",
-      "type": "color",
-      "description": "orangeLight40"
-    },
-    "errorHigh": {
-      "value": "{palette.pepperLight40}",
-      "type": "color",
-      "description": "pepperLight40"
-    },
-    "promoHigh": {
-      "value": "{palette.vivoPurpleLight50}",
-      "type": "color",
-      "description": "vivoPurpleLight50"
-    },
-    "successHighInverse": {
-      "value": "{palette.vivoGreenDark}",
-      "type": "color",
-      "description": "vivoGreenDark"
-    },
-    "warningHighInverse": {
-      "value": "{palette.orangeDark}",
-      "type": "color",
-      "description": "orangeDark"
-    },
-    "errorHighInverse": {
-      "value": "{palette.pepperDark80}",
-      "type": "color",
-      "description": "pepperDark80"
-    },
-    "promoHighInverse": {
-      "value": "{palette.vivoPurple}",
-      "type": "color",
-      "description": "vivoPurple"
-    },
-    "textNavigationBarPrimary": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "textNavigationBarSecondary": {
-      "value": "{palette.grey4}",
-      "type": "color",
-      "description": "grey4"
-    },
-    "textNavigationSearchBarHint": {
-      "value": "{palette.grey4}",
-      "type": "color",
-      "description": "grey4"
-    },
-    "textNavigationSearchBarText": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "textAppBar": {
-      "value": "{palette.grey5}",
-      "type": "color",
-      "description": "grey5"
-    },
-    "textAppBarSelected": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "customTabsBackground": {
-      "value": "{palette.darkModeBlack}",
-      "type": "color",
-      "description": "darkModeBlack"
-    }
-  },
-  "radius": {
-    "avatar": {
-      "value": "circle",
-      "type": "borderRadius"
-    },
-    "bar": {
-      "value": "999",
-      "type": "borderRadius"
-    },
-    "button": {
-      "value": "999",
-      "type": "borderRadius"
-    },
-    "checkbox": {
-      "value": "2",
-      "type": "borderRadius"
-    },
-    "container": {
-      "value": "16",
-      "type": "borderRadius"
-    },
-    "indicator": {
-      "value": "999",
-      "type": "borderRadius"
-    },
-    "input": {
-      "value": "12",
-      "type": "borderRadius"
-    },
-    "legacyDisplay": {
-      "value": "16",
-      "type": "borderRadius"
-    },
-    "popup": {
-      "value": "8",
-      "type": "borderRadius"
-    },
-    "sheet": {
-      "value": "16",
-      "type": "borderRadius"
-    }
-  },
-  "text": {
     "weight": {
-      "cardTitle": {
-        "value": "regular",
-        "type": "typography"
+      "cardtitle": {
+        "type": "custom-fontStyle",
+        "value": {
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:989e25973fcb7da32097c4e1f28c41f14145b3f6,",
+            "exportKey": "font"
+          }
+        }
       },
       "button": {
-        "value": "regular",
-        "type": "typography"
+        "type": "custom-fontStyle",
+        "value": {
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:2d6f83ebaf073b3299875711790ded022f9cf16e,",
+            "exportKey": "font"
+          }
+        }
       },
-      "tabsLabel": {
-        "value": "regular",
-        "type": "typography"
+      "tabslabel": {
+        "type": "custom-fontStyle",
+        "value": {
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:49fccf72b8487bb0765da563e50954acd9361c2b,",
+            "exportKey": "font"
+          }
+        }
       },
       "link": {
-        "value": "regular",
-        "type": "typography"
+        "type": "custom-fontStyle",
+        "value": {
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:5f0c692c8a663e75375e9cdb90d577286513f459,",
+            "exportKey": "font"
+          }
+        }
       },
       "title1": {
-        "value": "regular",
-        "type": "typography"
+        "type": "custom-fontStyle",
+        "value": {
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:e572b79d1ace3b64c1137e2dfbe8ad1bb9a6bafd,",
+            "exportKey": "font"
+          }
+        }
       },
       "indicator": {
-        "value": "regular",
-        "type": "typography"
+        "type": "custom-fontStyle",
+        "value": {
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:5be375eaff3f3dcbed3c98e8d3aa18fda61153d2,",
+            "exportKey": "font"
+          }
+        }
+      },
+      "navigationbar": {
+        "type": "custom-fontStyle",
+        "value": {
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:9d389095cd49ad656d16a9ce77347f491ccb26d0,",
+            "exportKey": "font"
+          }
+        }
       },
       "text5": {
-        "value": "regular",
-        "type": "typography"
+        "type": "custom-fontStyle",
+        "value": {
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:6f20d0e05d8d4e4e8c9cead747e1f39314917ae9,",
+            "exportKey": "font"
+          }
+        }
       },
       "text6": {
-        "value": "regular",
-        "type": "typography"
+        "type": "custom-fontStyle",
+        "value": {
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:d7df210338b205c87a296a7644d15556fa00f247,",
+            "exportKey": "font"
+          }
+        }
       },
       "text7": {
-        "value": "regular",
-        "type": "typography"
+        "type": "custom-fontStyle",
+        "value": {
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:56995a2201faaab9695456dbbbe265f54886a670,",
+            "exportKey": "font"
+          }
+        }
       },
       "text8": {
-        "value": "regular",
-        "type": "typography"
+        "type": "custom-fontStyle",
+        "value": {
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:955426e435b9f52977376871f9d356bf0243b707,",
+            "exportKey": "font"
+          }
+        }
       },
       "text9": {
-        "value": "regular",
-        "type": "typography"
+        "type": "custom-fontStyle",
+        "value": {
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:8371932c129eee49e63f2b93922f0ea3f5218cc4,",
+            "exportKey": "font"
+          }
+        }
       },
       "text10": {
-        "value": "regular",
-        "type": "typography"
+        "type": "custom-fontStyle",
+        "value": {
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:26dbb4a0bd6a0b96000ece3071c1e05a650d8347,",
+            "exportKey": "font"
+          }
+        }
       }
     },
     "size": {
-      "tabsLabel": {
+      "tabslabel": {
+        "type": "custom-fontStyle",
         "value": {
-          "mobile": 18,
-          "desktop": 18
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
         },
-        "type": "typography"
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:de8d6ab1dcb0411c68de9d6bc870c0d13a842979,",
+            "exportKey": "font"
+          }
+        }
       }
     },
-    "lineHeight": {
-      "tabsLabel": {
+    "lineheight": {
+      "tabslabel": {
+        "type": "custom-fontStyle",
         "value": {
-          "mobile": 24,
-          "desktop": 24
+          "fontSize": "12",
+          "textDecoration": "none",
+          "fontFamily": "Inter",
+          "fontWeight": "400",
+          "fontStyle": "normal",
+          "fontStretch": "normal",
+          "letterSpacing": "0",
+          "lineHeight": "14.4",
+          "paragraphIndent": "0",
+          "paragraphSpacing": "0",
+          "textCase": "none"
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:01f0e64331f626bbd7a30ff5ae83f662ad316b62,",
+            "exportKey": "font"
+          }
+        }
+      }
+    },
+    "text-preset": {
+      "text-preset-10": {
+        "value": "{48}",
+        "type": "fontSizes"
+      },
+      "text-preset-9": {
+        "value": "{40}",
+        "type": "fontSizes"
+      },
+      "text-preset-8": {
+        "value": "{32}",
+        "type": "fontSizes"
+      },
+      "text-preset-7": {
+        "value": "{28}",
+        "type": "fontSizes"
+      },
+      "text-preset-6": {
+        "value": "{24}",
+        "type": "fontSizes"
+      },
+      "text-preset-5": {
+        "value": "{20}",
+        "type": "fontSizes"
+      }
+    }
+  },
+  "typography": {
+    "weight": {
+      "cardtitle": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      },
+      "button": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      },
+      "tabslabel": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      },
+      "link": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      },
+      "title1": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      },
+      "indicator": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      },
+      "navigationbar": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      },
+      "text5": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      },
+      "text6": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      },
+      "text7": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      },
+      "text8": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      },
+      "text9": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      },
+      "text10": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      }
+    },
+    "size": {
+      "tabslabel": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      }
+    },
+    "lineheight": {
+      "tabslabel": {
+        "fontSize": {
+          "type": "dimension",
+          "value": "12"
+        },
+        "textDecoration": {
+          "type": "string",
+          "value": "none"
+        },
+        "fontFamily": {
+          "type": "string",
+          "value": "Inter"
+        },
+        "fontWeight": {
+          "type": "number",
+          "value": "400"
+        },
+        "fontStyle": {
+          "type": "string",
+          "value": "normal"
+        },
+        "fontStretch": {
+          "type": "string",
+          "value": "normal"
+        },
+        "letterSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "lineHeight": {
+          "type": "dimension",
+          "value": "14.4"
+        },
+        "paragraphIndent": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "paragraphSpacing": {
+          "type": "dimension",
+          "value": "0"
+        },
+        "textCase": {
+          "type": "string",
+          "value": "none"
+        }
+      }
+    },
+    "title": {
+      "title1": {
+        "value": {
+          "fontSize": "{text-preset.text-preset-8}",
+          "lineHeight": "40"
+        },
+        "type": "typography"
+      },
+      "title2": {
+        "value": {
+          "lineHeight": "40",
+          "fontSize": "{text-preset.text-preset-7}"
         },
         "type": "typography"
       }
     }
   },
-  "global": {
-    "palette": {
-      "vivoPurple": {
-        "value": "#660099",
-        "type": "color"
-      },
-      "vivoPurpleDark": {
-        "value": "#461E5F",
-        "type": "color"
-      },
-      "vivoPurpleLight10": {
-        "value": "#EFE5F4",
-        "type": "color"
-      },
-      "vivoPurpleLight20": {
-        "value": "#E0CCEB",
-        "type": "color"
-      },
-      "vivoPurpleLight50": {
-        "value": "#B280CC",
-        "type": "color"
-      },
-      "vivoPurpleLight80": {
-        "value": "#8433AD",
-        "type": "color"
-      },
-      "vivoPurpleLight90": {
-        "value": "#751AA3",
-        "type": "color"
-      },
-      "vivoGreen": {
-        "value": "#99CC33",
-        "type": "color"
-      },
-      "vivoGreenDark": {
-        "value": "#225C3D",
-        "type": "color"
-      },
-      "vivoGreenLight10": {
-        "value": "#EDF8E8",
-        "type": "color"
-      },
-      "vivoGreen25": {
-        "value": "#D6EBAD",
-        "type": "color"
-      },
-      "vivoGreenLight30": {
-        "value": "#91AE9E",
-        "type": "color"
-      },
-      "vivoBlue": {
-        "value": "#00ABDB",
-        "type": "color"
-      },
-      "orange": {
-        "value": "#FF9900",
-        "type": "color"
-      },
-      "orange25": {
-        "value": "#FFD699",
-        "type": "color"
-      },
-      "orangeDark": {
-        "value": "#972A1D",
-        "type": "color"
-      },
-      "orangeLight10": {
-        "value": "#FFEFE1",
-        "type": "color"
-      },
-      "orangeLight40": {
-        "value": "#FFB84C",
-        "type": "color"
-      },
-      "pink": {
-        "value": "#EB3D7D",
-        "type": "color"
-      },
-      "pepper": {
-        "value": "#CC1F59",
-        "type": "color"
-      },
-      "pepperDark": {
-        "value": "#B71D63",
-        "type": "color"
-      },
-      "pepperDark80": {
-        "value": "#8F2052",
-        "type": "color"
-      },
-      "pepperLight10": {
-        "value": "#FCE4EF",
-        "type": "color"
-      },
-      "pepperLight30": {
-        "value": "#F7B1CB",
-        "type": "color"
-      },
-      "pepperLight40": {
-        "value": "#DB628B",
-        "type": "color"
-      },
-      "grey1": {
-        "value": "#F6F6F6",
-        "type": "color"
-      },
-      "grey2": {
-        "value": "#EEEEEE",
-        "type": "color"
-      },
-      "grey3": {
-        "value": "#DDDDDD",
-        "type": "color"
-      },
-      "grey4": {
-        "value": "#999999",
-        "type": "color"
-      },
-      "grey5": {
-        "value": "#666666",
-        "type": "color"
-      },
-      "grey6": {
-        "value": "#000000",
-        "type": "color"
-      },
-      "white": {
-        "value": "#FFFFFF",
-        "type": "color"
-      },
-      "darkModeBlack": {
-        "value": "#191919",
-        "type": "color"
-      },
-      "darkModeGrey": {
-        "value": "#242424",
-        "type": "color"
-      },
-      "darkModeGrey6": {
-        "value": "#313235",
-        "type": "color"
-      }
-    }
+  "$themes": [],
+  "$metadata": {
+    "tokenSetOrder": [
+      "color",
+      "font",
+      "typography"
+    ]
   }
 }
