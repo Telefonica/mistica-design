@@ -36,6 +36,7 @@ const ColorDetail = () => {
       filename: "movistar-legacy.json",
     },
     { name: "Vivo", filename: "vivo.json" },
+    { name: "Vivo-new", filename: "vivo-new.json" },
     { name: "O2", filename: "o2.json" },
     { name: "Blau", filename: "blau.json" },
     { name: "Telefónica", filename: "telefonica.json" },
