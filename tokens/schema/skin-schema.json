@@ -302,6 +302,7 @@
         "indicator": { "$ref": "#/definitions/weightProperties" },
         "navigationBar": { "$ref": "#/definitions/weightProperties" },
         "title1": { "$ref": "#/definitions/weightProperties" },
+        "title2": { "$ref": "#/definitions/weightProperties" },
         "text5": { "$ref": "#/definitions/weightProperties" },
         "text6": { "$ref": "#/definitions/weightProperties" },
         "text7": { "$ref": "#/definitions/weightProperties" },
@@ -313,13 +314,15 @@
     "size": {
       "additionalProperties": false,
       "properties": {
-        "tabsLabel": { "$ref": "#/definitions/sizeProperties" }
+        "tabsLabel": { "$ref": "#/definitions/sizeProperties" },
+        "title2": { "$ref": "#/definitions/sizeProperties" }
       }
     },
     "lineHeight": {
       "additionalProperties": false,
       "properties": {
-        "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" }
+        "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" },
+        "title2": { "$ref": "#/definitions/lineHeightProperties" }
       }
     }
   },
@@ -387,11 +390,11 @@
           "properties": {
             "desktop": {
               "type": "number",
-              "enum": [16, 18]
+              "enum": [16, 18, 20, 28]
             },
             "mobile": {
               "type": "number",
-              "enum": [16, 18, 20, 24]
+              "enum": [16, 18, 20, 24, 28]
             }
           },
           "required": ["desktop", "mobile"]
@@ -410,7 +413,7 @@
           "properties": {
             "desktop": {
               "type": "number",
-              "enum": [24]
+              "enum": [24, 28, 32]
             },
             "mobile": {
               "type": "number",
