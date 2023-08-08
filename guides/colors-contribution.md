@@ -46,7 +46,14 @@ If Visual Studio Code is not your default editor, you can change it from "prefer
 
 ## Create a New Branch to Make Changes
 
-Before making modifications to the JSON files, it's a good practice to create a new branch in the repository. This will allow you to work in isolation and maintain a clear history of your changes. Follow these steps to create a new branch:
+Before making modifications to the JSON files, it's a good practice to create a new branch in the repository. This will allow you to work in isolation and maintain a clear history of your changes. 
+
+> [!NOTE]
+> 
+> Before creating a new branch there are some considerations of the repo organization. The main branch is pre-production but normally the changes required, unless they have other dependencies or they need to be delayed to a specific release, can go into the production branch.
+
+
+Follow these steps to create a new branch:
 
 1. In VS Code, click on the version control icon in the bottom left corner. Usually, this icon has the git symbol:
 
@@ -55,6 +62,8 @@ Before making modifications to the JSON files, it's a good practice to create a 
 2. In the top of the version control window, you will find a text box indicating the current branch. Click on that text box and select "Create new branch" from the dropdown menu:
 
 <img width="651" alt="Screenshot 2023-07-06 at 17 42 23" src="https://github.com/Telefonica/mistica-design/assets/44420072/8d45e7a5-e154-48d4-abf3-4bc4f7120e62">
+
+If you need to change the production branch
 
 3. Enter a descriptive name for your new branch and press Enter to create it.
 
