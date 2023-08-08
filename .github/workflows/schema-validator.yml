@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - "tokens/**"
+    branches:
+      - pre-production
+      - production
 
 jobs:
   Movistar:
