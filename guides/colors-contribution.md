@@ -74,7 +74,7 @@ If you need to change the production branch
 
 4. Make sure the new branch is selected as the active branch before proceeding with the modifications to the JSON files.
 
-## Modificando el JSON
+## Modifying el JSON
 
 The JSON files for different brands are located in the tokens directory.
 
