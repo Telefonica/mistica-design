@@ -92,8 +92,8 @@ The JSON file for a brand has the following structure:
 
 The palette is located within the `global` / `palette` category and is composed of different tokens that are later used as values by the constants. Within the palette, the following modifications can be made:
 
-> **Warning**
->
+> [!WARNING]
+> 
 > **Changes that entail a breaking change**
 >
 > Although these changes are possible, modifying or removing a token from the palette may cause a breaking change in any product that directly consumes these tokens.
@@ -145,8 +145,8 @@ Where 0.5 is the alpha channel and can have a value between 0 and 1.
 
 Constants allow the following modifications:
 
-> **Warning**
->
+> [!WARNING]
+> 
 > **Changes that cannot be made:**
 >
 > - Name modification
@@ -160,16 +160,16 @@ The value of a constant can be modified. It's important to note that if you want
 
 ![tokens_modify_constant](https://github.com/Telefonica/mistica-design/assets/44420072/a0d8f6c8-a25d-41c9-b8dd-13c92773f57f)
 
-> **Note**
->
-> > When modifying a `value`, the `description` field must also be updated with the same value. For example, if the change is from "movistarBlue" to "movistarBlue55," the value should be: "{palette.movistarBlue55}" and the description: "movistarBlue55".
+> [!NOTE]
+> 
+> When modifying a `value`, the `description` field must also be updated with the same value. For example, if the change is from "movistarBlue" to "movistarBlue55," the value should be: "{palette.movistarBlue55}" and the description: "movistarBlue55".
 
 ### Border radius
 
 The border-radius tokens are located within the `radius` category. In this category, the following modifications can be made:
 
-> **Warning**
->
+> [!WARNING]
+> 
 > **Changes that cannot be made:**
 >
 > - Name modification
@@ -225,9 +225,9 @@ When the branch has been published, you can create a pull request to merge the c
 
 <img width="937" alt="Screenshot 2023-07-07 at 10 26 02" src="https://github.com/Telefonica/mistica-design/assets/44420072/886a92fd-4688-4124-8d5b-9f5039b98897">
 
-> **Note**
->
-> > There may be cases where the base branch is not pre-production but production. This typically happens when there are changes that need to be made quickly to fix something in one of the implementations (native / web). Before creating a PR to production, consult with design-core.
+> [!NOTE]
+> 
+> There may be cases where the base branch is not pre-production but production. This typically happens when there are changes that need to be made quickly to fix something in one of the implementations (native / web). Before creating a PR to production, consult with design-core.
 
 4. When everything is correct, write a descriptive title for the Pull Request, and in the field on the right, assign a reviewer from the design-core team.
 5. After creating the title and assigning a reviewer, you can proceed to create the pull request using the button at the bottom.
