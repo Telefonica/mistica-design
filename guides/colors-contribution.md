@@ -59,7 +59,12 @@ Follow these steps to create a new branch:
 
 <img width="211" alt="Screenshot 2023-07-06 at 17 42 58" src="https://github.com/Telefonica/mistica-design/assets/44420072/588405e8-8a73-4723-829e-8f399e66403d">
 
-2. In the top of the version control window, you will find a text box indicating the current branch. Click on that text box and select "Create new branch" from the dropdown menu:
+2. In the top of the version control window, you will find a text box indicating the current branch. Click on that text box and select "Create new branch" from the dropdown menu.
+
+> [!IMPORTANT]
+> 
+> If you need to create a branch from production choose the option "Create branch from" and select the production branch.
+
 
 <img width="651" alt="Screenshot 2023-07-06 at 17 42 23" src="https://github.com/Telefonica/mistica-design/assets/44420072/8d45e7a5-e154-48d4-abf3-4bc4f7120e62">
 
