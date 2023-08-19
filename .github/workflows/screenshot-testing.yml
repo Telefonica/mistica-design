@@ -33,6 +33,7 @@ jobs:
           sudo apt-get install librsvg2-bin
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           yarn add @figma-export/core --dev
+          npm install --save-dev @figma-export/cli
 
       - name: Update master to last version
         run: npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components WCkDDzlXE16R6yXaljxddj -O @figma-export/output-components-as-svg
