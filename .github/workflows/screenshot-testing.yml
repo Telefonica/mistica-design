@@ -24,6 +24,8 @@ jobs:
     name: Acceptance tests
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Checkout branch or create new one
         run: |
           git fetch
@@ -32,8 +34,6 @@ jobs:
           else
               git checkout -b acceptance-tests
           fi
-
-      - uses: actions/checkout@v2
 
       - name: Instalar Homebrew
         run: |
