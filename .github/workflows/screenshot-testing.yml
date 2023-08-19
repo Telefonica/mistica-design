@@ -61,11 +61,11 @@ jobs:
           git commit -m "Screenshot tests"
           git push origin ${{ github.event.inputs.fileID }}
 
-      - name: Create Pull-Request
-        uses: repo-sync/pull-request@v2
-        with:
-          source_branch: ${{ github.event.inputs.fileID }}
-          destination_branch: "acceptance-tests"
-          pr_title: "Acceptance tests for ${{ github.event.inputs.fileID }} file"
-          pr_draft: ${{ github.event.inputs.draft }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Create Pull-Request
+      #   uses: repo-sync/pull-request@v2
+      #   with:
+      #     source_branch: ${{ github.event.inputs.fileID }}
+      #     destination_branch: "acceptance-tests"
+      #     pr_title: "Acceptance tests for ${{ github.event.inputs.fileID }} file"
+      #     pr_draft: ${{ github.event.inputs.draft }}
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
