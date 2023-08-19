@@ -24,8 +24,14 @@ jobs:
     name: Acceptance tests
     runs-on: ubuntu-latest
     steps:
-      - name: Change to acceptance-tests branch
-        run: git checkout acceptance-tests
+      - name: Checkout branch or create new one
+        run: |
+          git fetch
+          if git branch -a | grep origin/acceptance-test; then
+              git checkout acceptance-test
+          else
+              git checkout -b acceptance-test
+          fi
 
       - uses: actions/checkout@v2
 
