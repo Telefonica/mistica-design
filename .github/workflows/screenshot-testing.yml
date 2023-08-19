@@ -16,6 +16,9 @@ on:
         default: true
         description: Draft PR
 
+env:
+  FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN}}
+
 jobs:
   generate-screenshots:
     name: Acceptance tests
@@ -31,8 +34,6 @@ jobs:
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
       - name: Update master to last version
-        env:
-          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
         run: npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components WCkDDzlXE16R6yXaljxddj -O @figma-export/output-components-as-svg
 
       - name: convert-svg2png
