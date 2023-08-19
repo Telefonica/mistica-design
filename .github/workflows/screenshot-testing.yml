@@ -35,7 +35,7 @@ jobs:
 
       - name: Update master to last version
         run: |
-          yarn add @figma-export/cli @figma-export/output-components-as-svg @figma-export/output-styles-as-sass --dev
+          export FIGMA_TOKEN=figd_6Zp3HkWokqz7z7sFS5h4WPn6PSVkdbkhMNr5iaS-
           npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components WCkDDzlXE16R6yXaljxddj -O @figma-export/output-components-as-svg
 
       - name: convert-svg2png
@@ -45,6 +45,7 @@ jobs:
 
       - name: Commit & Push
         run: |
+          git checkout -b acceptance-tests
           git config user.name "github-actions"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
