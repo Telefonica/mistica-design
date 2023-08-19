@@ -20,7 +20,7 @@ env:
   FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN}}
 
 jobs:
-  generate-screenshots:
+  generate-screenshots-master:
     name: Acceptance tests
     runs-on: ubuntu-latest
     steps:
@@ -37,9 +37,7 @@ jobs:
 
       - name: Instalar Homebrew
         run: |
-          sudo apt-get update -y
-          sudo apt-get install -y librsvg2-2
-          sudo apt-get install librsvg2-bin
+          sudo apt-get install -y librsvg2-bin
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
       - name: Update master to last version
@@ -58,10 +56,28 @@ jobs:
           git commit -m "Screenshot tests from master"
           git push origin acceptance-tests
 
-      - name: Screenshot testing!
+  generate-screenshots:
+    name: Acceptance tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Checkout branch or create new one
         run: |
-          export FIGMA_TOKEN=figd_6Zp3HkWokqz7z7sFS5h4WPn6PSVkdbkhMNr5iaS-
-          npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components ${{ github.event.inputs.fileID }} -O @figma-export/output-components-as-svg
+          git fetch
+          if git branch -a | grep origin/${{ github.event.inputs.fileID }}; then
+              git checkout ${{ github.event.inputs.fileID }}
+          else
+              git checkout -b ${{ github.event.inputs.fileID }}
+          fi
+
+      - name: Instalar Homebrew
+        run: |
+          sudo apt-get install -y librsvg2-bin
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+      - name: Export new screenshots
+        run: npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components ${{ github.event.inputs.fileID }} -O @figma-export/output-components-as-svg
 
       - name: convert-svg2png
         run: |
@@ -73,7 +89,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Screenshot tests"
+          git commit -m "Screenshot tests from ${{ github.event.inputs.fileID }}"
           git push origin ${{ github.event.inputs.fileID }}
 
       # - name: Create Pull-Request
