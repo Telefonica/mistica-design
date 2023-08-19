@@ -24,20 +24,20 @@ jobs:
     name: Acceptance tests
     runs-on: ubuntu-latest
     steps:
+      - name: Change to acceptance-tests branch
+        run: git checkout -b acceptance-tests
+
       - uses: actions/checkout@v2
 
       - name: Instalar Homebrew
         run: |
-          git checkout -b acceptance-tests
           sudo apt-get update -y
           sudo apt-get install -y librsvg2-2
           sudo apt-get install librsvg2-bin
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
       - name: Update master to last version
-        run: |
-          export FIGMA_TOKEN=figd_6Zp3HkWokqz7z7sFS5h4WPn6PSVkdbkhMNr5iaS-
-          npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components WCkDDzlXE16R6yXaljxddj -O @figma-export/output-components-as-svg
+        run: npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components WCkDDzlXE16R6yXaljxddj -O @figma-export/output-components-as-svg
 
       - name: convert-svg2png
         run: |
@@ -46,7 +46,6 @@ jobs:
 
       - name: Commit & Push
         run: |
-          git pull origin acceptance-tests
           git config user.name "github-actions"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
