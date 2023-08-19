@@ -1,0 +1,71 @@
+name: Screenshot test
+
+# push:
+#   paths:
+#     - ".github/workflows/figma-export.yml"
+
+on:
+  workflow_dispatch:
+    inputs:
+      fileID:
+        description: "Put Figma FileID to generate screenshot testing"
+        required: true
+        default: "WCkDDzlXE16R6yXaljxddj"
+      draft:
+        type: boolean
+        default: true
+        description: Draft PR
+
+jobs:
+  generate-screenshots:
+    name: Acceptance tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Instalar Homebrew
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y librsvg2-2
+          sudo apt-get install librsvg2-bin
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+      - name: Update master to last version
+        run: |
+          export FIGMA_TOKEN=figd_6Zp3HkWokqz7z7sFS5h4WPn6PSVkdbkhMNr5iaS-
+          npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components WCkDDzlXE16R6yXaljxddj -O @figma-export/output-components-as-svg
+
+      - name: Commit & Push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Screenshot tests"
+          git push origin acceptance-tests
+
+      - name: Screenshot testing!
+        run: |
+          export FIGMA_TOKEN=figd_6Zp3HkWokqz7z7sFS5h4WPn6PSVkdbkhMNr5iaS-
+          npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components ${{ github.event.inputs.fileID }} -O @figma-export/output-components-as-svg
+
+      - name: convert-svg2png
+        run: |
+          find output -type f -name "*.svg" -exec rsvg-convert {} -o {}.png \;
+          find output -type f -name "*.svg" -exec rm -f {} \;
+
+      - name: Commit & Push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Screenshot tests"
+          git push origin ${{ github.event.inputs.fileID }}
+
+      - name: Create Pull-Request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: ${{ github.event.inputs.fileID }}
+          destination_branch: "acceptance-tests"
+          pr_title: "Acceptance tests for ${{ github.event.inputs.fileID }} file"
+          pr_draft: ${{ github.event.inputs.draft }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
