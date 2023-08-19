@@ -45,7 +45,7 @@ jobs:
 
       - name: convert-svg2png
         run: |
-          find output -type f -name "*.svg" -exec rsvg-convert {} -o {}.png \;
+          find output -type f -name "*.svg" -exec rsvg-convert --dpi-x=300 --dpi-y=300 {} -o {}.png \;
           find output -type f -name "*.svg" -exec rm -f {} \;
 
       - name: Check if there are any changes
@@ -76,7 +76,7 @@ jobs:
 
       - name: convert-svg2png
         run: |
-          find output -type f -name "*.svg" -exec rsvg-convert {} -o {}.png \;
+          find output -type f -name "*.svg" -exec rsvg-convert --dpi-x=300 --dpi-y=300 {} -o {}.png \;
           find output -type f -name "*.svg" -exec rm -f {} \;
 
       - name: Commit & Push
