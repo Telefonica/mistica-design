@@ -73,7 +73,13 @@ jobs:
           find output -type f -name "*.svg" -exec rsvg-convert {} -o {}.png \;
           find output -type f -name "*.svg" -exec rm -f {} \;
 
+      - name: Check if there are any changes
+        id: verify_diff
+        run: |
+          git diff --quiet . || echo "changed=true" >> $GITHUB_OUTPUT
+
       - name: Commit & Push
+        if: steps.verify_diff.outputs.changed == 'true'
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions[bot]@users.noreply.github.com"
