@@ -35,8 +35,7 @@ jobs:
 
       - name: Update master to last version
         run: |
-          npm i -D @figma-export/core
-          npm install --save-dev @figma-export/cli
+          yarn add @figma-export/cli @figma-export/output-components-as-svg @figma-export/output-styles-as-sass --dev
           npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components WCkDDzlXE16R6yXaljxddj -O @figma-export/output-components-as-svg
 
       - name: convert-svg2png
