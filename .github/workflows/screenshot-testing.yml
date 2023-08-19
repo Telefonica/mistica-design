@@ -27,10 +27,10 @@ jobs:
       - name: Checkout branch or create new one
         run: |
           git fetch
-          if git branch -a | grep origin/acceptance-test; then
-              git checkout acceptance-test
+          if git branch -a | grep origin/acceptance-tests; then
+              git checkout acceptance-tests
           else
-              git checkout -b acceptance-test
+              git checkout -b acceptance-tests
           fi
 
       - uses: actions/checkout@v2
