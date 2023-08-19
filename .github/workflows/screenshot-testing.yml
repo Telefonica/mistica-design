@@ -56,12 +56,6 @@ jobs:
           git commit -m "Screenshot tests from master"
           git push origin acceptance-tests
 
-  generate-screenshots:
-    name: Acceptance tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
       - name: Checkout branch or create new one
         run: |
           git fetch
@@ -70,11 +64,6 @@ jobs:
           else
               git checkout -b ${{ github.event.inputs.fileID }}
           fi
-
-      - name: Instalar Homebrew
-        run: |
-          sudo apt-get install -y librsvg2-bin
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
       - name: Export new screenshots
         run: npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components ${{ github.event.inputs.fileID }} -O @figma-export/output-components-as-svg
