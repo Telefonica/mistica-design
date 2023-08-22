@@ -7,14 +7,9 @@ name: Screenshot test
 on:
   workflow_dispatch:
     inputs:
-      fileID:
-        description: "Put Figma FileID to generate screenshot testing"
+      branchID:
+        description: "Put Figma BranchID to generate screenshot testing"
         required: true
-        default: "WCkDDzlXE16R6yXaljxddj"
-      draft:
-        type: boolean
-        default: true
-        description: Draft PR
 
 env:
   FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN}}
@@ -65,14 +60,14 @@ jobs:
       - name: Checkout branch or create new one
         run: |
           git fetch
-          if git branch -a | grep origin/${{ github.event.inputs.fileID }}; then
-              git checkout ${{ github.event.inputs.fileID }}
+          if git branch -a | grep origin/${{ github.event.inputs.branchID }}; then
+              git checkout ${{ github.event.inputs.branchID }}
           else
-              git checkout -b ${{ github.event.inputs.fileID }}
+              git checkout -b ${{ github.event.inputs.branchID }}
           fi
 
       - name: Export new screenshots
-        run: npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components ${{ github.event.inputs.fileID }} -O @figma-export/output-components-as-svg
+        run: npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components ${{ github.event.inputs.branchID }} -O @figma-export/output-components-as-svg
 
       - name: convert-svg2png
         run: |
@@ -84,14 +79,14 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Screenshot tests from ${{ github.event.inputs.fileID }}"
-          git push origin ${{ github.event.inputs.fileID }}
+          git commit -m "Screenshot tests from ${{ github.event.inputs.branchID }}"
+          git push origin ${{ github.event.inputs.branchID }}
 
-      # - name: Create Pull-Request
-      #   uses: repo-sync/pull-request@v2
-      #   with:
-      #     source_branch: ${{ github.event.inputs.fileID }}
-      #     destination_branch: "acceptance-tests"
-      #     pr_title: "Acceptance tests for ${{ github.event.inputs.fileID }} file"
-      #     pr_draft: ${{ github.event.inputs.draft }}
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Pull-Request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: ${{ github.event.inputs.branchID }}
+          destination_branch: "acceptance-tests"
+          pr_title: "Acceptance tests for ${{ github.event.inputs.branchID }} file"
+          pr_draft: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
