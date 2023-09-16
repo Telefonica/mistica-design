@@ -1,11 +1,33 @@
 import React, { useState, useEffect } from "react";
-import { Select } from "@telefonica/mistica";
+import getColorValue from "../helpers/getColorValue";
+import {
+  ButtonPrimary,
+  Inline,
+  Box,
+  Title1,
+  Text,
+  Stack,
+  NavigationBar,
+  Header,
+  MainSectionHeader,
+  MainSectionHeaderLayout,
+  Boxed,
+  forceMobile,
+  ResponsiveLayout,
+} from "@telefonica/mistica";
+import Preview, { PreviewProvider } from "../components/preview";
 
-const SkinGenerator = () => {
+const ColorEditor = () => {
   const [jsonData, setJsonData] = useState({});
-  const [skins, setSkins] = useState({});
-  const [selectedSkin, setSelectedSkin] = useState("movistar");
-  const [generatedJson, setGeneratedJson] = useState({});
+  const [selectedSkin, setSelectedSkin] = useState("vivo-new");
+  const [skin, setSkin] = useState({});
+  const [editedColors, setEditedColors] = useState(skin || {});
+
+  const editableColors = {
+    // List of colors that can be edited in the editor (not all colors are editable)
+    buttonPrimaryBackground: skin.colors?.buttonPrimaryBackground,
+    textPrimary: skin.colors?.textPrimary,
+  };
 
   useEffect(() => {
     const fetchSkins = async () => {
@@ -31,9 +53,7 @@ const SkinGenerator = () => {
           skins[skinName] = data;
         }
 
-        setSkins(skins);
         setJsonData(skins[selectedSkin]);
-        // reset error state when successful
       } catch (error) {
         console.error(error);
       }
@@ -42,298 +62,202 @@ const SkinGenerator = () => {
     fetchSkins();
   }, [selectedSkin]);
 
-  const handleValueChange = (section, key, subKey, newKey, newValue) => {
-    setJsonData((prevData) => {
-      if (section === "light" || section === "dark") {
-        const updatedValue = {
-          ...prevData[section][key],
-          value: newValue,
-        };
+  function extractColors(json) {
+    const colors = json?.light ? {} : null;
+    const darkModeColors = json?.dark ? {} : null;
 
-        // Update the description
-        const description = newValue.replace(
-          /{palette\.(.*?)}/g,
-          (match, p1) => {
-            return prevData.global.palette[p1]?.value || match;
-          }
+    if (json?.light) {
+      Object.keys(json.light).forEach((key) => {
+        colors[key] = getColorValue(json.light[key].value, json.global.palette);
+      });
+    }
+
+    if (json?.dark) {
+      Object.keys(json.dark).forEach((key) => {
+        darkModeColors[key] = getColorValue(
+          json.dark[key].value,
+          json.global.palette
         );
-        updatedValue.description = description;
+      });
+    }
 
-        return {
-          ...prevData,
-          [section]: {
-            ...prevData[section],
-            [key]: updatedValue,
-          },
-        };
-      } else if (section === "global" && key === "palette") {
-        const updatedPalette = Object.entries(prevData.global.palette).reduce(
-          (result, [paletteKey, paletteValue]) => {
-            if (paletteKey === subKey) {
-              if (newKey) {
-                // Modify the key and/or value
-                const updatedValue = newValue
-                  ? { ...paletteValue, value: newValue }
-                  : paletteValue;
-                delete result[paletteKey]; // Remove the old key
-                result[newKey] = updatedValue; // Add the updated key-value pair
-              } else {
-                // Modify the value only, keep the key unchanged
-                result[paletteKey] = { ...paletteValue, value: newValue };
-              }
-            } else {
-              result[paletteKey] = paletteValue;
-            }
-            return result;
-          },
-          {}
-        );
+    return { colors, darkModeColors };
+  }
 
-        if (newKey && !prevData.global.palette.hasOwnProperty(newKey)) {
-          // Add a new entry if a new key is provided and it doesn't exist in the current palette
-          updatedPalette[newKey] = { value: newValue };
+  function extractPresets(jsonData) {
+    const transformedData = { textPresets: {} };
+
+    for (const textKey in jsonData.text.weight) {
+      const weight = jsonData.text.weight[textKey].value;
+      const sizeData = jsonData.text.size[textKey]?.value;
+      const lineHeightData = jsonData.text.lineHeight[textKey]?.value;
+
+      const preset = { weight };
+
+      if (sizeData || lineHeightData) {
+        preset.size = {};
+
+        if (sizeData) {
+          preset.size.mobile = sizeData.mobile;
+          preset.size.desktop = sizeData.desktop;
         }
 
-        return {
-          ...prevData,
-          global: {
-            ...prevData.global,
-            palette: updatedPalette,
-          },
-        };
-      } else if (section === "radius") {
-        return {
-          ...prevData,
-          radius: {
-            ...prevData.radius,
-            [key]: {
-              ...prevData.radius[key],
-              value: newValue,
-            },
-          },
-        };
-      } else if (section === "text" && key === "weight") {
-        return {
-          ...prevData,
-          text: {
-            ...prevData.text,
-            weight: {
-              ...prevData.text.weight,
-              [subKey]: {
-                ...prevData.text.weight[subKey],
-                value: newValue,
-              },
-            },
-          },
-        };
+        if (lineHeightData) {
+          preset.lineHeight = {};
+
+          if (lineHeightData.mobile) {
+            preset.lineHeight.mobile = lineHeightData.mobile;
+          }
+
+          if (lineHeightData.desktop) {
+            preset.lineHeight.desktop = lineHeightData.desktop;
+          }
+        }
+      }
+
+      transformedData.textPresets[textKey] = preset;
+    }
+
+    return transformedData;
+  }
+
+  function extractBorderRadii(jsonData) {
+    const borderRadii = { borderRadii: {} };
+
+    for (const key in jsonData.radius) {
+      let value = jsonData.radius[key].value;
+      // Replace "circle" with "50%"
+      if (value === "circle") {
+        value = "50%";
       } else {
-        return {
-          ...prevData,
-          [section]: {
-            ...prevData[section],
-            [key]: {
-              ...prevData[section][key],
-              value: newValue,
-            },
-          },
-        };
+        value = `${value}px`;
       }
-    });
+      borderRadii.borderRadii[key] = value; // Store the value in the correct property
+    }
+
+    return borderRadii;
+  }
+
+  useEffect(() => {
+    // Check if jsonData is available before extracting colors and transforming
+    if (jsonData && Object.keys(jsonData).length > 0) {
+      const colors = extractColors(jsonData);
+      const presets = extractPresets(jsonData); // Transform JSON structure
+      const borderRadii = extractBorderRadii(jsonData); // Transform JSON structure
+
+      const resolvedSkin = {
+        name: "test",
+        colors: colors.colors,
+        darkModeColors: colors.darkModeColors,
+        borderRadii: borderRadii.borderRadii,
+        textPresets: presets.textPresets,
+      };
+
+      setSkin(resolvedSkin); // Set skin when jsonData or skinName changes
+    }
+  }, [jsonData]);
+
+  const renderThemeProvider = Object.keys(skin).length > 0;
+
+  const handleColorUpdate = (colorName, newValue) => {
+    // Check if the new value is different from the previous color
+    if (editedColors[colorName] !== newValue) {
+      // Update the color in the state
+      setEditedColors((prevColors) => ({
+        ...prevColors,
+        [colorName]: newValue === "" ? prevColors[colorName] : newValue,
+      }));
+    }
   };
 
-  const generateUpdatedJson = (prevData) => {
-    const updatedJson = {};
+  const handleApplyColors = () => {
+    // Create a copy of the JSON data to make changes
+    const updatedJsonData = { ...jsonData };
 
-    const sectionsOrder = ["light", "dark", "global", "radius", "text"];
-
-    sectionsOrder.forEach((section) => {
-      updatedJson[section] = { ...jsonData[section] };
-
-      if (section === "light" || section === "dark") {
-        Object.entries(prevData[section]).forEach(([key, value]) => {
-          const description = value.value.replace(/{palette\.(.*?)}/g, "$1");
-
-          updatedJson[section][key] = {
-            ...value,
-            value: value.value,
-            description: description,
-          };
-        });
-      } else if (section === "global") {
-        updatedJson.global.palette = { ...jsonData.global.palette };
-        Object.entries(jsonData.global.palette).forEach(([key, value]) => {
-          updatedJson.global.palette[key] = {
-            ...value,
-            value: jsonData.global.palette[key].value,
-          };
-        });
+    // Update each color in the JSON data
+    for (const colorName of Object.keys(editedColors)) {
+      if (updatedJsonData.light && updatedJsonData.light[colorName]) {
+        updatedJsonData.light[colorName].value = editedColors[colorName];
       }
-    });
+    }
 
-    return updatedJson;
+    // Extract the updated skin data and set it
+    if (updatedJsonData && Object.keys(updatedJsonData).length > 0) {
+      const colors = extractColors(updatedJsonData);
+      const presets = extractPresets(updatedJsonData);
+      const borderRadii = extractBorderRadii(updatedJsonData);
+
+      const updatedSkin = {
+        name: "test",
+        colors: colors.colors,
+        darkModeColors: colors.darkModeColors,
+        borderRadii: borderRadii.borderRadii,
+        textPresets: presets.textPresets,
+      };
+
+      // Update the state with the updated data
+      setSkin(updatedSkin);
+      setJsonData(updatedJsonData);
+    }
   };
 
-  const handleGenerateJson = () => {
-    const updatedJson = generateUpdatedJson(jsonData);
-    setGeneratedJson(JSON.stringify(updatedJson, null, 2));
-  };
+  console.log(editedColors);
 
-  const handleInputChange = (event, section, key, subKey, newKey) => {
-    const { name, value } = event.target;
-    // Call the handleValueChange function passing the appropriate arguments
-    handleValueChange(section, key, subKey, newKey, value);
-  };
-
-  // Render the JSON editor UI
   return (
-    <>
-      <Select
-        label="Skin"
-        onChangeValue={setSelectedSkin}
-        value={selectedSkin ?? "movistar"}
-        options={[
-          { value: "movistar", text: "Movistar" },
-          { value: "movistar-legacy", text: "Movistar Legacy" },
-          { value: "vivo", text: "Vivo" },
-          { value: "vivo-new", text: "Vivo New" },
-          { value: "o2", text: "O2" },
-          { value: "blau", text: "Blau" },
-          { value: "telefonica", text: "Telefonica" },
-          { value: "solar-360", text: "Solar 360" },
-        ]}
-      ></Select>
-
-      {Object.keys(skins).length === 0 ? (
-        <p>No skins available</p>
-      ) : (
-        <div>
-          {Object.entries(jsonData).map(([section, sectionData]) => {
-            if (section === "light" || section === "dark") {
-              // Render input fields for light and dark sections
-              return Object.entries(sectionData).map(
-                ([key, { value, description }]) => (
-                  <div key={key}>
-                    <span>{key}</span>
-                    <input
-                      type="text"
-                      name={key}
-                      value={value}
-                      onChange={(event) =>
-                        handleInputChange(event, section, key, null, null)
-                      }
-                    />
-                    <span>{description}</span>
-                  </div>
-                )
-              );
-            } else if (section === "global") {
-              // Render input fields for global.palette section
-              if (sectionData.palette) {
-                return Object.entries(sectionData.palette).map(
-                  ([key, { value }]) => {
-                    const handleKeyChange = (event) => {
-                      const newKey = event.target.value;
-                      handleInputChange(
-                        event,
-                        section,
-                        "palette",
-                        key,
-                        newKey,
-                        value
-                      );
-                    };
-
-                    const handleValueChange = (event) => {
-                      const newValue = event.target.value;
-                      handleInputChange(
-                        event,
-                        section,
-                        "palette",
-                        key,
-                        key,
-                        newValue
-                      );
-                    };
-
-                    return (
-                      <div key={key}>
-                        <input
-                          type="text"
-                          name={`${key}-key`}
-                          value={key}
-                          onChange={handleKeyChange}
-                        />
-                        <input
-                          type="text"
-                          name={`${key}-value`}
-                          value={value}
-                          onChange={handleValueChange}
-                        />
-                      </div>
-                    );
+    <ResponsiveLayout>
+      <div>
+        <h3>Skin Object:</h3>
+        <Inline space={48} fullWidth>
+          <Stack space={8}>
+            {Object.keys(editableColors).map((colorName) => (
+              <Inline space={8} key={colorName}>
+                <Text>{colorName}</Text>
+                <input
+                  type="color"
+                  value={
+                    editedColors[colorName] ||
+                    (skin.colors && skin.colors[colorName]) ||
+                    "#000000"
                   }
-                );
-              }
-            } else if (section === "radius") {
-              return Object.entries(sectionData).map(([key, { value }]) => (
-                <div key={key}>
-                  <span>{key}</span>
-                  <input
-                    type="text"
-                    name={key}
-                    value={value}
-                    onChange={(event) =>
-                      handleInputChange(event, section, key, null, null)
-                    }
-                  />
-                </div>
-              ));
-            } else if (section === "text") {
-              if (sectionData.weight) {
-                return Object.entries(sectionData.weight).map(
-                  ([key, { value }]) => (
-                    <div key={key}>
-                      <span>{key}</span>
-                      <input
-                        type="text"
-                        name={key}
-                        value={value}
-                        onChange={(event) =>
-                          handleInputChange(event, section, "weight", key, null)
-                        }
-                      />
-                    </div>
-                  )
-                );
-              }
-            } else {
-              // Render input fields for other sections
-              return Object.entries(sectionData).map(([key, { value }]) => (
-                <div key={key}>
-                  <input
-                    type="text"
-                    name={key}
-                    value={value}
-                    onChange={(event) =>
-                      handleInputChange(event, section, "weight", key, null)
-                    }
-                  />
-                </div>
-              ));
-            }
-          })}
-        </div>
-      )}
-      <button onClick={handleGenerateJson}>Generate Updated JSON</button>
+                  onChange={(e) => handleColorUpdate(colorName, e.target.value)}
+                />
+              </Inline>
+            ))}
+          </Stack>
+          {/* Button to apply the color update */}
+          <button onClick={handleApplyColors}>Update color</button>
 
-      <textarea
-        value={generatedJson}
-        rows={25}
-        style={{ maxHeight: "800px", width: "100%", resize: "vertical" }}
-        readOnly
-      ></textarea>
-    </>
+          {renderThemeProvider && (
+            <Box width={360}>
+              <Boxed>
+                <PreviewProvider skin={skin}>
+                  <Preview>
+                    <Box>
+                      <MainSectionHeaderLayout>
+                        <MainSectionHeader
+                          title="Title"
+                          description="Some text here"
+                          button={
+                            <ButtonPrimary href="asdf">Action</ButtonPrimary>
+                          }
+                        />
+                      </MainSectionHeaderLayout>
+
+                      <Title1>Button</Title1>
+                      <Text>Button text</Text>
+                      <ButtonPrimary onPress={() => {}}>Button</ButtonPrimary>
+                      <ButtonPrimary onPress={() => {}}>Button</ButtonPrimary>
+                    </Box>
+                    {/* Add more components here */}
+                  </Preview>
+                </PreviewProvider>
+              </Boxed>
+            </Box>
+          )}
+        </Inline>
+      </div>
+    </ResponsiveLayout>
   );
 };
 
-export default SkinGenerator;
+export default ColorEditor;

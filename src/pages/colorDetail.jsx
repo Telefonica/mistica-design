@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import hexToRgbA from "../helpers/hexToRgba";
 import getContrastRatio from "../helpers/contrastRatio";
 import ContrastChecker from "../helpers/contrastChecker";
 import { useParams } from "react-router-dom";
@@ -20,6 +19,7 @@ import {
 } from "@telefonica/mistica";
 import styles from "./tokenDetail.module.css";
 import ColorCode from "../components/colorCode";
+import getColorValue from "../helpers/getColorValue";
 
 const ColorDetail = () => {
   const [skins, setSkins] = useState([]);
@@ -66,42 +66,21 @@ const ColorDetail = () => {
     loadSkins();
   }, []);
 
-  // Get the color value from the skin
-
-  const getPaletteValue = (skin, tokenKey, type) => {
-    const paletteValue = skin?.[type]?.[tokenKey]?.value;
-
-    if (!paletteValue) return "";
-
-    const rgbaMatch = paletteValue.match(/rgba\({palette\.(.*?)\},\s*(.*?)\)/);
-    const paletteKey = paletteValue.match(/{palette.(.*?)}/)?.[1];
-
-    if (rgbaMatch) {
-      const alphaValue = rgbaMatch[2];
-      const paletteColor = skin?.global?.palette?.[rgbaMatch[1]]?.value;
-      if (!paletteColor)
-        throw new Error(`Palette color not found: ${paletteKey}`);
-      return hexToRgbA(paletteColor, alphaValue);
-    }
-
-    if (paletteKey) {
-      const paletteColor = skin?.global?.palette?.[paletteKey]?.value;
-      if (!paletteColor)
-        throw new Error(`Palette color not found: ${paletteKey}`);
-      return paletteColor;
-    }
-
-    return paletteValue;
-  };
-
   // Create a box to represent the foreground color against the color of the detail
 
   const getColorBox = ({ color, skin, colorType, foregroundColor }) => {
+    const palette = skin?.global?.palette;
     const borderRadius = "50%";
     const display = "flex";
     const alignItems = "center";
-    const border = `1px solid ${getPaletteValue(skin, "border", colorType)}`;
-    const textColor = getPaletteValue(skin, foregroundColor, colorType);
+    const border = `1px solid ${getColorValue(
+      skin?.[colorType]?.border,
+      palette
+    )}`;
+    const textColor = getColorValue(
+      skin?.[colorType]?.[foregroundColor],
+      palette
+    );
 
     return (
       <div
@@ -124,7 +103,11 @@ const ColorDetail = () => {
 
   const renderColorTable = (skins, tokenKey) => {
     const getColorRow = (skin, colorType) => {
-      const color = getPaletteValue(skin, tokenKey, colorType);
+      const colorData = skin?.[colorType]?.[tokenKey]?.value;
+      const palette = skin?.global?.palette;
+
+      const color = getColorValue(colorData, palette);
+
       return (
         <tr key={`${skin.name}-${colorType}`}>
           <td>{skin.name}</td>
@@ -147,7 +130,10 @@ const ColorDetail = () => {
               <ContrastChecker
                 contrastRatio={getContrastRatio(
                   color,
-                  getPaletteValue(skin, foregroundColor, colorType)
+                  getColorValue(
+                    skin?.[colorType]?.[foregroundColor].value,
+                    palette
+                  )
                 )}
               ></ContrastChecker>
             </Inline>
