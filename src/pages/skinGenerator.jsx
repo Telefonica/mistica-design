@@ -15,7 +15,7 @@ import {
   forceMobile,
   ResponsiveLayout,
 } from "@telefonica/mistica";
-import Preview, { PreviewProvider } from "../components/preview";
+import Preview from "../components/preview";
 
 const ColorEditor = () => {
   const [jsonData, setJsonData] = useState({});
@@ -201,8 +201,6 @@ const ColorEditor = () => {
     }
   };
 
-  console.log(editedColors);
-
   return (
     <ResponsiveLayout>
       <div>
@@ -228,29 +226,27 @@ const ColorEditor = () => {
           <button onClick={handleApplyColors}>Update color</button>
 
           {renderThemeProvider && (
-            <Box width={360}>
+            <Box>
               <Boxed>
-                <PreviewProvider skin={skin}>
-                  <Preview>
-                    <Box>
-                      <MainSectionHeaderLayout>
-                        <MainSectionHeader
-                          title="Title"
-                          description="Some text here"
-                          button={
-                            <ButtonPrimary href="asdf">Action</ButtonPrimary>
-                          }
-                        />
-                      </MainSectionHeaderLayout>
+                <Preview skin={skin}>
+                  <Box>
+                    <MainSectionHeaderLayout>
+                      <MainSectionHeader
+                        title="Title"
+                        description="Some text here"
+                        button={
+                          <ButtonPrimary href="asdf">Action</ButtonPrimary>
+                        }
+                      />
+                    </MainSectionHeaderLayout>
 
-                      <Title1>Button</Title1>
-                      <Text>Button text</Text>
-                      <ButtonPrimary onPress={() => {}}>Button</ButtonPrimary>
-                      <ButtonPrimary onPress={() => {}}>Button</ButtonPrimary>
-                    </Box>
-                    {/* Add more components here */}
-                  </Preview>
-                </PreviewProvider>
+                    <Title1>Button</Title1>
+                    <Text>Button text</Text>
+                    <ButtonPrimary onPress={() => {}}>Button</ButtonPrimary>
+                    <ButtonPrimary onPress={() => {}}>Button</ButtonPrimary>
+                  </Box>
+                  {/* Add more components here */}
+                </Preview>
               </Boxed>
             </Box>
           )}
