@@ -62,3 +62,10 @@ body:
       placeholder: <!-- Upload your svg icons here -->
     validations:
       required: true
+  - type: textarea
+    id: icon-descriptions
+    attributes:
+      label: Add at least 3 synonyms to improve the search for this icon
+      placeholder: synonym1, synonym2, synonym3
+    validations:
+      required: true
