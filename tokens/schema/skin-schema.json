@@ -3,7 +3,7 @@
   "required": ["light", "dark", "radius", "text", "global"],
   "properties": {
     "global": {
-      "additionalProperties": false,
+      "additionalProperties": true,
       "properties": {
         "palette": {
           "anyOf": [{ "$ref": "#/global/palette" }]
@@ -39,6 +39,7 @@
       }
     }
   },
+
   "global": {
     "comment": "Aquí se definen constantes y paleta (aunque no definimos los colores de la paleta porque de momento queremos dejar libre la creación de nuevos colores)",
     "palette": {
@@ -324,7 +325,8 @@
         "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" },
         "title2": { "$ref": "#/definitions/lineHeightProperties" }
       }
-    }
+    },
+    "carouselPeek": { "type": "number" }
   },
   "definitions": {
     "comment": "Aquí se define el formato de un color o de una constante.",
