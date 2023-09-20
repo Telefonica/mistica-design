@@ -20,12 +20,14 @@ import {
 import styles from "./tokenDetail.module.css";
 import ColorCode from "../components/colorCode";
 import getColorValue from "../helpers/getColorValue";
+import GetSkin from "../helpers/getSkin";
 
 const ColorDetail = () => {
   const [skins, setSkins] = useState([]);
   const [foregroundColor, setForegroundColor] = useState("textPrimary");
   const { id, tokenType, branch, selectedSkin, selectedColor } = useParams();
   const colorKeys = Object.keys(skins[0]?.light || {});
+  const { skinData } = GetSkin({ branch });
 
   // List of skins to load
 

@@ -16,190 +16,56 @@ import {
   ResponsiveLayout,
 } from "@telefonica/mistica";
 import Preview from "../components/preview";
+import GetSkin from "../helpers/getSkin";
+import { SkinDataTransformer } from "../helpers/skinDataTransformer";
 
 const ColorEditor = () => {
-  const [jsonData, setJsonData] = useState({});
   const [selectedSkin, setSelectedSkin] = useState("vivo-new");
+  const { skinData } = GetSkin({ selectedSkin, branch: "production" });
   const [skin, setSkin] = useState({});
   const [editedColors, setEditedColors] = useState(skin || {});
 
-  const editableColors = {
-    // List of colors that can be edited in the editor (not all colors are editable)
-    buttonPrimaryBackground: skin.colors?.buttonPrimaryBackground,
-    textPrimary: skin.colors?.textPrimary,
-  };
+  // Generate the skin object from the JSON data for the theme provider
 
   useEffect(() => {
-    const fetchSkins = async () => {
-      const skinNames = [
-        "movistar",
-        "movistar-legacy",
-        "vivo",
-        "vivo-new",
-        "blau",
-        "o2",
-        "telefonica",
-        "solar-360",
-      ];
-      const skins = {};
+    setSkin(SkinDataTransformer(skinData));
+  }, [skinData]);
 
-      try {
-        for (let i = 0; i < skinNames.length; i++) {
-          const skinName = skinNames[i];
-          const response = await fetch(
-            `https://raw.githubusercontent.com/Telefonica/mistica-design/production/tokens/${skinName}.json`
-          );
-          const data = await response.json();
-          skins[skinName] = data;
-        }
+  // List of colors that can be edited in the editor (not all colors are editable)
 
-        setJsonData(skins[selectedSkin]);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  const editableColors = Object.keys(skin).length > 0 && skin.colors;
 
-    fetchSkins();
-  }, [selectedSkin]);
-
-  function extractColors(json) {
-    const colors = json?.light ? {} : null;
-    const darkModeColors = json?.dark ? {} : null;
-
-    if (json?.light) {
-      Object.keys(json.light).forEach((key) => {
-        colors[key] = getColorValue(json.light[key].value, json.global.palette);
-      });
-    }
-
-    if (json?.dark) {
-      Object.keys(json.dark).forEach((key) => {
-        darkModeColors[key] = getColorValue(
-          json.dark[key].value,
-          json.global.palette
-        );
-      });
-    }
-
-    return { colors, darkModeColors };
-  }
-
-  function extractPresets(jsonData) {
-    const transformedData = { textPresets: {} };
-
-    for (const textKey in jsonData.text.weight) {
-      const weight = jsonData.text.weight[textKey].value;
-      const sizeData = jsonData.text.size[textKey]?.value;
-      const lineHeightData = jsonData.text.lineHeight[textKey]?.value;
-
-      const preset = { weight };
-
-      if (sizeData || lineHeightData) {
-        preset.size = {};
-
-        if (sizeData) {
-          preset.size.mobile = sizeData.mobile;
-          preset.size.desktop = sizeData.desktop;
-        }
-
-        if (lineHeightData) {
-          preset.lineHeight = {};
-
-          if (lineHeightData.mobile) {
-            preset.lineHeight.mobile = lineHeightData.mobile;
-          }
-
-          if (lineHeightData.desktop) {
-            preset.lineHeight.desktop = lineHeightData.desktop;
-          }
-        }
-      }
-
-      transformedData.textPresets[textKey] = preset;
-    }
-
-    return transformedData;
-  }
-
-  function extractBorderRadii(jsonData) {
-    const borderRadii = { borderRadii: {} };
-
-    for (const key in jsonData.radius) {
-      let value = jsonData.radius[key].value;
-      // Replace "circle" with "50%"
-      if (value === "circle") {
-        value = "50%";
-      } else {
-        value = `${value}px`;
-      }
-      borderRadii.borderRadii[key] = value; // Store the value in the correct property
-    }
-
-    return borderRadii;
-  }
-
-  useEffect(() => {
-    // Check if jsonData is available before extracting colors and transforming
-    if (jsonData && Object.keys(jsonData).length > 0) {
-      const colors = extractColors(jsonData);
-      const presets = extractPresets(jsonData); // Transform JSON structure
-      const borderRadii = extractBorderRadii(jsonData); // Transform JSON structure
-
-      const resolvedSkin = {
-        name: "test",
-        colors: colors.colors,
-        darkModeColors: colors.darkModeColors,
-        borderRadii: borderRadii.borderRadii,
-        textPresets: presets.textPresets,
-      };
-
-      setSkin(resolvedSkin); // Set skin when jsonData or skinName changes
-    }
-  }, [jsonData]);
-
-  const renderThemeProvider = Object.keys(skin).length > 0;
-
-  const handleColorUpdate = (colorName, newValue) => {
+  const handleColorUpdate = (prevValue, newValue) => {
     // Check if the new value is different from the previous color
-    if (editedColors[colorName] !== newValue) {
+    if (editedColors[prevValue] !== newValue) {
       // Update the color in the state
       setEditedColors((prevColors) => ({
         ...prevColors,
-        [colorName]: newValue === "" ? prevColors[colorName] : newValue,
+        [prevValue]: newValue === "" ? prevColors[prevValue] : newValue,
       }));
     }
   };
 
   const handleApplyColors = () => {
     // Create a copy of the JSON data to make changes
-    const updatedJsonData = { ...jsonData };
+    const modifiedSkinData = { ...skinData };
 
     // Update each color in the JSON data
     for (const colorName of Object.keys(editedColors)) {
-      if (updatedJsonData.light && updatedJsonData.light[colorName]) {
-        updatedJsonData.light[colorName].value = editedColors[colorName];
+      if (modifiedSkinData.light && modifiedSkinData.light[colorName]) {
+        modifiedSkinData.light[colorName].value = editedColors[colorName];
       }
     }
 
     // Extract the updated skin data and set it
-    if (updatedJsonData && Object.keys(updatedJsonData).length > 0) {
-      const colors = extractColors(updatedJsonData);
-      const presets = extractPresets(updatedJsonData);
-      const borderRadii = extractBorderRadii(updatedJsonData);
-
-      const updatedSkin = {
-        name: "test",
-        colors: colors.colors,
-        darkModeColors: colors.darkModeColors,
-        borderRadii: borderRadii.borderRadii,
-        textPresets: presets.textPresets,
-      };
-
-      // Update the state with the updated data
-      setSkin(updatedSkin);
-      setJsonData(updatedJsonData);
+    if (modifiedSkinData && Object.keys(modifiedSkinData).length > 0) {
+      setSkin(SkinDataTransformer(modifiedSkinData));
     }
   };
+
+  // Prevent to render the theme provider before the skin object is generated
+
+  const renderThemeProvider = Object.keys(skin).length > 0;
 
   return (
     <ResponsiveLayout>

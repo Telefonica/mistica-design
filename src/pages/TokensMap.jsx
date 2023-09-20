@@ -24,6 +24,7 @@ import {
 } from "@telefonica/mistica";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import GetSkin from "../helpers/getSkin";
 
 const TokensMap = () => {
   // use query params to load the page in the selected state coming from a detail
@@ -45,11 +46,8 @@ const TokensMap = () => {
   const [selectedColor, setSelectedColor] = useState(
     colorFromUrl || "undefined"
   );
-  const [skins, setSkins] = useState({});
+  const { skinData, skinError } = GetSkin({ branch: selectedBranch });
   const [colorView, setColorView] = useState("constants");
-  const [isError, setIsError] = useState(false);
-
-  // Fetch branches from GitHub
 
   useEffect(() => {
     const fetchBranches = async () => {
@@ -61,42 +59,6 @@ const TokensMap = () => {
     };
     fetchBranches();
   }, []);
-
-  // Fetch skins from GitHub
-
-  useEffect(() => {
-    const fetchSkins = async () => {
-      const skinNames = [
-        "movistar",
-        "movistar-legacy",
-        "vivo",
-        "vivo-new",
-        "blau",
-        "o2",
-        "telefonica",
-        "solar-360",
-      ];
-      const skins = {};
-
-      try {
-        for (let i = 0; i < skinNames.length; i++) {
-          const skinName = skinNames[i];
-          const response = await fetch(
-            `https://raw.githubusercontent.com/Telefonica/mistica-design/${selectedBranch}/tokens/${skinName}.json`
-          );
-          const data = await response.json();
-          skins[skinName] = data;
-        }
-
-        setSkins(skins);
-        setIsError(false); // reset error state when successful
-      } catch (error) {
-        setIsError(true);
-      }
-    };
-
-    fetchSkins();
-  }, [selectedBranch]);
 
   // Update URL with selected branch, skin, tokenType and color
 
@@ -121,31 +83,31 @@ const TokensMap = () => {
   let skin;
   switch (selectedSkin) {
     case "movistar":
-      skin = skins.movistar;
+      skin = skinData.movistar;
       break;
     case "movistar-legacy":
-      skin = skins["movistar-legacy"];
+      skin = skinData["movistar-legacy"];
       break;
     case "vivo":
-      skin = skins.vivo;
+      skin = skinData.vivo;
       break;
     case "vivo-new":
-      skin = skins["vivo-new"];
+      skin = skinData["vivo-new"];
       break;
     case "blau":
-      skin = skins.blau;
+      skin = skinData.blau;
       break;
     case "o2":
-      skin = skins.o2;
+      skin = skinData.o2;
       break;
     case "telefonica":
-      skin = skins.telefonica;
+      skin = skinData.telefonica;
       break;
     case "solar-360":
-      skin = skins["solar-360"];
+      skin = skinData["solar-360"];
       break;
     default:
-      skin = skins.movistar;
+      skin = skinData.movistar;
   }
 
   // Modify the view depending on the selected chip
@@ -262,14 +224,14 @@ const TokensMap = () => {
               <Inline space="between" alignItems="center">
                 <Inline space={8} fullWidth>
                   <TextField
-                    disabled={isError ? true : false}
+                    disabled={skinError ? true : false}
                     label="Filter tokens"
                     value={filter}
                     onChange={handleFilterChange}
                     placeholder="Search..."
                   />
                   <Select
-                    disabled={isError ? true : false}
+                    disabled={skinError ? true : false}
                     label="Skin"
                     onChangeValue={setSelectedSkin}
                     value={selectedSkin}
@@ -298,7 +260,7 @@ const TokensMap = () => {
             </Stack>
           </Stack>
         </Box>
-        {active === "color" && isError === false && (
+        {active === "color" && skinError === false && (
           <Box paddingBottom={24}>
             <Inline space="between" alignItems="center">
               <RadioGroup
@@ -354,7 +316,7 @@ const TokensMap = () => {
         )}
       </ResponsiveLayout>
 
-      {isError ? (
+      {skinError ? (
         <ResponsiveLayout>
           <EmptyStateCard
             icon={

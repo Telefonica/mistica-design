@@ -13,41 +13,11 @@ import {
   IconChevronLeftRegular,
 } from "@telefonica/mistica";
 import styles from "./tokenDetail.module.css";
+import GetSkin from "../helpers/getSkin";
 
 const TokenDetail = () => {
-  const [skins, setSkins] = useState([]);
   const { id, tokenType, branch, tokenTextType, selectedSkin } = useParams();
-
-  const skinFiles = [
-    { name: "Movistar", filename: "movistar.json" },
-    { name: "Vivo", filename: "vivo.json" },
-    { name: "Vivo-new", filename: "vivo-new.json" },
-    { name: "O2", filename: "o2.json" },
-    { name: "Blau", filename: "blau.json" },
-    { name: "Telefónica", filename: "telefonica.json" },
-    { name: "Solar 360", filename: "solar-360.json" },
-  ];
-
-  useEffect(() => {
-    const loadSkins = async () => {
-      try {
-        const skinData = await Promise.all(
-          skinFiles.map(({ name, filename }) =>
-            fetch(
-              `https://raw.githubusercontent.com/Telefonica/mistica-design/${branch}/tokens/${filename}`
-            )
-              .then((response) => response.json())
-              .then((skin) => ({ ...skin, name }))
-          )
-        );
-        setSkins(skinData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    loadSkins();
-  }, []);
+  const { skinData } = GetSkin({ selectedSkin, branch });
 
   const getRadiusValue = (skin, tokenKey) => {
     return skin?.radius?.[tokenKey]?.value || "";
@@ -91,7 +61,7 @@ const TokenDetail = () => {
           </tr>
         </thead>
         <tbody>
-          {skins.map((skin, index) => {
+          {skinData.map((skin, index) => {
             const value = getRadiusValue(skin, id);
             return (
               <tr key={index}>
@@ -131,7 +101,7 @@ const TokenDetail = () => {
           </tr>
         </thead>
         <tbody>
-          {skins.map((skin, index) => {
+          {skinData.map((skin, index) => {
             const value = getWeightValue(skin, id);
             return (
               <tr key={index}>
@@ -164,7 +134,7 @@ const TokenDetail = () => {
           </tr>
         </thead>
         <tbody>
-          {skins.map((skin, index) => {
+          {skinData.map((skin, index) => {
             const value = getSizeValue(skin, id);
             return (
               <tr key={index}>
@@ -205,7 +175,7 @@ const TokenDetail = () => {
           </tr>
         </thead>
         <tbody>
-          {skins.map((skin, index) => {
+          {skinData.map((skin, index) => {
             const value = getLineHeightValue(skin, id);
             return (
               <tr key={index}>
@@ -252,10 +222,13 @@ const TokenDetail = () => {
         <Stack space={40}>
           <Title2>{id}</Title2>
           <Stack space={24}>
-            {tokenType === "radius" && <>{renderRadiusTable(skins, id)}</>}
-            {tokenTextType === "size" && <>{renderSizeTable(skins, id)}</>}
-            {tokenTextType === "weight" && <>{renderWeightTable(skins, id)}</>}
-            {tokenTextType === "lineHeight" && renderLineHeightTable(skins, id)}
+            {tokenType === "radius" && <>{renderRadiusTable(skinData, id)}</>}
+            {tokenTextType === "size" && <>{renderSizeTable(skinData, id)}</>}
+            {tokenTextType === "weight" && (
+              <>{renderWeightTable(skinData, id)}</>
+            )}
+            {tokenTextType === "lineHeight" &&
+              renderLineHeightTable(skinData, id)}
           </Stack>
         </Stack>
       </div>
