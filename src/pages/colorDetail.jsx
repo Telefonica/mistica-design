@@ -21,6 +21,7 @@ import styles from "./tokenDetail.module.css";
 import ColorCode from "../components/colorCode";
 import getColorValue from "../helpers/getColorValue";
 import GetSkin from "../helpers/getSkin";
+import { getColorData } from "../helpers/getTokenData";
 
 const ColorDetail = () => {
   const { id, tokenType, branch, selectedSkin, selectedColor } = useParams();
@@ -66,42 +67,6 @@ const ColorDetail = () => {
         </Circle>
       </div>
     );
-  };
-
-  const extractTokenData = (skinData, currentColor, colorScheme) => {
-    const tokenData = [];
-
-    for (const skinName in skinData) {
-      if (skinData.hasOwnProperty(skinName)) {
-        const skin = skinData[skinName];
-
-        if (skin[colorScheme]) {
-          const tokens = skin[colorScheme];
-
-          for (const tokenName in tokens) {
-            if (tokens.hasOwnProperty(tokenName)) {
-              if (!currentColor || tokenName === currentColor) {
-                const tokenValue = getColorValue(
-                  tokens[tokenName].value,
-                  skin.global.palette
-                );
-
-                const paletteValue = tokens[tokenName].description;
-
-                tokenData.push({
-                  skinName,
-                  tokenName,
-                  paletteValue,
-                  tokenValue,
-                });
-              }
-            }
-          }
-        }
-      }
-    }
-
-    return tokenData;
   };
 
   const Row = ({ skinName, tokenValue, paletteValue, colorScheme }) => (
@@ -161,7 +126,7 @@ const ColorDetail = () => {
           </thead>
           <tbody>
             {Object.keys(skinData).length > 0 &&
-              extractTokenData(skinData, id, "light").map((tokens, index) => (
+              getColorData(skinData, id, "light").map((tokens, index) => (
                 <Row
                   key={index} // Make sure to specify a unique key for each mapped element
                   skinName={tokens.skinName}
@@ -184,7 +149,7 @@ const ColorDetail = () => {
           </thead>
           <tbody>
             {Object.keys(skinData).length > 0 &&
-              extractTokenData(skinData, id, "dark").map((tokens, index) => (
+              getColorData(skinData, id, "dark").map((tokens, index) => (
                 <Row
                   key={index} // Make sure to specify a unique key for each mapped element
                   skinName={tokens.skinName}

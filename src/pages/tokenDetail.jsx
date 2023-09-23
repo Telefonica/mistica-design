@@ -14,41 +14,16 @@ import {
 } from "@telefonica/mistica";
 import styles from "./tokenDetail.module.css";
 import GetSkin from "../helpers/getSkin";
+import {
+  getRadiusData,
+  getSizeData,
+  getWeightData,
+  getLineHeightData,
+} from "../helpers/getTokenData";
 
 const TokenDetail = () => {
   const { id, tokenType, branch, tokenTextType, selectedSkin } = useParams();
-  const { skinData } = GetSkin({ selectedSkin, branch });
-
-  const getRadiusValue = (skin, tokenKey) => {
-    return skin?.radius?.[tokenKey]?.value || "";
-  };
-
-  const tranformRadiusValue = (value) => {
-    if (value.endsWith("%")) {
-      return value;
-    } else if (value.includes("circle")) {
-      return "50%";
-    } else {
-      return `${value}px`;
-    }
-  };
-
-  const getWeightValue = (skin, tokenKey) => {
-    return skin?.text?.weight?.[tokenKey]?.value || "";
-  };
-
-  const getSizeValue = (skin, tokenKey) => {
-    const mobileValue = skin?.text?.size?.[tokenKey]?.value?.mobile || "";
-    const desktopValue = skin?.text?.size?.[tokenKey]?.value?.desktop || "";
-    return [mobileValue, desktopValue];
-  };
-
-  const getLineHeightValue = (skin, tokenKey) => {
-    const mobileValue = skin?.text?.lineHeight?.[tokenKey]?.value?.mobile || "";
-    const desktopValue =
-      skin?.text?.lineHeight?.[tokenKey]?.value?.desktop || "";
-    return [mobileValue, desktopValue];
-  };
+  const { skinData } = GetSkin({ branch });
 
   const renderRadiusTable = () => {
     return (
@@ -61,18 +36,15 @@ const TokenDetail = () => {
           </tr>
         </thead>
         <tbody>
-          {skinData.map((skin, index) => {
-            const value = getRadiusValue(skin, id);
+          {getRadiusData(skinData, id).map((skin, index) => {
             return (
               <tr key={index}>
-                <td>{skin.name}</td>
-                <td>
-                  <Tag type="active">{tranformRadiusValue(value)}</Tag>
-                </td>
+                <td>{skin.skinName}</td>
+                <td>{skin.tokenValue}</td>
                 <td>
                   <div
                     style={{
-                      borderRadius: tranformRadiusValue(value),
+                      borderRadius: skin.tokenValue,
                       width: 48,
                       height: 48,
                       borderColor: skinVars.colors.brand,
@@ -101,22 +73,22 @@ const TokenDetail = () => {
           </tr>
         </thead>
         <tbody>
-          {skinData.map((skin, index) => {
-            const value = getWeightValue(skin, id);
-            return (
-              <tr key={index}>
-                <td>{skin.name}</td>
-                <td>
-                  <Tag type="active">{value}</Tag>
-                </td>
-                <td>
-                  <Text size={24} weight={value}>
-                    Aa
-                  </Text>
-                </td>
-              </tr>
-            );
-          })}
+          {Object.keys(skinData).length > 0 &&
+            getWeightData(skinData, id).map((skin, index) => {
+              return (
+                <tr key={index}>
+                  <td>{skin.skinName}</td>
+                  <td>
+                    <Tag type="active">{skin.tokenValue}</Tag>
+                  </td>
+                  <td>
+                    <Text size={24} weight={skin.tokenValue}>
+                      Aa
+                    </Text>
+                  </td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     );
@@ -134,30 +106,30 @@ const TokenDetail = () => {
           </tr>
         </thead>
         <tbody>
-          {skinData.map((skin, index) => {
-            const value = getSizeValue(skin, id);
-            return (
-              <tr key={index}>
-                <td>{skin.name}</td>
-                <td>
-                  <Text>{value[0]}px</Text>
-                </td>
-                <td>
-                  <Text>{value[1]}px</Text>
-                </td>
-                <td>
-                  <Inline space={16}>
-                    <Text size={value[0]} weight="regular">
-                      Aa
-                    </Text>
-                    <Text size={value[1]} weight="regular">
-                      Aa
-                    </Text>
-                  </Inline>
-                </td>
-              </tr>
-            );
-          })}
+          {Object.keys(skinData).length > 0 &&
+            getSizeData(skinData, id).map((skin, index) => {
+              return (
+                <tr key={index}>
+                  <td>{skin.skinName}</td>
+                  <td>
+                    <Text>{skin.tokenValueMobile}px</Text>
+                  </td>
+                  <td>
+                    <Text>{skin.tokenValueDesktop}px</Text>
+                  </td>
+                  <td>
+                    <Inline space={16}>
+                      <Text size={skin.tokenValueMobile} weight="regular">
+                        Aa
+                      </Text>
+                      <Text size={skin.tokenValueDesktop} weight="regular">
+                        Aa
+                      </Text>
+                    </Inline>
+                  </td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     );
@@ -175,30 +147,30 @@ const TokenDetail = () => {
           </tr>
         </thead>
         <tbody>
-          {skinData.map((skin, index) => {
-            const value = getLineHeightValue(skin, id);
-            return (
-              <tr key={index}>
-                <td>{skin.name}</td>
-                <td>
-                  <Text>{value[0]}px</Text>
-                </td>
-                <td>
-                  <Text>{value[1]}px</Text>
-                </td>
-                <td>
-                  <Inline space={16}>
-                    <Text size={value[0]} weight="regular">
-                      Aa
-                    </Text>
-                    <Text size={value[1]} weight="regular">
-                      Aa
-                    </Text>
-                  </Inline>
-                </td>
-              </tr>
-            );
-          })}
+          {Object.keys(skinData).length > 0 &&
+            getLineHeightData(skinData, id).map((skin, index) => {
+              return (
+                <tr key={index}>
+                  <td>{skin.skinName}</td>
+                  <td>
+                    <Text>{skin.tokenValueMobile}px</Text>
+                  </td>
+                  <td>
+                    <Text>{skin.tokenValueDesktop}px</Text>
+                  </td>
+                  <td>
+                    <Inline space={16}>
+                      <Text size={skin.tokenValueMobile} weight="regular">
+                        Aa
+                      </Text>
+                      <Text size={skin.tokenValueDesktop} weight="regular">
+                        Aa
+                      </Text>
+                    </Inline>
+                  </td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     );
@@ -222,11 +194,9 @@ const TokenDetail = () => {
         <Stack space={40}>
           <Title2>{id}</Title2>
           <Stack space={24}>
-            {tokenType === "radius" && <>{renderRadiusTable(skinData, id)}</>}
+            {tokenType === "radius" && <>{renderRadiusTable()}</>}
             {tokenTextType === "size" && <>{renderSizeTable(skinData, id)}</>}
-            {tokenTextType === "weight" && (
-              <>{renderWeightTable(skinData, id)}</>
-            )}
+            {tokenTextType === "weight" && <>{renderWeightTable()}</>}
             {tokenTextType === "lineHeight" &&
               renderLineHeightTable(skinData, id)}
           </Stack>
