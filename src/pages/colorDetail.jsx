@@ -23,64 +23,29 @@ import getColorValue from "../helpers/getColorValue";
 import GetSkin from "../helpers/getSkin";
 
 const ColorDetail = () => {
-  const [skins, setSkins] = useState([]);
-  const [foregroundColor, setForegroundColor] = useState("textPrimary");
   const { id, tokenType, branch, selectedSkin, selectedColor } = useParams();
-  const colorKeys = Object.keys(skins[0]?.light || {});
+  const [foregroundColor, setForegroundColor] = useState("textPrimary");
   const { skinData } = GetSkin({ branch });
-
-  // List of skins to load
-
-  const skinFiles = [
-    { name: "Movistar", filename: "movistar.json" },
-    {
-      name: "Movistar-legacy",
-      filename: "movistar-legacy.json",
-    },
-    { name: "Vivo", filename: "vivo.json" },
-    { name: "Vivo-new", filename: "vivo-new.json" },
-    { name: "O2", filename: "o2.json" },
-    { name: "Blau", filename: "blau.json" },
-    { name: "Telefónica", filename: "telefonica.json" },
-    { name: "Solar 360", filename: "solar-360.json" },
-  ];
-
-  // Load the skins
-
-  useEffect(() => {
-    const loadSkins = async () => {
-      try {
-        const skinData = await Promise.all(
-          skinFiles.map(({ name, filename }) =>
-            fetch(
-              `https://raw.githubusercontent.com/Telefonica/mistica-design/${branch}/tokens/${filename}`
-            )
-              .then((response) => response.json())
-              .then((skin) => ({ ...skin, name }))
-          )
-        );
-        setSkins(skinData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    loadSkins();
-  }, []);
+  const colorKeys = Object.keys(skinData?.movistar?.light || {});
 
   // Create a box to represent the foreground color against the color of the detail
 
-  const getColorBox = ({ color, skin, colorType, foregroundColor }) => {
-    const palette = skin?.global?.palette;
+  const getColorBox = ({ skinName, colorScheme }) => {
+    const palette = skinData?.[skinName]?.global?.palette;
     const borderRadius = "50%";
     const display = "flex";
     const alignItems = "center";
-    const border = `1px solid ${getColorValue(
-      skin?.[colorType]?.border,
+    const borderColor = getColorValue(
+      skinData?.[skinName]?.[colorScheme]?.border?.value,
       palette
-    )}`;
+    );
     const textColor = getColorValue(
-      skin?.[colorType]?.[foregroundColor],
+      skinData?.[skinName]?.[colorScheme]?.[foregroundColor],
+      palette
+    );
+
+    const backgroundColor = getColorValue(
+      skinData?.[skinName]?.[colorScheme]?.[id].value,
       palette
     );
 
@@ -90,63 +55,85 @@ const ColorDetail = () => {
           borderRadius,
           display,
           alignItems,
-
-          border,
         }}
       >
-        <Circle size={32} backgroundColor={color}>
+        <Circle
+          size={32}
+          backgroundColor={backgroundColor}
+          border={borderColor}
+        >
           <Text color={textColor}>Aa</Text>
         </Circle>
       </div>
     );
   };
 
-  // Render the color table
+  const extractTokenData = (skinData, currentColor, colorScheme) => {
+    const tokenData = [];
 
-  const renderColorTable = (skins, tokenKey) => {
-    const getColorRow = (skin, colorType) => {
-      const colorData = skin?.[colorType]?.[tokenKey]?.value;
-      const palette = skin?.global?.palette;
+    for (const skinName in skinData) {
+      if (skinData.hasOwnProperty(skinName)) {
+        const skin = skinData[skinName];
 
-      const color = getColorValue(colorData, palette);
+        if (skin[colorScheme]) {
+          const tokens = skin[colorScheme];
 
-      return (
-        <tr key={`${skin.name}-${colorType}`}>
-          <td>{skin.name}</td>
-          <td>
-            <Tag type="success">
-              {skin?.[colorType]?.[tokenKey]?.description}
-            </Tag>
-          </td>
-          <td>
-            <ColorCode color={color}></ColorCode>
-          </td>
-          <td>
-            <Inline key={foregroundColor} space={8}>
-              {getColorBox({
-                color,
-                skin,
-                colorType,
-                foregroundColor,
-              })}
-              <ContrastChecker
-                contrastRatio={getContrastRatio(
-                  color,
-                  getColorValue(
-                    skin?.[colorType]?.[foregroundColor].value,
-                    palette
-                  )
-                )}
-              ></ContrastChecker>
-            </Inline>
-          </td>
-        </tr>
-      );
-    };
+          for (const tokenName in tokens) {
+            if (tokens.hasOwnProperty(tokenName)) {
+              if (!currentColor || tokenName === currentColor) {
+                const tokenValue = getColorValue(
+                  tokens[tokenName].value,
+                  skin.global.palette
+                );
 
-    const lightRows = skins.map((skin) => getColorRow(skin, "light"));
-    const darkRows = skins.map((skin) => getColorRow(skin, "dark"));
+                const paletteValue = tokens[tokenName].description;
 
+                tokenData.push({
+                  skinName,
+                  tokenName,
+                  paletteValue,
+                  tokenValue,
+                });
+              }
+            }
+          }
+        }
+      }
+    }
+
+    return tokenData;
+  };
+
+  const Row = ({ skinName, tokenValue, paletteValue, colorScheme }) => (
+    <tr>
+      <td>{skinName}</td>
+      <td>
+        <Tag type="success">{paletteValue}</Tag>
+      </td>
+      <td>
+        <ColorCode color={tokenValue}></ColorCode>
+      </td>
+      <td>
+        <Inline key={foregroundColor} space={8}>
+          {getColorBox({
+            skinName,
+            colorScheme,
+          })}
+          <ContrastChecker
+            contrastRatio={getContrastRatio(
+              tokenValue,
+              getColorValue(
+                skinData?.[skinName]?.[colorScheme]?.[foregroundColor].value,
+                skinData?.[skinName]?.global?.palette
+              )
+            )}
+          ></ContrastChecker>{" "}
+        </Inline>
+      </td>
+    </tr>
+  );
+
+  const renderColorTable = (skinData, id) => {
     return (
       <Stack space={32}>
         <Inline fullWidth space="between">
@@ -172,7 +159,18 @@ const ColorDetail = () => {
               <th>Contrast</th>
             </tr>
           </thead>
-          <tbody>{lightRows}</tbody>
+          <tbody>
+            {Object.keys(skinData).length > 0 &&
+              extractTokenData(skinData, id, "light").map((tokens, index) => (
+                <Row
+                  key={index} // Make sure to specify a unique key for each mapped element
+                  skinName={tokens.skinName}
+                  paletteValue={tokens.paletteValue}
+                  colorScheme="light"
+                  tokenValue={tokens.tokenValue}
+                />
+              ))}
+          </tbody>
         </table>
         <Title1>Dark colors</Title1>
         <table>
@@ -184,7 +182,18 @@ const ColorDetail = () => {
               <th>Contrast</th>
             </tr>
           </thead>
-          <tbody>{darkRows}</tbody>
+          <tbody>
+            {Object.keys(skinData).length > 0 &&
+              extractTokenData(skinData, id, "dark").map((tokens, index) => (
+                <Row
+                  key={index} // Make sure to specify a unique key for each mapped element
+                  skinName={tokens.skinName}
+                  paletteValue={tokens.paletteValue}
+                  colorScheme="dark"
+                  tokenValue={tokens.tokenValue}
+                />
+              ))}
+          </tbody>
         </table>
       </Stack>
     );
@@ -206,7 +215,7 @@ const ColorDetail = () => {
         <div className={styles.tokenDetail}>
           <Stack space={40}>
             <Title2>{id}</Title2>
-            <Stack space={24}>{<>{renderColorTable(skins, id)}</>}</Stack>
+            <Stack space={24}>{<>{renderColorTable(skinData, id)}</>}</Stack>
           </Stack>
         </div>
       </ResponsiveLayout>

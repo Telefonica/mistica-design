@@ -33,7 +33,6 @@ function getColorValue(data, palette) {
       return data; // No palette reference found, return the original string
     }
   } else if (typeof data === "object" && data.type === "color") {
-    // Handle color objects with or without palette references
     if (typeof data.value === "string") {
       return getColorValue(data.value, palette);
     } else {
