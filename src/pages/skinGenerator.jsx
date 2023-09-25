@@ -20,10 +20,13 @@ import GetSkin from "../helpers/getSkin";
 import { SkinDataTransformer } from "../helpers/skinDataTransformer";
 
 const ColorEditor = () => {
-  const [selectedSkin, setSelectedSkin] = useState("vivo-new");
+  const [selectedSkin, setSelectedSkin] = useState("movistar");
   const { skinData } = GetSkin({ selectedSkin, branch: "production" });
   const [skin, setSkin] = useState({});
-  const [editedColors, setEditedColors] = useState(skin || {});
+  const [editedLightColors, setEditedLightColors] = useState(skin.colors || {});
+  const [editedDarkColors, setEditedDarkColors] = useState(
+    skin.darkModeColors || {}
+  );
 
   // Generate the skin object from the JSON data for the theme provider
 
@@ -35,29 +38,39 @@ const ColorEditor = () => {
 
   const editableColors = Object.keys(skin).length > 0 && skin.colors;
 
-  const handleColorUpdate = (prevValue, newValue) => {
-    // Check if the new value is different from the previous color
-    if (editedColors[prevValue] !== newValue) {
-      // Update the color in the state
-      setEditedColors((prevColors) => ({
+  const handleColorUpdate = (colorName, colorScheme, newValue) => {
+    if (colorScheme === "light") {
+      // Update the light color in the state
+      setEditedLightColors((prevColors) => ({
         ...prevColors,
-        [prevValue]: newValue === "" ? prevColors[prevValue] : newValue,
+        [colorName]: newValue === "" ? prevColors[colorName] : newValue,
+      }));
+    } else if (colorScheme === "dark") {
+      // Update the dark color in the state
+      setEditedDarkColors((prevColors) => ({
+        ...prevColors,
+        [colorName]: newValue === "" ? prevColors[colorName] : newValue,
       }));
     }
   };
 
   const handleApplyColors = () => {
-    // Create a copy of the JSON data to make changes
     const modifiedSkinData = { ...skinData };
 
-    // Update each color in the JSON data
-    for (const colorName of Object.keys(editedColors)) {
+    // Update light colors
+    for (const colorName of Object.keys(editedLightColors)) {
       if (modifiedSkinData.light && modifiedSkinData.light[colorName]) {
-        modifiedSkinData.light[colorName].value = editedColors[colorName];
+        modifiedSkinData.light[colorName].value = editedLightColors[colorName];
       }
     }
 
-    // Extract the updated skin data and set it
+    // Update dark colors
+    for (const colorName of Object.keys(editedDarkColors)) {
+      if (modifiedSkinData.dark && modifiedSkinData.dark[colorName]) {
+        modifiedSkinData.dark[colorName].value = editedDarkColors[colorName];
+      }
+    }
+
     if (modifiedSkinData && Object.keys(modifiedSkinData).length > 0) {
       setSkin(SkinDataTransformer(modifiedSkinData));
     }
@@ -73,21 +86,41 @@ const ColorEditor = () => {
         <h3>Skin Object:</h3>
         <Inline space={48} fullWidth>
           <Stack space={8}>
-            {Object.keys(editableColors).map((colorName) => (
-              <Inline space={8} key={colorName}>
-                <Text>{colorName}</Text>
-                <input
-                  type="color"
-                  value={
-                    editedColors[colorName] ||
-                    (skin.colors && skin.colors[colorName]) ||
-                    "#000000"
-                  }
-                  onChange={(e) => handleColorUpdate(colorName, e.target.value)}
-                />
-              </Inline>
-            ))}
+            <table>
+              {Object.keys(editableColors).map((colorName) => (
+                <tr>
+                  <td>
+                    <Text>{colorName}</Text>
+                  </td>
+                  <td>
+                    <input
+                      type="color"
+                      value={
+                        editedLightColors[colorName] ||
+                        (skin.colors && skin.colors[colorName]) ||
+                        "#000000"
+                      }
+                      onChange={(e) =>
+                        handleColorUpdate(colorName, "light", e.target.value)
+                      }
+                    />
+                  </td>
+                  <input
+                    type="color"
+                    value={
+                      editedDarkColors[colorName] ||
+                      (skin.darkModeColors && skin.darkModeColors[colorName]) ||
+                      "#000000"
+                    }
+                    onChange={(e) =>
+                      handleColorUpdate(colorName, "dark", e.target.value)
+                    }
+                  ></input>
+                </tr>
+              ))}
+            </table>
           </Stack>
+
           {/* Button to apply the color update */}
           <button onClick={handleApplyColors}>Update color</button>
 
@@ -97,19 +130,22 @@ const ColorEditor = () => {
                 <Preview skin={skin}>
                   <Box>
                     <MainSectionHeaderLayout>
-                      <MainSectionHeader
-                        title="Title"
-                        description="Some text here"
-                        button={
-                          <ButtonPrimary href="asdf">Action</ButtonPrimary>
-                        }
-                      />
+                      <Box paddingX={16}>
+                        <MainSectionHeader
+                          title="Title"
+                          description="Some text here"
+                          button={
+                            <ButtonPrimary href="asdf">Action</ButtonPrimary>
+                          }
+                        />
+                      </Box>
                     </MainSectionHeaderLayout>
-
-                    <Title1>Button</Title1>
-                    <Text>Button text</Text>
-                    <ButtonPrimary onPress={() => {}}>Button</ButtonPrimary>
-                    <ButtonPrimary onPress={() => {}}>Button</ButtonPrimary>
+                    <Box paddingX={16}>
+                      <Title1>Button</Title1>
+                      <Text>Button text</Text>
+                      <ButtonPrimary onPress={() => {}}>Button</ButtonPrimary>
+                      <ButtonPrimary onPress={() => {}}>Button</ButtonPrimary>
+                    </Box>
                   </Box>
                   {/* Add more components here */}
                 </Preview>
