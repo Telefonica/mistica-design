@@ -48,7 +48,7 @@ const TokensMap = () => {
     colorFromUrl || "undefined"
   );
   const { skinData, skinError } = GetSkin({ branch: selectedBranch });
-  const brandNames = GetBrands(selectedBranch);
+  const brandNames = GetBrands(skinData);
   const [colorView, setColorView] = useState("constants");
 
   useEffect(() => {

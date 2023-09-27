@@ -30,8 +30,11 @@ import { GetBrands } from "../helpers/getBrands";
 
 const ColorEditor = () => {
   const [selectedSkin, setSelectedSkin] = useState("movistar");
-  const { skinData } = GetSkin({ selectedSkin, branch: "production" });
-  const brandNames = GetBrands("production");
+  const { skinData, skinError } = GetSkin({
+    selectedSkin,
+    branch: "production",
+  });
+  const brandNames = GetBrands(skinData);
   const [skin, setSkin] = useState({});
   const [editedLightColors, setEditedLightColors] = useState(skin.colors || {});
   const [editedDarkColors, setEditedDarkColors] = useState(
@@ -90,7 +93,9 @@ const ColorEditor = () => {
 
   const renderThemeProvider = Object.keys(skin).length > 0;
 
-  return (
+  return skinError ? (
+    <div>test</div>
+  ) : (
     <ResponsiveLayout>
       <div>
         <Box paddingY={24}>

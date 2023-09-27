@@ -1,7 +1,4 @@
-import GetSkin from "./getSkin";
-
-export const GetBrands = (branch = "production") => {
-  const { skinData } = GetSkin({ branch: branch });
+export const GetBrands = (skinData) => {
   const brandNames = Object.keys(skinData);
   return brandNames.length > 0
     ? brandNames.map((brandName) => ({
