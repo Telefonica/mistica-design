@@ -25,6 +25,7 @@ import {
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import GetSkin from "../helpers/getSkin";
+import { GetBrands } from "../helpers/getBrands";
 
 const TokensMap = () => {
   // use query params to load the page in the selected state coming from a detail
@@ -47,6 +48,7 @@ const TokensMap = () => {
     colorFromUrl || "undefined"
   );
   const { skinData, skinError } = GetSkin({ branch: selectedBranch });
+  const brandNames = GetBrands(selectedBranch);
   const [colorView, setColorView] = useState("constants");
 
   useEffect(() => {
@@ -80,35 +82,7 @@ const TokensMap = () => {
 
   // Select skins
 
-  let skin;
-  switch (selectedSkin) {
-    case "movistar":
-      skin = skinData.movistar;
-      break;
-    case "movistar-legacy":
-      skin = skinData["movistar-legacy"];
-      break;
-    case "vivo":
-      skin = skinData.vivo;
-      break;
-    case "vivo-new":
-      skin = skinData["vivo-new"];
-      break;
-    case "blau":
-      skin = skinData.blau;
-      break;
-    case "o2":
-      skin = skinData.o2;
-      break;
-    case "telefonica":
-      skin = skinData.telefonica;
-      break;
-    case "solar-360":
-      skin = skinData["solar-360"];
-      break;
-    default:
-      skin = skinData.movistar;
-  }
+  let skin = skinData[selectedSkin] || skinData.movistar;
 
   // Modify the view depending on the selected chip
 
@@ -235,16 +209,7 @@ const TokensMap = () => {
                     label="Skin"
                     onChangeValue={setSelectedSkin}
                     value={selectedSkin}
-                    options={[
-                      { value: "movistar", text: "Movistar" },
-                      { value: "movistar-legacy", text: "Movistar Legacy" },
-                      { value: "vivo", text: "Vivo" },
-                      { value: "vivo-new", text: "Vivo New" },
-                      { value: "o2", text: "O2" },
-                      { value: "blau", text: "Blau" },
-                      { value: "telefonica", text: "Telefonica" },
-                      { value: "solar-360", text: "Solar 360" },
-                    ]}
+                    options={brandNames}
                   ></Select>
                   <Select
                     label="Branch"

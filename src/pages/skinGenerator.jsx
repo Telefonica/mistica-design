@@ -14,14 +14,24 @@ import {
   Boxed,
   forceMobile,
   ResponsiveLayout,
+  IconShopRegular,
+  skinVars,
+  DataCard,
+  Placeholder,
+  ButtonLink,
+  Circle,
+  Tag,
+  Select,
 } from "@telefonica/mistica";
 import Preview from "../components/preview";
 import GetSkin from "../helpers/getSkin";
 import { SkinDataTransformer } from "../helpers/skinDataTransformer";
+import { GetBrands } from "../helpers/getBrands";
 
 const ColorEditor = () => {
   const [selectedSkin, setSelectedSkin] = useState("movistar");
   const { skinData } = GetSkin({ selectedSkin, branch: "production" });
+  const brandNames = GetBrands("production");
   const [skin, setSkin] = useState({});
   const [editedLightColors, setEditedLightColors] = useState(skin.colors || {});
   const [editedDarkColors, setEditedDarkColors] = useState(
@@ -83,41 +93,52 @@ const ColorEditor = () => {
   return (
     <ResponsiveLayout>
       <div>
-        <h3>Skin Object:</h3>
+        <Box paddingY={24}>
+          <Select
+            value={selectedSkin}
+            options={brandNames}
+            onChangeValue={setSelectedSkin}
+          />
+        </Box>
         <Inline space={48} fullWidth>
           <Stack space={8}>
             <table>
-              {Object.keys(editableColors).map((colorName) => (
-                <tr>
-                  <td>
-                    <Text>{colorName}</Text>
-                  </td>
-                  <td>
-                    <input
-                      type="color"
-                      value={
-                        editedLightColors[colorName] ||
-                        (skin.colors && skin.colors[colorName]) ||
-                        "#000000"
-                      }
-                      onChange={(e) =>
-                        handleColorUpdate(colorName, "light", e.target.value)
-                      }
-                    />
-                  </td>
-                  <input
-                    type="color"
-                    value={
-                      editedDarkColors[colorName] ||
-                      (skin.darkModeColors && skin.darkModeColors[colorName]) ||
-                      "#000000"
-                    }
-                    onChange={(e) =>
-                      handleColorUpdate(colorName, "dark", e.target.value)
-                    }
-                  ></input>
-                </tr>
-              ))}
+              <tbody>
+                {Object.keys(editableColors).map((colorName, index) => (
+                  <tr key={index}>
+                    <td>
+                      <Text>{colorName}</Text>
+                    </td>
+                    <td>
+                      <input
+                        type="color"
+                        value={
+                          editedLightColors[colorName] ||
+                          (skin.colors && skin.colors[colorName]) ||
+                          "#fabada"
+                        }
+                        onChange={(e) =>
+                          handleColorUpdate(colorName, "light", e.target.value)
+                        }
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="color"
+                        value={
+                          editedDarkColors[colorName] ||
+                          (skin.darkModeColors &&
+                            skin.darkModeColors[colorName]) ||
+                          "#fabada"
+                        }
+                        onChange={(e) =>
+                          handleColorUpdate(colorName, "dark", e.target.value)
+                        }
+                      ></input>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
           </Stack>
 
@@ -141,10 +162,29 @@ const ColorEditor = () => {
                       </Box>
                     </MainSectionHeaderLayout>
                     <Box paddingX={16}>
-                      <Title1>Button</Title1>
-                      <Text>Button text</Text>
-                      <ButtonPrimary onPress={() => {}}>Button</ButtonPrimary>
-                      <ButtonPrimary onPress={() => {}}>Button</ButtonPrimary>
+                      <DataCard
+                        icon={
+                          <Circle
+                            backgroundColor={skinVars.colors.brandLow}
+                            size={40}
+                          >
+                            <IconShopRegular color={skinVars.colors.brand} />
+                          </Circle>
+                        }
+                        headline={<Tag type="promo">Headline</Tag>}
+                        title="Title"
+                        subtitle="Subtitle"
+                        description="Description"
+                        extra={<Placeholder />}
+                        button={
+                          <ButtonPrimary small onPress={() => {}}>
+                            Action
+                          </ButtonPrimary>
+                        }
+                        buttonLink={
+                          <ButtonLink onPress={() => {}}>Link</ButtonLink>
+                        }
+                      />
                     </Box>
                   </Box>
                   {/* Add more components here */}
