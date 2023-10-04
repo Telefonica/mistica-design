@@ -1,7 +1,7 @@
 # Figma Changelog
 
 <table>
-<tr><th>Version</th><th>Release date</th></tr>
+<tr><th align="left">Version</th><th>Release date</th></tr>
 <tr ><td width="500px"><strong><a href='changelog-versions/10.0.0.md'>10.0.0</a></strong></td><td width="500px">2023-10-02</td></tr>
 <tr ><td width="500px"><a href='changelog-versions/9.3.0.md'>9.3.0</a></td><td width="500px">2023-09-11</td></tr>
 <tr ><td width="500px"><a href='changelog-versions/9.2.0.md'>9.2.0</a></td><td width="500px">2023-09-01</td></tr>

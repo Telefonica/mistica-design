@@ -36,7 +36,7 @@ changelog_version = ""
 
 # Agregar el encabezado de la tabla en HTML
 changelog_version += "<table>\n"
-changelog_version += "<tr><th>Version</th><th>Release date</th></tr>\n"
+changelog_version += "<tr><th align=\"left\">Version</th><th align=\"left\">Release date</th></tr>\n"
 
 for item, first_commit_date in changelog_files_with_dates_sorted:
     if item.endswith('.0.0'):
