@@ -31,25 +31,27 @@ for path in os.listdir(dir_path):
 changelog_files_with_dates_sorted = sorted(changelog_files_with_dates, reverse=True, key=lambda x: [int(
     i) if i.isdigit() else i for i in x[0].split('.')])
 
-# Generate list of versions in markdown format
+# Generate list of versions in HTML table format
 changelog_version = ""
 
-# Agregar el encabezado de la tabla en Markdown
-changelog_version += "| Version | Release date |\n"
-changelog_version += "| ------- | ----------------------- |\n"
+# Agregar el encabezado de la tabla en HTML
+changelog_version += "<table>\n"
+changelog_version += "<tr><th>Version</th><th>Release date</th></tr>\n"
 
 for item, first_commit_date in changelog_files_with_dates_sorted:
     if item.endswith('.0.0'):
-        major = f"**[{item}](changelog-versions/{item}.md)**"
+        major = f"<strong><a href='changelog-versions/{item}.md'>{item}</a></strong>"
     else:
-        major = f"[{item}](changelog-versions/{item}.md)"
+        major = f"<a href='changelog-versions/{item}.md'>{item}</a>"
 
-    # Agregar una fila de la tabla en Markdown para cada versión
-    changelog_version += f"| {major} | {first_commit_date}|\n"
+    # Agregar una fila de la tabla en HTML para cada versión
+    changelog_version += f"<tr ><td width=\"500px\">{major}</td><td width=\"500px\">{first_commit_date}</td></tr>\n"
+
+# Cerrar la tabla HTML
+changelog_version += "</table>\n"
 
 # Agregar saltos de línea según tu BREAK
 changelog_version += BREAK + BREAK
-
 
 # Empty line
 print()
