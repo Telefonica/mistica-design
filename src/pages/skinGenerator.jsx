@@ -14,7 +14,7 @@ import {
   Boxed,
   forceMobile,
   ResponsiveLayout,
-  IconShopRegular,
+  IconCheckRegular,
   skinVars,
   DataCard,
   Placeholder,
@@ -22,19 +22,18 @@ import {
   Circle,
   Tag,
   Select,
+  ErrorFeedbackScreen,
 } from "@telefonica/mistica";
 import Preview from "../components/preview";
 import GetSkin from "../helpers/getSkin";
 import { SkinDataTransformer } from "../helpers/skinDataTransformer";
-import { GetBrands } from "../helpers/getBrands";
 
 const ColorEditor = () => {
   const [selectedSkin, setSelectedSkin] = useState("movistar");
-  const { skinData, skinError } = GetSkin({
+  const { skinData, skinNames, skinError } = GetSkin({
     selectedSkin,
     branch: "production",
   });
-  const brandNames = GetBrands(skinData);
   const [skin, setSkin] = useState({});
   const [editedLightColors, setEditedLightColors] = useState(skin.colors || {});
   const [editedDarkColors, setEditedDarkColors] = useState(
@@ -94,14 +93,14 @@ const ColorEditor = () => {
   const renderThemeProvider = Object.keys(skin).length > 0;
 
   return skinError ? (
-    <div>test</div>
+    <ErrorFeedbackScreen title="No se han podido cargar los tokens"></ErrorFeedbackScreen>
   ) : (
     <ResponsiveLayout>
       <div>
         <Box paddingY={24}>
           <Select
             value={selectedSkin}
-            options={brandNames}
+            options={skinNames}
             onChangeValue={setSelectedSkin}
           />
         </Box>
@@ -173,7 +172,7 @@ const ColorEditor = () => {
                             backgroundColor={skinVars.colors.brandLow}
                             size={40}
                           >
-                            <IconShopRegular color={skinVars.colors.brand} />
+                            <IconCheckRegular color={skinVars.colors.brand} />
                           </Circle>
                         }
                         headline={<Tag type="promo">Headline</Tag>}

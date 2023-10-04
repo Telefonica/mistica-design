@@ -25,7 +25,6 @@ import {
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import GetSkin from "../helpers/getSkin";
-import { GetBrands } from "../helpers/getBrands";
 
 const TokensMap = () => {
   // use query params to load the page in the selected state coming from a detail
@@ -39,7 +38,9 @@ const TokensMap = () => {
 
   const [filter, setFilter] = useState("");
   const [selectedSkin, setSelectedSkin] = useState(skinFromUrl || "movistar");
-  const [active, setActive] = useState(tokenTypeFromUrl || "color");
+  const [activeTokenType, setActiveTokenType] = useState(
+    tokenTypeFromUrl || "color"
+  );
   const [branches, setBranches] = useState([]);
   const [selectedBranch, setSelectedBranch] = useState(
     branchFromUrl || "pre-production"
@@ -47,8 +48,9 @@ const TokensMap = () => {
   const [selectedColor, setSelectedColor] = useState(
     colorFromUrl || "undefined"
   );
-  const { skinData, skinError } = GetSkin({ branch: selectedBranch });
-  const brandNames = GetBrands(skinData);
+  const { skinData, skinNames, skinError } = GetSkin({
+    branch: selectedBranch,
+  });
   const [colorView, setColorView] = useState("constants");
 
   useEffect(() => {
@@ -65,14 +67,14 @@ const TokensMap = () => {
   // Update URL with selected branch, skin, tokenType and color
 
   useEffect(() => {
-    let queryParams = `?branch=${selectedBranch}&skin=${selectedSkin}&tokenType=${active}`;
+    let queryParams = `?branch=${selectedBranch}&skin=${selectedSkin}&tokenType=${activeTokenType}`;
 
     if (selectedColor) {
       queryParams += `&activeColor=${selectedColor}`;
     }
 
     window.history.pushState({}, "", queryParams);
-  }, [selectedBranch, selectedColor, selectedSkin, active]);
+  }, [selectedBranch, selectedColor, selectedSkin, activeTokenType]);
 
   // Filter tokens
 
@@ -84,75 +86,42 @@ const TokensMap = () => {
 
   let skin = skinData[selectedSkin] || skinData.movistar;
 
+  const TOKEN_FILTERS = {
+    color: "Color",
+    radius: "Border Radii",
+    text: "Typography",
+  };
+
+  const COLOR_FILTERS = {
+    constants: "Constants",
+    variables: "Variables",
+    match: "Match",
+  };
+
+  const VIEWS = {
+    color: {
+      constants: Palette,
+      variables: GlobalPalette,
+      match: ReferencePalette,
+    },
+    radius: RadiiTable,
+    text: TextTable,
+  };
   // Modify the view depending on the selected chip
 
-  let view;
-  switch (active) {
-    case "color":
-      switch (colorView) {
-        case "constants":
-          view = (
-            <Palette
-              skin={skin}
-              selectedSkin={selectedSkin}
-              filter={filter}
-              branch={selectedBranch}
-              tokenType={active}
-              selectedColor={selectedColor}
-              setSelectedColor={setSelectedColor}
-            />
-          );
-          break;
-        case "variables":
-          view = (
-            <GlobalPalette
-              skin={skin}
-              selectedSkin={selectedSkin}
-              filter={filter}
-              branch={selectedBranch}
-              tokenType={active}
-              selectedColor={selectedColor}
-              setSelectedColor={setSelectedColor}
-            />
-          );
-          break;
-        case "match":
-          view = (
-            <ReferencePalette
-              skin={skin}
-              selectedSkin={selectedSkin}
-              filter={filter}
-              branch={selectedBranch}
-              tokenType={active}
-              selectedColor={selectedColor}
-              setSelectedColor={setSelectedColor}
-            />
-          );
-      }
-      break;
-    case "radius":
-      view = (
-        <RadiiTable
-          skin={skin}
-          selectedSkin={selectedSkin}
-          filter={filter}
-          tokenType={active}
-          branch={selectedBranch}
-        />
-      );
-      break;
-    case "text":
-      view = (
-        <TextTable
-          skin={skin}
-          selectedSkin={selectedSkin}
-          filter={filter}
-          tokenType={active}
-          branch={selectedBranch}
-        />
-      );
-      break;
-  }
+  const Component = VIEWS[activeTokenType][colorView] || VIEWS[activeTokenType];
+
+  const view = (
+    <Component
+      skin={skin}
+      selectedSkin={selectedSkin}
+      filter={filter}
+      tokenType={activeTokenType}
+      branch={selectedBranch}
+      selectedColor={selectedColor}
+      setSelectedColor={setSelectedColor}
+    />
+  );
 
   return (
     <Box paddingBottom={80}>
@@ -166,32 +135,25 @@ const TokensMap = () => {
               <Title2>Mística tokens</Title2>
             </Stack>
             <Stack space={24}>
-              <RadioGroup onChange={setActive} name="chip-group" value={active}>
+              <RadioGroup
+                onChange={setActiveTokenType}
+                name="chip-group"
+                value={activeTokenType}
+              >
                 <Inline space={8}>
-                  <RadioButton
-                    value="color"
-                    render={({ checked, labelId }) => (
-                      <Chip active={checked} id={labelId}>
-                        Color
-                      </Chip>
-                    )}
-                  />
-                  <RadioButton
-                    value="radius"
-                    render={({ checked, labelId }) => (
-                      <Chip active={checked} id={labelId}>
-                        Border Radii
-                      </Chip>
-                    )}
-                  />
-                  <RadioButton
-                    value="text"
-                    render={({ checked, labelId }) => (
-                      <Chip active={checked} id={labelId}>
-                        Typography
-                      </Chip>
-                    )}
-                  />
+                  {Array.from(
+                    { length: Object.keys(TOKEN_FILTERS).length },
+                    (_, idx) => (
+                      <RadioButton
+                        value={Object.keys(TOKEN_FILTERS)[idx]}
+                        render={({ checked, labelId }) => (
+                          <Chip active={checked} id={labelId}>
+                            {Object.values(TOKEN_FILTERS)[idx]}
+                          </Chip>
+                        )}
+                      />
+                    )
+                  )}
                 </Inline>
               </RadioGroup>
 
@@ -209,7 +171,7 @@ const TokensMap = () => {
                     label="Skin"
                     onChangeValue={setSelectedSkin}
                     value={selectedSkin}
-                    options={brandNames}
+                    options={skinNames}
                   ></Select>
                   <Select
                     label="Branch"
@@ -225,7 +187,7 @@ const TokensMap = () => {
             </Stack>
           </Stack>
         </Box>
-        {active === "color" && skinError === false && (
+        {activeTokenType === "color" && skinError === false && (
           <Box paddingBottom={24}>
             <Inline space="between" alignItems="center">
               <RadioGroup
@@ -234,30 +196,16 @@ const TokensMap = () => {
                 value={colorView}
               >
                 <Inline space={8}>
-                  <RadioButton
-                    value="constants"
-                    render={({ checked, labelId }) => (
-                      <Chip active={checked} id={labelId}>
-                        Constants
-                      </Chip>
-                    )}
-                  />
-                  <RadioButton
-                    value="variables"
-                    render={({ checked, labelId }) => (
-                      <Chip active={checked} id={labelId}>
-                        Variables
-                      </Chip>
-                    )}
-                  />
-                  <RadioButton
-                    value="match"
-                    render={({ checked, labelId }) => (
-                      <Chip active={checked} id={labelId}>
-                        Constants / variables
-                      </Chip>
-                    )}
-                  />
+                  {Array.from({ length: 3 }, (_, idx) => (
+                    <RadioButton
+                      value={Object.keys(COLOR_FILTERS)[idx]}
+                      render={({ checked, labelId }) => (
+                        <Chip active={checked} id={labelId}>
+                          {Object.values(COLOR_FILTERS)[idx]}
+                        </Chip>
+                      )}
+                    />
+                  ))}
                 </Inline>
               </RadioGroup>
               <Inline space={8} alignItems="center">

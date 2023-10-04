@@ -1,4 +1,3 @@
-import { transform } from "typescript";
 import getColorValue from "./getColorValue";
 
 const transformRadiusValue = (value) => {

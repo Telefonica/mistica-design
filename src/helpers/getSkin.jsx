@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 const GetSkin = ({ selectedSkin, branch }) => {
   const [skinData, setSkinData] = useState({});
+  const [skinNames, setSkinNames] = useState([]);
   const [skinError, setSkinError] = useState(null);
 
   useEffect(() => {
@@ -33,10 +34,22 @@ const GetSkin = ({ selectedSkin, branch }) => {
         if (selectedSkin) {
           // If a selected skin is provided, set the skin data for that skin
           setSkinData(fetchedSkins[selectedSkin]);
+          setSkinNames(
+            Object.keys(fetchedSkins).map((brandName) => ({
+              value: brandName,
+              text: brandName.charAt(0).toUpperCase() + brandName.slice(1),
+            }))
+          );
           setSkinError(false);
         } else {
           // If no selected skin is provided, set the skin data for all skins
           setSkinData(fetchedSkins);
+          setSkinNames(
+            Object.keys(fetchedSkins).map((brandName) => ({
+              value: brandName,
+              text: brandName.charAt(0).toUpperCase() + brandName.slice(1),
+            }))
+          );
           setSkinError(false);
         }
       } catch (error) {
@@ -48,7 +61,7 @@ const GetSkin = ({ selectedSkin, branch }) => {
     fetchSkins();
   }, [selectedSkin, branch]);
 
-  return { skinData, skinError }; // Return the skins object
+  return { skinData, skinError, skinNames }; // Return the skins object
 };
 
 export default GetSkin;
