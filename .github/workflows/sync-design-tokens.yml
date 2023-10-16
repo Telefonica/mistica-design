@@ -21,7 +21,7 @@ jobs:
               run: |
                     curl -L \
                         -X POST \
-                        -H "Authorization: Bearer ${{ secrets.FLOW_GITHUB_TOKEN }}" \
+                        -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
                         -H "X-GitHub-Api-Version: 2022-11-28" \
                         -H "Accept: application/vnd.github+json" \
                         https://api.github.com/repos/telefonica/mistica-web/actions/workflows/import-design-tokens.yml/dispatches \
@@ -31,7 +31,7 @@ jobs:
               run: |
                     curl -L \
                         -X POST \
-                        -H "Authorization: Bearer ${{ secrets.FLOW_GITHUB_TOKEN }}" \
+                        -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
                         -H "X-GitHub-Api-Version: 2022-11-28" \
                         -H "Accept: application/vnd.github+json" \
                         https://api.github.com/repos/telefonica/mistica-ios/actions/workflows/generate-mistica-tokens.yml/dispatches \
@@ -41,7 +41,7 @@ jobs:
               run: |
                     curl -L \
                         -X POST \
-                        -H "Authorization: Bearer ${{ secrets.FLOW_GITHUB_TOKEN }}" \
+                        -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
                         -H "X-GitHub-Api-Version: 2022-11-28" \
                         -H "Accept: application/vnd.github+json" \
                         https://api.github.com/repos/telefonica/mistica-android/actions/workflows/import-design-tokens.yml/dispatches \
