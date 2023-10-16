@@ -1,0 +1,50 @@
+name: Sync design tokens
+on:
+    workflow_dispatch:
+        inputs:
+            ref:
+                description: 'mistica-design repo changeset or branch'
+                required: false
+                default: 'production'
+            draft:
+                type: boolean
+                description: 'Create a draft PR'
+                required: false
+                default: false
+
+jobs:
+    sync-design-tokens:
+        runs-on: ubuntu-latest
+        steps:
+            # https://docs.github.com/en/rest/actions/workflows?apiVersion=2022-11-28#create-a-workflow-dispatch-event
+            - name: Trigger mistica-web repo workflow
+              run: |
+                    curl -L \
+                        -X POST \
+                        -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
+                        -H "X-GitHub-Api-Version: 2022-11-28" \
+                        -H "Accept: application/vnd.github+json" \
+                        https://api.github.com/repos/telefonica/mistica-web/actions/workflows/import-design-tokens.yml/dispatches \
+                        --data '{"ref": "master", "inputs": {"draft": ${{github.event.inputs.draft}}, "ref": "${{github.event.inputs.ref}}"}}'
+            
+            - name: Trigger mistica-ios repo workflow
+              run: |
+                    curl -L \
+                        -X POST \
+                        -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
+                        -H "X-GitHub-Api-Version: 2022-11-28" \
+                        -H "Accept: application/vnd.github+json" \
+                        https://api.github.com/repos/telefonica/mistica-ios/actions/workflows/generate-mistica-tokens.yml/dispatches \
+                        --data '{"ref": "main", "inputs": {"ref": "${{github.event.inputs.ref}}"}}'
+            
+            - name: Trigger mistica-android repo workflow
+              run: |
+                    curl -L \
+                        -X POST \
+                        -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
+                        -H "X-GitHub-Api-Version: 2022-11-28" \
+                        -H "Accept: application/vnd.github+json" \
+                        https://api.github.com/repos/telefonica/mistica-android/actions/workflows/import-design-tokens.yml/dispatches \
+                        --data '{"ref": "main", "inputs": {"ref": "${{github.event.inputs.ref}}"}}'
+
+            

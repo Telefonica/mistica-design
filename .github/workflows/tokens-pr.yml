@@ -7,7 +7,7 @@ on:
       - "tokens/*"
 
 jobs:
-  update-description:
+  tokens-preview:
     runs-on: ubuntu-latest
     steps:
       - name: Get branch name

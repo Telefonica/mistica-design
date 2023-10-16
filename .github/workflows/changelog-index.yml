@@ -12,12 +12,10 @@ on:
       - "changelog-versions/**"
 
 jobs:
-  create-release-notes:
+  changelog-index:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-        with:
-          token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+      - uses: actions/checkout@v3
 
       - name: Get branch name
         uses: rlespinasse/github-slug-action@v3.x

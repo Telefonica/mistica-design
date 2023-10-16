@@ -16,9 +16,9 @@
       "description": "vivoPurple"
     },
     "backgroundBrandSecondary": {
-      "value": "{palette.vivoPurple}",
+      "value": "{palette.vivoPurpleLight90}",
       "type": "color",
-      "description": "vivoPurple"
+      "description": "vivoPurpleLight90"
     },
     "backgroundContainer": {
       "value": "{palette.white}",
@@ -535,7 +535,7 @@
     "backgroundAlternative": {
       "value": "{palette.darkModeBlack}",
       "type": "color",
-      "description": "darkModeGrey"
+      "description": "darkModeBlack"
     },
     "backgroundBrand": {
       "value": "{palette.darkModeBlack}",
@@ -1117,7 +1117,15 @@
         "value": "regular",
         "type": "typography"
       },
+      "title2": {
+        "value": "regular",
+        "type": "typography"
+      },
       "indicator": {
+        "value": "regular",
+        "type": "typography"
+      },
+      "navigationBar": {
         "value": "regular",
         "type": "typography"
       },
@@ -1153,6 +1161,13 @@
           "desktop": 18
         },
         "type": "typography"
+      },
+      "title2": {
+        "value": {
+          "mobile": 18,
+          "desktop": 20
+        },
+        "type": "typography"
       }
     },
     "lineHeight": {
@@ -1160,6 +1175,13 @@
         "value": {
           "mobile": 24,
           "desktop": 24
+        },
+        "type": "typography"
+      },
+      "title2": {
+        "value": {
+          "mobile": 24,
+          "desktop": 28
         },
         "type": "typography"
       }
