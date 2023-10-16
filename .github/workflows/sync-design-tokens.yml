@@ -25,7 +25,7 @@ jobs:
                         -H "X-GitHub-Api-Version: 2022-11-28" \
                         -H "Accept: application/vnd.github+json" \
                         https://api.github.com/repos/telefonica/mistica-web/actions/workflows/import-design-tokens.yml/dispatches \
-                        --data '{"ref": "pre-production", "inputs": {"draft": ${{github.event.inputs.draft}}, "ref": "${{github.event.inputs.ref}}"}}'
+                        --data '{"ref": "master", "inputs": {"draft": ${{github.event.inputs.draft}}, "ref": "${{github.event.inputs.ref}}"}}'
             
             - name: Trigger mistica-ios repo workflow
               run: |
@@ -35,7 +35,7 @@ jobs:
                         -H "X-GitHub-Api-Version: 2022-11-28" \
                         -H "Accept: application/vnd.github+json" \
                         https://api.github.com/repos/telefonica/mistica-ios/actions/workflows/generate-mistica-tokens.yml/dispatches \
-                        --data '{"ref": "pre-production", "inputs": {"ref": "${{github.event.inputs.ref}}"}}'
+                        --data '{"ref": "main", "inputs": {"ref": "${{github.event.inputs.ref}}"}}'
             
             - name: Trigger mistica-android repo workflow
               run: |
@@ -45,6 +45,6 @@ jobs:
                         -H "X-GitHub-Api-Version: 2022-11-28" \
                         -H "Accept: application/vnd.github+json" \
                         https://api.github.com/repos/telefonica/mistica-android/actions/workflows/import-design-tokens.yml/dispatches \
-                        --data '{"ref": "pre-production", "inputs": {"ref": "${{github.event.inputs.ref}}"}}'
+                        --data '{"ref": "main", "inputs": {"ref": "${{github.event.inputs.ref}}"}}'
 
             
