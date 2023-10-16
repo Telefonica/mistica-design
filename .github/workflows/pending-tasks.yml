@@ -1,10 +1,10 @@
-name: Looking for issues with pending tasks
+name: Pending tasks in issues
 
 on:
   workflow_dispatch:
 
 jobs:
-  checkboxes:
+  pending-tasks:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout del repositorio
