@@ -29,7 +29,7 @@ jobs:
       - name: Create Release Notes
         uses: docker://decathlon/release-notes-generator-action:3.1.5
         env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS_READONLY }}
           OUTPUT_FOLDER: changelog-versions
           USE_MILESTONE_TITLE: "true"
           FILENAME_PREFIX: ${{ github.event.inputs.releaseVersion }}
@@ -49,7 +49,7 @@ jobs:
       #   env:
       #     ACTION_MAIL: myuser@users.noreply.github.com
       #     ACTION_NAME: místicaBot
-      #     GH_PAT: ${{ secrets.PERSONAL_TOKEN }}
+      #     GH_PAT: ${{ secrets.NOVUM_PRIVATE_REPOS_READONLY }}
       #     MD_FOLDER: changelog-versions
       #     OWNER: Telefonica
       #     REPO_NAME: mistica-design
