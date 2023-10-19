@@ -1,5 +1,5 @@
 import getColorValue from "../helpers/getColorValue";
-import rgbaToHex from "./rgbaToHex";
+import colorToHex from "./rgbaToHex";
 
 // Define the extractColors function
 
@@ -10,7 +10,7 @@ function extractColors(skinData) {
   if (skinData?.light) {
     Object.keys(skinData.light).forEach((key) => {
       colors[key] = getColorValue(
-        rgbaToHex(skinData.light[key].value),
+        colorToHex(skinData.light[key].value),
         skinData.global.palette
       );
     });
@@ -19,11 +19,12 @@ function extractColors(skinData) {
   if (skinData?.dark) {
     Object.keys(skinData.dark).forEach((key) => {
       darkModeColors[key] = getColorValue(
-        rgbaToHex(skinData.dark[key].value),
+        colorToHex(skinData.dark[key].value),
         skinData.global.palette
       );
     });
   }
+  console.log(colors, darkModeColors);
 
   return { colors, darkModeColors };
 }
