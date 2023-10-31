@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
 
       - name: Get branch name
         uses: rlespinasse/github-slug-action@v3.x
