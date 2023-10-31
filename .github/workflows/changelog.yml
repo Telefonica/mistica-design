@@ -27,7 +27,7 @@ jobs:
       - name: Create Release Notes
         uses: docker://decathlon/release-notes-generator-action:3.1.5
         env:
-          GITHUB_TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS_READONLY }}
+          GITHUB_TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
           OUTPUT_FOLDER: changelog-versions
           USE_MILESTONE_TITLE: "true"
           FILENAME_PREFIX: ${{ github.event.inputs.releaseVersion }}
