@@ -1,31 +1,33 @@
 # Set up VScode with Mística JSON Schema validator
 
-Si quieres que te aparezcan errores de formato y de reglas no permitidas en los archivos .json de los tokens tienes que configurar VScode de la siguiente manera.
+If you want to see formatting errors and disallowed rule violations in your .json token files, you need to configure VScode as follows:
 
-- 1.Abre las settings `cmd + ,`
-- 2.Busca `Json` en la barra de búsqueda
-- 3.En los resultados, busca `JSON: Schemas`
+1. Open the settings (cmd + ,)
+2. Search for `Json` in the search bar
+3. In the results, look for `JSON: Schemas`
 
-![image](https://user-images.githubusercontent.com/6722153/185502994-45f314e6-1025-4f26-8377-4da7d06b934f.png)
+   ![Vsco Json Settings](../.github/resources/guides/vsco-json-settings.png)
 
-- 4.Dale a Edit in settings.json
-- 5.Añade lo siguiente al archivo de settings
+4. Click on "Edit in settings.json."
+5. Add the following to the settings file:
 
-```json
-{
-  "json.schemas": [
-    {
-      "fileMatch": [
-        "/blau.json",
-        "/movistar.json",
-        "/movistar-classic.json",
-        "/o2.json",
-        "/solar-360.json",
-        "/telefonica.json",
-        "/vivo.json"
-      ],
-      "url": "/Users/USERNAME/PATH TO MISTICA-DESIGN/mistica-design/tokens/schema/skin-schema.json"
-    }
-  ]
-}
-```
+   ```json
+   {
+     "json.schemas": [
+       {
+         "fileMatch": "/Users/USER/YOUR-GITHUB-FOLDER/mistica-design/tokens/*.json",
+         "url": "/Users/USER/YOUR-GITHUB-FOLDER/mistica-design/tokens/schema/skin-schema.json"
+       }
+     ]
+   }
+   ```
+
+6. To view the type of error occurring in the file, open the panel `View → Problems (SHIFT + COMMAND + M)`
+
+7. To verify that you have everything set up correctly, open any token file (e.g., tokens/movistar.json) and change the name of any constant. You should see something like this:
+
+   ![Problems Panel](../.github/resources/guides/problems-panel.png)
+
+   You can also see an error in the mistake.
+
+   ![Problems in file](../.github/resources/guides/problems-in-file.png)
