@@ -24,8 +24,8 @@ jobs:
 
       - run: |
           sudo pip3 install GitPython
-          sudo pip install packaging
           sudo python3 .github/resources/changelog-index-generator.py changelog-versions
+          cat CHANGELOG.md
 
       - name: Commit & Push in ${{ env.GITHUB_REF_SLUG_URL }}
         run: |
