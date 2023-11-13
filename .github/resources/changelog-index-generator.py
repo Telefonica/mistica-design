@@ -1,5 +1,5 @@
 import os
-from packaging.version import parse as parse_version
+import subprocess
 from datetime import datetime
 import git
 
@@ -20,7 +20,7 @@ for path in os.listdir(dir_path):
 
         # Get first commit date using gitpython
         repo = git.Repo(search_parent_directories=True)
-        first_commit_date = repo.git.log('--format=%aI', '--', file_path).splitlines()[-1]
+        first_commit_date = repo.git.log('--format=%aI', '--', '--follow', file_path).splitlines()[-1]
 
         # Format the date
         first_commit_date = datetime.fromisoformat(first_commit_date).strftime('%Y-%m-%d')
