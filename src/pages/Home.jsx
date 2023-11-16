@@ -23,6 +23,10 @@ import {
   ButtonPrimary,
   DisplayMediaCard,
   ThemeVariant,
+  RowList,
+  Row,
+  Title2,
+  NegativeBox,
 } from "@telefonica/mistica";
 import React from "react";
 import "@telefonica/mistica/css/mistica.css";
@@ -101,6 +105,29 @@ const Home = () => {
     },
   ];
 
+  const guides = [
+    {
+      title: "Playroom",
+      link: "https://github.com/Telefonica/mistica-design/blob/pre-production/guides/playroom.md",
+      description: "A detailed guide for designers about how to use Playroom",
+    },
+    {
+      title: "Mistica web for designers",
+      link: "https://github.com/Telefonica/mistica-design/blob/pre-production/guides/mistica-web-for-designers.md",
+      description: "Contribute to Mística web repository",
+    },
+    {
+      title: "Colors contribution",
+      link: "https://github.com/Telefonica/mistica-design/blob/pre-production/guides/colors-contribution.md",
+      description: "Learn how to make changes in Mística color tokens",
+    },
+    {
+      title: "JSON Schema in VSCode",
+      link: "https://github.com/Telefonica/mistica-design/blob/pre-production/guides/vsco-configuration.md",
+      description: "Configure VSCode to work with JSON Schema",
+    },
+  ];
+
   const team = [
     {
       name: "Yayo Ceballos",
@@ -123,11 +150,6 @@ const Home = () => {
       name: "Alex Bueno",
       src: "https://avatars.githubusercontent.com/u/44420072?v=4",
       src2: "https://i.giphy.com/media/B0vFTrb0ZGDf2/giphy.webp",
-      description: "Designer",
-    },
-    {
-      name: "María Estévez",
-      src: "https://avatars.githubusercontent.com/u/110095203?v=4",
       description: "Designer",
     },
   ];
@@ -205,6 +227,26 @@ const Home = () => {
                     />
                   ))}
                 </SubGrid>
+              </Stack>
+            </Box>
+
+            <Box paddingY={isDesktopOrBigger ? 40 : 24}>
+              <Stack space={48}>
+                <Title2>Guides</Title2>
+                <NegativeBox>
+                  <RowList>
+                    {guides.map((guide, index) => (
+                      <Row
+                        index={index + 1}
+                        title={guide.title}
+                        description={guide.description}
+                        onPress={() => {
+                          window.open(guide.link, "_blank");
+                        }}
+                      />
+                    ))}
+                  </RowList>
+                </NegativeBox>
               </Stack>
             </Box>
 

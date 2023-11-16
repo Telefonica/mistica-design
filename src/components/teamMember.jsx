@@ -28,10 +28,6 @@ const TeamMember = (props) => {
       <Stack space={4}>
         <Text3>{props.name}</Text3>
         <Text2 color={skinVars.colors.textSecondary}>{props.description}</Text2>
-        <TextLink>
-          {props.link ?? "Link to social media"}{" "}
-          <IconArrowLineUpRightRegular size={16} color={"currentColor"} />
-        </TextLink>
       </Stack>
     </Inline>
   );
