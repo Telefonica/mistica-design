@@ -27,6 +27,7 @@ import {
   Row,
   Title2,
   NegativeBox,
+  DisplayDataCard,
 } from "@telefonica/mistica";
 import React from "react";
 import "@telefonica/mistica/css/mistica.css";
@@ -50,28 +51,12 @@ const Home = () => {
       image: tokensTool,
     },
     {
-      title: "Skin generator",
-      description:
-        "A tool to help designers and developers to visualize and work with the available mistica skins.",
-      link: "/skin-generator",
-      buttonLabel: "Visit",
-      image: tokensTool,
-    },
-    {
       title: "Mistica wrapped",
       description:
         "Data summary on what has happened in the year 2022 in Mística.",
       link: "https://tinyurl.com/2fyfjdnw",
       buttonLabel: "Visit",
       image: wrappedCover,
-    },
-    {
-      title: "Tokens table",
-      description: "Table with all colors equivalence between brands.",
-      link: "/tokens",
-      buttonLabel: "Visit",
-      image:
-        "https://images.unsplash.com/photo-1526758405662-5998b5bee9ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
     },
     {
       title: "Repo Dashboard",
@@ -90,18 +75,21 @@ const Home = () => {
       icon: <IconAddBoltonFilled color={skinVars.colors.brand} />,
       link: "https://brandfactory.telefonica.com/mistica",
       buttonLabel: "Visit",
+      inverse: true,
     },
     {
       title: "Design Discussions",
       icon: <IconChatFilled color={skinVars.colors.brand} />,
       link: "https://github.com/Telefonica/mistica-design/discussions",
       buttonLabel: "Visit",
+      inverse: false,
     },
     {
       title: "Roadmap",
       icon: <IconMapFilled color={skinVars.colors.brand} />,
       link: "https://github.com/orgs/Telefonica/projects/20/views/4",
       buttonLabel: "Visit",
+      inverse: false,
     },
   ];
 
@@ -202,13 +190,12 @@ const Home = () => {
           <Stack space={80}>
             <Box paddingY={isDesktopOrBigger ? 40 : 24}>
               <Stack space={48}>
-                <Stack space={4}>
-                  <Text size={32}>Our resources</Text>
-                  <Text4 color={skinVars.colors.textSecondary}></Text4>
-                </Stack>
+                <Title2>Our resources</Title2>
+
                 <SubGrid columns={isDesktopOrBigger ? resources.length : 1}>
                   {resources.map((resource, index) => (
-                    <DataCard
+                    <DisplayDataCard
+                      isInverse={resource.inverse}
                       key={index}
                       icon={
                         <Circle
@@ -252,10 +239,8 @@ const Home = () => {
 
             <Box paddingY={isDesktopOrBigger ? 40 : 24}>
               <Stack space={48}>
-                <Stack space={4}>
-                  <Text size={32}>Meet the team</Text>
-                  <Text4 color={skinVars.colors.textSecondary}></Text4>
-                </Stack>
+                <Title2>Meet the team</Title2>
+
                 <SubGrid columns={isDesktopOrBigger ? 2 : 1} gap={48}>
                   {team.map((member, index) => (
                     <TeamMember
@@ -265,31 +250,6 @@ const Home = () => {
                       src={member.src}
                       src2={member.src2}
                     ></TeamMember>
-                  ))}
-                </SubGrid>
-              </Stack>
-            </Box>
-
-            <Box paddingY={isDesktopOrBigger ? 40 : 24}>
-              <Stack space={48}>
-                <Stack space={4}>
-                  <Text size={32}>Careers</Text>
-                  <Text4 color={skinVars.colors.textSecondary}>
-                    Check our open positions
-                  </Text4>
-                </Stack>
-                <SubGrid columns={isDesktopOrBigger ? 2 : 1}>
-                  {contact.map((contact, index) => (
-                    <DisplayMediaCard
-                      aspectRatio="16:9"
-                      backgroundImage={contact.image}
-                      title={contact.title}
-                      button={
-                        <ButtonPrimary to={contact.link}>
-                          {contact.buttonLabel}
-                        </ButtonPrimary>
-                      }
-                    ></DisplayMediaCard>
                   ))}
                 </SubGrid>
               </Stack>
