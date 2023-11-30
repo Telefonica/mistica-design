@@ -11,6 +11,7 @@ import { useState } from "react";
 import { createContext } from "react";
 import SkinGenerator from "./pages/skinGenerator";
 import PaletteGenerator from "./pages/paletteGenerator";
+import Wrapped2023 from "./pages/wrapped2023/index";
 
 export const SchemeContext = createContext();
 
@@ -47,6 +48,14 @@ const App = () => {
     {
       path: `/palette-generator`,
       element: <PaletteGenerator />,
+    },
+    {
+      path: `/palette-generator`,
+      element: <PaletteGenerator />,
+    },
+    {
+      path: `/wrapped-2023`,
+      element: <Wrapped2023 />,
     },
   ]);
   const [theme, setTheme] = useState("light");
