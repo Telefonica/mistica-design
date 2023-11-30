@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Components, Icons, newComponents, topTeams, teams } from "./figmaData";
 import { teamsMembers } from "./teamsData";
 import { medianBFSessions } from "./brandFactoryData";
+import { releases, mergedPRs } from "./devData";
 import { formatCount } from "./utils";
 
 import {
@@ -19,7 +20,6 @@ const Wrapped2023 = () => {
   const [openedIssuesCount, setOpenedIssuesCount] = useState(0);
   const [createdIssuesCount, setCreatedIssuesCount] = useState(0);
 
-  // Function to fetch discussions
   async function getDiscussions() {
     try {
       const response = await fetch("/api/fetchDiscussions");
@@ -31,7 +31,6 @@ const Wrapped2023 = () => {
     }
   }
 
-  // Function to fetch issues
   async function getIssues() {
     try {
       const response = await fetch("/api/fetchIssues");
@@ -43,7 +42,19 @@ const Wrapped2023 = () => {
     }
   }
 
-  // Example usage:
+  {
+    /*  async function getPRs() {
+    try {
+      const response = await fetch("/api/fetchPRs");
+      const PRs = await response.json();
+      return PRs; // Return the PRs data
+    } catch (error) {
+      console.error("Error fetching PRs:", error);
+      throw error; // Rethrow the error for handling in the calling code
+    }
+  } */
+  }
+
   async function fetchData() {
     try {
       const discussionsData = await getDiscussions();
@@ -57,6 +68,15 @@ const Wrapped2023 = () => {
       setCreatedIssuesCount(createdIssueCount);
       setClosedIssuesCount(closedIssueCount);
       setOpenedIssuesCount(openIssueCount);
+      {
+        /*
+      const PRsData = await getPRs();
+      const { mergedPRs } = PRsData;
+      setMergedPRs(mergedPRs);
+
+      console.log(mergedPRs);
+        */
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
       // Handle the error
@@ -162,6 +182,26 @@ const Wrapped2023 = () => {
         <span>{medianBFSessions()}</span>
 
         <Title2>Github</Title2>
+
+        <Title1>Releases</Title1>
+        <ul>
+          {Object.keys(releases).map((release) => (
+            <li key={release}>
+              {releases[release].name} {releases[release].count} releases
+            </li>
+          ))}
+        </ul>
+
+        <Title1>Merged PRs</Title1>
+
+        <ul>
+          {Object.keys(mergedPRs).map((pr) => (
+            <li key={pr}>
+              {mergedPRs[pr].name}: {mergedPRs[pr].count}
+            </li>
+          ))}
+        </ul>
+
         <Title1>Issues</Title1>
 
         <p>Created issues: {createdIssuesCount}</p>
