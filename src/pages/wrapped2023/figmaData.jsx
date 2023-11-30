@@ -13,19 +13,46 @@ import {
 ///Components /////////////////////////////////
 
 const mostUsedFigmaComponents = [
-  { name: "Row", count: 520162, usedBy: 108 },
-  { name: "Tag", count: 274174, usedBy: 141 },
-  { name: "Button group", count: 194626, usedBy: 120 },
-  { name: "Button primary", count: 185585, usedBy: 150 },
-  { name: "iOS navigation bar + status bar", count: 138894, usedBy: 106 },
+  { name: "Row", count: 483546, usedBy: 108, lastCount: 365764 },
+  { name: "Tag", count: 163618, usedBy: 141 },
+  { name: "Slot", count: 119937, usedBy: 105 },
+  { name: "Boxed row", count: 118908, usedBy: 96, lastCount: 139371 },
+  { name: "Title 1", count: 118014, usedBy: 87, lastCount: 122903 },
+  { name: "Button group", count: 114149, usedBy: 120 },
+  { name: "Divider", count: 109719, usedBy: 130 },
+  {
+    name: "iOS navigation bar + status bar",
+    count: 105114,
+    usedBy: 106,
+    lastCount: 100211,
+  },
 ];
 
 export const Components = () => {
-  const componentWithHighestCount = findItemWithHighestCount(
-    mostUsedFigmaComponents
+  function calculatePercentageChange(currentCount, lastCount) {
+    if (lastCount === undefined) {
+      return ""; // or any other value you prefer for this case
+    }
+
+    const percentageChange = ((currentCount - lastCount) / lastCount) * 100;
+    return `${parseFloat(percentageChange.toFixed(2))}% from last year`;
+  }
+
+  const componentsWithPercentageChange = mostUsedFigmaComponents.map(
+    ({ name, count, lastCount, usedBy }) => ({
+      name,
+      count,
+      lastCount,
+      usedBy,
+      percentageChange: calculatePercentageChange(count, lastCount),
+    })
   );
 
-  const restOfMostUsedComponents = mostUsedFigmaComponents.filter(
+  const componentWithHighestCount = findItemWithHighestCount(
+    componentsWithPercentageChange
+  );
+
+  const restOfMostUsedComponents = componentsWithPercentageChange.filter(
     (item) => item !== componentWithHighestCount
   );
 

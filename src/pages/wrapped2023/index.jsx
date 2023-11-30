@@ -75,12 +75,20 @@ const Wrapped2023 = () => {
     <ResponsiveLayout>
       <Stack space={24}>
         <Title3>Wrapped2023</Title3>
+        <Title2>Teams using Mística</Title2>
+        <p>Number of teams: {teams.length}</p>
+        <ul>
+          {teams.map((team) => (
+            <li key={team}>{team}</li>
+          ))}
+        </ul>
         <Title2>Figma</Title2>
         <Title1>Most used Figma component</Title1>
         <p>
           {componentWithHighestCount.name},{" "}
           {formatCount(componentWithHighestCount.count)} instances, Used by{" "}
-          {componentWithHighestCount.usedBy} teams
+          {componentWithHighestCount.usedBy} teams{" "}
+          {componentWithHighestCount.percentageChange}
         </p>
 
         <Title1>Other highly used Figma components</Title1>
@@ -89,7 +97,8 @@ const Wrapped2023 = () => {
             .sort((a, b) => b.count - a.count)
             .map((component) => (
               <li key={component.name}>
-                {component.name} {formatCount(component.count)} instances
+                {component.name} {formatCount(component.count)} instances,{" "}
+                {component.percentageChange}
               </li>
             ))}
         </ul>
@@ -140,25 +149,18 @@ const Wrapped2023 = () => {
           ))}
         </ul>
 
-        <Title1>All teams using Mística Figma libraries</Title1>
-        <p>Number of teams: {teams.length}</p>
-        <ul>
-          {teams.map((team) => (
-            <li key={team}>{team}</li>
-          ))}
-        </ul>
-
         <Title2>Brand factory</Title2>
         <Title1>Median BF sessions (from January 23 to November 23)</Title1>
         <span>{medianBFSessions()}</span>
 
-        <Title2>Issues</Title2>
+        <Title2>Github</Title2>
+        <Title1>Issues</Title1>
 
         <p>Created issues: {createdIssuesCount}</p>
         <p>Closed issues: {closedIssuesCount}</p>
         <p>Remaining open issues:{openedIssuesCount}</p>
 
-        <Title2>Discussions</Title2>
+        <Title1>Discussions</Title1>
 
         <Title1>Closed discusssions last year</Title1>
         <p>{closedDiscussions.length}</p>
