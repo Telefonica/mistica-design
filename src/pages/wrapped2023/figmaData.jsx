@@ -98,15 +98,18 @@ export const Icons = () => {
 };
 
 export const newComponents = [
-  { name: "Counter", figmaRelease: "11", webRelease: "14.29.0" },
-  { name: "Accordion", figmaRelease: "11", webRelease: "14.26.0" },
-  { name: "Title 3", figmaRelease: "10", webRelease: "14.20.0" },
-  { name: "Actions Sheet", figmaRelease: "10", webRelease: "14.21.0" },
-  { name: "Naked card", figmaRelease: "10", webRelease: "14.18.0" },
-  { name: "Naked small card", figmaRelease: "10", webRelease: "14.18.0" },
-  { name: "Stacking group", figmaRelease: "9", webRelease: "14.11.0" },
-  { name: "Grid", figmaRelease: "9", webRelease: "14.11.0" },
-  { name: "Hero", figmaRelease: "9", webRelease: "13.3.0" },
+  { name: "Slider", figmaRelease: "12.0.0", webRelease: "14.25.0" },
+  { name: "Progress stepped", figmaRelease: "11.1.0", webRelease: "14.26.0" },
+  { name: "PinField", figmaRelease: "11.1.0", webRelease: "14.26.0" },
+  { name: "Counter", figmaRelease: "11.0.0", webRelease: "14.29.0" },
+  { name: "Accordion", figmaRelease: "11.0.0", webRelease: "14.26.0" },
+  { name: "Title 3", figmaRelease: "10.0.0", webRelease: "14.20.0" },
+  { name: "Actions Sheet", figmaRelease: "10.0.0", webRelease: "14.21.0" },
+  { name: "Naked card", figmaRelease: "10.0.0", webRelease: "14.18.0" },
+  { name: "Naked small card", figmaRelease: "10.0.0", webRelease: "14.18.0" },
+  { name: "Stacking group", figmaRelease: "9.0.0", webRelease: "14.11.0" },
+  { name: "Grid", figmaRelease: "9.0.0", webRelease: "14.11.0" },
+  { name: "Hero", figmaRelease: "8.0.0", webRelease: "13.3.0" },
 ];
 
 export const topTeams = {
