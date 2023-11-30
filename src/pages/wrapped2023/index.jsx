@@ -82,6 +82,17 @@ const Wrapped2023 = () => {
             <li key={team}>{team}</li>
           ))}
         </ul>
+
+        <Title2>New components</Title2>
+
+        <ul>
+          {newComponents.map((component) => (
+            <li key={component.name}>
+              {component.name} (from release {component.release})
+            </li>
+          ))}
+        </ul>
+
         <Title2>Figma</Title2>
         <Title1>Most used Figma component</Title1>
         <p>
@@ -119,16 +130,6 @@ const Wrapped2023 = () => {
                 {icon.name} {formatCount(icon.count)} instances
               </li>
             ))}
-        </ul>
-
-        <Title1>New components</Title1>
-
-        <ul>
-          {newComponents.map((component) => (
-            <li key={component.name}>
-              {component.name} (from release {component.release})
-            </li>
-          ))}
         </ul>
 
         <Title1>Top teams by insertions</Title1>
