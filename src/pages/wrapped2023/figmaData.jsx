@@ -35,7 +35,10 @@ export const Components = () => {
     }
 
     const percentageChange = ((currentCount - lastCount) / lastCount) * 100;
-    return `${parseFloat(percentageChange.toFixed(2))}% from last year`;
+    const formattedChange = parseFloat(percentageChange.toFixed(2));
+    return `${
+      formattedChange > 0 ? "+" : ""
+    }${formattedChange}% from last year`;
   }
 
   const componentsWithPercentageChange = mostUsedFigmaComponents.map(
@@ -95,14 +98,15 @@ export const Icons = () => {
 };
 
 export const newComponents = [
-  { name: "Counter", release: "11" },
-  { name: "Accordion", release: "11" },
-  { name: "Title 3", release: "10" },
-  { name: "Actions Sheet", release: "10" },
-  { name: "Naked card", release: "10" },
-  { name: "Naked small card", release: "10" },
-  { name: "Stacking group", release: "9" },
-  { name: "Grid", release: "9" },
+  { name: "Counter", figmaRelease: "11", webRelease: "14.29.0" },
+  { name: "Accordion", figmaRelease: "11", webRelease: "14.26.0" },
+  { name: "Title 3", figmaRelease: "10", webRelease: "14.20.0" },
+  { name: "Actions Sheet", figmaRelease: "10", webRelease: "14.21.0" },
+  { name: "Naked card", figmaRelease: "10", webRelease: "14.18.0" },
+  { name: "Naked small card", figmaRelease: "10", webRelease: "14.18.0" },
+  { name: "Stacking group", figmaRelease: "9", webRelease: "14.11.0" },
+  { name: "Grid", figmaRelease: "9", webRelease: "14.11.0" },
+  { name: "Hero", figmaRelease: "9", webRelease: "13.3.0" },
 ];
 
 export const topTeams = {

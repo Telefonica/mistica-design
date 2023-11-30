@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Components, Icons, newComponents, topTeams, teams } from "./figmaData";
-
+import { teamsMembers } from "./teamsData";
 import { medianBFSessions } from "./brandFactoryData";
 import { formatCount } from "./utils";
 
@@ -83,12 +83,19 @@ const Wrapped2023 = () => {
           ))}
         </ul>
 
+        <Title1>People in Mistica teams channel</Title1>
+
+        <p>
+          {teamsMembers.count}, +{teamsMembers.percentageChange} from last year{" "}
+        </p>
+
         <Title2>New components</Title2>
 
         <ul>
           {newComponents.map((component) => (
             <li key={component.name}>
-              {component.name} (from release {component.release})
+              {component.name} (Releases: Figma {component.figmaRelease}, Web{" "}
+              {component.webRelease})
             </li>
           ))}
         </ul>
