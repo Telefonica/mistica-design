@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
-import { Components, Icons, newComponents, topTeams, teams } from "./figmaData";
-import { teamsMembers } from "./teamsData";
-import { medianBFSessions } from "./brandFactoryData";
-import { releases, mergedPRs } from "./devData";
+import {
+  Components,
+  Icons,
+  newComponents,
+  topTeams,
+  teams,
+} from "./data/figmaData";
+import { teamsMembers } from "./data/teamsData";
+import { medianBFSessions } from "./data/brandFactoryData";
+import { releases, mergedPRs } from "./data/devData";
 import { formatCount } from "./utils";
 
-import {
-  Title2,
-  Title1,
-  Title3,
-  Stack,
-  ResponsiveLayout,
-} from "@telefonica/mistica";
+import { Title2, Title1, Title3 } from "@telefonica/mistica";
+
+import { Section, Wrapper } from "./components/components";
+import YearSvg from "./components/year-svg";
+import ColorBand from "./components/color-band";
 
 const Wrapped2023 = () => {
   const [mostActiveAuthors, setMostActiveAuthors] = useState([]);
@@ -92,23 +96,44 @@ const Wrapped2023 = () => {
   const { iconWithHighestCount, restOfMostUsedIcons } = Icons();
 
   return (
-    <ResponsiveLayout>
-      <Stack space={24}>
-        <Title3>Wrapped2023</Title3>
+    <Wrapper>
+      <Section color="#031A34">
+        <YearSvg></YearSvg>
+        <ColorBand
+          color="#EAC344"
+          rotate={255}
+          origin="40%"
+          text="#wrapped’23"
+          index={50}
+        ></ColorBand>
+        <ColorBand color="#59C2C9" rotate={255} text="#wrapped’23"></ColorBand>
+        <ColorBand color="#E66C64" rotate={325} text="#wrapped’23"></ColorBand>
+        <ColorBand
+          color="#C466EF"
+          rotate={309}
+          origin="65%"
+          text="#wrapped’23"
+          index={60}
+        ></ColorBand>
+      </Section>
+      <Section>
         <Title2>Teams using Mística</Title2>
+
         <p>Number of teams: {teams.length}</p>
         <ul>
           {teams.map((team) => (
             <li key={team}>{team}</li>
           ))}
         </ul>
-
+      </Section>
+      <Section>
         <Title1>People in Mistica teams channel</Title1>
 
         <p>
           {teamsMembers.count}, +{teamsMembers.percentageChange} from last year{" "}
         </p>
-
+      </Section>
+      <Section>
         <Title2>New components</Title2>
 
         <ul>
@@ -119,7 +144,8 @@ const Wrapped2023 = () => {
             </li>
           ))}
         </ul>
-
+      </Section>
+      <Section>
         <Title2>Figma</Title2>
         <Title1>Most used Figma component</Title1>
         <p>
@@ -140,7 +166,8 @@ const Wrapped2023 = () => {
               </li>
             ))}
         </ul>
-
+      </Section>
+      <Section>
         <Title1>Most used Figma icon</Title1>
         <p>
           {iconWithHighestCount.icon}
@@ -158,7 +185,8 @@ const Wrapped2023 = () => {
               </li>
             ))}
         </ul>
-
+      </Section>
+      <Section>
         <Title1>Top teams by insertions</Title1>
         <Title1>Mobile</Title1>
         <ul>
@@ -176,11 +204,13 @@ const Wrapped2023 = () => {
             </li>
           ))}
         </ul>
-
+      </Section>
+      <Section>
         <Title2>Brand factory</Title2>
         <Title1>Median BF sessions (from January 23 to November 23)</Title1>
         <span>{medianBFSessions()}</span>
-
+      </Section>
+      <Section>
         <Title2>Github</Title2>
 
         <Title1>Releases</Title1>
@@ -201,7 +231,8 @@ const Wrapped2023 = () => {
             </li>
           ))}
         </ul>
-
+      </Section>
+      <Section>
         <Title1>Issues</Title1>
 
         <p>Created issues: {createdIssuesCount}</p>
@@ -222,8 +253,8 @@ const Wrapped2023 = () => {
             </li>
           ))}
         </ul>
-      </Stack>
-    </ResponsiveLayout>
+      </Section>
+    </Wrapper>
   );
 };
 

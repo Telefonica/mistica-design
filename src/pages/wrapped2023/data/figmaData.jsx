@@ -1,4 +1,4 @@
-import { findItemWithHighestCount, separateItems } from "./utils";
+import { findItemWithHighestCount, separateItems } from "../utils";
 import {
   IconArrowDropDownFilled,
   IconCheckRegular,

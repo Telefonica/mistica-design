@@ -1,0 +1,18 @@
+.rotating {
+  animation: rotate 16s linear infinite;
+  transform-origin: center;
+  width: max-content;
+}
+
+.rotating.paused {
+  animation-play-state: paused;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

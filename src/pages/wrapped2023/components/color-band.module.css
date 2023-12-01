@@ -1,0 +1,30 @@
+.container {
+  height: 100vh;
+  width: calc(100vw + 800px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: -800px;
+  align-items: center;
+}
+
+.band {
+  height: 80px;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0;
+  align-self: bottom;
+}
+
+.text {
+  font-size: 48px;
+  white-space: nowrap;
+  display: inline-block;
+}

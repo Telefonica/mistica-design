@@ -1,0 +1,46 @@
+.container {
+  height: 100vh;
+  position: relative;
+}
+
+.scrollY {
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.scrollX {
+  scroll-snap-type: x mandatory;
+  max-height: 100vh;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.labelRotate {
+  position: fixed;
+  top: 32px;
+  left: 32px;
+  z-index: 9999;
+}
+
+.logo {
+  position: fixed;
+  height: 79px;
+  display: flex;
+  align-items: center;
+  top: 32px;
+  right: 32px;
+  z-index: 9999;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
