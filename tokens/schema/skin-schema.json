@@ -97,6 +97,8 @@
         "buttonSecondaryBackgroundInverseHover",
         "control",
         "controlActivated",
+        "controlInverse",
+        "controlActivatedInverse",
         "controlError",
         "loadingBar",
         "loadingBarBackground",
@@ -204,6 +206,8 @@
         "buttonSecondaryBackgroundInverseHover": { "$ref": "#/definitions/constantProperties" },
         "control": { "$ref": "#/definitions/constantProperties" },
         "controlActivated": { "$ref": "#/definitions/constantProperties" },
+        "controlInverse": { "$ref": "#/definitions/constantProperties" },
+        "controlActivatedInverse": { "$ref": "#/definitions/constantProperties" },
         "controlError": { "$ref": "#/definitions/constantProperties" },
         "loadingBar": { "$ref": "#/definitions/constantProperties" },
         "loadingBarBackground": { "$ref": "#/definitions/constantProperties" },
@@ -289,7 +293,8 @@
         "input": { "$ref": "#/definitions/radiusProperties" },
         "legacyDisplay": { "$ref": "#/definitions/radiusProperties" },
         "popup": { "$ref": "#/definitions/radiusProperties" },
-        "sheet": { "$ref": "#/definitions/radiusProperties" }
+        "sheet": { "$ref": "#/definitions/radiusProperties" },
+        "mediaSmall": { "$ref": "#/definitions/radiusProperties" }
       }
     },
     "weight": {
