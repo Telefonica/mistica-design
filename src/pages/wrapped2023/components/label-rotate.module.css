@@ -1,12 +1,6 @@
 .rotation {
   --d: 10s; /* animation duration */
-  --s: 0.5; /* speed factor 
-             0 : nothing happens
-            [0 1] : decrease the speed
-             1 : stops the animation
-            [1 +infinity[ : move in the opposite direction
-
-            */
+  --s: 0.5; /* slowmo speed factor */
   width: max-content;
   height: max-content;
   background-color: blue;
@@ -18,13 +12,7 @@
 
 .rotationInverse {
   --d: 10s; /* animation duration */
-  --s: 0.5; /* speed factor 
-             0 : nothing happens
-            [0 1] : decrease the speed
-             1 : stops the animation
-            [1 +infinity[ : move in the opposite direction
-
-            */
+  --s: 0.5; /* slowmo speed factor */
   width: max-content;
   height: max-content;
   background-color: blue;
