@@ -12,6 +12,7 @@ import {
   ButtonSecondary,
   IconShareFilled,
   TextLink,
+  skinVars,
 } from "@telefonica/mistica";
 
 const Wrapper = ({ children }) => {
@@ -46,33 +47,41 @@ const Wrapper = ({ children }) => {
         <>
           <div className={styles.labelRotate}>
             <RotatingSVG
-              fill={currentSection === 1 ? "white" : undefined}
+              fill={
+                currentSection === 1
+                  ? skinVars.colors.inverse
+                  : skinVars.colors.neutralHigh
+              }
             ></RotatingSVG>
           </div>
           <div className={styles.logo}>
-            <ThemeVariant
-              isInverse={currentSection === 1 ? "white" : undefined}
-            >
+            <ThemeVariant isInverse={currentSection === 1 ? true : false}>
               <Logo type="imagotype" />
             </ThemeVariant>
           </div>
           <div className={styles.madeBy}>
-            <Text2 color={currentSection === 1 ? "white" : undefined}>
-              made with{" "}
-              <Text2 medium color={currentSection === 1 ? "white" : undefined}>
-                <TextLink
-                  href="https://github.com/Telefonica/mistica"
-                  newTab={true}
-                >
-                  Mística
-                </TextLink>
+            <ThemeVariant isInverse={currentSection === 1 ? true : false}>
+              <Text2
+                color={
+                  currentSection === 1
+                    ? skinVars.colors.textPrimaryInverse
+                    : undefined
+                }
+              >
+                made with{" "}
+                <Text2 medium>
+                  <TextLink
+                    href="https://github.com/Telefonica/mistica"
+                    newTab={true}
+                  >
+                    Mística
+                  </TextLink>
+                </Text2>
               </Text2>
-            </Text2>
+            </ThemeVariant>
           </div>
           <div className={styles.shareButton}>
-            <ThemeVariant
-              isInverse={currentSection === 1 ? "white" : undefined}
-            >
+            <ThemeVariant isInverse={currentSection === 1 ? true : false}>
               <ButtonSecondary onPress="#" StartIcon={IconShareFilled}>
                 Share
               </ButtonSecondary>
