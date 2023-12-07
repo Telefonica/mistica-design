@@ -1,23 +1,45 @@
-.rotating {
-  animation: rotate 16s linear infinite;
-  transform-origin: center;
+.rotation {
+  --d: 10s; /* animation duration */
+  --s: 0.5; /* speed factor 
+             0 : nothing happens
+            [0 1] : decrease the speed
+             1 : stops the animation
+            [1 +infinity[ : move in the opposite direction
+
+            */
   width: max-content;
-}
-
-.rotatingInverse {
-  animation: rotate 8s linear infinite reverse;
+  height: max-content;
+  background-color: blue;
+  animation: r linear infinite var(--d),
+    r linear infinite calc(var(--d) / var(--s)) reverse paused;
+  animation-composition: add;
   transform-origin: center;
 }
 
-.rotating.paused {
-  animation-play-state: paused;
+.rotationInverse {
+  --d: 10s; /* animation duration */
+  --s: 0.5; /* speed factor 
+             0 : nothing happens
+            [0 1] : decrease the speed
+             1 : stops the animation
+            [1 +infinity[ : move in the opposite direction
+
+            */
+  width: max-content;
+  height: max-content;
+  background-color: blue;
+  animation: r linear infinite var(--d) reverse,
+    r linear infinite calc(var(--d) / var(--s)) paused;
+  animation-composition: add;
+  transform-origin: center;
 }
 
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
+.slowMo {
+  animation-play-state: running;
+}
+
+@keyframes r {
   to {
-    transform: rotate(360deg);
+    rotate: 1turn;
   }
 }
