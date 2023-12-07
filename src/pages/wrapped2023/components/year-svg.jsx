@@ -6,7 +6,7 @@ const YearSvg = () => {
     <svg
       style={{
         zIndex: 9999,
-        position: isMobile ? "absolute" : "relative",
+        position: isMobile ? "relative" : "absolute",
         bottom: 120,
         right: 120,
       }}

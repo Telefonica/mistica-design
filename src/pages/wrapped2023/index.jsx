@@ -100,17 +100,27 @@ const Wrapped2023 = () => {
       <Section color="#031A34">
         <YearSvg></YearSvg>
         <ColorBand
-          color="#EAC344"
-          rotate={255}
-          origin="40%"
+          color="#59C2C9"
+          rotate="60"
+          origin="50%"
           text="#wrapped’23"
           index={50}
         ></ColorBand>
-        <ColorBand color="#59C2C9" rotate={255} text="#wrapped’23"></ColorBand>
-        <ColorBand color="#E66C64" rotate={325} text="#wrapped’23"></ColorBand>
+        <ColorBand
+          color="#EAC344"
+          rotate="60"
+          origin="60%"
+          text="#wrapped’23"
+        ></ColorBand>
+        <ColorBand
+          color="#E66C64"
+          rotate="-35"
+          origin="45%"
+          text="#wrapped’23"
+        ></ColorBand>
         <ColorBand
           color="#C466EF"
-          rotate={309}
+          rotate="-60"
           origin="65%"
           text="#wrapped’23"
           index={60}
@@ -126,7 +136,7 @@ const Wrapped2023 = () => {
           ))}
         </ul>
       </Section>
-      <Section>
+      <Section color="#E66C64">
         <Title1>People in Mistica teams channel</Title1>
 
         <p>
@@ -167,7 +177,7 @@ const Wrapped2023 = () => {
             ))}
         </ul>
       </Section>
-      <Section>
+      <Section color="#E66C64">
         <Title1>Most used Figma icon</Title1>
         <p>
           {iconWithHighestCount.icon}

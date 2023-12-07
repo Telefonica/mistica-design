@@ -4,6 +4,11 @@
   width: max-content;
 }
 
+.rotatingInverse {
+  animation: rotate 8s linear infinite reverse;
+  transform-origin: center;
+}
+
 .rotating.paused {
   animation-play-state: paused;
 }

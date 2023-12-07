@@ -6,6 +6,12 @@ import {
   useScreenSize,
   ProgressBarStepped,
   ResponsiveLayout,
+  ThemeVariant,
+  Text2,
+  Text,
+  ButtonSecondary,
+  IconShareFilled,
+  TextLink,
 } from "@telefonica/mistica";
 
 const Wrapper = ({ children }) => {
@@ -44,7 +50,33 @@ const Wrapper = ({ children }) => {
             ></RotatingSVG>
           </div>
           <div className={styles.logo}>
-            <Logo type="imagotype" />
+            <ThemeVariant
+              isInverse={currentSection === 1 ? "white" : undefined}
+            >
+              <Logo type="imagotype" />
+            </ThemeVariant>
+          </div>
+          <div className={styles.madeBy}>
+            <Text2 color={currentSection === 1 ? "white" : undefined}>
+              made with{" "}
+              <Text2 medium color={currentSection === 1 ? "white" : undefined}>
+                <TextLink
+                  href="https://github.com/Telefonica/mistica"
+                  newTab={true}
+                >
+                  Mística
+                </TextLink>
+              </Text2>
+            </Text2>
+          </div>
+          <div className={styles.shareButton}>
+            <ThemeVariant
+              isInverse={currentSection === 1 ? "white" : undefined}
+            >
+              <ButtonSecondary onPress="#" StartIcon={IconShareFilled}>
+                Share
+              </ButtonSecondary>
+            </ThemeVariant>
           </div>
         </>
       )}
