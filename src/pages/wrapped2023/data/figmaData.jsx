@@ -36,9 +36,7 @@ export const Components = () => {
 
     const percentageChange = ((currentCount - lastCount) / lastCount) * 100;
     const formattedChange = parseFloat(percentageChange.toFixed(2));
-    return `${
-      formattedChange > 0 ? "+" : ""
-    }${formattedChange}% from last year`;
+    return `${formattedChange > 0 ? "+" : ""}${formattedChange}%`;
   }
 
   const componentsWithPercentageChange = mostUsedFigmaComponents.map(

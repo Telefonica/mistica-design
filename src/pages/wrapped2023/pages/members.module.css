@@ -1,0 +1,16 @@
+.container {
+  height: 100vh;
+  max-width: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bgImage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 150vw;
+  z-index: 0;
+}

@@ -14,8 +14,13 @@ import { formatCount } from "./utils";
 import { Title2, Title1, Title3 } from "@telefonica/mistica";
 
 import { Section, Wrapper } from "./components/components";
-import YearSvg from "./components/year-svg";
-import ColorBand from "./components/color-band";
+import Intro from "./pages/intro";
+import Teams from "./pages/teams";
+import Cover from "./pages/cover";
+import Members from "./pages/members";
+import NewComponents from "./pages/new-components";
+import MostUsedComponent from "./pages/most-used-component";
+import OtherUsedComponents from "./pages/other-used-components";
 
 const Wrapped2023 = () => {
   const [mostActiveAuthors, setMostActiveAuthors] = useState([]);
@@ -98,84 +103,25 @@ const Wrapped2023 = () => {
   return (
     <Wrapper>
       <Section color="#031A34">
-        <YearSvg></YearSvg>
-        <ColorBand
-          color="#59C2C9"
-          rotate="60"
-          origin="50%"
-          text="#wrapped’23"
-          index={50}
-        ></ColorBand>
-        <ColorBand
-          color="#EAC344"
-          rotate="60"
-          origin="60%"
-          text="#wrapped’23"
-        ></ColorBand>
-        <ColorBand
-          color="#E66C64"
-          rotate="-35"
-          origin="45%"
-          text="#wrapped’23"
-        ></ColorBand>
-        <ColorBand
-          color="#C466EF"
-          rotate="-60"
-          origin="65%"
-          text="#wrapped’23"
-          index={60}
-        ></ColorBand>
+        <Cover></Cover>
       </Section>
       <Section>
-        <Title2>Teams using Mística</Title2>
-
-        <p>Number of teams: {teams.length}</p>
-        <ul>
-          {teams.map((team) => (
-            <li key={team}>{team}</li>
-          ))}
-        </ul>
-      </Section>
-      <Section color="#E66C64">
-        <Title1>People in Mistica teams channel</Title1>
-
-        <p>
-          {teamsMembers.count}, +{teamsMembers.percentageChange} from last year{" "}
-        </p>
+        <Intro></Intro>
       </Section>
       <Section>
-        <Title2>New components</Title2>
-
-        <ul>
-          {newComponents.map((component) => (
-            <li key={component.name}>
-              {component.name} (Releases: Figma {component.figmaRelease}, Web{" "}
-              {component.webRelease})
-            </li>
-          ))}
-        </ul>
+        <Teams></Teams>
       </Section>
       <Section>
-        <Title2>Figma</Title2>
-        <Title1>Most used Figma component</Title1>
-        <p>
-          {componentWithHighestCount.name},{" "}
-          {formatCount(componentWithHighestCount.count)} instances, Used by{" "}
-          {componentWithHighestCount.usedBy} teams{" "}
-          {componentWithHighestCount.percentageChange}
-        </p>
-
-        <Title1>Other highly used Figma components</Title1>
-        <ul>
-          {restOfMostUsedComponents
-            .sort((a, b) => b.count - a.count)
-            .map((component) => (
-              <li key={component.name}>
-                {component.name} {formatCount(component.count)} instances,{" "}
-                {component.percentageChange}
-              </li>
-            ))}
-        </ul>
+        <Members></Members>
+      </Section>
+      <Section>
+        <NewComponents></NewComponents>
+      </Section>
+      <Section>
+        <MostUsedComponent></MostUsedComponent>
+      </Section>
+      <Section>
+        <OtherUsedComponents></OtherUsedComponents>
       </Section>
       <Section color="#E66C64">
         <Title1>Most used Figma icon</Title1>

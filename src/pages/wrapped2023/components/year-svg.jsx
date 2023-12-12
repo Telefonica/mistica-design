@@ -4,15 +4,10 @@ const YearSvg = () => {
   const { isMobile } = useScreenSize();
   return (
     <svg
-      style={{
-        zIndex: 9999,
-        position: isMobile ? "relative" : "absolute",
-        bottom: 120,
-        right: 120,
-      }}
       xmlns="http://www.w3.org/2000/svg"
-      width={isMobile ? "100%" : "600"}
-      height="400"
+      width="100%"
+      maxWidth="600"
+      height={isMobile ? "auto" : "400"}
       viewBox="0 0 600 400"
       fill="none"
     >

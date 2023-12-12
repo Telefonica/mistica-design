@@ -1,0 +1,30 @@
+.container {
+  height: 100vh;
+  max-width: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.list {
+  display: grid;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.list li {
+  border-bottom: 4px solid black;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.list :nth-child(2) {
+  justify-content: flex-end;
+}

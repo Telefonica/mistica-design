@@ -14,6 +14,12 @@ import {
   TextLink,
   skinVars,
 } from "@telefonica/mistica";
+import {
+  FigureLeftBottom,
+  FigureLeftTop,
+  FigureRightBottom,
+  FigureRightTop,
+} from "../components/svg-figures";
 
 const Wrapper = ({ children }) => {
   const { isMobile } = useScreenSize();
@@ -40,6 +46,7 @@ const Wrapper = ({ children }) => {
             <ProgressBarStepped
               steps={totalSections}
               currentStep={currentSection}
+              color={skinVars.colors.warning}
             />
           </ResponsiveLayout>
         </div>

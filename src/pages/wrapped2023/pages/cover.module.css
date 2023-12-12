@@ -1,0 +1,20 @@
+.yearDesktop {
+  position: relative;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: calc(100vh - (168px * 2));
+  width: calc(100vw - 128px);
+  text-align: left;
+  margin: 168px 64px;
+}
+
+.yearMobile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  z-index: 9999;
+}

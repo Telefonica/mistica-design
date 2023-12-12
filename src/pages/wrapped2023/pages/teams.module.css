@@ -1,0 +1,44 @@
+.animateText {
+  animation: moveUpAndFadeInitial 2s forwards;
+}
+
+.animateContent {
+  animation: moveUpAndFadeContent 2s;
+}
+
+.container {
+  height: 100vh;
+  max-width: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@keyframes moveUpAndFadeInitial {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+}
+
+@keyframes moveUpAndFadeContent {
+  0% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-120px);
+  }
+}

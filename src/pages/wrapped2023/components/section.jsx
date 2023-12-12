@@ -1,6 +1,7 @@
-import { ResponsiveLayout, useScreenSize } from "@telefonica/mistica";
+import { useScreenSize } from "@telefonica/mistica";
 import styles from "./section.module.css";
 import React, { useEffect, useRef } from "react";
+import MarginLayout from "./margin-layout";
 
 const Section = ({
   sectionNumber,
@@ -53,7 +54,7 @@ const Section = ({
       data-color={color}
       style={{ backgroundColor: color }}
     >
-      <ResponsiveLayout>{children}</ResponsiveLayout>
+      <MarginLayout>{children}</MarginLayout>
     </div>
   );
 };

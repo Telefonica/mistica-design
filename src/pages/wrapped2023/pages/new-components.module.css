@@ -1,0 +1,64 @@
+.container {
+  height: 100vh;
+  max-width: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.listContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  min-width: 360px;
+}
+
+.figures {
+  position: absolute;
+  width: 110vw;
+  height: calc(100vh - 256px);
+  display: flex;
+  justify-content: space-between;
+  margin: 128px;
+  z-index: 0;
+}
+
+.figuresLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.figuresRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: flex-end;
+}
+
+.figuresLeft :nth-child(1) {
+  justify-self: flex-start;
+}
+
+.figuresLeft :nth-child(2) {
+  justify-self: flex-end;
+}
+
+.content {
+  z-index: 2;
+}
