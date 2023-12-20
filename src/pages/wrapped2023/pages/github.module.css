@@ -1,0 +1,21 @@
+.container {
+  height: 500vh;
+}
+
+.content {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  border: 1px solid red;
+  overflow: hidden;
+}
+
+.scroll {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 500vw;
+  will-change: transform;
+  display: flex;
+  justify-content: space-between;
+}

@@ -9,6 +9,7 @@ const Section = ({
   color,
   children,
   forwardedRef,
+  sticky,
 }) => {
   const sectionRef = useRef();
   const { isMobile } = useScreenSize();
@@ -50,7 +51,7 @@ const Section = ({
   return (
     <div
       ref={sectionRef}
-      className={styles.container}
+      className={`${styles.container} ${sticky ? "sticky" : ""}`}
       data-color={color}
       style={{ backgroundColor: color }}
     >

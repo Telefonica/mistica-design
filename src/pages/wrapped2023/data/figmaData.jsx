@@ -17,15 +17,6 @@ const mostUsedFigmaComponents = [
   { name: "Tag", count: 163618, usedBy: 141 },
   { name: "Slot", count: 119937, usedBy: 105 },
   { name: "Boxed row", count: 118908, usedBy: 96, lastCount: 139371 },
-  { name: "Title 1", count: 118014, usedBy: 87, lastCount: 122903 },
-  { name: "Button group", count: 114149, usedBy: 120 },
-  { name: "Divider", count: 109719, usedBy: 130 },
-  {
-    name: "iOS navigation bar + status bar",
-    count: 105114,
-    usedBy: 106,
-    lastCount: 100211,
-  },
 ];
 
 export const Components = () => {
@@ -62,7 +53,7 @@ export const Components = () => {
 
 ///Icons /////////////////////////////////
 
-const mostUsedFigmaIcons = [
+export const Icons = [
   { name: "Close regular", count: 33508, icon: <IconCloseRegular /> },
   {
     name: "Chevron down regular",
@@ -74,6 +65,8 @@ const mostUsedFigmaIcons = [
     count: 21499,
     icon: <IconArrowDropDownFilled />,
   },
+
+  /*
   { name: "Menu regular", count: 17251, icon: <IconMenuRegular /> },
   { name: "Kebab menu light", count: 15999, icon: <IconKebabMenuLight /> },
   { name: "Checked filled", count: 13613, icon: <IconCheckedFilled /> },
@@ -83,17 +76,8 @@ const mostUsedFigmaIcons = [
     count: 13399,
     icon: <IconMobileDeviceRegular />,
   },
+  */
 ];
-
-export const Icons = () => {
-  const iconWithHighestCount = findItemWithHighestCount(mostUsedFigmaIcons);
-  const restOfMostUsedIcons = separateItems(
-    mostUsedFigmaIcons,
-    iconWithHighestCount
-  ).restOfItems;
-
-  return { iconWithHighestCount, restOfMostUsedIcons };
-};
 
 export const newComponents = [
   { name: "Slider", figmaRelease: "12.0.0", webRelease: "14.25.0" },
@@ -172,3 +156,16 @@ export const teams = [
   "Telefónica - NT Telco-Id",
   "Living Apps",
 ];
+
+{
+  /* 
+{ name: "Title 1", count: 118014, usedBy: 87, lastCount: 122903 },
+{ name: "Button group", count: 114149, usedBy: 120 },
+{ name: "Divider", count: 109719, usedBy: 130 },
+{
+  name: "iOS navigation bar + status bar",
+  count: 105114,
+  usedBy: 106,
+  lastCount: 100211,
+},*/
+}

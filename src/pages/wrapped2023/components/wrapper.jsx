@@ -30,7 +30,6 @@ const Wrapper = ({ children }) => {
       // Check if the new sectionNumber is different from the currentSection
       if (sectionNumber !== currentSection) {
         setCurrentSection(sectionNumber);
-        console.log("Section in view: ", sectionNumber);
       }
     },
     [currentSection]
@@ -97,7 +96,7 @@ const Wrapper = ({ children }) => {
         </>
       )}
 
-      <div className={isMobile ? styles.scrollX : styles.scrollY}>
+      <div className={`${isMobile ? styles.scrollX : styles.scrollY} wrapper`}>
         {React.Children.map(children, (child, index) =>
           React.cloneElement(child, {
             sectionNumber: index + 1,

@@ -1,10 +1,11 @@
 import { Text, useScreenSize, Stack } from "@telefonica/mistica";
+import styles from "./section-title.module.css";
 
 const SectionTitle = ({ title, title2, svg, pretitle, subtitle }) => {
   const { isMobile } = useScreenSize();
 
   return (
-    <Stack space={0}>
+    <Stack space={0} className={styles.container}>
       <Text size={isMobile ? 24 : 48}>{pretitle}</Text>
       <Text size={isMobile ? 48 : 140} weight="bold">
         {title}

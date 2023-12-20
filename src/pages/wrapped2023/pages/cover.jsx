@@ -8,7 +8,7 @@ const Cover = () => {
   const { isMobile } = useScreenSize();
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={isMobile ? styles.yearMobile : styles.yearDesktop}>
         <Stack space={16}>
           <YearSvg></YearSvg>
@@ -43,7 +43,7 @@ const Cover = () => {
         text="#wrapped’23"
         index={60}
       ></ColorBand>
-    </>
+    </div>
   );
 };
 

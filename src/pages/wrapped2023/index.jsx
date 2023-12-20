@@ -1,11 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Components,
-  Icons,
-  newComponents,
-  topTeams,
-  teams,
-} from "./data/figmaData";
+import { Components, newComponents, topTeams, teams } from "./data/figmaData";
 import { teamsMembers } from "./data/teamsData";
 import { medianBFSessions } from "./data/brandFactoryData";
 import { releases, mergedPRs } from "./data/devData";
@@ -21,6 +15,9 @@ import Members from "./pages/members";
 import NewComponents from "./pages/new-components";
 import MostUsedComponent from "./pages/most-used-component";
 import OtherUsedComponents from "./pages/other-used-components";
+import Icons from "./pages/icons";
+import BrandFactory from "./pages/brand-factory";
+import GitHub from "./pages/github";
 
 const Wrapped2023 = () => {
   const [mostActiveAuthors, setMostActiveAuthors] = useState([]);
@@ -123,48 +120,14 @@ const Wrapped2023 = () => {
       <Section>
         <OtherUsedComponents></OtherUsedComponents>
       </Section>
-      <Section color="#E66C64">
-        <Title1>Most used Figma icon</Title1>
-        <p>
-          {iconWithHighestCount.icon}
-          {iconWithHighestCount.name} {formatCount(iconWithHighestCount.count)}{" "}
-          instances
-        </p>
-        <Title1>Other highly used Figma icons</Title1>
-        <ul>
-          {restOfMostUsedIcons
-            .sort((a, b) => b.count - a.count)
-            .map((icon) => (
-              <li key={icon.name}>
-                {icon.icon}
-                {icon.name} {formatCount(icon.count)} instances
-              </li>
-            ))}
-        </ul>
+      <Section>
+        <Icons></Icons>
       </Section>
       <Section>
-        <Title1>Top teams by insertions</Title1>
-        <Title1>Mobile</Title1>
-        <ul>
-          {topTeams.mobile.map((team) => (
-            <li key={team.name}>
-              {team.name} {formatCount(team.count)}% insertions
-            </li>
-          ))}
-        </ul>
-        <Title1>Desktop</Title1>
-        <ul>
-          {topTeams.desktop.map((team) => (
-            <li key={team.name}>
-              {team.name} {formatCount(team.count)}% insertions
-            </li>
-          ))}
-        </ul>
+        <BrandFactory></BrandFactory>
       </Section>
-      <Section>
-        <Title2>Brand factory</Title2>
-        <Title1>Median BF sessions (from January 23 to November 23)</Title1>
-        <span>{medianBFSessions()}</span>
+      <Section sticky>
+        <GitHub />
       </Section>
       <Section>
         <Title2>Github</Title2>
