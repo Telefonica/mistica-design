@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import styles from "./github.module.css";
 import SectionContainer from "../components/section-container";
 import { useScreenSize } from "@telefonica/mistica";
+import DataBox from "../components/data-box";
 
 const GitHub = () => {
   const { isMobile } = useScreenSize();
@@ -12,8 +13,6 @@ const GitHub = () => {
 
     const handleScroll = () => {
       const offsetTop = sticky.closest(`.sticky`).offsetTop;
-
-      console.log("offsetTop", offsetTop);
 
       // Calculate scroll percentage relative to the top and bottom of the section
       let scrollPercentage =
@@ -39,63 +38,6 @@ const GitHub = () => {
     };
   }, []); // Empty dependency array means the effect runs once when the component mounts
 
-  const GithubData = [
-    {
-      title: "GitHub",
-      description:
-        "GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.",
-    },
-    {
-      title: "GitHub Desktop",
-      description:
-        "GitHub Desktop is an open source Electron-based GitHub app. It is written in TypeScript and uses React.",
-    },
-    {
-      title: "GitHub CLI",
-      description:
-        "GitHub CLI is a command line tool that enables you to use GitHub functionality in your terminal, such as opening pull requests, creating issues, merging pull requests, and more.",
-    },
-    {
-      title: "GitHub Pages",
-      description:
-        "GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process, and publishes a website.",
-    },
-    {
-      title: "GitHub Actions",
-      description:
-        "GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub. Make code reviews, branch management, and issue triaging work the way you want.",
-    },
-    {
-      title: "GitHub Discussions",
-      description:
-        "GitHub Discussions is a collaborative communication forum for the community around an open source project. Ask questions, share ideas, welcome new users, and show your support for open source projects.",
-    },
-    {
-      title: "GitHub Codespaces",
-      description:
-        "GitHub Codespaces is a development environment in the cloud that works seamlessly with your repositories. Open your project in an instant and pick up right where you left off, on any device.",
-    },
-    {
-      title: "GitHub Sponsors",
-      description:
-        "GitHub Sponsors is a way to give financial support to developers who design, build, and maintain the open source projects you use every day. GitHub Sponsors is available to developers in every country where GitHub does business.",
-    },
-    {
-      title: "GitHub Security Lab",
-      description:
-        "GitHub Security Lab is a dedicated team of security researchers who hunt for security vulnerabilities across the open source ecosystem and help keep GitHub secure.",
-    },
-    {
-      title: "GitHub Archive Program",
-      description:
-        "GitHub Archive Program is a long-term archive of GitHub's public repository data, which GitHub stores on behalf of the global open source community.",
-    },
-    {
-      title: "GitHub Education",
-      description: "GitHub",
-    },
-  ];
-
   const svg = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -120,16 +62,10 @@ const GitHub = () => {
       <div className={styles.content}>
         <div className={styles.scroll}>
           {svg}
-          {GithubData.map((item) => (
-            <div>
-              <div>
-                <h2>{item.title}</h2>
-              </div>
-              <div>
-                <p>{item.description}</p>
-              </div>
-            </div>
-          ))}
+          <DataBox title="test"></DataBox>
+          <DataBox title="test"></DataBox>
+          <DataBox title="test"></DataBox>
+          <DataBox title="test"></DataBox>
         </div>
       </div>
     </SectionContainer>

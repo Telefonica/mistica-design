@@ -6,7 +6,7 @@ const YearSvg = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="100%"
-      maxWidth="600"
+      maxwidth="600"
       height={isMobile ? "auto" : "400"}
       viewBox="0 0 600 400"
       fill="none"

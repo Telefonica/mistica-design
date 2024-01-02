@@ -286,8 +286,8 @@ const SVGPlanets = () => {
           y2="676.915"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4EEFE" />
-          <stop offset="1" stop-color="#0066FF" />
+          <stop stopColor="#F4EEFE" />
+          <stop offset="1" stopColor="#0066FF" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_751_971"
@@ -297,8 +297,8 @@ const SVGPlanets = () => {
           y2="676.915"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#18C8FF" />
-          <stop offset="1" stop-color="#933FFE" />
+          <stop stopColor="#18C8FF" />
+          <stop offset="1" stopColor="#933FFE" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_751_971"
@@ -308,8 +308,8 @@ const SVGPlanets = () => {
           y2="651.255"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4EEFE" />
-          <stop offset="1" stop-color="#0066FF" />
+          <stop stopColor="#F4EEFE" />
+          <stop offset="1" stopColor="#0066FF" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_751_971"
@@ -319,8 +319,8 @@ const SVGPlanets = () => {
           y2="651.255"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#59C2C9" />
-          <stop offset="1" stop-color="#C466EF" />
+          <stop stopColor="#59C2C9" />
+          <stop offset="1" stopColor="#C466EF" />
         </linearGradient>
         <image
           id="image0_751_971"

@@ -48,8 +48,8 @@ const BrandFactory = () => {
           y2="-9.12789"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEBE58" />
-          <stop offset="1" stop-color="#DE2BAE" />
+          <stop stopColor="#FEBE58" />
+          <stop offset="1" stopColor="#DE2BAE" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_841_817"
@@ -59,8 +59,8 @@ const BrandFactory = () => {
           y2="-9.12789"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEBE58" />
-          <stop offset="1" stop-color="#DE2BAE" />
+          <stop stopColor="#FEBE58" />
+          <stop offset="1" stopColor="#DE2BAE" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_841_817"
@@ -70,8 +70,8 @@ const BrandFactory = () => {
           y2="-9.12789"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEBE58" />
-          <stop offset="1" stop-color="#DE2BAE" />
+          <stop stopColor="#FEBE58" />
+          <stop offset="1" stopColor="#DE2BAE" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_841_817"
@@ -81,8 +81,8 @@ const BrandFactory = () => {
           y2="-9.12789"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEBE58" />
-          <stop offset="1" stop-color="#DE2BAE" />
+          <stop stopColor="#FEBE58" />
+          <stop offset="1" stopColor="#DE2BAE" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_841_817"
@@ -92,8 +92,8 @@ const BrandFactory = () => {
           y2="-9.12789"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEBE58" />
-          <stop offset="1" stop-color="#DE2BAE" />
+          <stop stopColor="#FEBE58" />
+          <stop offset="1" stopColor="#DE2BAE" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_841_817"
@@ -103,8 +103,8 @@ const BrandFactory = () => {
           y2="-9.12789"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEBE58" />
-          <stop offset="1" stop-color="#DE2BAE" />
+          <stop stopColor="#FEBE58" />
+          <stop offset="1" stopColor="#DE2BAE" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_841_817"
@@ -114,8 +114,8 @@ const BrandFactory = () => {
           y2="-9.12789"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEBE58" />
-          <stop offset="1" stop-color="#DE2BAE" />
+          <stop stopColor="#FEBE58" />
+          <stop offset="1" stopColor="#DE2BAE" />
         </linearGradient>
       </defs>
     </svg>

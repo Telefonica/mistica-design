@@ -51,7 +51,9 @@ const Section = ({
   return (
     <div
       ref={sectionRef}
-      className={`${styles.container} ${sticky ? "sticky" : ""}`}
+      className={`${
+        isMobile ? styles.containerMobile : styles.containerDesktop
+      } ${sticky ? "sticky" : ""}`}
       data-color={color}
       style={{ backgroundColor: color }}
     >

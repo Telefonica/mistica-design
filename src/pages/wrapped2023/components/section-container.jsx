@@ -4,7 +4,7 @@ const SectionContainer = ({ children, overflow, height = "100vh" }) => {
   return (
     <div
       className={`${styles.container}`}
-      style={{ overflow: overflow ? "hidden" : undefined, height: height }}
+      style={{ overflow: overflow ? "hidden" : "", height: height }}
     >
       {children}
     </div>
