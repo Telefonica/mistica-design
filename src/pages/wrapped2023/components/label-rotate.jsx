@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useScreenSize } from "@telefonica/mistica";
 import styles from "./label-rotate.module.css";
 
 const RotatingSVG = ({ fill }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { isMobile } = useScreenSize();
 
   return (
     <div
@@ -12,8 +14,8 @@ const RotatingSVG = ({ fill }) => {
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="96"
-        height="96"
+        width={isMobile ? 48 : 96}
+        height={isMobile ? 48 : 96}
         viewBox="0 0 96 96"
         fill={fill ?? "#000"}
       >

@@ -13,6 +13,8 @@ import {
   IconShareFilled,
   TextLink,
   skinVars,
+  Inline,
+  Stack,
 } from "@telefonica/mistica";
 import {
   FigureLeftBottom,
@@ -42,11 +44,26 @@ const Wrapper = ({ children }) => {
       {isMobile ? (
         <div className={styles.progress}>
           <ResponsiveLayout>
-            <ProgressBarStepped
-              steps={totalSections}
-              currentStep={currentSection}
-              color={skinVars.colors.warning}
-            />
+            <Stack space={16}>
+              <ProgressBarStepped
+                steps={totalSections}
+                currentStep={currentSection}
+                color={skinVars.colors.brand}
+              />
+              <Inline fullWidth space="between" alignItems="center">
+                <RotatingSVG
+                  fill={
+                    currentSection === 1
+                      ? skinVars.colors.inverse
+                      : skinVars.colors.neutralHigh
+                  }
+                ></RotatingSVG>
+
+                <ThemeVariant isInverse={currentSection === 1 ? true : false}>
+                  <Logo size={isMobile ? 32 : 56} type="imagotype" />
+                </ThemeVariant>
+              </Inline>
+            </Stack>
           </ResponsiveLayout>
         </div>
       ) : (
@@ -62,7 +79,7 @@ const Wrapper = ({ children }) => {
           </div>
           <div className={styles.logo}>
             <ThemeVariant isInverse={currentSection === 1 ? true : false}>
-              <Logo type="imagotype" />
+              <Logo size={isMobile ? 48 : 56} type="imagotype" />
             </ThemeVariant>
           </div>
           <div className={styles.madeBy}>

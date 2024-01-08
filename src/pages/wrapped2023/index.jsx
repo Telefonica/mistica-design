@@ -5,19 +5,21 @@ import { medianBFSessions } from "./data/brandFactoryData";
 import { releases, mergedPRs } from "./data/devData";
 import { formatCount } from "./utils";
 
-import { Title2, Title1, Title3 } from "@telefonica/mistica";
+import { Title2, Title1, Title3, useScreenSize } from "@telefonica/mistica";
 
 import { Section, Wrapper } from "./components/components";
 import Intro from "./pages/intro";
 import Teams from "./pages/teams";
 import Cover from "./pages/cover";
 import Members from "./pages/members";
+import MembersCount from "./pages/members-count";
 import NewComponents from "./pages/new-components";
 import MostUsedComponent from "./pages/most-used-component";
 import OtherUsedComponents from "./pages/other-used-components";
 import Icons from "./pages/icons";
 import BrandFactory from "./pages/brand-factory";
 import GitHub from "./pages/github";
+import NewComponentsTitle from "./pages/new-components-title";
 
 const Wrapped2023 = () => {
   const [mostActiveAuthors, setMostActiveAuthors] = useState([]);
@@ -25,6 +27,8 @@ const Wrapped2023 = () => {
   const [closedIssuesCount, setClosedIssuesCount] = useState(0);
   const [openedIssuesCount, setOpenedIssuesCount] = useState(0);
   const [createdIssuesCount, setCreatedIssuesCount] = useState(0);
+
+  const { isMobile } = useScreenSize();
 
   async function getDiscussions() {
     try {
@@ -112,8 +116,16 @@ const Wrapped2023 = () => {
         <Members></Members>
       </Section>
       <Section>
+        <MembersCount></MembersCount>
+      </Section>
+
+      <Section>
+        <NewComponentsTitle></NewComponentsTitle>
+      </Section>
+      <Section>
         <NewComponents></NewComponents>
       </Section>
+
       <Section>
         <MostUsedComponent></MostUsedComponent>
       </Section>

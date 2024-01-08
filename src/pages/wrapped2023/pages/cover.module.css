@@ -1,13 +1,12 @@
 .yearDesktop {
   position: relative;
   z-index: 9999;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
   height: calc(100vh - (168px * 2));
   width: calc(100vw - 128px);
   text-align: left;
   margin: 168px 64px;
+  display: flex;
+  align-items: center;
 }
 
 .yearMobile {
@@ -15,11 +14,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
   z-index: 9999;
 }
 
 .container {
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
+}
+
+.textContainer {
+  height: 100%;
+}
+
+.textContainerDesktop {
+  width: 100%;
+}
+
+.coverText {
+  max-width: 64ch;
 }

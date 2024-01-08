@@ -31,6 +31,7 @@ import {
 } from "@telefonica/mistica";
 import { formatCount } from "../utils";
 import SectionTitle from "../components/section-title";
+import ContentContainer from "../components/content-container";
 
 const Icons = () => {
   const { isMobile } = useScreenSize();
@@ -109,7 +110,7 @@ const Icons = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <ContentContainer overflowY="visible" margin="12.5vw 0">
       <div className={styles.gridBackground}>
         <Grid columns={isMobile ? 3 : 6} gap={164}>
           {backgroundIcons().map((key, index) => (
@@ -118,14 +119,14 @@ const Icons = () => {
         </Grid>
       </div>
       <Stack space={64}>
-        <SectionTitle pretitle="Most used Figma" svg={svg} />
+        <SectionTitle align="center" pretitle="Most used Figma" svg={svg} />
         <ul>
           <Grid columns={3} gap={16}>
             {Object.keys(IconData).map((key, index) => {
               const icon = IconData[key];
               return (
-                <GridItem>
-                  <li key={key}>
+                <GridItem key={key}>
+                  <li>
                     <Stack space={16}>
                       <span>#{index + 1}</span>
                       {icon.icon}
@@ -139,7 +140,7 @@ const Icons = () => {
           </Grid>
         </ul>
       </Stack>
-    </div>
+    </ContentContainer>
   );
 };
 

@@ -4,7 +4,11 @@ const { useScreenSize } = require("@telefonica/mistica");
 const MarginLayout = ({ children }) => {
   const { isMobile } = useScreenSize();
   return (
-    <div className={isMobile ? styles.containerMobile : ""}>{children}</div>
+    <div
+      className={isMobile ? styles.containerMobile : styles.containerDesktop}
+    >
+      {children}
+    </div>
   );
 };
 

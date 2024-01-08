@@ -1,17 +1,26 @@
 import styles from "./members.module.css";
-import planets from "../assets/planets.png";
+import planetsMobile from "../assets/planets-mobile.png";
 import { Stack, Text, useScreenSize } from "@telefonica/mistica";
 import { members } from "../data/texts";
 import { teamsMembers } from "../data/teamsData";
 import SectionTitle from "../components/section-title";
+import ContentContainer from "../components/content-container";
 
 const Members = () => {
   const { isMobile } = useScreenSize();
 
   return (
-    <div className={styles.container}>
-      <img className={styles.bgImage} src={planets} alt="planets" />
+    <ContentContainer>
+      {isMobile ? (
+        <img
+          className={styles.bgImageMobile}
+          src={planetsMobile}
+          alt="planets"
+        />
+      ) : null}
+
       <SectionTitle
+        align="center"
         title={teamsMembers.count}
         svg={
           <svg
@@ -27,9 +36,9 @@ const Members = () => {
             />
           </svg>
         }
-        description={members}
+        subtitle={members}
       />
-    </div>
+    </ContentContainer>
   );
 };
 

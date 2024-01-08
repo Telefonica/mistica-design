@@ -20,4 +20,26 @@
   justify-content: space-between;
   align-items: center;
   padding: 8rem;
+  gap: 4rem;
+  z-index: 2;
+}
+
+.mobileBackground {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(100% + 32px);
+  margin: -96px -16px 0 -16px;
+}
+
+.desktopBackground {
+  position: relative;
+  height: calc(100% + 16rem);
+  margin: 0 -100vw;
+}
+
+.desktopBackground svg {
+  position: absolute;
+  left: 0;
+  top: 0;
 }

@@ -3,6 +3,7 @@ import styles from "./other-used-components.module.css";
 import { formatCount } from "../utils";
 import { Components } from "../data/figmaData";
 import GoldenGraph from "../components/golden-graph";
+import ContentContainer from "../components/content-container";
 
 const OtherUsedComponents = () => {
   const { restOfMostUsedComponents } = Components();
@@ -174,12 +175,12 @@ const OtherUsedComponents = () => {
   );
 
   return (
-    <div className={styles.container}>
+    <ContentContainer justify={isMobile ? "space-between" : "center"}>
       {isMobile ? (
-        <Stack space={32}>
+        <>
           {verticalSvg}
           <GoldenGraph items={restOfMostUsedComponents} />
-        </Stack>
+        </>
       ) : (
         <Inline space={64}>
           {svg}
@@ -188,7 +189,7 @@ const OtherUsedComponents = () => {
           </div>
         </Inline>
       )}
-    </div>
+    </ContentContainer>
   );
 };
 

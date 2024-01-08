@@ -1,0 +1,58 @@
+.containerMobile {
+  height: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+}
+
+.containerDesktop {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.bgImageMobile {
+  position: absolute;
+  width: 264vw;
+  z-index: 0;
+  rotate: 45deg;
+}
+
+.bgImageDesktop {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 150vw;
+  z-index: 0;
+}
+
+.bottomTextMobile {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 9999;
+  width: 100%;
+  text-align: center;
+}
+
+.bottomTextDesktop {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 9999;
+  width: 100%;
+  text-align: center;
+}

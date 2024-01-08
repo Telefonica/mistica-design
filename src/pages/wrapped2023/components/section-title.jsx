@@ -1,20 +1,33 @@
 import { Text, useScreenSize, Stack } from "@telefonica/mistica";
 import styles from "./section-title.module.css";
 
-const SectionTitle = ({ title, title2, svg, pretitle, subtitle }) => {
+const SectionTitle = ({
+  title,
+  title2,
+  svg,
+  pretitle,
+  subtitle,
+  align,
+  isSmall,
+}) => {
   const { isMobile } = useScreenSize();
 
   return (
-    <Stack space={0} className={styles.container}>
-      <Text size={isMobile ? 24 : 48}>{pretitle}</Text>
-      <Text size={isMobile ? 48 : 140} weight="bold">
+    <Stack
+      space={0}
+      className={`${styles.container} ${
+        align === "center" ? styles.alignCenter : styles.alignLeft
+      }`}
+    >
+      <Text size={isMobile ? 18 : isSmall ? 24 : 32}>{pretitle}</Text>
+      <Text size={isMobile ? 64 : isSmall ? 80 : 120} weight="bold">
         {title}
       </Text>
       {svg}
-      <Text size={isMobile ? 48 : 140} weight="bold">
+      <Text size={isMobile ? 48 : isSmall ? 80 : 120} weight="bold">
         {title2}
       </Text>
-      <Text size={isMobile ? 24 : 48}>{subtitle}</Text>
+      <Text size={isMobile ? 18 : isSmall ? 24 : 32}>{subtitle}</Text>
     </Stack>
   );
 };

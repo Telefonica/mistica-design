@@ -1,21 +1,46 @@
 import styles from "./cover.module.css";
 import YearSvg from "../components/year-svg";
 import ColorBand from "../components/color-band";
-import { Stack, Text6, useScreenSize, ThemeVariant } from "@telefonica/mistica";
+import {
+  Stack,
+  Text,
+  useScreenSize,
+  ThemeVariant,
+  Inline,
+  Box,
+} from "@telefonica/mistica";
 import { cover } from "../data/texts";
 
 const Cover = () => {
   const { isMobile } = useScreenSize();
 
+  const TextLayout = ({ children }) => {
+    return isMobile ? (
+      <div style={{ padding: "48px 0", height: "100%" }}>
+        <Stack space="between" className={styles.textContainer}>
+          {children}
+        </Stack>
+      </div>
+    ) : (
+      <Inline space="between" className={styles.textContainerDesktop}>
+        {children}
+      </Inline>
+    );
+  };
+
   return (
     <div className={styles.container}>
       <div className={isMobile ? styles.yearMobile : styles.yearDesktop}>
-        <Stack space={16}>
-          <YearSvg></YearSvg>
-          <ThemeVariant isInverse>
-            <Text6>{cover}</Text6>
-          </ThemeVariant>
-        </Stack>
+        <ThemeVariant isInverse>
+          <TextLayout>
+            <div className={styles.coverText}>
+              <Text size={isMobile ? 32 : 64} weight="bold">
+                {cover}
+              </Text>
+            </div>
+            <YearSvg></YearSvg>
+          </TextLayout>
+        </ThemeVariant>
       </div>
       <ColorBand
         color="#59C2C9"

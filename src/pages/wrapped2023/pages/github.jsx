@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import styles from "./github.module.css";
 import SectionContainer from "../components/section-container";
-import { useScreenSize } from "@telefonica/mistica";
+import { useScreenSize, Inline } from "@telefonica/mistica";
 import DataBox from "../components/data-box";
+import ContentContainer from "../components/content-container";
 
 const GitHub = () => {
   const { isMobile } = useScreenSize();
@@ -36,15 +37,16 @@ const GitHub = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []); // Empty dependency array means the effect runs once when the component mounts
+  }, [!isMobile]); // Empty dependency array means the effect runs once when the component mounts
 
   const svg = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="437"
-      height="848"
+      width="100%"
+      height="100%"
       viewBox="0 0 437 848"
       fill="none"
+      style={{ marginLeft: "-25vw" }}
     >
       <path
         d="M85.2 791.86L71.62 791.86L71.62 749.58L123 749.58L123 763.72L111.8 765.12L111.8 765.82C117.82 770.72 124.4 781.08 124.4 794.38C124.4 820.98 103.68 841.98 74 841.98C44.32 841.98 23.6 820.7 23.6 794.38C23.6 770.3 40.68 754.9 57.2 750.28L57.2 769.6C48.38 773.66 41.52 783.04 41.52 794.38C41.52 810.48 54.26 823.22 74 823.22C93.74 823.22 106.48 810.48 106.48 794.38C106.48 778.98 95.14 769.18 85.9 768.34L85.2 768.2L85.2 791.86ZM123 716.443L123 735.203L25 735.203L25 716.443L123 716.443ZM123 659.704L123 678.464L42.92 678.464L42.92 707.304L25 707.304L25 630.864L42.92 630.864L42.92 659.704L123 659.704ZM123 576.875L123 595.635L25 595.635L25 576.875L64.2 576.875L64.2 533.475L25 533.475L25 514.855L123 514.855L123 533.475L83.1 533.475L83.1 576.875L123 576.875ZM124.4 459.183C124.4 483.263 108.3 499.503 83.1 499.503L25 499.503L25 480.883L83.1 480.883C96.82 480.883 106.48 471.363 106.48 459.183C106.48 447.003 96.82 437.483 83.1 437.483L25 437.483L25 418.863L83.1 418.863C108.3 418.863 124.4 435.103 124.4 459.183ZM123 356.288L123 403.468L25 403.468L25 357.688C25 341.168 36.48 329.688 52.3 329.688C62.8 329.688 70.5 335.708 73.3 340.188L74 340.188C76.8 335.008 84.64 328.288 95.7 328.288C111.52 328.288 123 339.768 123 356.288ZM41.52 384.708L65.88 384.708L65.88 360.068C65.88 353.488 60.7 348.308 53.7 348.308C46.7 348.308 41.52 353.488 41.52 360.068L41.52 384.708ZM82.12 384.708L106.48 384.708L106.48 358.668C106.48 352.088 101.3 346.908 94.3 346.908C87.3 346.908 82.12 352.088 82.12 358.668L82.12 384.708ZM267.4 794.52C267.4 820.98 246.68 841.98 217 841.98C187.32 841.98 166.6 820.98 166.6 794.52C166.6 769.18 185.22 754.06 202.72 750.28L202.72 769.18C193.48 771.98 184.52 780.8 184.52 794.52C184.52 810.48 197.4 823.22 217 823.22C236.6 823.22 249.48 810.48 249.48 794.52C249.48 780.38 240.24 771.84 230.58 769.18L230.58 750.28C248.5 753.92 267.4 768.76 267.4 794.52ZM267.4 696.454C267.4 722.914 246.68 743.914 217 743.914C187.32 743.914 166.6 722.914 166.6 696.454C166.6 670.134 187.32 649.134 217 649.134C246.68 649.134 267.4 670.134 267.4 696.454ZM249.48 696.454C249.48 680.634 236.6 667.754 217 667.754C197.4 667.754 184.52 680.634 184.52 696.454C184.52 712.414 197.4 725.154 217 725.154C236.6 725.154 249.48 712.414 249.48 696.454ZM266 618.377L266 637.137L168 637.137L168 607.457L237.02 584.357L237.02 581.557L168 558.457L168 528.777L266 528.777L266 547.537L198.1 547.537L198.1 550.337L266 573.157L266 592.757L198.1 615.577L198.1 618.377L266 618.377ZM266 493.788L266 512.548L168 512.548L168 482.868L237.02 459.768L237.02 456.968L168 433.868L168 404.188L266 404.188L266 422.948L198.1 422.948L198.1 425.748L266 448.568L266 468.168L198.1 490.988L198.1 493.788L266 493.788ZM267.4 348.479C267.4 372.559 251.3 388.799 226.1 388.799L168 388.799L168 370.179L226.1 370.179C239.82 370.179 249.48 360.659 249.48 348.479C249.48 336.299 239.82 326.779 226.1 326.779L168 326.779L168 308.159L226.1 308.159C251.3 308.159 267.4 324.399 267.4 348.479ZM266 274.004L266 292.764L168 292.764L168 268.264L235.48 232.984L235.48 230.184L168 230.184L168 211.564L266 211.564L266 236.064L198.52 271.204L198.52 274.004L266 274.004ZM266 176.486L266 195.246L168 195.246L168 176.486L266 176.486ZM266 119.747L266 138.507L185.92 138.507L185.92 167.347L168 167.347L168 90.9074L185.92 90.9074L185.92 119.747L266 119.747ZM266 39.1292L266 57.7492L232.68 57.7492L168 93.4492L168 72.7292L210.28 49.7692L210.28 46.9692L168 24.1492L168 3.42918L232.68 39.1292L266 39.1292Z"
@@ -57,17 +59,144 @@ const GitHub = () => {
     </svg>
   );
 
+  const MobileBackground = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="125vw"
+      height="auto"
+      viewBox="0 0 375 667"
+      fill="none"
+    >
+      <path
+        d="M166.37 777.123C280.877 571.985 569.7 257.904 509.89 161.708C450.08 65.5115 104.269 535.942 -13.0599 488.534C-130.389 441.125 266.733 -34.65 323.721 -191"
+        stroke="url(#paint0_linear_878_5623)"
+        stroke-width="16"
+        stroke-linecap="round"
+      />
+      <defs>
+        <linearGradient
+          id="paint0_linear_878_5623"
+          x1="166.37"
+          y1="777.123"
+          x2="-211.663"
+          y2="459.916"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#FEBE58" />
+          <stop offset="1" stop-color="#DE2BAE" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+
+  const desktopBackground = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="500vw"
+      height="100%"
+      viewBox="0 0 4344 1024"
+      fill="none"
+    >
+      <rect width="auto" height="100%" fill="transparent" />
+      <g>
+        <path
+          d="M1036.85 2037.27C1499.85 1207.8 2667.69 -62.1618 2425.86 -451.127C2184.02 -840.091 785.749 1062.07 311.336 870.375C-163.076 678.682 1010.26 -473.835 1240.68 -1106.03"
+          stroke="url(#paint0_linear_924_1614)"
+          stroke-width="22.4498"
+          stroke-linecap="round"
+        />
+        <path
+          d="M-107.902 727.953C193.375 1036.7 252.299 1722.77 795.929 1654.18C1339.56 1585.59 943.655 721.136 1522.99 522.188C2102.32 323.241 2196.95 878.956 2533.93 1057.34"
+          stroke="url(#paint1_linear_924_1614)"
+          stroke-width="22.4498"
+          stroke-linecap="round"
+        />
+        <path
+          d="M3110.08 -424.614C2999.23 -13.6618 2451.45 402.468 2777.53 808.242C3103.6 1214.02 3634.99 427.821 4088.3 792.708C4541.6 1157.6 4121.06 1532.84 4137.45 1902.9"
+          stroke="url(#paint2_linear_924_1614)"
+          stroke-width="22.4498"
+          stroke-linecap="round"
+        />
+      </g>
+
+      <defs>
+        <linearGradient
+          id="paint0_linear_924_1614"
+          x1="1036.85"
+          y1="2037.27"
+          x2="-491.703"
+          y2="754.66"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#FEBE58" />
+          <stop offset="1" stop-color="#DE2BAE" />
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_924_1614"
+          x1="-107.902"
+          y1="727.953"
+          x2="2325.64"
+          y2="161.898"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#FEBE58" />
+          <stop offset="1" stop-color="#DE2BAE" />
+        </linearGradient>
+        <linearGradient
+          id="paint2_linear_924_1614"
+          x1="3110.08"
+          y1="-424.614"
+          x2="4787.52"
+          y2="1252.83"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#FEBE58" />
+          <stop offset="1" stop-color="#DE2BAE" />
+        </linearGradient>
+        <clipPath id="clip0_924_1614">
+          <rect width="4344" height="1024" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+
   return (
-    <SectionContainer height={isMobile ? "100vh" : "500vh"}>
-      <div className={styles.content}>
-        <div className={styles.scroll}>
-          {svg}
-          <DataBox title="test"></DataBox>
-          <DataBox title="test"></DataBox>
-          <DataBox title="test"></DataBox>
-          <DataBox title="test"></DataBox>
+    <SectionContainer height={isMobile ? "100%" : "500vh"}>
+      {isMobile ? (
+        <>
+          <ContentContainer>
+            <DataBox
+              title="GitHub"
+              content={[
+                { title: "394", description: "Created issues" },
+                { title: "268", description: "Closed issues" },
+                { title: "17", description: "Contributors" },
+              ]}
+              description="GitHub"
+            ></DataBox>
+            <div className={styles.mobileBackground}>{MobileBackground}</div>
+          </ContentContainer>
+        </>
+      ) : (
+        <div className={styles.content}>
+          <div className={styles.scroll}>
+            {svg}
+            <DataBox
+              title="GitHub"
+              content={[{ title: "394", description: "Created issues" }]}
+            ></DataBox>
+            <DataBox
+              title="GitHub"
+              content={[{ title: "268", description: "Closed issues" }]}
+            ></DataBox>
+            <DataBox
+              title="GitHub"
+              content={[{ title: "17", description: "Contributors" }]}
+            ></DataBox>
+          </div>
+          <div className={styles.desktopBackground}>{desktopBackground}</div>
         </div>
-      </div>
+      )}
     </SectionContainer>
   );
 };

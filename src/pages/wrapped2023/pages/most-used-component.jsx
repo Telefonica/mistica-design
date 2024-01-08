@@ -8,16 +8,18 @@ import {
   mostUsedComponentSubtitle,
   mostUsedComponentPretitle,
 } from "../data/texts";
+import ContentContainer from "../components/content-container";
 
 const MostUsedComponent = () => {
   const { isMobile } = useScreenSize();
   const { componentWithHighestCount } = Components();
 
   return (
-    <div className={styles.container}>
+    <ContentContainer margin="12.5vw 0">
       <Stack space={64}>
         <Stack space={0}>
           <SectionTitle
+            align="center"
             svg={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +68,7 @@ const MostUsedComponent = () => {
           </li>
         </ul>
       </Stack>
-    </div>
+    </ContentContainer>
   );
 };
 
