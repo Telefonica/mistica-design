@@ -10,6 +10,7 @@ const Section = ({
   children,
   forwardedRef,
   sticky,
+  isVisible = true,
 }) => {
   const sectionRef = useRef();
   const { isMobile } = useScreenSize();
@@ -41,7 +42,7 @@ const Section = ({
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
-  }, [onInView, sectionNumber]);
+  }, [onInView, sectionNumber, isMobile]);
 
   // Forward the ref to the div element
   React.useImperativeHandle(forwardedRef, () => ({
@@ -53,9 +54,11 @@ const Section = ({
       ref={sectionRef}
       className={`${
         isMobile ? styles.containerMobile : styles.containerDesktop
-      } ${sticky ? "sticky" : ""}`}
+      } ${sticky ? "sticky" : ""} ${isVisible ? "" : styles.hidden}`}
       data-color={color}
-      style={{ backgroundColor: color }}
+      style={{
+        backgroundColor: color,
+      }}
     >
       <MarginLayout>{children}</MarginLayout>
     </div>

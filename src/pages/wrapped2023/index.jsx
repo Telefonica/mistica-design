@@ -20,6 +20,7 @@ import Icons from "./pages/icons";
 import BrandFactory from "./pages/brand-factory";
 import GitHub from "./pages/github";
 import NewComponentsTitle from "./pages/new-components-title";
+import GitHubContributors from "./pages/github-contributors";
 
 const Wrapped2023 = () => {
   const [mostActiveAuthors, setMostActiveAuthors] = useState([]);
@@ -140,6 +141,9 @@ const Wrapped2023 = () => {
       </Section>
       <Section sticky>
         <GitHub />
+      </Section>
+      <Section isVisible={isMobile ? true : false}>
+        {isMobile && <GitHubContributors></GitHubContributors>}
       </Section>
       <Section>
         <Title2>Github</Title2>
