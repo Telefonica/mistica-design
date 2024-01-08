@@ -1,12 +1,7 @@
-.container {
-  height: 500vh;
-}
-
 .content {
   position: sticky;
   top: 0;
   height: 100vh;
-  border: 1px solid red;
   overflow: hidden;
 }
 
@@ -14,11 +9,10 @@
   position: absolute;
   top: 0;
   height: 100%;
-  width: 500vw;
+  width: 200vw;
   will-change: transform;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 8rem;
   gap: 4rem;
   z-index: 2;
@@ -30,6 +24,7 @@
   top: 0;
   width: calc(100% + 32px);
   margin: -96px -16px 0 -16px;
+  height: calc(100% + 96px);
 }
 
 .desktopBackground {
@@ -42,4 +37,13 @@
   position: absolute;
   left: 0;
   top: 0;
+}
+
+.contributors {
+  text-align: center;
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }

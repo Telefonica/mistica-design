@@ -1,7 +1,7 @@
 import { Text3, Inline, useScreenSize, Text, Stack } from "@telefonica/mistica";
 import styles from "./data-box.module.css";
 
-const DataBox = ({ title, content }) => {
+const DataBox = ({ title, content, align }) => {
   const { isMobile } = useScreenSize();
 
   const Flower = (
@@ -54,7 +54,7 @@ const DataBox = ({ title, content }) => {
   return (
     <div
       className={styles.container}
-      style={{ width: isMobile ? "100%" : "inherit" }}
+      style={{ width: isMobile ? "100%" : "inherit", alignSelf: align }}
     >
       <div className={styles.header}>
         <Inline fullWidth space="between" alignItems="center">
@@ -78,7 +78,7 @@ const DataBox = ({ title, content }) => {
             <ul>
               {content.map((item) => (
                 <li>
-                  <Inline alignItems="baseline" space={8}>
+                  <Inline alignItems="baseline" space={8} wrap>
                     <Text size={isMobile ? 56 : 140} weight="bold">
                       {item.title}
                     </Text>

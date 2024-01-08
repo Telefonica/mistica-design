@@ -9,3 +9,9 @@ export const mergedPRs = {
   iOS: { name: "iOS", count: 73 },
   android: { name: "Android", count: 95 },
 };
+
+export const contributors = [
+  { name: "annefranca", count: 29 },
+  { name: "BrunoBiagioniNeto", count: 10 },
+  { name: "MontseTelefonica", count: 9 },
+];

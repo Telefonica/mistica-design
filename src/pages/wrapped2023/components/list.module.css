@@ -1,0 +1,13 @@
+.listContainer {
+  display: inline-flex;
+  width: max-content;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.listItem {
+  border-bottom: 4px solid black;
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+}
