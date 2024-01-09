@@ -50,6 +50,9 @@ const GitHubContributors = () => {
           </Text>
         </div>
         <List content={contributors}></List>
+        {isMobile && (
+          <Text size={isMobile ? 18 : 32}>(Nº of GitHub discussions)</Text>
+        )}
       </div>
       <div className={styles.mobileBackground}>{MobileBackground}</div>
     </ContentContainer>

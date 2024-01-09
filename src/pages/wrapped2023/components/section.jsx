@@ -1,4 +1,4 @@
-import { useScreenSize } from "@telefonica/mistica";
+import { useScreenSize, skinVars } from "@telefonica/mistica";
 import styles from "./section.module.css";
 import React, { useEffect, useRef } from "react";
 import MarginLayout from "./margin-layout";
@@ -6,7 +6,7 @@ import MarginLayout from "./margin-layout";
 const Section = ({
   sectionNumber,
   onInView,
-  color,
+  color = skinVars.colors.background,
   children,
   forwardedRef,
   sticky,

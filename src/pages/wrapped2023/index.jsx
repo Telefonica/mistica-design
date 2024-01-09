@@ -5,7 +5,13 @@ import { medianBFSessions } from "./data/brandFactoryData";
 import { releases, mergedPRs } from "./data/devData";
 import { formatCount } from "./utils";
 
-import { Title2, Title1, Title3, useScreenSize } from "@telefonica/mistica";
+import {
+  Title2,
+  Title1,
+  Title3,
+  useScreenSize,
+  ThemeContext,
+} from "@telefonica/mistica";
 
 import { Section, Wrapper } from "./components/components";
 import Intro from "./pages/intro";
@@ -21,6 +27,7 @@ import BrandFactory from "./pages/brand-factory";
 import GitHub from "./pages/github";
 import NewComponentsTitle from "./pages/new-components-title";
 import GitHubContributors from "./pages/github-contributors";
+import MostUsedComponentStats from "./pages/most-used-component-stats";
 
 const Wrapped2023 = () => {
   const [mostActiveAuthors, setMostActiveAuthors] = useState([]);
@@ -131,6 +138,9 @@ const Wrapped2023 = () => {
         <MostUsedComponent></MostUsedComponent>
       </Section>
       <Section>
+        <MostUsedComponentStats />
+      </Section>
+      <Section>
         <OtherUsedComponents></OtherUsedComponents>
       </Section>
       <Section>
@@ -144,50 +154,6 @@ const Wrapped2023 = () => {
       </Section>
       <Section isVisible={isMobile ? true : false}>
         {isMobile && <GitHubContributors></GitHubContributors>}
-      </Section>
-      <Section>
-        <Title2>Github</Title2>
-
-        <Title1>Releases</Title1>
-        <ul>
-          {Object.keys(releases).map((release) => (
-            <li key={release}>
-              {releases[release].name} {releases[release].count} releases
-            </li>
-          ))}
-        </ul>
-
-        <Title1>Merged PRs</Title1>
-
-        <ul>
-          {Object.keys(mergedPRs).map((pr) => (
-            <li key={pr}>
-              {mergedPRs[pr].name}: {mergedPRs[pr].count}
-            </li>
-          ))}
-        </ul>
-      </Section>
-      <Section>
-        <Title1>Issues</Title1>
-
-        <p>Created issues: {createdIssuesCount}</p>
-        <p>Closed issues: {closedIssuesCount}</p>
-        <p>Remaining open issues:{openedIssuesCount}</p>
-
-        <Title1>Discussions</Title1>
-
-        <Title1>Closed discusssions last year</Title1>
-        <p>{closedDiscussions.length}</p>
-
-        <Title1>Most active users</Title1>
-        <ul>
-          {mostActiveAuthors.map((author) => (
-            <li key={author.authorLogin}>
-              {author.authorLogin} {author.discussionsCount}{" "}
-              {author.discussionsCount > 1 ? "discussions" : "discussion"}
-            </li>
-          ))}
-        </ul>
       </Section>
     </Wrapper>
   );

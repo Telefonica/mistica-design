@@ -8,7 +8,6 @@ import {
   ResponsiveLayout,
   ThemeVariant,
   Text2,
-  Text,
   ButtonSecondary,
   IconShareFilled,
   TextLink,
@@ -16,12 +15,6 @@ import {
   Inline,
   Stack,
 } from "@telefonica/mistica";
-import {
-  FigureLeftBottom,
-  FigureLeftTop,
-  FigureRightBottom,
-  FigureRightTop,
-} from "../components/svg-figures";
 
 const Wrapper = ({ children }) => {
   const { isMobile } = useScreenSize();
@@ -40,7 +33,10 @@ const Wrapper = ({ children }) => {
   const totalSections = React.Children.count(children);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ background: skinVars.colors.background }}
+    >
       {isMobile ? (
         <div className={styles.progress}>
           <ResponsiveLayout>

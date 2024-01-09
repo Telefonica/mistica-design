@@ -21,13 +21,13 @@ const SectionTitle = ({
     >
       <Text size={isMobile ? 18 : isSmall ? 24 : 32}>{pretitle}</Text>
       <Text
-        size={isMobile ? (isSmall ? 48 : 64) : isSmall ? 80 : 120}
+        size={isMobile ? (isSmall ? 56 : 64) : isSmall ? 80 : 120}
         weight="bold"
       >
         {title}
       </Text>
       {svg}
-      <Text size={isMobile ? 48 : isSmall ? 80 : 120} weight="bold">
+      <Text size={isMobile ? 56 : isSmall ? 80 : 120} weight="bold">
         {title2}
       </Text>
       <Text size={isMobile ? 18 : isSmall ? 24 : 32}>{subtitle}</Text>

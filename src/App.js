@@ -67,6 +67,7 @@ const App = () => {
           skin: getTelefonicaSkin(),
           i18n: { locale: "es-ES", phoneNumberFormattingRegionCode: "ES" },
           colorScheme: theme,
+          isDarkMode: theme === "dark" ? true : false,
         }}
       >
         <div style={{ background: skinVars.colors.background }}>

@@ -15,19 +15,19 @@
   display: grid;
   flex-direction: column;
   gap: 16px;
-  width: 50%;
+  width: 100%;
 }
 
 .list li {
-  border-bottom: 8px solid black;
+  border-bottom: 4px solid black;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   justify-content: space-between;
 }
 
 .listContent {
   display: flex;
   align-items: baseline;
-  gap: 16px;
+  gap: 8px;
 }
