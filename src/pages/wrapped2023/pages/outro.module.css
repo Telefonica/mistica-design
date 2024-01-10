@@ -26,3 +26,21 @@
     transform: translateY(-10px);
   }
 }
+
+.explosion {
+  position: absolute;
+  animation: explosionAnimation 1s forwards; /* Add forwards to keep the final state */
+}
+
+@keyframes explosionAnimation {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+
+.explosionContent {
+  z-index: 1;
+}

@@ -80,16 +80,44 @@ const Outro = () => {
     </svg>
   );
 
+  const explosion = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1535"
+      height="1535"
+      viewBox="0 0 1535 1535"
+      fill="none"
+    >
+      <circle cx="764.172" cy="767.048" r="156" fill="#FABADA" />
+      <circle
+        cx="767.172"
+        cy="767.048"
+        r="410.5"
+        stroke="#FABADA"
+        stroke-width="141"
+      />
+      <circle
+        cx="767.172"
+        cy="767.048"
+        r="696.5"
+        stroke="#FABADA"
+        stroke-width="141"
+      />
+    </svg>
+  );
+
   const [clickCount, setClickCount] = useState(0);
   const [animate, setAnimate] = useState(false);
+  const [showExplosion, setShowExplosion] = useState(false);
 
   const handleClick = () => {
     const newClickCount = clickCount + 1;
     setClickCount(newClickCount);
 
-    if (newClickCount === 10) {
+    if (newClickCount >= 10) {
       // Navigate to another screen when click count reaches 10
       console.log("Navigate to another screen");
+      setShowExplosion(true);
     }
 
     setAnimate(true);
@@ -98,28 +126,39 @@ const Outro = () => {
 
   return (
     <ContentContainer>
-      <Text size={isMobile ? 24 : 32} weight="bold">
-        One more thing...
-      </Text>
-
-      <Inline space={8}>
-        <Text>Click me!</Text>
-        <Text>{clickCount} / 10</Text>
-      </Inline>
-
-      <div className={styles.svgContainer}>
-        {wall}
-        <div
-          className={`${styles.bounceContainer} ${
-            animate ? styles.bounceAnimation : ""
-          }`}
-        >
-          <Touchable onPress={handleClick} as="button">
-            {button}
-          </Touchable>
-        </div>
-        {wall}
-      </div>
+      {showExplosion ? (
+        <>
+          <div className={styles.explosionContent}>
+            <Text size={isMobile ? 24 : 80} weight="bold">
+              BOOOOOOOOOOM....
+            </Text>
+          </div>
+          <div className={styles.explosion}>{explosion}</div>
+        </>
+      ) : (
+        <>
+          <Text size={isMobile ? 24 : 32} weight="bold">
+            One more thing...
+          </Text>
+          <Inline space={8}>
+            <Text>Click me!</Text>
+            <Text>{clickCount} / 10</Text>
+          </Inline>
+          <div className={styles.svgContainer}>
+            {wall}
+            <div
+              className={`${styles.bounceContainer} ${
+                animate ? styles.bounceAnimation : ""
+              }`}
+            >
+              <Touchable onPress={handleClick} as="button">
+                {button}
+              </Touchable>
+            </div>
+            {wall}
+          </div>
+        </>
+      )}
     </ContentContainer>
   );
 };
