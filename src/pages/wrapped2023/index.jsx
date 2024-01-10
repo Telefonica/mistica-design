@@ -28,6 +28,7 @@ import GitHub from "./pages/github";
 import NewComponentsTitle from "./pages/new-components-title";
 import GitHubContributors from "./pages/github-contributors";
 import MostUsedComponentStats from "./pages/most-used-component-stats";
+import Outro from "./pages/outro";
 
 const Wrapped2023 = () => {
   const [mostActiveAuthors, setMostActiveAuthors] = useState([]);
@@ -154,6 +155,9 @@ const Wrapped2023 = () => {
       </Section>
       <Section isVisible={isMobile ? true : false}>
         {isMobile && <GitHubContributors></GitHubContributors>}
+      </Section>
+      <Section>
+        <Outro></Outro>
       </Section>
     </Wrapper>
   );

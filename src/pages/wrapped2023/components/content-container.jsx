@@ -14,6 +14,7 @@ const ContentContainer = ({
         justifyContent: justify,
         margin: isMobile ? 0 : margin,
         overflowY: isMobile ? "inherit" : overflowY,
+        gap: isMobile ? "1rem" : "2rem",
       }}
       className={`${
         isMobile ? styles.containerMobile : styles.containerDesktop

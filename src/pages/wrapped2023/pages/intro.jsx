@@ -8,12 +8,15 @@ import ContentContainer from "../components/content-container";
 const Intro = () => {
   const { isMobile } = useScreenSize();
   return (
-    <ContentContainer justify={isMobile ? "space-around" : "space-evenly"}>
+    <ContentContainer>
       <SectionTitle isSmall align="center" svg={<ColorStar />} />
-
-      <Text textAlign="center" size={isMobile ? 18 : 32}>
-        {IntroText}
-      </Text>
+      <div
+        style={{ maxWidth: isMobile ? "24ch" : "inherit", textAlign: "center" }}
+      >
+        <Text textAlign="center" size={isMobile ? 18 : 32}>
+          {IntroText}
+        </Text>
+      </div>
     </ContentContainer>
   );
 };
