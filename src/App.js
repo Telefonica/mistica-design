@@ -13,6 +13,7 @@ import { createContext } from "react";
 import SkinGenerator from "./pages/skinGenerator";
 import PaletteGenerator from "./pages/paletteGenerator";
 import Wrapped2023 from "./pages/wrapped2023/index";
+import WrappedFinale from "./pages/wrapped2023/finale";
 
 export const SchemeContext = createContext();
 
@@ -57,6 +58,10 @@ const App = () => {
     {
       path: `/wrapped-2023`,
       element: <Wrapped2023 />,
+    },
+    {
+      path: `/wrapped-2023/finale`,
+      element: <WrappedFinale />,
     },
   ]);
   const [theme, setTheme] = useState("light");

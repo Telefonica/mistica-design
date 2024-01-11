@@ -40,7 +40,21 @@
   width: calc(100vw + 800px);
   display: flex;
   align-items: flex-end;
+  overflow: hidden;
   position: absolute;
   top: 0;
+  left: -800px;
   align-items: center;
+}
+
+.containerMobile {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100%;
+  scroll-snap-align: start;
+  overflow: hidden;
+  position: relative;
+  padding-top: 96px;
+  height: 100%;
 }

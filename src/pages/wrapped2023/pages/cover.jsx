@@ -42,32 +42,41 @@ const Cover = () => {
           </TextLayout>
         </ThemeVariant>
       </div>
-      <ColorBand
-        color="#59C2C9"
-        rotate="60"
-        origin="50%"
-        text="#wrapped’23"
-        index={50}
-      ></ColorBand>
-      <ColorBand
-        color="#EAC344"
-        rotate="60"
-        origin="60%"
-        text="#wrapped’23"
-      ></ColorBand>
-      <ColorBand
-        color="#E66C64"
-        rotate="-35"
-        origin="45%"
-        text="#wrapped’23"
-      ></ColorBand>
-      <ColorBand
-        color="#C466EF"
-        rotate="-60"
-        origin="65%"
-        text="#wrapped’23"
-        index={60}
-      ></ColorBand>
+      <div
+        className={styles.bandContainer}
+        style={{ left: isMobile ? -1900 : -800 }}
+      >
+        <ColorBand
+          color="#59C2C9"
+          rotate="60"
+          origin="50%"
+          text="#wrapped’23"
+          index={50}
+          top={240}
+        ></ColorBand>
+        <ColorBand
+          color="#EAC344"
+          rotate="60"
+          origin="60%"
+          text="#wrapped’23"
+          top={400}
+        ></ColorBand>
+        <ColorBand
+          color="#E66C64"
+          rotate="-35"
+          origin="45%"
+          text="#wrapped’23"
+          top={720}
+        ></ColorBand>
+        <ColorBand
+          color="#C466EF"
+          rotate="310"
+          origin="80%"
+          text="#wrapped’23"
+          index={60}
+          top={240}
+        ></ColorBand>
+      </div>
     </div>
   );
 };

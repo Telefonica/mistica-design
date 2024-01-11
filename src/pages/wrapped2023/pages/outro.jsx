@@ -2,9 +2,11 @@ import ContentContainer from "../components/content-container";
 import { Touchable, Text, useScreenSize, Inline } from "@telefonica/mistica";
 import styles from "./outro.module.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Outro = () => {
   const { isMobile } = useScreenSize();
+  const navigate = useNavigate();
 
   const button = (
     <svg
@@ -116,7 +118,7 @@ const Outro = () => {
 
     if (newClickCount >= 10) {
       // Navigate to another screen when click count reaches 10
-      console.log("Navigate to another screen");
+      setTimeout(() => navigate("/wrapped-2023/finale"), 800);
       setShowExplosion(true);
     }
 
