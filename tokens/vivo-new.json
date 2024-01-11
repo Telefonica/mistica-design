@@ -66,9 +66,9 @@
       "description": "grey6"
     },
     "backgroundSkeleton": {
-      "value": "{palette.grey2}",
+      "value": "{palette.grey4}",
       "type": "color",
-      "description": "grey2"
+      "description": "grey4"
     },
     "backgroundSkeletonInverse": {
       "value": "{palette.vivoPurpleDark}",
@@ -286,9 +286,9 @@
       "description": "vivoPurpleLight20"
     },
     "control": {
-      "value": "{palette.grey3}",
+      "value": "{palette.grey4}",
       "type": "color",
-      "description": "grey3"
+      "description": "grey4"
     },
     "controlActivated": {
       "value": "{palette.vivoPurple}",
@@ -309,6 +309,11 @@
       "value": "{palette.pepper}",
       "type": "color",
       "description": "pepper"
+    },
+    "barTrack": {
+      "value": "{palette.grey3}",
+      "type": "color",
+      "description": "grey3"
     },
     "loadingBar": {
       "value": "{palette.vivoPurple}",
@@ -336,9 +341,9 @@
       "description": "white"
     },
     "divider": {
-      "value": "{palette.grey2}",
+      "value": "{palette.grey3}",
       "type": "color",
-      "description": "grey2"
+      "description": "grey3"
     },
     "dividerInverse": {
       "value": "rgba({palette.white}, 0.2)",
@@ -546,9 +551,9 @@
       "description": "vivoPurple"
     },
     "customTabsBackground": {
-      "value": "{palette.vivoPurple}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "vivoPurple"
+      "description": "white"
     }
   },
   "dark": {
@@ -861,6 +866,11 @@
       "value": "{palette.pepper}",
       "type": "color",
       "description": "pepper"
+    },
+    "barTrack": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
     },
     "loadingBar": {
       "value": "{palette.vivoPurpleLight80}",
@@ -1356,7 +1366,7 @@
         "type": "color"
       },
       "grey4": {
-        "value": "#999999",
+        "value": "#949494",
         "type": "color"
       },
       "grey5": {
