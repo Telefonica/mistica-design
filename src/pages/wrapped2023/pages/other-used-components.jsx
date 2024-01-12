@@ -13,7 +13,7 @@ const OtherUsedComponents = () => {
     <svg
       style={{
         rotate: isMobile ? "90deg" : "0deg",
-        marginBottom: isMobile ? 0 : -102,
+        marginBottom: isMobile ? 0 : -71,
         maxWidth: isMobile ? "396" : "396",
       }}
       xmlns="http://www.w3.org/2000/svg"
@@ -182,7 +182,7 @@ const OtherUsedComponents = () => {
           <GoldenGraph items={restOfMostUsedComponents} />
         </>
       ) : (
-        <Inline space={64}>
+        <Inline space={64} alignItems="flex-end">
           {svg}
           <div className={styles.graphContainer}>
             <GoldenGraph items={restOfMostUsedComponents} />

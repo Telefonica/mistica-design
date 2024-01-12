@@ -105,7 +105,11 @@ const Icons = () => {
 
   const backgroundIcons = (size = 100) => {
     return iconsData.map(({ IconComponent, name }, index) => (
-      <IconComponent key={index} size={size} color={getRandomColor()} />
+      <IconComponent
+        key={index}
+        size={size}
+        color={index % 2 === 1 ? "#0066FF" : "#FF0000"}
+      />
     ));
   };
 
@@ -119,9 +123,10 @@ const Icons = () => {
         </Grid>
       </div>
       <Stack space={64}>
-        <SectionTitle align="center" pretitle="Most used Figma" svg={svg} />
+        <SectionTitle align="center" svg={svg} />
+        {/*
         <ul>
-          <Grid columns={3} gap={16}>
+          <Grid columns={3} gap={24}>
             {Object.keys(IconData).map((key, index) => {
               const icon = IconData[key];
               return (
@@ -133,12 +138,12 @@ const Icons = () => {
                       {icon.name}
                       {formatCount(icon.count)}
                     </Stack>
-                  </li>
+                  </li> 
                 </GridItem>
               );
             })}
           </Grid>
-        </ul>
+        </ul>*/}
       </Stack>
     </ContentContainer>
   );

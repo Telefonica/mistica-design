@@ -5,6 +5,7 @@ import {
   Stack,
   Text,
   useScreenSize,
+  useWindowSize,
   ThemeVariant,
   Inline,
   Box,
@@ -13,6 +14,7 @@ import { cover } from "../data/texts";
 
 const Cover = () => {
   const { isMobile } = useScreenSize();
+  const { width } = useWindowSize();
 
   const TextLayout = ({ children }) => {
     return isMobile ? (
@@ -22,9 +24,18 @@ const Cover = () => {
         </Stack>
       </div>
     ) : (
-      <Inline space="between" className={styles.textContainerDesktop}>
-        {children}
-      </Inline>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+          height: "100%",
+        }}
+      >
+        <Stack space={48} className={styles.textContainer}>
+          {children}
+        </Stack>
+      </div>
     );
   };
 
@@ -34,22 +45,34 @@ const Cover = () => {
         <ThemeVariant isInverse>
           <TextLayout>
             <div className={styles.coverText}>
-              <Text size={isMobile ? 32 : 64} weight="bold">
-                {cover}
-              </Text>
+              {isMobile && (
+                <Text size={isMobile ? 32 : 64} weight="bold">
+                  {cover}
+                </Text>
+              )}
             </div>
+
+            {!isMobile && (
+              <div className={styles.coverText}>
+                <Text size={isMobile ? 32 : 35} weight="bold">
+                  {cover}
+                </Text>
+              </div>
+            )}
             <YearSvg></YearSvg>
           </TextLayout>
         </ThemeVariant>
       </div>
       <div
         className={styles.bandContainer}
-        style={{ left: isMobile ? -1900 : -800 }}
+        style={{
+          left: isMobile ? -1460 : (1 / width) * -1000000 - 150,
+        }}
       >
         <ColorBand
           color="#59C2C9"
           rotate="60"
-          origin="50%"
+          origin="45%"
           text="#wrapped’23"
           index={50}
           top={240}

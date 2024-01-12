@@ -3,6 +3,7 @@ import { Touchable, Text, useScreenSize, Inline } from "@telefonica/mistica";
 import styles from "./outro.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import confetti from "canvas-confetti";
 
 const Outro = () => {
   const { isMobile } = useScreenSize();
@@ -116,7 +117,16 @@ const Outro = () => {
     const newClickCount = clickCount + 1;
     setClickCount(newClickCount);
 
-    if (newClickCount >= 10) {
+    if (newClickCount < 5) {
+      confetti({
+        particleCount: 150,
+        spread: 60,
+        shapes: ["circle", "star"],
+        colors: ["#E66C64", "#EAC344", "#0066FF"],
+      });
+    }
+
+    if (newClickCount >= 5) {
       // Navigate to another screen when click count reaches 10
       setTimeout(() => navigate("/wrapped-2023/finale"), 800);
       setShowExplosion(true);
@@ -144,7 +154,7 @@ const Outro = () => {
           </Text>
           <Inline space={8}>
             <Text>Click me!</Text>
-            <Text>{clickCount} / 10</Text>
+            <Text>{clickCount} / 5</Text>
           </Inline>
           <div className={styles.svgContainer}>
             {wall}

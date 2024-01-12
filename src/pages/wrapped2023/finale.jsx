@@ -70,8 +70,12 @@ const WrappedFinale = () => {
             <TextLayout>
               <Stack space={24}>
                 <div className={styles.coverText}>
-                  <Text size={isMobile ? 32 : 64} weight="bold">
-                    Has been fun but 2024 will Rock!
+                  <Text
+                    size={isMobile ? 32 : 110}
+                    lineHeight={120}
+                    weight="bold"
+                  >
+                    Has been fun but 2024 will rock!
                   </Text>
                 </div>
                 <Text size={isMobile ? 18 : 24} weight="bold">

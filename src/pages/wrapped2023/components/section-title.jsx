@@ -27,11 +27,16 @@ const SectionTitle = ({
         {title}
       </Text>
       {svg}
-      <Text size={isMobile ? 56 : isSmall ? 80 : 120} weight="bold">
-        {title2}
-      </Text>
-
-      <Text size={isMobile ? 18 : isSmall ? 24 : 32}>{subtitle}</Text>
+      {title2 && (
+        <Text size={isMobile ? 56 : isSmall ? 80 : 120} weight="bold">
+          {title2}
+        </Text>
+      )}
+      {subtitle && (
+        <div style={{ marginTop: 8 }}>
+          <Text size={isMobile ? 18 : isSmall ? 24 : 32}>{subtitle}</Text>
+        </div>
+      )}
     </Stack>
   );
 };

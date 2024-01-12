@@ -40,7 +40,7 @@ const Members = () => {
       >
         <Stack space={16}>
           <Ovni></Ovni>
-          <Text3>welcome to the team!</Text3>
+          <Text size={isMobile ? 18 : 32}>welcome to the team!</Text>
         </Stack>
       </div>
     </ContentContainer>

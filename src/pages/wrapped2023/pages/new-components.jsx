@@ -38,9 +38,10 @@ const NewComponents = () => {
                     borderBottom: `${
                       isMobile ? "3px" : "6px"
                     } solid ${generateRandomColor()}`,
+                    paddingBottom: isMobile ? 4 : 8,
                   }}
                 >
-                  <Text size={isMobile ? 14 : 24} weight="bold">
+                  <Text size={isMobile ? 18 : 24} weight="bold">
                     {index + 1}. {component.name}
                   </Text>
                 </li>

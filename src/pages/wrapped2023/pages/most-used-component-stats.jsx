@@ -18,7 +18,7 @@ const MostUsedComponentStats = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={isMobile ? "64" : "150"}
-      height="auto"
+      height={isMobile ? "64" : "150"}
       viewBox="0 0 64 49"
       fill="none"
     >
@@ -93,7 +93,7 @@ const MostUsedComponentStats = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={isMobile ? "32" : "64"}
-      height="auto"
+      height={isMobile ? "32" : "64"}
       viewBox="0 0 32 25"
       fill="none"
     >
@@ -125,7 +125,7 @@ const MostUsedComponentStats = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={isMobile ? "48" : "88"}
-      height="auto"
+      height={isMobile ? "48" : "71"}
       viewBox="0 0 48 39"
       fill="none"
     >
@@ -185,7 +185,10 @@ const MostUsedComponentStats = () => {
 
   return (
     <ContentContainer justify="center">
-      <ul className={styles.list} style={{ width: isMobile ? "100%" : "50%" }}>
+      <ul
+        className={styles.list}
+        style={{ width: isMobile ? "100%" : "800px" }}
+      >
         <ListItem trailingIcon={flag}>
           <Text size={dataSize} weight="bold">
             {formatCount(componentWithHighestCount.count)}

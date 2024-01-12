@@ -6,8 +6,8 @@ export const Circle = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={isMobile ? "100%" : "600"}
-      height={isMobile ? "100%" : "600"}
+      width={isMobile ? "100%" : "480"}
+      height={isMobile ? "100%" : "480"}
       viewBox="0 0 461 461"
       fill="none"
       className={styles.position}

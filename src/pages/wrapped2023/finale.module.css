@@ -2,9 +2,10 @@
   position: relative;
   z-index: 9999;
   height: calc(100vh - (168px * 2));
-  width: calc(100vw - 128px);
+  max-width: 1440px;
+  width: 100%;
   text-align: left;
-  margin: 168px 64px;
+  margin: 168px auto;
   display: flex;
   align-items: center;
 }
@@ -29,10 +30,11 @@
 
 .textContainerDesktop {
   width: 100%;
+  padding: 0 32px;
 }
 
 .coverText {
-  max-width: 64ch;
+  max-width: 80ch;
 }
 
 .bandContainer {

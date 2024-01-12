@@ -15,8 +15,8 @@ import {
 const mostUsedFigmaComponents = [
   { name: "Row", count: 483546, usedBy: 108, lastCount: 365764 },
   { name: "Tag", count: 163618, usedBy: 141 },
-  { name: "Slot", count: 119937, usedBy: 105 },
   { name: "Boxed row", count: 118908, usedBy: 96, lastCount: 139371 },
+  { name: "Title 1", count: 117702, usedBy: 96, lastCount: 139371 },
 ];
 
 export const Components = () => {
@@ -92,6 +92,8 @@ export const newComponents = [
   { name: "Stacking group", figmaRelease: "9.0.0", webRelease: "14.11.0" },
   { name: "Grid", figmaRelease: "9.0.0", webRelease: "14.11.0" },
   { name: "Hero", figmaRelease: "8.0.0", webRelease: "13.3.0" },
+  { name: "Mosaic", figmaRelease: "12.0.0", webRelease: "13.3.0" },
+  { name: "Loading Screen", figmaRelease: "12.0.0", webRelease: "13.3.0" },
 ];
 
 export const topTeams = {
@@ -126,7 +128,6 @@ export const teams = [
   "Mi Movistar",
   "Telefónica - TEFD (DC)",
   "CDP",
-  "Design Core",
   "Telefónica - NT",
   "Content Design",
   "Smart WiFi - APP - Movistar/Vivo",
@@ -149,7 +150,6 @@ export const teams = [
   "EC - App Mi Movistar",
   "Equinox xFactor",
   "Aura",
-  "Mística Design System",
   "Seniors",
   "B2P",
   "Telefónica - TCCT",
