@@ -97,7 +97,7 @@ const GitHub = () => {
       height="100%"
       viewBox="0 0 4344 1024"
       fill="none"
-      style={{ overflow: "inherit", paddingBottom: 100 }}
+      style={{ overflow: "inherit", paddingBottom: 320 }}
     >
       <rect width="auto" height="100%" fill="transparent" />
       <g>
