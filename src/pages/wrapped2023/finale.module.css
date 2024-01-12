@@ -42,11 +42,19 @@
   width: calc(100vw + 800px);
   display: flex;
   align-items: flex-end;
-  overflow: hidden;
   position: absolute;
   top: 0;
   left: -800px;
   align-items: center;
+}
+
+.barContainerMobile {
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  top: 0;
+  height: 100vh;
+  margin: 0 -16px;
 }
 
 .containerMobile {

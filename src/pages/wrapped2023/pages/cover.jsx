@@ -32,7 +32,7 @@ const Cover = () => {
           height: "100%",
         }}
       >
-        <Stack space={48} className={styles.textContainer}>
+        <Stack space={48} className={styles.textContainerDesktop}>
           {children}
         </Stack>
       </div>
@@ -54,7 +54,7 @@ const Cover = () => {
 
             {!isMobile && (
               <div className={styles.coverText}>
-                <Text size={isMobile ? 32 : 35} weight="bold">
+                <Text size={32} weight="bold">
                   {cover}
                 </Text>
               </div>
@@ -66,36 +66,27 @@ const Cover = () => {
       <div
         className={styles.bandContainer}
         style={{
-          left: isMobile ? -1460 : (1 / width) * -1000000 - 150,
+          left: isMobile ? -561 : (1 / width) * -1000000 - 150,
         }}
       >
         <ColorBand
-          color="#59C2C9"
+          color="green"
           rotate="60"
-          origin="45%"
-          text="#wrapped’23"
+          origin="22%"
           index={50}
           top={240}
         ></ColorBand>
         <ColorBand
-          color="#EAC344"
+          color="yellow"
           rotate="60"
-          origin="60%"
-          text="#wrapped’23"
-          top={400}
+          origin="36%"
+          top={850}
         ></ColorBand>
+        <ColorBand color="red" rotate="-35" origin="25%" top={460}></ColorBand>
         <ColorBand
-          color="#E66C64"
-          rotate="-35"
-          origin="45%"
-          text="#wrapped’23"
-          top={720}
-        ></ColorBand>
-        <ColorBand
-          color="#C466EF"
+          color="purple"
           rotate="310"
-          origin="80%"
-          text="#wrapped’23"
+          origin="42%"
           index={60}
           top={240}
         ></ColorBand>
