@@ -128,7 +128,7 @@ const Wrapped2023 = () => {
         <MembersCount></MembersCount>
       </Section>
 
-      <Section color="transparent">
+      <Section>
         <NewComponentsTitle></NewComponentsTitle>
       </Section>
       <Section>
@@ -153,10 +153,10 @@ const Wrapped2023 = () => {
       <Section sticky>
         <GitHub />
       </Section>
-      <Section color="transparent" isVisible={isMobile ? true : false}>
+      <Section isVisible={isMobile ? true : false}>
         {isMobile && <GitHubContributors></GitHubContributors>}
       </Section>
-      <Section color="transparent">
+      <Section>
         <Outro></Outro>
       </Section>
     </Wrapper>
