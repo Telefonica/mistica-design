@@ -93,10 +93,11 @@ const GitHub = () => {
   const desktopBackground = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="500vw"
+      width="250vw"
       height="100%"
       viewBox="0 0 4344 1024"
       fill="none"
+      style={{ overflow: "inherit", paddingBottom: 100 }}
     >
       <rect width="auto" height="100%" fill="transparent" />
       <g>

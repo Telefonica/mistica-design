@@ -5,7 +5,7 @@ const ContentContainer = ({
   children,
   justify = "center",
   margin,
-  overflowY = "hidden",
+  // overflowY = "hidden",
 }) => {
   const { isMobile } = useScreenSize();
   return (
@@ -13,7 +13,7 @@ const ContentContainer = ({
       style={{
         justifyContent: justify,
         margin: isMobile ? 0 : margin,
-        overflowY: isMobile ? "inherit" : overflowY,
+        overflowY: isMobile ? "inherit" : "inherit",
         gap: isMobile ? "1rem" : "2rem",
       }}
       className={`${
