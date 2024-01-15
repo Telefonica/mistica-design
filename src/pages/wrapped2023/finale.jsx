@@ -105,6 +105,11 @@ const WrappedFinale = () => {
                     GitHub
                   </TextLink>
                 </div>
+                <div style={{ marginTop: 48 }}>
+                  <ButtonSecondary to={"/wrapped-2023"}>
+                    Restart Wrapped
+                  </ButtonSecondary>
+                </div>
               </div>
               <div style={{ alignSelf: "flex-end" }}>
                 <YearSvg inverse={false} withStars></YearSvg>
