@@ -8,6 +8,7 @@ import {
   IconKebabMenuLight,
   IconMenuRegular,
   IconMobileDeviceRegular,
+  skinVars,
 } from "@telefonica/mistica";
 
 ///Components /////////////////////////////////
@@ -54,16 +55,25 @@ export const Components = () => {
 ///Icons /////////////////////////////////
 
 export const Icons = [
-  { name: "Close regular", count: 33508, icon: <IconCloseRegular /> },
+  {
+    name: "Close regular",
+    count: 33508,
+    icon: <IconCloseRegular color={skinVars.colors.brand} size={100} />,
+  },
   {
     name: "Chevron down regular",
     count: 26767,
-    icon: <IconChevronDownRegular />,
+    icon: (
+      <IconChevronDownRegular
+        color={skinVars.colors.textLinkDanger}
+        size={100}
+      />
+    ),
   },
   {
     name: "Arrow dropdown filled",
     count: 21499,
-    icon: <IconArrowDropDownFilled />,
+    icon: <IconArrowDropDownFilled color={skinVars.colors.brand} size={100} />,
   },
 
   /*

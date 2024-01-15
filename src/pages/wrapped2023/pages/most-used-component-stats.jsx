@@ -180,7 +180,7 @@ const MostUsedComponentStats = () => {
     </li>
   );
 
-  const dataSize = isMobile ? 56 : 140;
+  const dataSize = isMobile ? 48 : 140;
   const descriptionSize = isMobile ? 18 : 32;
 
   return (

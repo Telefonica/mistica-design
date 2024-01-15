@@ -1,31 +1,9 @@
 import { Icons as IconData } from "../data/figmaData";
-import styles from "./icons.module.css";
+import styles from "./icons-stats.module.css";
 import {
   Grid,
   GridItem,
-  IconAcademicRegular,
-  IconAntennaRegular,
-  IconBandAidRegular,
-  IconBeachUmbrellaRegular,
-  IconBoatRegular,
-  IconBriefcaseBusinessRegular,
-  IconBugRegular,
-  IconBusRegular,
-  IconCarRegular,
-  IconChemistryRegular,
-  IconChildRegular,
-  IconConferenceRegular,
-  IconConnectionsRegular,
-  IconCreditCardRegular,
-  IconDiamondRegular,
-  IconDrinkRegular,
-  IconEcoRegular,
-  IconFileErrorRegular,
-  IconFireRegular,
-  IconFlowerRegular,
-  IconFragranceRegular,
-  IconGiftRegular,
-  Inline,
+  Text,
   Stack,
   useScreenSize,
 } from "@telefonica/mistica";
@@ -33,7 +11,7 @@ import { formatCount } from "../utils";
 import SectionTitle from "../components/section-title";
 import ContentContainer from "../components/content-container";
 
-const Icons = () => {
+const IconsStats = () => {
   const { isMobile } = useScreenSize();
 
   const svg = (
@@ -71,84 +49,51 @@ const Icons = () => {
     </svg>
   );
 
-  const iconColors = ["#0066FF", "#FF0000"];
-
-  const getRandomColor = () => {
-    const randomIndex = Math.floor(Math.random() * iconColors.length);
-    return iconColors[randomIndex];
-  };
-
-  const iconsData = [
-    { IconComponent: IconBriefcaseBusinessRegular, name: "BriefcaseBusiness" },
-    { IconComponent: IconBugRegular, name: "Bug" },
-    { IconComponent: IconBusRegular, name: "Bus" },
-    { IconComponent: IconChemistryRegular, name: "Chemistry" },
-    { IconComponent: IconCarRegular, name: "Car" },
-    { IconComponent: IconChildRegular, name: "Child" },
-    { IconComponent: IconAcademicRegular, name: "Academic" },
-    { IconComponent: IconAntennaRegular, name: "Antenna" },
-    { IconComponent: IconBandAidRegular, name: "BandAid" },
-    { IconComponent: IconBeachUmbrellaRegular, name: "BeachUmbrella" },
-    { IconComponent: IconBoatRegular, name: "Boat" },
-    { IconComponent: IconFileErrorRegular, name: "FileError" },
-    { IconComponent: IconFireRegular, name: "Fire" },
-    { IconComponent: IconFlowerRegular, name: "Flower" },
-    { IconComponent: IconFragranceRegular, name: "Fragance" },
-    { IconComponent: IconGiftRegular, name: "Gift" },
-    { IconComponent: IconConferenceRegular, name: "Conference" },
-    { IconComponent: IconCreditCardRegular, name: "CreditCard" },
-    { IconComponent: IconConnectionsRegular, name: "Connections" },
-    { IconComponent: IconDiamondRegular, name: "Diamond" },
-    { IconComponent: IconDrinkRegular, name: "Drink" },
-    { IconComponent: IconEcoRegular, name: "Eco" },
-    { IconComponent: IconFlowerRegular, name: "Flower" },
-    { IconComponent: IconAntennaRegular, name: "Antenna" },
-  ];
-
-  const backgroundIcons = (size = 100) => {
-    return iconsData.map(({ IconComponent, name }, index) => (
-      <IconComponent
-        key={index}
-        size={size}
-        color={index % 2 === 1 ? "#0066FF" : "#FF0000"}
-      />
-    ));
-  };
-
   return (
     <ContentContainer overflowY="visible">
-      <div className={styles.gridBackground}>
-        <Grid columns={isMobile ? 3 : 6} gap={164}>
-          {backgroundIcons().map((key, index) => (
-            <GridItem key={index}>{key}</GridItem>
-          ))}
-        </Grid>
-      </div>
       <Stack space={64}>
-        <SectionTitle align="center" svg={svg} />
-        {/*
-        <ul>
-          <Grid columns={3} gap={24}>
-            {Object.keys(IconData).map((key, index) => {
-              const icon = IconData[key];
-              return (
-                <GridItem key={key}>
-                  <li>
-                    <Stack space={16}>
-                      <span>#{index + 1}</span>
-                      {icon.icon}
-                      {icon.name}
+        <ul
+          style={{
+            display: isMobile ? "flex" : "grid",
+            flexDirection: isMobile ? "column" : "row",
+            gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr",
+            gap: "2rem",
+          }}
+        >
+          {Object.keys(IconData).map((key, index) => {
+            const icon = IconData[key];
+            return (
+              <li>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "row" : "column",
+                    alignItems: "center",
+                    gap: 8,
+                  }}
+                >
+                  <Text size={isMobile ? 32 : 56}>#{index + 1}</Text>
+                  {icon.icon}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: isMobile ? "flex-start" : "center",
+                    }}
+                  >
+                    <Text size={isMobile ? 16 : 24}>{icon.name}</Text>
+                    <Text size={isMobile ? 32 : 72} weight="bold">
                       {formatCount(icon.count)}
-                    </Stack>
-                  </li> 
-                </GridItem>
-              );
-            })}
-          </Grid>
-        </ul>*/}
+                    </Text>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
       </Stack>
     </ContentContainer>
   );
 };
 
-export default Icons;
+export default IconsStats;

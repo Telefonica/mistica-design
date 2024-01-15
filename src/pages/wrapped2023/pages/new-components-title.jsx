@@ -15,7 +15,7 @@ const NewComponentsTitle = () => {
   const { isMobile } = useScreenSize();
 
   return (
-    <ContentContainer margin="12.5vw 0">
+    <ContentContainer>
       <SectionTitle
         align="center"
         title={newComponents.length}

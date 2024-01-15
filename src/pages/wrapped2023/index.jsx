@@ -29,6 +29,7 @@ import NewComponentsTitle from "./pages/new-components-title";
 import GitHubContributors from "./pages/github-contributors";
 import MostUsedComponentStats from "./pages/most-used-component-stats";
 import Outro from "./pages/outro";
+import IconsStats from "./pages/icons-stats";
 
 const Wrapped2023 = () => {
   const [mostActiveAuthors, setMostActiveAuthors] = useState([]);
@@ -146,6 +147,9 @@ const Wrapped2023 = () => {
       </Section>
       <Section>
         <Icons></Icons>
+      </Section>
+      <Section>
+        <IconsStats />
       </Section>
       <Section>
         <BrandFactory></BrandFactory>
