@@ -8,6 +8,9 @@ import {
   Logo,
   TextLink,
   useWindowSize,
+  Text2,
+  IconShareFilled,
+  ButtonSecondary,
 } from "@telefonica/mistica";
 import ColorBand from "./components/color-band";
 import YearSvg from "./components/year-svg";
@@ -88,14 +91,19 @@ const WrappedFinale = () => {
                 <Text size={isMobile ? 18 : 24} weight="bold">
                   If you want to know more about Mística
                 </Text>
-                <TextLink href="">Contact us</TextLink>
+                <TextLink href="https://teams.microsoft.com/l/team/19%3Ad2e3607a32ec411b8bf492f43cd0fe0c%40thread.tacv2/conversations?groupId=e265fe99-929f-45d1-8154-699649674a40&tenantId=9744600e-3e04-492e-baa1-25ec245c6f10">
+                  Contact us
+                </TextLink>
                 <Text size={isMobile ? 18 : 24}>
                   Don't hesitate, we're here to rock it together!
                 </Text>
                 <div style={{ display: "flex", gap: 16 }}>
-                  <TextLink href="">Brand Factory</TextLink>
-                  <TextLink href="">GitHub</TextLink>
-                  <TextLink href="">Credits</TextLink>
+                  <TextLink href="https://brandfactory.telefonica.com/d/iSp7b1DkYygv/n-a#/get-started/what-is-mistica">
+                    Brand Factory
+                  </TextLink>
+                  <TextLink href="https://github.com/Telefonica/mistica-design">
+                    GitHub
+                  </TextLink>
                 </div>
               </div>
               <div style={{ alignSelf: "flex-end" }}>
@@ -145,6 +153,32 @@ const WrappedFinale = () => {
             ></ColorBand>
           </div>
         </MarginLayout>
+
+        <div className={styles.madeBy}>
+          <Text2>
+            made with{" "}
+            <Text2 medium>
+              <TextLink
+                href="https://github.com/Telefonica/mistica"
+                newTab={true}
+              >
+                Mística
+              </TextLink>
+            </Text2>
+          </Text2>
+        </div>
+        <div className={styles.shareButton}>
+          <ButtonSecondary
+            onPress={() => {
+              navigator.clipboard.writeText(
+                "https://mistica-design.vercel.app/wrapped-2023"
+              );
+            }}
+            StartIcon={IconShareFilled}
+          >
+            Share
+          </ButtonSecondary>
+        </div>
       </div>
     </div>
   );

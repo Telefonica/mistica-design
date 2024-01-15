@@ -12,7 +12,10 @@ const GoldenGraph = ({ items }) => {
           </div>
           <div
             className={styles.bar}
-            style={{ height: (item.count * 100) / 50000, minWidth: 100 }}
+            style={{
+              height: (item.count * 100) / 50000,
+              minWidth: 100,
+            }}
           >
             <div>
               <span className={styles.barText}>{formatCount(item.count)}</span>

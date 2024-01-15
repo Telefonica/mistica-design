@@ -90,32 +90,48 @@ const Cover = () => {
         </ThemeVariant>
       </div>
       <div
-        className={styles.bandContainer}
         style={{
-          left: isMobile ? -561 : (1 / width) * -1000000 - 150,
+          overflow: "clip",
+          width: "100vw",
+          height: "100vh",
+          position: "absolute",
+          top: 0,
+          left: 0,
         }}
       >
-        <ColorBand
-          color="green"
-          rotate="60"
-          origin="22%"
-          index={50}
-          top={240}
-        ></ColorBand>
-        <ColorBand
-          color="yellow"
-          rotate="60"
-          origin="36%"
-          top={850}
-        ></ColorBand>
-        <ColorBand color="red" rotate="-35" origin="25%" top={460}></ColorBand>
-        <ColorBand
-          color="purple"
-          rotate="310"
-          origin="42%"
-          index={60}
-          top={240}
-        ></ColorBand>
+        <div
+          className={styles.bandContainer}
+          style={{
+            left: isMobile ? -561 : (1 / width) * -1000000 - 150,
+          }}
+        >
+          <ColorBand
+            color="green"
+            rotate="60"
+            origin="22%"
+            index={50}
+            top={240}
+          ></ColorBand>
+          <ColorBand
+            color="yellow"
+            rotate="60"
+            origin="36%"
+            top={850}
+          ></ColorBand>
+          <ColorBand
+            color="red"
+            rotate="-35"
+            origin="25%"
+            top={460}
+          ></ColorBand>
+          <ColorBand
+            color="purple"
+            rotate="310"
+            origin="42%"
+            index={60}
+            top={240}
+          ></ColorBand>
+        </div>
       </div>
     </div>
   );

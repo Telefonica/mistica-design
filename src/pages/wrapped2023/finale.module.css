@@ -70,3 +70,23 @@
   padding-top: 96px;
   height: 100%;
 }
+
+.madeBy {
+  position: fixed;
+  height: 79px;
+  display: flex;
+  align-items: center;
+  bottom: 104px;
+  left: 0px;
+  z-index: 9999;
+  transform: rotate(-90deg);
+}
+
+.shareButton {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  bottom: 64px;
+  right: 64px;
+  z-index: 9999;
+}

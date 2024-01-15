@@ -101,7 +101,14 @@ const Wrapper = ({ children }) => {
           </div>
           <div className={styles.shareButton}>
             <ThemeVariant isInverse={currentSection === 1 ? true : false}>
-              <ButtonSecondary onPress="#" StartIcon={IconShareFilled}>
+              <ButtonSecondary
+                onPress={() => {
+                  navigator.clipboard.writeText(
+                    "https://mistica-design.vercel.app/wrapped-2023"
+                  );
+                }}
+                StartIcon={IconShareFilled}
+              >
                 Share
               </ButtonSecondary>
             </ThemeVariant>

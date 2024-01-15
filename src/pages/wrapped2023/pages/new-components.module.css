@@ -33,6 +33,7 @@
   justify-content: space-between;
   z-index: 0;
   top: 0;
+  animation: float 3s ease-in-out infinite;
 }
 
 .figuresLeft {
@@ -60,4 +61,16 @@
 
 .content {
   z-index: 2;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
 }

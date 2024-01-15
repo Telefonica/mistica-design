@@ -50,7 +50,8 @@ const IconsStats = () => {
   );
 
   return (
-    <ContentContainer overflowY="visible">
+    <ContentContainer overflowY="visible" justify="space-evenly">
+      <SectionTitle subtitle="Most used Figma icons" />
       <Stack space={64}>
         <ul
           style={{

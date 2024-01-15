@@ -3,4 +3,14 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  animation: rotate 24s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }

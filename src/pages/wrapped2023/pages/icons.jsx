@@ -105,7 +105,7 @@ const Icons = () => {
     { IconComponent: IconAntennaRegular, name: "Antenna" },
   ];
 
-  const backgroundIcons = (size = 100) => {
+  const backgroundIcons = (size = isMobile ? 48 : 100) => {
     return iconsData.map(({ IconComponent, name }, index) => (
       <IconComponent
         key={index}
@@ -126,26 +126,6 @@ const Icons = () => {
       </div>
       <Stack space={64}>
         <SectionTitle align="center" svg={svg} />
-        {/*
-        <ul>
-          <Grid columns={3} gap={24}>
-            {Object.keys(IconData).map((key, index) => {
-              const icon = IconData[key];
-              return (
-                <GridItem key={key}>
-                  <li>
-                    <Stack space={16}>
-                      <span>#{index + 1}</span>
-                      {icon.icon}
-                      {icon.name}
-                      {formatCount(icon.count)}
-                    </Stack>
-                  </li> 
-                </GridItem>
-              );
-            })}
-          </Grid>
-        </ul>*/}
       </Stack>
     </ContentContainer>
   );
