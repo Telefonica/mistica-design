@@ -2,6 +2,32 @@
 
 ## [12.0.0](changelog-versions/12.0.0.md)
 
+[11.4.0](changelog-versions/11.4.0.md)
+
+[11.3.0](changelog-versions/11.3.0.md)
+
+[11.2.0](changelog-versions/11.2.0.md)
+
+[11.1.0](changelog-versions/11.1.0.md)
+
+## [11.0.0](changelog-versions/11.0.0.md)
+
+## [10.0.0](changelog-versions/10.0.0.md)
+
+[9.3.0](changelog-versions/9.3.0.md)
+
+[9.2.0](changelog-versions/9.2.0.md)
+
+[9.1.0](changelog-versions/9.1.0.md)
+
+## [9.0.0](changelog-versions/9.0.0.md)
+
+[8.4.0](changelog-versions/8.4.0.md)
+
+[8.3.0](changelog-versions/8.3.0.md)
+
+[8.2.0](changelog-versions/8.2.0.md)
+
 [8.1.0](changelog-versions/8.1.0.md)
 
 ## [8.0.0](changelog-versions/8.0.0.md)
