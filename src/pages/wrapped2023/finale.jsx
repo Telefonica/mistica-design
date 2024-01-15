@@ -22,7 +22,7 @@ import Wrapper from "./components/wrapper";
 import RotatingSVG from "./components/label-rotate";
 
 const WrappedFinale = () => {
-  const { isMobile } = useScreenSize();
+  const { isMobile, isTablet } = useScreenSize();
   const { width } = useWindowSize();
 
   const TextLayout = ({ children }) => {
@@ -105,7 +105,7 @@ const WrappedFinale = () => {
                     GitHub
                   </TextLink>
                 </div>
-                <div style={{ marginTop: 48 }}>
+                <div style={{ marginTop: isMobile ? 24 : 48 }}>
                   <ButtonSecondary to={"/wrapped-2023"}>
                     Restart Wrapped
                   </ButtonSecondary>
@@ -159,31 +159,35 @@ const WrappedFinale = () => {
           </div>
         </MarginLayout>
 
-        <div className={styles.madeBy}>
-          <Text2>
-            made with{" "}
-            <Text2 medium>
-              <TextLink
-                href="https://github.com/Telefonica/mistica"
-                newTab={true}
+        {!isMobile && !isTablet && (
+          <>
+            <div className={styles.madeBy}>
+              <Text2>
+                made with{" "}
+                <Text2 medium>
+                  <TextLink
+                    href="https://github.com/Telefonica/mistica"
+                    newTab={true}
+                  >
+                    Mística
+                  </TextLink>
+                </Text2>
+              </Text2>
+            </div>
+            <div className={styles.shareButton}>
+              <ButtonSecondary
+                onPress={() => {
+                  navigator.clipboard.writeText(
+                    "https://mistica-design.vercel.app/wrapped-2023"
+                  );
+                }}
+                StartIcon={IconShareFilled}
               >
-                Mística
-              </TextLink>
-            </Text2>
-          </Text2>
-        </div>
-        <div className={styles.shareButton}>
-          <ButtonSecondary
-            onPress={() => {
-              navigator.clipboard.writeText(
-                "https://mistica-design.vercel.app/wrapped-2023"
-              );
-            }}
-            StartIcon={IconShareFilled}
-          >
-            Share
-          </ButtonSecondary>
-        </div>
+                Share
+              </ButtonSecondary>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

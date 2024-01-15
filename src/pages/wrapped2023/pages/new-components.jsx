@@ -12,7 +12,8 @@ import {
 import ContentContainer from "../components/content-container";
 
 const NewComponents = () => {
-  const { isMobile } = useScreenSize();
+  const { isMobile, isTablet } = useScreenSize();
+
   const listColors = [
     "var(--yellow)",
     "var(--red)",
@@ -56,7 +57,10 @@ const NewComponents = () => {
       {isMobile ? (
         <></>
       ) : (
-        <div className={styles.figures}>
+        <div
+          className={styles.figures}
+          style={{ width: isTablet ? "110vw" : "85vw" }}
+        >
           <div className={styles.figuresLeft}>
             <FigureLeftTop></FigureLeftTop>
             <FigureLeftBottom></FigureLeftBottom>
