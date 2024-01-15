@@ -36,9 +36,7 @@ const WrappedFinale = () => {
         {children}
       </div>
     ) : (
-      <Inline space="between" className={styles.textContainerDesktop}>
-        {children}
-      </Inline>
+      <div className={styles.textContainerDesktop}>{children}</div>
     );
   };
 
@@ -70,7 +68,14 @@ const WrappedFinale = () => {
         <MarginLayout>
           <div className={isMobile ? styles.yearMobile : styles.yearDesktop}>
             <TextLayout>
-              <Stack space={24}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 24,
+                  alignSelf: "center",
+                }}
+              >
                 <div className={styles.coverText}>
                   <Text
                     size={isMobile ? 32 : 110}
@@ -87,14 +92,14 @@ const WrappedFinale = () => {
                 <Text size={isMobile ? 18 : 24}>
                   Don't hesitate, we're here to rock it together!
                 </Text>
-                <Inline space={16}>
+                <div style={{ display: "flex", gap: 16 }}>
                   <TextLink href="">Brand Factory</TextLink>
                   <TextLink href="">GitHub</TextLink>
                   <TextLink href="">Credits</TextLink>
-                </Inline>
-              </Stack>
-              <div>
-                <YearSvg inverse={false}></YearSvg>
+                </div>
+              </div>
+              <div style={{ alignSelf: "flex-end" }}>
+                <YearSvg inverse={false} withStars></YearSvg>
               </div>
             </TextLayout>
           </div>
@@ -112,7 +117,7 @@ const WrappedFinale = () => {
               text="#wrapped’23"
               index={50}
               top={4411}
-              left={220}
+              left={-394}
             ></ColorBand>
             <ColorBand
               color="yellow"
