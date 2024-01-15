@@ -29,7 +29,10 @@ const NewComponents = () => {
     <ContentContainer>
       <div className={styles.content}>
         <Stack space={0}>
-          <div className={styles.listContainer}>
+          <div
+            className={styles.listContainer}
+            style={{ width: isMobile ? "100vw" : 600, padding: "0 16px" }}
+          >
             <ul className={styles.list}>
               {newComponents.map((component, index) => (
                 <li

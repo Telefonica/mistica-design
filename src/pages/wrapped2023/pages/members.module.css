@@ -12,5 +12,6 @@
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 0;
-  width: 100%;
+  width: calc(100vw + 32px);
+  margin: 0 -16px;
 }

@@ -40,12 +40,11 @@
 .bandContainer {
   height: 100vh;
   width: calc(100vw + 800px);
-  display: flex;
-  align-items: flex-end;
-  position: absolute;
+
+  position: relative;
   top: 0;
   left: -800px;
-  align-items: center;
+  top: -1400px;
 }
 
 .barContainerMobile {

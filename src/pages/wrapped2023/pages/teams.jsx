@@ -1272,7 +1272,9 @@ const Teams = () => {
           subtitle="Using Mística"
         />
       </div>
-      <div style={{ width: "100%", padding: "0 80px" }}>{teamsDesktop}</div>
+      <div style={{ width: "100%", padding: isMobile ? 0 : "0 80px" }}>
+        {teamsDesktop}
+      </div>
       {!isMobile && (
         <div>
           <Text size={isMobile ? 18 : 32}>And we have room for more :)</Text>

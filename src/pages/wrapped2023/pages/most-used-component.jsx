@@ -15,7 +15,7 @@ const MostUsedComponent = () => {
   const { componentWithHighestCount } = Components();
 
   return (
-    <ContentContainer justify={isMobile ? "space-between" : "space-around"}>
+    <ContentContainer justify={isMobile ? "center" : "space-around"}>
       <SectionTitle
         isSmall={isMobile ? true : false}
         align="center"

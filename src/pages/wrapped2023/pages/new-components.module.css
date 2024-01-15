@@ -15,8 +15,6 @@
 
 .listContainer {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .list {
@@ -24,12 +22,12 @@
   flex-direction: column;
   gap: 12px;
   text-align: left;
-  min-width: 360px;
+  width: 100%;
 }
 
 .figures {
   position: absolute;
-  width: 110vw;
+  width: 80vw;
   height: 100%;
   display: flex;
   justify-content: space-between;
