@@ -4,6 +4,8 @@ import { teamsMembers } from "./data/teamsData";
 import { medianBFSessions } from "./data/brandFactoryData";
 import { releases, mergedPRs } from "./data/devData";
 import { formatCount } from "./utils";
+import { Helmet } from "react-helmet";
+import thumbnail from "./assets/thumbnail.png";
 
 import {
   Title2,
@@ -62,19 +64,6 @@ const Wrapped2023 = () => {
     }
   }
 
-  {
-    /*  async function getPRs() {
-    try {
-      const response = await fetch("/api/fetchPRs");
-      const PRs = await response.json();
-      return PRs; // Return the PRs data
-    } catch (error) {
-      console.error("Error fetching PRs:", error);
-      throw error; // Rethrow the error for handling in the calling code
-    }
-  } */
-  }
-
   async function fetchData() {
     try {
       const discussionsData = await getDiscussions();
@@ -112,58 +101,82 @@ const Wrapped2023 = () => {
   const { iconWithHighestCount, restOfMostUsedIcons } = Icons();
 
   return (
-    <Wrapper>
-      <Section color="#031A34">
-        <Cover></Cover>
-      </Section>
-      <Section>
-        <Intro></Intro>
-      </Section>
-      <Section>
-        <Teams></Teams>
-      </Section>
-      <Section>
-        <Members></Members>
-      </Section>
-      <Section>
-        <MembersCount></MembersCount>
-      </Section>
+    <>
+      <Helmet>
+        <title>Wrapped 2023</title>
+        <meta
+          name="description"
+          content="Wrapped 2023 is a celebration of the work of the Telefonica Design System team in 2023"
+        />
+        <meta property="og:title" content="Wrapped 2023" />
+        <meta
+          property="og:description"
+          content="Wrapped 2023 is a celebration of the work of the Telefonica Design System team in 2023"
+        />
+        <meta
+          property="og:image"
+          content="https://mistica-design-dg8f5xdzr-aweell.vercel.app/static/media/thumbnail.bd98c1039c876d408948.png"
+        />
+        <meta property="twitter:title" content="Wrapped 2023" />
+        <meta
+          property="twitter:description"
+          content="Wrapped 2023 is a celebration of the work of the Telefonica Design System team in 2023"
+        />
+        <meta property="twitter:card" content="summary_large_image" />
+      </Helmet>
+      <Wrapper>
+        <Section color="#031A34">
+          <Cover></Cover>
+        </Section>
+        <Section>
+          <Intro></Intro>
+        </Section>
+        <Section>
+          <Teams></Teams>
+        </Section>
+        <Section>
+          <Members></Members>
+        </Section>
+        <Section>
+          <MembersCount></MembersCount>
+        </Section>
 
-      <Section>
-        <NewComponentsTitle></NewComponentsTitle>
-      </Section>
-      <Section>
-        <NewComponents></NewComponents>
-      </Section>
+        <Section>
+          <NewComponentsTitle></NewComponentsTitle>
+        </Section>
+        <Section>
+          <NewComponents></NewComponents>
+        </Section>
 
-      <Section>
-        <MostUsedComponent></MostUsedComponent>
-      </Section>
-      <Section>
-        <MostUsedComponentStats />
-      </Section>
-      <Section>
-        <OtherUsedComponents></OtherUsedComponents>
-      </Section>
-      <Section>
-        <Icons></Icons>
-      </Section>
-      <Section>
-        <IconsStats />
-      </Section>
-      <Section>
-        <BrandFactory></BrandFactory>
-      </Section>
-      <Section sticky>
-        <GitHub />
-      </Section>
-      <Section isVisible={isMobile ? true : false}>
-        {isMobile && <GitHubContributors></GitHubContributors>}
-      </Section>
-      <Section>
-        <Outro></Outro>
-      </Section>
-    </Wrapper>
+        <Section>
+          <MostUsedComponent></MostUsedComponent>
+        </Section>
+        <Section>
+          <MostUsedComponentStats />
+        </Section>
+        <Section>
+          <OtherUsedComponents></OtherUsedComponents>
+        </Section>
+        <Section>
+          <Icons></Icons>
+        </Section>
+        <Section>
+          <IconsStats />
+        </Section>
+        <Section>
+          <BrandFactory></BrandFactory>
+        </Section>
+        <Section sticky>
+          <GitHub />
+        </Section>
+        <Section isVisible={isMobile ? true : false}>
+          {isMobile && <GitHubContributors></GitHubContributors>}
+        </Section>
+        <Section>
+          <Outro></Outro>
+        </Section>
+      </Wrapper>
+    </>
   );
 };
 

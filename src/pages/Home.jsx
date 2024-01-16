@@ -36,12 +36,21 @@ import tokensTool from "../img/tokens_tool.png";
 import Footer from "../components/footer";
 import SubGrid from "../components/subGrid";
 import TeamMember from "../components/teamMember";
+import thumbnailWrapped2023 from "../pages/wrapped2023/assets/thumbnail.png";
 
 const Home = () => {
   const { isDesktopOrBigger } = useScreenSize();
   const { isDarkMode } = useTheme();
 
   const projects = [
+    {
+      title: "Mistica wrapped 2023",
+      description:
+        "Data summary on what has happened in the year 2023 in Mística.",
+      link: "/wrapped-2023",
+      buttonLabel: "Visit",
+      image: thumbnailWrapped2023,
+    },
     {
       title: "Mística tokens",
       description:
@@ -51,7 +60,7 @@ const Home = () => {
       image: tokensTool,
     },
     {
-      title: "Mistica wrapped",
+      title: "Mistica wrapped 2022",
       description:
         "Data summary on what has happened in the year 2022 in Mística.",
       link: "https://tinyurl.com/2fyfjdnw",
