@@ -66,9 +66,9 @@
       "description": "grey6"
     },
     "backgroundSkeleton": {
-      "value": "{palette.grey2}",
+      "value": "{palette.grey4}",
       "type": "color",
-      "description": "grey2"
+      "description": "grey4"
     },
     "backgroundSkeletonInverse": {
       "value": "{palette.vivoPurpleDark}",
@@ -139,6 +139,21 @@
       "value": "{palette.pepperDark}",
       "type": "color",
       "description": "pepperDark"
+    },
+    "buttonLinkDangerBackgroundSelected": {
+      "value": "{palette.pepperLight10}",
+      "type": "color",
+      "description": "pepperLight10"
+    },
+    "buttonLinkDangerBackgroundInverse": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkDangerBackgroundInverseSelected": {
+      "value": "{palette.pepperLight10}",
+      "type": "color",
+      "description": "pepperLight10"
     },
     "buttonLinkBackgroundSelected": {
       "value": "{palette.vivoPurpleLight10}",
@@ -271,9 +286,9 @@
       "description": "vivoPurpleLight20"
     },
     "control": {
-      "value": "{palette.grey3}",
+      "value": "{palette.grey4}",
       "type": "color",
-      "description": "grey3"
+      "description": "grey4"
     },
     "controlActivated": {
       "value": "{palette.vivoPurple}",
@@ -295,15 +310,20 @@
       "type": "color",
       "description": "pepper"
     },
-    "loadingBar": {
-      "value": "{palette.pink}",
+    "barTrack": {
+      "value": "{palette.grey3}",
       "type": "color",
-      "description": "pink"
+      "description": "grey3"
+    },
+    "loadingBar": {
+      "value": "{palette.vivoPurple}",
+      "type": "color",
+      "description": "vivoPurple"
     },
     "loadingBarBackground": {
-      "value": "{palette.pepperLight30}",
+      "value": "{palette.vivoPurpleLight10}",
       "type": "color",
-      "description": "pepperLight30"
+      "description": "vivoPurpleLight10"
     },
     "toggleAndroidInactive": {
       "value": "{palette.grey2}",
@@ -321,9 +341,9 @@
       "description": "white"
     },
     "divider": {
-      "value": "{palette.grey2}",
+      "value": "{palette.grey3}",
       "type": "color",
-      "description": "grey2"
+      "description": "grey3"
     },
     "dividerInverse": {
       "value": "rgba({palette.white}, 0.2)",
@@ -531,9 +551,9 @@
       "description": "vivoPurple"
     },
     "customTabsBackground": {
-      "value": "{palette.vivoPurple}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "vivoPurple"
+      "description": "white"
     }
   },
   "dark": {
@@ -676,6 +696,21 @@
       "value": "{palette.pepperDark}",
       "type": "color",
       "description": "pepperDark"
+    },
+    "buttonLinkDangerBackgroundSelected": {
+      "value": "rgba({palette.white}, 0.08)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkDangerBackgroundInverse": {
+      "value": "rgba({palette.white}, 0.01)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkDangerBackgroundInverseSelected": {
+      "value": "rgba({palette.white}, 0.08)",
+      "type": "color",
+      "description": "white"
     },
     "buttonLinkBackgroundSelected": {
       "value": "rgba({palette.white}, 0.08)",
@@ -831,6 +866,11 @@
       "value": "{palette.pepper}",
       "type": "color",
       "description": "pepper"
+    },
+    "barTrack": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
     },
     "loadingBar": {
       "value": "{palette.vivoPurpleLight80}",
@@ -1326,7 +1366,7 @@
         "type": "color"
       },
       "grey4": {
-        "value": "#999999",
+        "value": "#949494",
         "type": "color"
       },
       "grey5": {
