@@ -380,7 +380,7 @@
             },
             {
               "comment": "Tu",
-              "pattern": "(.*?rgba.*?)+([({])+(palette.(primary|primary10|primary20|primary30|primary70|secondary|secondary10|secondary20|secondary30|secondary70|orange|orange10|orange40|orange70|red|red10|red40|red70|red80|purple|purple10|purple40|purple70|green|green10|green40|green70|grey1|grey2|grey3|grey4|grey5|grey6|white|darkModeBlack|darkModeGrey|darkModeGrey6)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(primary|primary10|primary20|primary30|primary70|secondary|secondary10|secondary20|secondary30|secondary70|orange|orange10|orange40|orange70|red|red10|red40|red70|red80|purple|purple10|purple40|purple70|green|green10|green40|green70|grey1|grey2|grey3|grey4|grey5|grey6|white|darkModeBlack|darkModeGrey|darkModeGrey6|)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
+              "pattern": "(.*?rgba.*?)+([({])+(palette.(primary|primary65|primary80|secondary|secondary10|secondary20|secondary30|secondary70|orange|orange20|orange55|orange65|red|red10|red40|red70|red80|green|green10|green40|green70|grey1|grey2|grey3|grey4|grey5|grey6|white|darkModeBlack|darkModeGrey|darkModeGrey6)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(primary|primary65|primary80|secondary|secondary10|secondary20|secondary30|secondary70|orange|orange20|orange55|orange65|red|red10|red40|red70|red80|green|green10|green40|green70|grey1|grey2|grey3|grey4|grey5|grey6|white|darkModeBlack|darkModeGrey|darkModeGrey6|)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
             }
           ]
         },
@@ -412,7 +412,7 @@
             },
             {
               "comment": "Tu",
-              "pattern": "^(primary|primary10|primary20|primary30|primary70|secondary|secondary10|secondary20|secondary30|secondary70|orange|orange10|orange40|orange70|red|red10|red40|red70|red80|purple|purple10|purple40|purple70|green|green10|green40|green70|grey1|grey2|grey3|grey4|grey5|grey6|white|darkModeBlack|darkModeGrey|darkModeGrey6)+$"
+              "pattern": "^(primary|primary65|primary80|secondary|secondary10|secondary20|secondary30|secondary70|orange|orange20|orange55|orange65|red|red10|red40|red70|red80|green|green10|green40|green70|grey1|grey2|grey3|grey4|grey5|grey6|white|darkModeBlack|darkModeGrey|darkModeGrey6)+$"
             }
           ]
         }
