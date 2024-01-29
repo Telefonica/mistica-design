@@ -80,6 +80,7 @@ const IconsStats = () => {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: isMobile ? "flex-start" : "center",
+                      gap: 8,
                     }}
                   >
                     <Text size={isMobile ? 16 : 24}>{icon.name}</Text>
