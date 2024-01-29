@@ -101,9 +101,9 @@
       "description": "grey1"
     },
     "border": {
-      "value": "{palette.grey3}",
+      "value": "{palette.grey2}",
       "type": "color",
-      "description": "grey3"
+      "description": "grey2"
     },
     "borderHigh": {
       "value": "{palette.grey5}",
@@ -310,6 +310,11 @@
       "type": "color",
       "description": "red"
     },
+    "barTrack": {
+      "value": "{palette.grey2}",
+      "type": "color",
+      "description": "grey2"
+    },
     "loadingBar": {
       "value": "{palette.secondary30}",
       "type": "color",
@@ -381,9 +386,9 @@
       "description": "white"
     },
     "neutralHigh": {
-      "value": "{palette.grey6}",
+      "value": "{palette.grey9}",
       "type": "color",
-      "description": "grey6"
+      "description": "grey9"
     },
     "neutralMedium": {
       "value": "{palette.grey5}",
@@ -406,9 +411,9 @@
       "description": "grey2"
     },
     "textPrimary": {
-      "value": "{palette.grey6}",
+      "value": "{palette.grey9}",
       "type": "color",
-      "description": "grey6"
+      "description": "grey9"
     },
     "textPrimaryInverse": {
       "value": "{palette.white}",
@@ -416,9 +421,9 @@
       "description": "white"
     },
     "textSecondary": {
-      "value": "{palette.grey5}",
+      "value": "{palette.grey6}",
       "type": "color",
-      "description": "grey5"
+      "description": "grey6"
     },
     "textSecondaryInverse": {
       "value": "{palette.grey3}",
@@ -456,9 +461,9 @@
       "description": "green10"
     },
     "warningLow": {
-      "value": "{palette.orange10}",
+      "value": "{palette.orange20}",
       "type": "color",
-      "description": "orange10"
+      "description": "orange20"
     },
     "errorLow": {
       "value": "{palette.red10}",
@@ -471,9 +476,9 @@
       "description": "purple10"
     },
     "brandLow": {
-      "value": "{palette.primary10}",
+      "value": "{palette.secondary10}",
       "type": "color",
-      "description": "primary10"
+      "description": "secondary10"
     },
     "successHigh": {
       "value": "{palette.green70}",
@@ -692,6 +697,21 @@
       "type": "color",
       "description": "red80"
     },
+    "buttonLinkDangerBackgroundSelected": {
+      "value": "{palette.pepper10}",
+      "type": "color",
+      "description": "pepper10"
+    },
+    "buttonLinkDangerBackgroundInverse": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkDangerBackgroundInverseSelected": {
+      "value": "{palette.pepper10}",
+      "type": "color",
+      "description": "pepper10"
+    },
     "buttonLinkBackgroundSelected": {
       "value": "rgba({palette.white}, 0.08)",
       "type": "color",
@@ -818,9 +838,9 @@
       "description": "red"
     },
     "textLinkSnackbar": {
-      "value": "{palette.primary30}",
+      "value": "{palette.secondary30}",
       "type": "color",
-      "description": "primary30"
+      "description": "secondary30"
     },
     "control": {
       "value": "{palette.darkModeGrey6}",
@@ -847,6 +867,11 @@
       "type": "color",
       "description": "red"
     },
+    "barTrack": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
     "loadingBar": {
       "value": "{palette.primary}",
       "type": "color",
@@ -863,9 +888,9 @@
       "description": "grey4"
     },
     "toggleAndroidBackgroundActive": {
-      "value": "{palette.primary20}",
+      "value": "{palette.secondary20}",
       "type": "color",
-      "description": "primary20"
+      "description": "secondary20"
     },
     "iosControlKnob": {
       "value": "{palette.grey2}",
@@ -1018,9 +1043,9 @@
       "description": "green40"
     },
     "warningHigh": {
-      "value": "{palette.orange40}",
+      "value": "{palette.orange55}",
       "type": "color",
-      "description": "orange40"
+      "description": "orange55"
     },
     "errorHigh": {
       "value": "{palette.red40}",
@@ -1317,27 +1342,39 @@
         "type": "color"
       },
       "grey1": {
-        "value": "#F0F1F5",
+        "value": "#F2F4FF",
         "type": "color"
       },
       "grey2": {
-        "value": "#E2E4EC",
+        "value": "#D1D5E4",
         "type": "color"
       },
       "grey3": {
-        "value": "#CBCFDE",
+        "value": "#B0B6CA",
         "type": "color"
       },
       "grey4": {
-        "value": "#999999",
+        "value": "#8F97AF",
         "type": "color"
       },
       "grey5": {
-        "value": "#727579",
+        "value": "#6E7894",
         "type": "color"
       },
       "grey6": {
-        "value": "#000000",
+        "value": "#58617A",
+        "type": "color"
+      },
+      "grey7": {
+        "value": "#414B61",
+        "type": "color"
+      },
+      "grey8": {
+        "value": "#2B3447",
+        "type": "color"
+      },
+      "grey9": {
+        "value": "#031A34",
         "type": "color"
       },
       "white": {
