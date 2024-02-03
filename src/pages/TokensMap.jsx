@@ -21,6 +21,7 @@ import {
   skinVars,
   EmptyStateCard,
   IconErrorRegular,
+  useScreenSize,
 } from "@telefonica/mistica";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
@@ -52,6 +53,7 @@ const TokensMap = () => {
     branch: selectedBranch,
   });
   const [colorView, setColorView] = useState("constants");
+  const { isMobile } = useScreenSize();
 
   useEffect(() => {
     const fetchBranches = async () => {
@@ -123,6 +125,35 @@ const TokensMap = () => {
     />
   );
 
+  const filters = [
+    <TextField
+      fullWidth
+      disabled={skinError ? true : false}
+      label="Filter tokens"
+      value={filter}
+      onChange={handleFilterChange}
+      placeholder="Search..."
+    />,
+    <Select
+      fullWidth
+      disabled={skinError ? true : false}
+      label="Skin"
+      onChangeValue={setSelectedSkin}
+      value={selectedSkin}
+      options={skinNames}
+    ></Select>,
+    <Select
+      fullWidth
+      label="Branch"
+      onChangeValue={setSelectedBranch}
+      value={selectedBranch}
+      options={branches.map((branch) => ({
+        value: branch,
+        text: branch,
+      }))}
+    ></Select>,
+  ];
+
   return (
     <Box paddingBottom={80}>
       <ResponsiveLayout>
@@ -157,33 +188,13 @@ const TokensMap = () => {
                 </Inline>
               </RadioGroup>
 
-              <Inline space="between" alignItems="center">
-                <Inline space={8} fullWidth>
-                  <TextField
-                    disabled={skinError ? true : false}
-                    label="Filter tokens"
-                    value={filter}
-                    onChange={handleFilterChange}
-                    placeholder="Search..."
-                  />
-                  <Select
-                    disabled={skinError ? true : false}
-                    label="Skin"
-                    onChangeValue={setSelectedSkin}
-                    value={selectedSkin}
-                    options={skinNames}
-                  ></Select>
-                  <Select
-                    label="Branch"
-                    onChangeValue={setSelectedBranch}
-                    value={selectedBranch}
-                    options={branches.map((branch) => ({
-                      value: branch,
-                      text: branch,
-                    }))}
-                  ></Select>
+              {isMobile ? (
+                <Stack space={8}>{filters}</Stack>
+              ) : (
+                <Inline space={8} alignItems="center" fullWidth>
+                  {filters}
                 </Inline>
-              </Inline>
+              )}
             </Stack>
           </Stack>
         </Box>
