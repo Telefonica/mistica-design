@@ -15,6 +15,7 @@ const GetSkin = ({ selectedSkin, branch }) => {
         "blau",
         "o2",
         "telefonica",
+        "tu",
       ];
       const fetchedSkins = {};
 
