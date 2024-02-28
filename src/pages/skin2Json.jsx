@@ -17,6 +17,7 @@ const Skin2Json = () => {
           onChange={(e) => setRawCode(e.target.value)}
         ></textarea>
         <textarea
+          readOnly
           style={{ width: "100%", height: "300px" }}
           value={JSON.stringify(transformToJSON(rawCode), null, 2)}
         ></textarea>
