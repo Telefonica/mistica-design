@@ -44,7 +44,7 @@ const TokensMap = () => {
   );
   const [branches, setBranches] = useState([]);
   const [selectedBranch, setSelectedBranch] = useState(
-    branchFromUrl || "pre-production"
+    branchFromUrl || "production"
   );
   const [selectedColor, setSelectedColor] = useState(
     colorFromUrl || "undefined"

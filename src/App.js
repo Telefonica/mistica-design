@@ -14,6 +14,7 @@ import SkinGenerator from "./pages/skinGenerator";
 import PaletteGenerator from "./pages/paletteGenerator";
 import Wrapped2023 from "./pages/wrapped2023/index";
 import WrappedFinale from "./pages/wrapped2023/finale";
+import Skin2Json from "./pages/skin2Json";
 
 export const SchemeContext = createContext();
 
@@ -62,6 +63,10 @@ const App = () => {
     {
       path: `/wrapped-2023/finale`,
       element: <WrappedFinale />,
+    },
+    {
+      path: `/skin2json`,
+      element: <Skin2Json />,
     },
   ]);
   const [theme, setTheme] = useState("light");
