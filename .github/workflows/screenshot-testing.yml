@@ -1,0 +1,92 @@
+name: Screenshot test
+
+# push:
+#   paths:
+#     - ".github/workflows/figma-export.yml"
+
+on:
+  workflow_dispatch:
+    inputs:
+      branchID:
+        description: "Put Figma BranchID to generate screenshot testing"
+        required: true
+
+env:
+  FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN}}
+
+jobs:
+  screenshot-test:
+    name: Acceptance tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Checkout branch or create new one
+        run: |
+          git fetch
+          if git branch -a | grep origin/acceptance-tests; then
+              git checkout acceptance-tests
+          else
+              git checkout -b acceptance-tests
+          fi
+
+      - name: Instalar Homebrew
+        run: |
+          sudo apt-get install -y librsvg2-bin
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+      - name: Update master to last version
+        run: npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components WCkDDzlXE16R6yXaljxddj -O @figma-export/output-components-as-svg
+
+      - name: convert-svg2png
+        run: |
+          find output -type f -name "*.svg" -exec rsvg-convert --dpi-x=200 --dpi-y=200 {} -o {}.png \;
+          find output -type f -name "*.svg" -exec rm -f {} \;
+
+      - name: Check if there are any changes
+        id: verify_diff
+        run: |
+          git diff --quiet . || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit & Push
+        if: steps.verify_diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Screenshot tests from master"
+          git push origin acceptance-tests
+
+      - name: Checkout branch or create new one
+        run: |
+          git fetch
+          if git branch -a | grep origin/${{ github.event.inputs.branchID }}; then
+              git checkout ${{ github.event.inputs.branchID }}
+          else
+              git checkout -b ${{ github.event.inputs.branchID }}
+          fi
+
+      - name: Export new screenshots
+        run: npx -p @figma-export/cli -p @figma-export/output-components-as-svg figma-export components ${{ github.event.inputs.branchID }} -O @figma-export/output-components-as-svg
+
+      - name: convert-svg2png
+        run: |
+          find output -type f -name "*.svg" -exec rsvg-convert --dpi-x=200 --dpi-y=200 {} -o {}.png \;
+          find output -type f -name "*.svg" -exec rm -f {} \;
+
+      - name: Commit & Push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Screenshot tests from ${{ github.event.inputs.branchID }}"
+          git push origin ${{ github.event.inputs.branchID }}
+
+      - name: Create Pull-Request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: ${{ github.event.inputs.branchID }}
+          destination_branch: "acceptance-tests"
+          pr_title: "Acceptance tests for ${{ github.event.inputs.branchID }} file"
+          pr_draft: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}

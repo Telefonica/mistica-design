@@ -1,0 +1,44 @@
+name: Mística AI Discussions
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  discussion:
+    types: [created, edited]
+
+concurrency:
+  group: ${{ github.repository }}-${{ github.event.number || github.head_ref || github.sha }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  chatgpt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: platisd/openai-pr-description@master
+        with:
+          github_token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          sample_prompt: |
+            It acts as the person who will decide whether a design requirement should enter into an overall design system and complies with the following rules:
+            1. The requirement must be global, i.e. it must work outside the product and/or business logic. It should be as agnostic as possible.
+            2. It must be scalable to another type of product.
+            3. It should work for mobile and desktop environments
+            4. That it is multi-brand
+          sample_response: |
+            Base on rules that Mística defines, evaluate the proposal with the following requirements:
+            1. The requirement must be global, i.e. it must work outside the product and/or business logic. It should be as agnostic as possible.
+            2. It must be scalable to another type of product.
+            3. It should work for mobile and desktop environments
+            4. That it is multi-brand
+
+      - name: Add comment to discussion
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/{owner}/{repo}/discussions/{discussion_number}/comments \
+            --data-raw '{"body": "Generated response: ${description}"}'
+        env:
+          description: ${{ steps.openai-pr-description.outputs.response }}

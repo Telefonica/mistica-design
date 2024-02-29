@@ -5,23 +5,27 @@ on:
   workflow_dispatch:
   push:
     branches:
+      - pre-production
       - production
     paths:
       - ".github/resources/changelog-index-generator.py"
       - "changelog-versions/**"
 
 jobs:
-  create-release-notes:
+  changelog-index:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
         with:
           token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
 
       - name: Get branch name
         uses: rlespinasse/github-slug-action@v3.x
 
-      - run: sudo python3 .github/resources/changelog-index-generator.py changelog-versions
+      - run: |
+          sudo pip3 install GitPython
+          sudo python3 .github/resources/changelog-index-generator.py changelog-versions
+          cat CHANGELOG.md
 
       - name: Commit & Push in ${{ env.GITHUB_REF_SLUG_URL }}
         run: |
