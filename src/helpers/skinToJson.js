@@ -3,14 +3,13 @@ function transformToJSON(rawCode) {
   const paletteRegex = /export\s+const\s+palette\s*=\s*{\s*([^}]+)\s*};/s;
   const lightColorsRegex = /colors\s*:\s*{\s*([^}]+)\s*}/s;
   const darkColorsRegex = /darkModeColors\s*:\s*{\s*([^}]+)\s*}/s;
-  const radiusRegex = /export\s+const\s+radius\s*=\s*{[^}]+};/s;
+  const radiusRegex = /borderRadii\s*:\s*{\s*([^}]+)\s*}/s;
 
   // Function to extract information from code using regex
   const extractPalette = (code, regex) => {
     const match = code.match(regex);
     if (match) {
       const colorsBlock = match[1];
-
       const colorsArray = colorsBlock.match(/\s*(\w+):\s*'#[a-fA-F0-9]+'/g);
 
       if (colorsArray) {
@@ -41,7 +40,6 @@ function transformToJSON(rawCode) {
     const match = code.match(regex);
     if (match) {
       const colorsBlock = match[1];
-
       const colorsArray = colorsBlock.match(
         /\s*(\w+):\s*(?:palette\.(\w+)|applyAlpha\(palette\.(\w+),\s*(\d*(?:\.\d+)?)\))/g
       );
@@ -81,16 +79,47 @@ function transformToJSON(rawCode) {
     return null;
   };
 
+  const extractRadius = (code, regex) => {
+    const match = code.match(regex);
+    if (match) {
+      const radiusBlock = match[0];
+      console.log(radiusBlock);
+      const radiusArray = radiusBlock.match(/\s*(\w+):\s*'(\d+px)'/g);
+
+      if (radiusArray) {
+        // Create a formatted JSON structure for each radius with additional information
+        const formattedRadius = radiusArray.reduce((acc, radius) => {
+          const [key, value] = radius.split(":");
+          const trimmedKey = key.trim();
+          const numericValueMatch = value.trim().match(/(\d+)px/);
+          const numericValue = numericValueMatch ? numericValueMatch[1] : null;
+
+          if (numericValue !== null) {
+            acc[trimmedKey] = {
+              value: numericValue,
+              type: "borderRadius",
+            };
+          }
+
+          return acc;
+        }, {});
+
+        return formattedRadius;
+      }
+    }
+    return null;
+  };
+
   const extractInfo = (code, regex) => {
     const match = code.match(regex);
     return match ? match[0] : null;
   };
 
-  // Extract palette and getTuSkin information
+  // Extract information
   const paletteCode = extractPalette(rawCode, paletteRegex);
   const lightColors = extractColors(rawCode, lightColorsRegex);
   const darkColors = extractColors(rawCode, darkColorsRegex);
-  const radiusValues = extractInfo(rawCode, radiusRegex);
+  const radiusValues = extractRadius(rawCode, radiusRegex);
 
   // Convert the extracted information to JSON
   const result = {
