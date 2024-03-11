@@ -148,7 +148,7 @@ const TokensMap = () => {
       onChangeValue={setSelectedBranch}
       value={selectedBranch}
       options={branches.map((branch) => ({
-        value: branch,
+        value: branch.startsWith("#") ? `%23${branch.substring(1)}` : branch,
         text: branch,
       }))}
     ></Select>,
