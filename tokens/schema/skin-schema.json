@@ -68,7 +68,8 @@
         "backgroundSkeleton",
         "backgroundSkeletonInverse",
         "backgroundAlternative",
-        "backgroundFeedbackBottom",
+        "backgroundBrandTop",
+        "backgroundBrandBottom",
         "navigationBarBackground",
         "skeletonWave",
         "border",
@@ -174,8 +175,7 @@
         "tagBackgroundInactive",
         "tagBackgroundSuccess",
         "tagBackgroundWarning",
-        "tagBackgroundError",
-        "overscroll"
+        "tagBackgroundError"
       ],
       "properties": {
         "appBarBackground": { "$ref": "#/definitions/constantProperties" },
@@ -194,7 +194,8 @@
         "backgroundSkeleton": { "$ref": "#/definitions/constantProperties" },
         "backgroundSkeletonInverse": { "$ref": "#/definitions/constantProperties" },
         "backgroundAlternative": { "$ref": "#/definitions/constantProperties" },
-        "backgroundFeedbackBottom": { "$ref": "#/definitions/constantProperties" },
+        "backgroundBrandTop": { "$ref": "#/definitions/constantProperties" },
+        "backgroundBrandBottom": { "$ref": "#/definitions/constantProperties" },
         "navigationBarBackground": { "$ref": "#/definitions/constantProperties" },
         "skeletonWave": { "$ref": "#/definitions/constantProperties" },
         "border": { "$ref": "#/definitions/constantProperties" },
@@ -301,7 +302,6 @@
         "tagBackgroundSuccess": { "$ref": "#/definitions/constantProperties" },
         "tagBackgroundWarning": { "$ref": "#/definitions/constantProperties" },
         "tagBackgroundError": { "$ref": "#/definitions/constantProperties" },
-        "overscroll": { "$ref": "#/definitions/constantProperties" },
         "extended": {
           "type": "object",
           "patternProperties": {
