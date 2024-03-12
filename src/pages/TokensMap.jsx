@@ -26,6 +26,7 @@ import {
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import GetSkin from "../helpers/getSkin";
+import GetBranches from "../helpers/getBranches";
 
 const TokensMap = () => {
   // use query params to load the page in the selected state coming from a detail
@@ -42,7 +43,6 @@ const TokensMap = () => {
   const [activeTokenType, setActiveTokenType] = useState(
     tokenTypeFromUrl || "color"
   );
-  const [branches, setBranches] = useState([]);
   const [selectedBranch, setSelectedBranch] = useState(
     branchFromUrl || "production"
   );
@@ -55,16 +55,7 @@ const TokensMap = () => {
   const [colorView, setColorView] = useState("constants");
   const { isMobile } = useScreenSize();
 
-  useEffect(() => {
-    const fetchBranches = async () => {
-      const response = await fetch(
-        `https://api.github.com/repos/Telefonica/mistica-design/branches`
-      );
-      const data = await response.json();
-      setBranches(data.map((branch) => branch.name));
-    };
-    fetchBranches();
-  }, []);
+  const branches = GetBranches();
 
   // Update URL with selected branch, skin, tokenType and color
 
