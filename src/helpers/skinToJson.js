@@ -8,6 +8,7 @@ function transformToJSON(rawCode) {
   // Function to extract information from code using regex
   const extractPalette = (code, regex) => {
     const match = code.match(regex);
+    console.log(match);
     if (match) {
       const colorsBlock = match[1];
       const colorsArray = colorsBlock.match(/\s*(\w+):\s*'#[a-fA-F0-9]+'/g);

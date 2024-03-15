@@ -26,7 +26,7 @@ import {
 } from "@telefonica/mistica";
 import Preview from "../components/preview";
 import GetSkin from "../helpers/getSkin";
-import { SkinDataTransformer } from "../helpers/skinDataTransformer";
+import { generateSkin } from "../helpers/jsonToSkin";
 
 const ColorEditor = () => {
   const [selectedSkin, setSelectedSkin] = useState("movistar");
@@ -43,7 +43,7 @@ const ColorEditor = () => {
   // Generate the skin object from the JSON data for the theme provider
 
   useEffect(() => {
-    setSkin(SkinDataTransformer(skinData));
+    setSkin(generateSkin(skinData, skinNames));
   }, [skinData]);
 
   // List of colors that can be edited in the editor (not all colors are editable)
@@ -84,7 +84,7 @@ const ColorEditor = () => {
     }
 
     if (modifiedSkinData && Object.keys(modifiedSkinData).length > 0) {
-      setSkin(SkinDataTransformer(modifiedSkinData));
+      setSkin(generateSkin(modifiedSkinData, skinNames));
     }
   };
 

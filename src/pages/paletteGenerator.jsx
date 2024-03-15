@@ -21,7 +21,6 @@ import {
 } from "@telefonica/mistica";
 import Preview from "../components/preview";
 import GetSkin from "../helpers/getSkin";
-import { SkinDataTransformer } from "../helpers/skinDataTransformer";
 import { getHCLScale, getHSLScale } from "../helpers/getColorScale";
 
 const PaletteGenerator = () => {
