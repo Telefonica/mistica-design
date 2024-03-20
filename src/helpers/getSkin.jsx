@@ -6,17 +6,20 @@ const GetSkin = ({ selectedSkin, branch }) => {
   const [skinError, setSkinError] = useState(null);
 
   useEffect(() => {
+    const getSkinNames = async () => {
+      const response = await fetch(
+        `https://api.github.com/repos/Telefonica/mistica-design/contents/tokens?ref=${
+          branch || "production"
+        }`
+      );
+
+      return (response?.status === 200 ? await response.json() : [])
+        .filter((value) => value.name.endsWith(".json"))
+        .map((value) => value.name.slice(0, -5));
+    };
+
     const fetchSkins = async () => {
-      const skinNames = [
-        "movistar",
-        "movistar-legacy",
-        "vivo",
-        "vivo-new",
-        "blau",
-        "o2",
-        "telefonica",
-        "tu",
-      ];
+      const skinNames = await getSkinNames();
       const fetchedSkins = {};
 
       try {
@@ -27,8 +30,6 @@ const GetSkin = ({ selectedSkin, branch }) => {
           );
           const data = await response.json();
           fetchedSkins[skinName] = data;
-
-          // Log the fetched data for debugging
         }
 
         if (selectedSkin) {
