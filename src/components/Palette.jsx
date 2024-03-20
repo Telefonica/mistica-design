@@ -18,6 +18,7 @@ import {
   Text2,
 } from "@telefonica/mistica";
 import { useState, useEffect } from "react";
+import getColorValue from "../helpers/getColorValue";
 
 const Palette = ({
   skin,
@@ -27,16 +28,9 @@ const Palette = ({
   tokenType,
   selectedColor,
 }) => {
-  const [showProminent, setShowProminent] = useState(false);
-
-  useEffect(() => {
-    setShowProminent(false);
-  }, [selectedSkin]);
-
   const colors = skin?.light || {};
   const darkColors = skin?.dark || {};
   const palette = skin?.global?.palette || {};
-  const prominentColors = skin?.prominent || {};
 
   const colorKeys = Object.keys(colors).filter((key) =>
     key.toLowerCase().includes(filter?.toLowerCase())
@@ -52,39 +46,6 @@ const Palette = ({
     return match ? match[1] : null;
   }
 
-  // Get the color value from the palette
-
-  function getColorValue(color, palette) {
-    if (color.type === "color") {
-      const paletteKey = getPaletteKey(color.value);
-      if (paletteKey) {
-        return palette[paletteKey]?.value || undefined;
-      } else {
-        return color.value;
-      }
-    } else {
-      return undefined;
-    }
-  }
-
-  // Get the prominent color value from the palette
-
-  function getProminentColorValue(prominentColor, palette) {
-    if (prominentColor && Object.keys(prominentColor).length > 0) {
-      if (prominentColor) {
-        const paletteKey = getPaletteKey(prominentColor.value);
-        if (paletteKey) {
-          return palette[paletteKey]?.value || undefined;
-        } else {
-          return prominentColor.value;
-        }
-      }
-    }
-
-    // Return undefined when prominentColors is not defined or empty
-    return undefined;
-  }
-
   // Check if the palette reference matches the description
 
   function checkDescription(tokenValue, description) {
@@ -96,42 +57,14 @@ const Palette = ({
     return paletteName === description;
   }
 
-  // Get the alpha value from a token value
-
-  function getAlphaValue(tokenValue) {
-    if (tokenValue === undefined || tokenValue === null) {
-      return "";
-    }
-    const match = tokenValue.match(/rgba?\(.*,\s*([\d.]+)\s*\)/);
-    return match ? match[1] : "";
-  }
-
-  // Check if the color has alpha and convert the hex to rgba
-
-  function applyAlpha(value, alphaValue) {
-    if (!alphaValue || alphaValue === "") {
-      return value;
-    }
-
-    const numericAlphaValue = parseFloat(alphaValue);
-    return numericAlphaValue < 0 ? value : hexToRgbA(value, alphaValue);
-  }
-
   function getAllColorInfo(color, scheme) {
-    const value =
-      scheme === ("light" || "dark")
-        ? getColorValue(color, palette)
-        : getProminentColorValue(color, palette);
-    const alphaValue = getAlphaValue(value);
-    const descriptionMatch =
-      scheme === "prominent"
-        ? checkDescription(color?.value, color?.description)
-        : checkDescription(color?.value, color.description);
+    const value = getColorValue(color, palette);
+
+    const descriptionMatch = checkDescription(color?.value, color.description);
     const reference = getPaletteKey(color?.value);
 
     return {
       value,
-      alphaValue,
       descriptionMatch,
       description: color?.description,
       reference,
@@ -183,13 +116,7 @@ const Palette = ({
   const darkUnmatchedCount = countUnmatchedColors(darkColors);
   const totalUnmatchedCount = lightUnmatchedCount + darkUnmatchedCount;
 
-  const ColorTable = ({
-    value,
-    alphaValue,
-    reference,
-    descriptionMatch,
-    description,
-  }) => {
+  const ColorTable = ({ value, reference, descriptionMatch, description }) => {
     return (
       <table style={{ textAlign: "left", width: "fit-content" }}>
         <tbody>
@@ -207,16 +134,13 @@ const Palette = ({
                     borderRadius: "50%",
                   }}
                 >
-                  <Circle
-                    size={16}
-                    backgroundColor={applyAlpha(value, alphaValue)}
-                  ></Circle>
+                  <Circle size={16} backgroundColor={value}></Circle>
                 </div>
               ) : (
                 <Tag type="error">Undefined</Tag>
               )}
             </td>
-            <td>{applyAlpha(value, alphaValue)}</td>
+            <td>{value}</td>
             <td>
               <Tag type={value === undefined ? "error" : "success"}>
                 {reference}
@@ -266,15 +190,6 @@ const Palette = ({
               <Tag type="warning">{`Not matching descriptions (${totalUnmatchedCount})`}</Tag>
             ) : null}
           </Inline>
-          {prominentColors && Object.keys(prominentColors).length > 0 && (
-            <Inline space={8}>
-              <Checkbox
-                onChange={() => setShowProminent(!showProminent)}
-                value={showProminent}
-              />
-              <Text2>Show prominent values</Text2>
-            </Inline>
-          )}
         </Inline>
 
         <Boxed width={"100%"}>
@@ -294,14 +209,6 @@ const Palette = ({
                       <th>
                         <Text weight="medium">Light value</Text>
                       </th>
-                      {showProminent &&
-                        prominentColors &&
-                        Object.keys(prominentColors).length > 0 && (
-                          <th>
-                            <Text weight="medium">Prominent value</Text>
-                          </th>
-                        )}
-
                       <th>
                         <Text weight="medium">Dark value</Text>
                       </th>
@@ -311,10 +218,6 @@ const Palette = ({
                     {colorKeys.map((key) => {
                       const lightInfo = getAllColorInfo(colors[key], "light");
                       const darkInfo = getAllColorInfo(darkColors[key], "dark");
-                      const prominentInfo = getAllColorInfo(
-                        prominentColors[key],
-                        "prominent"
-                      );
 
                       return (
                         <tr
@@ -342,32 +245,15 @@ const Palette = ({
                           <td>
                             <ColorTable
                               value={lightInfo.value}
-                              alphaValue={lightInfo.alphaValue}
                               reference={lightInfo.reference}
                               descriptionMatch={lightInfo.descriptionMatch}
                               description={lightInfo.description}
                             />
                           </td>
-                          {/* Column 3: Prominent */}
-                          {showProminent &&
-                            Object.keys(prominentColors).length > 0 && (
-                              <td>
-                                <ColorTable
-                                  value={prominentInfo.value}
-                                  alphaValue={prominentInfo.alphaValue}
-                                  reference={prominentInfo.reference}
-                                  descriptionMatch={
-                                    prominentInfo.descriptionMatch
-                                  }
-                                  description={prominentInfo.description}
-                                />
-                              </td>
-                            )}
                           {/* Column 4: Dark */}
                           <td>
                             <ColorTable
                               value={darkInfo.value}
-                              alphaValue={darkInfo.alphaValue}
                               reference={darkInfo.reference}
                               descriptionMatch={darkInfo.descriptionMatch}
                               description={darkInfo.description}
