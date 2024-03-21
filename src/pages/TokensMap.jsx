@@ -15,7 +15,7 @@ import {
   TextField,
   RadioButton,
   RadioGroup,
-  Title2,
+  Text6,
   Circle,
   Text,
   skinVars,
@@ -155,7 +155,7 @@ const TokensMap = () => {
             <Stack space={32}>
               <Stack space={24}>
                 <SubHeader to={`/`} />
-                <Title2>Mística tokens</Title2>
+                <Text6>Mística tokens</Text6>
               </Stack>
               <Stack space={24}>
                 <RadioGroup
@@ -192,7 +192,14 @@ const TokensMap = () => {
           </Box>
           {activeTokenType === "color" && skinError === false && (
             <Box paddingBottom={24}>
-              <Inline space="between" alignItems="center">
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexWrap: "wrap",
+                  gap: 16,
+                }}
+              >
                 <RadioGroup
                   onChange={setColorView}
                   name="chip-group"
@@ -230,7 +237,7 @@ const TokensMap = () => {
                   </Circle>
                   <Text>Variables</Text>
                 </Inline>
-              </Inline>
+              </div>
             </Box>
           )}
         </ResponsiveLayout>

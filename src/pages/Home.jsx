@@ -19,9 +19,7 @@ import {
   IconAddBoltonFilled,
   IconChatFilled,
   IconMapFilled,
-  Text,
-  ButtonPrimary,
-  DisplayMediaCard,
+  Text10,
   ThemeVariant,
   RowList,
   Row,
@@ -38,6 +36,7 @@ import SubGrid from "../components/subGrid";
 import TeamMember from "../components/teamMember";
 import thumbnailWrapped2023 from "../pages/wrapped2023/assets/thumbnail.png";
 import skinTool from "../img/skin-tool.png";
+import AppLayout from "../components/app-layout";
 
 const Home = () => {
   const { isDesktopOrBigger } = useScreenSize();
@@ -170,10 +169,7 @@ const Home = () => {
   ];
 
   return (
-    <>
-      <AppHeader></AppHeader>
-      <Box paddingTop={89}></Box>
-
+    <AppLayout>
       <Slideshow
         inverseBullets={isDarkMode ? true : false}
         withBullets
@@ -275,9 +271,7 @@ const Home = () => {
           </Stack>
         </Box>
       </ResponsiveLayout>
-
-      <Footer></Footer>
-    </>
+    </AppLayout>
   );
 };
 
