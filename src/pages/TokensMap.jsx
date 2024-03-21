@@ -27,6 +27,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import GetSkin from "../helpers/getSkin";
 import GetBranches from "../helpers/getBranches";
+import AppLayout from "../components/app-layout";
 
 const TokensMap = () => {
   // use query params to load the page in the selected state coming from a detail
@@ -146,108 +147,113 @@ const TokensMap = () => {
   ];
 
   return (
-    <Box paddingBottom={80}>
-      <ResponsiveLayout>
-        <Box paddingY={48}>
-          <Stack space={32}>
-            <Stack space={24}>
-              <ButtonLink aligned to={`/`}>
-                Go back
-              </ButtonLink>
-              <Title2>Mística tokens</Title2>
+    <AppLayout>
+      <Box paddingBottom={80}>
+        <ResponsiveLayout>
+          <Box paddingY={48}>
+            <Stack space={32}>
+              <Stack space={24}>
+                <ButtonLink aligned to={`/`}>
+                  Go back
+                </ButtonLink>
+                <Title2>Mística tokens</Title2>
+              </Stack>
+              <Stack space={24}>
+                <RadioGroup
+                  onChange={setActiveTokenType}
+                  name="chip-group"
+                  value={activeTokenType}
+                >
+                  <Inline space={8}>
+                    {Array.from(
+                      { length: Object.keys(TOKEN_FILTERS).length },
+                      (_, idx) => (
+                        <RadioButton
+                          value={Object.keys(TOKEN_FILTERS)[idx]}
+                          render={({ checked, labelId }) => (
+                            <Chip active={checked} id={labelId}>
+                              {Object.values(TOKEN_FILTERS)[idx]}
+                            </Chip>
+                          )}
+                        />
+                      )
+                    )}
+                  </Inline>
+                </RadioGroup>
+
+                {isMobile ? (
+                  <Stack space={8}>{filters}</Stack>
+                ) : (
+                  <Inline space={8} alignItems="center" fullWidth>
+                    {filters}
+                  </Inline>
+                )}
+              </Stack>
             </Stack>
-            <Stack space={24}>
-              <RadioGroup
-                onChange={setActiveTokenType}
-                name="chip-group"
-                value={activeTokenType}
-              >
-                <Inline space={8}>
-                  {Array.from(
-                    { length: Object.keys(TOKEN_FILTERS).length },
-                    (_, idx) => (
+          </Box>
+          {activeTokenType === "color" && skinError === false && (
+            <Box paddingBottom={24}>
+              <Inline space="between" alignItems="center">
+                <RadioGroup
+                  onChange={setColorView}
+                  name="chip-group"
+                  value={colorView}
+                >
+                  <Inline space={8}>
+                    {Array.from({ length: 3 }, (_, idx) => (
                       <RadioButton
-                        value={Object.keys(TOKEN_FILTERS)[idx]}
+                        value={Object.keys(COLOR_FILTERS)[idx]}
                         render={({ checked, labelId }) => (
                           <Chip active={checked} id={labelId}>
-                            {Object.values(TOKEN_FILTERS)[idx]}
+                            {Object.values(COLOR_FILTERS)[idx]}
                           </Chip>
                         )}
                       />
-                    )
-                  )}
-                </Inline>
-              </RadioGroup>
-
-              {isMobile ? (
-                <Stack space={8}>{filters}</Stack>
-              ) : (
-                <Inline space={8} alignItems="center" fullWidth>
-                  {filters}
-                </Inline>
-              )}
-            </Stack>
-          </Stack>
-        </Box>
-        {activeTokenType === "color" && skinError === false && (
-          <Box paddingBottom={24}>
-            <Inline space="between" alignItems="center">
-              <RadioGroup
-                onChange={setColorView}
-                name="chip-group"
-                value={colorView}
-              >
-                <Inline space={8}>
-                  {Array.from({ length: 3 }, (_, idx) => (
-                    <RadioButton
-                      value={Object.keys(COLOR_FILTERS)[idx]}
-                      render={({ checked, labelId }) => (
-                        <Chip active={checked} id={labelId}>
-                          {Object.values(COLOR_FILTERS)[idx]}
-                        </Chip>
-                      )}
-                    />
-                  ))}
-                </Inline>
-              </RadioGroup>
-              <Inline space={8} alignItems="center">
-                <Circle size={24} backgroundColor={skinVars.colors.brandLow}>
+                    ))}
+                  </Inline>
+                </RadioGroup>
+                <Inline space={8} alignItems="center">
+                  <Circle size={24} backgroundColor={skinVars.colors.brandLow}>
+                    <Circle
+                      size={8}
+                      backgroundColor={skinVars.colors.brand}
+                    ></Circle>
+                  </Circle>
+                  <Text>Constants</Text>
                   <Circle
-                    size={8}
-                    backgroundColor={skinVars.colors.brand}
-                  ></Circle>
-                </Circle>
-                <Text>Constants</Text>
-                <Circle size={24} backgroundColor={skinVars.colors.successLow}>
-                  <Circle
-                    size={8}
-                    backgroundColor={skinVars.colors.successHigh}
-                  ></Circle>
-                </Circle>
-                <Text>Variables</Text>
+                    size={24}
+                    backgroundColor={skinVars.colors.successLow}
+                  >
+                    <Circle
+                      size={8}
+                      backgroundColor={skinVars.colors.successHigh}
+                    ></Circle>
+                  </Circle>
+                  <Text>Variables</Text>
+                </Inline>
               </Inline>
-            </Inline>
-          </Box>
-        )}
-      </ResponsiveLayout>
-
-      {skinError ? (
-        <ResponsiveLayout>
-          <EmptyStateCard
-            icon={
-              <IconErrorRegular
-                size={40}
-                color={skinVars.colors.error}
-              ></IconErrorRegular>
-            }
-            title="Error retrieving the tokens"
-            description={`The branch ${selectedBranch} may not have token files or there's a problem fetching them from GitHub.`}
-          />
+            </Box>
+          )}
         </ResponsiveLayout>
-      ) : (
-        view
-      )}
-    </Box>
+
+        {skinError ? (
+          <ResponsiveLayout>
+            <EmptyStateCard
+              icon={
+                <IconErrorRegular
+                  size={40}
+                  color={skinVars.colors.error}
+                ></IconErrorRegular>
+              }
+              title="Error retrieving the tokens"
+              description={`The branch ${selectedBranch} may not have token files or there's a problem fetching them from GitHub.`}
+            />
+          </ResponsiveLayout>
+        ) : (
+          view
+        )}
+      </Box>
+    </AppLayout>
   );
 };
 

@@ -37,6 +37,7 @@ import Footer from "../components/footer";
 import SubGrid from "../components/subGrid";
 import TeamMember from "../components/teamMember";
 import thumbnailWrapped2023 from "../pages/wrapped2023/assets/thumbnail.png";
+import skinTool from "../img/skin-tool.png";
 
 const Home = () => {
   const { isDesktopOrBigger } = useScreenSize();
@@ -58,6 +59,14 @@ const Home = () => {
       link: "/tokens-map",
       buttonLabel: "Visit",
       image: tokensTool,
+    },
+    {
+      title: "Skin2Json",
+      description:
+        "A tool to transform skin in json format to web format and vice versa.",
+      link: "/skin2json",
+      buttonLabel: "Visit",
+      image: skinTool,
     },
     {
       title: "Mistica wrapped 2022",

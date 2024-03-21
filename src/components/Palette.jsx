@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./borderRadii.module.css";
-import hexToRgbA from "../helpers/hexToRgba";
 import {
   skinVars,
   ResponsiveLayout,
@@ -14,20 +13,10 @@ import {
   Stack,
   IconWarningFilled,
   Tooltip,
-  Checkbox,
-  Text2,
 } from "@telefonica/mistica";
-import { useState, useEffect } from "react";
 import getColorValue from "../helpers/getColorValue";
 
-const Palette = ({
-  skin,
-  filter,
-  branch,
-  selectedSkin,
-  tokenType,
-  selectedColor,
-}) => {
+const Palette = ({ skin, filter, branch, selectedSkin, tokenType }) => {
   const colors = skin?.light || {};
   const darkColors = skin?.dark || {};
   const palette = skin?.global?.palette || {};

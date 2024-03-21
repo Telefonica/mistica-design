@@ -2,6 +2,7 @@ import {
   ButtonSecondary,
   IconButton,
   ResponsiveLayout,
+  Touchable,
   skinVars,
   useTheme,
 } from "@telefonica/mistica";
@@ -32,11 +33,14 @@ const AppHeader = () => {
       <ResponsiveLayout>
         <Box paddingY={16}>
           <Inline fullWidth space="between" alignItems="center">
-            <Image
-              width={240}
-              aspectRatio={0}
-              src={isDarkMode ? logoDark : logoLight}
-            />
+            <Touchable to="/">
+              <Image
+                width={240}
+                aspectRatio={0}
+                src={isDarkMode ? logoDark : logoLight}
+              />
+            </Touchable>
+            {/*
             <IconButton
               onPress={() => setTheme(theme === "light" ? "dark" : "light")}
             >
@@ -45,7 +49,7 @@ const AppHeader = () => {
               ) : (
                 <IconSunFilled size={iconSize} />
               )}
-            </IconButton>
+              </IconButton>*/}
           </Inline>
         </Box>
       </ResponsiveLayout>

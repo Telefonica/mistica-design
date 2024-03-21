@@ -55,7 +55,7 @@ const Footer = () => {
           <Box paddingY={8}>
             <Inline space={"between"}>
               <Text color={skinVars.colors.textSecondary}>
-                © 2023 Telefonica
+                © 2024 Telefonica
               </Text>
               <Text color={skinVars.colors.textSecondary}>
                 Made with ❤️ by Design core
