@@ -20,6 +20,8 @@ import {
   getWeightData,
   getLineHeightData,
 } from "../helpers/getTokenData";
+import AppLayout from "../components/app-layout";
+import SubHeader from "../components/sub-header";
 
 const TokenDetail = () => {
   const { id, tokenType, branch, tokenTextType, selectedSkin } = useParams();
@@ -177,32 +179,28 @@ const TokenDetail = () => {
   };
 
   return (
-    <ResponsiveLayout>
-      <Box paddingY={48}>
-        <Inline space="between" alignItems="center">
-          <ButtonLink
+    <AppLayout>
+      <ResponsiveLayout>
+        <Box paddingY={48}>
+          <SubHeader
             to={`/tokens-map/?branch=${branch}&skin=${selectedSkin}&tokenType=${tokenType}`}
-            aligned
-          >
-            <IconChevronLeftRegular color={skinVars.colors.textLink} />
-            Go back
-          </ButtonLink>
-        </Inline>
-      </Box>
+          />
+        </Box>
 
-      <div className={styles.tokenDetail}>
-        <Stack space={40}>
-          <Title2>{id}</Title2>
-          <Stack space={24}>
-            {tokenType === "radius" && <>{renderRadiusTable()}</>}
-            {tokenTextType === "size" && <>{renderSizeTable(skinData, id)}</>}
-            {tokenTextType === "weight" && <>{renderWeightTable()}</>}
-            {tokenTextType === "lineHeight" &&
-              renderLineHeightTable(skinData, id)}
+        <div className={styles.tokenDetail}>
+          <Stack space={40}>
+            <Title2>{id}</Title2>
+            <Stack space={24}>
+              {tokenType === "radius" && <>{renderRadiusTable()}</>}
+              {tokenTextType === "size" && <>{renderSizeTable(skinData, id)}</>}
+              {tokenTextType === "weight" && <>{renderWeightTable()}</>}
+              {tokenTextType === "lineHeight" &&
+                renderLineHeightTable(skinData, id)}
+            </Stack>
           </Stack>
-        </Stack>
-      </div>
-    </ResponsiveLayout>
+        </div>
+      </ResponsiveLayout>
+    </AppLayout>
   );
 };
 

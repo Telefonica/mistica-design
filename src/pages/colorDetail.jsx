@@ -22,6 +22,8 @@ import ColorCode from "../components/colorCode";
 import getColorValue from "../helpers/getColorValue";
 import GetSkin from "../helpers/getSkin";
 import { getColorData } from "../helpers/getTokenData";
+import AppLayout from "../components/app-layout";
+import SubHeader from "../components/sub-header";
 
 const ColorDetail = () => {
   const { id, tokenType, branch, selectedSkin, selectedColor } = useParams();
@@ -165,26 +167,21 @@ const ColorDetail = () => {
   };
 
   return (
-    <Box paddingY={48}>
-      <ResponsiveLayout>
-        <Inline space="between" alignItems="center">
-          <ButtonLink
+    <AppLayout>
+      <Box paddingY={48}>
+        <ResponsiveLayout>
+          <SubHeader
             to={`/tokens-map/?branch=${branch}&skin=${selectedSkin}&tokenType=${tokenType}&activeColor=${selectedColor}`}
-            aligned
-          >
-            <IconChevronLeftRegular color={skinVars.colors.textLink} />
-            Go back
-          </ButtonLink>
-        </Inline>
-
-        <div className={styles.tokenDetail}>
-          <Stack space={40}>
-            <Title2>{id}</Title2>
-            <Stack space={24}>{<>{renderColorTable(skinData, id)}</>}</Stack>
-          </Stack>
-        </div>
-      </ResponsiveLayout>
-    </Box>
+          />
+          <div className={styles.tokenDetail}>
+            <Stack space={40}>
+              <Title2>{id}</Title2>
+              <Stack space={24}>{<>{renderColorTable(skinData, id)}</>}</Stack>
+            </Stack>
+          </div>
+        </ResponsiveLayout>
+      </Box>
+    </AppLayout>
   );
 };
 

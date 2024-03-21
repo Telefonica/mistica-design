@@ -22,6 +22,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { generateSkin } from "../helpers/jsonToSkin";
 import AppLayout from "../components/app-layout";
+import SubHeader from "../components/sub-header";
 
 const Skin2Json = () => {
   const navigate = useNavigate();
@@ -58,6 +59,7 @@ const Skin2Json = () => {
       <AppLayout>
         <ResponsiveLayout>
           <Box paddingTop={48}>
+            <SubHeader to={`/`} />
             <Stack space={24}>
               <div
                 style={{

@@ -28,6 +28,7 @@ import { useLocation } from "react-router-dom";
 import GetSkin from "../helpers/getSkin";
 import GetBranches from "../helpers/getBranches";
 import AppLayout from "../components/app-layout";
+import SubHeader from "../components/sub-header";
 
 const TokensMap = () => {
   // use query params to load the page in the selected state coming from a detail
@@ -153,9 +154,7 @@ const TokensMap = () => {
           <Box paddingY={48}>
             <Stack space={32}>
               <Stack space={24}>
-                <ButtonLink aligned to={`/`}>
-                  Go back
-                </ButtonLink>
+                <SubHeader to={`/`} />
                 <Title2>Mística tokens</Title2>
               </Stack>
               <Stack space={24}>
