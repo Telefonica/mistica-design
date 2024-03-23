@@ -145,7 +145,7 @@ export const getColorData = (skinData, currentColor, colorScheme) => {
           if (tokens.hasOwnProperty(tokenName)) {
             if (!currentColor || tokenName === currentColor) {
               const tokenValue = getColorValue(
-                tokens[tokenName].value,
+                tokens[tokenName],
                 skin.global.palette
               );
 

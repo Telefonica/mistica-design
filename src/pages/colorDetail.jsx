@@ -48,7 +48,7 @@ const ColorDetail = () => {
     );
 
     const backgroundColor = getColorValue(
-      skinData?.[skinName]?.[colorScheme]?.[id].value,
+      skinData?.[skinName]?.[colorScheme]?.[id],
       palette
     );
 
@@ -130,7 +130,7 @@ const ColorDetail = () => {
             {Object.keys(skinData).length > 0 &&
               getColorData(skinData, id, "light").map((tokens, index) => (
                 <Row
-                  key={index} // Make sure to specify a unique key for each mapped element
+                  key={index}
                   skinName={tokens.skinName}
                   paletteValue={tokens.paletteValue}
                   colorScheme="light"

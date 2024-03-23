@@ -15,6 +15,7 @@ import {
   Tooltip,
 } from "@telefonica/mistica";
 import getColorValue from "../helpers/getColorValue";
+import getPaletteKey from "../helpers/get-palette-key";
 
 const Palette = ({ skin, filter, branch, selectedSkin, tokenType }) => {
   const colors = skin?.light || {};
@@ -24,29 +25,6 @@ const Palette = ({ skin, filter, branch, selectedSkin, tokenType }) => {
   const colorKeys = Object.keys(colors).filter((key) =>
     key.toLowerCase().includes(filter?.toLowerCase())
   );
-
-  // Get the palette key from the token value
-
-  function getPaletteKey(value) {
-    if (value === undefined || value === null) {
-      return undefined;
-    }
-
-    // if value is an object, return the first color value
-
-    if (typeof value === "object" && value.colors) {
-      const firstColor = value.colors[0]?.value;
-      if (firstColor) {
-        const match = firstColor.match(/\{palette\.([^\}]+)\}/);
-        return match ? match[1] : null;
-      }
-    }
-
-    // if value is a string, extract the palette key
-
-    const match = value.match(/\{palette\.([^\}]+)\}/);
-    return match ? match[1] : null;
-  }
 
   // Check if the palette reference matches the description
 
