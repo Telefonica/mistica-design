@@ -12,9 +12,16 @@ import styles from "./colorSample.module.css";
 
 const ColorSample = ({ color, palette }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarDanger, setSnackbarDanger] = useState(false);
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(color);
+  const copyToClipboard = (color) => {
+    navigator.clipboard
+      .writeText(color)
+      .then(() => {})
+      .catch((error) => {
+        console.error("Error copying text to clipboard:", error);
+      });
   };
 
   return (
@@ -56,7 +63,10 @@ const ColorSample = ({ color, palette }) => {
 
         {isHovered ? (
           <IconButton
-            onClick={copyToClipboard()}
+            onPress={() => {
+              copyToClipboard(color);
+              setSnackbarOpen(true);
+            }}
             small
             Icon={IconCopyRegular}
           />
@@ -64,6 +74,12 @@ const ColorSample = ({ color, palette }) => {
           <div style={{ width: 32, height: 32 }}></div>
         )}
       </div>
+      {snackbarOpen && (
+        <Snackbar
+          message={`Color copied to clipboard`}
+          onClose={() => setSnackbarOpen(false)}
+        />
+      )}
     </>
   );
 };
