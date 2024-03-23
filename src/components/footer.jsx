@@ -41,13 +41,21 @@ const Footer = () => {
               </div>
               <Stack space={8}>
                 <Text weight="bold">Resources</Text>
-                <TextLink>Design documentation</TextLink>
-                <TextLink>Github repository</TextLink>
-                <TextLink>Github icons repository</TextLink>
+                <TextLink href="https://brandfactory.telefonica.com/d/iSp7b1DkYygv/n-a#/get-started/what-is-mistica">
+                  Design documentation
+                </TextLink>
+                <TextLink href="https://github.com/Telefonica/mistica-design">
+                  Github repository
+                </TextLink>
+                <TextLink href="https://github.com/Telefonica/mistica-icons">
+                  Github icons repository
+                </TextLink>
               </Stack>
               <Stack space={8}>
                 <Text weight="bold">Communications</Text>
-                <TextLink>Subscribe to our newsletter</TextLink>
+                <TextLink href="https://mistica.substack.com/">
+                  Subscribe to our newsletter
+                </TextLink>
               </Stack>
             </SubGrid>
           </Box>

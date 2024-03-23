@@ -36,7 +36,7 @@ const ColorSample = ({ color, palette }) => {
             <div
               style={{
                 outline: `1px solid ${
-                  palette === ("white" || "grey1")
+                  palette === "white"
                     ? skinVars.colors.neutralMedium
                     : undefined
                 }`,
