@@ -31,7 +31,20 @@ const Palette = ({ skin, filter, branch, selectedSkin, tokenType }) => {
     if (value === undefined || value === null) {
       return undefined;
     }
-    const match = value?.match(/\{palette\.([^\}]+)\}/);
+
+    // if value is an object, return the first color value
+
+    if (typeof value === "object" && value.colors) {
+      const firstColor = value.colors[0]?.value;
+      if (firstColor) {
+        const match = firstColor.match(/\{palette\.([^\}]+)\}/);
+        return match ? match[1] : null;
+      }
+    }
+
+    // if value is a string, extract the palette key
+
+    const match = value.match(/\{palette\.([^\}]+)\}/);
     return match ? match[1] : null;
   }
 
@@ -123,7 +136,14 @@ const Palette = ({ skin, filter, branch, selectedSkin, tokenType }) => {
                     borderRadius: "50%",
                   }}
                 >
-                  <Circle size={16} backgroundColor={value}></Circle>
+                  <div
+                    style={{
+                      background: value,
+                      width: 20,
+                      height: 20,
+                      borderRadius: "50%",
+                    }}
+                  ></div>
                 </div>
               ) : (
                 <Tag type="error">Undefined</Tag>

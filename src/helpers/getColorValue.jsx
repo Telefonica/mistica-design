@@ -53,6 +53,15 @@ function getColorValue(data, palette) {
     }
   }
 
+  // If the data is an object and the value has a colors array, return the array of colors and the stops in the form "linear-gradient(angle, color1 stop,  color2 stop, ...)".
+
+  if (typeof data === "object" && data.value.colors) {
+    const colorStops = data.value.colors.map(
+      (color) => `${getColorValue(color.value, palette)} ${color.stop * 100}%`
+    );
+
+    return `linear-gradient(${data.value.angle}deg, ${colorStops.join(", ")})`;
+  }
   // If the data type is not supported, return undefined.
   return undefined;
 }
