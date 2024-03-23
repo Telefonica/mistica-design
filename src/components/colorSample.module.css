@@ -1,13 +1,14 @@
-.container{
-  display: inline-flex;
+.container {
+  display: flex;
   padding: 0 8px 0 4px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  border-radius: 999px;
+  font-family: "Menlo", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
   font-size: 14px;
-  height: 28px;
   box-sizing: border-box;
+  gap: 8px;
+  margin-bottom: 8px;
 }
-.circleBorder{
+.circleBorder {
   border: 1px solid rgb(156, 156, 156);
 }
 

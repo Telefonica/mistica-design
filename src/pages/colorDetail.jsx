@@ -18,7 +18,7 @@ import {
   Select,
 } from "@telefonica/mistica";
 import styles from "./tokenDetail.module.css";
-import ColorCode from "../components/colorCode";
+import ColorSample from "../components/colorSample";
 import getColorValue from "../helpers/getColorValue";
 import GetSkin from "../helpers/getSkin";
 import { getColorData } from "../helpers/getTokenData";
@@ -78,7 +78,7 @@ const ColorDetail = () => {
         <Tag type="success">{paletteValue}</Tag>
       </td>
       <td>
-        <ColorCode color={tokenValue}></ColorCode>
+        <ColorSample color={tokenValue} palette={paletteValue}></ColorSample>
       </td>
       <td>
         <Inline key={foregroundColor} space={8}>

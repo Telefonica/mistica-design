@@ -2004,10 +2004,10 @@
   resolved "https://registry.npmjs.org/@telefonica/libphonenumber/-/libphonenumber-2.9.0.tgz"
   integrity sha512-na1nty3dCxgtjtLTmcDD15VQ2+kABSmfSEzIZBUqdw3HI6ttrVGJHwc4iwvhBg+5OnuRkfOSeJkrqZJP+xVIhA==
 
-"@telefonica/mistica@^14.26.0":
-  version "14.34.0"
-  resolved "https://registry.npmjs.org/@telefonica/mistica/-/mistica-14.34.0.tgz"
-  integrity sha512-8XI/xx3xU/9/cLif++cdomafmTIVOW9SIC6veNAJHA43UeD528ZvHHXmck9iXYjgHDv6AxP4E4+gE9oqXPgbJA==
+"@telefonica/mistica@^14.47.0":
+  version "14.47.0"
+  resolved "https://registry.npmjs.org/@telefonica/mistica/-/mistica-14.47.0.tgz"
+  integrity sha512-doDDeHfeZ+9AfytcSFvqGJ5cMeJbgL4z5Jz/1pkn6pDt6YX/vxkQ4eNQKkwN/y7yLSfXQgYkYR/qTuCshRonjQ==
   dependencies:
     "@juggle/resize-observer" "^3.3.1"
     "@tef-novum/webview-bridge" "^3.27.0"
@@ -2016,6 +2016,7 @@
     "@vanilla-extract/dynamic" "^2.0.3"
     "@vanilla-extract/sprinkles" "^1.5.1"
     classnames "^2.3.1"
+    lottie-react "^2.4.0"
     moment "^2.29.1"
     react-autosuggest "^10.1.0"
     react-datetime "^3.1.1"
@@ -6871,6 +6872,18 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
+
+lottie-react@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.npmjs.org/lottie-react/-/lottie-react-2.4.0.tgz"
+  integrity sha512-pDJGj+AQlnlyHvOHFK7vLdsDcvbuqvwPZdMlJ360wrzGFurXeKPr8SiRCjLf3LrNYKANQtSsh5dz9UYQHuqx4w==
+  dependencies:
+    lottie-web "^5.10.2"
+
+lottie-web@^5.10.2:
+  version "5.12.2"
+  resolved "https://registry.npmjs.org/lottie-web/-/lottie-web-5.12.2.tgz"
+  integrity sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==
 
 lower-case@^2.0.2:
   version "2.0.2"

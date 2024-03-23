@@ -16,6 +16,7 @@ import {
 } from "@telefonica/mistica";
 import getColorValue from "../helpers/getColorValue";
 import getPaletteKey from "../helpers/get-palette-key";
+import ColorSample from "./colorSample";
 
 const Palette = ({ skin, filter, branch, selectedSkin, tokenType }) => {
   const colors = skin?.light || {};
@@ -96,68 +97,32 @@ const Palette = ({ skin, filter, branch, selectedSkin, tokenType }) => {
   const darkUnmatchedCount = countUnmatchedColors(darkColors);
   const totalUnmatchedCount = lightUnmatchedCount + darkUnmatchedCount;
 
-  const ColorTable = ({ value, reference, descriptionMatch, description }) => {
+  const ColorCell = ({ value, reference, descriptionMatch, description }) => {
     return (
-      <table style={{ textAlign: "left", width: "fit-content" }}>
-        <tbody>
-          <tr>
-            <td>
-              {value !== undefined ? (
-                <div
-                  style={{
-                    outline: `1px solid ${
-                      reference === ("white" || "grey1")
-                        ? skinVars.colors.neutralMedium
-                        : undefined
-                    }`,
-                    width: "fit-content",
-                    borderRadius: "50%",
-                  }}
-                >
-                  <div
-                    style={{
-                      background: value,
-                      width: 20,
-                      height: 20,
-                      borderRadius: "50%",
-                    }}
-                  ></div>
-                </div>
-              ) : (
-                <Tag type="error">Undefined</Tag>
-              )}
-            </td>
-            <td>{value}</td>
-            <td>
-              <Tag type={value === undefined ? "error" : "success"}>
-                {reference}
-              </Tag>
-              {value !== undefined ? undefined : (
-                <Tooltip
-                  target={
-                    <IconWarningFilled
-                      color={skinVars.colors.error}
-                      size={16}
-                    />
-                  }
-                  description={`The value of this color references an unexistent or wrong palette token (${description})`}
-                ></Tooltip>
-              )}
-              {descriptionMatch ? undefined : (
-                <Tooltip
-                  target={
-                    <IconWarningFilled
-                      color={skinVars.colors.warning}
-                      size={16}
-                    />
-                  }
-                  description={`Token description doesn't match (${description})`}
-                ></Tooltip>
-              )}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <>
+        <ColorSample color={value} palette={reference} />
+        <div>
+          <Tag type={value === undefined ? "error" : "success"}>
+            {reference}
+          </Tag>
+          {value !== undefined ? undefined : (
+            <Tooltip
+              target={
+                <IconWarningFilled color={skinVars.colors.error} size={16} />
+              }
+              description={`The value of this color references an unexistent or wrong palette token (${description})`}
+            ></Tooltip>
+          )}
+          {descriptionMatch ? undefined : (
+            <Tooltip
+              target={
+                <IconWarningFilled color={skinVars.colors.warning} size={16} />
+              }
+              description={`Token description doesn't match (${description})`}
+            ></Tooltip>
+          )}
+        </div>
+      </>
     );
   };
 
@@ -230,7 +195,7 @@ const Palette = ({ skin, filter, branch, selectedSkin, tokenType }) => {
                           </td>
                           {/* Column 2: Light */}
                           <td>
-                            <ColorTable
+                            <ColorCell
                               value={lightInfo.value}
                               reference={lightInfo.reference}
                               descriptionMatch={lightInfo.descriptionMatch}
@@ -239,7 +204,7 @@ const Palette = ({ skin, filter, branch, selectedSkin, tokenType }) => {
                           </td>
                           {/* Column 4: Dark */}
                           <td>
-                            <ColorTable
+                            <ColorCell
                               value={darkInfo.value}
                               reference={darkInfo.reference}
                               descriptionMatch={darkInfo.descriptionMatch}

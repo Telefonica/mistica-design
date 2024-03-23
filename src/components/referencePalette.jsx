@@ -83,7 +83,7 @@ function ReferencePalette({
 
   const unusedColors = Object.keys(palette).filter((key) => {
     const color = palette[key];
-    if (color.type !== "color") return false;
+    if (color.type !== "color" || "linear-gradient") return false;
 
     const value = color.value;
     const matchingCount = getMatchingCount(value);
