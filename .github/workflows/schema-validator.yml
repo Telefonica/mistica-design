@@ -29,6 +29,16 @@ jobs:
           file: "tokens/o2.json"
           schema: "tokens/schema/skin-schema.json"
 
+  O2-new:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate action.yml against a remote schema
+        uses: cardinalby/schema-validator-action@v1
+        with:
+          file: "tokens/o2-new.json"
+          schema: "tokens/schema/skin-schema.json"
+
   Vivo:
     runs-on: ubuntu-latest
     steps:
