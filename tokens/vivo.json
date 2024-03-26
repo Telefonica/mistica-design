@@ -601,9 +601,9 @@
       "description": "vivoPurpleLight10"
     },
     "tagBackgroundInactive": {
-      "value": "{palette.grey2}",
+      "value": "{palette.grey1}",
       "type": "color",
-      "description": "grey2"
+      "description": "grey1"
     },
     "tagBackgroundSuccess": {
       "value": "{palette.vivoGreenLight10}",
@@ -619,6 +619,27 @@
       "value": "{palette.pepperLight10}",
       "type": "color",
       "description": "pepperLight10"
+    },
+    "cardContentOverlay": {
+      "type": "linear-gradient",
+      "value": {
+        "angle": 180,
+        "colors": [
+          {
+            "value": "rgba({palette.grey6}, 0)",
+            "stop": 0
+          },
+          {
+            "value": "rgba({palette.grey6}, 0.4)",
+            "stop": 0.3
+          },
+          {
+            "value": "rgba({palette.grey6}, 1)",
+            "stop": 1
+          }
+        ]
+      },
+      "description": "grey6"
     }
   },
   "dark": {
@@ -1241,6 +1262,27 @@
       "value": "{palette.darkModeGrey6}",
       "type": "color",
       "description": "darkModeGrey6"
+    },
+    "cardContentOverlay": {
+      "type": "linear-gradient",
+      "value": {
+        "angle": 180,
+        "colors": [
+          {
+            "value": "rgba({palette.grey6}, 0)",
+            "stop": 0
+          },
+          {
+            "value": "rgba({palette.grey6}, 0.4)",
+            "stop": 0.3
+          },
+          {
+            "value": "rgba({palette.grey6}, 1)",
+            "stop": 1
+          }
+        ]
+      },
+      "description": "grey6"
     }
   },
   "radius": {
