@@ -626,20 +626,20 @@
         "angle": 180,
         "colors": [
           {
-            "value": "rgba({palette.grey6}, 0)",
+            "value": "rgba({palette.black}, 0)",
             "stop": 0
           },
           {
-            "value": "rgba({palette.grey6}, 0.4)",
+            "value": "rgba({palette.black}, 0.4)",
             "stop": 0.3
           },
           {
-            "value": "rgba({palette.grey6}, 1)",
+            "value": "rgba({palette.black}, 1)",
             "stop": 1
           }
         ]
       },
-      "description": "grey6"
+      "description": "black"
     }
   },
   "dark": {
@@ -1269,20 +1269,20 @@
         "angle": 180,
         "colors": [
           {
-            "value": "rgba({palette.grey6}, 0)",
+            "value": "rgba({palette.black}, 0)",
             "stop": 0
           },
           {
-            "value": "rgba({palette.grey6}, 0.4)",
+            "value": "rgba({palette.black}, 0.4)",
             "stop": 0.3
           },
           {
-            "value": "rgba({palette.grey6}, 1)",
+            "value": "rgba({palette.black}, 1)",
             "stop": 1
           }
         ]
       },
-      "description": "grey6"
+      "description": "black"
     }
   },
   "radius": {
@@ -1567,6 +1567,10 @@
       },
       "white": {
         "value": "#FFFFFF",
+        "type": "color"
+      },
+      "black": {
+        "value": "#000000",
         "type": "color"
       },
       "darkModeBlack": {
