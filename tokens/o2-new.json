@@ -11,8 +11,24 @@
       "description": "grey20"
     },
     "backgroundBrand": {
-      "value": "linear-gradient(180deg, {palette.o2GradientFirst} 0%, {palette.o2GradientSecond} 64%, {palette.o2GradientThird} 100%)",
-      "type": "color",
+      "type": "linear-gradient",
+      "value": {
+        "angle": 180,
+        "colors": [
+          {
+            "value": "rgba({palette.beyondBlue75}, 0)",
+            "stop": 0
+          },
+          {
+            "value": "rgba({palette.beyondBlue}, 0.4)",
+            "stop": 0.3
+          },
+          {
+            "value": "rgba({palette.beyondBlue45}, 1)",
+            "stop": 1
+          }
+        ]
+      },
       "description": "o2Gradient"
     },
     "backgroundBrandSecondary": {
@@ -36,8 +52,24 @@
       "description": "darkModeBlack"
     },
     "backgroundContainerBrand": {
-      "value": "linear-gradient(180deg, {palette.o2GradientFirst} 0%, {palette.o2GradientSecond} 64%, {palette.o2GradientThird} 100%)",
-      "type": "color",
+      "type": "linear-gradient",
+      "value": {
+        "angle": 180,
+        "colors": [
+          {
+            "value": "rgba({palette.beyondBlue75}, 0)",
+            "stop": 0
+          },
+          {
+            "value": "rgba({palette.beyondBlue}, 0.4)",
+            "stop": 0.3
+          },
+          {
+            "value": "rgba({palette.beyondBlue45}, 1)",
+            "stop": 1
+          }
+        ]
+      },
       "description": "o2Gradient"
     },
     "backgroundContainerBrandHover": {
@@ -75,10 +107,15 @@
       "type": "color",
       "description": "beyondBlue70"
     },
-    "backgroundFeedbackBottom": {
-      "value": "{palette.o2GradientThird}",
+    "backgroundBrandTop": {
+      "value": "{palette.beyondBlue75}",
       "type": "color",
-      "description": "o2GradientThird"
+      "description": "beyondBlue75"
+    },
+    "backgroundBrandBottom": {
+      "value": "{palette.beyondBlue45}",
+      "type": "color",
+      "description": "beyondBlue45"
     },
     "appBarBackground": {
       "value": "{palette.white}",
@@ -86,9 +123,9 @@
       "description": "white"
     },
     "navigationBarBackground": {
-      "value": "{palette.o2GradientFirst}",
+      "value": "{palette.beyondBlue75}",
       "type": "color",
-      "description": "o2GradientFirst"
+      "description": "beyondBlue75"
     },
     "skeletonWave": {
       "value": "{palette.grey30}",
@@ -615,10 +652,26 @@
       "type": "color",
       "description": "o2Red10"
     },
-    "overscroll": {
-      "value": "{palette.o2GradientThird}",
-      "type": "color",
-      "description": "o2GradientThird"
+    "cardContentOverlay": {
+      "type": "linear-gradient",
+      "value": {
+        "angle": 180,
+        "colors": [
+          {
+            "value": "rgba({palette.grey6}, 0)",
+            "stop": 0
+          },
+          {
+            "value": "rgba({palette.grey6}, 0.4)",
+            "stop": 0.3
+          },
+          {
+            "value": "rgba({palette.grey6}, 1)",
+            "stop": 1
+          }
+        ]
+      },
+      "description": "grey6"
     }
   },
   "dark": {
@@ -697,7 +750,12 @@
       "type": "color",
       "description": "darkModeGrey6"
     },
-    "backgroundFeedbackBottom": {
+    "backgroundBrandTop": {
+      "value": "{palette.darkModeBlack}",
+      "type": "color",
+      "description": "darkModeBlack"
+    },
+    "backgroundBrandBottom": {
       "value": "{palette.darkModeBlack}",
       "type": "color",
       "description": "darkModeBlack"
@@ -1237,10 +1295,26 @@
       "type": "color",
       "description": "darkModeGrey6"
     },
-    "overscroll": {
-      "value": "{palette.darkModeBlack}",
-      "type": "color",
-      "description": "darkModeBlack"
+    "cardContentOverlay": {
+      "type": "linear-gradient",
+      "value": {
+        "angle": 180,
+        "colors": [
+          {
+            "value": "rgba({palette.grey60}, 0)",
+            "stop": 0
+          },
+          {
+            "value": "rgba({palette.grey60}, 0.4)",
+            "stop": 0.3
+          },
+          {
+            "value": "rgba({palette.grey60}, 1)",
+            "stop": 1
+          }
+        ]
+      },
+      "description": "grey6"
     }
   },
   "radius": {
@@ -1403,12 +1477,20 @@
         "value": "#4D84FF",
         "type": "color"
       },
+      "beyondBlue45": {
+        "value": "#0A73EB",
+        "type": "color"
+      },
       "beyondBlue55": {
         "value": "#0044D9",
         "type": "color"
       },
       "beyondBlue70": {
         "value": "#0038B2",
+        "type": "color"
+      },
+      "beyondBlue75": {
+        "value": "#0019A5",
         "type": "color"
       },
       "beyondBlue90": {
@@ -1557,18 +1639,6 @@
       },
       "darkModeBeyondBlueDark": {
         "value": "#0048E5",
-        "type": "color"
-      },
-      "o2GradientFirst": {
-        "value": "#0019A5",
-        "type": "color"
-      },
-      "o2GradientSecond": {
-        "value": "#0050FF",
-        "type": "color"
-      },
-      "o2GradientThird": {
-        "value": "#0A73EB",
         "type": "color"
       }
     }
