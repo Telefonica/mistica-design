@@ -13,15 +13,15 @@ import {
   IconChevronLeftRegular,
 } from "@telefonica/mistica";
 import styles from "./tokenDetail.module.css";
-import GetSkin from "../helpers/getSkin";
+import GetSkin from "../../helpers/getSkin";
 import {
   getRadiusData,
   getSizeData,
   getWeightData,
   getLineHeightData,
-} from "../helpers/getTokenData";
-import AppLayout from "../components/app-layout";
-import SubHeader from "../components/sub-header";
+} from "../../helpers/getTokenData";
+import AppLayout from "../../components/app-layout";
+import SubHeader from "../../components/sub-header";
 
 const TokenDetail = () => {
   const { id, tokenType, branch, tokenTextType, selectedSkin } = useParams();

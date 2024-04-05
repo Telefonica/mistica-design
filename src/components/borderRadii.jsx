@@ -86,7 +86,9 @@ const RadiiTable = ({ skin, filter, branch, selectedSkin, tokenType }) => {
                             <Tag type="active">{key}</Tag>
                           </Touchable>
                         </td>
-                        <td>{radiusValue(value)}</td>
+                        <td>
+                          <Text>{radiusValue(value)}</Text>
+                        </td>
                       </tr>
                     );
                   })}

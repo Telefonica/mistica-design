@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import ReferencePalette from "../components/referencePalette";
 import Palette from "../components/Palette";
+import skinPreview from "../pages/mistica-tokens/skin-preview";
 import GlobalPalette from "../components/globalPalette";
 import RadiiTable from "../components/borderRadii";
 import TextTable from "../components/typography";
@@ -29,6 +30,7 @@ import GetSkin from "../helpers/getSkin";
 import GetBranches from "../helpers/getBranches";
 import AppLayout from "../components/app-layout";
 import SubHeader from "../components/sub-header";
+import SkinPreview from "../pages/mistica-tokens/skin-preview";
 
 const TokensMap = () => {
   // use query params to load the page in the selected state coming from a detail
@@ -91,6 +93,7 @@ const TokensMap = () => {
     constants: "Constants",
     variables: "Variables",
     match: "Match",
+    preview: "Preview",
   };
 
   const VIEWS = {
@@ -98,6 +101,7 @@ const TokensMap = () => {
       constants: Palette,
       variables: GlobalPalette,
       match: ReferencePalette,
+      //preview: SkinPreview,
     },
     radius: RadiiTable,
     text: TextTable,

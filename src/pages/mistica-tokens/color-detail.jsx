@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import getContrastRatio from "../helpers/contrastRatio";
-import ContrastChecker from "../helpers/contrastChecker";
+import getContrastRatio from "../../helpers/contrastRatio";
+import ContrastChecker from "../../helpers/contrastChecker";
 import { useParams } from "react-router-dom";
 import {
   ButtonLink,
@@ -18,12 +18,12 @@ import {
   Select,
 } from "@telefonica/mistica";
 import styles from "./tokenDetail.module.css";
-import ColorSample from "../components/colorSample";
-import getColorValue from "../helpers/getColorValue";
-import GetSkin from "../helpers/getSkin";
-import { getColorData } from "../helpers/getTokenData";
-import AppLayout from "../components/app-layout";
-import SubHeader from "../components/sub-header";
+import ColorSample from "../../components/colorSample";
+import getColorValue from "../../helpers/getColorValue";
+import GetSkin from "../../helpers/getSkin";
+import { getColorData } from "../../helpers/getTokenData";
+import AppLayout from "../../components/app-layout";
+import SubHeader from "../../components/sub-header";
 
 const ColorDetail = () => {
   const { id, tokenType, branch, selectedSkin, selectedColor } = useParams();

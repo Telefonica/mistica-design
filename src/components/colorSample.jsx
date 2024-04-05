@@ -13,7 +13,6 @@ import styles from "./colorSample.module.css";
 const ColorSample = ({ color, palette }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [snackbarDanger, setSnackbarDanger] = useState(false);
 
   const copyToClipboard = (color) => {
     navigator.clipboard
@@ -57,7 +56,7 @@ const ColorSample = ({ color, palette }) => {
             <Tag type="error">Undefined</Tag>
           )}
           <div style={{ maxWidth: 360 }}>
-            <span>{color}</span>
+            <Text>{color}</Text>
           </div>
         </Inline>
 

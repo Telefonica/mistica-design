@@ -152,8 +152,12 @@ const TextTable = ({
                             <Tag type="active">{key}</Tag>
                           </Touchable>
                         </td>
-                        <td>{mobileValue}px</td>
-                        <td>{desktopValue}px</td>
+                        <td>
+                          <Text>{mobileValue}px</Text>
+                        </td>
+                        <td>
+                          <Text>{desktopValue}px</Text>
+                        </td>
                       </tr>
                     );
                   })}
@@ -174,7 +178,9 @@ const TextTable = ({
                             <Tag type="active">{key}</Tag>
                           </Touchable>
                         </td>
-                        <td>{value}</td>
+                        <td>
+                          <Text>{value}</Text>
+                        </td>
                       </tr>
                     );
                   })}
@@ -211,8 +217,12 @@ const TextTable = ({
                             <Tag type="active">{key}</Tag>
                           </Touchable>
                         </td>
-                        <td>{mobileValue}px</td>
-                        <td>{desktopValue}px</td>
+                        <td>
+                          <Text>{mobileValue}px</Text>
+                        </td>
+                        <td>
+                          <Text>{desktopValue}px</Text>
+                        </td>
                       </tr>
                     );
                   })}
