@@ -93,7 +93,7 @@ const TokensMap = () => {
     constants: "Constants",
     variables: "Variables",
     match: "Match",
-    preview: "Preview",
+    //preview: "Preview",
   };
 
   const VIEWS = {
@@ -210,12 +210,13 @@ const TokensMap = () => {
                   value={colorView}
                 >
                   <Inline space={8}>
-                    {Array.from({ length: 3 }, (_, idx) => (
+                    {Object.keys(COLOR_FILTERS).map((filter, index) => (
                       <RadioButton
-                        value={Object.keys(COLOR_FILTERS)[idx]}
+                        key={index}
+                        value={filter}
                         render={({ checked, labelId }) => (
                           <Chip active={checked} id={labelId}>
-                            {Object.values(COLOR_FILTERS)[idx]}
+                            {COLOR_FILTERS[filter]}
                           </Chip>
                         )}
                       />
