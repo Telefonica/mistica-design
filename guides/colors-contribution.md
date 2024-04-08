@@ -203,9 +203,9 @@ The `value` field of a border-radius token can be modified:
 >
 > **Maintainers only**
 >
-> To configure JSON schema ein VSCode read [this documentation](https://github.com/Telefonica/mistica-design/blob/update-colors-contribution/guides/vsco-configuration.md)
+> To configure JSON schema in VSCode read [this documentation](https://github.com/Telefonica/mistica-design/blob/update-colors-contribution/guides/vsco-configuration.md)
 
-In order to add, delete tokens or modify the name of existing tokens, the JSON schema should be updated in order to avoid check failure in the PRs containing the tokens.
+In order to add, delete tokens or modify the name of existing tokens, the JSON schema should be updated to avoid check failure in the PRs containing the tokens.
 
 The JSON schema can be found in `tokens` / `schema` / `skin-schema.json`.
 
@@ -223,11 +223,11 @@ To add a new variable you need to update the constant properties:
 - `definitions` / `constantProperties` / `patternProperties` / `value` / `anyOf` / `pattern`
 - `definitions` / `constantProperties` / `patternProperties` / `value` / `properties` / `colors` / `items` / `properties` / `value` / `anyOf` / `pattern`
 
-Inside this arrays you can find all the brands so you can add the variable names needed.
+Inside both arrays you can find all the brands so you can add the variable names needed.
 
-Each `pattern` has two regex expressions combined (rgba and non rgba values), so you will need to add two entries of the variable name.
+Each `pattern` has two regex expressions combined (rgba and non rgba values), so you will need to add two entries of the variable name. 
 
-You'll need to update also the regex that checks a valid description:
+You'll need to update also the regex that checks that valid description is provided:
 
 - `definitions` / `constantProperties` / `patternProperties` / `description` / `anyOf`
 
