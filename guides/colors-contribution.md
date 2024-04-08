@@ -202,6 +202,8 @@ The `value` field of a border-radius token can be modified:
 > [!WARNING]
 >
 > **Maintainers only**
+>
+> To configure JSON schema ein VSCode read [this documentation](https://github.com/Telefonica/mistica-design/blob/update-colors-contribution/guides/vsco-configuration.md)
 
 In order to add, delete tokens or modify the name of existing tokens, the JSON schema should be updated in order to avoid check failure in the PRs containing the tokens.
 
