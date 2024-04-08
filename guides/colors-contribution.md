@@ -215,6 +215,8 @@ In order to add a new constant you need to add a new entry in:
 
 - `global` / `constants` / `required`: `"yourTokenName"`
 - `global` / `constants` / `properties`: `"yourTokenName": { "$ref": "#/definitions/constantProperties" }`,
+ 
+![add-constant](https://github.com/Telefonica/mistica-design/assets/44420072/35c596af-6b40-457d-a43f-e25cba010e64)
 
 ### Add a new variable
 
@@ -222,6 +224,9 @@ To add a new variable you need to update the constant properties:
 
 - `definitions` / `constantProperties` / `patternProperties` / `value` / `anyOf` / `pattern`
 - `definitions` / `constantProperties` / `patternProperties` / `value` / `properties` / `colors` / `items` / `properties` / `value` / `anyOf` / `pattern`
+
+![add-variable](https://github.com/Telefonica/mistica-design/assets/44420072/a2516b84-5b2a-4484-8557-f5804b276559)
+
 
 Inside both arrays you can find all the brands so you can add the variable names needed.
 
