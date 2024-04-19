@@ -32,6 +32,14 @@ import {
   IconLightningFilled,
   Select,
   Box,
+  RowList,
+  Row,
+  BoxedRowList,
+  BoxedRow,
+  Accordion,
+  AccordionItem,
+  BoxedAccordion,
+  BoxedAccordionItem,
 } from "@telefonica/mistica";
 import { generateCustomSkin } from "../../helpers/generateCustomSkin";
 import { SchemeContext } from "../../App";
@@ -170,6 +178,46 @@ const SkinPreview = ({ skin }) => {
                 description="Description"
               ></Callout>
             </Inline>
+            <Title1>Lists</Title1>
+            <Stack space={16}>
+              <RowList>
+                {Array.from({ length: 2 }, (_, idx) => (
+                  <Row
+                    title="Title"
+                    description="Description"
+                    onPress={[() => {}, () => {}][idx]}
+                    detail="Detail"
+                    checkbox={[undefined, true][idx]}
+                  ></Row>
+                ))}
+              </RowList>
+              <BoxedRowList>
+                {Array.from({ length: 2 }, (_, idx) => (
+                  <BoxedRow
+                    title="Title"
+                    description="Description"
+                    onPress={[() => {}, () => {}][idx]}
+                    detail="Detail"
+                    checkbox={[undefined, true][idx]}
+                  ></BoxedRow>
+                ))}
+              </BoxedRowList>
+            </Stack>
+            <Title1>Accordion</Title1>
+            <Stack space={16}>
+              <Accordion index={0}>
+                <AccordionItem
+                  title="Title"
+                  content="Accordion content"
+                ></AccordionItem>
+              </Accordion>
+              <BoxedAccordion index={0}>
+                <BoxedAccordionItem
+                  title="Title"
+                  content="Accordion content"
+                ></BoxedAccordionItem>
+              </BoxedAccordion>
+            </Stack>
           </Stack>
         </Box>
       </ResponsiveLayout>
