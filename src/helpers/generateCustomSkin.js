@@ -22,7 +22,10 @@ export const generateCustomSkin = (skinName, skinData, palette) => {
   if (designTokens.radius) {
     Object.entries(designTokens.radius).forEach(
       ([radiusName, radiusDescription]) => {
-        radiusTokens[radiusName] = radiusDescription.value;
+        radiusTokens[radiusName] =
+          radiusDescription.value === "circle"
+            ? "50%"
+            : radiusDescription.value + "px";
       }
     );
   }

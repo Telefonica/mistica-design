@@ -93,7 +93,7 @@ const TokensMap = () => {
     constants: "Constants",
     variables: "Variables",
     match: "Match",
-    //preview: "Preview",
+    preview: "Preview",
   };
 
   const VIEWS = {
@@ -101,7 +101,7 @@ const TokensMap = () => {
       constants: Palette,
       variables: GlobalPalette,
       match: ReferencePalette,
-      //preview: SkinPreview,
+      preview: SkinPreview,
     },
     radius: RadiiTable,
     text: TextTable,
