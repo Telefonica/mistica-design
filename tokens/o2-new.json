@@ -57,25 +57,9 @@
       "description": "darkModeBlack"
     },
     "backgroundContainerBrand": {
-      "type": "linear-gradient",
-      "value": {
-        "angle": 180,
-        "colors": [
-          {
-            "value": "{palette.darkBlue}",
-            "stop": 0
-          },
-          {
-            "value": "{palette.beyondBlue}",
-            "stop": 0.64
-          },
-          {
-            "value": "{palette.beyondBlue45}",
-            "stop": 1
-          }
-        ]
-      },
-      "description": "o2Gradient"
+      "value": "{palette.beyondBlue}",
+      "type": "color",
+      "description": "beyondBlue"
     },
     "backgroundContainerBrandHover": {
       "value": "rgba({palette.darkModeBlack}, 0.2)",
