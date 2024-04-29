@@ -25,6 +25,11 @@
       "type": "color",
       "description": "white"
     },
+    "backgroundContainerError": {
+      "value": "{palette.pepperLight10}",
+      "type": "color",
+      "description": "pepperLight10"
+    },
     "backgroundContainerHover": {
       "value": "rgba({palette.darkModeBlack}, 0.03)",
       "type": "color",
@@ -75,7 +80,12 @@
       "type": "color",
       "description": "vivoPurpleDark"
     },
-    "backgroundFeedbackBottom": {
+    "backgroundBrandTop": {
+      "value": "{palette.vivoPurple}",
+      "type": "color",
+      "description": "vivoPurple"
+    },
+    "backgroundBrandBottom": {
       "value": "{palette.vivoPurple}",
       "type": "color",
       "description": "vivoPurple"
@@ -296,9 +306,9 @@
       "description": "vivoPurple"
     },
     "controlInverse": {
-      "value": "{palette.white}",
+      "value": "{palette.vivoPurpleLight50}",
       "type": "color",
-      "description": "white"
+      "description": "vivoPurpleLight50"
     },
     "controlActivatedInverse": {
       "value": "{palette.white}",
@@ -445,6 +455,16 @@
       "type": "color",
       "description": "pepper"
     },
+    "textError": {
+      "value": "{palette.pepper}",
+      "type": "color",
+      "description": "pepper"
+    },
+    "textErrorInverse": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "promo": {
       "value": "{palette.vivoPurple}",
       "type": "color",
@@ -554,6 +574,87 @@
       "value": "{palette.vivoPurple}",
       "type": "color",
       "description": "vivoPurple"
+    },
+    "tagTextPromo": {
+      "value": "{palette.vivoPurple}",
+      "type": "color",
+      "description": "vivoPurple"
+    },
+    "tagTextActive": {
+      "value": "{palette.vivoPurple}",
+      "type": "color",
+      "description": "vivoPurple"
+    },
+    "tagTextInactive": {
+      "value": "{palette.grey5}",
+      "type": "color",
+      "description": "grey5"
+    },
+    "tagTextSuccess": {
+      "value": "{palette.vivoGreenDark}",
+      "type": "color",
+      "description": "vivoGreenDark"
+    },
+    "tagTextWarning": {
+      "value": "{palette.orangeDark}",
+      "type": "color",
+      "description": "orangeDark"
+    },
+    "tagTextError": {
+      "value": "{palette.pepperDark80}",
+      "type": "color",
+      "description": "pepperDark80"
+    },
+    "tagBackgroundPromo": {
+      "value": "{palette.vivoPurpleLight10}",
+      "type": "color",
+      "description": "vivoPurpleLight10"
+    },
+    "tagBackgroundActive": {
+      "value": "{palette.vivoPurpleLight10}",
+      "type": "color",
+      "description": "vivoPurpleLight10"
+    },
+    "tagBackgroundInactive": {
+      "value": "{palette.grey1}",
+      "type": "color",
+      "description": "grey1"
+    },
+    "tagBackgroundSuccess": {
+      "value": "{palette.vivoGreenLight10}",
+      "type": "color",
+      "description": "vivoGreenLight10"
+    },
+    "tagBackgroundWarning": {
+      "value": "{palette.orangeLight10}",
+      "type": "color",
+      "description": "orangeLight10"
+    },
+    "tagBackgroundError": {
+      "value": "{palette.pepperLight10}",
+      "type": "color",
+      "description": "pepperLight10"
+    },
+    "cardContentOverlay": {
+      "type": "linear-gradient",
+      "value": {
+        "angle": 180,
+        "colors": [
+          {
+            "value": "rgba({palette.grey6}, 0)",
+            "stop": 0
+          },
+          {
+            "value": "rgba({palette.grey6}, 0.4)",
+            "stop": 0.3
+          },
+          {
+            "value": "rgba({palette.grey6}, 0.7)",
+            "stop": 1
+          }
+        ]
+      },
+      "description": "grey6"
     }
   },
   "dark": {
@@ -578,6 +679,11 @@
       "description": "darkModeBlack"
     },
     "backgroundContainer": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "backgroundContainerError": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
@@ -632,7 +738,12 @@
       "type": "color",
       "description": "darkModeGrey6"
     },
-    "backgroundFeedbackBottom": {
+    "backgroundBrandTop": {
+      "value": "{palette.darkModeBlack}",
+      "type": "color",
+      "description": "darkModeBlack"
+    },
+    "backgroundBrandBottom": {
       "value": "{palette.darkModeBlack}",
       "type": "color",
       "description": "darkModeBlack"
@@ -703,7 +814,7 @@
       "description": "white"
     },
     "buttonLinkDangerBackgroundInverse": {
-      "value": "rgba({palette.white}, 0.01)",
+      "value": "rgba({palette.white}, 0)",
       "type": "color",
       "description": "white"
     },
@@ -1002,6 +1113,16 @@
       "type": "color",
       "description": "pepper"
     },
+    "textError": {
+      "value": "{palette.pepper}",
+      "type": "color",
+      "description": "pepper"
+    },
+    "textErrorInverse": {
+      "value": "{palette.pepper}",
+      "type": "color",
+      "description": "pepper"
+    },
     "promo": {
       "value": "{palette.vivoPurpleLight80}",
       "type": "color",
@@ -1111,6 +1232,87 @@
       "value": "{palette.darkModeBlack}",
       "type": "color",
       "description": "darkModeBlack"
+    },
+    "tagTextPromo": {
+      "value": "{palette.vivoPurpleLight50}",
+      "type": "color",
+      "description": "vivoPurpleLight50"
+    },
+    "tagTextActive": {
+      "value": "{palette.vivoPurpleLight80}",
+      "type": "color",
+      "description": "vivoPurpleLight80"
+    },
+    "tagTextInactive": {
+      "value": "{palette.grey5}",
+      "type": "color",
+      "description": "grey5"
+    },
+    "tagTextSuccess": {
+      "value": "{palette.vivoGreenLight30}",
+      "type": "color",
+      "description": "vivoGreenLight30"
+    },
+    "tagTextWarning": {
+      "value": "{palette.orangeLight40}",
+      "type": "color",
+      "description": "orangeLight40"
+    },
+    "tagTextError": {
+      "value": "{palette.pepperLight40}",
+      "type": "color",
+      "description": "pepperLight40"
+    },
+    "tagBackgroundPromo": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "tagBackgroundActive": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "tagBackgroundInactive": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "tagBackgroundSuccess": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "tagBackgroundWarning": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "tagBackgroundError": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "cardContentOverlay": {
+      "type": "linear-gradient",
+      "value": {
+        "angle": 180,
+        "colors": [
+          {
+            "value": "rgba({palette.grey6}, 0)",
+            "stop": 0
+          },
+          {
+            "value": "rgba({palette.grey6}, 0.4)",
+            "stop": 0.3
+          },
+          {
+            "value": "rgba({palette.grey6}, 0.7)",
+            "stop": 1
+          }
+        ]
+      },
+      "description": "grey6"
     }
   },
   "radius": {

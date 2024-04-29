@@ -15,6 +15,11 @@
       "type": "color",
       "description": "white"
     },
+    "backgroundContainerError": {
+      "value": "{palette.coral10}",
+      "type": "color",
+      "description": "coral10"
+    },
     "backgroundContainerHover": {
       "value": "rgba({palette.telefonicaBlue}, 0.03)",
       "type": "color",
@@ -85,7 +90,12 @@
       "type": "color",
       "description": "grey1"
     },
-    "backgroundFeedbackBottom": {
+    "backgroundBrandTop": {
+      "value": "{palette.telefonicaBlue}",
+      "type": "color",
+      "description": "telefonicaBlue"
+    },
+    "backgroundBrandBottom": {
       "value": "{palette.telefonicaBlue}",
       "type": "color",
       "description": "telefonicaBlue"
@@ -296,9 +306,9 @@
       "description": "telefonicaBlue"
     },
     "controlInverse": {
-      "value": "{palette.white}",
+      "value": "{palette.grey1}",
       "type": "color",
-      "description": "white"
+      "description": "grey1"
     },
     "controlActivatedInverse": {
       "value": "{palette.white}",
@@ -435,6 +445,16 @@
       "type": "color",
       "description": "coral"
     },
+    "textError": {
+      "value": "{palette.coral}",
+      "type": "color",
+      "description": "coral"
+    },
+    "textErrorInverse": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "success": {
       "value": "{palette.turquoise}",
       "type": "color",
@@ -554,6 +574,87 @@
       "value": "{palette.telefonicaBlue}",
       "type": "color",
       "description": "telefonicaBlue"
+    },
+    "tagTextPromo": {
+      "value": "{palette.orchid70}",
+      "type": "color",
+      "description": "orchid70"
+    },
+    "tagTextActive": {
+      "value": "{palette.telefonicaBlue}",
+      "type": "color",
+      "description": "telefonicaBlue"
+    },
+    "tagTextInactive": {
+      "value": "{palette.grey5}",
+      "type": "color",
+      "description": "grey5"
+    },
+    "tagTextSuccess": {
+      "value": "{palette.turquoise70}",
+      "type": "color",
+      "description": "turquoise70"
+    },
+    "tagTextWarning": {
+      "value": "{palette.ambar70}",
+      "type": "color",
+      "description": "ambar70"
+    },
+    "tagTextError": {
+      "value": "{palette.coral70}",
+      "type": "color",
+      "description": "coral70"
+    },
+    "tagBackgroundPromo": {
+      "value": "{palette.orchid10}",
+      "type": "color",
+      "description": "orchid10"
+    },
+    "tagBackgroundActive": {
+      "value": "{palette.telefonicaBlue10}",
+      "type": "color",
+      "description": "telefonicaBlue10"
+    },
+    "tagBackgroundInactive": {
+      "value": "{palette.grey1}",
+      "type": "color",
+      "description": "grey1"
+    },
+    "tagBackgroundSuccess": {
+      "value": "{palette.turquoise10}",
+      "type": "color",
+      "description": "turquoise10"
+    },
+    "tagBackgroundWarning": {
+      "value": "{palette.ambar10}",
+      "type": "color",
+      "description": "ambar10"
+    },
+    "tagBackgroundError": {
+      "value": "{palette.coral10}",
+      "type": "color",
+      "description": "coral10"
+    },
+    "cardContentOverlay": {
+      "type": "linear-gradient",
+      "value": {
+        "angle": 180,
+        "colors": [
+          {
+            "value": "rgba({palette.black}, 0)",
+            "stop": 0
+          },
+          {
+            "value": "rgba({palette.black}, 0.4)",
+            "stop": 0.3
+          },
+          {
+            "value": "rgba({palette.black}, 0.7)",
+            "stop": 1
+          }
+        ]
+      },
+      "description": "black"
     }
   },
   "dark": {
@@ -578,6 +679,11 @@
       "description": "darkModeBlack"
     },
     "backgroundContainer": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "backgroundContainerError": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
@@ -632,7 +738,12 @@
       "type": "color",
       "description": "darkModeGrey6"
     },
-    "backgroundFeedbackBottom": {
+    "backgroundBrandTop": {
+      "value": "{palette.darkModeBlack}",
+      "type": "color",
+      "description": "darkModeBlack"
+    },
+    "backgroundBrandBottom": {
       "value": "{palette.darkModeBlack}",
       "type": "color",
       "description": "darkModeBlack"
@@ -703,7 +814,7 @@
       "description": "white"
     },
     "buttonLinkDangerBackgroundInverse": {
-      "value": "rgba({palette.white}, 0.01)",
+      "value": "rgba({palette.white}, 0)",
       "type": "color",
       "description": "white"
     },
@@ -992,6 +1103,16 @@
       "type": "color",
       "description": "coral"
     },
+    "textError": {
+      "value": "{palette.coral}",
+      "type": "color",
+      "description": "coral"
+    },
+    "textErrorInverse": {
+      "value": "{palette.coral}",
+      "type": "color",
+      "description": "coral"
+    },
     "success": {
       "value": "{palette.turquoise}",
       "type": "color",
@@ -1111,6 +1232,87 @@
       "value": "{palette.darkModeBlack}",
       "type": "color",
       "description": "darkModeBlack"
+    },
+    "tagTextPromo": {
+      "value": "{palette.orchid40}",
+      "type": "color",
+      "description": "orchid40"
+    },
+    "tagTextActive": {
+      "value": "{palette.telefonicaBlue}",
+      "type": "color",
+      "description": "telefonicaBlue"
+    },
+    "tagTextInactive": {
+      "value": "{palette.grey5}",
+      "type": "color",
+      "description": "grey5"
+    },
+    "tagTextSuccess": {
+      "value": "{palette.turquoise40}",
+      "type": "color",
+      "description": "turquoise40"
+    },
+    "tagTextWarning": {
+      "value": "{palette.ambar40}",
+      "type": "color",
+      "description": "ambar40"
+    },
+    "tagTextError": {
+      "value": "{palette.coral40}",
+      "type": "color",
+      "description": "coral40"
+    },
+    "tagBackgroundPromo": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "tagBackgroundActive": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "tagBackgroundInactive": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "tagBackgroundSuccess": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "tagBackgroundWarning": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "tagBackgroundError": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "cardContentOverlay": {
+      "type": "linear-gradient",
+      "value": {
+        "angle": 180,
+        "colors": [
+          {
+            "value": "rgba({palette.black}, 0)",
+            "stop": 0
+          },
+          {
+            "value": "rgba({palette.black}, 0.4)",
+            "stop": 0.3
+          },
+          {
+            "value": "rgba({palette.black}, 0.7)",
+            "stop": 1
+          }
+        ]
+      },
+      "description": "black"
     }
   },
   "radius": {
@@ -1379,6 +1581,10 @@
       },
       "white": {
         "value": "#FFFFFF",
+        "type": "color"
+      },
+      "black": {
+        "value": "#000000",
         "type": "color"
       },
       "darkModeBlack": {

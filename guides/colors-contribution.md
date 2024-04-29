@@ -10,6 +10,17 @@ Currently, here is the list of changes that we believe an external design team c
 - [Constants](#constants)
 - [Border Radius](#border-radius)
 
+## Index
+
+- [Install a text editor](#install-a-text-editor)
+- [Install GitHub Desktop](#install-github-desktop)
+- [Open the repository in VSCode](#open-the-repository-in-vs-code)
+- [Create a new branch to make changes](#create-a-new-branch-to-make-changes)
+- [Modifying the JSON file](#modifying-the-json-file)
+- [Modifying the JSON schema](#modifying-the-json-schema)
+- [Save changes and publish your branch](#save-changes-and-publish-your-branch)
+- [Create a pull request to mistica-design repository](#create-a-pull-request-to-the-mistica-design-repository)
+
 # Steps to Contribute to mistica-design
 
 ## Install a Text Editor
@@ -46,12 +57,11 @@ If Visual Studio Code is not your default editor, you can change it from "prefer
 
 ## Create a New Branch to Make Changes
 
-Before making modifications to the JSON files, it's a good practice to create a new branch in the repository. This will allow you to work in isolation and maintain a clear history of your changes. 
+Before making modifications to the JSON files, it's a good practice to create a new branch in the repository. This will allow you to work in isolation and maintain a clear history of your changes.
 
 > [!NOTE]
-> 
+>
 > Before creating a new branch there are some considerations of the repo organization. The main branch is pre-production but normally the changes required, unless they have other dependencies or they need to be delayed to a specific release, can go into the production branch.
-
 
 Follow these steps to create a new branch:
 
@@ -62,9 +72,8 @@ Follow these steps to create a new branch:
 2. In the top of the version control window, you will find a text box indicating the current branch. Click on that text box and select "Create new branch" from the dropdown menu.
 
 > [!IMPORTANT]
-> 
+>
 > If you need to create a branch from production choose the option "Create branch from" and select the production branch.
-
 
 <img width="651" alt="Screenshot 2023-07-06 at 17 42 23" src="https://github.com/Telefonica/mistica-design/assets/44420072/8d45e7a5-e154-48d4-abf3-4bc4f7120e62">
 
@@ -74,7 +83,7 @@ If you need to change the production branch
 
 4. Make sure the new branch is selected as the active branch before proceeding with the modifications to the JSON files.
 
-## Modifying el JSON
+## Modifying the JSON file
 
 The JSON files for different brands are located in the tokens directory.
 
@@ -98,7 +107,7 @@ The JSON file for a brand has the following structure:
 The palette is located within the `global` / `palette` category and is composed of different tokens that are later used as values by the constants. Within the palette, the following modifications can be made:
 
 > [!WARNING]
-> 
+>
 > **Changes that entail a breaking change**
 >
 > Although these changes are possible, modifying or removing a token from the palette may cause a breaking change in any product that directly consumes these tokens.
@@ -151,7 +160,7 @@ Where 0.5 is the alpha channel and can have a value between 0 and 1.
 Constants allow the following modifications:
 
 > [!WARNING]
-> 
+>
 > **Changes that cannot be made:**
 >
 > - Name modification
@@ -166,7 +175,7 @@ The value of a constant can be modified. It's important to note that if you want
 ![tokens_modify_constant](https://github.com/Telefonica/mistica-design/assets/44420072/a0d8f6c8-a25d-41c9-b8dd-13c92773f57f)
 
 > [!NOTE]
-> 
+>
 > When modifying a `value`, the `description` field must also be updated with the same value. For example, if the change is from "movistarBlue" to "movistarBlue55," the value should be: "{palette.movistarBlue55}" and the description: "movistarBlue55".
 
 ### Border radius
@@ -174,7 +183,7 @@ The value of a constant can be modified. It's important to note that if you want
 The border-radius tokens are located within the `radius` category. In this category, the following modifications can be made:
 
 > [!WARNING]
-> 
+>
 > **Changes that cannot be made:**
 >
 > - Name modification
@@ -188,9 +197,48 @@ The `value` field of a border-radius token can be modified:
 
 ![tokens_modify_radius](https://github.com/Telefonica/mistica-design/assets/44420072/cb1c7f44-3c09-4fdc-961f-5a3a5e170397)
 
+## Modifying the JSON schema
+
+> [!WARNING]
+>
+> **Maintainers only**
+>
+> To configure JSON schema in VSCode read [this documentation](https://github.com/Telefonica/mistica-design/blob/update-colors-contribution/guides/vsco-configuration.md)
+
+In order to add, delete tokens or modify the name of existing tokens, the JSON schema should be updated to avoid check failure in the PRs containing the tokens.
+
+The JSON schema can be found in `tokens` / `schema` / `skin-schema.json`.
+
+### Add a new constant
+
+In order to add a new constant you need to add a new entry in:
+
+- `global` / `constants` / `required`: `"yourTokenName"`
+- `global` / `constants` / `properties`: `"yourTokenName": { "$ref": "#/definitions/constantProperties" }`,
+ 
+![add-constant](https://github.com/Telefonica/mistica-design/assets/44420072/35c596af-6b40-457d-a43f-e25cba010e64)
+
+### Add a new variable
+
+To add a new variable you need to update the constant properties:
+
+- `definitions` / `constantProperties` / `patternProperties` / `value` / `anyOf` / `pattern`
+- `definitions` / `constantProperties` / `patternProperties` / `value` / `properties` / `colors` / `items` / `properties` / `value` / `anyOf` / `pattern`
+
+![add-variable](https://github.com/Telefonica/mistica-design/assets/44420072/a2516b84-5b2a-4484-8557-f5804b276559)
+
+
+Inside both arrays you can find all the brands so you can add the variable names needed.
+
+Each `pattern` has two regex expressions combined (rgba and non rgba values), so you will need to add two entries of the variable name. 
+
+You'll need to update also the regex that checks that valid description is provided:
+
+- `definitions` / `constantProperties` / `patternProperties` / `description` / `anyOf`
+
 ## Save Changes and Publish Your Branch
 
-Once you have made the necessary modifications to the JSON files, you need to save your changes and publish the branch to the remote repository. 
+Once you have made the necessary modifications to the JSON files, you need to save your changes and publish the branch to the remote repository.
 
 ### Visual Studio Code
 
@@ -231,7 +279,7 @@ When the branch has been published, you can create a pull request to merge the c
 <img width="937" alt="Screenshot 2023-07-07 at 10 26 02" src="https://github.com/Telefonica/mistica-design/assets/44420072/886a92fd-4688-4124-8d5b-9f5039b98897">
 
 > [!NOTE]
-> 
+>
 > There may be cases where the base branch is not pre-production but production. This typically happens when there are changes that need to be made quickly to fix something in one of the implementations (native / web). Before creating a PR to production, consult with design-core.
 
 4. When everything is correct, write a descriptive title for the Pull Request, and in the field on the right, assign a reviewer from the design-core team.
