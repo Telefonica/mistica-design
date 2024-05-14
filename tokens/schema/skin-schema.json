@@ -1,6 +1,6 @@
 {
   "additionalProperties": false,
-  "required": ["light", "dark", "radius", "text", "global"],
+  "required": ["light", "dark", "radius", "text", "global", "themeVariant"],
   "properties": {
     "global": {
       "additionalProperties": false,
@@ -37,6 +37,10 @@
           "allOf": [{ "$ref": "#/global/lineHeight" }]
         }
       }
+    },
+    "themeVariant": {
+      "comment": "Aquí se definen las variantes de tema",
+      "allOf": [{ "$ref": "#/global/themeVariant" }]
     }
   },
   "global": {
@@ -375,6 +379,13 @@
         "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" },
         "title2": { "$ref": "#/definitions/lineHeightProperties" }
       }
+    },
+    "themeVariant": {
+      "additionalProperties": false,
+      "required": ["successFeedback"],
+      "properties": {
+        "successFeedback": { "$ref": "#/definitions/themeVariantProperties" }
+      }
     }
   },
   "definitions": {
@@ -587,6 +598,19 @@
         },
         "type": {
           "const": "typography"
+        }
+      },
+      "required": ["value", "type"]
+    },
+    "themeVariantProperties": {
+      "type": "object",
+      "patternProperties": {
+        "value": {
+          "type": "string",
+          "enum": ["default", "inverse", "alternative"]
+        },
+        "type": {
+          "const": "themeVariant"
         }
       },
       "required": ["value", "type"]
