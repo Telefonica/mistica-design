@@ -7,14 +7,29 @@ REPO = 'Telefonica/mistica-design'
 TOKEN = os.getenv('NOVUM_PRIVATE_REPOS')
 API_URL = f"https://api.github.com/repos/{REPO}"
 
-# Get discussion data from environment variable
+# Verifica si el token está presente
+if not TOKEN:
+    raise ValueError("NOVUM_PRIVATE_REPOS no está configurado")
+
+# Depuración: Imprime los primeros caracteres del token
+print(f"TOKEN: {TOKEN[:4]}...")
+
+# Get event data from environment variable
 event_path = os.getenv('GITHUB_EVENT_PATH')
 with open(event_path) as f:
-    discussion = json.load(f)
+    event_data = json.load(f)
 
-discussion_id = discussion['discussion']['node_id']
-discussion_title = discussion['discussion']['title']
-discussion_body = discussion['discussion']['body']
+# Determine if the event is a discussion or a discussion comment
+if 'discussion' in event_data:
+    discussion_id = event_data['discussion']['node_id']
+    discussion_title = event_data['discussion']['title']
+    discussion_body = event_data['discussion']['body']
+elif 'comment' in event_data:
+    discussion_id = event_data['comment']['discussion_id']
+    discussion_title = ""  # Comments do not have a title
+    discussion_body = event_data['comment']['body']
+else:
+    raise ValueError("Evento no reconocido")
 
 # Function to get existing labels
 def get_existing_labels():
