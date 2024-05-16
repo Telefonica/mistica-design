@@ -2,9 +2,9 @@ name: Label Discussions
 
 on:
   discussion:
-    types: [created]
+    types: [created, edited]
   discussion_comment:
-    types: [created]
+    types: [created, edited]
 
 jobs:
   label_discussion:
@@ -22,7 +22,10 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
+      - name: Debug environment variables
+        run: env
+
       - name: Run labeling script
         env:
-          GITHUB_TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          NOVUM_PRIVATE_REPOS: ${{ secrets.NOVUM_PRIVATE_REPOS }}
         run: python .github/scripts/label_discussion.py
