@@ -1,0 +1,31 @@
+name: Label Discussions
+
+on:
+  discussion:
+    types: [created, edited]
+  discussion_comment:
+    types: [created, edited]
+
+jobs:
+  label_discussion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Debug environment variables
+        run: env
+
+      - name: Run labeling script
+        env:
+          NOVUM_PRIVATE_REPOS: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+        run: python .github/scripts/label_discussion.py
