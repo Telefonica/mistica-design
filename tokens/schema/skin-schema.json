@@ -382,9 +382,10 @@
     },
     "themeVariant": {
       "additionalProperties": false,
-      "required": ["successFeedback"],
+      "required": ["successFeedback", "brandLoadingScreen"],
       "properties": {
-        "successFeedback": { "$ref": "#/definitions/themeVariantProperties" }
+        "successFeedback": { "$ref": "#/definitions/themeVariantProperties" },
+        "brandLoadingScreen": { "$ref": "#/definitions/themeVariantProperties" }
       }
     }
   },
