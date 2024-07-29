@@ -1,5 +1,7 @@
 # Figma Changelog
 
+[14.2.0](changelog-versions/14.2.0.md)
+
 [14.1.0](changelog-versions/14.1.0.md)
 
 [14.0.1](changelog-versions/14.0.1.md)
