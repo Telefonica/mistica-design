@@ -370,14 +370,34 @@
       "additionalProperties": false,
       "properties": {
         "tabsLabel": { "$ref": "#/definitions/sizeProperties" },
-        "title2": { "$ref": "#/definitions/sizeProperties" }
+        "title2": { "$ref": "#/definitions/sizeProperties" },
+        "text1": { "$ref": "#/definitions/sizeProperties" },
+        "text2": { "$ref": "#/definitions/sizeProperties" },
+        "text3": { "$ref": "#/definitions/sizeProperties" },
+        "text4": { "$ref": "#/definitions/sizeProperties" },
+        "text5": { "$ref": "#/definitions/sizeProperties" },
+        "text6": { "$ref": "#/definitions/sizeProperties" },
+        "text7": { "$ref": "#/definitions/sizeProperties" },
+        "text8": { "$ref": "#/definitions/sizeProperties" },
+        "text9": { "$ref": "#/definitions/sizeProperties" },
+        "text10": { "$ref": "#/definitions/sizeProperties" }
       }
     },
     "lineHeight": {
       "additionalProperties": false,
       "properties": {
         "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" },
-        "title2": { "$ref": "#/definitions/lineHeightProperties" }
+        "title2": { "$ref": "#/definitions/lineHeightProperties" },
+        "text1": { "$ref": "#/definitions/lineHeightProperties" },
+        "text2": { "$ref": "#/definitions/lineHeightProperties" },
+        "text3": { "$ref": "#/definitions/lineHeightProperties" },
+        "text4": { "$ref": "#/definitions/lineHeightProperties" },
+        "text5": { "$ref": "#/definitions/lineHeightProperties" },
+        "text6": { "$ref": "#/definitions/lineHeightProperties" },
+        "text7": { "$ref": "#/definitions/lineHeightProperties" },
+        "text8": { "$ref": "#/definitions/lineHeightProperties" },
+        "text9": { "$ref": "#/definitions/lineHeightProperties" },
+        "text10": { "$ref": "#/definitions/lineHeightProperties" }
       }
     },
     "themeVariant": {
@@ -565,11 +585,11 @@
           "properties": {
             "desktop": {
               "type": "number",
-              "enum": [16, 18, 20, 28]
+              "enum": [14, 16, 18, 20, 28, 32, 40, 48, 56, 64]
             },
             "mobile": {
               "type": "number",
-              "enum": [16, 18, 20, 24, 28]
+              "enum": [12, 14, 16, 18, 20, 24, 28, 32, 40, 48]
             }
           },
           "required": ["desktop", "mobile"]
@@ -588,11 +608,11 @@
           "properties": {
             "desktop": {
               "type": "number",
-              "enum": [24, 28, 32]
+              "enum": [20, 24, 28, 32, 40, 48, 56, 64, 72]
             },
             "mobile": {
               "type": "number",
-              "enum": [24]
+              "enum": [16, 20, 24, 32, 40, 48, 56]
             }
           },
           "required": ["desktop", "mobile"]
