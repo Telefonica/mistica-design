@@ -19,6 +19,7 @@ jobs:
         with:
           file: "tokens/movistar.json"
           schema: "tokens/schema/skin-schema.json"
+          mode: "lax"
 
   O2:
     runs-on: ubuntu-latest
@@ -29,6 +30,7 @@ jobs:
         with:
           file: "tokens/o2.json"
           schema: "tokens/schema/skin-schema.json"
+          mode: "lax"
 
   O2-new:
     runs-on: ubuntu-latest
@@ -39,6 +41,7 @@ jobs:
         with:
           file: "tokens/o2-new.json"
           schema: "tokens/schema/skin-schema.json"
+          mode: "lax"
 
   Vivo:
     runs-on: ubuntu-latest
@@ -49,6 +52,7 @@ jobs:
         with:
           file: "tokens/vivo.json"
           schema: "tokens/schema/skin-schema.json"
+          mode: "lax"
 
   Vivo-new:
     runs-on: ubuntu-latest
@@ -59,6 +63,7 @@ jobs:
         with:
           file: "tokens/vivo-new.json"
           schema: "tokens/schema/skin-schema.json"
+          mode: "lax"
 
   Telefonica:
     runs-on: ubuntu-latest
@@ -69,6 +74,7 @@ jobs:
         with:
           file: "tokens/telefonica.json"
           schema: "tokens/schema/skin-schema.json"
+          mode: "lax"
 
   Blau:
     runs-on: ubuntu-latest
@@ -79,3 +85,4 @@ jobs:
         with:
           file: "tokens/blau.json"
           schema: "tokens/schema/skin-schema.json"
+          mode: "lax"
