@@ -22,7 +22,7 @@ jobs:
         with:
           file: "tokens/movistar.json"
           schema: "tokens/schema/skin-schema.json"
-          refSchemasArray: "tokens/schema/patterns/movistar-pattern.json"
+          refSchemasMap: "tokens/schema/patterns/movistar-pattern.json"
 
   O2:
     runs-on: ubuntu-latest
