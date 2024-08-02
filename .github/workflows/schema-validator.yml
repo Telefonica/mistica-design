@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
+        uses: cardinalby/schema-validator-action@v3
         with:
           file: "tokens/movistar.json"
           schema: "tokens/schema/skin-schema.json"
@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
+        uses: cardinalby/schema-validator-action@v3
         with:
           file: "tokens/o2.json"
           schema: "tokens/schema/skin-schema.json"
@@ -35,7 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
+        uses: cardinalby/schema-validator-action@v3
         with:
           file: "tokens/o2-new.json"
           schema: "tokens/schema/skin-schema.json"
@@ -45,7 +45,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
+        uses: cardinalby/schema-validator-action@v3
         with:
           file: "tokens/vivo.json"
           schema: "tokens/schema/skin-schema.json"
@@ -55,7 +55,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
+        uses: cardinalby/schema-validator-action@v3
         with:
           file: "tokens/vivo-new.json"
           schema: "tokens/schema/skin-schema.json"
@@ -65,7 +65,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
+        uses: cardinalby/schema-validator-action@v3
         with:
           file: "tokens/telefonica.json"
           schema: "tokens/schema/skin-schema.json"
@@ -75,7 +75,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
+        uses: cardinalby/schema-validator-action@v3
         with:
           file: "tokens/blau.json"
           schema: "tokens/schema/skin-schema.json"
