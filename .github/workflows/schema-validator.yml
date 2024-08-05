@@ -22,7 +22,11 @@ jobs:
         with:
           file: "tokens/movistar.json"
           schema: "tokens/schema/skin-schema.json"
-          refSchemasArray: "[patterns/movistar-pattern.json]"
+          mode: "lax"
+          refSchemasMap: >
+            {
+              "tokens/schema/skin-schema.json": "tokens/schema/patterns/movistar-pattern.json"
+            }
 
   O2:
     runs-on: ubuntu-latest
@@ -33,6 +37,11 @@ jobs:
         with:
           file: "tokens/o2.json"
           schema: "tokens/schema/skin-schema.json"
+          mode: "lax"
+          refSchemasMap: >
+            {
+              "tokens/schema/skin-schema.json": "tokens/schema/patterns/o2-pattern.json"
+            }
 
   O2-new:
     runs-on: ubuntu-latest
@@ -43,6 +52,11 @@ jobs:
         with:
           file: "tokens/o2-new.json"
           schema: "tokens/schema/skin-schema.json"
+          mode: "lax"
+          refSchemasMap: >
+            {
+              "tokens/schema/skin-schema.json": "tokens/schema/patterns/o2-new-pattern.json"
+            }
 
   Vivo:
     runs-on: ubuntu-latest
@@ -53,6 +67,11 @@ jobs:
         with:
           file: "tokens/vivo.json"
           schema: "tokens/schema/skin-schema.json"
+          mode: "lax"
+          refSchemasMap: >
+            {
+              "tokens/schema/skin-schema.json": "tokens/schema/patterns/vivo-pattern.json"
+            }
 
   Vivo-new:
     runs-on: ubuntu-latest
@@ -63,6 +82,11 @@ jobs:
         with:
           file: "tokens/vivo-new.json"
           schema: "tokens/schema/skin-schema.json"
+          mode: "lax"
+          refSchemasMap: >
+            {
+              "tokens/schema/skin-schema.json": "tokens/schema/patterns/vivo-new-pattern.json"
+            }
 
   Telefonica:
     runs-on: ubuntu-latest
@@ -73,6 +97,11 @@ jobs:
         with:
           file: "tokens/telefonica.json"
           schema: "tokens/schema/skin-schema.json"
+          mode: "lax"
+          refSchemasMap: >
+            {
+              "tokens/schema/skin-schema.json": "tokens/schema/patterns/telefonica-pattern.json"
+            }
 
   Blau:
     runs-on: ubuntu-latest
@@ -83,3 +112,23 @@ jobs:
         with:
           file: "tokens/blau.json"
           schema: "tokens/schema/skin-schema.json"
+          mode: "lax"
+          refSchemasMap: >
+            {
+              "tokens/schema/skin-schema.json": "tokens/schema/patterns/blau-pattern.json"
+            }
+
+  TU:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate action.yml against a remote schema
+        uses: cardinalby/schema-validator-action@v3
+        with:
+          file: "tokens/tu.json"
+          schema: "tokens/schema/skin-schema.json"
+          mode: "spec"
+          refSchemasMap: >
+            {
+              "tokens/schema/skin-schema.json": "tokens/schema/patterns/tu-pattern.json"
+            }
