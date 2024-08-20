@@ -54,8 +54,6 @@ const extractJsonData = (
           : parsedContent.radius[key].value, // If it's not a string, use the original value
     }));
 
-    console.log(parsedContent.text);
-
     const fontWeightArray = Object.keys(
       parsedContent.text.weight
     ).map((key) => ({

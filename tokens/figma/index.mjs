@@ -12,6 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const FILE_KEY = process.env.FILE_KEY;
+const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
 const postUrl = `https://api.figma.com/v1/files/${FILE_KEY}/variables`;
 const getUrl = `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`;
 
