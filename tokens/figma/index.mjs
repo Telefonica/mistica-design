@@ -277,7 +277,7 @@ async function fetchAndUpdateVariables(jsonData) {
       {
         variables: fontWeightVariables,
         collectionName: "font-weight",
-        resolvedType: "FLOAT",
+        resolvedType: "STRING",
       },
       {
         variables: fontSizeVariables,
