@@ -11,17 +11,16 @@ dotenv.config({ path: "../../.env" });
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const FILE_KEY = process.env.FILE_KEY;
+const FILE_KEY_1 = process.env.FILE_KEY_1;
+const FILE_KEY_2 = process.env.FILE_KEY_2;
 const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
-const postUrl = `https://api.figma.com/v1/files/${FILE_KEY}/variables`;
-const getUrl = `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`;
 
 const tokensPath = path.resolve(__dirname, "../");
 
 const files = fs.readdirSync(tokensPath);
 
 const jsonFiles = files.filter((file) =>
-  file.endsWith("blau.json")
+  file.endsWith(".json")
 );
 
 const jsonData = extractJsonData(
@@ -29,9 +28,18 @@ const jsonData = extractJsonData(
   tokensPath
 );
 
-async function fetchAndUpdateVariables(jsonData) {
+const brands = {
+  blau: `https://api.figma.com/v1/files/${FILE_KEY_2}/variables`,
+  "vivo-new": `https://api.figma.com/v1/files/${FILE_KEY_1}/variables`,
+};
+
+async function fetchAndUpdateVariables(
+  jsonData,
+  brand,
+  url
+) {
   try {
-    const response = await fetch(getUrl, {
+    const response = await fetch(`${url}/local`, {
       method: "GET",
       headers: {
         "X-Figma-Token": FIGMA_TOKEN, // Use environment variable
@@ -39,27 +47,14 @@ async function fetchAndUpdateVariables(jsonData) {
       },
     });
 
-    const data = await response.json();
+    const figmaData = await response.json();
 
     // Figma variables
 
-    const existingVariables = data.meta.variables;
+    const existingVariables =
+      figmaData.meta.variables;
     const existingCollections =
-      data.meta.variableCollections;
-
-    // JSON variables
-
-    const paletteVariables =
-      jsonData.blau.palette;
-    const lightVariables = jsonData.blau.light;
-    const darkVariables = jsonData.blau.dark;
-    const radiusVariables = jsonData.blau.radius;
-    const fontWeightVariables =
-      jsonData.blau.fontWeight;
-    const fontSizeVariables =
-      jsonData.blau.fontSize;
-    const lineHeightVariables =
-      jsonData.blau.lineHeight;
+      figmaData.meta.variableCollections;
 
     // Initialize the data object for POST request
     const newData = {
@@ -268,31 +263,31 @@ async function fetchAndUpdateVariables(jsonData) {
 
     const variableGroups = [
       {
-        variables: paletteVariables,
+        variables: jsonData[brand].palette,
         collectionName: "palette",
         resolvedType: "COLOR",
         variableScopes: ["ALL_SCOPES"],
       },
       {
-        variables: radiusVariables,
+        variables: jsonData[brand].radius,
         collectionName: "radius",
         resolvedType: "FLOAT",
         variableScopes: ["CORNER_RADIUS"],
       },
       {
-        variables: fontWeightVariables,
+        variables: jsonData[brand].fontWeight,
         collectionName: "font-weight",
         resolvedType: "STRING",
         variableScopes: ["FONT_WEIGHT"],
       },
       {
-        variables: fontSizeVariables,
+        variables: jsonData[brand].fontSize,
         collectionName: "font-size",
         resolvedType: "FLOAT",
         variableScopes: ["FONT_SIZE"],
       },
       {
-        variables: lineHeightVariables,
+        variables: jsonData[brand].lineHeight,
         collectionName: "line-height",
         resolvedType: "FLOAT",
         variableScopes: ["LINE_HEIGHT"],
@@ -336,27 +331,44 @@ async function fetchAndUpdateVariables(jsonData) {
 
 // Use an async function to handle the post request after data processing
 
-async function processAndPostData() {
+async function processAndPostData(url, brand) {
   try {
     const newData = await fetchAndUpdateVariables(
-      jsonData
+      jsonData,
+      brand,
+      url
     );
 
-    const response = await fetch(postUrl, {
+    const response = await fetch(url, {
       method: "POST",
       headers: {
-        "X-Figma-Token": process.env.FIGMA_TOKEN, // Use environment variable
+        "X-Figma-Token": FIGMA_TOKEN,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newData),
     });
 
     const data = await response.json();
-    console.log("Success:", data);
+    console.log(
+      `Success for brand ${brand}:`,
+      data
+    );
   } catch (error) {
-    console.error("Error:", error);
+    console.error(
+      `Error posting data for brand ${brand}:`,
+      error
+    );
   }
 }
 
-// Start the process
-processAndPostData();
+//process the data for an array of urls
+
+async function processAllUrls(brands) {
+  for (const [brand, url] of Object.entries(
+    brands
+  )) {
+    await processAndPostData(url, brand);
+  }
+}
+
+processAllUrls(brands);
