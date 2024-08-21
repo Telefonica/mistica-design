@@ -34,7 +34,7 @@ async function fetchAndUpdateVariables(jsonData) {
     const response = await fetch(getUrl, {
       method: "GET",
       headers: {
-        "X-Figma-Token": process.env.FIGMA_TOKEN, // Use environment variable
+        "X-Figma-Token": FIGMA_TOKEN, // Use environment variable
         "Content-Type": "application/json",
       },
     });
@@ -56,6 +56,10 @@ async function fetchAndUpdateVariables(jsonData) {
     const radiusVariables = jsonData.blau.radius;
     const fontWeightVariables =
       jsonData.blau.fontWeight;
+    const fontSizeVariables =
+      jsonData.blau.fontSize;
+    const lineHeightVariables =
+      jsonData.blau.lineHeight;
 
     // Initialize the data object for POST request
     const newData = {
@@ -413,6 +417,158 @@ async function fetchAndUpdateVariables(jsonData) {
         variable.name,
         variable.value,
         "font-weight",
+        existingVariables,
+        existingCollections
+      );
+    });
+
+    function updateFontSize(
+      variableName,
+      variableValue,
+      collectionName,
+      existingVariables,
+      existingCollections
+    ) {
+      const existingVariable =
+        findVariableInCollection(
+          variableName,
+          collectionName,
+          existingVariables,
+          existingCollections
+        );
+
+      const existingMode = Object.values(
+        existingCollections
+      ).find(
+        (collection) =>
+          collection.name === collectionName
+      ).defaultModeId;
+
+      if (existingVariable) {
+        newData.variables.push({
+          action: "UPDATE",
+          id: existingVariable.id,
+          name: variableName,
+          resolvedType: "FLOAT",
+          variableCollectionId:
+            existingVariable.variableCollectionId,
+        });
+
+        newData.variableModeValues.push({
+          action: "UPDATE",
+          variableId: existingVariable.id,
+          modeId: existingMode,
+          value: variableValue,
+        });
+      } else {
+        const tempId = generateTempId(
+          variableName,
+          collectionName
+        );
+        const collectionId =
+          newData.variableCollections.find(
+            (collection) =>
+              collection.name === collectionName
+          ).id;
+
+        newData.variables.push({
+          action: "CREATE",
+          id: tempId,
+          name: variableName,
+          resolvedType: "FLOAT",
+          variableCollectionId: collectionId,
+        });
+
+        newData.variableModeValues.push({
+          action: "CREATE",
+          variableId: tempId,
+          modeId: existingMode,
+          value: variableValue,
+        });
+      }
+    }
+
+    fontSizeVariables.forEach((variable) => {
+      updateFontSize(
+        variable.name,
+        variable.value,
+        "font-size",
+        existingVariables,
+        existingCollections
+      );
+    });
+
+    function updateLineHeight(
+      variableName,
+      variableValue,
+      collectionName,
+      existingVariables,
+      existingCollections
+    ) {
+      const existingVariable =
+        findVariableInCollection(
+          variableName,
+          collectionName,
+          existingVariables,
+          existingCollections
+        );
+
+      const existingMode = Object.values(
+        existingCollections
+      ).find(
+        (collection) =>
+          collection.name === collectionName
+      ).defaultModeId;
+
+      if (existingVariable) {
+        newData.variables.push({
+          action: "UPDATE",
+          id: existingVariable.id,
+          name: variableName,
+          resolvedType: "FLOAT",
+          variableCollectionId:
+            existingVariable.variableCollectionId,
+        });
+
+        newData.variableModeValues.push({
+          action: "UPDATE",
+          variableId: existingVariable.id,
+          modeId: existingMode,
+          value: variableValue,
+        });
+      } else {
+        const tempId = generateTempId(
+          variableName,
+          collectionName
+        );
+        const collectionId =
+          newData.variableCollections.find(
+            (collection) =>
+              collection.name === collectionName
+          ).id;
+
+        newData.variables.push({
+          action: "CREATE",
+          id: tempId,
+          name: variableName,
+          resolvedType: "FLOAT",
+          variableCollectionId: collectionId,
+        });
+
+        newData.variableModeValues.push({
+          action: "CREATE",
+          variableId: tempId,
+          modeId: existingMode,
+          value: variableValue,
+        });
+      }
+    }
+
+    lineHeightVariables.forEach((variable) => {
+      updateLineHeight(
+        variable.name,
+        variable.value,
+        "line-height",
         existingVariables,
         existingCollections
       );

@@ -61,6 +61,66 @@ const extractJsonData = (
       value: parsedContent.text.weight[key].value,
     }));
 
+    const fontSizeArray = Object.keys(
+      parsedContent.text.size
+    ).flatMap((key) => {
+      const value =
+        parsedContent.text.size[key].value;
+
+      // Check if the value is an object with mobile and desktop properties
+      if (
+        typeof value === "object" &&
+        value !== null
+      ) {
+        return [
+          {
+            name: `mobile/${key}`,
+            value: parseFloat(value.mobile),
+          },
+          {
+            name: `desktop/${key}`,
+            value: parseFloat(value.desktop),
+          },
+        ];
+      }
+
+      // If value is not an object, return a single entry
+      return {
+        name: key,
+        value: parseFloat(value),
+      };
+    });
+
+    const lineHeightArray = Object.keys(
+      parsedContent.text.lineHeight
+    ).flatMap((key) => {
+      const value =
+        parsedContent.text.lineHeight[key].value;
+
+      // Check if the value is an object with mobile and desktop properties
+      if (
+        typeof value === "object" &&
+        value !== null
+      ) {
+        return [
+          {
+            name: `mobile/${key}`,
+            value: parseFloat(value.mobile),
+          },
+          {
+            name: `desktop/${key}`,
+            value: parseFloat(value.desktop),
+          },
+        ];
+      }
+
+      // If value is not an object, return a single entry
+      return {
+        name: key,
+        value: parseFloat(value),
+      };
+    });
+
     // Extract file name without extension
     const fileName = file.split(".")[0];
 
@@ -71,6 +131,8 @@ const extractJsonData = (
       palette: paletteArray,
       radius: radiusArray,
       fontWeight: fontWeightArray,
+      fontSize: fontSizeArray,
+      lineHeight: lineHeightArray,
     };
 
     return accumulator;
