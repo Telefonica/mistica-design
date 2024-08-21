@@ -163,7 +163,8 @@ async function fetchAndUpdateVariables(jsonData) {
       collectionName,
       existingVariables,
       existingCollections,
-      variableType
+      variableType,
+      variableScopes
     ) {
       // Find the existing variable by name
       const existingVariable =
@@ -190,6 +191,7 @@ async function fetchAndUpdateVariables(jsonData) {
           resolvedType: variableType,
           variableCollectionId:
             existingVariable.variableCollectionId,
+          scopes: variableScopes,
         });
 
         newData.variableModeValues.push({
@@ -221,6 +223,7 @@ async function fetchAndUpdateVariables(jsonData) {
           name: variableName,
           variableCollectionId: collectionId,
           resolvedType: variableType,
+          scopes: variableScopes,
         });
 
         newData.variableModeValues.push({
@@ -268,26 +271,31 @@ async function fetchAndUpdateVariables(jsonData) {
         variables: paletteVariables,
         collectionName: "palette",
         resolvedType: "COLOR",
+        variableScopes: ["ALL_SCOPES"],
       },
       {
         variables: radiusVariables,
         collectionName: "radius",
         resolvedType: "FLOAT",
+        variableScopes: ["CORNER_RADIUS"],
       },
       {
         variables: fontWeightVariables,
         collectionName: "font-weight",
         resolvedType: "STRING",
+        variableScopes: ["FONT_WEIGHT"],
       },
       {
         variables: fontSizeVariables,
         collectionName: "font-size",
         resolvedType: "FLOAT",
+        variableScopes: ["FONT_SIZE"],
       },
       {
         variables: lineHeightVariables,
         collectionName: "line-height",
         resolvedType: "FLOAT",
+        variableScopes: ["LINE_HEIGHT"],
       },
     ];
 
@@ -296,6 +304,7 @@ async function fetchAndUpdateVariables(jsonData) {
         variables,
         collectionName,
         resolvedType,
+        variableScopes,
       }) => {
         variables.forEach((variable) => {
           updateVariables(
@@ -305,6 +314,7 @@ async function fetchAndUpdateVariables(jsonData) {
             existingVariables,
             existingCollections,
             resolvedType,
+            variableScopes,
             allVariableNamesInCurrentData
           );
         });
