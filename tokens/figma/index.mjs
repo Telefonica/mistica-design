@@ -157,11 +157,13 @@ async function fetchAndUpdateVariables(jsonData) {
       );
     });
 
-    function updatePalette(
+    function updateVariables(
       variableName,
       variableValue,
       collectionName,
-      existingVariables
+      existingVariables,
+      existingCollections,
+      variableType
     ) {
       // Find the existing variable by name
       const existingVariable =
@@ -185,7 +187,7 @@ async function fetchAndUpdateVariables(jsonData) {
           action: "UPDATE",
           id: existingVariable.id,
           name: variableName,
-          resolvedType: "COLOR",
+          resolvedType: variableType,
           variableCollectionId:
             existingVariable.variableCollectionId,
         });
@@ -194,7 +196,10 @@ async function fetchAndUpdateVariables(jsonData) {
           action: "UPDATE",
           variableId: existingVariable.id,
           modeId: existingMode,
-          value: hexToRgba(variableValue),
+          value:
+            variableType === "COLOR"
+              ? hexToRgba(variableValue)
+              : variableValue,
         });
         allVariableNamesInCurrentData.add(
           variableName
@@ -215,14 +220,17 @@ async function fetchAndUpdateVariables(jsonData) {
           id: tempId,
           name: variableName,
           variableCollectionId: collectionId,
-          resolvedType: "COLOR",
+          resolvedType: variableType,
         });
 
         newData.variableModeValues.push({
           action: "CREATE",
           variableId: tempId,
           modeId: existingMode,
-          value: hexToRgba(variableValue),
+          value:
+            variableType === "COLOR"
+              ? hexToRgba(variableValue)
+              : variableValue,
         });
 
         allVariableNamesInCurrentData.add(
@@ -256,11 +264,61 @@ async function fetchAndUpdateVariables(jsonData) {
       new Set();
 
     paletteVariables.forEach((variable) => {
-      updatePalette(
+      updateVariables(
         variable.name,
         variable.value,
         "palette",
         existingVariables,
+        existingCollections,
+        "COLOR",
+        allVariableNamesInCurrentData
+      );
+    });
+
+    radiusVariables.forEach((variable) => {
+      updateVariables(
+        variable.name,
+        variable.value,
+        "radius",
+        existingVariables,
+        existingCollections,
+        "FLOAT",
+        allVariableNamesInCurrentData
+      );
+    });
+
+    fontWeightVariables.forEach((variable) => {
+      updateVariables(
+        variable.name,
+        variable.value,
+        "font-weight",
+        existingVariables,
+        existingCollections,
+        "FLOAT",
+        allVariableNamesInCurrentData
+      );
+    });
+
+    fontSizeVariables.forEach((variable) => {
+      updateVariables(
+        variable.name,
+        variable.value,
+        "font-size",
+        existingVariables,
+        existingCollections,
+        "FLOAT",
+        allVariableNamesInCurrentData
+      );
+    });
+
+    lineHeightVariables.forEach((variable) => {
+      updateVariables(
+        variable.name,
+        variable.value,
+        "line-height",
+        existingVariables,
+        existingCollections,
+        "FLOAT",
         allVariableNamesInCurrentData
       );
     });
@@ -269,310 +327,6 @@ async function fetchAndUpdateVariables(jsonData) {
       existingVariables,
       allVariableNamesInCurrentData
     );
-
-    function updateRadius(
-      variableName,
-      variableValue,
-      collectionName,
-      existingVariables,
-      existingCollections
-    ) {
-      const existingVariable =
-        findVariableInCollection(
-          variableName,
-          collectionName,
-          existingVariables,
-          existingCollections
-        );
-
-      const existingMode = Object.values(
-        existingCollections
-      ).find(
-        (collection) =>
-          collection.name === collectionName
-      ).defaultModeId;
-
-      if (existingVariable) {
-        newData.variables.push({
-          action: "UPDATE",
-          id: existingVariable.id,
-          name: variableName,
-          resolvedType: "FLOAT",
-          variableCollectionId:
-            existingVariable.variableCollectionId,
-        });
-
-        newData.variableModeValues.push({
-          action: "UPDATE",
-          variableId: existingVariable.id,
-          modeId: existingMode,
-          value: variableValue,
-        });
-      } else {
-        const tempId = generateTempId(
-          variableName,
-          collectionName
-        );
-        const collectionId =
-          newData.variableCollections.find(
-            (collection) =>
-              collection.name === collectionName
-          ).id;
-
-        newData.variables.push({
-          action: "CREATE",
-          id: tempId,
-          name: variableName,
-          resolvedType: "FLOAT",
-          variableCollectionId: collectionId,
-        });
-
-        newData.variableModeValues.push({
-          action: "CREATE",
-          variableId: tempId,
-          modeId: existingMode,
-          value: variableValue,
-        });
-      }
-    }
-
-    radiusVariables.forEach((variable) => {
-      updateRadius(
-        variable.name,
-        variable.value,
-        "radius",
-        existingVariables,
-        existingCollections
-      );
-    });
-
-    function updateFontWeight(
-      variableName,
-      variableValue,
-      collectionName,
-      existingVariables,
-      existingCollections
-    ) {
-      const existingVariable =
-        findVariableInCollection(
-          variableName,
-          collectionName,
-          existingVariables,
-          existingCollections
-        );
-
-      const existingMode = Object.values(
-        existingCollections
-      ).find(
-        (collection) =>
-          collection.name === collectionName
-      ).defaultModeId;
-
-      if (existingVariable) {
-        newData.variables.push({
-          action: "UPDATE",
-          id: existingVariable.id,
-          name: variableName,
-          resolvedType: "STRING",
-          variableCollectionId:
-            existingVariable.variableCollectionId,
-        });
-
-        newData.variableModeValues.push({
-          action: "UPDATE",
-          variableId: existingVariable.id,
-          modeId: existingMode,
-          value: variableValue,
-        });
-      } else {
-        const tempId = generateTempId(
-          variableName,
-          collectionName
-        );
-        const collectionId =
-          newData.variableCollections.find(
-            (collection) =>
-              collection.name === collectionName
-          ).id;
-
-        newData.variables.push({
-          action: "CREATE",
-          id: tempId,
-          name: variableName,
-          resolvedType: "STRING",
-          variableCollectionId: collectionId,
-        });
-
-        newData.variableModeValues.push({
-          action: "CREATE",
-          variableId: tempId,
-          modeId: existingMode,
-          value: variableValue,
-        });
-      }
-    }
-
-    fontWeightVariables.forEach((variable) => {
-      updateFontWeight(
-        variable.name,
-        variable.value,
-        "font-weight",
-        existingVariables,
-        existingCollections
-      );
-    });
-
-    function updateFontSize(
-      variableName,
-      variableValue,
-      collectionName,
-      existingVariables,
-      existingCollections
-    ) {
-      const existingVariable =
-        findVariableInCollection(
-          variableName,
-          collectionName,
-          existingVariables,
-          existingCollections
-        );
-
-      const existingMode = Object.values(
-        existingCollections
-      ).find(
-        (collection) =>
-          collection.name === collectionName
-      ).defaultModeId;
-
-      if (existingVariable) {
-        newData.variables.push({
-          action: "UPDATE",
-          id: existingVariable.id,
-          name: variableName,
-          resolvedType: "FLOAT",
-          variableCollectionId:
-            existingVariable.variableCollectionId,
-        });
-
-        newData.variableModeValues.push({
-          action: "UPDATE",
-          variableId: existingVariable.id,
-          modeId: existingMode,
-          value: variableValue,
-        });
-      } else {
-        const tempId = generateTempId(
-          variableName,
-          collectionName
-        );
-        const collectionId =
-          newData.variableCollections.find(
-            (collection) =>
-              collection.name === collectionName
-          ).id;
-
-        newData.variables.push({
-          action: "CREATE",
-          id: tempId,
-          name: variableName,
-          resolvedType: "FLOAT",
-          variableCollectionId: collectionId,
-        });
-
-        newData.variableModeValues.push({
-          action: "CREATE",
-          variableId: tempId,
-          modeId: existingMode,
-          value: variableValue,
-        });
-      }
-    }
-
-    fontSizeVariables.forEach((variable) => {
-      updateFontSize(
-        variable.name,
-        variable.value,
-        "font-size",
-        existingVariables,
-        existingCollections
-      );
-    });
-
-    function updateLineHeight(
-      variableName,
-      variableValue,
-      collectionName,
-      existingVariables,
-      existingCollections
-    ) {
-      const existingVariable =
-        findVariableInCollection(
-          variableName,
-          collectionName,
-          existingVariables,
-          existingCollections
-        );
-
-      const existingMode = Object.values(
-        existingCollections
-      ).find(
-        (collection) =>
-          collection.name === collectionName
-      ).defaultModeId;
-
-      if (existingVariable) {
-        newData.variables.push({
-          action: "UPDATE",
-          id: existingVariable.id,
-          name: variableName,
-          resolvedType: "FLOAT",
-          variableCollectionId:
-            existingVariable.variableCollectionId,
-        });
-
-        newData.variableModeValues.push({
-          action: "UPDATE",
-          variableId: existingVariable.id,
-          modeId: existingMode,
-          value: variableValue,
-        });
-      } else {
-        const tempId = generateTempId(
-          variableName,
-          collectionName
-        );
-        const collectionId =
-          newData.variableCollections.find(
-            (collection) =>
-              collection.name === collectionName
-          ).id;
-
-        newData.variables.push({
-          action: "CREATE",
-          id: tempId,
-          name: variableName,
-          resolvedType: "FLOAT",
-          variableCollectionId: collectionId,
-        });
-
-        newData.variableModeValues.push({
-          action: "CREATE",
-          variableId: tempId,
-          modeId: existingMode,
-          value: variableValue,
-        });
-      }
-    }
-
-    lineHeightVariables.forEach((variable) => {
-      updateLineHeight(
-        variable.name,
-        variable.value,
-        "line-height",
-        existingVariables,
-        existingCollections
-      );
-    });
 
     // Return the processed data for further use
     return newData;
