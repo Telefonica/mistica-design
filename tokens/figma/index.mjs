@@ -263,65 +263,53 @@ async function fetchAndUpdateVariables(jsonData) {
     const allVariableNamesInCurrentData =
       new Set();
 
-    paletteVariables.forEach((variable) => {
-      updateVariables(
-        variable.name,
-        variable.value,
-        "palette",
-        existingVariables,
-        existingCollections,
-        "COLOR",
-        allVariableNamesInCurrentData
-      );
-    });
+    const variableGroups = [
+      {
+        variables: paletteVariables,
+        collectionName: "palette",
+        resolvedType: "COLOR",
+      },
+      {
+        variables: radiusVariables,
+        collectionName: "radius",
+        resolvedType: "FLOAT",
+      },
+      {
+        variables: fontWeightVariables,
+        collectionName: "font-weight",
+        resolvedType: "FLOAT",
+      },
+      {
+        variables: fontSizeVariables,
+        collectionName: "font-size",
+        resolvedType: "FLOAT",
+      },
+      {
+        variables: lineHeightVariables,
+        collectionName: "line-height",
+        resolvedType: "FLOAT",
+      },
+    ];
 
-    radiusVariables.forEach((variable) => {
-      updateVariables(
-        variable.name,
-        variable.value,
-        "radius",
-        existingVariables,
-        existingCollections,
-        "FLOAT",
-        allVariableNamesInCurrentData
-      );
-    });
-
-    fontWeightVariables.forEach((variable) => {
-      updateVariables(
-        variable.name,
-        variable.value,
-        "font-weight",
-        existingVariables,
-        existingCollections,
-        "FLOAT",
-        allVariableNamesInCurrentData
-      );
-    });
-
-    fontSizeVariables.forEach((variable) => {
-      updateVariables(
-        variable.name,
-        variable.value,
-        "font-size",
-        existingVariables,
-        existingCollections,
-        "FLOAT",
-        allVariableNamesInCurrentData
-      );
-    });
-
-    lineHeightVariables.forEach((variable) => {
-      updateVariables(
-        variable.name,
-        variable.value,
-        "line-height",
-        existingVariables,
-        existingCollections,
-        "FLOAT",
-        allVariableNamesInCurrentData
-      );
-    });
+    variableGroups.forEach(
+      ({
+        variables,
+        collectionName,
+        resolvedType,
+      }) => {
+        variables.forEach((variable) => {
+          updateVariables(
+            variable.name,
+            variable.value,
+            collectionName,
+            existingVariables,
+            existingCollections,
+            resolvedType,
+            allVariableNamesInCurrentData
+          );
+        });
+      }
+    );
 
     removeUnusedVariables(
       existingVariables,
