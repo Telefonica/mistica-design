@@ -99,7 +99,7 @@ const extractJsonData = (
                     getPaletteValue(
                       baseColorName
                     ),
-                    alpha
+                    parseFloat(alpha)
                   ),
                   hasAlias: false,
                 };
@@ -138,7 +138,7 @@ const extractJsonData = (
                         getPaletteValue(
                           baseColorName
                         ),
-                        alpha
+                        parseFloat(alpha)
                       ),
                       hasAlias: false,
                     };
