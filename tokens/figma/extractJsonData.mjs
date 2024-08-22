@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { hexToRgba } from "./utils.mjs";
 
 const extractJsonData = (
   jsonFiles,
@@ -18,24 +19,263 @@ const extractJsonData = (
 
     const lightArray = Object.keys(
       parsedContent.light
-    ).map((key) => ({
-      name: key,
-      value: parsedContent.light[key].value,
-    }));
+    ).flatMap((key) => {
+      const colorData = parsedContent.light[key];
+      const { value, type } = colorData;
+
+      function getPaletteName(value) {
+        const regexMatch = value.match(
+          /{palette\.(.*?)}/
+        );
+        if (regexMatch) {
+          return regexMatch[1];
+        }
+        const rgbaMatch = value.match(
+          /rgba\(\{palette\.(.*?)\},\s*\d*\.?\d*\)/
+        );
+        if (rgbaMatch) {
+          return rgbaMatch[1];
+        }
+        throw new Error(
+          `Unexpected color format: ${value}`
+        );
+      }
+
+      function getPaletteValue(colorName) {
+        const paletteValue =
+          parsedContent.global.palette[colorName]
+            ?.value;
+        if (!paletteValue) {
+          throw new Error(
+            `Color ${colorName} not found in palette`
+          );
+        }
+        return paletteValue;
+      }
+
+      // Default color handling
+      if (
+        typeof value === "string" &&
+        !value.startsWith("rgba")
+      ) {
+        return {
+          name: `light/${key}`,
+          value: getPaletteName(value),
+          hasAlias: true,
+        };
+      }
+
+      // Color with alpha (rgba)
+      if (
+        typeof value === "string" &&
+        value.startsWith("rgba")
+      ) {
+        const alphaMatch = value.match(
+          /rgba\([^)]+,\s*([^)]+)\)/
+        );
+        const alpha = alphaMatch
+          ? alphaMatch[1]
+          : "1";
+        const baseColorName =
+          getPaletteName(value);
+
+        // If alpha is 1, do nothing, otherwise replace with palette value
+        return alpha === "1"
+          ? {
+              name: `light/${key}`,
+              value: baseColorName,
+              hasAlias: true,
+            }
+          : {
+              name: `light/${key}`,
+              value: hexToRgba(
+                getPaletteValue(baseColorName),
+                alpha
+              ),
+              hasAlias: false,
+            };
+      }
+
+      // Gradient handling
+      if (
+        type === "linear-gradient" &&
+        typeof value === "object"
+      ) {
+        return value.colors.map(
+          (color, index) => {
+            const alphaMatch = color.value.match(
+              /rgba\([^)]+,\s*([^)]+)\)/
+            );
+            const alpha = alphaMatch
+              ? alphaMatch[1]
+              : "1";
+            const baseColorName = getPaletteName(
+              color.value
+            );
+
+            // Check if the color has an alpha different than 1
+            return alpha === "1"
+              ? {
+                  name: `light/${key}-stop-${
+                    index + 1
+                  }`,
+                  value: baseColorName,
+                  hasAlias: true,
+                }
+              : {
+                  name: `light/${key}-stop-${
+                    index + 1
+                  }`,
+                  value: hexToRgba(
+                    getPaletteValue(
+                      baseColorName
+                    ),
+                    alpha
+                  ),
+                  hasAlias: false,
+                };
+          }
+        );
+      }
+
+      throw new Error(
+        `Unexpected color format for key: ${key}`
+      );
+    });
 
     const darkArray = Object.keys(
       parsedContent.dark
-    ).map((key) => ({
-      name: key,
-      value: parsedContent.dark[key].value,
-    }));
+    ).flatMap((key) => {
+      const colorData = parsedContent.dark[key];
+      const { value, type } = colorData;
+
+      function getPaletteName(value) {
+        const regexMatch = value.match(
+          /{palette\.(.*?)}/
+        );
+        if (regexMatch) {
+          return regexMatch[1];
+        }
+        const rgbaMatch = value.match(
+          /rgba\(\{palette\.(.*?)\},\s*\d*\.?\d*\)/
+        );
+        if (rgbaMatch) {
+          return rgbaMatch[1];
+        }
+        throw new Error(
+          `Unexpected color format: ${value}`
+        );
+      }
+
+      function getPaletteValue(colorName) {
+        const paletteValue =
+          parsedContent.global.palette[colorName]
+            ?.value;
+        if (!paletteValue) {
+          throw new Error(
+            `Color ${colorName} not found in palette`
+          );
+        }
+        return paletteValue;
+      }
+
+      // Default color handling
+      if (
+        typeof value === "string" &&
+        !value.startsWith("rgba")
+      ) {
+        return {
+          name: `dark/${key}`,
+          value: getPaletteName(value),
+          hasAlias: true,
+        };
+      }
+
+      // Color with alpha (rgba)
+      if (
+        typeof value === "string" &&
+        value.startsWith("rgba")
+      ) {
+        const alphaMatch = value.match(
+          /rgba\([^)]+,\s*([^)]+)\)/
+        );
+        const alpha = alphaMatch
+          ? alphaMatch[1]
+          : "1";
+        const baseColorName =
+          getPaletteName(value);
+
+        // If alpha is 1, do nothing, otherwise replace with palette value
+        return alpha === "1"
+          ? {
+              name: `dark/${key}`,
+              value: baseColorName,
+              hasAlias: true,
+            }
+          : {
+              name: `dark/${key}`,
+              value: hexToRgba(
+                getPaletteValue(baseColorName),
+                alpha
+              ),
+              hasAlias: false,
+            };
+      }
+
+      // Gradient handling
+      if (
+        type === "linear-gradient" &&
+        typeof value === "object"
+      ) {
+        return value.colors.map(
+          (color, index) => {
+            const alphaMatch = color.value.match(
+              /rgba\([^)]+,\s*([^)]+)\)/
+            );
+            const alpha = alphaMatch
+              ? alphaMatch[1]
+              : "1";
+            const baseColorName = getPaletteName(
+              color.value
+            );
+
+            // Check if the color has an alpha different than 1
+            return alpha === "1"
+              ? {
+                  name: `dark/${key}-stop-${
+                    index + 1
+                  }`,
+                  value: baseColorName,
+                  hasAlias: true,
+                }
+              : {
+                  name: `dark/${key}-stop-${
+                    index + 1
+                  }`,
+                  value: hexToRgba(
+                    getPaletteValue(
+                      baseColorName
+                    ),
+                    alpha
+                  ),
+                  hasAlias: false,
+                };
+          }
+        );
+      }
+
+      throw new Error(
+        `Unexpected color format for key: ${key}`
+      );
+    });
 
     const paletteArray = Object.keys(
       parsedContent.global.palette
     ).map((key) => ({
       name: key,
-      value:
-        parsedContent.global.palette[key].value,
+      value: hexToRgba(
+        parsedContent.global.palette[key].value
+      ),
     }));
 
     const radiusArray = Object.keys(

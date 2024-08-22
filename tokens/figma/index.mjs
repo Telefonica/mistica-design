@@ -71,7 +71,6 @@ async function fetchAndUpdateVariables(
       "font-size",
       "line-height",
       "radius",
-      "themeContext",
     ];
 
     function generateTempId(name, collection) {
@@ -110,6 +109,53 @@ async function fetchAndUpdateVariables(
           )
         );
       });
+    }
+
+    function getPaletteAlias(
+      variableName,
+      existingVariables,
+      existingCollections
+    ) {
+      // Step 1: Find the "palette" collection
+      const paletteCollection = Object.values(
+        existingCollections
+      ).find(
+        (collection) =>
+          collection.name === "palette"
+      );
+
+      if (!paletteCollection) {
+        console.error(
+          "Palette collection not found."
+        );
+        return null;
+      }
+
+      // Step 2: Find the variable in the "palette" collection
+      const paletteVariable = Object.values(
+        existingVariables
+      ).find(
+        (variable) =>
+          variable.variableCollectionId ===
+            paletteCollection.id &&
+          variable.name === variableName
+      );
+
+      if (!paletteVariable) {
+        console.error(
+          "Palette variable not found for name:",
+          variableName
+        );
+        return null;
+      }
+
+      // Step 3: Retrieve the mode ID for the "palette" collection
+      const modeId = paletteCollection.id;
+
+      return {
+        variableId: paletteVariable.id,
+        modeId: modeId,
+      };
     }
 
     function updateCollection(
@@ -155,6 +201,7 @@ async function fetchAndUpdateVariables(
     function updateVariables(
       variableName,
       variableValue,
+      hasAlias,
       collectionName,
       existingVariables,
       existingCollections,
@@ -169,6 +216,8 @@ async function fetchAndUpdateVariables(
           existingVariables,
           existingCollections
         );
+
+      // Find the default mode for the collection
 
       const existingMode = Object.values(
         existingCollections
@@ -193,10 +242,16 @@ async function fetchAndUpdateVariables(
           action: "UPDATE",
           variableId: existingVariable.id,
           modeId: existingMode,
-          value:
-            variableType === "COLOR"
-              ? hexToRgba(variableValue)
-              : variableValue,
+          value: hasAlias
+            ? {
+                type: "VARIABLE_ALIAS",
+                id: getPaletteAlias(
+                  variableValue,
+                  existingVariables,
+                  existingCollections
+                ).variableId,
+              }
+            : variableValue,
         });
         allVariableNamesInCurrentData.add(
           variableName
@@ -225,10 +280,16 @@ async function fetchAndUpdateVariables(
           action: "CREATE",
           variableId: tempId,
           modeId: existingMode,
-          value:
-            variableType === "COLOR"
-              ? hexToRgba(variableValue)
-              : variableValue,
+          value: hasAlias
+            ? {
+                type: "VARIABLE_ALIAS",
+                id: getPaletteAlias(
+                  variableValue,
+                  existingVariables,
+                  existingCollections
+                ).variableId,
+              }
+            : variableValue,
         });
 
         allVariableNamesInCurrentData.add(
@@ -262,6 +323,18 @@ async function fetchAndUpdateVariables(
       new Set();
 
     const variableGroups = [
+      {
+        variables: jsonData[brand].light,
+        collectionName: "constants",
+        resolvedType: "COLOR",
+        variableScopes: ["ALL_SCOPES"],
+      },
+      {
+        variables: jsonData[brand].dark,
+        collectionName: "constants",
+        resolvedType: "COLOR",
+        variableScopes: ["ALL_SCOPES"],
+      },
       {
         variables: jsonData[brand].palette,
         collectionName: "palette",
@@ -305,6 +378,7 @@ async function fetchAndUpdateVariables(
           updateVariables(
             variable.name,
             variable.value,
+            variable.hasAlias,
             collectionName,
             existingVariables,
             existingCollections,
