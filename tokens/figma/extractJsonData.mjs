@@ -6,6 +6,28 @@ const extractJsonData = (
   jsonFiles,
   directoryPath
 ) => {
+  const allParsedContent = {}; // Initialize once to store all parsed content
+
+  // First pass to gather allParsedContent
+  jsonFiles.forEach((file) => {
+    const filePath = path.resolve(
+      directoryPath,
+      file
+    );
+    const fileContent = fs.readFileSync(
+      filePath,
+      "utf8"
+    );
+    const parsedContent = JSON.parse(fileContent);
+
+    // Extract file name without extension to use as a key
+    const fileName = file.split(".")[0];
+
+    // Store the parsed content in the allParsedContent object
+    allParsedContent[fileName] = parsedContent;
+  });
+
+  // Second pass to process each file
   return jsonFiles.reduce((accumulator, file) => {
     const filePath = path.resolve(
       directoryPath,
@@ -17,7 +39,14 @@ const extractJsonData = (
     );
     const parsedContent = JSON.parse(fileContent);
 
-    function processColors(parsedContent, theme) {
+    // Extract file name without extension
+    const fileName = file.split(".")[0];
+
+    function processColors(
+      parsedContent,
+      theme,
+      allParsedContent
+    ) {
       if (!["light", "dark"].includes(theme)) {
         throw new Error(
           `Invalid theme: ${theme}. Expected 'light' or 'dark'.`
@@ -56,12 +85,135 @@ const extractJsonData = (
         return paletteValue;
       }
 
+      function getMaxStopsAcrossBrands(
+        allParsedContent,
+        key,
+        theme
+      ) {
+        let maxStops = 0;
+        let isGradientInAnyBrand = false;
+
+        Object.values(allParsedContent).forEach(
+          (content) => {
+            const colors = content[theme][key];
+            if (
+              colors &&
+              colors.type === "linear-gradient"
+            ) {
+              isGradientInAnyBrand = true;
+              maxStops = Math.max(
+                maxStops,
+                colors.value.colors.length
+              );
+            }
+          }
+        );
+
+        return { maxStops, isGradientInAnyBrand };
+      }
+
       return Object.keys(themeColors).flatMap(
         (key) => {
           const colorData = themeColors[key];
           const { value, type } = colorData;
 
-          // Default color handling
+          const {
+            maxStops,
+            isGradientInAnyBrand,
+          } = getMaxStopsAcrossBrands(
+            allParsedContent,
+            key,
+            theme
+          );
+
+          // Handle gradients first
+          if (
+            type === "linear-gradient" &&
+            typeof value === "object"
+          ) {
+            // Map colors in gradient
+            return Array.from(
+              { length: maxStops },
+              (_, index) => {
+                if (index < value.colors.length) {
+                  // Use the actual gradient stop color
+                  const color =
+                    value.colors[index];
+                  const alphaMatch =
+                    color.value.match(
+                      /rgba\([^)]+,\s*([^)]+)\)/
+                    );
+                  const alpha = alphaMatch
+                    ? alphaMatch[1]
+                    : "1";
+                  const baseColorName =
+                    getPaletteName(color.value);
+
+                  return alpha === "1"
+                    ? {
+                        name: `${theme}/${key}-stop-${
+                          index + 1
+                        }`,
+                        value: baseColorName,
+                        hasAlias: true,
+                      }
+                    : {
+                        name: `${theme}/${key}-stop-${
+                          index + 1
+                        }`,
+                        value: hexToRgba(
+                          getPaletteValue(
+                            baseColorName
+                          ),
+                          parseFloat(alpha)
+                        ),
+                        hasAlias: false,
+                      };
+                } else if (isGradientInAnyBrand) {
+                  // If this brand does not have a gradient, repeat the base color to match stops
+                  const baseColorName =
+                    getPaletteName(
+                      value.colors[0].value
+                    );
+                  return {
+                    name: `${theme}/${key}-stop-${
+                      index + 1
+                    }`,
+                    value: hexToRgba(
+                      getPaletteValue(
+                        baseColorName
+                      )
+                    ),
+                    hasAlias: false,
+                  };
+                }
+              }
+            ).filter(Boolean);
+          }
+
+          // Handle solid colors or aliases when a gradient exists in other brands
+          if (
+            type !== "linear-gradient" &&
+            isGradientInAnyBrand
+          ) {
+            const baseColorName =
+              getPaletteName(value);
+            // Repeat the solid color to match the gradient stops
+            return Array.from(
+              { length: maxStops },
+              (_, index) => ({
+                name: `${theme}/${key}-stop-${
+                  index + 1
+                }`,
+                value: hexToRgba(
+                  getPaletteValue(baseColorName)
+                ),
+                hasAlias: false,
+              })
+            );
+          }
+
+          // Handle solid colors or aliases normally
           if (
             typeof value === "string" &&
             !value.startsWith("rgba")
@@ -73,7 +225,7 @@ const extractJsonData = (
             };
           }
 
-          // Color with alpha (rgba)
+          // Handle rgba colors
           if (
             typeof value === "string" &&
             value.startsWith("rgba")
@@ -105,47 +257,6 @@ const extractJsonData = (
                 };
           }
 
-          // Gradient handling
-          if (
-            type === "linear-gradient" &&
-            typeof value === "object"
-          ) {
-            return value.colors.map(
-              (color, index) => {
-                const alphaMatch =
-                  color.value.match(
-                    /rgba\([^)]+,\s*([^)]+)\)/
-                  );
-                const alpha = alphaMatch
-                  ? alphaMatch[1]
-                  : "1";
-                const baseColorName =
-                  getPaletteName(color.value);
-
-                return alpha === "1"
-                  ? {
-                      name: `${theme}/${key}-stop-${
-                        index + 1
-                      }`,
-                      value: baseColorName,
-                      hasAlias: true,
-                    }
-                  : {
-                      name: `${theme}/${key}-stop-${
-                        index + 1
-                      }`,
-                      value: hexToRgba(
-                        getPaletteValue(
-                          baseColorName
-                        ),
-                        parseFloat(alpha)
-                      ),
-                      hasAlias: false,
-                    };
-              }
-            );
-          }
-
           throw new Error(
             `Unexpected color format for key: ${key}`
           );
@@ -153,6 +264,7 @@ const extractJsonData = (
       );
     }
 
+    // Other token processing logic
     const paletteArray = Object.keys(
       parsedContent.global.palette
     ).map((key) => ({
@@ -245,16 +357,18 @@ const extractJsonData = (
       };
     });
 
-    // Extract file name without extension
-    const fileName = file.split(".")[0];
-
     // Accumulate results
     accumulator[fileName] = {
       light: processColors(
         parsedContent,
-        "light"
+        "light",
+        allParsedContent
       ),
-      dark: processColors(parsedContent, "dark"),
+      dark: processColors(
+        parsedContent,
+        "dark",
+        allParsedContent
+      ),
       palette: paletteArray,
       radius: radiusArray,
       fontWeight: fontWeightArray,

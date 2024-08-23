@@ -4,8 +4,6 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import extractJsonData from "./extractJsonData.mjs";
-import { hexToRgba } from "./utils.mjs";
-import { extractPaletteValue } from "./utils.mjs";
 
 dotenv.config({ path: "../../.env" });
 const __filename = fileURLToPath(import.meta.url);
@@ -29,11 +27,282 @@ const jsonData = extractJsonData(
 );
 
 const brands = {
-  blau: `https://api.figma.com/v1/files/${FILE_KEY_2}/variables`,
+  "o2-new": `https://api.figma.com/v1/files/${FILE_KEY_2}/variables`,
   "vivo-new": `https://api.figma.com/v1/files/${FILE_KEY_1}/variables`,
 };
 
-async function fetchAndUpdateVariables(
+async function updateCollections(url) {
+  try {
+    const response = await fetch(`${url}/local`, {
+      method: "GET",
+      headers: {
+        "X-Figma-Token": FIGMA_TOKEN,
+        "Content-Type": "application/json",
+      },
+    });
+
+    const figmaData = await response.json();
+
+    const newData = {
+      variableCollections: [],
+      variableModes: [],
+      variables: [],
+      variableModeValues: [],
+    };
+
+    const existingCollections =
+      figmaData.meta.variableCollections;
+
+    const collectionNames = [
+      "constants",
+      "palette",
+      "font-weight",
+      "font-size",
+      "line-height",
+      "radius",
+    ];
+
+    function generateTempId(name) {
+      return `tempId_${name}`;
+    }
+
+    function updateCollection(
+      collectionName,
+      existingCollections
+    ) {
+      // Find the existing collection by name
+      const existingCollection = Object.values(
+        existingCollections
+      ).find(
+        (collection) =>
+          collection.name === collectionName
+      );
+
+      if (existingCollection) {
+        // If the collection exists, update it
+        newData.variableCollections.push({
+          action: "UPDATE",
+          id: existingCollection.id,
+          name: collectionName,
+        });
+      } else {
+        // If the collection doesn't exist, create it
+        const tempId = generateTempId(
+          collectionName
+        );
+        newData.variableCollections.push({
+          action: "CREATE",
+          id: tempId,
+          name: collectionName,
+        });
+      }
+    }
+
+    // Process each collection name
+    collectionNames.forEach((collectionName) => {
+      updateCollection(
+        collectionName,
+        existingCollections
+      );
+    });
+
+    // Return the processed data for further use
+    return newData;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error; // rethrow the error to be handled later
+  }
+}
+
+async function updatePalette(
+  jsonData,
+  brand,
+  url
+) {
+  try {
+    const response = await fetch(`${url}/local`, {
+      method: "GET",
+      headers: {
+        "X-Figma-Token": FIGMA_TOKEN,
+        "Content-Type": "application/json",
+      },
+    });
+
+    const figmaData = await response.json();
+
+    const existingVariables =
+      figmaData.meta.variables;
+    const existingCollections =
+      figmaData.meta.variableCollections;
+
+    const newData = {
+      variableCollections: [],
+      variableModes: [],
+      variables: [],
+      variableModeValues: [],
+    };
+
+    function findVariableInCollection(
+      variableName,
+      collectionName,
+      existingVariables,
+      existingCollections
+    ) {
+      return Object.values(
+        existingVariables
+      ).find((variable) => {
+        // Check if the variable name matches
+        if (variable.name !== variableName)
+          return false;
+
+        // Find the collection in existingCollections using variableCollectionId
+        const collection = Object.values(
+          existingCollections
+        ).find(
+          (col) =>
+            col.id ===
+            variable.variableCollectionId
+        );
+
+        // Check if the collection exists, its name matches the collectionName,
+        // and if the variable's id is listed in the collection's variableIds
+        return (
+          collection &&
+          collection.name === collectionName &&
+          collection.variableIds.includes(
+            variable.id
+          )
+        );
+      });
+    }
+
+    function generateTempId(name, collection) {
+      return `tempId_${collection}_${name}`;
+    }
+
+    const allVariableNamesInCurrentData =
+      new Set();
+
+    function updateVariables(
+      variableName,
+      variableValue,
+      collectionName,
+      existingVariables,
+      existingCollections,
+      variableType,
+      variableScopes,
+      allVariableNamesInCurrentData
+    ) {
+      // Find the existing variable by name
+      const existingVariable =
+        findVariableInCollection(
+          variableName,
+          collectionName,
+          existingVariables,
+          existingCollections
+        );
+
+      // Find the default mode for the collection
+
+      const existingMode = Object.values(
+        existingCollections
+      ).find(
+        (collection) =>
+          collection.name === collectionName
+      ).defaultModeId;
+
+      if (existingVariable) {
+        // If the variable exists, update it
+        newData.variables.push({
+          action: "UPDATE",
+          id: existingVariable.id,
+          name: variableName,
+          resolvedType: variableType,
+          variableCollectionId:
+            existingVariable.variableCollectionId,
+          scopes: variableScopes,
+        });
+
+        newData.variableModeValues.push({
+          action: "UPDATE",
+          variableId: existingVariable.id,
+          modeId: existingMode,
+          value: variableValue,
+        });
+      } else {
+        const tempId = generateTempId(
+          variableName,
+          collectionName
+        );
+
+        const collectionId = Object.values(
+          existingCollections
+        ).find(
+          (collection) =>
+            collection.name === collectionName
+        ).id;
+
+        newData.variables.push({
+          action: "CREATE",
+          id: tempId,
+          name: variableName,
+          variableCollectionId: collectionId,
+          resolvedType: variableType,
+          scopes: variableScopes,
+        });
+
+        newData.variableModeValues.push({
+          action: "CREATE",
+          variableId: tempId,
+          modeId: existingMode,
+          value: variableValue,
+        });
+
+        allVariableNamesInCurrentData.add(
+          variableName
+        );
+      }
+    }
+
+    const variableGroups = [
+      {
+        variables: jsonData[brand].palette,
+        collectionName: "palette",
+        resolvedType: "COLOR",
+        variableScopes: ["ALL_SCOPES"],
+      },
+    ];
+
+    variableGroups.forEach(
+      ({
+        variables,
+        collectionName,
+        resolvedType,
+        variableScopes,
+      }) => {
+        variables.forEach((variable) => {
+          updateVariables(
+            variable.name,
+            variable.value,
+            collectionName,
+            existingVariables,
+            existingCollections,
+            resolvedType,
+            variableScopes,
+            allVariableNamesInCurrentData
+          );
+        });
+      }
+    );
+
+    return newData;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error; // rethrow the error to be handled later
+  }
+}
+
+async function updateVariables(
   jsonData,
   brand,
   url
@@ -63,15 +332,6 @@ async function fetchAndUpdateVariables(
       variables: [],
       variableModeValues: [],
     };
-
-    const collectionNames = [
-      "constants",
-      "palette",
-      "font-weight",
-      "font-size",
-      "line-height",
-      "radius",
-    ];
 
     function generateTempId(name, collection) {
       return `tempId_${collection}_${name}`;
@@ -158,46 +418,6 @@ async function fetchAndUpdateVariables(
       };
     }
 
-    function updateCollection(
-      collectionName,
-      existingCollections
-    ) {
-      // Find the existing collection by name
-      const existingCollection = Object.values(
-        existingCollections
-      ).find(
-        (collection) =>
-          collection.name === collectionName
-      );
-
-      if (existingCollection) {
-        // If the collection exists, update it
-        newData.variableCollections.push({
-          action: "UPDATE",
-          id: existingCollection.id,
-          name: collectionName,
-        });
-      } else {
-        // If the collection doesn't exist, create it
-        const tempId = generateTempId(
-          collectionName
-        );
-        newData.variableCollections.push({
-          action: "CREATE",
-          id: tempId,
-          name: collectionName,
-        });
-      }
-    }
-
-    // Process each collection name
-    collectionNames.forEach((collectionName) => {
-      updateCollection(
-        collectionName,
-        existingCollections
-      );
-    });
-
     function updateVariables(
       variableName,
       variableValue,
@@ -262,11 +482,14 @@ async function fetchAndUpdateVariables(
           variableName,
           collectionName
         );
-        const collectionId =
-          newData.variableCollections.find(
-            (collection) =>
-              collection.name === collectionName
-          ).id;
+
+        const collectionId = Object.values(
+          existingCollections
+        ).find(
+          (collection) =>
+            collection.name === collectionName
+        ).id;
+
         newData.variables.push({
           action: "CREATE",
           id: tempId,
@@ -324,6 +547,12 @@ async function fetchAndUpdateVariables(
 
     const variableGroups = [
       {
+        variables: jsonData[brand].palette,
+        collectionName: "palette",
+        resolvedType: "COLOR",
+        variableScopes: ["ALL_SCOPES"],
+      },
+      {
         variables: jsonData[brand].light,
         collectionName: "constants",
         resolvedType: "COLOR",
@@ -332,12 +561,6 @@ async function fetchAndUpdateVariables(
       {
         variables: jsonData[brand].dark,
         collectionName: "constants",
-        resolvedType: "COLOR",
-        variableScopes: ["ALL_SCOPES"],
-      },
-      {
-        variables: jsonData[brand].palette,
-        collectionName: "palette",
         resolvedType: "COLOR",
         variableScopes: ["ALL_SCOPES"],
       },
@@ -405,9 +628,35 @@ async function fetchAndUpdateVariables(
 
 // Use an async function to handle the post request after data processing
 
-async function processAndPostData(url, brand) {
+async function postCollections(url, brand) {
   try {
-    const newData = await fetchAndUpdateVariables(
+    const newData = await updateCollections(url);
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "X-Figma-Token": FIGMA_TOKEN,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    });
+
+    const data = await response.json();
+    console.log(
+      `Success creating collections for brand ${brand}:`,
+      data
+    );
+  } catch (error) {
+    console.error(
+      `Error creating collections for for brand ${brand}:`,
+      error
+    );
+  }
+}
+
+async function postPalette(url, brand) {
+  try {
+    const newData = await updatePalette(
       jsonData,
       brand,
       url
@@ -424,12 +673,42 @@ async function processAndPostData(url, brand) {
 
     const data = await response.json();
     console.log(
-      `Success for brand ${brand}:`,
+      `Success updating palette for brand ${brand}:`,
       data
     );
   } catch (error) {
     console.error(
-      `Error posting data for brand ${brand}:`,
+      `Error updating palette for brand ${brand}:`,
+      error
+    );
+  }
+}
+
+async function postVariables(url, brand) {
+  try {
+    const newData = await updateVariables(
+      jsonData,
+      brand,
+      url
+    );
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "X-Figma-Token": FIGMA_TOKEN,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    });
+
+    const data = await response.json();
+    console.log(
+      `Success updating variables for brand ${brand}:`,
+      data
+    );
+  } catch (error) {
+    console.error(
+      `Error updating variables for brand ${brand}:`,
       error
     );
   }
@@ -441,7 +720,9 @@ async function processAllUrls(brands) {
   for (const [brand, url] of Object.entries(
     brands
   )) {
-    await processAndPostData(url, brand);
+    await postCollections(url, brand);
+    await postPalette(url, brand);
+    await postVariables(url, brand);
   }
 }
 
