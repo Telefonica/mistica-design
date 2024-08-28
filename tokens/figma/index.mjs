@@ -12,6 +12,7 @@ const __dirname = path.dirname(__filename);
 const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
 
 const FILE_KEYS = {
+  // Remember to sync these with the workflow file
   movistar: process.env.MOVISTAR_FILE_KEY,
   "o2-new": process.env.O2_NEW_FILE_KEY,
   "vivo-new": process.env.VIVO_NEW_FILE_KEY,
@@ -725,16 +726,37 @@ async function postVariables(url, brand) {
   }
 }
 
-//process the data for an array of urls
+// Process data for a specific brand
 
-async function processAllUrls(brands) {
+async function processBrand(brand, url) {
+  await postCollections(url, brand);
+  await postPalette(url, brand);
+  await postVariables(url, brand);
+}
+
+// Process all brands
+
+async function processAllBrands(brands) {
   for (const [brand, url] of Object.entries(
     brands
   )) {
-    await postCollections(url, brand);
-    await postPalette(url, brand);
-    await postVariables(url, brand);
+    await processBrand(brand, url);
   }
 }
 
-processAllUrls(brands);
+// Get the selected brand from command line arguments
+
+const selectedBrand = process.argv[2];
+
+if (selectedBrand === "all") {
+  processAllBrands(brands);
+} else {
+  const url = brands[selectedBrand];
+  if (url) {
+    processBrand(selectedBrand, url);
+  } else {
+    console.error(
+      `Brand ${selectedBrand} not found.`
+    );
+  }
+}

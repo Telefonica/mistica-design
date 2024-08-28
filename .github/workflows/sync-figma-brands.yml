@@ -1,0 +1,61 @@
+name: Update brands variables in Figma
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+    paths:
+      - "tokens/*.json"
+  workflow_dispatch:
+    inputs:
+      brand:
+        description: "Select the brand to update variables in Figma"
+        required: true
+        default: "all"
+        type: choice
+        options:
+          - all
+          - movistar
+          - o2-new
+          - vivo-new
+          - telefonica
+          - blau
+          - tu
+
+jobs:
+  sync-figma-brands:
+    runs-on: ubuntu-latest
+
+    env:
+      # Remember to sync these with the index.mjs file
+      FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+      MOVISTAR_FILE_KEY: ${{ secrets.MOVISTAR_FILE_KEY }}
+      O2_NEW_FILE_KEY: ${{ secrets.O2_NEW_FILE_KEY }}
+      VIVO_NEW_FILE_KEY: ${{ secrets.VIVO_NEW_FILE_KEY }}
+      TELEFONICA_FILE_KEY: ${{ secrets.TELEFONICA_FILE_KEY }}
+      BLAU_FILE_KEY: ${{ secrets.BLAU_FILE_KEY }}
+      TU_FILE_KEY: ${{ secrets.TU_FILE_KEY }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Sync ${{ github.event.inputs.brand }}
+        working-directory: tokens/figma
+        run: |
+          node index.mjs ${{ github.event.inputs.brand }}
+
+      # - name: Sync Mística Skins
+      #   working-directory: tokens/figma
+      #   run: |
+      #     node index.mjs ${{ github.event.inputs.brand }}
