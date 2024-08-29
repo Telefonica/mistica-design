@@ -10,38 +10,24 @@ on:
       - "tokens/*.json"
   workflow_dispatch:
     inputs:
-      Movistar:
+      movistar:
         type: boolean
         default: true
-      Vivo-new:
+      vivo-new:
         type: boolean
         default: true
-      O2-new:
+      o2-new:
         type: boolean
         default: true
-      Telefónica:
+      telefonica:
         type: boolean
         default: true
-      Blau:
+      blau:
         type: boolean
         default: true
-      Tu:
+      tu:
         type: boolean
         default: true
-    # inputs:
-    #   brand:
-    #     description: "Select the brand to update variables in Figma"
-    #     required: true
-    #     "all"
-    #     type: choice
-    #     options:
-    #       - all
-    #       - movistar
-    #       - o2-new
-    #       - vivo-new
-    #       - telefonica
-    #       - blau
-    #       - tu
 
 jobs:
   sync-figma-brands:
@@ -72,10 +58,13 @@ jobs:
       - id: get-brand
         uses: joao-zanutto/get-selected@v1.1.1
 
-      - name: Sync ${{ steps.get-brand.outputs.selected }}
+      - name: Run sync for each selected brand
         working-directory: tokens/figma
         run: |
-          node index.mjs ${{ steps.get-brand.outputs.selected }}
+          selected_brands="${{ steps.get-brand.outputs.selected }}"
+          for brand in ${selected_brands}; do
+            node index.mjs $brand
+          done
 
       # - name: Sync Mística Skins
       #   working-directory: tokens/figma
