@@ -4,17 +4,30 @@ on:
   push:
     paths:
       - "tokens/movistar.json"
-      - "tokens/vivo.json"
+      - "tokens/vivo-new.json"
+      - "tokens/o2-new.json"
       - "tokens/telefonica.json"
+      - "tokens/blau.json"
+      - "tokens/tu.json"
+
   workflow_dispatch:
     inputs:
       movistar:
         type: boolean
         default: true
-      vivo:
+      vivo-new:
+        type: boolean
+        default: true
+      o2-new:
         type: boolean
         default: true
       telefonica:
+        type: boolean
+        default: true
+      blau:
+        type: boolean
+        default: true
+      tu:
         type: boolean
         default: true
 
@@ -26,6 +39,7 @@ jobs:
       FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
       MOVISTAR_FILE_KEY: ${{ secrets.MOVISTAR_FILE_KEY }}
       VIVO_FILE_KEY: ${{ secrets.VIVO_FILE_KEY }}
+      O2_FILE_KEY: ${{ secrets.O2_FILE_KEY }}
       TELEFONICA_FILE_KEY: ${{ secrets.TELEFONICA_FILE_KEY }}
 
     steps:
@@ -39,10 +53,16 @@ jobs:
           filters: |
             movistar:
               - 'tokens/movistar.json'
-            vivo:
-              - 'tokens/vivo.json'
+            vivo-new:
+              - 'tokens/vivo-new.json'
+            o2-new:
+              - 'tokens/o2-new.json'
             telefonica:
               - 'tokens/telefonica.json'
+            blau:
+              - 'tokens/blau.json'
+            tu:
+              - 'tokens/tu.json'
 
       - name: Determine Execution Mode
         id: determine-mode
@@ -52,11 +72,20 @@ jobs:
             if [ "${{ github.event.inputs.movistar }}" == "true" ]; then
               selected_brands+=" movistar"
             fi
-            if [ "${{ github.event.inputs.vivo }}" == "true" ]; then
-              selected_brands+=" vivo"
+            if [ "${{ github.event.inputs.vivo-new }}" == "true" ]; then
+              selected_brands+=" vivo-new"
+            fi
+            if [ "${{ github.event.inputs.o2-new }}" == "true" ]; then
+              selected_brands+=" o2-new"
             fi
             if [ "${{ github.event.inputs.telefonica }}" == "true" ]; then
               selected_brands+=" telefonica"
+            fi
+            if [ "${{ github.event.inputs.blau }}" == "true" ]; then
+              selected_brands+=" blau"
+            fi
+            if [ "${{ github.event.inputs.tu }}" == "true" ]; then
+              selected_brands+=" tu"
             fi
             echo "Selected brands: $selected_brands"
             echo "BRAND_NAME=$selected_brands" >> $GITHUB_ENV
@@ -65,11 +94,20 @@ jobs:
             if [ "${{ steps.filter.outputs.movistar }}" == "true" ]; then
               selected_brands+=" movistar"
             fi
-            if [ "${{ steps.filter.outputs.vivo }}" == "true" ]; then
-              selected_brands+=" vivo"
+            if [ "${{ steps.filter.outputs.vivo-new }}" == "true" ]; then
+              selected_brands+=" vivo-new"
+            fi
+            if [ "${{ steps.filter.outputs.o2-new }}" == "true" ]; then
+              selected_brands+=" o2-new"
             fi
             if [ "${{ steps.filter.outputs.telefonica }}" == "true" ]; then
               selected_brands+=" telefonica"
+            fi
+            if [ "${{ steps.filter.outputs.blau }}" == "true" ]; then
+              selected_brands+=" blau"
+            fi
+            if [ "${{ steps.filter.outputs.tu }}" == "true" ]; then
+              selected_brands+=" tu"
             fi
             echo "Detected changes in brands: $selected_brands"
             echo "BRAND_NAME=$selected_brands" >> $GITHUB_ENV
