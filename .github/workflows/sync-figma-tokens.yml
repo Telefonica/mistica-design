@@ -2,34 +2,19 @@ name: Sync tokens to Figma
 
 on:
   push:
-    # branches:
-    #   - production
     paths:
       - "tokens/movistar.json"
-      - "tokens/vivo-new.json"
-      - "tokens/o2-new.json"
+      - "tokens/vivo.json"
       - "tokens/telefonica.json"
-      - "tokens/blau.json"
-      - "tokens/tu.json"
-
   workflow_dispatch:
     inputs:
       movistar:
         type: boolean
         default: true
-      vivo-new:
-        type: boolean
-        default: true
-      o2-new:
+      vivo:
         type: boolean
         default: true
       telefonica:
-        type: boolean
-        default: true
-      blau:
-        type: boolean
-        default: true
-      tu:
         type: boolean
         default: true
 
@@ -44,37 +29,49 @@ jobs:
       TELEFONICA_FILE_KEY: ${{ secrets.TELEFONICA_FILE_KEY }}
 
     steps:
-      - name: Checkout repository with full history
+      - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Filter changes
+        id: filter
+        uses: dorny/paths-filter@v2
         with:
-          fetch-depth: 0 # Clona todo el historial de commits
+          filters: |
+            movistar:
+              - 'tokens/movistar.json'
+            vivo:
+              - 'tokens/vivo.json'
+            telefonica:
+              - 'tokens/telefonica.json'
 
       - name: Determine Execution Mode
         id: determine-mode
         run: |
-          if [ "${{ github.event_name }}" == "push" ]; then
-            # Get the name of the modified file (e.g., "movistar.json")
-            FILE_NAME=$(git diff --name-only HEAD^ HEAD | grep 'tokens/' | xargs basename || true)
-            if [ -z "$FILE_NAME" ]; then
-              echo "No changes detected in the tokens directory."
-              exit 0
-            fi
-            # Remove the ".json" extension to get the brand name
-            BRAND_NAME="${FILE_NAME%.json}"
-            echo "Triggered by push. Brand: $BRAND_NAME"
-            echo "BRAND_NAME=$BRAND_NAME" >> $GITHUB_ENV
-          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             selected_brands=""
             if [ "${{ github.event.inputs.movistar }}" == "true" ]; then
               selected_brands+=" movistar"
             fi
-            if [ "${{ github.event.inputs.vivo-new }}" == "true" ]; then
-              selected_brands+=" vivo-new"
+            if [ "${{ github.event.inputs.vivo }}" == "true" ]; then
+              selected_brands+=" vivo"
             fi
             if [ "${{ github.event.inputs.telefonica }}" == "true" ]; then
               selected_brands+=" telefonica"
             fi
-            echo "Triggered by workflow dispatch. Selected brands: $selected_brands"
+            echo "Selected brands: $selected_brands"
+            echo "BRAND_NAME=$selected_brands" >> $GITHUB_ENV
+          else
+            selected_brands=""
+            if [ "${{ steps.filter.outputs.movistar }}" == "true" ]; then
+              selected_brands+=" movistar"
+            fi
+            if [ "${{ steps.filter.outputs.vivo }}" == "true" ]; then
+              selected_brands+=" vivo"
+            fi
+            if [ "${{ steps.filter.outputs.telefonica }}" == "true" ]; then
+              selected_brands+=" telefonica"
+            fi
+            echo "Detected changes in brands: $selected_brands"
             echo "BRAND_NAME=$selected_brands" >> $GITHUB_ENV
           fi
 
