@@ -4,8 +4,12 @@ on:
   push:
     paths:
       - "tokens/movistar.json"
-      - "tokens/vivo.json"
+      - "tokens/vivo-new.json"
+      - "tokens/o2-new.json"
       - "tokens/telefonica.json"
+      - "tokens/blau.json"
+      - "tokens/tu.json"
+
   workflow_dispatch:
     inputs:
       movistar:
@@ -28,7 +32,7 @@ on:
         default: true
 
 jobs:
-  sync-figma-brand:
+  test:
     runs-on: ubuntu-latest
 
     env:
@@ -80,5 +84,5 @@ jobs:
         run: |
           for brand in $BRAND_NAME; do
             echo "Syncing brand: $brand"
-            node index.mjs "$brand"
+            node ./tokens/figma/test.mjs "$brand"
           done
