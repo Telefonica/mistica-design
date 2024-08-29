@@ -62,8 +62,9 @@ jobs:
         working-directory: tokens/figma
         run: |
           selected_brands="${{ steps.get-brand.outputs.selected }}"
-          for brand in ${selected_brands}; do
-            node index.mjs $brand
+          IFS=' ' read -r -a brands_array <<< "$selected_brands"
+          for brand in "${brands_array[@]}"; do
+            node index.mjs "$brand"
           done
 
       # - name: Sync Mística Skins
