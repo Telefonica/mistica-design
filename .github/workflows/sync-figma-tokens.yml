@@ -2,8 +2,8 @@ name: Sync tokens to Figma
 
 on:
   push:
-    branches:
-      - production
+    # branches:
+    #   - production
     paths:
       - "tokens/movistar.json"
       - "tokens/vivo-new.json"
