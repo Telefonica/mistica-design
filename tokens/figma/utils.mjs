@@ -32,6 +32,8 @@ export function generateTempModeId(
   return `tempId_${targetCollection}_${targetMode}`;
 }
 
+export const DEFAULT_FIGMA_MODENAME = "Mode 1";
+
 export async function updateCollections(
   collections,
   FILE_KEY,
@@ -124,6 +126,66 @@ export async function updateCollections(
   }
 }
 
+export async function updateOrCreateMode({
+  mode,
+  defaultModeName,
+  targetCollectionName,
+  existingCollections,
+}) {
+  const collection = Object.values(
+    existingCollections
+  ).find(
+    (collection) =>
+      collection.name === targetCollectionName
+  );
+  const collectionId = collection.id;
+
+  const existingModes = collection.modes;
+
+  const defaultMode = existingModes.find(
+    (m) => m.name === DEFAULT_FIGMA_MODENAME
+  );
+
+  const existingMode = existingModes.find(
+    (m) => m.name === mode.name
+  );
+
+  // If renaming "Default" mode to the first mode name (e.g., "Light")
+  if (
+    !existingMode &&
+    defaultMode &&
+    mode.name === defaultModeName
+  ) {
+    return {
+      action: "UPDATE",
+      id: defaultMode.modeId,
+      name: mode.name, // Rename "Default" to "Light"
+      variableCollectionId: collectionId,
+    };
+  }
+
+  // Create new mode if it doesn't exist
+  if (!existingMode) {
+    return {
+      action: "CREATE",
+      id: generateTempModeId(
+        mode,
+        targetCollectionName
+      ),
+      name: mode.name, // Create "Dark"
+      variableCollectionId: collectionId,
+    };
+  } else {
+    // Update existing mode if it exists
+    return {
+      action: "UPDATE",
+      id: existingMode.modeId,
+      name: mode.name,
+      variableCollectionId: collectionId,
+    };
+  }
+}
+
 export async function updateOrCreateVariable({
   variable,
   targetCollectionName,
@@ -197,14 +259,17 @@ export async function updateOrCreateVariableModeValues({
   }
 
   // Now access the modes from the found collection
-  const existingMode =
+  const existingModes =
     targetCollection.modes.find(
       (m) => m.name === targetModeName
     );
 
-  const modeId = existingMode
-    ? existingMode.modeId
-    : generateTempModeId(targetCollectionName,  targetModeName);
+  const modeId = existingModes
+    ? existingModes.modeId
+    : generateTempModeId(
+        targetModeName,
+        targetCollectionName
+      );
 
   if (!modeId) {
     console.warn(
@@ -247,3 +312,12 @@ export async function updateOrCreateVariableModeValues({
       : variable.value,
   };
 }
+
+export const VARIABLE_TYPES = {
+  COLOR: "COLOR",
+  FLOAT: "FLOAT",
+  STRING: "STRING",
+  FONT_WEIGHT: "FONT_WEIGHT",
+  FONT_SIZE: "FONT_SIZE",
+  LINE_HEIGHT: "LINE_HEIGHT",
+};

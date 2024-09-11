@@ -528,7 +528,6 @@ async function updateVariables(
   }
 }
 
-// Use an async function to handle the post request after data processing
 
 async function postCollections(brand, FILE_KEY) {
   try {

@@ -6,9 +6,11 @@ import { fileURLToPath } from "url";
 import extractJsonData from "./extract-json-data-middleware.mjs";
 import {
   updateCollections,
+  updateOrCreateMode,
   updateOrCreateVariable,
   updateOrCreateVariableModeValues,
   generateTempModeId,
+  VARIABLE_TYPES,
 } from "./utils.mjs";
 
 dotenv.config({ path: "../../.env" });
@@ -90,182 +92,130 @@ async function updateTheme(
       variableModeValues: [],
     };
 
-    function findVariableByName(
-      variableName,
-      collectionName
-    ) {
-      return Object.values(
-        existingVariables
-      ).find((variable) => {
-        const collection =
-          existingCollections[
-            variable.variableCollectionId
-          ];
-        return (
-          collection &&
-          collection.name === collectionName &&
-          variable.name === variableName
-        );
+    const modeNames = ["Light", "Dark"];
+
+    for (const modeName of modeNames) {
+      const modeData = await updateOrCreateMode({
+        mode: {
+          name: modeName,
+          variableCollectionId: "Theme",
+        },
+        defaultModeName: modeNames[0],
+        targetCollectionName: "Theme",
+        existingCollections,
       });
-    }
 
-    function findModeByName(
-      collection,
-      modeName
-    ) {
-      return collection.modes.find(
-        (mode) => mode.name === modeName
-      );
-    }
-
-    function generateUniqueTempId(
-      name,
-      collection
-    ) {
-      return `tempId_${collection}_${name}_${Date.now()}`;
-    }
-
-    const updateModes = (collectionName) => {
-      const collection = Object.values(
-        existingCollections
-      ).find(
-        (col) => col.name === collectionName
-      );
-      if (!collection) return;
-
-      const defaultMode = collection.modes.find(
-        (mode) =>
-          mode.modeId === collection.defaultModeId
-      );
-      if (
-        defaultMode &&
-        defaultMode.name !== "Light"
-      ) {
-        newData.variableModes.push({
-          action: "UPDATE",
-          id: defaultMode.modeId,
-          variableCollectionId: collection.id,
-          name: "Light",
-        });
+      if (modeData) {
+        newData.variableModes.push(modeData);
       }
+    }
 
-      const darkMode = findModeByName(
-        collection,
-        "Dark"
-      );
-      if (!darkMode) {
-        newData.variableModes.push({
-          action: "CREATE",
-          id: "Dark",
-          variableCollectionId: collection.id,
-          name: "Dark",
-        });
-      }
-    };
-
-    updateModes("Theme");
-
-    function createOrUpdateVariables(
+    async function processVariables(
       lightVariables,
       darkVariables,
-      collectionName
+      collectionName,
+      brand,
+      existingVariables,
+      existingCollections,
+      newData
     ) {
-      const collection = Object.values(
-        existingCollections
-      ).find(
-        (col) => col.name === collectionName
-      );
-      if (!collection) {
-        console.error(
-          `Collection ${collectionName} not found`
-        );
-        return;
-      }
-
-      const lightMode =
-        findModeByName(collection, "Light") ||
-        collection.defaultModeId;
-      const darkMode = findModeByName(
-        collection,
-        "Dark"
-      );
-
-      lightVariables.forEach((lightVariable) => {
+      for (const lightVariable of lightVariables) {
         const prefixedName = `${brand}/${lightVariable.name}`;
         const darkVariable = darkVariables.find(
           (v) => v.name === lightVariable.name
         );
 
-        const existingVariable =
-          findVariableByName(
-            prefixedName,
-            collectionName
+        // Find if an existing mode is named "Mode 1" as default mode
+
+        const CollectionNameId = Object.values(
+          existingCollections
+        ).find(
+          (collection) =>
+            collection.name === collectionName
+        ).id;
+
+        const defaultMode = existingCollections[
+          CollectionNameId
+        ].modes.find(
+          (mode) =>
+            mode.name === DEFAULT_FIGMA_MODENAME
+        );
+
+        // Prepare the variable data
+        const variableData =
+          await updateOrCreateVariable({
+            variable: {
+              name: prefixedName,
+              resolvedType: VARIABLE_TYPES.COLOR,
+              scopes: ["ALL_SCOPES"],
+            },
+            targetCollectionName: collectionName,
+            existingVariables: existingVariables,
+            existingCollections,
+          });
+
+        // Prepare the mode values
+        const modeValueData =
+          await updateOrCreateVariableModeValues({
+            variable: {
+              name: prefixedName,
+              value: lightVariable.value,
+              hasAlias: false,
+            },
+            targetModeName: defaultMode
+              ? DEFAULT_FIGMA_MODENAME // When created the defaultModeName has not been yet updated to targetModeName
+              : "Light",
+            targetCollectionName: collectionName,
+            existingCollections,
+            existingVariables,
+          });
+
+        if (modeValueData) {
+          newData.variableModeValues.push(
+            modeValueData
           );
+        }
 
-        if (existingVariable) {
-          newData.variables.push({
-            action: "UPDATE",
-            id: existingVariable.id,
-            name: prefixedName,
-            variableCollectionId:
-              existingVariable.variableCollectionId,
-            resolvedType: "COLOR",
-            description: `light: ${lightVariable.description}, dark: ${darkVariable?.description}`,
-            scopes: [],
-          });
+        if (darkVariable) {
+          const darkModeValueData =
+            await updateOrCreateVariableModeValues(
+              {
+                variable: {
+                  name: prefixedName,
+                  value: darkVariable.value,
+                  hasAlias: false,
+                },
+                targetModeName: "Dark",
+                targetCollectionName:
+                  collectionName,
+                existingCollections,
+                existingVariables,
+              }
+            );
 
-          newData.variableModeValues.push({
-            action: "UPDATE",
-            variableId: existingVariable.id,
-            modeId: lightMode.modeId || lightMode,
-            value: lightVariable.value,
-          });
-
-          if (darkVariable) {
-            newData.variableModeValues.push({
-              action: "UPDATE",
-              variableId: existingVariable.id,
-              modeId: darkMode?.modeId,
-              value: darkVariable.value,
-            });
-          }
-        } else {
-          const tempId = generateUniqueTempId(
-            lightVariable.name,
-            collectionName
-          );
-
-          newData.variables.push({
-            action: "CREATE",
-            id: tempId,
-            name: prefixedName,
-            variableCollectionId: collection.id,
-            resolvedType: "COLOR",
-          });
-
-          newData.variableModeValues.push({
-            action: "CREATE",
-            variableId: tempId,
-            modeId: lightMode.modeId || lightMode,
-            value: lightVariable.value,
-          });
-
-          if (darkVariable) {
-            newData.variableModeValues.push({
-              action: "CREATE",
-              variableId: tempId,
-              modeId: darkMode?.modeId || "Dark",
-              value: darkVariable.value,
-            });
+          if (darkModeValueData) {
+            newData.variableModeValues.push(
+              darkModeValueData
+            );
           }
         }
-      });
+
+        // Update the variable list
+        newData.variables.push(variableData);
+      }
+
+      return newData; // Moved the return outside the loop
     }
 
-    createOrUpdateVariables(
-      jsonData[brand].light,
-      jsonData[brand].dark,
-      "Theme"
+    // Await the processVariables function
+    await processVariables(
+      jsonData[brand]?.light,
+      jsonData[brand]?.dark,
+      "Theme",
+      brand,
+      existingVariables,
+      existingCollections,
+      newData
     );
 
     const updateResponse = await fetch(
@@ -358,8 +308,6 @@ async function updateSkinColorVariables(
 
     // Step 5: Create or update modes based on the brands
 
-    /////////////////////////////
-
     const firstBrand = brands[0];
     const formattedFirstBrand =
       formatBrandName(firstBrand);
@@ -367,7 +315,7 @@ async function updateSkinColorVariables(
     const defaultMode =
       skinCollection.modes?.find(
         (mode) =>
-          mode.name === "Mode 1" ||
+          mode.name === DEFAULT_FIGMA_MODENAME ||
           mode.name === firstBrand ||
           mode.name === formattedFirstBrand
       );
@@ -375,7 +323,8 @@ async function updateSkinColorVariables(
     if (defaultMode) {
       if (
         defaultMode.name === firstBrand ||
-        defaultMode.name === "Mode 1"
+        defaultMode.name ===
+          DEFAULT_FIGMA_MODENAME
       ) {
         newData.variableModes.push({
           action: "UPDATE",
@@ -430,13 +379,14 @@ async function updateSkinColorVariables(
       }
     });
 
-    /////////////////////////////
-
     // Step 6: Create a map for color variables from Theme
     const variableToBrandMap = new Map();
 
     existingThemeVariables.forEach((variable) => {
-      if (variable.resolvedType === "COLOR") {
+      if (
+        variable.resolvedType ===
+        VARIABLE_TYPES.COLOR
+      ) {
         const variableName = variable.name
           .split("/")
           .pop();
@@ -455,19 +405,17 @@ async function updateSkinColorVariables(
       }
     });
 
-    // Step 7: Create or update only color variables in the Skin collection using the helper function
     for (let [
       variableName,
       brandMap,
     ] of variableToBrandMap) {
       const variable = {
         name: variableName,
-        resolvedType: "COLOR",
+        resolvedType: VARIABLE_TYPES.COLOR,
         scopes: ["ALL_SCOPES"],
         targetCollectionName: "Skin",
       };
 
-      // Use the extracted helper function to create or update the variable
       const variableData =
         await updateOrCreateVariable({
           variable,
@@ -591,7 +539,7 @@ async function updateSkinOtherVariables(
       {
         variables: jsonData[brand]?.radius || [],
         collectionName: "Skin",
-        resolvedType: "FLOAT",
+        resolvedType: VARIABLE_TYPES.FLOAT,
         variableScopes: ["CORNER_RADIUS"],
         hasAlias: false,
       },
@@ -599,7 +547,7 @@ async function updateSkinOtherVariables(
         variables:
           jsonData[brand]?.fontWeight || [],
         collectionName: "Skin",
-        resolvedType: "STRING",
+        resolvedType: VARIABLE_TYPES.STRING,
         variableScopes: ["FONT_WEIGHT"],
         hasAlias: false,
       },
@@ -607,7 +555,7 @@ async function updateSkinOtherVariables(
         variables:
           jsonData[brand]?.fontSize || [],
         collectionName: "Skin",
-        resolvedType: "FLOAT",
+        resolvedType: VARIABLE_TYPES.FLOAT,
         variableScopes: ["FONT_SIZE"],
         hasAlias: false,
       },
@@ -615,7 +563,7 @@ async function updateSkinOtherVariables(
         variables:
           jsonData[brand]?.lineHeight || [],
         collectionName: "Skin",
-        resolvedType: "FLOAT",
+        resolvedType: VARIABLE_TYPES.FLOAT,
         variableScopes: ["LINE_HEIGHT"],
         hasAlias: false,
       },
@@ -627,7 +575,7 @@ async function updateSkinOtherVariables(
           },
         ],
         collectionName: "Skin",
-        resolvedType: "STRING",
+        resolvedType: VARIABLE_TYPES.STRING,
         variableScopes: ["FONT_FAMILY"],
         hasAlias: false,
       },
@@ -639,7 +587,7 @@ async function updateSkinOtherVariables(
           },
         ],
         collectionName: "Skin",
-        resolvedType: "STRING",
+        resolvedType: VARIABLE_TYPES.STRING,
         variableScopes: ["ALL_SCOPES"],
         hasAlias: false,
       },
