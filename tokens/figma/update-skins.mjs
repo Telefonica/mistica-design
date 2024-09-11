@@ -3,7 +3,8 @@ import dotenv from "dotenv";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import extractJsonData from "./extractJsonData.mjs";
+import extractJsonData from "./extract-json-data-skins.mjs";
+import { updateCollections } from "./utils.mjs";
 
 dotenv.config({ path: "../../.env" });
 const __filename = fileURLToPath(import.meta.url);
@@ -13,12 +14,8 @@ const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
 
 const FILE_KEYS = {
   // Remember to sync these with the workflow file
-  movistar: process.env.MOVISTAR_FILE_KEY,
-  "o2-new": process.env.O2_NEW_FILE_KEY,
-  "vivo-new": process.env.VIVO_NEW_FILE_KEY,
-  telefonica: process.env.TELEFONICA_FILE_KEY,
-  blau: process.env.BLAU_FILE_KEY,
-  tu: process.env.TU_FILE_KEY,
+  blau: process.env.FILE_KEY_1,
+  "o2-new": process.env.FILE_KEY_2,
 };
 
 const tokensPath = path.resolve(__dirname, "../");
@@ -36,109 +33,35 @@ const jsonData = extractJsonData(
 
 const brands = Object.fromEntries(
   Object.entries(FILE_KEYS).map(
-    ([brand, FILE_KEY]) => [
-      brand,
-      `https://api.figma.com/v1/files/${FILE_KEY}/variables`,
-    ]
+    ([brand, FILE_KEY]) => [brand, FILE_KEY]
   )
 );
 
-async function updateCollections(url) {
-  try {
-    const response = await fetch(`${url}/local`, {
-      method: "GET",
-      headers: {
-        "X-Figma-Token": FIGMA_TOKEN,
-        "Content-Type": "application/json",
-      },
-    });
-
-    const figmaData = await response.json();
-
-    const newData = {
-      variableCollections: [],
-      variableModes: [],
-      variables: [],
-      variableModeValues: [],
-    };
-
-    const existingCollections =
-      figmaData.meta.variableCollections;
-
-    const collectionNames = [
-      "constants",
-      "palette",
-      "font-weight",
-      "font-size",
-      "line-height",
-      "radius",
-    ];
-
-    function generateTempId(name) {
-      return `tempId_${name}`;
-    }
-
-    function updateCollection(
-      collectionName,
-      existingCollections
-    ) {
-      // Find the existing collection by name
-      const existingCollection = Object.values(
-        existingCollections
-      ).find(
-        (collection) =>
-          collection.name === collectionName
-      );
-
-      if (existingCollection) {
-        // If the collection exists, update it
-        newData.variableCollections.push({
-          action: "UPDATE",
-          id: existingCollection.id,
-          name: collectionName,
-        });
-      } else {
-        // If the collection doesn't exist, create it
-        const tempId = generateTempId(
-          collectionName
-        );
-        newData.variableCollections.push({
-          action: "CREATE",
-          id: tempId,
-          name: collectionName,
-        });
-      }
-    }
-
-    // Process each collection name
-    collectionNames.forEach((collectionName) => {
-      updateCollection(
-        collectionName,
-        existingCollections
-      );
-    });
-
-    // Return the processed data for further use
-    return newData;
-  } catch (error) {
-    console.error("Error:", error);
-    throw error; // rethrow the error to be handled later
-  }
-}
+const collectionNames = [
+  "constants",
+  "palette",
+  "font-weight",
+  "font-size",
+  "line-height",
+  "radius",
+];
 
 async function updatePalette(
   jsonData,
   brand,
-  url
+  FILE_KEY
 ) {
   try {
-    const response = await fetch(`${url}/local`, {
-      method: "GET",
-      headers: {
-        "X-Figma-Token": FIGMA_TOKEN,
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`,
+      {
+        method: "GET",
+        headers: {
+          "X-Figma-Token": FIGMA_TOKEN,
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const figmaData = await response.json();
 
@@ -317,16 +240,19 @@ async function updatePalette(
 async function updateVariables(
   jsonData,
   brand,
-  url
+  FILE_KEY
 ) {
   try {
-    const response = await fetch(`${url}/local`, {
-      method: "GET",
-      headers: {
-        "X-Figma-Token": FIGMA_TOKEN, // Use environment variable
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`,
+      {
+        method: "GET",
+        headers: {
+          "X-Figma-Token": FIGMA_TOKEN, // Use environment variable
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const figmaData = await response.json();
 
@@ -383,49 +309,48 @@ async function updateVariables(
       });
     }
 
-    function getPaletteAlias(
+    function getVariableAliasId(
       variableName,
+      collectionName,
       existingVariables,
       existingCollections
     ) {
-      // Step 1: Find the "palette" collection
-      const paletteCollection = Object.values(
+      // Step 1: Find the collection
+      const collection = Object.values(
         existingCollections
       ).find(
         (collection) =>
-          collection.name === "palette"
+          collection.name === collectionName
       );
 
-      if (!paletteCollection) {
-        console.error(
-          "Palette collection not found."
-        );
+      if (!collection) {
+        console.error("Collection not found.");
         return null;
       }
 
       // Step 2: Find the variable in the "palette" collection
-      const paletteVariable = Object.values(
+      const variable = Object.values(
         existingVariables
       ).find(
         (variable) =>
           variable.variableCollectionId ===
-            paletteCollection.id &&
+            collection.id &&
           variable.name === variableName
       );
 
-      if (!paletteVariable) {
+      if (!variable) {
         console.error(
-          "Palette variable not found for name:",
+          "Variable not found for name:",
           variableName
         );
         return null;
       }
 
       // Step 3: Retrieve the mode ID for the "palette" collection
-      const modeId = paletteCollection.id;
+      const modeId = collection.id;
 
       return {
-        variableId: paletteVariable.id,
+        variableId: variable.id,
         modeId: modeId,
       };
     }
@@ -435,6 +360,7 @@ async function updateVariables(
       variableValue,
       hasAlias,
       collectionName,
+      aliasedCollectionName,
       existingVariables,
       existingCollections,
       variableType,
@@ -477,8 +403,9 @@ async function updateVariables(
           value: hasAlias
             ? {
                 type: "VARIABLE_ALIAS",
-                id: getPaletteAlias(
+                id: getVariableAliasId(
                   variableValue,
+                  aliasedCollectionName,
                   existingVariables,
                   existingCollections
                 ).variableId,
@@ -518,7 +445,7 @@ async function updateVariables(
           value: hasAlias
             ? {
                 type: "VARIABLE_ALIAS",
-                id: getPaletteAlias(
+                id: getVariableAliasId(
                   variableValue,
                   existingVariables,
                   existingCollections
@@ -569,12 +496,14 @@ async function updateVariables(
         collectionName: "constants",
         resolvedType: "COLOR",
         variableScopes: ["ALL_SCOPES"],
+        aliasedCollectionName: "palette",
       },
       {
         variables: jsonData[brand].dark,
         collectionName: "constants",
         resolvedType: "COLOR",
         variableScopes: ["ALL_SCOPES"],
+        aliasedCollectionName: "palette",
       },
       {
         variables: jsonData[brand].radius,
@@ -606,6 +535,7 @@ async function updateVariables(
       ({
         variables,
         collectionName,
+        aliasedCollectionName,
         resolvedType,
         variableScopes,
       }) => {
@@ -615,6 +545,7 @@ async function updateVariables(
             variable.value,
             variable.hasAlias,
             collectionName,
+            aliasedCollectionName,
             existingVariables,
             existingCollections,
             resolvedType,
@@ -640,18 +571,25 @@ async function updateVariables(
 
 // Use an async function to handle the post request after data processing
 
-async function postCollections(url, brand) {
+async function postCollections(brand, FILE_KEY) {
   try {
-    const newData = await updateCollections(url);
+    const newData = await updateCollections(
+      collectionNames,
+      FILE_KEY,
+      FIGMA_TOKEN
+    );
 
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "X-Figma-Token": FIGMA_TOKEN,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newData),
-    });
+    const response = await fetch(
+      `https://api.figma.com/v1/files/${FILE_KEY}/variables/`,
+      {
+        method: "POST",
+        headers: {
+          "X-Figma-Token": FIGMA_TOKEN,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newData),
+      }
+    );
 
     const data = await response.json();
     console.log(
@@ -666,22 +604,25 @@ async function postCollections(url, brand) {
   }
 }
 
-async function postPalette(url, brand) {
+async function postPalette(brand, FILE_KEY) {
   try {
     const newData = await updatePalette(
       jsonData,
       brand,
-      url
+      FILE_KEY
     );
 
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "X-Figma-Token": FIGMA_TOKEN,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newData),
-    });
+    const response = await fetch(
+      `https://api.figma.com/v1/files/${FILE_KEY}/variables/`,
+      {
+        method: "POST",
+        headers: {
+          "X-Figma-Token": FIGMA_TOKEN,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newData),
+      }
+    );
 
     const data = await response.json();
     console.log(
@@ -696,22 +637,25 @@ async function postPalette(url, brand) {
   }
 }
 
-async function postVariables(url, brand) {
+async function postVariables(brand, FILE_KEY) {
   try {
     const newData = await updateVariables(
       jsonData,
       brand,
-      url
+      FILE_KEY
     );
 
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "X-Figma-Token": FIGMA_TOKEN,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newData),
-    });
+    const response = await fetch(
+      `https://api.figma.com/v1/files/${FILE_KEY}/variables/`,
+      {
+        method: "POST",
+        headers: {
+          "X-Figma-Token": FIGMA_TOKEN,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newData),
+      }
+    );
 
     const data = await response.json();
     console.log(
@@ -728,19 +672,19 @@ async function postVariables(url, brand) {
 
 // Process data for a specific brand
 
-async function processBrand(brand, url) {
-  await postCollections(url, brand);
-  await postPalette(url, brand);
-  await postVariables(url, brand);
+async function processBrand(brand, FILE_KEY) {
+  await postCollections(brand, FILE_KEY);
+  await postPalette(brand, FILE_KEY);
+  await postVariables(brand, FILE_KEY);
 }
 
 // Process all brands
 
 async function processAllBrands(brands) {
-  for (const [brand, url] of Object.entries(
+  for (const [brand, FILE_KEY] of Object.entries(
     brands
   )) {
-    await processBrand(brand, url);
+    await processBrand(brand, FILE_KEY);
   }
 }
 
@@ -751,9 +695,9 @@ const selectedBrand = process.argv[2];
 if (selectedBrand === "all") {
   processAllBrands(brands);
 } else {
-  const url = brands[selectedBrand];
-  if (url) {
-    processBrand(selectedBrand, url);
+  const FILE_KEY = brands[selectedBrand];
+  if (FILE_KEY) {
+    processBrand(selectedBrand, FILE_KEY);
   } else {
     console.error(
       `Brand ${selectedBrand} not found.`

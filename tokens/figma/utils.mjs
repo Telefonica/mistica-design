@@ -24,3 +24,81 @@ export function hexToRgba(hex, alpha = 1) {
     a: alpha,
   };
 }
+
+export async function updateCollections(
+  collections,
+  FILE_KEY,
+  FIGMA_TOKEN
+) {
+  try {
+    const response = await fetch(
+      `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`,
+      {
+        method: "GET",
+        headers: {
+          "X-Figma-Token": FIGMA_TOKEN,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const figmaData = await response.json();
+
+    const newData = {
+      variableCollections: [],
+    };
+
+    const existingCollections =
+      figmaData.meta.variableCollections;
+
+    function generateTempId(name) {
+      return `tempId_${name}`;
+    }
+
+    function updateCollection(
+      collectionName,
+      existingCollections
+    ) {
+      // Find the existing collection by name
+      const existingCollection = Object.values(
+        existingCollections
+      ).find(
+        (collection) =>
+          collection.name === collectionName
+      );
+
+      if (existingCollection) {
+        // If the collection exists, update it
+        newData.variableCollections.push({
+          action: "UPDATE",
+          id: existingCollection.id,
+          name: collectionName,
+        });
+      } else {
+        // If the collection doesn't exist, create it
+        const tempId = generateTempId(
+          collectionName
+        );
+        newData.variableCollections.push({
+          action: "CREATE",
+          id: tempId,
+          name: collectionName,
+        });
+      }
+    }
+
+    // Process each collection name
+    collections.forEach((collection) => {
+      updateCollection(
+        collection,
+        existingCollections
+      );
+    });
+
+    // Return the processed data for further use
+    return newData;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error; // rethrow the error to be handled later
+  }
+}

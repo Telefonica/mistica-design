@@ -218,9 +218,15 @@ const extractJsonData = (
             typeof value === "string" &&
             !value.startsWith("rgba")
           ) {
+            const baseColorName =
+              getPaletteName(value);
+
             return {
               name: `${theme}/${key}`,
-              value: getPaletteName(value),
+              value: hexToRgba(
+                getPaletteValue(baseColorName)
+              ),
+
               hasAlias: true,
             };
           }
