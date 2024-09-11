@@ -138,49 +138,65 @@ export async function updateOrCreateMode({
     (collection) =>
       collection.name === targetCollectionName
   );
+
+  if (!collection) {
+    console.warn(
+      `Collection ${targetCollectionName} not found.`
+    );
+    return;
+  }
+
   const collectionId = collection.id;
+  const existingModes = collection.modes || [];
 
-  const existingModes = collection.modes;
-
+  // Find the default mode (e.g., "Mode 1" or "Default")
   const defaultMode = existingModes.find(
-    (m) => m.name === DEFAULT_FIGMA_MODENAME
+    (m) => m.name === DEFAULT_FIGMA_MODENAME // Replace with actual default mode name if different
   );
 
+  // Find the target mode by its name
   const existingMode = existingModes.find(
     (m) => m.name === mode.name
   );
 
-  // If renaming "Default" mode to the first mode name (e.g., "Light")
-  if (
-    !existingMode &&
-    defaultMode &&
-    mode.name === defaultModeName
-  ) {
-    return {
-      action: "UPDATE",
-      id: defaultMode.modeId,
-      name: mode.name, // Rename "Default" to "Light"
-      variableCollectionId: collectionId,
-    };
-  }
-
-  // Create new mode if it doesn't exist
-  if (!existingMode) {
+  if (mode.name === defaultModeName) {
+    if (defaultMode) {
+      // Rename the default mode to the target mode name
+      return {
+        action: "UPDATE",
+        id: defaultMode.modeId,
+        name: mode.name, // Rename "Default" to the target mode name
+        variableCollectionId: collectionId,
+      };
+    } else {
+      // If default mode does not exist, create it
+      return {
+        action: "CREATE",
+        id: generateTempModeId(
+          mode.name, // Use mode name for temp ID
+          targetCollectionName
+        ),
+        name: mode.name, // Create the mode with the target name
+        variableCollectionId: collectionId,
+      };
+    }
+  } else if (!existingMode) {
+    // If mode doesn't exist, create it
     return {
       action: "CREATE",
       id: generateTempModeId(
-        mode,
+        mode.name, // Use mode name for temp ID
         targetCollectionName
       ),
-      name: mode.name, // Create "Dark"
+      name: mode.name, // Create the mode with the specified name
       variableCollectionId: collectionId,
     };
   } else {
-    // Update existing mode if it exists
+    // If the mode exists, update it
     return {
       action: "UPDATE",
-      id: existingMode.modeId,
-      name: mode.name,
+      id: existingMode.modeId, // Use existing mode ID
+      name: mode.name, // Update the mode with the correct name
       variableCollectionId: collectionId,
     };
   }

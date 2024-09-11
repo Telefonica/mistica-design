@@ -11,6 +11,7 @@ import {
   updateOrCreateVariableModeValues,
   generateTempModeId,
   VARIABLE_TYPES,
+  DEFAULT_FIGMA_MODENAME,
 } from "./utils.mjs";
 
 dotenv.config({ path: "../../.env" });
@@ -62,12 +63,13 @@ function formatBrandName(brand) {
     ); // Capitalize the first letter of each word
 }
 
-async function updateTheme(
+export async function updateTheme(
   jsonData,
   brand,
   FILE_KEY
 ) {
   try {
+    // Fetch existing variables and collections from Figma
     const response = await fetch(
       `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`,
       {
@@ -92,23 +94,54 @@ async function updateTheme(
       variableModeValues: [],
     };
 
-    const modeNames = ["Light", "Dark"];
-
-    for (const modeName of modeNames) {
-      const modeData = await updateOrCreateMode({
-        mode: {
-          name: modeName,
-          variableCollectionId: "Theme",
-        },
-        defaultModeName: modeNames[0],
-        targetCollectionName: "Theme",
-        existingCollections,
-      });
-
-      if (modeData) {
-        newData.variableModes.push(modeData);
-      }
+    function findModeByName(
+      collection,
+      modeName
+    ) {
+      return collection.modes.find(
+        (mode) => mode.name === modeName
+      );
     }
+
+    const updateModes = (collectionName) => {
+      const collection = Object.values(
+        existingCollections
+      ).find(
+        (col) => col.name === collectionName
+      );
+      if (!collection) return;
+
+      const defaultMode = collection.modes.find(
+        (mode) =>
+          mode.modeId === collection.defaultModeId
+      );
+      if (
+        defaultMode &&
+        defaultMode.name !== "Light"
+      ) {
+        newData.variableModes.push({
+          action: "UPDATE",
+          id: defaultMode.modeId,
+          variableCollectionId: collection.id,
+          name: "Light",
+        });
+      }
+
+      const darkMode = findModeByName(
+        collection,
+        "Dark"
+      );
+      if (!darkMode) {
+        newData.variableModes.push({
+          action: "CREATE",
+          id: generateTempModeId("Dark", "Theme"),
+          variableCollectionId: collection.id,
+          name: "Dark",
+        });
+      }
+    };
+
+    updateModes("Theme");
 
     async function processVariables(
       lightVariables,
@@ -125,18 +158,25 @@ async function updateTheme(
           (v) => v.name === lightVariable.name
         );
 
-        // Find if an existing mode is named "Mode 1" as default mode
-
-        const CollectionNameId = Object.values(
+        // Get the collection ID
+        const collectionId = Object.values(
           existingCollections
         ).find(
           (collection) =>
             collection.name === collectionName
-        ).id;
+        )?.id;
 
+        if (!collectionId) {
+          console.warn(
+            `Collection ${collectionName} not found.`
+          );
+          continue;
+        }
+
+        // Get default mode for this collection
         const defaultMode = existingCollections[
-          CollectionNameId
-        ].modes.find(
+          collectionId
+        ]?.modes.find(
           (mode) =>
             mode.name === DEFAULT_FIGMA_MODENAME
         );
@@ -150,7 +190,7 @@ async function updateTheme(
               scopes: ["ALL_SCOPES"],
             },
             targetCollectionName: collectionName,
-            existingVariables: existingVariables,
+            existingVariables,
             existingCollections,
           });
 
@@ -163,7 +203,7 @@ async function updateTheme(
               hasAlias: false,
             },
             targetModeName: defaultMode
-              ? DEFAULT_FIGMA_MODENAME // When created the defaultModeName has not been yet updated to targetModeName
+              ? DEFAULT_FIGMA_MODENAME
               : "Light",
             targetCollectionName: collectionName,
             existingCollections,
@@ -204,13 +244,13 @@ async function updateTheme(
         newData.variables.push(variableData);
       }
 
-      return newData; // Moved the return outside the loop
+      return newData;
     }
 
-    // Await the processVariables function
+    // Process variables for light and dark themes
     await processVariables(
-      jsonData[brand]?.light,
-      jsonData[brand]?.dark,
+      jsonData[brand]?.light || [],
+      jsonData[brand]?.dark || [],
       "Theme",
       brand,
       existingVariables,
@@ -218,6 +258,7 @@ async function updateTheme(
       newData
     );
 
+    // Update the variables and modes in Figma
     const updateResponse = await fetch(
       `https://api.figma.com/v1/files/${FILE_KEY}/variables`,
       {
@@ -338,8 +379,8 @@ async function updateSkinColorVariables(
         action: "CREATE",
         name: formattedFirstBrand,
         id: generateTempModeId(
-          "Skin",
-          formattedFirstBrand
+          formattedFirstBrand,
+          "Skin"
         ),
         variableCollectionId: skinCollection.id,
       });
@@ -371,8 +412,8 @@ async function updateSkinColorVariables(
           action: "CREATE",
           name: formattedBrand,
           id: generateTempModeId(
-            "Skin",
-            formattedBrand
+            formattedBrand,
+            "Skin"
           ),
           variableCollectionId: skinCollection.id,
         });
