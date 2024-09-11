@@ -37,14 +37,7 @@ const brands = Object.fromEntries(
   )
 );
 
-const collectionNames = [
-  "constants",
-  "palette",
-  "font-weight",
-  "font-size",
-  "line-height",
-  "radius",
-];
+const collectionNames = ["Palette"];
 
 async function updatePalette(
   jsonData,
@@ -202,7 +195,7 @@ async function updatePalette(
     const variableGroups = [
       {
         variables: jsonData[brand].palette,
-        collectionName: "palette",
+        collectionName: "Palette",
         resolvedType: "COLOR",
         variableScopes: ["ALL_SCOPES"],
       },
@@ -491,44 +484,6 @@ async function updateVariables(
         resolvedType: "COLOR",
         variableScopes: ["ALL_SCOPES"],
       },
-      {
-        variables: jsonData[brand].light,
-        collectionName: "constants",
-        resolvedType: "COLOR",
-        variableScopes: ["ALL_SCOPES"],
-        aliasedCollectionName: "palette",
-      },
-      {
-        variables: jsonData[brand].dark,
-        collectionName: "constants",
-        resolvedType: "COLOR",
-        variableScopes: ["ALL_SCOPES"],
-        aliasedCollectionName: "palette",
-      },
-      {
-        variables: jsonData[brand].radius,
-        collectionName: "radius",
-        resolvedType: "FLOAT",
-        variableScopes: ["CORNER_RADIUS"],
-      },
-      {
-        variables: jsonData[brand].fontWeight,
-        collectionName: "font-weight",
-        resolvedType: "STRING",
-        variableScopes: ["FONT_WEIGHT"],
-      },
-      {
-        variables: jsonData[brand].fontSize,
-        collectionName: "font-size",
-        resolvedType: "FLOAT",
-        variableScopes: ["FONT_SIZE"],
-      },
-      {
-        variables: jsonData[brand].lineHeight,
-        collectionName: "line-height",
-        resolvedType: "FLOAT",
-        variableScopes: ["LINE_HEIGHT"],
-      },
     ];
 
     variableGroups.forEach(
@@ -637,45 +592,11 @@ async function postPalette(brand, FILE_KEY) {
   }
 }
 
-async function postVariables(brand, FILE_KEY) {
-  try {
-    const newData = await updateVariables(
-      jsonData,
-      brand,
-      FILE_KEY
-    );
-
-    const response = await fetch(
-      `https://api.figma.com/v1/files/${FILE_KEY}/variables/`,
-      {
-        method: "POST",
-        headers: {
-          "X-Figma-Token": FIGMA_TOKEN,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newData),
-      }
-    );
-
-    const data = await response.json();
-    console.log(
-      `Success updating variables for brand ${brand}:`,
-      data
-    );
-  } catch (error) {
-    console.error(
-      `Error updating variables for brand ${brand}:`,
-      error
-    );
-  }
-}
-
 // Process data for a specific brand
 
 async function processBrand(brand, FILE_KEY) {
   await postCollections(brand, FILE_KEY);
   await postPalette(brand, FILE_KEY);
-  await postVariables(brand, FILE_KEY);
 }
 
 // Process all brands
