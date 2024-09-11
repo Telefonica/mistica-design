@@ -8,6 +8,7 @@ import {
   updateCollections,
   updateOrCreateVariable,
   updateOrCreateVariableModeValues,
+  generateTempModeId,
 } from "./utils.mjs";
 
 dotenv.config({ path: "../../.env" });
@@ -359,7 +360,6 @@ async function updateSkinColorVariables(
 
     /////////////////////////////
 
-    // Define the firstBrand before using it
     const firstBrand = brands[0];
     const formattedFirstBrand =
       formatBrandName(firstBrand);
@@ -372,9 +372,7 @@ async function updateSkinColorVariables(
           mode.name === formattedFirstBrand
       );
 
-    // Check if the default mode needs to be updated
     if (defaultMode) {
-      // If the mode name is unformatted, update it to the formatted one
       if (
         defaultMode.name === firstBrand ||
         defaultMode.name === "Mode 1"
@@ -387,21 +385,21 @@ async function updateSkinColorVariables(
         });
       }
     } else {
-      // If no matching mode exists, create a new one
       newData.variableModes.push({
         action: "CREATE",
         name: formattedFirstBrand,
-        id: `tempId_${firstBrand}`, // Ensure the id is unique
+        id: generateTempModeId(
+          "Skin",
+          formattedFirstBrand
+        ),
         variableCollectionId: skinCollection.id,
       });
     }
 
-    // Create or update additional modes for the remaining brands
     brands.slice(1).forEach((brand) => {
       const formattedBrand =
         formatBrandName(brand);
 
-      // Find an existing mode that matches either the unformatted or formatted name
       const existingMode =
         skinCollection.modes.find(
           (mode) =>
@@ -410,7 +408,6 @@ async function updateSkinColorVariables(
         );
 
       if (existingMode) {
-        // If the mode name matches the unformatted brand name, update it
         if (existingMode.name === brand) {
           newData.variableModes.push({
             action: "UPDATE",
@@ -421,11 +418,13 @@ async function updateSkinColorVariables(
           });
         }
       } else {
-        // If no mode exists for the brand, create a new one
         newData.variableModes.push({
           action: "CREATE",
           name: formattedBrand,
-          id: `tempId_${brand}`, // Ensure the id is unique
+          id: generateTempModeId(
+            "Skin",
+            formattedBrand
+          ),
           variableCollectionId: skinCollection.id,
         });
       }
@@ -456,82 +455,62 @@ async function updateSkinColorVariables(
       }
     });
 
-    // Step 7: Create or update only color variables in the Skin collection
-    variableToBrandMap.forEach(
-      (brandMap, variableName) => {
-        let variableId;
+    // Step 7: Create or update only color variables in the Skin collection using the helper function
+    for (let [
+      variableName,
+      brandMap,
+    ] of variableToBrandMap) {
+      const variable = {
+        name: variableName,
+        resolvedType: "COLOR",
+        scopes: ["ALL_SCOPES"],
+        targetCollectionName: "Skin",
+      };
 
-        // Check if the variable already exists in the Skin collection and is a color variable
-        const existingVariable =
-          existingSkinVariables.find(
-            (variable) =>
-              variable.name === variableName &&
-              variable.resolvedType === "COLOR"
-          );
-
-        if (existingVariable) {
-          // Variable exists, use its ID for update
-          variableId = existingVariable.id;
-          newData.variables.push({
-            action: "UPDATE",
-            id: variableId,
-            name: variableName,
-            variableCollectionId:
-              skinCollection.id,
-            resolvedType: "COLOR",
-          });
-        } else {
-          // Variable does not exist, create it
-          variableId = `tempId_${skinCollection.id}_${variableName}`;
-          newData.variables.push({
-            action: "CREATE",
-            id: variableId,
-            name: variableName,
-            variableCollectionId:
-              skinCollection.id,
-            resolvedType: "COLOR",
-          });
-        }
-
-        // Step 8: Update mode values with the correct aliases for each brand
-        brands.forEach((brand) => {
-          const mode = skinCollection.modes?.find(
-            (mode) =>
-              mode.name === formatBrandName(brand)
-          );
-
-          const defaultMode =
-            skinCollection.modes?.find(
-              (mode) => mode.name === "Mode 1"
-            );
-
-          if (mode) {
-            newData.variableModeValues.push({
-              action: "CREATE",
-              variableId: variableId,
-              modeId: mode.modeId,
-              value: {
-                type: "VARIABLE_ALIAS",
-                id: brandMap[brand], // Alias to the Theme variable ID for the brand
-              },
-            });
-          } else {
-            newData.variableModeValues.push({
-              action: "CREATE",
-              variableId: variableId,
-              modeId:
-                brand === "movistar"
-                  ? defaultMode.modeId
-                  : `tempId_${brand}`, // Alias to the Theme variable ID for the brand
-              value: {
-                type: "VARIABLE_ALIAS",
-                id: brandMap[brand],
-              },
-            });
-          }
+      // Use the extracted helper function to create or update the variable
+      const variableData =
+        await updateOrCreateVariable({
+          variable,
+          targetCollectionName:
+            variable.targetCollectionName,
+          existingVariables:
+            existingSkinVariables,
+          existingCollections: themeCollections,
         });
+
+      newData.variables.push(variableData);
+
+      // Step 8: Update mode values with the correct aliases for each brand
+      for (const brand of brands) {
+        const formattedBrand =
+          formatBrandName(brand);
+
+        // Call the helper function to create or update variable mode values
+        const variableModeValuesData =
+          await updateOrCreateVariableModeValues({
+            variable: {
+              name: variableName, // Assuming variableName is defined earlier
+              hasAlias: true,
+              value: brandMap[brand], // Alias to the Theme variable ID for the brand
+            },
+
+            targetModeName:
+              brand === brands[0]
+                ? defaultMode.name
+                : formattedBrand,
+            targetCollectionName: "Skin", // Assuming the collection name is 'Skin'
+            existingCollections: themeCollections, // Pass the fetched collections
+            existingVariables:
+              existingSkinVariables, // Pass the existing variables in the Skin collection
+          });
+
+        if (variableModeValuesData) {
+          newData.variableModeValues.push(
+            variableModeValuesData
+          );
+        }
       }
-    );
+    }
 
     // Step 9: Send the data to update the Skin collection (POST)
     const updateResponse = await fetch(
@@ -742,8 +721,6 @@ async function updateSkinOtherVariables(
     );
   }
 
-  console.log(newData);
-
   return newData;
 }
 
@@ -794,6 +771,7 @@ async function processAllBrands(brands) {
 }
 
 async function main() {
+  await processAllBrands(brands);
   await updateSkinColorVariables(
     brands,
     MIDDLEWARE_TOKEN

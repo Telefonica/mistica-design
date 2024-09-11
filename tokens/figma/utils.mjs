@@ -25,6 +25,13 @@ export function hexToRgba(hex, alpha = 1) {
   };
 }
 
+export function generateTempModeId(
+  targetMode,
+  targetCollection
+) {
+  return `tempId_${targetCollection}_${targetMode}`;
+}
+
 export async function updateCollections(
   collections,
   FILE_KEY,
@@ -197,7 +204,7 @@ export async function updateOrCreateVariableModeValues({
 
   const modeId = existingMode
     ? existingMode.modeId
-    : `tempId_${targetCollectionName}_${targetModeName}`;
+    : generateTempModeId(targetCollectionName,  targetModeName);
 
   if (!modeId) {
     console.warn(
