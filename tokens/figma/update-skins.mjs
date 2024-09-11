@@ -14,8 +14,12 @@ const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
 
 const FILE_KEYS = {
   // Remember to sync these with the workflow file
-  blau: process.env.FILE_KEY_1,
-  "o2-new": process.env.FILE_KEY_2,
+  movistar: process.env.MOVISTAR_FILE_KEY,
+  "o2-new": process.env.O2_NEW_FILE_KEY,
+  "vivo-new": process.env.VIVO_NEW_FILE_KEY,
+  telefonica: process.env.TELEFONICA_FILE_KEY,
+  blau: process.env.BLAU_FILE_KEY,
+  tu: process.env.TU_FILE_KEY,
 };
 
 const tokensPath = path.resolve(__dirname, "../");

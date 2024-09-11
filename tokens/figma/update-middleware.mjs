@@ -600,6 +600,15 @@ async function updateSkinOtherVariables(
     tu: "Telefonica Sans",
   };
 
+  const iconSets = {
+    movistar: "Default",
+    "vivo-new": "Vivo",
+    "o2-new": "O2",
+    telefonica: "Default",
+    blau: "Blau",
+    tu: "Default",
+  };
+
   // Map to store variable IDs for later use
   const variableIdMap = new Map();
 
@@ -643,6 +652,17 @@ async function updateSkinOtherVariables(
         collectionName: "Skin",
         resolvedType: "STRING",
         variableScopes: ["FONT_FAMILY"],
+      },
+      {
+        variables: [
+          {
+            name: "icons/iconSet",
+            value: iconSets[brand],
+          },
+        ],
+        collectionName: "Skin",
+        resolvedType: "STRING",
+        variableScopes: ["ALL_SCOPES"],
       },
     ];
 
