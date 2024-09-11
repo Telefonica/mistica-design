@@ -4,7 +4,11 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import extractJsonData from "./extract-json-data-middleware.mjs";
-import { updateCollections } from "./utils.mjs";
+import {
+  updateCollections,
+  updateOrCreateVariable,
+  updateOrCreateVariableModeValues,
+} from "./utils.mjs";
 
 dotenv.config({ path: "../../.env" });
 const __filename = fileURLToPath(import.meta.url);
@@ -578,13 +582,6 @@ async function updateSkinOtherVariables(
     figmaData.meta.variables;
   const existingCollections =
     figmaData.meta.variableCollections;
-  const skinCollection = Object.values(
-    existingCollections
-  ).find((col) => col.name === "Skin");
-
-  if (!skinCollection) {
-    throw new Error("Skin collection not found.");
-  }
 
   const newData = {
     variables: [],
@@ -609,9 +606,6 @@ async function updateSkinOtherVariables(
     tu: "Default",
   };
 
-  // Map to store variable IDs for later use
-  const variableIdMap = new Map();
-
   // Loop through each brand to process its specific tokens
   for (const brand of brands) {
     const variableGroups = [
@@ -620,6 +614,7 @@ async function updateSkinOtherVariables(
         collectionName: "Skin",
         resolvedType: "FLOAT",
         variableScopes: ["CORNER_RADIUS"],
+        hasAlias: false,
       },
       {
         variables:
@@ -627,6 +622,7 @@ async function updateSkinOtherVariables(
         collectionName: "Skin",
         resolvedType: "STRING",
         variableScopes: ["FONT_WEIGHT"],
+        hasAlias: false,
       },
       {
         variables:
@@ -634,6 +630,7 @@ async function updateSkinOtherVariables(
         collectionName: "Skin",
         resolvedType: "FLOAT",
         variableScopes: ["FONT_SIZE"],
+        hasAlias: false,
       },
       {
         variables:
@@ -641,6 +638,7 @@ async function updateSkinOtherVariables(
         collectionName: "Skin",
         resolvedType: "FLOAT",
         variableScopes: ["LINE_HEIGHT"],
+        hasAlias: false,
       },
       {
         variables: [
@@ -652,82 +650,75 @@ async function updateSkinOtherVariables(
         collectionName: "Skin",
         resolvedType: "STRING",
         variableScopes: ["FONT_FAMILY"],
+        hasAlias: false,
       },
       {
         variables: [
           {
-            name: "icons/iconSet",
+            name: "icons/Icon Set",
             value: iconSets[brand],
           },
         ],
         collectionName: "Skin",
         resolvedType: "STRING",
         variableScopes: ["ALL_SCOPES"],
+        hasAlias: false,
       },
     ];
 
     for (const group of variableGroups) {
       const {
         variables,
+        collectionName,
         resolvedType,
         variableScopes,
+        hasAlias,
       } = group;
 
-      variables.forEach((variable) => {
-        const variableName = variable.name;
-        const variableValue = variable.value;
-        const tempId = `tempId_${skinCollection.id}_${variableName}`;
+      for (const variable of variables) {
+        // Update or create the variable in the collection
+        const variableUpdateResult =
+          await updateOrCreateVariable({
+            variable: {
+              ...variable,
+              resolvedType: resolvedType,
+              scopes: variableScopes,
+              hasAlias: hasAlias,
+            },
+            targetCollectionName: collectionName,
+            existingVariables: existingVariables,
+            existingCollections:
+              existingCollections,
+          });
 
-        let existingVariable = Object.values(
-          existingVariables
-        ).find(
-          (v) =>
-            v.name === variableName &&
-            v.variableCollectionId ===
-              skinCollection.id
+        if (!newData.variables) {
+          newData.variables = [];
+        }
+        newData.variables.push(
+          variableUpdateResult
         );
 
-        // Create or update the variable
-        if (!existingVariable) {
-          newData.variables.push({
-            action: "CREATE",
-            id: tempId,
-            name: variableName,
-            variableCollectionId:
-              skinCollection.id,
-            resolvedType: resolvedType,
-            scopes: variableScopes,
+        // Find the mode for the current brand and set the mode values correctly
+        const variableModeValuesUpdatedResult =
+          await updateOrCreateVariableModeValues({
+            variable: {
+              ...variable,
+              resolvedType: resolvedType,
+              scopes: variableScopes,
+              hasAlias: hasAlias,
+            },
+            targetModeName:
+              formatBrandName(brand),
+            targetCollectionName: collectionName,
+            existingCollections:
+              existingCollections,
+            existingVariables: existingVariables,
           });
-          variableIdMap.set(variableName, tempId);
-        } else {
-          newData.variables.push({
-            action: "UPDATE",
-            id: existingVariable.id,
-            name: variableName,
-            variableCollectionId:
-              skinCollection.id,
-            resolvedType: resolvedType,
-            scopes: variableScopes,
-          });
-          variableIdMap.set(
-            variableName,
-            existingVariable.id
-          );
-        }
 
-        // Find the mode for the current brand and set the value correctly
-        const mode = skinCollection.modes.find(
-          (m) => m.name === formatBrandName(brand)
+        newData.variableModeValues.push(
+          variableModeValuesUpdatedResult
         );
-        if (mode) {
-          newData.variableModeValues.push({
-            variableId:
-              variableIdMap.get(variableName),
-            modeId: mode.modeId,
-            value: variableValue,
-          });
-        }
-      });
+      }
     }
   }
 
@@ -750,6 +741,8 @@ async function updateSkinOtherVariables(
       `Error updating Skin collection: ${updateResponse.statusText}. Response: ${errorText}`
     );
   }
+
+  console.log(newData);
 
   return newData;
 }
