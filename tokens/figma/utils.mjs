@@ -104,20 +104,6 @@ export async function updateCollections(
       );
     });
 
-    const collectionsToDelete = Object.values(
-      existingCollections
-    ).filter(
-      (collection) =>
-        !collections.includes(collection.name)
-    );
-
-    collectionsToDelete.forEach((collection) => {
-      newData.variableCollections.push({
-        action: "DELETE",
-        id: collection.id,
-      });
-    });
-
     // Return the processed data for further use
     return newData;
   } catch (error) {
@@ -336,4 +322,10 @@ export const VARIABLE_TYPES = {
   FONT_WEIGHT: "FONT_WEIGHT",
   FONT_SIZE: "FONT_SIZE",
   LINE_HEIGHT: "LINE_HEIGHT",
+};
+
+export const COLLECTION_NAMES = {
+  BRAND: "Brand",
+  COLOR_SCHEME: "Mode",
+  PALETTE: "Palette",
 };

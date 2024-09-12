@@ -12,6 +12,7 @@ import {
   generateTempModeId,
   VARIABLE_TYPES,
   DEFAULT_FIGMA_MODENAME,
+  COLLECTION_NAMES,
 } from "./utils.mjs";
 
 dotenv.config({ path: "../../.env" });
@@ -117,7 +118,7 @@ export async function updateTheme(
       );
       if (
         defaultMode &&
-        defaultMode.name !== "Light"
+        defaultMode.name !== "True"
       ) {
         newData.variableModes.push({
           action: "UPDATE",
@@ -134,14 +135,17 @@ export async function updateTheme(
       if (!darkMode) {
         newData.variableModes.push({
           action: "CREATE",
-          id: generateTempModeId("Dark", "Theme"),
+          id: generateTempModeId(
+            "Dark",
+            COLLECTION_NAMES.COLOR_SCHEME
+          ),
           variableCollectionId: collection.id,
           name: "Dark",
         });
       }
     };
 
-    updateModes("Theme");
+    updateModes(COLLECTION_NAMES.COLOR_SCHEME);
 
     async function processVariables(
       lightVariables,
@@ -251,7 +255,7 @@ export async function updateTheme(
     await processVariables(
       jsonData[brand]?.light || [],
       jsonData[brand]?.dark || [],
-      "Theme",
+      COLLECTION_NAMES.COLOR_SCHEME,
       brand,
       existingVariables,
       existingCollections,
@@ -291,7 +295,7 @@ async function updateSkinColorVariables(
   FILE_KEY
 ) {
   try {
-    // Step 1: Fetch existing data from "Theme" and "Skin" collections
+    // Step 1: Fetch existing data from "Mode" and "Brand" collections
     const response = await fetch(
       `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`,
       {
@@ -307,13 +311,18 @@ async function updateSkinColorVariables(
     const themeCollections =
       figmaData.meta.variableCollections;
 
-    // Step 2: Find the "Theme" and "Skin" collections
+    // Step 2: Find the "Mode" and "Brand" collections
     const themeCollection = Object.values(
       themeCollections
-    ).find((col) => col.name === "Theme");
+    ).find(
+      (col) =>
+        col.name === COLLECTION_NAMES.COLOR_SCHEME
+    );
     const skinCollection = Object.values(
       themeCollections
-    ).find((col) => col.name === "Skin");
+    ).find(
+      (col) => col.name === COLLECTION_NAMES.BRAND
+    );
 
     if (!themeCollection || !skinCollection) {
       throw new Error(
@@ -321,7 +330,7 @@ async function updateSkinColorVariables(
       );
     }
 
-    // Step 3: Filter theme variables to only include those from the "Theme" collection
+    // Step 3: Filter theme variables to only include those from the "Mode" collection
     const themeVariables =
       figmaData.meta.variables || {};
     const existingThemeVariables = Object.values(
@@ -380,7 +389,7 @@ async function updateSkinColorVariables(
         name: formattedFirstBrand,
         id: generateTempModeId(
           formattedFirstBrand,
-          "Skin"
+          COLLECTION_NAMES.BRAND
         ),
         variableCollectionId: skinCollection.id,
       });
@@ -413,7 +422,7 @@ async function updateSkinColorVariables(
           name: formattedBrand,
           id: generateTempModeId(
             formattedBrand,
-            "Skin"
+            COLLECTION_NAMES.BRAND
           ),
           variableCollectionId: skinCollection.id,
         });
@@ -454,7 +463,8 @@ async function updateSkinColorVariables(
         name: variableName,
         resolvedType: VARIABLE_TYPES.COLOR,
         scopes: ["ALL_SCOPES"],
-        targetCollectionName: "Skin",
+        targetCollectionName:
+          COLLECTION_NAMES.BRAND,
       };
 
       const variableData =
@@ -487,7 +497,8 @@ async function updateSkinColorVariables(
               brand === brands[0]
                 ? defaultMode.name
                 : formattedBrand,
-            targetCollectionName: "Skin", // Assuming the collection name is 'Skin'
+            targetCollectionName:
+              COLLECTION_NAMES.BRAND, // Assuming the collection name is 'Skin'
             existingCollections: themeCollections, // Pass the fetched collections
             existingVariables:
               existingSkinVariables, // Pass the existing variables in the Skin collection
@@ -579,7 +590,7 @@ async function updateSkinOtherVariables(
     const variableGroups = [
       {
         variables: jsonData[brand]?.radius || [],
-        collectionName: "Skin",
+        collectionName: COLLECTION_NAMES.BRAND,
         resolvedType: VARIABLE_TYPES.FLOAT,
         variableScopes: ["CORNER_RADIUS"],
         hasAlias: false,
@@ -587,7 +598,7 @@ async function updateSkinOtherVariables(
       {
         variables:
           jsonData[brand]?.fontWeight || [],
-        collectionName: "Skin",
+        collectionName: COLLECTION_NAMES.BRAND,
         resolvedType: VARIABLE_TYPES.STRING,
         variableScopes: ["FONT_WEIGHT"],
         hasAlias: false,
@@ -595,7 +606,7 @@ async function updateSkinOtherVariables(
       {
         variables:
           jsonData[brand]?.fontSize || [],
-        collectionName: "Skin",
+        collectionName: COLLECTION_NAMES.BRAND,
         resolvedType: VARIABLE_TYPES.FLOAT,
         variableScopes: ["FONT_SIZE"],
         hasAlias: false,
@@ -603,7 +614,7 @@ async function updateSkinOtherVariables(
       {
         variables:
           jsonData[brand]?.lineHeight || [],
-        collectionName: "Skin",
+        collectionName: COLLECTION_NAMES.BRAND,
         resolvedType: VARIABLE_TYPES.FLOAT,
         variableScopes: ["LINE_HEIGHT"],
         hasAlias: false,
@@ -615,7 +626,7 @@ async function updateSkinOtherVariables(
             value: fontFamilies[brand],
           },
         ],
-        collectionName: "Skin",
+        collectionName: COLLECTION_NAMES.BRAND,
         resolvedType: VARIABLE_TYPES.STRING,
         variableScopes: ["FONT_FAMILY"],
         hasAlias: false,
@@ -627,7 +638,7 @@ async function updateSkinOtherVariables(
             value: iconSets[brand],
           },
         ],
-        collectionName: "Skin",
+        collectionName: COLLECTION_NAMES.BRAND,
         resolvedType: VARIABLE_TYPES.STRING,
         variableScopes: ["ALL_SCOPES"],
         hasAlias: false,
@@ -714,7 +725,10 @@ async function updateSkinOtherVariables(
 }
 
 async function postCollections(brand, FILE_KEY) {
-  const collectionNames = ["Skin", "Theme"];
+  const collectionNames = [
+    COLLECTION_NAMES.BRAND,
+    COLLECTION_NAMES.COLOR_SCHEME,
+  ];
 
   try {
     const newData = await updateCollections(
