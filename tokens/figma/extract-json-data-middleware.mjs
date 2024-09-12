@@ -338,11 +338,11 @@ const extractJsonData = (
       ) {
         return [
           {
-            name: `mobile/fontSize/${key}`,
+            name: `fontSize/mobile/${key}`,
             value: parseFloat(value.mobile),
           },
           {
-            name: `desktop/fontSize/${key}`,
+            name: `fontSize/desktop/${key}`,
             value: parseFloat(value.desktop),
           },
         ];
@@ -368,11 +368,11 @@ const extractJsonData = (
       ) {
         return [
           {
-            name: `mobile/lineHeight/${key}`,
+            name: `lineHeight/mobile/${key}`,
             value: parseFloat(value.mobile),
           },
           {
-            name: `desktop/lineHeight/${key}`,
+            name: `lineHeight/desktop/${key}`,
             value: parseFloat(value.desktop),
           },
         ];
