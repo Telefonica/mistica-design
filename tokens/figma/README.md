@@ -1,77 +1,61 @@
-# Design Tokens Automation Script
+# Project Overview
 
-## Objective
+This project is designed to update Figma variables based on a JSON input, primarily focused on managing brand themes, colors, and other design tokens. The project retrieves existing variables from Figma, processes the provided JSON data, and updates or creates new variables in collections "Theme" and "Skin".
 
-This script automates the process of fetching, updating, and posting design tokens to Figma for multiple brands. It reads JSON data files, extracts relevant variables, compares them with existing data from Figma, updates them if necessary, and then posts the changes back to Figma's API.
+## Features
 
-## Overview of the Script
+- **Fetch Existing Figma Data**: Retrieves the existing variables and collections from Figma.
+- **Process JSON Data**: Extracts theme and token data from provided JSON files for each brand.
+- **Update or Create Variables**: Adds new variables or updates existing ones based on the brand's light and dark themes.
+- **Handle Variable Modes**: Ensures each brand's mode (e.g., "Light", "Dark") is updated or created in the Figma "Skin" collection.
+- **Support for Multiple Brands**: Processes multiple brands, mapping each brand's unique variables into Figma's collections.
 
-### Environment Setup
+## Setup
 
-- The script uses the `dotenv` package to load environment variables (like Figma API tokens and file keys) from a `.env` file.
-- It imports necessary modules (`fetch`, `fs`, `path`, etc.) and utility functions (`extractJsonData`, `hexToRgba`, `extractPaletteValue`).
+### Environment Variables:
 
-### File and Data Preparation
+- `FIGMA_TOKEN`: The API token to authenticate with Figma.
+- `MIDDLEWARE_KEY`: Token for file where the variables need to be created / updated
 
-- The script reads JSON files from a specific directory, filters out the ones with a `.json` extension, and extracts their data using the `extractJsonData` function.
+### Dependencies:
 
-### Brands and URLs
+- Node.js and packages such as `node-fetch`, `dotenv`, and `fs` are used to manage API requests, read local files, and load environment variables.
 
-- An object `brands` maps brand names to their corresponding Figma API URLs. This allows the script to handle multiple brands in one go.
+## Key Functions
 
-## Main Functions
+### `updateTheme(jsonData, brand, FILE_KEY)`
 
-### `fetchAndUpdateVariables(jsonData, brand, url)`
+This function updates the theme variables in Figma for a specific brand. It:
 
-**Purpose:**  
-Handles the core logic of fetching existing variables from Figma, comparing them with local JSON data, and preparing a data object for the POST request.
+- Fetches the current variables from Figma.
+- Updates modes and variables for "Light" and "Dark" themes.
+- Sends a POST request to update Figma with the new data.
 
-**Steps:**
+### `updateSkinColorVariables(brands, FILE_KEY)`
 
-1. Fetch existing variables and collections from Figma.
-2. Initialize a `newData` object to store the changes that need to be posted back to Figma.
-3. For each collection (like "palette", "radius", "font-weight"):
-   - Check if it exists. If it does, prepare an update request; otherwise, prepare a create request.
-4. For each variable within these collections:
-   - Check if it exists and needs updating. If it doesn’t exist, prepare a create request.
-5. Identify and delete any variables in Figma that are no longer in the local JSON data.
+This function focuses on updating color variables in the "Skin" collection. It:
 
-### `updateVariables(variableName, variableValue, collectionName, existingVariables, existingCollections, variableType, variableScopes)`
+- Maps color variables from the "Theme" collection to the "Skin" collection.
+- Creates or updates modes for each brand.
+- Ensures proper aliasing of variables between collections.
 
-**Purpose:**  
-Updates or creates variables in the `newData` object based on their existence in the Figma data.
+### `updateSkinOtherVariables(jsonData, brands, FILE_KEY)`
 
-**Parameters:**
+This function updates non-color variables, such as font families and icon sets, for each brand. It:
 
-- `variableName`, `variableValue`: The name and value of the variable to be updated/created.
-- `collectionName`: The name of the collection the variable belongs to.
-- `existingVariables`, `existingCollections`: The current variables and collections fetched from Figma.
-- `variableType`, `variableScopes`: Additional metadata for the variable.
+- Handles specific design tokens like radius, font weight, and line height.
+- Adds brand-specific font families and icons.
 
-### `findVariableInCollection(variableName, collectionName, existingVariables, existingCollections)`
+## Usage
 
-**Purpose:**  
-Finds a variable within a specific collection in Figma's existing data.
+1. Navigate to the `tokens/figma` directory:
 
-**Returns:**  
-The variable object if found, otherwise `undefined`.
+   ```bash
+   cd tokens/figma
 
-### `processAndPostData(url, brand)`
+   ```
 
-**Purpose:**  
-Processes the data for a specific brand and posts the updated data to Figma.
-
-**Parameters:**  
-`url` (Figma API URL), `brand` (name of the brand).
-
-### `processAllUrls(brands)`
-
-**Purpose:**  
-Sequentially processes and posts data for all brands defined in the `brands` object.
-
-**Parameters:**  
-`brands` (an object mapping brand names to Figma API URLs).
-
-## Execution
-
-The script calls `processAllUrls(brands)` at the end, which triggers the whole process for all defined brands.
+2. Run the script
+   ```bash
+   node update-middleware.mjs
+   ```
