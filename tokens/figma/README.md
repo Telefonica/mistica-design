@@ -57,5 +57,5 @@ This function updates non-color variables, such as font families and icon sets, 
 
 2. Run the script
    ```bash
-   node update-middleware.mjs
+   node index.mjs
    ```

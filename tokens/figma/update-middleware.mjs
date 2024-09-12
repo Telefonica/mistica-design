@@ -1,12 +1,7 @@
 import fetch from "node-fetch";
-import dotenv from "dotenv";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-import extractJsonData from "./extract-json-data-middleware.mjs";
+
 import {
   updateCollections,
-  updateOrCreateMode,
   updateOrCreateVariable,
   updateOrCreateVariableModeValues,
   generateTempModeId,
@@ -14,35 +9,6 @@ import {
   DEFAULT_FIGMA_MODENAME,
   COLLECTION_NAMES,
 } from "./utils.mjs";
-
-dotenv.config({ path: "../../.env" });
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
-const MIDDLEWARE_TOKEN =
-  process.env.MIDDLEWARE_KEY;
-
-const tokensPath = path.resolve(__dirname, "../");
-
-const files = fs.readdirSync(tokensPath);
-
-const jsonFiles = files.filter((file) =>
-  file.endsWith(".json")
-);
-const jsonData = extractJsonData(
-  jsonFiles,
-  tokensPath
-);
-
-const brands = [
-  "movistar",
-  "vivo-new",
-  "o2-new",
-  "telefonica",
-  "blau",
-  "tu",
-];
 
 function formatBrandName(brand) {
   // Check if the brand is "tu" and return it in uppercase
@@ -67,7 +33,8 @@ function formatBrandName(brand) {
 export async function updateTheme(
   jsonData,
   brand,
-  FILE_KEY
+  FILE_KEY,
+  FIGMA_TOKEN
 ) {
   try {
     // Fetch existing variables and collections from Figma
@@ -292,7 +259,8 @@ export async function updateTheme(
 
 async function updateSkinColorVariables(
   brands,
-  FILE_KEY
+  FILE_KEY,
+  FIGMA_TOKEN
 ) {
   try {
     // Step 1: Fetch existing data from "Mode" and "Brand" collections
@@ -543,7 +511,8 @@ async function updateSkinColorVariables(
 async function updateSkinOtherVariables(
   jsonData,
   brands,
-  FILE_KEY
+  FILE_KEY,
+  FIGMA_TOKEN
 ) {
   const response = await fetch(
     `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`,
@@ -724,7 +693,11 @@ async function updateSkinOtherVariables(
   return newData;
 }
 
-async function postCollections(brand, FILE_KEY) {
+async function postCollections(
+  brand,
+  FILE_KEY,
+  FIGMA_TOKEN
+) {
   const collectionNames = [
     COLLECTION_NAMES.BRAND,
     COLLECTION_NAMES.COLOR_SCHEME,
@@ -762,34 +735,62 @@ async function postCollections(brand, FILE_KEY) {
   }
 }
 
-async function processBrand(brand, FILE_KEY) {
-  await postCollections(brand, FILE_KEY);
-  await updateTheme(jsonData, brand, FILE_KEY);
+async function processBrand(
+  jsonData,
+  brand,
+  FILE_KEY,
+  FIGMA_TOKEN
+) {
+  await postCollections(
+    brand,
+    FILE_KEY,
+    FIGMA_TOKEN
+  );
+  await updateTheme(
+    jsonData,
+    brand,
+    FILE_KEY,
+    FIGMA_TOKEN
+  );
 }
 
-async function processAllBrands(brands) {
+async function processAllBrands(
+  jsonData,
+  brands,
+  FILE_KEY,
+  FIGMA_TOKEN
+) {
   for (const brand of brands) {
-    await processBrand(brand, MIDDLEWARE_TOKEN);
+    await processBrand(
+      jsonData,
+      brand,
+      FILE_KEY,
+      FIGMA_TOKEN
+    );
   }
 }
 
-async function main() {
-  await processAllBrands(brands);
+export async function updateMiddleware(
+  jsonData,
+  brands,
+  FILE_KEY,
+  FIGMA_TOKEN
+) {
+  await processAllBrands(
+    jsonData,
+    brands,
+    FILE_KEY,
+    FIGMA_TOKEN
+  );
   await updateSkinColorVariables(
     brands,
-    MIDDLEWARE_TOKEN
+    FILE_KEY,
+    FIGMA_TOKEN
   );
   await updateSkinOtherVariables(
     jsonData,
     brands,
-    MIDDLEWARE_TOKEN
+    FILE_KEY,
+    FIGMA_TOKEN
   );
 }
-
-// Execute the main function to ensure proper sequence
-main().catch((error) => {
-  console.error(
-    "Error in main execution:",
-    error
-  );
-});
