@@ -187,7 +187,7 @@ export async function updateTheme(
             variable: {
               name: prefixedName,
               resolvedType: VARIABLE_TYPES.COLOR,
-              scopes: ["ALL_SCOPES"],
+              scopes: [],
             },
             targetCollectionName: collectionName,
             existingVariables,
