@@ -1,6 +1,6 @@
 # Project Overview
 
-This project is designed to update Figma variables based on a JSON input, primarily focused on managing brand themes, colors, and other design tokens. The project retrieves existing variables from Figma, processes the provided JSON data, and updates or creates new variables in collections "Theme" and "Skin".
+This project is designed to update Figma variables based on a JSON input, primarily focused on managing brand themes, colors, and other design tokens. The project retrieves existing variables from Figma, processes the provided JSON data, and updates or creates new variables in collections "Mode" and "Brand".
 
 ## Features
 
@@ -33,9 +33,9 @@ This function updates the theme variables in Figma for a specific brand. It:
 
 ### `updateSkinColorVariables(brands, FILE_KEY)`
 
-This function focuses on updating color variables in the "Skin" collection. It:
+This function focuses on updating color variables in the "Brand" collection. It:
 
-- Maps color variables from the "Theme" collection to the "Skin" collection.
+- Maps color variables from the "Mode" collection to the "Brand" collection.
 - Creates or updates modes for each brand.
 - Ensures proper aliasing of variables between collections.
 
