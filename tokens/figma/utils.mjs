@@ -53,6 +53,32 @@ export function generateTempModeId(
   return `tempId_${targetCollection}_${targetMode}`;
 }
 
+export function hasDefaultMode(
+  targetCollectionName,
+  existingCollections
+) {
+  const collection = Object.values(
+    existingCollections
+  ).find(
+    (collection) =>
+      collection.name === targetCollectionName
+  );
+
+  if (!collection) {
+    console.warn(
+      `Collection ${targetCollectionName} not found.`
+    );
+    return false;
+  }
+
+  const existingModes = collection.modes || [];
+
+  // Return true if a mode named "Default" exists, otherwise false
+  return existingModes.some(
+    (m) => m.name === MODE_NAMES.DEFAULT
+  );
+}
+
 export async function updateCollections(
   collections,
   FILE_KEY,
@@ -131,9 +157,9 @@ export async function updateCollections(
   }
 }
 
-export async function updateOrCreateMode({
+export async function updateOrCreateModes({
   mode,
-  defaultModeName,
+  isDefault,
   targetCollectionName,
   existingCollections,
 }) {
@@ -144,70 +170,58 @@ export async function updateOrCreateMode({
       collection.name === targetCollectionName
   );
 
+  // Handle the case when the collection is not found
   if (!collection) {
     console.warn(
       `Collection ${targetCollectionName} not found.`
     );
-    return;
+    return null;
   }
 
   const collectionId = collection.id;
   const existingModes = collection.modes || [];
 
-  // Find the default mode (e.g., "Mode 1" or "Default")
-  const defaultMode = existingModes.find(
-    (m) => m.name === DMODE_NAMES.DEFAULT // Replace with actual default mode name if different
-  );
-
-  // Find the target mode by its name
+  // Look for the existing mode by name and the default mode
   const existingMode = existingModes.find(
     (m) => m.name === mode.name
   );
+  const defaultMode = existingModes.find(
+    (m) => m.name === MODE_NAMES.DEFAULT
+  );
 
-  if (mode.name === defaultModeName) {
-    if (defaultMode) {
-      // Rename the default mode to the target mode name
-      return {
-        action: "UPDATE",
-        id: defaultMode.modeId,
-        name: mode.name, // Rename "Default" to the target mode name
-        variableCollectionId: collectionId,
-      };
-    } else {
-      // If default mode does not exist, create it
-      return {
-        action: "CREATE",
-        id: generateTempModeId(
-          mode.name, // Use mode name for temp ID
-          targetCollectionName
-        ),
-        name: mode.name, // Create the mode with the target name
-        variableCollectionId: collectionId,
-      };
-    }
-  } else if (!existingMode) {
-    // If mode doesn't exist, create it
-    return {
-      action: "CREATE",
-      id: generateTempModeId(
-        mode.name, // Use mode name for temp ID
-        targetCollectionName
-      ),
-      name: mode.name, // Create the mode with the specified name
-      variableCollectionId: collectionId,
-    };
-  } else {
-    // If the mode exists, update it
+  // If it's the default mode, update or rename it
+  if (isDefault && defaultMode) {
     return {
       action: "UPDATE",
-      id: existingMode.modeId, // Use existing mode ID
-      name: mode.name, // Update the mode with the correct name
+      id: defaultMode.modeId,
+      name: mode.name, // Rename or update "Default" mode to the target name
       variableCollectionId: collectionId,
     };
   }
+
+  // If the mode does not exist, create it
+  if (!existingMode) {
+    return {
+      action: "CREATE",
+      id: generateTempModeId(
+        mode.name,
+        targetCollectionName
+      ),
+      name: mode.name, // Create the mode with the target name
+      variableCollectionId: collectionId,
+    };
+  }
+
+  // If the mode exists, update it
+  return {
+    action: "UPDATE",
+    id: existingMode.modeId,
+    name: mode.name, // Update the mode with the correct name
+    variableCollectionId: collectionId,
+  };
 }
 
-export async function updateOrCreateVariable({
+export async function updateOrCreateVariables({
   variable,
   targetCollectionName,
   existingVariables,

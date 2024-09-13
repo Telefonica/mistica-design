@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import {
   updateCollections,
-  updateOrCreateVariable,
+  updateOrCreateVariables,
   updateOrCreateVariableModeValues,
   COLLECTION_NAMES,
   VARIABLE_TYPES,
@@ -65,8 +65,8 @@ async function updatePalette(
 
       for (const variable of variables) {
         // Update or create the variable in the collection
-        const variableUpdateResult =
-          await updateOrCreateVariable({
+        const variablesUpdateResult =
+          await updateOrCreateVariables({
             variable: {
               ...variable,
               resolvedType: resolvedType,
@@ -83,7 +83,7 @@ async function updatePalette(
           newData.variables = [];
         }
         newData.variables.push(
-          variableUpdateResult
+          variablesUpdateResult
         );
 
         // Find the mode for the current brand and set the mode values correctly
