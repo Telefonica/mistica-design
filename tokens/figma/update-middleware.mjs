@@ -286,15 +286,15 @@ async function updateSkinColorVariables(
       (col) =>
         col.name === COLLECTION_NAMES.COLOR_SCHEME
     );
-    const skinCollection = Object.values(
+    const brandCollection = Object.values(
       themeCollections
     ).find(
       (col) => col.name === COLLECTION_NAMES.BRAND
     );
 
-    if (!themeCollection || !skinCollection) {
+    if (!themeCollection || !brandCollection) {
       throw new Error(
-        "Theme or Skin collection not found"
+        "Mode or Brand collection not found"
       );
     }
 
@@ -309,15 +309,15 @@ async function updateSkinColorVariables(
         themeCollection.id
     );
 
-    const existingSkinVariables = Object.values(
+    const existingBrandVariables = Object.values(
       themeVariables
     ).filter(
       (variable) =>
         variable.variableCollectionId ===
-        skinCollection.id
+        brandCollection.id
     );
 
-    // Step 4: Prepare new variables data for the Skin collection
+    // Step 4: Prepare new variables data for the Brand collection
     const newData = {
       variables: [],
       variableModeValues: [],
@@ -331,7 +331,7 @@ async function updateSkinColorVariables(
       formatBrandName(firstBrand);
 
     const defaultMode =
-      skinCollection.modes?.find(
+      brandCollection.modes?.find(
         (mode) =>
           mode.name === DEFAULT_FIGMA_MODENAME ||
           mode.name === firstBrand ||
@@ -348,7 +348,8 @@ async function updateSkinColorVariables(
           action: "UPDATE",
           id: defaultMode.modeId,
           name: formattedFirstBrand,
-          variableCollectionId: skinCollection.id,
+          variableCollectionId:
+            brandCollection.id,
         });
       }
     } else {
@@ -359,7 +360,7 @@ async function updateSkinColorVariables(
           formattedFirstBrand,
           COLLECTION_NAMES.BRAND
         ),
-        variableCollectionId: skinCollection.id,
+        variableCollectionId: brandCollection.id,
       });
     }
 
@@ -368,7 +369,7 @@ async function updateSkinColorVariables(
         formatBrandName(brand);
 
       const existingMode =
-        skinCollection.modes.find(
+        brandCollection.modes.find(
           (mode) =>
             mode.name === brand ||
             mode.name === formattedBrand
@@ -381,7 +382,7 @@ async function updateSkinColorVariables(
             id: existingMode.modeId,
             name: formattedBrand,
             variableCollectionId:
-              skinCollection.id,
+              brandCollection.id,
           });
         }
       } else {
@@ -392,7 +393,8 @@ async function updateSkinColorVariables(
             formattedBrand,
             COLLECTION_NAMES.BRAND
           ),
-          variableCollectionId: skinCollection.id,
+          variableCollectionId:
+            brandCollection.id,
         });
       }
     });
@@ -441,7 +443,7 @@ async function updateSkinColorVariables(
           targetCollectionName:
             variable.targetCollectionName,
           existingVariables:
-            existingSkinVariables,
+            existingBrandVariables,
           existingCollections: themeCollections,
         });
 
@@ -466,10 +468,10 @@ async function updateSkinColorVariables(
                 ? defaultMode.name
                 : formattedBrand,
             targetCollectionName:
-              COLLECTION_NAMES.BRAND, // Assuming the collection name is 'Skin'
+              COLLECTION_NAMES.BRAND, // Assuming the collection name is 'Brand'
             existingCollections: themeCollections, // Pass the fetched collections
             existingVariables:
-              existingSkinVariables, // Pass the existing variables in the Skin collection
+              existingBrandVariables, // Pass the existing variables in the Brand collection
           });
 
         if (variableModeValuesData) {
@@ -480,7 +482,7 @@ async function updateSkinColorVariables(
       }
     }
 
-    // Step 9: Send the data to update the Skin collection (POST)
+    // Step 9: Send the data to update the Brand collection (POST)
     const updateResponse = await fetch(
       `https://api.figma.com/v1/files/${FILE_KEY}/variables`,
       {
@@ -497,7 +499,7 @@ async function updateSkinColorVariables(
       const errorText =
         await updateResponse.text();
       throw new Error(
-        `Error updating Skin collection: ${updateResponse.statusText}. Response: ${errorText}`
+        `Error updating Brand collection: ${updateResponse.statusText}. Response: ${errorText}`
       );
     }
 
@@ -538,7 +540,7 @@ async function updateSkinOtherVariables(
 
   const fontFamilies = {
     movistar: "On Air",
-    "vivo-new": "Vivo type",
+    "vivo-new": "Vivo Type",
     "o2-new": "On Air",
     telefonica: "Telefonica Sans",
     blau: "SF Pro Text",
