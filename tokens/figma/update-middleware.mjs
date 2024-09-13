@@ -604,7 +604,7 @@ async function updateSkinOtherVariables(
       {
         variables: [
           {
-            name: "icons/Icon Set",
+            name: "icons/iconSet",
             value: iconSets[brand],
           },
         ],
