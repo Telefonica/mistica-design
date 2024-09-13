@@ -672,7 +672,7 @@ async function updateSkinOtherVariables(
     }
   }
 
-  // Make the POST request to update the variables and mode values in the Skin collection
+  // Make the POST request to update the variables and mode values in the Brand collection
   const updateResponse = await fetch(
     `https://api.figma.com/v1/files/${FILE_KEY}/variables`,
     {
@@ -688,7 +688,7 @@ async function updateSkinOtherVariables(
   if (!updateResponse.ok) {
     const errorText = await updateResponse.text();
     throw new Error(
-      `Error updating Skin collection: ${updateResponse.statusText}. Response: ${errorText}`
+      `Error updating Brand collection: ${updateResponse.statusText}. Response: ${errorText}`
     );
   }
 
