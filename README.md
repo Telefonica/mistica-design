@@ -34,4 +34,4 @@
 ## How to sync design tokens
 
 > [!NOTE]  
-> We're no longer using [Figma Tokens plugin](https://www.figma.com/community/plugin/843461159747178978/Figma-Tokens) to sync tokens with files. We use Figma API to update variables in our libraries. More about this proccess in [Figma tokens script README]().
+> We're no longer using [Figma Tokens plugin](https://www.figma.com/community/plugin/843461159747178978/Figma-Tokens) to sync tokens with files. We use Figma API to update variables in our libraries. More about this proccess in [Figma tokens script README](https://github.com/Telefonica/mistica-design/blob/production/tokens/figma/README.md).
