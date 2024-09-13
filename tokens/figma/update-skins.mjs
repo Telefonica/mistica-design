@@ -1,7 +1,13 @@
 import fetch from "node-fetch";
-import { updateCollections } from "./utils.mjs";
+import {
+  updateCollections,
+  COLLECTION_NAMES,
+  VARIABLE_TYPES,
+} from "./utils.mjs";
 
-const collectionNames = ["Palette"];
+const collectionNames = [
+  COLLECTION_NAMES.PALETTE,
+];
 
 async function updatePalette(
   jsonData,
@@ -160,8 +166,8 @@ async function updatePalette(
     const variableGroups = [
       {
         variables: jsonData[brand].palette,
-        collectionName: "Palette",
-        resolvedType: "COLOR",
+        collectionName: COLLECTION_NAMES.PALETTE,
+        resolvedType: VARIABLE_TYPES.COLOR,
         variableScopes: ["ALL_SCOPES"],
       },
     ];
