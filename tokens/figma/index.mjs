@@ -5,11 +5,12 @@ import { fileURLToPath } from "url";
 
 import { updateSkinFiles } from "./update-skins.mjs";
 import { updateMiddleware } from "./update-middleware.mjs";
+import { BRANDS } from "./utils/constants.mjs";
 
 import {
   extractSkinJsonData,
   extractMiddlewareJsonData,
-} from "./extract-json-data.mjs";
+} from "./utils/extract-json-data.mjs";
 
 dotenv.config({ path: "../../.env" });
 const __filename = fileURLToPath(import.meta.url);
@@ -39,12 +40,15 @@ const MIDDLEWARE_TOKEN =
 
 const FILE_KEYS = {
   // Remember to sync these with the workflow file
-  movistar: process.env.MOVISTAR_FILE_KEY,
-  "o2-new": process.env.O2_NEW_FILE_KEY,
-  "vivo-new": process.env.VIVO_NEW_FILE_KEY,
-  telefonica: process.env.TELEFONICA_FILE_KEY,
-  blau: process.env.BLAU_FILE_KEY,
-  tu: process.env.TU_FILE_KEY,
+  [BRANDS.MOVISTAR]:
+    process.env.MOVISTAR_FILE_KEY,
+  [BRANDS.O2_NEW]: process.env.O2_NEW_FILE_KEY,
+  [BRANDS.VIVO_NEW]:
+    process.env.VIVO_NEW_FILE_KEY,
+  [BRANDS.TELEFONICA]:
+    process.env.TELEFONICA_FILE_KEY,
+  [BRANDS.BLAU]: process.env.BLAU_FILE_KEY,
+  [BRANDS.TU]: process.env.TU_FILE_KEY,
 };
 
 const brands = Object.fromEntries(

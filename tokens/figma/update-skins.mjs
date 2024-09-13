@@ -15,6 +15,8 @@ import {
   postFigmaVariables,
 } from "./utils/api-request.mjs";
 
+import { getPaletteVariables } from "./variables.mjs";
+
 const collectionNames = [
   COLLECTION_NAMES.PALETTE,
 ];
@@ -43,17 +45,12 @@ async function updatePalette(
       variableModeValues: [],
     };
 
-    const variableGroups = [
-      {
-        variables: jsonData[brand].palette,
-        collectionName: COLLECTION_NAMES.PALETTE,
-        resolvedType: VARIABLE_TYPES.COLOR,
-        variableScopes: ["ALL_SCOPES"],
-        hasAlias: false,
-      },
-    ];
+    const paletteVariables = getPaletteVariables(
+      jsonData,
+      brand
+    );
 
-    for (const group of variableGroups) {
+    for (const group of paletteVariables) {
       const {
         variables,
         collectionName,

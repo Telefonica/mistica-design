@@ -7,7 +7,7 @@ This project is designed to update Figma variables based on a JSON input, primar
 - **Fetch Existing Figma Data**: Retrieves the existing variables and collections from Figma.
 - **Process JSON Data**: Extracts theme and token data from provided JSON files for each brand.
 - **Update or Create Variables**: Adds new variables or updates existing ones based on the brand's light and dark themes.
-- **Handle Variable Modes**: Ensures each brand's mode (e.g., "Light", "Dark") is updated or created in the Figma "Skin" collection.
+- **Handle Variable Modes**: Ensures each brand's mode (e.g., "Light", "Dark") is updated or created in the Figma "Brand" collection.
 - **Support for Multiple Brands**: Processes multiple brands, mapping each brand's unique variables into Figma's collections.
 
 ## Setup

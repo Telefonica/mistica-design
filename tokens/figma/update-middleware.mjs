@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 import {
   updateCollections,
   updateOrCreateModes,
@@ -12,6 +10,7 @@ import {
   VARIABLE_TYPES,
   COLLECTION_NAMES,
   MODE_NAMES,
+  VARIABLE_SCOPES,
 } from "./utils/constants.mjs";
 
 import {
@@ -19,27 +18,14 @@ import {
   postFigmaVariables,
 } from "./utils/api-request.mjs";
 
-function formatBrandName(brand) {
-  // Check if the brand is "tu" and return it in uppercase
-  if (brand === "tu") {
-    return brand.toUpperCase();
-  }
+import {
+  getConstantVariables,
+  getNonColorVariables,
+} from "./variables.mjs";
 
-  // Check if the brand is telefonica and return it as sentence case and with an accent
-  if (brand === "telefonica") {
-    return "Telefónica";
-  }
+import formatBrandName from "./utils/format-brand-name.mjs";
 
-  // For other brands, remove the hyphen and convert to sentence case
-  return brand
-    .replace(/-/g, " ") // Remove hyphens and replace with spaces
-    .toLowerCase() // Convert all to lowercase first
-    .replace(/\b\w/g, (char) =>
-      char.toUpperCase()
-    ); // Capitalize the first letter of each word
-}
-
-async function updateTheme(
+async function updateModeCollection(
   jsonData,
   brand,
   FILE_KEY,
@@ -68,9 +54,7 @@ async function updateTheme(
     ];
 
     // Create or update modes for the collection
-
     const defaultMode = modes[0];
-
     const defaultModeResult =
       await updateOrCreateModes({
         mode: { name: defaultMode },
@@ -79,12 +63,11 @@ async function updateTheme(
           COLLECTION_NAMES.COLOR_SCHEME,
         existingCollections: existingCollections,
       });
-
     newData.variableModes.push(defaultModeResult);
 
-    modes.slice(1).forEach(async (mode) => {
-      const modeResult =
-        await updateOrCreateModes({
+    const modeResults = await Promise.all(
+      modes.slice(1).map(async (mode) => {
+        return await updateOrCreateModes({
           mode: { name: mode },
           isDefault: false,
           targetCollectionName:
@@ -92,124 +75,122 @@ async function updateTheme(
           existingCollections:
             existingCollections,
         });
+      })
+    );
+    newData.variableModes.push(...modeResults);
 
-      newData.variableModes.push(modeResult);
-    });
+    // Get color variables using the imported function
+    const colorVariables = getConstantVariables(
+      jsonData,
+      brand
+    );
 
-    async function processVariables(
-      lightVariables,
-      darkVariables,
-      collectionName,
-      brand,
-      existingVariables,
-      existingCollections,
-      newData
-    ) {
-      for (const lightVariable of lightVariables) {
-        const prefixedName = `${brand}/${lightVariable.name}`;
-        const darkVariable = darkVariables.find(
-          (v) => v.name === lightVariable.name
-        );
+    const processedVariables = new Map();
 
-        // Get the collection ID
-        const collectionId = Object.values(
-          existingCollections
-        ).find(
-          (collection) =>
-            collection.name === collectionName
-        )?.id;
+    for (const variableGroup of colorVariables) {
+      for (const variable of variableGroup.variables) {
+        const prefixedName = `${brand}/${variable.name}`;
 
-        if (!collectionId) {
-          console.warn(
-            `Collection ${collectionName} not found.`
-          );
-          continue;
-        }
-
-        // Get default mode for this collection
-        const defaultMode = existingCollections[
-          collectionId
-        ]?.modes.find(
-          (mode) =>
-            mode.name === MODE_NAMES.DEFAULT
-        );
-
-        // Prepare the variable data
-        const variableData =
-          await updateOrCreateVariables({
-            variable: {
-              name: prefixedName,
-              resolvedType: VARIABLE_TYPES.COLOR,
-              scopes: [],
-            },
-            targetCollectionName: collectionName,
-            existingVariables,
-            existingCollections,
-          });
-
-        // Prepare the mode values
-        const modeValueData =
-          await updateOrCreateVariableModeValues({
-            variable: {
-              name: prefixedName,
-              value: lightVariable.value,
-              hasAlias: false,
-            },
-            targetModeName: defaultMode
-              ? MODE_NAMES.DEFAULT
-              : MODE_NAMES.LIGHT,
-            targetCollectionName: collectionName,
-            existingCollections,
-            existingVariables,
-          });
-
-        if (modeValueData) {
-          newData.variableModeValues.push(
-            modeValueData
-          );
-        }
-
-        if (darkVariable) {
-          const darkModeValueData =
-            await updateOrCreateVariableModeValues(
-              {
-                variable: {
-                  name: prefixedName,
-                  value: darkVariable.value,
-                  hasAlias: false,
-                },
-                targetModeName: MODE_NAMES.DARK,
-                targetCollectionName:
-                  collectionName,
-                existingCollections,
+        // Only process if the variable hasn't been created yet
+        if (
+          !processedVariables.has(prefixedName)
+        ) {
+          // Create or update the variable
+          const variableData =
+            await updateOrCreateVariables({
+              variable: {
+                name: prefixedName,
+                resolvedType:
+                  VARIABLE_TYPES.COLOR,
+                scopes: [],
+              },
+              targetCollectionName:
+                COLLECTION_NAMES.COLOR_SCHEME,
+              existingVariables:
                 existingVariables,
-              }
-            );
+              existingCollections:
+                existingCollections,
+            });
 
-          if (darkModeValueData) {
-            newData.variableModeValues.push(
-              darkModeValueData
-            );
+          newData.variables.push(variableData);
+          processedVariables.set(
+            prefixedName,
+            variableData
+          );
+
+          // Find values for light and dark modes
+          const lightValue = (
+            jsonData[brand]?.light || []
+          ).find(
+            (v) => v.name === variable.name
+          )?.value;
+          const darkValue = (
+            jsonData[brand]?.dark || []
+          ).find(
+            (v) => v.name === variable.name
+          )?.value;
+
+          // Handle light mode value
+          if (lightValue) {
+            const lightModeValueData =
+              await updateOrCreateVariableModeValues(
+                {
+                  variable: {
+                    name: prefixedName,
+                    value: lightValue,
+                    hasAlias: false,
+                  },
+                  targetModeName: hasDefaultMode(
+                    COLLECTION_NAMES.COLOR_SCHEME,
+                    existingCollections
+                  )
+                    ? MODE_NAMES.DEFAULT
+                    : MODE_NAMES.LIGHT,
+                  targetCollectionName:
+                    COLLECTION_NAMES.COLOR_SCHEME,
+                  existingCollections:
+                    existingCollections,
+                  existingVariables:
+                    existingVariables,
+                }
+              );
+
+            if (lightModeValueData) {
+              newData.variableModeValues.push(
+                lightModeValueData
+              );
+            }
+          }
+
+          // Handle dark mode value
+          if (darkValue) {
+            const darkModeValueData =
+              await updateOrCreateVariableModeValues(
+                {
+                  variable: {
+                    name: prefixedName,
+                    value: darkValue,
+                    hasAlias: false,
+                  },
+                  targetModeName: MODE_NAMES.DARK,
+                  targetCollectionName:
+                    COLLECTION_NAMES.COLOR_SCHEME,
+                  existingCollections:
+                    existingCollections,
+                  existingVariables:
+                    existingVariables,
+                }
+              );
+
+            if (darkModeValueData) {
+              newData.variableModeValues.push(
+                darkModeValueData
+              );
+            }
           }
         }
-
-        // Update the variable list
-        newData.variables.push(variableData);
       }
-
-      return newData;
     }
-
-    // Process variables for light and dark themes
-    await processVariables(
-      jsonData[brand]?.light || [],
-      jsonData[brand]?.dark || [],
-      COLLECTION_NAMES.COLOR_SCHEME,
-      brand,
-      existingVariables,
-      existingCollections,
-      newData
-    );
 
     // Update the variables and modes in Figma
     await postFigmaVariables(
@@ -225,43 +206,46 @@ async function updateTheme(
   }
 }
 
-async function updateSkinColorVariables(
+async function updateBrandCollection(
+  jsonData,
   brands,
   FILE_KEY,
   FIGMA_TOKEN
 ) {
   try {
+    // Step 1: Fetch the existing data from Figma
+
     const figmaData = await getFigmaData(
       FILE_KEY,
       FIGMA_TOKEN
     );
-    const themeCollections =
+    const existingCollections =
       figmaData.meta.variableCollections;
 
-    // Step 2: Find the "Mode" and "Brand" collections
-    const themeCollection = Object.values(
-      themeCollections
-    ).find(
-      (col) =>
-        col.name === COLLECTION_NAMES.COLOR_SCHEME
-    );
-    const brandCollection = Object.values(
-      themeCollections
-    ).find(
-      (col) => col.name === COLLECTION_NAMES.BRAND
-    );
-
-    if (!themeCollection || !brandCollection) {
-      throw new Error(
-        "Mode or Brand collection not found"
-      );
-    }
-
-    // Step 3: Filter theme variables to only include those from the "Mode" collection
-    const themeVariables =
+    const existingVariables =
       figmaData.meta.variables || {};
-    const existingThemeVariables = Object.values(
-      themeVariables
+
+    // Step 2: Find the Theme and Brand collections
+
+    const themeCollection = Object.values(
+      existingCollections
+    ).find(
+      (collection) =>
+        collection.name ===
+        COLLECTION_NAMES.COLOR_SCHEME
+    );
+
+    const brandCollection = Object.values(
+      existingCollections
+    ).find(
+      (collection) =>
+        collection.name === COLLECTION_NAMES.SKIN
+    );
+
+    // Step 3: Filter variables to only include those from the "Mode" collection
+
+    const existingModeVariables = Object.values(
+      existingVariables
     ).filter(
       (variable) =>
         variable.variableCollectionId ===
@@ -269,7 +253,7 @@ async function updateSkinColorVariables(
     );
 
     const existingBrandVariables = Object.values(
-      themeVariables
+      existingVariables
     ).filter(
       (variable) =>
         variable.variableCollectionId ===
@@ -294,8 +278,8 @@ async function updateSkinColorVariables(
         },
         isDefault: true,
         targetCollectionName:
-          COLLECTION_NAMES.BRAND,
-        existingCollections: themeCollections,
+          COLLECTION_NAMES.SKIN,
+        existingCollections: existingCollections,
       });
 
     newData.variableModes.push(firstModeResult);
@@ -309,17 +293,19 @@ async function updateSkinColorVariables(
           mode: { name: formattedBrand },
           isDefault: false,
           targetCollectionName:
-            COLLECTION_NAMES.BRAND,
-          existingCollections: themeCollections,
+            COLLECTION_NAMES.SKIN,
+          existingCollections:
+            existingCollections,
         });
 
       newData.variableModes.push(modeResult);
     });
 
-    // Step 6: Create a map for color variables from Theme
+    // Step 6: Create a map for color variables from Mode collection
+
     const variableToBrandMap = new Map();
 
-    existingThemeVariables.forEach((variable) => {
+    existingModeVariables.forEach((variable) => {
       if (
         variable.resolvedType ===
         VARIABLE_TYPES.COLOR
@@ -349,9 +335,9 @@ async function updateSkinColorVariables(
       const variable = {
         name: variableName,
         resolvedType: VARIABLE_TYPES.COLOR,
-        scopes: ["ALL_SCOPES"],
+        scopes: [VARIABLE_SCOPES.ALL_SCOPES],
         targetCollectionName:
-          COLLECTION_NAMES.BRAND,
+          COLLECTION_NAMES.SKIN,
       };
 
       const variableData =
@@ -361,7 +347,8 @@ async function updateSkinColorVariables(
             variable.targetCollectionName,
           existingVariables:
             existingBrandVariables,
-          existingCollections: themeCollections,
+          existingCollections:
+            existingCollections,
         });
 
       newData.variables.push(variableData);
@@ -375,28 +362,101 @@ async function updateSkinColorVariables(
         const variableModeValuesData =
           await updateOrCreateVariableModeValues({
             variable: {
-              name: variableName, // Assuming variableName is defined earlier
+              name: variableName,
               hasAlias: true,
               value: brandMap[brand], // Alias to the Theme variable ID for the brand
             },
 
             targetModeName:
               hasDefaultMode(
-                COLLECTION_NAMES.BRAND,
-                themeCollections
+                COLLECTION_NAMES.SKIN,
+                existingCollections
               ) && brand === brands[0]
                 ? MODE_NAMES.DEFAULT
                 : formattedBrand,
             targetCollectionName:
-              COLLECTION_NAMES.BRAND, // Assuming the collection name is 'Brand'
-            existingCollections: themeCollections, // Pass the fetched collections
+              COLLECTION_NAMES.SKIN,
+            existingCollections:
+              existingCollections,
             existingVariables:
-              existingBrandVariables, // Pass the existing variables in the Brand collection
+              existingBrandVariables,
           });
 
         if (variableModeValuesData) {
           newData.variableModeValues.push(
             variableModeValuesData
+          );
+        }
+      }
+    }
+
+    // Loop through each brand to process its specific tokens
+    for (const brand of brands) {
+      const nonColorVariables =
+        getNonColorVariables(jsonData, brand);
+
+      for (const group of nonColorVariables) {
+        const {
+          variables,
+          collectionName,
+          resolvedType,
+          variableScopes,
+          hasAlias,
+        } = group;
+
+        for (const variable of variables) {
+          // Update or create the variable in the collection
+          const variableUpdateResult =
+            await updateOrCreateVariables({
+              variable: {
+                ...variable,
+                resolvedType: resolvedType,
+                scopes: variableScopes,
+                hasAlias: hasAlias,
+              },
+              targetCollectionName:
+                collectionName,
+              existingVariables:
+                existingVariables,
+              existingCollections:
+                existingCollections,
+            });
+
+          if (!newData.variables) {
+            newData.variables = [];
+          }
+          newData.variables.push(
+            variableUpdateResult
+          );
+
+          // Find the mode for the current brand and set the mode values correctly
+          const variableModeValuesUpdatedResult =
+            await updateOrCreateVariableModeValues(
+              {
+                variable: {
+                  ...variable,
+                  resolvedType: resolvedType,
+                  scopes: variableScopes,
+                  hasAlias: hasAlias,
+                },
+                targetModeName:
+                  hasDefaultMode(
+                    collectionName,
+                    existingCollections
+                  ) && brand === brands[0]
+                    ? MODE_NAMES.DEFAULT
+                    : formatBrandName(brand),
+                targetCollectionName:
+                  collectionName,
+                existingCollections:
+                  existingCollections,
+                existingVariables:
+                  existingVariables,
+              }
+            );
+
+          newData.variableModeValues.push(
+            variableModeValuesUpdatedResult
           );
         }
       }
@@ -417,191 +477,13 @@ async function updateSkinColorVariables(
   }
 }
 
-async function updateSkinOtherVariables(
-  jsonData,
-  brands,
-  FILE_KEY,
-  FIGMA_TOKEN
-) {
-  const figmaData = await getFigmaData(
-    FILE_KEY,
-    FIGMA_TOKEN
-  );
-  const existingVariables =
-    figmaData.meta.variables;
-  const existingCollections =
-    figmaData.meta.variableCollections;
-
-  const newData = {
-    variables: [],
-    variableModeValues: [],
-  };
-
-  const fontFamilies = {
-    movistar: "On Air",
-    "vivo-new": "Vivo Type",
-    "o2-new": "On Air",
-    telefonica: "Telefonica Sans",
-    blau: "SF Pro Text",
-    tu: "Telefonica Sans",
-  };
-
-  const iconSets = {
-    movistar: "Default",
-    "vivo-new": "Vivo",
-    "o2-new": "O2",
-    telefonica: "Default",
-    blau: "Blau",
-    tu: "Default",
-  };
-
-  // Loop through each brand to process its specific tokens
-  for (const brand of brands) {
-    const variableGroups = [
-      {
-        variables: jsonData[brand]?.radius || [],
-        collectionName: COLLECTION_NAMES.BRAND,
-        resolvedType: VARIABLE_TYPES.FLOAT,
-        variableScopes: ["CORNER_RADIUS"],
-        hasAlias: false,
-      },
-      {
-        variables:
-          jsonData[brand]?.fontWeight || [],
-        collectionName: COLLECTION_NAMES.BRAND,
-        resolvedType: VARIABLE_TYPES.STRING,
-        variableScopes: ["FONT_WEIGHT"],
-        hasAlias: false,
-      },
-      {
-        variables:
-          jsonData[brand]?.fontSize || [],
-        collectionName: COLLECTION_NAMES.BRAND,
-        resolvedType: VARIABLE_TYPES.FLOAT,
-        variableScopes: ["FONT_SIZE"],
-        hasAlias: false,
-      },
-      {
-        variables:
-          jsonData[brand]?.lineHeight || [],
-        collectionName: COLLECTION_NAMES.BRAND,
-        resolvedType: VARIABLE_TYPES.FLOAT,
-        variableScopes: ["LINE_HEIGHT"],
-        hasAlias: false,
-      },
-      {
-        variables:
-          jsonData[brand]?.themeVariant || [],
-        collectionName: COLLECTION_NAMES.BRAND,
-        resolvedType: VARIABLE_TYPES.STRING,
-        variableScopes: ["ALL_SCOPES"],
-        hasAlias: false,
-      },
-      {
-        variables: [
-          {
-            name: "fontFamily/fontFamily",
-            value: fontFamilies[brand],
-          },
-        ],
-        collectionName: COLLECTION_NAMES.BRAND,
-        resolvedType: VARIABLE_TYPES.STRING,
-        variableScopes: ["FONT_FAMILY"],
-        hasAlias: false,
-      },
-      {
-        variables: [
-          {
-            name: "icons/iconSet",
-            value: iconSets[brand],
-          },
-        ],
-        collectionName: COLLECTION_NAMES.BRAND,
-        resolvedType: VARIABLE_TYPES.STRING,
-        variableScopes: ["ALL_SCOPES"],
-        hasAlias: false,
-      },
-    ];
-
-    for (const group of variableGroups) {
-      const {
-        variables,
-        collectionName,
-        resolvedType,
-        variableScopes,
-        hasAlias,
-      } = group;
-
-      for (const variable of variables) {
-        // Update or create the variable in the collection
-        const variableUpdateResult =
-          await updateOrCreateVariables({
-            variable: {
-              ...variable,
-              resolvedType: resolvedType,
-              scopes: variableScopes,
-              hasAlias: hasAlias,
-            },
-            targetCollectionName: collectionName,
-            existingVariables: existingVariables,
-            existingCollections:
-              existingCollections,
-          });
-
-        if (!newData.variables) {
-          newData.variables = [];
-        }
-        newData.variables.push(
-          variableUpdateResult
-        );
-
-        // Find the mode for the current brand and set the mode values correctly
-        const variableModeValuesUpdatedResult =
-          await updateOrCreateVariableModeValues({
-            variable: {
-              ...variable,
-              resolvedType: resolvedType,
-              scopes: variableScopes,
-              hasAlias: hasAlias,
-            },
-            targetModeName:
-              hasDefaultMode(
-                collectionName,
-                existingCollections
-              ) && brand === brands[0]
-                ? MODE_NAMES.DEFAULT
-                : formatBrandName(brand),
-            targetCollectionName: collectionName,
-            existingCollections:
-              existingCollections,
-            existingVariables: existingVariables,
-          });
-
-        newData.variableModeValues.push(
-          variableModeValuesUpdatedResult
-        );
-      }
-    }
-  }
-
-  // Make the POST request to update the variables and mode values in the Brand collection
-
-  await postFigmaVariables(
-    FILE_KEY,
-    FIGMA_TOKEN,
-    newData
-  );
-
-  return newData;
-}
-
 async function postCollections(
   brand,
   FILE_KEY,
   FIGMA_TOKEN
 ) {
   const collectionNames = [
-    COLLECTION_NAMES.BRAND,
+    COLLECTION_NAMES.SKIN,
     COLLECTION_NAMES.COLOR_SCHEME,
   ];
 
@@ -636,7 +518,7 @@ async function processBrand(
     FILE_KEY,
     FIGMA_TOKEN
   );
-  await updateTheme(
+  await updateModeCollection(
     jsonData,
     brand,
     FILE_KEY,
@@ -672,12 +554,7 @@ export async function updateMiddleware(
     FILE_KEY,
     FIGMA_TOKEN
   );
-  await updateSkinColorVariables(
-    brands,
-    FILE_KEY,
-    FIGMA_TOKEN
-  );
-  await updateSkinOtherVariables(
+  await updateBrandCollection(
     jsonData,
     brands,
     FILE_KEY,
