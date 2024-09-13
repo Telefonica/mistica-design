@@ -1,3 +1,24 @@
+export const VARIABLE_TYPES = {
+  COLOR: "COLOR",
+  FLOAT: "FLOAT",
+  STRING: "STRING",
+  FONT_WEIGHT: "FONT_WEIGHT",
+  FONT_SIZE: "FONT_SIZE",
+  LINE_HEIGHT: "LINE_HEIGHT",
+};
+
+export const COLLECTION_NAMES = {
+  BRAND: "Brand",
+  COLOR_SCHEME: "Mode",
+  PALETTE: "Palette",
+};
+
+export const MODE_NAMES = {
+  DEFAULT: "Mode 1",
+  LIGHT: "Light",
+  DARK: "Dark",
+};
+
 export function hexToRgba(hex, alpha = 1) {
   // Remove the leading # if it's present
   hex = hex.replace(/^#/, "");
@@ -31,8 +52,6 @@ export function generateTempModeId(
 ) {
   return `tempId_${targetCollection}_${targetMode}`;
 }
-
-export const DEFAULT_FIGMA_MODENAME = "Mode 1";
 
 export async function updateCollections(
   collections,
@@ -137,7 +156,7 @@ export async function updateOrCreateMode({
 
   // Find the default mode (e.g., "Mode 1" or "Default")
   const defaultMode = existingModes.find(
-    (m) => m.name === DEFAULT_FIGMA_MODENAME // Replace with actual default mode name if different
+    (m) => m.name === DMODE_NAMES.DEFAULT // Replace with actual default mode name if different
   );
 
   // Find the target mode by its name
@@ -314,18 +333,3 @@ export async function updateOrCreateVariableModeValues({
       : variable.value,
   };
 }
-
-export const VARIABLE_TYPES = {
-  COLOR: "COLOR",
-  FLOAT: "FLOAT",
-  STRING: "STRING",
-  FONT_WEIGHT: "FONT_WEIGHT",
-  FONT_SIZE: "FONT_SIZE",
-  LINE_HEIGHT: "LINE_HEIGHT",
-};
-
-export const COLLECTION_NAMES = {
-  BRAND: "Brand",
-  COLOR_SCHEME: "Mode",
-  PALETTE: "Palette",
-};

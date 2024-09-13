@@ -6,8 +6,8 @@ import {
   updateOrCreateVariableModeValues,
   generateTempModeId,
   VARIABLE_TYPES,
-  DEFAULT_FIGMA_MODENAME,
   COLLECTION_NAMES,
+  MODE_NAMES,
 } from "./utils.mjs";
 
 function formatBrandName(brand) {
@@ -91,23 +91,23 @@ export async function updateTheme(
           action: "UPDATE",
           id: defaultMode.modeId,
           variableCollectionId: collection.id,
-          name: "Light",
+          name: MODE_NAMES.LIGHT,
         });
       }
 
       const darkMode = findModeByName(
         collection,
-        "Dark"
+        MODE_NAMES.DARK
       );
       if (!darkMode) {
         newData.variableModes.push({
           action: "CREATE",
           id: generateTempModeId(
-            "Dark",
+            MODE_NAMES.DARK,
             COLLECTION_NAMES.COLOR_SCHEME
           ),
           variableCollectionId: collection.id,
-          name: "Dark",
+          name: MODE_NAMES.DARK,
         });
       }
     };
@@ -149,7 +149,7 @@ export async function updateTheme(
           collectionId
         ]?.modes.find(
           (mode) =>
-            mode.name === DEFAULT_FIGMA_MODENAME
+            mode.name === MODE_NAMES.DEFAULT
         );
 
         // Prepare the variable data
@@ -174,8 +174,8 @@ export async function updateTheme(
               hasAlias: false,
             },
             targetModeName: defaultMode
-              ? DEFAULT_FIGMA_MODENAME
-              : "Light",
+              ? MODE_NAMES.DEFAULT
+              : MODE_NAMES.LIGHT,
             targetCollectionName: collectionName,
             existingCollections,
             existingVariables,
@@ -196,7 +196,7 @@ export async function updateTheme(
                   value: darkVariable.value,
                   hasAlias: false,
                 },
-                targetModeName: "Dark",
+                targetModeName: MODE_NAMES.DARK,
                 targetCollectionName:
                   collectionName,
                 existingCollections,
@@ -333,7 +333,7 @@ async function updateSkinColorVariables(
     const defaultMode =
       brandCollection.modes?.find(
         (mode) =>
-          mode.name === DEFAULT_FIGMA_MODENAME ||
+          mode.name === MODE_NAMES.DEFAULT ||
           mode.name === firstBrand ||
           mode.name === formattedFirstBrand
       );
@@ -341,8 +341,7 @@ async function updateSkinColorVariables(
     if (defaultMode) {
       if (
         defaultMode.name === firstBrand ||
-        defaultMode.name ===
-          DEFAULT_FIGMA_MODENAME
+        defaultMode.name === MODE_NAMES.DEFAULT
       ) {
         newData.variableModes.push({
           action: "UPDATE",
