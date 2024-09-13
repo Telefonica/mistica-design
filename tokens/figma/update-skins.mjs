@@ -1,12 +1,19 @@
-import fetch from "node-fetch";
 import {
   updateCollections,
   updateOrCreateVariables,
   updateOrCreateVariableModeValues,
-  COLLECTION_NAMES,
+} from "./utils/figma-utils.mjs";
+
+import {
   VARIABLE_TYPES,
+  COLLECTION_NAMES,
   MODE_NAMES,
-} from "./utils.mjs";
+} from "./utils/constants.mjs";
+
+import {
+  getFigmaData,
+  postFigmaVariables,
+} from "./utils/api-request.mjs";
 
 const collectionNames = [
   COLLECTION_NAMES.PALETTE,
@@ -19,18 +26,10 @@ async function updatePalette(
   FIGMA_TOKEN
 ) {
   try {
-    const response = await fetch(
-      `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`,
-      {
-        method: "GET",
-        headers: {
-          "X-Figma-Token": FIGMA_TOKEN,
-          "Content-Type": "application/json",
-        },
-      }
+    const figmaData = await getFigmaData(
+      FILE_KEY,
+      FIGMA_TOKEN
     );
-
-    const figmaData = await response.json();
 
     const existingVariables =
       figmaData.meta.variables;
@@ -127,22 +126,10 @@ async function postCollections(
       FIGMA_TOKEN
     );
 
-    const response = await fetch(
-      `https://api.figma.com/v1/files/${FILE_KEY}/variables/`,
-      {
-        method: "POST",
-        headers: {
-          "X-Figma-Token": FIGMA_TOKEN,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newData),
-      }
-    );
-
-    const data = await response.json();
-    console.log(
-      `Success creating collections for brand ${brand}:`,
-      data
+    await postFigmaVariables(
+      FILE_KEY,
+      FIGMA_TOKEN,
+      newData
     );
   } catch (error) {
     console.error(
@@ -166,22 +153,10 @@ async function postPalette(
       FIGMA_TOKEN
     );
 
-    const response = await fetch(
-      `https://api.figma.com/v1/files/${FILE_KEY}/variables/`,
-      {
-        method: "POST",
-        headers: {
-          "X-Figma-Token": FIGMA_TOKEN,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newData),
-      }
-    );
-
-    const data = await response.json();
-    console.log(
-      `Success updating palette for brand ${brand}:`,
-      data
+    await postFigmaVariables(
+      FILE_KEY,
+      FIGMA_TOKEN,
+      newData
     );
   } catch (error) {
     console.error(

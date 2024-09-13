@@ -6,11 +6,18 @@ import {
   updateOrCreateVariables,
   updateOrCreateVariableModeValues,
   hasDefaultMode,
-  generateTempModeId,
+} from "./utils/figma-utils.mjs";
+
+import {
   VARIABLE_TYPES,
   COLLECTION_NAMES,
   MODE_NAMES,
-} from "./utils.mjs";
+} from "./utils/constants.mjs";
+
+import {
+  getFigmaData,
+  postFigmaVariables,
+} from "./utils/api-request.mjs";
 
 function formatBrandName(brand) {
   // Check if the brand is "tu" and return it in uppercase
@@ -39,19 +46,10 @@ async function updateTheme(
   FIGMA_TOKEN
 ) {
   try {
-    // Fetch existing variables and collections from Figma
-    const response = await fetch(
-      `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`,
-      {
-        method: "GET",
-        headers: {
-          "X-Figma-Token": FIGMA_TOKEN,
-          "Content-Type": "application/json",
-        },
-      }
+    const figmaData = await getFigmaData(
+      FILE_KEY,
+      FIGMA_TOKEN
     );
-
-    const figmaData = await response.json();
     const existingVariables =
       figmaData.meta.variables;
     const existingCollections =
@@ -214,25 +212,11 @@ async function updateTheme(
     );
 
     // Update the variables and modes in Figma
-    const updateResponse = await fetch(
-      `https://api.figma.com/v1/files/${FILE_KEY}/variables`,
-      {
-        method: "POST",
-        headers: {
-          "X-Figma-Token": FIGMA_TOKEN,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newData),
-      }
+    await postFigmaVariables(
+      FILE_KEY,
+      FIGMA_TOKEN,
+      newData
     );
-
-    if (!updateResponse.ok) {
-      const errorText =
-        await updateResponse.text();
-      throw new Error(
-        `Error updating variables and modes: ${updateResponse.statusText}. Response: ${errorText}`
-      );
-    }
 
     return newData;
   } catch (error) {
@@ -247,19 +231,10 @@ async function updateSkinColorVariables(
   FIGMA_TOKEN
 ) {
   try {
-    // Step 1: Fetch existing data from "Mode" and "Brand" collections
-    const response = await fetch(
-      `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`,
-      {
-        method: "GET",
-        headers: {
-          "X-Figma-Token": FIGMA_TOKEN,
-          "Content-Type": "application/json",
-        },
-      }
+    const figmaData = await getFigmaData(
+      FILE_KEY,
+      FIGMA_TOKEN
     );
-
-    const figmaData = await response.json();
     const themeCollections =
       figmaData.meta.variableCollections;
 
@@ -428,25 +403,12 @@ async function updateSkinColorVariables(
     }
 
     // Step 9: Send the data to update the Brand collection (POST)
-    const updateResponse = await fetch(
-      `https://api.figma.com/v1/files/${FILE_KEY}/variables`,
-      {
-        method: "POST",
-        headers: {
-          "X-Figma-Token": FIGMA_TOKEN,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newData),
-      }
-    );
 
-    if (!updateResponse.ok) {
-      const errorText =
-        await updateResponse.text();
-      throw new Error(
-        `Error updating Brand collection: ${updateResponse.statusText}. Response: ${errorText}`
-      );
-    }
+    await postFigmaVariables(
+      FILE_KEY,
+      FIGMA_TOKEN,
+      newData
+    );
 
     return newData; // Returning newData for debugging
   } catch (error) {
@@ -461,18 +423,10 @@ async function updateSkinOtherVariables(
   FILE_KEY,
   FIGMA_TOKEN
 ) {
-  const response = await fetch(
-    `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`,
-    {
-      method: "GET",
-      headers: {
-        "X-Figma-Token": FIGMA_TOKEN,
-        "Content-Type": "application/json",
-      },
-    }
+  const figmaData = await getFigmaData(
+    FILE_KEY,
+    FIGMA_TOKEN
   );
-
-  const figmaData = await response.json();
   const existingVariables =
     figmaData.meta.variables;
   const existingCollections =
@@ -631,24 +585,12 @@ async function updateSkinOtherVariables(
   }
 
   // Make the POST request to update the variables and mode values in the Brand collection
-  const updateResponse = await fetch(
-    `https://api.figma.com/v1/files/${FILE_KEY}/variables`,
-    {
-      method: "POST",
-      headers: {
-        "X-Figma-Token": FIGMA_TOKEN,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newData),
-    }
-  );
 
-  if (!updateResponse.ok) {
-    const errorText = await updateResponse.text();
-    throw new Error(
-      `Error updating Brand collection: ${updateResponse.statusText}. Response: ${errorText}`
-    );
-  }
+  await postFigmaVariables(
+    FILE_KEY,
+    FIGMA_TOKEN,
+    newData
+  );
 
   return newData;
 }
@@ -670,22 +612,10 @@ async function postCollections(
       FIGMA_TOKEN
     );
 
-    const response = await fetch(
-      `https://api.figma.com/v1/files/${FILE_KEY}/variables/`,
-      {
-        method: "POST",
-        headers: {
-          "X-Figma-Token": FIGMA_TOKEN,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newData),
-      }
-    );
-
-    const data = await response.json();
-    console.log(
-      `Success creating collections for brand ${brand}:`,
-      data
+    await postFigmaVariables(
+      FILE_KEY,
+      FIGMA_TOKEN,
+      newData
     );
   } catch (error) {
     console.error(

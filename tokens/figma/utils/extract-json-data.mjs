@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { hexToRgba } from "./utils.mjs";
+import hexToRgba from "./hex-to-rgba.mjs";
 
 export const extractSkinJsonData = (
   jsonFiles,
