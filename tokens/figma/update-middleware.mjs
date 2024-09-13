@@ -590,6 +590,14 @@ async function updateSkinOtherVariables(
         hasAlias: false,
       },
       {
+        variables:
+          jsonData[brand]?.themeVariant || [],
+        collectionName: COLLECTION_NAMES.BRAND,
+        resolvedType: VARIABLE_TYPES.STRING,
+        variableScopes: ["ALL_SCOPES"],
+        hasAlias: false,
+      },
+      {
         variables: [
           {
             name: "fontFamily/fontFamily",

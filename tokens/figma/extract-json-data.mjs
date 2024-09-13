@@ -769,6 +769,14 @@ export const extractMiddlewareJsonData = (
       };
     });
 
+    const themeVariantArray = Object.keys(
+      parsedContent.themeVariant
+    ).map((key) => ({
+      name: `themeVariant/${key}`,
+      value:
+        parsedContent.themeVariant[key].value,
+    }));
+
     // Accumulate results
     accumulator[fileName] = {
       light: processColors(
@@ -786,6 +794,7 @@ export const extractMiddlewareJsonData = (
       fontWeight: fontWeightArray,
       fontSize: fontSizeArray,
       lineHeight: lineHeightArray,
+      themeVariant: themeVariantArray,
     };
 
     return accumulator;
