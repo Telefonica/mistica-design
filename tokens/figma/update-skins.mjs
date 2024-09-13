@@ -1,8 +1,11 @@
 import fetch from "node-fetch";
 import {
   updateCollections,
+  updateOrCreateVariable,
+  updateOrCreateVariableModeValues,
   COLLECTION_NAMES,
   VARIABLE_TYPES,
+  MODE_NAMES,
 } from "./utils.mjs";
 
 const collectionNames = [
@@ -41,158 +44,69 @@ async function updatePalette(
       variableModeValues: [],
     };
 
-    function findVariableInCollection(
-      variableName,
-      collectionName,
-      existingVariables,
-      existingCollections
-    ) {
-      return Object.values(
-        existingVariables
-      ).find((variable) => {
-        // Check if the variable name matches
-        if (variable.name !== variableName)
-          return false;
-
-        // Find the collection in existingCollections using variableCollectionId
-        const collection = Object.values(
-          existingCollections
-        ).find(
-          (col) =>
-            col.id ===
-            variable.variableCollectionId
-        );
-
-        // Check if the collection exists, its name matches the collectionName,
-        // and if the variable's id is listed in the collection's variableIds
-        return (
-          collection &&
-          collection.name === collectionName &&
-          collection.variableIds.includes(
-            variable.id
-          )
-        );
-      });
-    }
-
-    function generateTempId(name, collection) {
-      return `tempId_${collection}_${name}`;
-    }
-
-    const allVariableNamesInCurrentData =
-      new Set();
-
-    function updateVariables(
-      variableName,
-      variableValue,
-      collectionName,
-      existingVariables,
-      existingCollections,
-      variableType,
-      variableScopes,
-      allVariableNamesInCurrentData
-    ) {
-      // Find the existing variable by name
-      const existingVariable =
-        findVariableInCollection(
-          variableName,
-          collectionName,
-          existingVariables,
-          existingCollections
-        );
-
-      // Find the default mode for the collection
-
-      const existingMode = Object.values(
-        existingCollections
-      ).find(
-        (collection) =>
-          collection.name === collectionName
-      ).defaultModeId;
-
-      if (existingVariable) {
-        // If the variable exists, update it
-        newData.variables.push({
-          action: "UPDATE",
-          id: existingVariable.id,
-          name: variableName,
-          resolvedType: variableType,
-          variableCollectionId:
-            existingVariable.variableCollectionId,
-          scopes: variableScopes,
-        });
-
-        newData.variableModeValues.push({
-          action: "UPDATE",
-          variableId: existingVariable.id,
-          modeId: existingMode,
-          value: variableValue,
-        });
-      } else {
-        const tempId = generateTempId(
-          variableName,
-          collectionName
-        );
-
-        const collectionId = Object.values(
-          existingCollections
-        ).find(
-          (collection) =>
-            collection.name === collectionName
-        ).id;
-
-        newData.variables.push({
-          action: "CREATE",
-          id: tempId,
-          name: variableName,
-          variableCollectionId: collectionId,
-          resolvedType: variableType,
-          scopes: variableScopes,
-        });
-
-        newData.variableModeValues.push({
-          action: "CREATE",
-          variableId: tempId,
-          modeId: existingMode,
-          value: variableValue,
-        });
-
-        allVariableNamesInCurrentData.add(
-          variableName
-        );
-      }
-    }
-
     const variableGroups = [
       {
         variables: jsonData[brand].palette,
         collectionName: COLLECTION_NAMES.PALETTE,
         resolvedType: VARIABLE_TYPES.COLOR,
         variableScopes: ["ALL_SCOPES"],
+        hasAlias: false,
       },
     ];
 
-    variableGroups.forEach(
-      ({
+    for (const group of variableGroups) {
+      const {
         variables,
         collectionName,
         resolvedType,
         variableScopes,
-      }) => {
-        variables.forEach((variable) => {
-          updateVariables(
-            variable.name,
-            variable.value,
-            collectionName,
-            existingVariables,
-            existingCollections,
-            resolvedType,
-            variableScopes,
-            allVariableNamesInCurrentData
-          );
-        });
+        hasAlias,
+      } = group;
+
+      for (const variable of variables) {
+        // Update or create the variable in the collection
+        const variableUpdateResult =
+          await updateOrCreateVariable({
+            variable: {
+              ...variable,
+              resolvedType: resolvedType,
+              scopes: variableScopes,
+              hasAlias: hasAlias,
+            },
+            targetCollectionName: collectionName,
+            existingVariables: existingVariables,
+            existingCollections:
+              existingCollections,
+          });
+
+        if (!newData.variables) {
+          newData.variables = [];
+        }
+        newData.variables.push(
+          variableUpdateResult
+        );
+
+        // Find the mode for the current brand and set the mode values correctly
+        const variableModeValuesUpdatedResult =
+          await updateOrCreateVariableModeValues({
+            variable: {
+              ...variable,
+              resolvedType: resolvedType,
+              scopes: variableScopes,
+              hasAlias: hasAlias,
+            },
+            targetModeName: MODE_NAMES.DEFAULT,
+            targetCollectionName: collectionName,
+            existingCollections:
+              existingCollections,
+            existingVariables: existingVariables,
+          });
+
+        newData.variableModeValues.push(
+          variableModeValuesUpdatedResult
+        );
       }
-    );
+    }
 
     return newData;
   } catch (error) {
