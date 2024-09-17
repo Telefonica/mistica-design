@@ -25,7 +25,14 @@ export const ICON_SETS = {
   [BRANDS.TU]: "Default",
 };
 
-export const BRAND_NAMES = Object.values(BRANDS);
+export const BRAND_NAMES = {
+  [BRANDS.MOVISTAR]: "Movistar",
+  [BRANDS.VIVO_NEW]: "Vivo",
+  [BRANDS.O2_NEW]: "O2",
+  [BRANDS.TELEFONICA]: "Telefónica",
+  [BRANDS.BLAU]: "Blau",
+  [BRANDS.TU]: "TU",
+};
 
 export const getPaletteVariables = (
   jsonData,
@@ -122,7 +129,7 @@ export const getNonColorVariables = (
       },
       {
         name: "utils/brandName",
-        value: formatBrandName(brand),
+        value: BRAND_NAMES[brand],
       },
     ],
     collectionName: COLLECTION_NAMES.SKIN,
