@@ -5,6 +5,8 @@ import {
   VARIABLE_SCOPES,
 } from "./utils/constants.mjs";
 
+import formatBrandName from "./utils/format-brand-name.mjs";
+
 export const FONT_FAMILIES = {
   [BRANDS.MOVISTAR]: "On Air",
   [BRANDS.VIVO_NEW]: "Vivo Type",
@@ -23,6 +25,8 @@ export const ICON_SETS = {
   [BRANDS.TU]: "Default",
 };
 
+export const BRAND_NAMES = Object.values(BRANDS);
+
 export const getPaletteVariables = (
   jsonData,
   brand
@@ -35,7 +39,6 @@ export const getPaletteVariables = (
     hasAlias: false,
   },
 ];
-
 
 export const getConstantVariables = (
   jsonData,
@@ -114,8 +117,12 @@ export const getNonColorVariables = (
   {
     variables: [
       {
-        name: "icons/iconSet",
+        name: "utils/iconSet",
         value: ICON_SETS[brand],
+      },
+      {
+        name: "utils/brandName",
+        value: formatBrandName(brand),
       },
     ],
     collectionName: COLLECTION_NAMES.SKIN,
