@@ -332,10 +332,19 @@ async function updateBrandCollection(
       variableName,
       brandMap,
     ] of variableToBrandMap) {
+      // Return empty scopes in gradient variables, since they already have a style
+      let scopes = [VARIABLE_SCOPES.ALL_SCOPES];
+
+      const stopRegex = /-stop-\d+$/;
+
+      if (stopRegex.test(variableName)) {
+        scopes = [];
+      }
+
       const variable = {
         name: variableName,
         resolvedType: VARIABLE_TYPES.COLOR,
-        scopes: [VARIABLE_SCOPES.ALL_SCOPES],
+        scopes: scopes,
         targetCollectionName:
           COLLECTION_NAMES.SKIN,
       };
