@@ -77,6 +77,7 @@ export const getNonColorVariables = (
     resolvedType: VARIABLE_TYPES.FLOAT,
     variableScopes: [
       VARIABLE_SCOPES.CORNER_RADIUS,
+      VARIABLE_SCOPES.TEXT_CONTENT,
     ],
     hasAlias: false,
   },
@@ -84,21 +85,30 @@ export const getNonColorVariables = (
     variables: jsonData[brand]?.fontWeight || [],
     collectionName: COLLECTION_NAMES.SKIN,
     resolvedType: VARIABLE_TYPES.STRING,
-    variableScopes: [VARIABLE_SCOPES.FONT_WEIGHT],
+    variableScopes: [
+      VARIABLE_SCOPES.FONT_WEIGHT,
+      VARIABLE_SCOPES.TEXT_CONTENT,
+    ],
     hasAlias: false,
   },
   {
     variables: jsonData[brand]?.fontSize || [],
     collectionName: COLLECTION_NAMES.SKIN,
     resolvedType: VARIABLE_TYPES.FLOAT,
-    variableScopes: [VARIABLE_SCOPES.FONT_SIZE],
+    variableScopes: [
+      VARIABLE_SCOPES.FONT_SIZE,
+      VARIABLE_SCOPES.TEXT_CONTENT,
+    ],
     hasAlias: false,
   },
   {
     variables: jsonData[brand]?.lineHeight || [],
     collectionName: COLLECTION_NAMES.SKIN,
     resolvedType: VARIABLE_TYPES.FLOAT,
-    variableScopes: [VARIABLE_SCOPES.LINE_HEIGHT],
+    variableScopes: [
+      VARIABLE_SCOPES.LINE_HEIGHT,
+      VARIABLE_SCOPES.TEXT_CONTENT,
+    ],
     hasAlias: false,
   },
   {
@@ -118,7 +128,10 @@ export const getNonColorVariables = (
     ],
     collectionName: COLLECTION_NAMES.SKIN,
     resolvedType: VARIABLE_TYPES.STRING,
-    variableScopes: [VARIABLE_SCOPES.FONT_FAMILY],
+    variableScopes: [
+      VARIABLE_SCOPES.FONT_FAMILY,
+      VARIABLE_SCOPES.TEXT_CONTENT,
+    ],
     hasAlias: false,
   },
   {
