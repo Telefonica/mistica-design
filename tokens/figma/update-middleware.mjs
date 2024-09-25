@@ -28,13 +28,11 @@ import formatBrandName from "./utils/format-brand-name.mjs";
 async function updateModeCollection(
   jsonData,
   brand,
-  FILE_KEY,
-  FIGMA_TOKEN
+  FILE_KEY
 ) {
   try {
     const figmaData = await getFigmaData(
-      FILE_KEY,
-      FIGMA_TOKEN
+      FILE_KEY
     );
     const existingVariables =
       figmaData.meta.variables;
@@ -193,11 +191,7 @@ async function updateModeCollection(
     }
 
     // Update the variables and modes in Figma
-    await postFigmaVariables(
-      FILE_KEY,
-      FIGMA_TOKEN,
-      newData
-    );
+    await postFigmaVariables(FILE_KEY, newData);
 
     return newData;
   } catch (error) {
@@ -209,15 +203,13 @@ async function updateModeCollection(
 async function updateBrandCollection(
   jsonData,
   brands,
-  FILE_KEY,
-  FIGMA_TOKEN
+  FILE_KEY
 ) {
   try {
     // Step 1: Fetch the existing data from Figma
 
     const figmaData = await getFigmaData(
-      FILE_KEY,
-      FIGMA_TOKEN
+      FILE_KEY
     );
     const existingCollections =
       figmaData.meta.variableCollections;
@@ -473,11 +465,7 @@ async function updateBrandCollection(
 
     // Step 9: Send the data to update the Brand collection (POST)
 
-    await postFigmaVariables(
-      FILE_KEY,
-      FIGMA_TOKEN,
-      newData
-    );
+    await postFigmaVariables(FILE_KEY, newData);
 
     return newData; // Returning newData for debugging
   } catch (error) {
@@ -486,11 +474,7 @@ async function updateBrandCollection(
   }
 }
 
-async function postCollections(
-  brand,
-  FILE_KEY,
-  FIGMA_TOKEN
-) {
+async function postCollections(brand, FILE_KEY) {
   const collectionNames = [
     COLLECTION_NAMES.SKIN,
     COLLECTION_NAMES.COLOR_SCHEME,
@@ -499,15 +483,10 @@ async function postCollections(
   try {
     const newData = await updateCollections(
       collectionNames,
-      FILE_KEY,
-      FIGMA_TOKEN
+      FILE_KEY
     );
 
-    await postFigmaVariables(
-      FILE_KEY,
-      FIGMA_TOKEN,
-      newData
-    );
+    await postFigmaVariables(FILE_KEY, newData);
   } catch (error) {
     console.error(
       `Error creating collections for brand ${brand}:`,
@@ -519,54 +498,39 @@ async function postCollections(
 async function processBrand(
   jsonData,
   brand,
-  FILE_KEY,
-  FIGMA_TOKEN
+  FILE_KEY
 ) {
-  await postCollections(
-    brand,
-    FILE_KEY,
-    FIGMA_TOKEN
-  );
+  await postCollections(brand, FILE_KEY);
   await updateModeCollection(
     jsonData,
     brand,
-    FILE_KEY,
-    FIGMA_TOKEN
+    FILE_KEY
   );
 }
 
 async function processAllBrands(
   jsonData,
   brands,
-  FILE_KEY,
-  FIGMA_TOKEN
+  FILE_KEY
 ) {
   for (const brand of brands) {
-    await processBrand(
-      jsonData,
-      brand,
-      FILE_KEY,
-      FIGMA_TOKEN
-    );
+    await processBrand(jsonData, brand, FILE_KEY);
   }
 }
 
 export async function updateMiddleware(
   jsonData,
   brands,
-  FILE_KEY,
-  FIGMA_TOKEN
+  FILE_KEY
 ) {
   await processAllBrands(
     jsonData,
     brands,
-    FILE_KEY,
-    FIGMA_TOKEN
+    FILE_KEY
   );
   await updateBrandCollection(
     jsonData,
     brands,
-    FILE_KEY,
-    FIGMA_TOKEN
+    FILE_KEY
   );
 }

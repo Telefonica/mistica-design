@@ -1,9 +1,11 @@
 import fetch from "node-fetch";
+import dotenv from "dotenv";
 
-async function getFigmaData(
-  FILE_KEY,
-  FIGMA_TOKEN
-) {
+dotenv.config({ path: "../../.env" });
+
+const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
+
+async function getFigmaData(FILE_KEY) {
   const response = await fetch(
     `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`,
     {
@@ -19,12 +21,11 @@ async function getFigmaData(
       `Error fetching Figma data: ${response.statusText}`
     );
   }
-  return response.json();
+  return await response.json();
 }
 
 async function postFigmaVariables(
   FILE_KEY,
-  FIGMA_TOKEN,
   newData
 ) {
   const response = await fetch(
@@ -44,7 +45,7 @@ async function postFigmaVariables(
       `Error updating variables: ${response.statusText}. Response: ${errorText}`
     );
   }
-  return response.json();
+  return await response.json();
 }
 
 export { getFigmaData, postFigmaVariables };

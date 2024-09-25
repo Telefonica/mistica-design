@@ -1,4 +1,5 @@
 import { MODE_NAMES } from "./constants.mjs";
+import { getFigmaData } from "./api-request.mjs";
 
 export function generateTempModeId(
   targetMode,
@@ -35,22 +36,12 @@ export function hasDefaultMode(
 
 export async function updateCollections(
   collections,
-  FILE_KEY,
-  FIGMA_TOKEN
+  FILE_KEY
 ) {
   try {
-    const response = await fetch(
-      `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`,
-      {
-        method: "GET",
-        headers: {
-          "X-Figma-Token": FIGMA_TOKEN,
-          "Content-Type": "application/json",
-        },
-      }
+    const figmaData = await getFigmaData(
+      FILE_KEY
     );
-
-    const figmaData = await response.json();
 
     const newData = {
       variableCollections: [],

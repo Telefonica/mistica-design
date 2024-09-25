@@ -5,7 +5,6 @@ import {
 } from "./utils/figma-utils.mjs";
 
 import {
-  VARIABLE_TYPES,
   COLLECTION_NAMES,
   MODE_NAMES,
 } from "./utils/constants.mjs";
@@ -24,13 +23,11 @@ const collectionNames = [
 async function updatePalette(
   jsonData,
   brand,
-  FILE_KEY,
-  FIGMA_TOKEN
+  FILE_KEY
 ) {
   try {
     const figmaData = await getFigmaData(
-      FILE_KEY,
-      FIGMA_TOKEN
+      FILE_KEY
     );
 
     const existingVariables =
@@ -75,9 +72,6 @@ async function updatePalette(
               existingCollections,
           });
 
-        if (!newData.variables) {
-          newData.variables = [];
-        }
         newData.variables.push(
           variablesUpdateResult
         );
@@ -111,23 +105,14 @@ async function updatePalette(
   }
 }
 
-async function postCollections(
-  brand,
-  FILE_KEY,
-  FIGMA_TOKEN
-) {
+async function postCollections(brand, FILE_KEY) {
   try {
     const newData = await updateCollections(
       collectionNames,
-      FILE_KEY,
-      FIGMA_TOKEN
+      FILE_KEY
     );
 
-    await postFigmaVariables(
-      FILE_KEY,
-      FIGMA_TOKEN,
-      newData
-    );
+    await postFigmaVariables(FILE_KEY, newData);
   } catch (error) {
     console.error(
       `Error creating collections for for brand ${brand}:`,
@@ -139,22 +124,16 @@ async function postCollections(
 async function postPalette(
   jsonData,
   brand,
-  FILE_KEY,
-  FIGMA_TOKEN
+  FILE_KEY
 ) {
   try {
     const newData = await updatePalette(
       jsonData,
       brand,
-      FILE_KEY,
-      FIGMA_TOKEN
+      FILE_KEY
     );
 
-    await postFigmaVariables(
-      FILE_KEY,
-      FIGMA_TOKEN,
-      newData
-    );
+    await postFigmaVariables(FILE_KEY, newData);
   } catch (error) {
     console.error(
       `Error updating palette for brand ${brand}:`,
@@ -168,35 +147,19 @@ async function postPalette(
 async function processBrand(
   jsonData,
   brand,
-  FILE_KEY,
-  FIGMA_TOKEN
+  FILE_KEY
 ) {
-  await postCollections(
-    brand,
-    FILE_KEY,
-    FIGMA_TOKEN
-  );
-  await postPalette(
-    jsonData,
-    brand,
-    FILE_KEY,
-    FIGMA_TOKEN
-  );
+  await postCollections(brand, FILE_KEY);
+  await postPalette(jsonData, brand, FILE_KEY);
 }
 
 export async function updateSkinFiles(
   jsonData,
-  brands,
-  FIGMA_TOKEN
+  brands
 ) {
   for (const [brand, FILE_KEY] of Object.entries(
     brands
   )) {
-    await processBrand(
-      jsonData,
-      brand,
-      FILE_KEY,
-      FIGMA_TOKEN
-    );
+    await processBrand(jsonData, brand, FILE_KEY);
   }
 }
