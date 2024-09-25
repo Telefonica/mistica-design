@@ -16,6 +16,7 @@ This project is designed to update Figma variables based on a JSON input, primar
 
 - `FIGMA_TOKEN`: The API token to authenticate with Figma.
 - `MIDDLEWARE_KEY`: Token for file where the variables need to be created / updated
+- `{BRAND}_FILE_KEY`: File key of each of the brand library files
 
 ### Dependencies:
 

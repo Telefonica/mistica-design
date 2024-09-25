@@ -33,12 +33,19 @@ const jsonDataForMiddleware =
   );
 
 const MIDDLEWARE_TOKEN =
-  process.env.MIDDLEWARE_TEST;
+  process.env.MIDDLEWARE_KEY;
 
 const brands = {
   // Remember to sync these with the workflow file
-  [BRANDS.MOVISTAR]: process.env.FILE_KEY_1,
-  [BRANDS.O2_NEW]: process.env.FILE_KEY_2,
+  [BRANDS.MOVISTAR]:
+    process.env.MOVISTAR_FILE_KEY,
+  [BRANDS.O2_NEW]: process.env.O2_NEW_FILE_KEY,
+  [BRANDS.VIVO_NEW]:
+    process.env.VIVO_NEW_FILE_KEY,
+  [BRANDS.TELEFONICA]:
+    process.env.TELEFONICA_FILE_KEY,
+  [BRANDS.BLAU]: process.env.BLAU_FILE_KEY,
+  [BRANDS.TU]: process.env.TU_FILE_KEY,
 };
 
 const brandNames = Object.keys(brands);
