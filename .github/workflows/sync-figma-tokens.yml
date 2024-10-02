@@ -1,6 +1,7 @@
 name: Sync tokens to Figma
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - production
