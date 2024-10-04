@@ -16,6 +16,8 @@ import {
 
 import { getPaletteVariables } from "./variables.mjs";
 
+import { brands } from "./config.mjs";
+
 const collectionNames = [
   COLLECTION_NAMES.PALETTE,
 ];
@@ -144,22 +146,14 @@ async function postPalette(
 
 // Process data for a specific brand
 
-async function processBrand(
-  jsonData,
-  brand,
-  FILE_KEY
-) {
+async function processBrand(jsonData, brand) {
+  const FILE_KEY = brands[brand];
   await postCollections(brand, FILE_KEY);
   await postPalette(jsonData, brand, FILE_KEY);
 }
 
-export async function updateSkinFiles(
-  jsonData,
-  brands
-) {
-  for (const [brand, FILE_KEY] of Object.entries(
-    brands
-  )) {
-    await processBrand(jsonData, brand, FILE_KEY);
+export async function updateSkinFiles(jsonData) {
+  for (const brand of Object.keys(brands)) {
+    await processBrand(jsonData, brand);
   }
 }

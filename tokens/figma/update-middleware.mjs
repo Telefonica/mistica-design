@@ -25,14 +25,18 @@ import {
 
 import formatBrandName from "./utils/format-brand-name.mjs";
 
+import { brands } from "./config.mjs";
+import { MIDDLEWARE_TOKEN } from "./config.mjs";
+
+const brandNames = Object.keys(brands);
+
 async function updateModeCollection(
   jsonData,
-  brand,
-  FILE_KEY
+  brand
 ) {
   try {
     const figmaData = await getFigmaData(
-      FILE_KEY
+      MIDDLEWARE_TOKEN
     );
     const existingVariables =
       figmaData.meta.variables;
@@ -191,7 +195,10 @@ async function updateModeCollection(
     }
 
     // Update the variables and modes in Figma
-    await postFigmaVariables(FILE_KEY, newData);
+    await postFigmaVariables(
+      MIDDLEWARE_TOKEN,
+      newData
+    );
 
     return newData;
   } catch (error) {
@@ -200,16 +207,12 @@ async function updateModeCollection(
   }
 }
 
-async function updateBrandCollection(
-  jsonData,
-  brands,
-  FILE_KEY
-) {
+async function updateBrandCollection(jsonData) {
   try {
     // Step 1: Fetch the existing data from Figma
 
     const figmaData = await getFigmaData(
-      FILE_KEY
+      MIDDLEWARE_TOKEN
     );
     const existingCollections =
       figmaData.meta.variableCollections;
@@ -261,7 +264,7 @@ async function updateBrandCollection(
 
     // Step 5: Create or update modes based on the brands
 
-    const firstBrand = brands[0];
+    const firstBrand = brandNames[0];
 
     const firstModeResult =
       await updateOrCreateModes({
@@ -276,7 +279,7 @@ async function updateBrandCollection(
 
     newData.variableModes.push(firstModeResult);
 
-    brands.slice(1).forEach(async (brand) => {
+    brandNames.slice(1).forEach(async (brand) => {
       const formattedBrand =
         formatBrandName(brand);
 
@@ -355,7 +358,7 @@ async function updateBrandCollection(
       newData.variables.push(variableData);
 
       // Step 8: Update mode values with the correct aliases for each brand
-      for (const brand of brands) {
+      for (const brand of brandNames) {
         const formattedBrand =
           formatBrandName(brand);
 
@@ -372,7 +375,7 @@ async function updateBrandCollection(
               hasDefaultMode(
                 COLLECTION_NAMES.SKIN,
                 existingCollections
-              ) && brand === brands[0]
+              ) && brand === brandNames[0]
                 ? MODE_NAMES.DEFAULT
                 : formattedBrand,
             targetCollectionName:
@@ -392,7 +395,7 @@ async function updateBrandCollection(
     }
 
     // Loop through each brand to process its specific tokens
-    for (const brand of brands) {
+    for (const brand of brandNames) {
       const nonColorVariables =
         getNonColorVariables(jsonData, brand);
 
@@ -444,7 +447,7 @@ async function updateBrandCollection(
                   hasDefaultMode(
                     collectionName,
                     existingCollections
-                  ) && brand === brands[0]
+                  ) && brand === brandNames[0]
                     ? MODE_NAMES.DEFAULT
                     : formatBrandName(brand),
                 targetCollectionName:
@@ -465,7 +468,10 @@ async function updateBrandCollection(
 
     // Step 9: Send the data to update the Brand collection (POST)
 
-    await postFigmaVariables(FILE_KEY, newData);
+    await postFigmaVariables(
+      MIDDLEWARE_TOKEN,
+      newData
+    );
 
     return newData; // Returning newData for debugging
   } catch (error) {
@@ -474,7 +480,7 @@ async function updateBrandCollection(
   }
 }
 
-async function postCollections(brand, FILE_KEY) {
+async function postCollections(brand) {
   const collectionNames = [
     COLLECTION_NAMES.SKIN,
     COLLECTION_NAMES.COLOR_SCHEME,
@@ -483,10 +489,13 @@ async function postCollections(brand, FILE_KEY) {
   try {
     const newData = await updateCollections(
       collectionNames,
-      FILE_KEY
+      MIDDLEWARE_TOKEN
     );
 
-    await postFigmaVariables(FILE_KEY, newData);
+    await postFigmaVariables(
+      MIDDLEWARE_TOKEN,
+      newData
+    );
   } catch (error) {
     console.error(
       `Error creating collections for brand ${brand}:`,
@@ -495,42 +504,18 @@ async function postCollections(brand, FILE_KEY) {
   }
 }
 
-async function processBrand(
-  jsonData,
-  brand,
-  FILE_KEY
-) {
-  await postCollections(brand, FILE_KEY);
-  await updateModeCollection(
-    jsonData,
-    brand,
-    FILE_KEY
-  );
+async function processBrand(jsonData, brand) {
+  await postCollections(brand);
+  await updateModeCollection(jsonData, brand);
 }
 
-async function processAllBrands(
-  jsonData,
-  brands,
-  FILE_KEY
-) {
-  for (const brand of brands) {
-    await processBrand(jsonData, brand, FILE_KEY);
+async function processAllBrands(jsonData) {
+  for (const brand of brandNames) {
+    await processBrand(jsonData, brand);
   }
 }
 
-export async function updateMiddleware(
-  jsonData,
-  brands,
-  FILE_KEY
-) {
-  await processAllBrands(
-    jsonData,
-    brands,
-    FILE_KEY
-  );
-  await updateBrandCollection(
-    jsonData,
-    brands,
-    FILE_KEY
-  );
+export async function updateMiddleware(jsonData) {
+  await processAllBrands(jsonData);
+  await updateBrandCollection(jsonData);
 }

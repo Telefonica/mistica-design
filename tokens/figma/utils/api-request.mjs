@@ -1,9 +1,6 @@
 import fetch from "node-fetch";
-import dotenv from "dotenv";
 
-dotenv.config({ path: "../../.env" });
-
-const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
+import { FIGMA_TOKEN } from "../config.mjs";
 
 async function getFigmaData(FILE_KEY) {
   const response = await fetch(
