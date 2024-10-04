@@ -15,8 +15,6 @@ This project is designed to update Figma variables based on a JSON input, primar
 ### Environment variables:
 
 - `FIGMA_TOKEN`: The API token to authenticate with Figma.
-- `MIDDLEWARE_KEY`: Token for file where the variables need to be created / updated
-- `{BRAND}_FILE_KEY`: File key of each of the brand library files
 
 ### Dependencies:
 
@@ -24,28 +22,22 @@ This project is designed to update Figma variables based on a JSON input, primar
 
 ## Key functions
 
-### `updateTheme(jsonData, brand, FILE_KEY)`
+### `updateModeCollection(jsonData, brand)`
 
-This function updates the theme variables in Figma for a specific brand. It:
+This function updates the color-scheme variables in Figma for a specific brand. It:
 
 - Fetches the current variables from Figma.
-- Updates modes and variables for `"Light"` and `"Dark"` themes.
+- Updates modes and variables for `"Light"` and `"Dark"` color-schemes.
 - Sends a POST request to update Figma with the new data.
 
-### `updateSkinColorVariables(brands, FILE_KEY)`
+### `updateBrandCollection(jsonData)`
 
 This function focuses on updating color variables in the "Brand" collection. It:
 
 - Maps color variables from the "Mode" collection to the "Brand" collection.
+- Adds non-color variables for each brand.
 - Creates or updates modes for each brand.
 - Ensures proper aliasing of variables between collections.
-
-### `updateSkinOtherVariables(jsonData, brands, FILE_KEY)`
-
-This function updates non-color variables, such as font families and icon sets, for each brand. It:
-
-- Handles specific design tokens like radius, font weight, and line height.
-- Adds brand-specific font families and icons.
 
 ## Usage
 
