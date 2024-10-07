@@ -1,0 +1,140 @@
+{
+  "global": {
+    "radius": {
+      "additionalProperties": false,
+      "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "input", "legacyDisplay", "popup", "sheet"],
+      "properties": {
+        "avatar": { "$ref": "#/definitions/radiusProperties" },
+        "bar": { "$ref": "#/definitions/radiusProperties" },
+        "button": { "$ref": "#/definitions/radiusProperties" },
+        "checkbox": { "$ref": "#/definitions/radiusProperties" },
+        "container": { "$ref": "#/definitions/radiusProperties" },
+        "indicator": { "$ref": "#/definitions/radiusProperties" },
+        "input": { "$ref": "#/definitions/radiusProperties" },
+        "legacyDisplay": { "$ref": "#/definitions/radiusProperties" },
+        "popup": { "$ref": "#/definitions/radiusProperties" },
+        "sheet": { "$ref": "#/definitions/radiusProperties" },
+        "mediaSmall": { "$ref": "#/definitions/radiusProperties" }
+      }
+    },
+    "weight": {
+      "additionalProperties": false,
+      "properties": {
+        "cardTitle": { "$ref": "#/definitions/weightProperties" },
+        "button": { "$ref": "#/definitions/weightProperties" },
+        "tabsLabel": { "$ref": "#/definitions/weightProperties" },
+        "link": { "$ref": "#/definitions/weightProperties" },
+        "indicator": { "$ref": "#/definitions/weightProperties" },
+        "navigationBar": { "$ref": "#/definitions/weightProperties" },
+        "title1": { "$ref": "#/definitions/weightProperties" },
+        "title2": { "$ref": "#/definitions/weightProperties" },
+        "text5": { "$ref": "#/definitions/weightProperties" },
+        "text6": { "$ref": "#/definitions/weightProperties" },
+        "text7": { "$ref": "#/definitions/weightProperties" },
+        "text8": { "$ref": "#/definitions/weightProperties" },
+        "text9": { "$ref": "#/definitions/weightProperties" },
+        "text10": { "$ref": "#/definitions/weightProperties" }
+      }
+    },
+    "size": {
+      "additionalProperties": false,
+      "properties": {
+        "tabsLabel": { "$ref": "#/definitions/sizeProperties" },
+        "title2": { "$ref": "#/definitions/sizeProperties" }
+      }
+    },
+    "lineHeight": {
+      "additionalProperties": false,
+      "properties": {
+        "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" },
+        "title2": { "$ref": "#/definitions/lineHeightProperties" }
+      }
+    }
+  },
+  "definitions": {
+    "comment": "Aquí se define el formato de un color o de una constante.",
+    "paletteProperties": {
+      "patternProperties": {
+        "value": {
+          "type": "string",
+          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+        },
+        "type": {
+          "const": "color"
+        }
+      },
+      "required": ["value", "type"]
+    },
+    "radiusProperties": {
+      "patternProperties": {
+        "value": {
+          "type": "string",
+          "pattern": "^(0|2|4|8|12|16|circle|999|(0|4|8|12|16) (0|4|8|12|16) (0|4|8|12|16) (0|4|8|12|16))$"
+        },
+        "type": {
+          "const": "borderRadius"
+        }
+      },
+      "required": ["value", "type"],
+      "additionalProperties": false
+    },
+    "weightProperties": {
+      "patternProperties": {
+        "value": {
+          "type": "string",
+          "pattern": "^(light|regular|medium|bold)+$"
+        },
+        "type": {
+          "const": "typography"
+        }
+      },
+      "required": ["value", "type"]
+    },
+    "sizeProperties": {
+      "type": "object",
+      "patternProperties": {
+        "value": {
+          "type": "object",
+          "properties": {
+            "desktop": {
+              "type": "number",
+              "enum": [16, 18, 20, 28]
+            },
+            "mobile": {
+              "type": "number",
+              "enum": [16, 18, 20, 24, 28]
+            }
+          },
+          "required": ["desktop", "mobile"]
+        },
+        "type": {
+          "const": "typography"
+        }
+      },
+      "required": ["value", "type"]
+    },
+    "lineHeightProperties": {
+      "type": "object",
+      "patternProperties": {
+        "value": {
+          "type": "object",
+          "properties": {
+            "desktop": {
+              "type": "number",
+              "enum": [24, 28, 32]
+            },
+            "mobile": {
+              "type": "number",
+              "enum": [24]
+            }
+          },
+          "required": ["desktop", "mobile"]
+        },
+        "type": {
+          "const": "typography"
+        }
+      },
+      "required": ["value", "type"]
+    }
+  }
+}
