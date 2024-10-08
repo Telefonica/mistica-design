@@ -25,10 +25,12 @@ import {
 
 import formatBrandName from "./utils/format-brand-name.mjs";
 
-import { brands } from "./config.mjs";
-import { MIDDLEWARE_TOKEN } from "./config.mjs";
+import {
+  BRAND_KEY,
+  MIDDLEWARE_KEY,
+} from "./config.mjs";
 
-const brandNames = Object.keys(brands);
+const brandNames = Object.keys(BRAND_KEY);
 
 async function updateModeCollection(
   jsonData,
@@ -36,7 +38,7 @@ async function updateModeCollection(
 ) {
   try {
     const figmaData = await getFigmaData(
-      MIDDLEWARE_TOKEN
+      MIDDLEWARE_KEY
     );
     const existingVariables =
       figmaData.meta.variables;
@@ -196,7 +198,7 @@ async function updateModeCollection(
 
     // Update the variables and modes in Figma
     await postFigmaVariables(
-      MIDDLEWARE_TOKEN,
+      MIDDLEWARE_KEY,
       newData
     );
 
@@ -212,7 +214,7 @@ async function updateBrandCollection(jsonData) {
     // Step 1: Fetch the existing data from Figma
 
     const figmaData = await getFigmaData(
-      MIDDLEWARE_TOKEN
+      MIDDLEWARE_KEY
     );
     const existingCollections =
       figmaData.meta.variableCollections;
@@ -469,7 +471,7 @@ async function updateBrandCollection(jsonData) {
     // Step 9: Send the data to update the Brand collection (POST)
 
     await postFigmaVariables(
-      MIDDLEWARE_TOKEN,
+      MIDDLEWARE_KEY,
       newData
     );
 
@@ -489,11 +491,11 @@ async function postCollections(brand) {
   try {
     const newData = await updateCollections(
       collectionNames,
-      MIDDLEWARE_TOKEN
+      MIDDLEWARE_KEY
     );
 
     await postFigmaVariables(
-      MIDDLEWARE_TOKEN,
+      MIDDLEWARE_KEY,
       newData
     );
   } catch (error) {

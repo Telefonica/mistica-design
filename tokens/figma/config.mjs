@@ -4,7 +4,7 @@ dotenv.config({ path: "../../.env" });
 
 import { BRANDS } from "./utils/constants.mjs";
 
-export const brands = {
+export const BRAND_KEY = {
   [BRANDS.MOVISTAR]: "ObNHOLPtrIytjy9BH7M9jW",
   [BRANDS.O2_NEW]: "CjvgrHEIycSQ6exznxnFXT",
   [BRANDS.VIVO_NEW]: "EApRpjaTyUOwW5VQU2ZqgP",
@@ -13,7 +13,7 @@ export const brands = {
   [BRANDS.TU]: "19IXMaFqdYeC1IIdTwXBgY",
 };
 
-export const MIDDLEWARE_TOKEN =
+export const MIDDLEWARE_KEY =
   "w7fBxCsEb8WrMVVuxDnCQd";
 
 export const FIGMA_TOKEN =

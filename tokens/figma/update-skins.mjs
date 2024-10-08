@@ -16,17 +16,14 @@ import {
 
 import { getPaletteVariables } from "./variables.mjs";
 
-import { brands } from "./config.mjs";
+import { BRAND_KEY } from "./config.mjs";
 
 const collectionNames = [
   COLLECTION_NAMES.PALETTE,
 ];
 
-async function updatePalette(
-  jsonData,
-  brand,
-  FILE_KEY
-) {
+async function updatePalette(jsonData, brand) {
+  const FILE_KEY = BRAND_KEY[brand];
   try {
     const figmaData = await getFigmaData(
       FILE_KEY
@@ -107,7 +104,9 @@ async function updatePalette(
   }
 }
 
-async function postCollections(brand, FILE_KEY) {
+async function postCollections(brand) {
+  const FILE_KEY = BRAND_KEY[brand];
+
   try {
     const newData = await updateCollections(
       collectionNames,
@@ -123,16 +122,12 @@ async function postCollections(brand, FILE_KEY) {
   }
 }
 
-async function postPalette(
-  jsonData,
-  brand,
-  FILE_KEY
-) {
+async function postPalette(jsonData, brand) {
+  const FILE_KEY = BRAND_KEY[brand];
   try {
     const newData = await updatePalette(
       jsonData,
-      brand,
-      FILE_KEY
+      brand
     );
 
     await postFigmaVariables(FILE_KEY, newData);
@@ -144,16 +139,9 @@ async function postPalette(
   }
 }
 
-// Process data for a specific brand
-
-async function processBrand(jsonData, brand) {
-  const FILE_KEY = brands[brand];
-  await postCollections(brand, FILE_KEY);
-  await postPalette(jsonData, brand, FILE_KEY);
-}
-
 export async function updateSkinFiles(jsonData) {
-  for (const brand of Object.keys(brands)) {
-    await processBrand(jsonData, brand);
+  for (const brand of Object.keys(BRAND_KEY)) {
+    await postCollections(brand);
+    await postPalette(jsonData, brand);
   }
 }
