@@ -1,0 +1,32 @@
+name: Sync tokens to Figma
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - production
+    paths:
+      - "tokens/movistar.json"
+      - "tokens/vivo-new.json"
+      - "tokens/o2-new.json"
+      - "tokens/telefonica.json"
+      - "tokens/blau.json"
+      - "tokens/tu.json"
+
+jobs:
+  sync-figma-brand:
+    runs-on: ubuntu-latest
+
+    env:
+      FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run sync for the brand(s)
+        working-directory: tokens/figma
+        run: node index.mjs
