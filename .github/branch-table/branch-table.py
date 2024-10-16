@@ -53,6 +53,7 @@ def analyze_files(file_keys, figma_token):
             
             # Only add the file if it has branches
             if num_branches > 0:
+                first_branch = True
                 for branch in branches:
                     branch_name = branch["name"]
                     branch_link = f"[{branch_name}](https://www.figma.com/file/{file_key}/branch/{branch['key']})"
@@ -62,11 +63,14 @@ def analyze_files(file_keys, figma_token):
                     issue_number = "#" + issue_match.group(1) if issue_match else ""
                     
                     table_data.append({
-                        "File Name": file_name,
-                        "Branches": num_branches,
+                        "File Name": file_name if first_branch else "",
+                        "Branches": num_branches if first_branch else "",
                         "Branch Names": branch_link,
                         "Issue": issue_number
                     })
+
+                    # After the first branch, set first_branch to False
+                    first_branch = False
     
     # Create a DataFrame with the collected information
     df = pd.DataFrame(table_data)
