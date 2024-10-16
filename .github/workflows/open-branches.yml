@@ -1,0 +1,31 @@
+name: Open branches in Figma
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 30 8 * * MON-FRI
+
+jobs:
+  sync-figma-brand:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      # Paso 3: Instalar dependencias de Python
+      - name: Install dependencies
+        run: |
+          pip install requests pandas
+
+      - name: Run sync for the brand(s)
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+        working-directory: .github/branch-table
+        run: python3 branch-table.py
