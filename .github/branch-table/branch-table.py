@@ -59,7 +59,7 @@ def analyze_files(file_keys, figma_token):
                     branch_link = f"[{branch_name}](https://www.figma.com/file/{file_key}/branch/{branch['key']})"
                     
                     # Extract the issue number using regex
-                    issue_match = re.match(r"#(\d{4}).*", branch_name)
+                    issue_match = re.match(r"#(\d+)", branch_name)
                     issue_number = "#" + issue_match.group(1) if issue_match else ""
                     
                     table_data.append({
@@ -104,7 +104,7 @@ project_ids = [
     "266390224", # Mística Skins Libraries
     "27955986", # Specs
     "170790970", # Community Specs
-    "30110755", # Materials
+    "30110755" # Materials
     # Add more project id here
 ]
 
