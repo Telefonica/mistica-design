@@ -2,13 +2,13 @@ import requests
 import pandas as pd
 import os
 
-# Función para obtener la información de un archivo de Figma, utilizando el parámetro branch_data=true
+# Function to get information from a Figma file, using the branch_data=true parameter
 def get_figma_file_data(file_key, figma_token):
     headers = {
         "X-Figma-Token": figma_token
     }
     url = f"https://api.figma.com/v1/files/{file_key}?branch_data=true"
-    response = requests.get(url, headers=headers, verify=True)  # Desactivar verificación SSL
+    response = requests.get(url, headers=headers, verify=True)
 
     if response.status_code == 200:
         return response.json()
@@ -16,7 +16,7 @@ def get_figma_file_data(file_key, figma_token):
         print(f"Error fetching data for file {file_key}: {response.status_code}")
         return None
 
-# Función para procesar los archivos y generar una tabla con la información deseada
+# Function to process files and generate a table with the desired information
 def analyze_files(file_keys, figma_token):
     table_data = []
     
@@ -28,9 +28,9 @@ def analyze_files(file_keys, figma_token):
             branches = file_data.get("branches", [])
             num_branches = len(branches)
             
-            # Solo agregamos el archivo si tiene ramas
+            # Only add the file if it has branches
             if num_branches > 0:
-                # Crear enlaces para cada rama, en formato de lista Markdown
+                # Create links for each branch, in Markdown list format
                 branch_links = [f"- [{branch['name']}](https://www.figma.com/file/{file_key}/branch/{branch['key']})"
                                 for branch in branches]
                 
@@ -42,11 +42,11 @@ def analyze_files(file_keys, figma_token):
                     "Branch Names": branch_links_str
                 })
     
-    # Crear un DataFrame con la información recopilada
+    # Create a DataFrame with the collected information
     df = pd.DataFrame(table_data)
     return df
 
-# Función para actualizar la issue en GitHub
+# Function to update the issue on GitHub
 def update_github_issue(issue_number, repo_owner, repo_name, markdown_content, github_token):
     url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/issues/{issue_number}"
     headers = {
@@ -65,7 +65,7 @@ def update_github_issue(issue_number, repo_owner, repo_name, markdown_content, g
         print(f"Failed to update issue: {response.status_code} - {response.text}")
     
 
-# Lista de keys de los archivos de Figma a analizar
+# List of Figma file keys to analyze
 file_keys = [
     "WCkDDzlXE16R6yXaljxddj",
     "DSWhPLyJzbliP1fBrLxDUR",
@@ -131,22 +131,22 @@ file_keys = [
     "aNHyvXe1mqjaelE8XWVQD5",
     "pzcfoIj4osTMiOHoChiCFm",
     "PApssATUkePZnIOB4GmAeI",
-    # Agrega aquí más keys de archivos  
+    # Add more file keys here
 ]
 
-# Token de acceso personal a la API de Figma y GitHub
+# Personal access token for Figma and GitHub APIs
 figma_token = os.getenv("FIGMA_TOKEN")
 github_token = os.getenv("GITHUB_TOKEN")
 
-# Analizar los archivos y generar la tabla
+# Analyze the files and generate the table
 df = analyze_files(file_keys, figma_token)
 
-# Convertir la tabla a formato markdown
+# Convert the table to markdown format
 markdown_table = df.to_markdown(index=False)
 
-# Actualizar la issue en GitHub
+# Update the issue on GitHub
 repo_owner = "Telefonica"
 repo_name = "mistica-design"
-issue_number = 1927  # Cambia este número por el número de la issue que quieras actualizar
+issue_number = 1927  # Change this number to the issue number you want to update
 
 update_github_issue(issue_number, repo_owner, repo_name, markdown_table, github_token)
