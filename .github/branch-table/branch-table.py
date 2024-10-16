@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 import os
+import re
 
 # Function to get the files from specific Figma projects
 def get_figma_project_files(project_ids, figma_token):
@@ -17,7 +18,7 @@ def get_figma_project_files(project_ids, figma_token):
         if files_response.status_code == 200:
             files = files_response.json().get("files", [])
             for file in files:
-                file_keys.append(file["key"])
+                file_keys.append({"key": file["key"], "name": file["name"]})
         else:
             print(f"Error fetching files for project {project_id}: {files_response.status_code}")
     
@@ -29,7 +30,7 @@ def get_figma_file_data(file_key, figma_token):
         "X-Figma-Token": figma_token
     }
     url = f"https://api.figma.com/v1/files/{file_key}?branch_data=true"
-    response = requests.get(url, headers=headers, verify=False)
+    response = requests.get(url, headers=headers, verify=True)
 
     if response.status_code == 200:
         return response.json()
@@ -41,27 +42,31 @@ def get_figma_file_data(file_key, figma_token):
 def analyze_files(file_keys, figma_token):
     table_data = []
     
-    for file_key in file_keys:
+    for file in file_keys:
+        file_key = file["key"]
+        file_name = file["name"]
         file_data = get_figma_file_data(file_key, figma_token)
         
         if file_data:
-            file_name = file_data.get("name", "Unknown")
             branches = file_data.get("branches", [])
             num_branches = len(branches)
             
             # Only add the file if it has branches
             if num_branches > 0:
-                # Create links for each branch, in Markdown list format
-                branch_links = [f"- [{branch['name']}](https://www.figma.com/file/{file_key}/branch/{branch['key']})"
-                                for branch in branches]
-                
-                branch_links_str = "\n".join(branch_links)
-                
-                table_data.append({
-                    "File Name": file_name,
-                    "Branches": num_branches,
-                    "Branch Names": branch_links_str
-                })
+                for branch in branches:
+                    branch_name = branch["name"]
+                    branch_link = f"[{branch_name}](https://www.figma.com/file/{file_key}/branch/{branch['key']})"
+                    
+                    # Extract the issue number using regex
+                    issue_match = re.match(r"#(\d{4}).*", branch_name)
+                    issue_number = "#" + issue_match.group(1) if issue_match else ""
+                    
+                    table_data.append({
+                        "File Name": file_name,
+                        "Branches": num_branches,
+                        "Branch Names": branch_link,
+                        "Issue": issue_number
+                    })
     
     # Create a DataFrame with the collected information
     df = pd.DataFrame(table_data)
