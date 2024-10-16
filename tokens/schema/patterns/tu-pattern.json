@@ -1,0 +1,8 @@
+{
+  "colorPattern": {
+    "pattern": "(.*?rgba.*?)+([({])+(palette.(primary|primary10|primary15|primary45|primary65|primary80|blue|blue10|blue20|blue30|blue70|orange|orange20|orange55|orange65|orange70|red|red10|red40|red55|red70|red80|green|green10|green40|green75|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeBlack|darkModeGrey|darkModeGrey6)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(primary|primary10|primary15|primary45|primary65|primary80|blue|blue10|blue20|blue30|blue70|orange|orange20|orange55|orange65|orange70|red|red10|red40|red55|red70|red80|green|green10|green40|green75|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeBlack|darkModeGrey|darkModeGrey6)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
+  },
+  "descriptionPattern": {
+    "pattern": "^(primary|primary10|primary15|primary45|primary65|primary80|blue|blue10|blue20|blue30|blue70|orange|orange20|orange55|orange65|orange70|red|red10|red40|red55|red70|red80|green|green10|green40|green75|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeBlack|darkModeGrey|darkModeGrey6)+$"
+  }
+}
