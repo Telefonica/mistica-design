@@ -3,7 +3,7 @@ name: Open branches in Figma
 on:
   workflow_dispatch:
   schedule:
-    - cron: 30 8 * * MON-FRI
+    - cron: 0 8 * * *
 
 jobs:
   sync-figma-brand:
