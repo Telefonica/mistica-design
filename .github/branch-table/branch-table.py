@@ -49,11 +49,11 @@ def format_time_difference(days):
     # Build the formatted string based on the components
     formatted_time = []
     if years > 0:
-        formatted_time.append(f"{years} year{'s' if years > 1 else ''}")
+        formatted_time.append(f"{years}yr{'s' if years > 1 else ''}")
     if months > 0:
-        formatted_time.append(f"{months} month{'s' if months > 1 else ''}")
+        formatted_time.append(f"{months}mo")
     if remaining_days > 0 or (years == 0 and months == 0):
-        formatted_time.append(f"{remaining_days} day{'s' if remaining_days > 1 else ''}")
+        formatted_time.append(f"{remaining_days}d")
     if remaining_days == 0 and years == 0 and months == 0:
         return "Today"
     
@@ -157,5 +157,5 @@ issue_number = 1927  # Change this number to the issue number you want to update
 update_github_issue(issue_number, repo_owner, repo_name, markdown_table, github_token)
 
 # Print the table to the console
-# print(markdown_table)
+print(markdown_table)
 
