@@ -97,8 +97,7 @@ def analyze_files(file_keys, figma_token):
                         # "Branches": num_branches if first_branch else "",
                         "Branch Names": branch_link,
                         "Issue": issue_number,
-                        "Last modified": formatted_time
-                        
+                        "Last Modification": formatted_time
                     })
 
                     # After the first branch, set first_branch to False
