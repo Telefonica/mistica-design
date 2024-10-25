@@ -1,14 +1,13 @@
 import {
-  Box,
-  Boxed,
   Inline,
   IconLockClosedFilled,
   Stack,
   Text8,
-  useDialog,
-  Select,
+  skinVars,
+  Tag,
 } from "@telefonica/mistica";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import styles from "./calendar-card.module.css";
 
 const CalendarCard = ({ DateString, DayOfWeek }) => {
   const dialogRef = useRef(null);
@@ -16,12 +15,34 @@ const CalendarCard = ({ DateString, DayOfWeek }) => {
   const today = new Date().toISOString().split("T")[0];
   const isInitiallyBlocked = DateString > today || DateString < today;
 
-  // State to manage if the card is blocked
-  const [isBlocked, setIsBlocked] = useState(isInitiallyBlocked);
-  const [isCompleted, setIsCompleted] = useState(false);
+  const getCompletedDays = () => {
+    const storedDays = localStorage.getItem("completedDays");
+    return storedDays ? JSON.parse(storedDays) : [];
+  };
+
+  const saveCompletedDay = (date) => {
+    const completedDays = getCompletedDays();
+    if (!completedDays.includes(date)) {
+      completedDays.push(date);
+      localStorage.setItem("completedDays", JSON.stringify(completedDays));
+    }
+  };
 
   // Extract day from DateString (assuming DateString is in "YYYY-MM-DD" format)
   const day = new Date(DateString).getDate();
+
+  // Initialize state based on localStorage
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [isBlocked, setIsBlocked] = useState(isInitiallyBlocked);
+
+  // Effect to initialize state from localStorage on component mount
+  useEffect(() => {
+    const completedDays = getCompletedDays();
+    const isDayCompleted = completedDays.includes(DateString);
+    setIsCompleted(isDayCompleted);
+    // If it's today and not completed, the card is not blocked
+    setIsBlocked(DateString !== today || isDayCompleted);
+  }, [DateString, today]);
 
   const handleClick = () => {
     if (!isBlocked) {
@@ -31,34 +52,41 @@ const CalendarCard = ({ DateString, DayOfWeek }) => {
 
   const handleEndDay = () => {
     dialogRef.current.close(); // Close the dialog
-    // Logic to lock the card (you may need to lift this state up if necessary)
-    console.log(`Day ${day} locked`);
     setIsCompleted(true);
     setIsBlocked(true);
+    saveCompletedDay(DateString);
   };
+
+  const blockedStyles = isBlocked
+    ? isCompleted
+      ? { background: skinVars.colors.successLow }
+      : { background: skinVars.colors.backgroundContainerAlternative }
+    : { background: skinVars.colors.backgroundContainer };
 
   return (
     <>
       <div
         onClick={handleClick}
-        style={{ cursor: "pointer" }}
+        style={{
+          cursor: isBlocked ? "not-allowed" : "pointer",
+          border: `2px solid black`,
+          ...blockedStyles,
+        }}
         aria-haspopup="dialog"
+        className={styles.container}
       >
-        <Boxed>
-          <Box padding={24}>
-            <Stack space={8}>
-              <span>{DayOfWeek}</span>
-              <Text8>{day}</Text8>
-              {isBlocked && (
-                <Inline space={4}>
-                  <IconLockClosedFilled />
-                  <p className="blocked-text">Blocked</p>
-                </Inline>
-              )}
-              {isCompleted && <p>Completed</p>}
-            </Stack>
-          </Box>
-        </Boxed>
+        <Stack space={8}>
+          {!isBlocked && <Tag type="warning">Available</Tag>}
+          <span>{DayOfWeek}</span>
+          <Text8>{day}</Text8>
+          {isBlocked && (
+            <Inline space={4}>
+              <IconLockClosedFilled />
+              <p className="blocked-text">Blocked</p>
+            </Inline>
+          )}
+          {isCompleted && <p>Completed</p>}
+        </Stack>
       </div>
       <dialog ref={dialogRef}>
         <form method="dialog">

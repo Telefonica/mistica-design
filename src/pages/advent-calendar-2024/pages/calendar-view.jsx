@@ -1,5 +1,6 @@
 import {
   ResponsiveLayout,
+  ButtonPrimary,
   Text10,
   Text5,
   Box,
@@ -42,6 +43,14 @@ const CalendarView = () => {
   // Set initialActiveItem to today's index or a fallback (e.g., 0)
   const initialActiveDay = todayIndex !== -1 ? todayIndex : 0;
 
+  const clearCompletedDays = () => {
+    localStorage.removeItem("completedDays");
+    // Reload the page to update the state
+    window.location.reload();
+  };
+
+ 
+
   return (
     <>
       <NavBar />
@@ -62,6 +71,9 @@ const CalendarView = () => {
                 />
               ))}
             ></Carousel>
+            <ButtonPrimary onPress={clearCompletedDays}>
+              Clear Completed Days
+            </ButtonPrimary>
           </Stack>
         </Box>
       </ResponsiveLayout>
