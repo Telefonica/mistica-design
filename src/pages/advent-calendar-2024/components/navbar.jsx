@@ -8,6 +8,17 @@ import {
 } from "@telefonica/mistica";
 import RotatingSVG from "./label-rotate";
 import { useNavigate } from "react-router-dom";
+import { Buffer } from 'buffer';
+
+// Function to encode data in Base64
+const base64Encode = (data) => {
+  return Buffer.from(data).toString("base64");
+};
+
+// Function to decode Base64 data
+const base64Decode = (data) => {
+  return Buffer.from(data, "base64").toString("utf-8");
+};
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -15,8 +26,11 @@ const NavBar = () => {
   const handleViewProgress = () => {
     const completedDays =
       JSON.parse(localStorage.getItem("completedDays")) || [];
+
+    // Encode completed days as a Base64 string
+    const encodedDays = base64Encode(completedDays.join(","));
     const params = new URLSearchParams({
-      completedDays: completedDays.join(","),
+      completedDays: encodedDays,
     });
 
     navigate(`/advent-calendar-2024/progress-view?${params.toString()}`);

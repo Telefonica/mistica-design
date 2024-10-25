@@ -13,7 +13,6 @@ const CalendarCard = ({ DateString, DayOfWeek }) => {
   const dialogRef = useRef(null);
   // Check if the card's date is in the future
   const today = new Date().toISOString().split("T")[0];
-  const isInitiallyBlocked = DateString > today || DateString < today;
 
   const getCompletedDays = () => {
     const storedDays = localStorage.getItem("completedDays");
@@ -33,7 +32,7 @@ const CalendarCard = ({ DateString, DayOfWeek }) => {
 
   // Initialize state based on localStorage
   const [isCompleted, setIsCompleted] = useState(false);
-  const [isBlocked, setIsBlocked] = useState(isInitiallyBlocked);
+  const [isBlocked, setIsBlocked] = useState(false);
 
   // Effect to initialize state from localStorage on component mount
   useEffect(() => {

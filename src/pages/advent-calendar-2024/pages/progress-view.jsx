@@ -1,23 +1,33 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Box, Stack, Text4, Text8, ButtonPrimary } from "@telefonica/mistica";
+import { Buffer } from "buffer";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Function to encode data in Base64
+  const base64Encode = (data) => {
+    return Buffer.from(data).toString("base64");
+  };
+
+  // Function to decode Base64 data
+  const base64Decode = (data) => {
+    return Buffer.from(data, "base64").toString("utf-8");
+  };
   // Function to parse completed days from the URL query string
   const getCompletedDaysFromUrl = () => {
     const params = new URLSearchParams(location.search);
     const days = params.get("completedDays");
-    return days ? days.split(",") : [];
+    return days ? base64Decode(days).split(",") : []; // Decode here
   };
 
   // Function to update the URL with completed days
   const updateUrlWithCompletedDays = (days) => {
     const params = new URLSearchParams(location.search);
-    params.set("completedDays", days.join(","));
+    params.set("completedDays", base64Encode(days.join(","))); // Encode here
     navigate({ search: params.toString() }, { replace: true });
   };
 
