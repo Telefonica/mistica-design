@@ -13,6 +13,7 @@ import { createContext } from "react";
 import SkinGenerator from "./pages/skinGenerator";
 import PaletteGenerator from "./pages/paletteGenerator";
 import Wrapped2023 from "./pages/wrapped2023/index";
+import AdventCalendar2024 from "./pages/advent-calendar-2024/index";
 import WrappedFinale from "./pages/wrapped2023/finale";
 import Skin2Json from "./pages/skin2Json";
 import SkinTool from "./pages/skin-tool";
@@ -64,6 +65,10 @@ const App = () => {
     {
       path: `/wrapped-2023/finale`,
       element: <WrappedFinale />,
+    },
+    {
+      path: `/advent-calendar-2024`,
+      element: <AdventCalendar2024 />,
     },
     {
       path: `/skin2json`,
