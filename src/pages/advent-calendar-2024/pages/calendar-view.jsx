@@ -22,7 +22,7 @@ const CalendarView = () => {
   ];
 
   // Generate an array with days 1 to 24 of December 2024, including the day of the week
-  const decemberDays = Array.from({ length: 24 }, (_, index) => {
+  const calendarDays = Array.from({ length: 31 }, (_, index) => {
     const day = index + 1;
     // Create the date in UTC to avoid time zone issues
     const date = new Date(Date.UTC(2024, 9, day)); // 11 = December in UTC
@@ -32,6 +32,15 @@ const CalendarView = () => {
       dayOfWeek: weekdays[date.getUTCDay()], // Get the name of the day of the week using UTC
     };
   });
+
+  // Get today's date in "YYYY-MM-DD" format
+  const today = new Date().toISOString().split("T")[0];
+
+  // Find the index of today's date in the calendarDays array
+  const todayIndex = calendarDays.findIndex(({ date }) => date === today);
+
+  // Set initialActiveItem to today's index or a fallback (e.g., 0)
+  const initialActiveDay = todayIndex !== -1 ? todayIndex : 0;
 
   return (
     <>
@@ -44,7 +53,8 @@ const CalendarView = () => {
               <Text10>Calendar '24</Text10>
             </Stack>
             <Carousel
-              items={decemberDays.map(({ date, dayOfWeek }) => (
+              initialActiveItem={initialActiveDay}
+              items={calendarDays.map(({ date, dayOfWeek }) => (
                 <CalendarCard
                   key={date}
                   DateString={date}

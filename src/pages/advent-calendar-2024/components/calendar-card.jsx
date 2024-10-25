@@ -14,10 +14,11 @@ const CalendarCard = ({ DateString, DayOfWeek }) => {
   const dialogRef = useRef(null);
   // Check if the card's date is in the future
   const today = new Date().toISOString().split("T")[0];
-  const isInitiallyBlocked = DateString > today; // Card is blocked if its date is greater than today
+  const isInitiallyBlocked = DateString > today || DateString < today;
 
   // State to manage if the card is blocked
   const [isBlocked, setIsBlocked] = useState(isInitiallyBlocked);
+  const [isCompleted, setIsCompleted] = useState(false);
 
   // Extract day from DateString (assuming DateString is in "YYYY-MM-DD" format)
   const day = new Date(DateString).getDate();
@@ -32,6 +33,7 @@ const CalendarCard = ({ DateString, DayOfWeek }) => {
     dialogRef.current.close(); // Close the dialog
     // Logic to lock the card (you may need to lift this state up if necessary)
     console.log(`Day ${day} locked`);
+    setIsCompleted(true);
     setIsBlocked(true);
   };
 
@@ -53,6 +55,7 @@ const CalendarCard = ({ DateString, DayOfWeek }) => {
                   <p className="blocked-text">Blocked</p>
                 </Inline>
               )}
+              {isCompleted && <p>Completed</p>}
             </Stack>
           </Box>
         </Boxed>
