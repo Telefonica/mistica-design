@@ -8,17 +8,7 @@ import {
 } from "@telefonica/mistica";
 import RotatingSVG from "./label-rotate";
 import { useNavigate } from "react-router-dom";
-import { Buffer } from 'buffer';
-
-// Function to encode data in Base64
-const base64Encode = (data) => {
-  return Buffer.from(data).toString("base64");
-};
-
-// Function to decode Base64 data
-const base64Decode = (data) => {
-  return Buffer.from(data, "base64").toString("utf-8");
-};
+import { base64Encode } from "../utils/url-encoder";
 
 const NavBar = () => {
   const navigate = useNavigate();

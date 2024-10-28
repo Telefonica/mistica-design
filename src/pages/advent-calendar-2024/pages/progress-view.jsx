@@ -1,22 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Box, Stack, Text4, Text8, ButtonPrimary } from "@telefonica/mistica";
-import { Buffer } from "buffer";
+import { base64Decode, base64Encode } from "../utils/url-encoder";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Function to encode data in Base64
-  const base64Encode = (data) => {
-    return Buffer.from(data).toString("base64");
-  };
-
-  // Function to decode Base64 data
-  const base64Decode = (data) => {
-    return Buffer.from(data, "base64").toString("utf-8");
-  };
   // Function to parse completed days from the URL query string
   const getCompletedDaysFromUrl = () => {
     const params = new URLSearchParams(location.search);
