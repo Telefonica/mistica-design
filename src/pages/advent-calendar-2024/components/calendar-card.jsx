@@ -9,7 +9,7 @@ import {
 import { useState, useRef, useEffect } from "react";
 import styles from "./calendar-card.module.css";
 
-const CalendarCard = ({ DateString, DayOfWeek }) => {
+const CalendarCard = ({ DateString, DayOfWeek, content }) => {
   const dialogRef = useRef(null);
   // Check if the card's date is in the future
   const today = new Date().toISOString().split("T")[0];
@@ -90,6 +90,7 @@ const CalendarCard = ({ DateString, DayOfWeek }) => {
       <dialog ref={dialogRef}>
         <form method="dialog">
           <p>Do you want to end the day for {day}?</p>
+          <>{content}</>
           <button onClick={handleEndDay}>End Day</button>
           <button type="button" onClick={() => dialogRef.current.close()}>
             Cancel

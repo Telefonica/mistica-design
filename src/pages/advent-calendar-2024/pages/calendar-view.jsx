@@ -49,7 +49,9 @@ const CalendarView = () => {
     window.location.reload();
   };
 
- 
+  const contentByDate = {
+    "2024-10-28": "Today's challenge: Try a new hobby or activity.",
+  };
 
   return (
     <>
@@ -68,6 +70,7 @@ const CalendarView = () => {
                   key={date}
                   DateString={date}
                   DayOfWeek={dayOfWeek}
+                  content={contentByDate[date]}
                 />
               ))}
             ></Carousel>
