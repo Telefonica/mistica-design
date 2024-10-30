@@ -3,20 +3,24 @@ import { useNavigate, useLocation } from "react-router-dom";
 import {
   Box,
   Stack,
+  Text3,
   Text4,
   Text8,
   ButtonPrimary,
   ResponsiveLayout,
 } from "@telefonica/mistica";
 import { base64Decode, base64Encode } from "../utils/url-encoder";
+import {
+  achievementsConfig,
+  ACHIEVEMENT_PREFIX,
+} from "../utils/achievement-config";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
-  const [achievements, setAchievements] = useState([]);
+  const [achievements, setAchievements] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Function to parse completed days from the URL query string
   const getCompletedDaysFromUrl = () => {
     const params = new URLSearchParams(location.search);
     const days = params.get("completedDays");
@@ -29,25 +33,22 @@ const ProgressView = () => {
     return achievements ? base64Decode(achievements).split(",") : [];
   };
 
-  // Function to update the URL with completed days
   const updateUrlWithCompletedDays = (days) => {
     const params = new URLSearchParams(location.search);
-    params.set("completedDays", base64Encode(days.join(","))); // Encode here
+    params.set("completedDays", base64Encode(days.join(",")));
     navigate({ search: params.toString() }, { replace: true });
   };
 
   const updateUrlWithAchievements = (achievements) => {
     const params = new URLSearchParams(location.search);
-    params.set("achievements", base64Encode(achievements.join(","))); // Encode here
+    params.set("achievements", base64Encode(achievements.join(",")));
     navigate({ search: params.toString() }, { replace: true });
   };
 
-  // Fetch and synchronize local storage and URL parameters on component mount
   useEffect(() => {
     const daysFromUrl = getCompletedDaysFromUrl();
     const achievementsFromUrl = getAchievementsFromUrl();
 
-    // If completed days are not in the URL, fallback to local storage
     if (daysFromUrl.length > 0) {
       setCompletedDays(daysFromUrl);
     } else {
@@ -55,24 +56,77 @@ const ProgressView = () => {
       if (storedDays) {
         const parsedDays = JSON.parse(storedDays);
         setCompletedDays(parsedDays);
-        updateUrlWithCompletedDays(parsedDays); // Sync localStorage with the URL
+        updateUrlWithCompletedDays(parsedDays);
       }
     }
 
-    // If achievements are not in the URL, fallback to local storage
     if (achievementsFromUrl.length > 0) {
-      setAchievements(achievementsFromUrl);
+      const achievementsState = achievementsFromUrl.reduce((acc, id) => {
+        acc[id] = { isCompleted: true, isSecret: false };
+        return acc;
+      }, {});
+      setAchievements(achievementsState);
     } else {
       const storedAchievements = localStorage.getItem("achievements");
       if (storedAchievements) {
         const parsedAchievements = JSON.parse(storedAchievements);
-        setAchievements(parsedAchievements);
-        updateUrlWithAchievements(parsedAchievements); // Sync localStorage with the URL
+        const achievementsState = parsedAchievements.reduce((acc, id) => {
+          acc[id] = { isCompleted: true, isSecret: false };
+          return acc;
+        }, {});
+        setAchievements(achievementsState);
+        updateUrlWithAchievements(parsedAchievements);
       }
     }
-    // Only execute this effect on initial mount
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [location.search]);
+
+  const checkAchievements = (completedDays) => {
+    const newAchievements = {};
+
+    achievementsConfig.forEach(({ id, check, isSecret }) => {
+      const isCompleted = check(completedDays);
+      newAchievements[id] = { isCompleted, isSecret };
+    });
+
+    return newAchievements;
+  };
+
+  useEffect(() => {
+    if (completedDays.length > 0) {
+      const newAchievements = checkAchievements(completedDays);
+      setAchievements(newAchievements);
+
+      const completedAchievementIds = Object.keys(newAchievements).filter(
+        (id) => newAchievements[id].isCompleted
+      );
+      updateUrlWithAchievements(completedAchievementIds);
+    }
+  }, [completedDays]);
+
+  const handleClearData = () => {
+    // Clear local storage for completed days and individual achievements
+    localStorage.removeItem("completedDays");
+
+    // Clear individual achievements based on the achievementsConfig
+    achievementsConfig.forEach(({ id }) => {
+      localStorage.removeItem(ACHIEVEMENT_PREFIX + id);
+    });
+
+    // Clear the combined achievements entry
+    localStorage.removeItem("achievements");
+
+    // Clear the component state
+    setCompletedDays([]);
+    setAchievements({});
+
+    // Clear the URL query parameters
+    const params = new URLSearchParams(location.search);
+    params.delete("completedDays");
+    params.delete("achievements");
+
+    // Update the URL to reflect cleared data
+    navigate({ search: params.toString() }, { replace: true });
+  };
 
   return (
     <ResponsiveLayout>
@@ -91,31 +145,28 @@ const ProgressView = () => {
             </Stack>
           )}
           <Text4>Achievements</Text4>
-          {achievements.length === 0 ? (
-            <Text8>No achievements yet</Text8>
-          ) : (
-            <Stack space={8}>
-              {achievements.map((achievement) => (
-                <Box
-                  key={achievement}
-                  padding={8}
-                  style={{ border: "1px solid #ccc" }}
-                >
-                  <Text8>{achievement}</Text8>
-                </Box>
-              ))}
-            </Stack>
-          )}
-          <ButtonPrimary
-            onPress={() => {
-              setCompletedDays([]);
-              setAchievements([]);
-              localStorage.removeItem("completedDays");
-              localStorage.removeItem("achievements");
-              updateUrlWithCompletedDays([]); // Clear the URL query parameter
-              updateUrlWithAchievements([]); // Clear the URL query parameter
-            }}
-          >
+          {achievementsConfig.map((achievement) => {
+            const achievementStatus = achievements[achievement.id] || {
+              isCompleted: false,
+              isSecret: achievement.isSecret,
+            };
+            return (
+              <Box
+                key={achievement.id}
+                padding={8}
+                style={{ border: "1px solid #ccc" }}
+              >
+                <Text3>
+                  {achievementStatus.isSecret
+                    ? "Secret Achievement"
+                    : `${achievement.name}: ${achievement.description} ${
+                        achievementStatus.isCompleted ? "(Completed)" : ""
+                      }`}
+                </Text3>
+              </Box>
+            );
+          })}
+          <ButtonPrimary onPress={handleClearData}>
             Clear local stored data
           </ButtonPrimary>
         </Stack>
