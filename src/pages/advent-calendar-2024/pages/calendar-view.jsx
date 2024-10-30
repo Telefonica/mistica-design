@@ -53,7 +53,7 @@ const CalendarView = () => {
   const initialActiveDay = todayIndex !== -1 ? todayIndex : 0;
 
   const isDayCompleted = (date) => completedDays.includes(date);
-  const isDayBlocked = (date) => date === today && !isDayCompleted(date);
+  const isDayBlocked = (date) => date === !today && !isDayCompleted(date);
 
   const markDayAsCompleted = (date) => {
     if (!completedDays.includes(date)) {
