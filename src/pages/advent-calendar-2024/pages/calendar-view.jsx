@@ -9,9 +9,26 @@ import {
 } from "@telefonica/mistica";
 import CalendarCard from "../components/calendar-card";
 import NavBar from "../components/navbar";
+import { useState, useMemo, useEffect } from "react";
+import {
+  updateAchievements,
+  updateCompletedDays,
+} from "../utils/state-manager";
+import { useLocation, useNavigate } from "react-router-dom";
+import { checkAndUnlockAchievements } from "../utils/achievement-config";
 
 const CalendarView = () => {
-  // Array of weekday names for easier reference
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Load completed days from local storage on initial mount
+  const [completedDays, setCompletedDays] = useState(() => {
+    const savedDays = localStorage.getItem("completedDays");
+    return savedDays ? JSON.parse(savedDays) : [];
+  });
+
+  const [achievements, setAchievements] = useState([]);
+
   const weekdays = [
     "Sunday",
     "Monday",
@@ -22,36 +39,67 @@ const CalendarView = () => {
     "Saturday",
   ];
 
-  // Generate an array with days 1 to 24 of December 2024, including the day of the week
   const calendarDays = Array.from({ length: 31 }, (_, index) => {
     const day = index + 1;
-    // Create the date in UTC to avoid time zone issues
     const date = new Date(Date.UTC(2024, 9, day)); // 11 = December in UTC
-
     return {
-      date: date.toISOString().split("T")[0], // Format date as "YYYY-MM-DD"
-      dayOfWeek: weekdays[date.getUTCDay()], // Get the name of the day of the week using UTC
+      date: date.toISOString().split("T")[0],
+      dayOfWeek: weekdays[date.getUTCDay()],
     };
   });
 
-  // Get today's date in "YYYY-MM-DD" format
   const today = new Date().toISOString().split("T")[0];
-
-  // Find the index of today's date in the calendarDays array
   const todayIndex = calendarDays.findIndex(({ date }) => date === today);
-
-  // Set initialActiveItem to today's index or a fallback (e.g., 0)
   const initialActiveDay = todayIndex !== -1 ? todayIndex : 0;
 
+  const isDayCompleted = (date) => completedDays.includes(date);
+  const isDayBlocked = (date) => date === today && !isDayCompleted(date);
+
+  const markDayAsCompleted = (date) => {
+    if (!completedDays.includes(date)) {
+      const newCompletedDays = [...completedDays, date];
+      // Update completed days state and local storage
+      localStorage.setItem("completedDays", JSON.stringify(newCompletedDays));
+      updateCompletedDays(
+        newCompletedDays,
+        setCompletedDays,
+        navigate,
+        location
+      );
+
+      // Check for achievements
+      checkAndUnlockAchievements(
+        newCompletedDays,
+        achievements,
+        setAchievements,
+        navigate,
+        location
+      );
+    }
+  };
+
   const clearCompletedDays = () => {
-    localStorage.removeItem("completedDays");
-    // Reload the page to update the state
-    window.location.reload();
+    localStorage.removeItem("completedDays"); // Clear from local storage
+    updateCompletedDays([], setCompletedDays, navigate, location); // Clear state
   };
 
   const contentByDate = {
     "2024-10-28": "Today's challenge: Try a new hobby or activity.",
   };
+
+  const calendarItems = useMemo(() => {
+    return calendarDays.map(({ date, dayOfWeek }) => (
+      <CalendarCard
+        key={date}
+        DateString={date}
+        DayOfWeek={dayOfWeek}
+        content={contentByDate[date]}
+        isCompleted={isDayCompleted(date)}
+        isBlocked={isDayBlocked(date)}
+        onEndDay={() => markDayAsCompleted(date)}
+      />
+    ));
+  }, [completedDays, calendarDays]);
 
   return (
     <>
@@ -65,15 +113,8 @@ const CalendarView = () => {
             </Stack>
             <Carousel
               initialActiveItem={initialActiveDay}
-              items={calendarDays.map(({ date, dayOfWeek }) => (
-                <CalendarCard
-                  key={date}
-                  DateString={date}
-                  DayOfWeek={dayOfWeek}
-                  content={contentByDate[date]}
-                />
-              ))}
-            ></Carousel>
+              items={calendarItems}
+            />
             <ButtonPrimary onPress={clearCompletedDays}>
               Clear Completed Days
             </ButtonPrimary>
