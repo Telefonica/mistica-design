@@ -158,7 +158,9 @@ const ProgressView = () => {
               >
                 <Text3>
                   {achievementStatus.isSecret
-                    ? "Secret Achievement"
+                    ? achievementStatus.isCompleted
+                      ? `${achievement.name}: ${achievement.description} (Completed)`
+                      : "Secret Achievement"
                     : `${achievement.name}: ${achievement.description} ${
                         achievementStatus.isCompleted ? "(Completed)" : ""
                       }`}
