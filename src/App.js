@@ -18,6 +18,7 @@ import WrappedFinale from "./pages/wrapped2023/finale";
 import Skin2Json from "./pages/skin2Json";
 import SkinTool from "./pages/skin-tool";
 import ProgressView from "./pages/advent-calendar-2024/pages/progress-view";
+import GamesView from "./pages/advent-calendar-2024/pages/games-view";
 
 export const SchemeContext = createContext();
 
@@ -74,6 +75,10 @@ const App = () => {
     {
       path: `/advent-calendar-2024/progress-view`,
       element: <ProgressView />,
+    },
+    {
+      path: `/advent-calendar-2024/games-view`,
+      element: <GamesView />,
     },
     {
       path: `/skin2json`,

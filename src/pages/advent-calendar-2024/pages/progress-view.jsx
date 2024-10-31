@@ -61,6 +61,13 @@ const ProgressView = () => {
         >
           Clear Completed Days
         </ButtonPrimary>
+        <ButtonPrimary
+          onPress={() => {
+            navigate('/advent-calendar-2024/games-view');
+          }}
+        >
+          Acceder a Jueguecito pa probar
+        </ButtonPrimary>
       </Stack>
     </Box>
   );
