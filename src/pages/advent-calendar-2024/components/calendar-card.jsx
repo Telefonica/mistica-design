@@ -9,51 +9,26 @@ import {
 import { useState, useRef, useEffect } from "react";
 import styles from "./calendar-card.module.css";
 
-const CalendarCard = ({ DateString, DayOfWeek, content }) => {
+const CalendarCard = ({
+  DateString,
+  DayOfWeek,
+  content,
+  isCompleted,
+  isBlocked,
+  onEndDay,
+}) => {
   const dialogRef = useRef(null);
-  // Check if the card's date is in the future
-  const today = new Date().toISOString().split("T")[0];
-
-  const getCompletedDays = () => {
-    const storedDays = localStorage.getItem("completedDays");
-    return storedDays ? JSON.parse(storedDays) : [];
-  };
-
-  const saveCompletedDay = (date) => {
-    const completedDays = getCompletedDays();
-    if (!completedDays.includes(date)) {
-      completedDays.push(date);
-      localStorage.setItem("completedDays", JSON.stringify(completedDays));
-    }
-  };
-
-  // Extract day from DateString (assuming DateString is in "YYYY-MM-DD" format)
   const day = new Date(DateString).getDate();
-
-  // Initialize state based on localStorage
-  const [isCompleted, setIsCompleted] = useState(false);
-  const [isBlocked, setIsBlocked] = useState(false);
-
-  // Effect to initialize state from localStorage on component mount
-  useEffect(() => {
-    const completedDays = getCompletedDays();
-    const isDayCompleted = completedDays.includes(DateString);
-    setIsCompleted(isDayCompleted);
-    // If it's today and not completed, the card is not blocked
-    setIsBlocked(DateString !== today || isDayCompleted);
-  }, [DateString, today]);
 
   const handleClick = () => {
     if (!isBlocked) {
-      dialogRef.current.showModal(); // Show the native dialog
+      dialogRef.current.showModal();
     }
   };
 
   const handleEndDay = () => {
-    dialogRef.current.close(); // Close the dialog
-    setIsCompleted(true);
-    setIsBlocked(true);
-    saveCompletedDay(DateString);
+    dialogRef.current.close();
+    onEndDay(); // Notify the parent to update the state
   };
 
   const blockedStyles = isBlocked
