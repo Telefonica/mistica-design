@@ -15,7 +15,11 @@ import {
   updateCompletedDays,
 } from "../utils/state-manager";
 import { useLocation, useNavigate } from "react-router-dom";
-import { checkAndUnlockAchievements } from "../utils/achievement-config";
+import {
+  checkAndUnlockAchievements,
+  achievementsConfig,
+  ACHIEVEMENT_PREFIX,
+} from "../utils/achievement-config";
 
 const CalendarView = () => {
   const location = useLocation();
@@ -78,9 +82,12 @@ const CalendarView = () => {
     }
   };
 
-  const clearCompletedDays = () => {
+  const clearLocalStorage = () => {
     localStorage.removeItem("completedDays"); // Clear from local storage
     updateCompletedDays([], setCompletedDays, navigate, location); // Clear state
+    achievementsConfig.forEach(({ id }) => {
+      localStorage.removeItem(ACHIEVEMENT_PREFIX + id);
+    });
   };
 
   const contentByDate = {
@@ -115,7 +122,7 @@ const CalendarView = () => {
               initialActiveItem={initialActiveDay}
               items={calendarItems}
             />
-            <ButtonPrimary onPress={clearCompletedDays}>
+            <ButtonPrimary onPress={clearLocalStorage}>
               Clear Completed Days
             </ButtonPrimary>
           </Stack>

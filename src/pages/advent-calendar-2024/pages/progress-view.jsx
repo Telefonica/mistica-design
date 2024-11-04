@@ -8,12 +8,14 @@ import {
   Text8,
   ButtonPrimary,
   ResponsiveLayout,
+  Inline,
 } from "@telefonica/mistica";
 import { base64Decode, base64Encode } from "../utils/url-encoder";
 import {
   achievementsConfig,
   ACHIEVEMENT_PREFIX,
 } from "../utils/achievement-config";
+import Achievement from "../components/achievement";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
@@ -156,15 +158,22 @@ const ProgressView = () => {
                 padding={8}
                 style={{ border: "1px solid #ccc" }}
               >
-                <Text3>
-                  {achievementStatus.isSecret
-                    ? achievementStatus.isCompleted
-                      ? `${achievement.name}: ${achievement.description} (Completed)`
-                      : "Secret Achievement"
-                    : `${achievement.name}: ${achievement.description} ${
-                        achievementStatus.isCompleted ? "(Completed)" : ""
-                      }`}
-                </Text3>
+                <Inline alignItems="center" space={8}>
+                  <Achievement
+                    icon={achievement.icon}
+                    isCompleted={achievementStatus.isCompleted}
+                    isSecret={achievementStatus.isSecret}
+                  />
+                  <Text3>
+                    {achievementStatus.isSecret
+                      ? achievementStatus.isCompleted
+                        ? `${achievement.name}: ${achievement.description} (Completed)`
+                        : "Secret Achievement"
+                      : `${achievement.name}: ${achievement.description} ${
+                          achievementStatus.isCompleted ? "(Completed)" : ""
+                        }`}
+                  </Text3>
+                </Inline>
               </Box>
             );
           })}
