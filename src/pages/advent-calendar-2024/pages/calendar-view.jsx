@@ -20,6 +20,7 @@ import {
   achievementsConfig,
   ACHIEVEMENT_PREFIX,
 } from "../utils/achievement-config";
+import contentByDate from "../utils/content-config";
 
 const CalendarView = () => {
   const location = useLocation();
@@ -90,17 +91,13 @@ const CalendarView = () => {
     });
   };
 
-  const contentByDate = {
-    "2024-10-28": "Today's challenge: Try a new hobby or activity.",
-  };
-
   const calendarItems = useMemo(() => {
     return calendarDays.map(({ date, dayOfWeek }) => (
       <CalendarCard
         key={date}
         DateString={date}
         DayOfWeek={dayOfWeek}
-        content={contentByDate[date]}
+        content={contentByDate[date] || "No challenge for today."}
         isCompleted={isDayCompleted(date)}
         isBlocked={isDayBlocked(date)}
         onEndDay={() => markDayAsCompleted(date)}
