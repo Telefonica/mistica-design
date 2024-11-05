@@ -19,6 +19,9 @@ const initialCards = [
     o2, o2,
     telefonica, telefonica,
     tu, tu,
+    vivo, vivo,
+    vivo, vivo,
+    vivo, vivo,
     vivo, vivo
 ];
 const MemoryGame = () => {

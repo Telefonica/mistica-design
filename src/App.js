@@ -77,10 +77,6 @@ const App = () => {
       element: <ProgressView />,
     },
     {
-      path: `/advent-calendar-2024/games-view`,
-      element: <GamesView />,
-    },
-    {
       path: `/skin2json`,
       element: <Skin2Json />,
     },

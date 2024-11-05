@@ -1,3 +1,9 @@
+:root {
+    --color-correct: lightgreen;
+    --color-partial: yellow;
+    --color-wrong: lightgrey;
+}
+
 .wordle-game {
     text-align: center;
     justify-content: center;
@@ -51,16 +57,16 @@
 }
 
 .letter-box.correct {
-    background-color: green;
-    color: white;
+    background-color: var(--color-correct);
+    color: black;
 }
 
 .letter-box.partial {
-    background-color: yellow;
+    background-color: var(--color-partial);
     color: black;
 }
 
 .letter-box.wrong {
-    background-color: lightgrey;
-    color: white;
+    background-color: var(--color-wrong);
+    color: black;
 }

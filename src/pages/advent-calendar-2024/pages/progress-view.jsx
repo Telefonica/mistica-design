@@ -180,13 +180,6 @@ const ProgressView = () => {
           <ButtonPrimary onPress={handleClearData}>
             Clear local stored data
           </ButtonPrimary>
-          <ButtonPrimary
-          onPress={() => {
-            navigate('/advent-calendar-2024/games-view');
-          }}
-        >
-          Acceder a Jueguecito pa probar
-        </ButtonPrimary>
         </Stack>
       </Box>
     </ResponsiveLayout>

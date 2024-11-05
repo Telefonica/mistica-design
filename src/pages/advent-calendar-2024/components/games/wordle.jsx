@@ -13,7 +13,8 @@ const WordleGame = () => {
   const [currentAttempt, setCurrentAttempt] = useState([]);
   const [attempts, setAttempts] = useState([]);
   const [message, setMessage] = useState("");
-  const maxAttempts = 15;
+  const maxAttempts = 10;
+  const [score, setScore] = useState(0); // Track the score
   const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
@@ -43,10 +44,14 @@ const WordleGame = () => {
       return;
     }
 
-    setAttempts((prev) => [...prev, input]);
+    if (input !== chosenWord) {
+            setAttempts((prev) => [...prev, input]);
+    }
     setCurrentAttempt([]); // Reiniciar cada intento nuevo que haces
 
     if (input === chosenWord) {
+      const points = calculateScore(attempts.length + 1);
+      setScore(points);
       setMessage(`¡WHAAAT A MASTER OF WORDLE! ${chosenWord.toUpperCase()} was the hidden word ;)`);
       setGameOver(true);
       return;
@@ -57,6 +62,10 @@ const WordleGame = () => {
         return;
       }
     }
+  };
+
+  const calculateScore = (attemptCount) => {
+    return Math.max(0, 100 - (attemptCount - 1) * 10); // Score logic: 100 points max, subtract 20 for each attempt over the first
   };
 
   const getLetterStatus = (letter, index, input) => {
@@ -102,7 +111,7 @@ const WordleGame = () => {
   - <span style={{ color: 'green' }}>Green</span> shows that the letter is correct and in the right spot.<br />
   Use these clues wisely to solve the mystery!
 </p>
-
+    <Text3>Score: {score}</Text3>
         {message && <p>{message}</p>}
       </div>
       <div className="right-column">
