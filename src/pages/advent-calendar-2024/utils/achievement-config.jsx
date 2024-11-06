@@ -1,6 +1,6 @@
 import { IconBugFilled, IconTree2Filled } from "@telefonica/mistica";
 import { updateAchievements } from "./state-manager";
-import { TOTAL_CALENDAR_DAYS } from "./constants";
+import { CHRISTMAS_DAY, TOTAL_CALENDAR_DAYS } from "./constants";
 
 // Define your achievements and their conditions
 export const achievementsConfig = [
@@ -92,7 +92,7 @@ const isWeekendDay = (date) => {
 
 const isChristmasDay = (date) => {
   const [_, month, day] = date.split("-");
-  return day === "25"; // Ensure it's December 25
+  return day === CHRISTMAS_DAY;
 };
 
 export const ACHIEVEMENT_PREFIX = "achievement_"; // Prefix for localStorage keys

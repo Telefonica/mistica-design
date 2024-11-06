@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import ComingSoonPage from "./pages/coming-soon";
 import CalendarView from "./pages/calendar-view";
 
+import { RELEASE_DATE } from "./utils/constants";
+
 const AdventCalendar2024 = () => {
-  const targetDate = new Date("2024-10-25T00:00:01");
+  const targetDate = new Date(RELEASE_DATE);
 
   const [isReleased, setIsReleased] = useState(false);
 
