@@ -1,5 +1,6 @@
 import { IconBugFilled, IconTree2Filled } from "@telefonica/mistica";
 import { updateAchievements } from "./state-manager";
+import { TOTAL_CALENDAR_DAYS } from "./constants";
 
 // Define your achievements and their conditions
 export const achievementsConfig = [
@@ -58,7 +59,8 @@ export const achievementsConfig = [
     name: "Advent Champion",
     description: "Unlock all days in the advent calendar",
     icon: IconBugFilled,
-    check: (newCompletedDays) => newCompletedDays.length === 24,
+    check: (newCompletedDays) =>
+      newCompletedDays.length === TOTAL_CALENDAR_DAYS,
     message:
       "Achievement Unlocked: Advent Champion - You have unlocked all days!",
     isSecret: true,

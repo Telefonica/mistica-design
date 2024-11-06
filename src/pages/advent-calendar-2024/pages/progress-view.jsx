@@ -14,6 +14,8 @@ import {
   IconCalendarRegular,
   GridLayout,
   Tooltip,
+  ProgressBar,
+  IconProcessLoadingRegular,
 } from "@telefonica/mistica";
 import { base64Decode, base64Encode } from "../utils/url-encoder";
 import {
@@ -23,6 +25,7 @@ import {
 import Achievement from "../components/achievement";
 import ProgressGrid from "../components/progress-grid";
 import NavBar from "../components/navbar";
+import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
@@ -137,25 +140,29 @@ const ProgressView = () => {
     navigate({ search: params.toString() }, { replace: true });
   };
 
-  const AchievementList = () => {
-    // Count completed achievements
-    const completedAchievementsCount = achievementsConfig.filter(
-      (achievement) => {
-        const achievementStatus = achievements[achievement.id] || {
-          isCompleted: false,
-        };
-        return achievementStatus.isCompleted;
-      }
-    ).length;
+  const completedAchievementsCount = achievementsConfig.filter(
+    (achievement) => {
+      const achievementStatus = achievements[achievement.id] || {
+        isCompleted: false,
+      };
+      return achievementStatus.isCompleted;
+    }
+  ).length;
 
-    const totalAchievements = achievementsConfig.length;
+  const totalAchievements = achievementsConfig.length;
+
+  const AchievementList = ({
+    completedAchievementsCount,
+    totalAchievements,
+  }) => {
+    // Count completed achievements
 
     return (
       <Stack space={16}>
         <Stack space={4}>
           <Inline space={8}>
             <IconTrophyRegular></IconTrophyRegular>
-            <Text4>Completed Achievements</Text4>
+            <Text4>Achievements</Text4>
           </Inline>
           <Text10>
             {completedAchievementsCount} of {totalAchievements}
@@ -201,26 +208,57 @@ const ProgressView = () => {
       <NavBar />
       <ResponsiveLayout>
         <Box padding={24}>
-          <GridLayout
-            template="6+6"
-            left={
-              <Stack space={16}>
-                <Stack space={4}>
-                  <Inline space={8}>
-                    <IconCalendarRegular></IconCalendarRegular>
-                    <Text4>Completed Days</Text4>
-                  </Inline>
-                  <Text10>{completedDays.length} of 24</Text10>
-                </Stack>
-
-                <ProgressGrid completedDays={completedDays} />
+          <Stack space={48}>
+            <Stack space={16}>
+              <Stack space={4}>
+                <Inline space={8}>
+                  <IconProcessLoadingRegular></IconProcessLoadingRegular>
+                  <Text4>Total progress</Text4>
+                </Inline>
+                <Text10>
+                  {Math.round(
+                    ((completedDays.length + completedAchievementsCount) /
+                      (TOTAL_CALENDAR_DAYS + totalAchievements)) *
+                      100
+                  )}
+                  %
+                </Text10>
               </Stack>
-            }
-            right={<AchievementList />}
-          ></GridLayout>
-          <ButtonPrimary onPress={handleClearData}>
-            Clear local stored data
-          </ButtonPrimary>
+              <ProgressBar
+                progressPercent={
+                  (completedDays.length / TOTAL_CALENDAR_DAYS) * 100
+                }
+              />
+            </Stack>
+            <GridLayout
+              verticalSpace={48}
+              template="6+6"
+              left={
+                <Stack space={16}>
+                  <Stack space={4}>
+                    <Inline space={8}>
+                      <IconCalendarRegular></IconCalendarRegular>
+                      <Text4>Completed Days</Text4>
+                    </Inline>
+                    <Text10>
+                      {completedDays.length} of {TOTAL_CALENDAR_DAYS}
+                    </Text10>
+                  </Stack>
+
+                  <ProgressGrid completedDays={completedDays} />
+                </Stack>
+              }
+              right={
+                <AchievementList
+                  completedAchievementsCount={completedAchievementsCount}
+                  totalAchievements={totalAchievements}
+                />
+              }
+            ></GridLayout>
+            <ButtonPrimary onPress={handleClearData}>
+              Clear local stored data
+            </ButtonPrimary>
+          </Stack>
         </Box>
       </ResponsiveLayout>
     </>

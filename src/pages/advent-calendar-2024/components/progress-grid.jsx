@@ -1,9 +1,19 @@
 import React from "react";
-import { Inline, skinVars, Text4, ThemeVariant } from "@telefonica/mistica";
+import {
+  applyAlpha,
+  Inline,
+  skinVars,
+  Text4,
+  ThemeVariant,
+} from "@telefonica/mistica";
+import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
 
 const ProgressGrid = ({ completedDays }) => {
   const columns = 8;
-  const daysInNovember = Array.from({ length: 24 }, (_, i) => i + 1);
+  const daysInNovember = Array.from(
+    { length: TOTAL_CALENDAR_DAYS },
+    (_, i) => i + 1
+  );
 
   // Extract day number from `YYYY-MM-DD` format
   const completedDayNumbers = completedDays.map((date) =>
@@ -20,7 +30,9 @@ const ProgressGrid = ({ completedDays }) => {
     justifyContent: "center",
     width: 56,
     height: 56,
-    outline: `1px solid ${skinVars.colors.inverse}`,
+    outline: `1px solid ${
+      completed ? skinVars.colors.inverse : skinVars.colors.neutralMedium
+    }`,
     outlineOffset: "-4px",
   });
 

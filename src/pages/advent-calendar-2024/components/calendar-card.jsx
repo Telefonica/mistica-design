@@ -8,20 +8,14 @@ import {
 } from "@telefonica/mistica";
 import { useState, useRef, useEffect } from "react";
 import styles from "./calendar-card.module.css";
+import { CARD_STATES } from "../utils/constants";
 
-const CalendarCard = ({
-  DateString,
-  DayOfWeek,
-  content,
-  isCompleted,
-  isBlocked,
-  onEndDay,
-}) => {
+const CalendarCard = ({ DateString, DayOfWeek, content, status, onEndDay }) => {
   const dialogRef = useRef(null);
   const day = new Date(DateString).getDate();
 
   const handleClick = () => {
-    if (!isBlocked) {
+    if (status === CARD_STATES.AVAILABLE) {
       dialogRef.current.showModal();
     }
   };
@@ -31,35 +25,50 @@ const CalendarCard = ({
     onEndDay(); // Notify the parent to update the state
   };
 
-  const blockedStyles = isBlocked
-    ? isCompleted
-      ? { background: skinVars.colors.successLow }
-      : { background: skinVars.colors.backgroundContainerAlternative }
-    : { background: skinVars.colors.backgroundContainer };
+  let backgroundStyles;
+
+  switch (status) {
+    case CARD_STATES.COMPLETED: {
+      backgroundStyles = { background: skinVars.colors.successLow };
+      break;
+    }
+    case CARD_STATES.BLOCKED: {
+      backgroundStyles = {
+        background: skinVars.colors.backgroundContainerAlternative,
+      };
+      break;
+    }
+    default: {
+      backgroundStyles = { background: skinVars.colors.backgroundContainer };
+    }
+  }
 
   return (
     <>
       <div
         onClick={handleClick}
         style={{
-          cursor: isBlocked ? "not-allowed" : "pointer",
+          cursor: status !== CARD_STATES.AVAILABLE ? "not-allowed" : "pointer",
           border: `2px solid black`,
-          ...blockedStyles,
+          ...backgroundStyles,
         }}
         aria-haspopup="dialog"
         className={styles.container}
       >
         <Stack space={8}>
-          {!isBlocked && <Tag type="warning">Available</Tag>}
+          {status === CARD_STATES.AVAILABLE && (
+            <Tag type="warning">Available</Tag>
+          )}
           <span>{DayOfWeek}</span>
           <Text8>{day}</Text8>
-          {isBlocked && (
+          {status === CARD_STATES.BLOCKED && (
             <Inline space={4}>
               <IconLockClosedFilled />
               <p className="blocked-text">Blocked</p>
             </Inline>
           )}
-          {isCompleted && <p>Completed</p>}
+          {status === CARD_STATES.COMPLETED && <p>Completed</p>}
+          {status === CARD_STATES.BLOCKED ? "TRUE" : "FALSE"}
         </Stack>
       </div>
       <dialog ref={dialogRef}>
