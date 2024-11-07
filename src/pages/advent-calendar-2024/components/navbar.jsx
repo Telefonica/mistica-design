@@ -5,6 +5,7 @@ import {
   TelefonicaLogo,
   skinVars,
   ButtonSecondary,
+  Touchable,
 } from "@telefonica/mistica";
 import RotatingSVG from "./label-rotate";
 import { useNavigate } from "react-router-dom";
@@ -30,7 +31,9 @@ const NavBar = () => {
     <ResponsiveLayout>
       <Box paddingY={24}>
         <Inline space="between" alignItems="center">
-          <RotatingSVG />
+          <Touchable to={"/advent-calendar-2024"}>
+            <RotatingSVG />
+          </Touchable>
           <Inline space={24} alignItems="center">
             <ButtonSecondary onPress={handleViewProgress}>
               My progress

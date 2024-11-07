@@ -6,9 +6,16 @@ import {
   Text3,
   Text4,
   Text8,
+  Text10,
   ButtonPrimary,
   ResponsiveLayout,
   Inline,
+  IconTrophyRegular,
+  IconCalendarRegular,
+  GridLayout,
+  Tooltip,
+  ProgressBar,
+  IconProcessLoadingRegular,
 } from "@telefonica/mistica";
 import { base64Decode, base64Encode } from "../utils/url-encoder";
 import {
@@ -16,6 +23,9 @@ import {
   ACHIEVEMENT_PREFIX,
 } from "../utils/achievement-config";
 import Achievement from "../components/achievement";
+import ProgressGrid from "../components/progress-grid";
+import NavBar from "../components/navbar";
+import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
@@ -130,59 +140,128 @@ const ProgressView = () => {
     navigate({ search: params.toString() }, { replace: true });
   };
 
-  return (
-    <ResponsiveLayout>
-      <Box padding={24}>
-        <Stack space={16}>
-          <Text4>Completed Days</Text4>
-          {completedDays.length === 0 ? (
-            <Text8>No days completed yet</Text8>
-          ) : (
-            <Stack space={8}>
-              {completedDays.map((day) => (
-                <Box key={day} padding={8} style={{ border: "1px solid #ccc" }}>
-                  <Text8>{day}</Text8>
-                </Box>
-              ))}
-            </Stack>
-          )}
-          <Text4>Achievements</Text4>
+  const completedAchievementsCount = achievementsConfig.filter(
+    (achievement) => {
+      const achievementStatus = achievements[achievement.id] || {
+        isCompleted: false,
+      };
+      return achievementStatus.isCompleted;
+    }
+  ).length;
+
+  const totalAchievements = achievementsConfig.length;
+
+  const AchievementList = ({
+    completedAchievementsCount,
+    totalAchievements,
+  }) => {
+    // Count completed achievements
+
+    return (
+      <Stack space={16}>
+        <Stack space={4}>
+          <Inline space={8}>
+            <IconTrophyRegular></IconTrophyRegular>
+            <Text4>Achievements</Text4>
+          </Inline>
+          <Text10>
+            {completedAchievementsCount} of {totalAchievements}
+          </Text10>
+        </Stack>
+        <Inline space={8} wrap>
           {achievementsConfig.map((achievement) => {
             const achievementStatus = achievements[achievement.id] || {
               isCompleted: false,
               isSecret: achievement.isSecret,
             };
             return (
-              <Box
-                key={achievement.id}
-                padding={8}
-                style={{ border: "1px solid #ccc" }}
-              >
-                <Inline alignItems="center" space={8}>
-                  <Achievement
-                    icon={achievement.icon}
-                    isCompleted={achievementStatus.isCompleted}
-                    isSecret={achievementStatus.isSecret}
-                  />
-                  <Text3>
-                    {achievementStatus.isSecret
-                      ? achievementStatus.isCompleted
-                        ? `${achievement.name}: ${achievement.description} (Completed)`
-                        : "Secret Achievement"
-                      : `${achievement.name}: ${achievement.description} ${
-                          achievementStatus.isCompleted ? "(Completed)" : ""
-                        }`}
-                  </Text3>
-                </Inline>
+              <Box key={achievement.id} style={{ border: "1px solid #ccc" }}>
+                <Tooltip
+                  target={
+                    <Achievement
+                      icon={achievement.icon}
+                      isCompleted={achievementStatus.isCompleted}
+                      isSecret={achievementStatus.isSecret}
+                    />
+                  }
+                  title={
+                    achievementStatus.isSecret
+                      ? "Secret achievement"
+                      : achievement.name
+                  }
+                  description={
+                    achievementStatus.isSecret
+                      ? "Continue searching for this achievement"
+                      : achievement.description
+                  }
+                />
               </Box>
             );
           })}
-          <ButtonPrimary onPress={handleClearData}>
-            Clear local stored data
-          </ButtonPrimary>
-        </Stack>
-      </Box>
-    </ResponsiveLayout>
+        </Inline>
+      </Stack>
+    );
+  };
+
+  return (
+    <>
+      <NavBar />
+      <ResponsiveLayout>
+        <Box padding={24}>
+          <Stack space={48}>
+            <Stack space={16}>
+              <Stack space={4}>
+                <Inline space={8}>
+                  <IconProcessLoadingRegular></IconProcessLoadingRegular>
+                  <Text4>Total progress</Text4>
+                </Inline>
+                <Text10>
+                  {Math.round(
+                    ((completedDays.length + completedAchievementsCount) /
+                      (TOTAL_CALENDAR_DAYS + totalAchievements)) *
+                      100
+                  )}
+                  %
+                </Text10>
+              </Stack>
+              <ProgressBar
+                progressPercent={
+                  (completedDays.length / TOTAL_CALENDAR_DAYS) * 100
+                }
+              />
+            </Stack>
+            <GridLayout
+              verticalSpace={48}
+              template="6+6"
+              left={
+                <Stack space={16}>
+                  <Stack space={4}>
+                    <Inline space={8}>
+                      <IconCalendarRegular></IconCalendarRegular>
+                      <Text4>Completed Days</Text4>
+                    </Inline>
+                    <Text10>
+                      {completedDays.length} of {TOTAL_CALENDAR_DAYS}
+                    </Text10>
+                  </Stack>
+
+                  <ProgressGrid completedDays={completedDays} />
+                </Stack>
+              }
+              right={
+                <AchievementList
+                  completedAchievementsCount={completedAchievementsCount}
+                  totalAchievements={totalAchievements}
+                />
+              }
+            ></GridLayout>
+            <ButtonPrimary onPress={handleClearData}>
+              Clear local stored data
+            </ButtonPrimary>
+          </Stack>
+        </Box>
+      </ResponsiveLayout>
+    </>
   );
 };
 
