@@ -11,6 +11,7 @@ import {
   IconChevronRightRegular,
   IconLockOpenFilled,
   IconLockClosedFilled,
+  IconCheckFilled,
 } from "@telefonica/mistica";
 import { useState, useRef, useEffect } from "react";
 import styles from "./calendar-card.module.css";
@@ -49,7 +50,7 @@ const CalendarCard = ({ DateString, DayOfWeek, content, status, onEndDay }) => {
     }
   }
 
-  const LockedText = () => {
+  const StatusIndicator = () => {
     return (
       <div style={{ position: "absolute", top: 32, right: 32 }}>
         <div
@@ -61,8 +62,12 @@ const CalendarCard = ({ DateString, DayOfWeek, content, status, onEndDay }) => {
         >
           {status === CARD_STATES.AVAILABLE ? (
             <IconLockOpenFilled size={40} />
-          ) : (
+          ) : status === CARD_STATES.BLOCKED ? (
             <IconLockClosedFilled size={40} />
+          ) : (
+            <Circle size={40} background={skinVars.colors.successHigh}>
+              <IconCheckFilled size={24} color={skinVars.colors.inverse} />
+            </Circle>
           )}
 
           <p
@@ -73,11 +78,17 @@ const CalendarCard = ({ DateString, DayOfWeek, content, status, onEndDay }) => {
               fontSize: 20,
               marginRight: 4,
               writingMode: "vertical-lr",
+              color:
+                status === CARD_STATES.COMPLETED
+                  ? skinVars.colors.successHigh
+                  : skinVars.colors.textPrimary,
             }}
           >
             {status === CARD_STATES.AVAILABLE
               ? "Available!"
-              : "Locked until the day"}
+              : status === CARD_STATES.BLOCKED
+              ? "Locked until the day"
+              : "Completed"}
           </p>
         </div>
       </div>
@@ -106,7 +117,7 @@ const CalendarCard = ({ DateString, DayOfWeek, content, status, onEndDay }) => {
           <Stack space={8}>
             <Text8>{DayOfWeek}</Text8>
 
-            <LockedText />
+            <StatusIndicator />
           </Stack>
           <Inline space="between" alignItems="center">
             <Text size={80} weight="medium">
