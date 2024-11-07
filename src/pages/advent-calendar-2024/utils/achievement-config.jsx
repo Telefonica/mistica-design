@@ -1,6 +1,15 @@
-import { IconBugFilled, IconTree2Filled } from "@telefonica/mistica";
+import {
+  IconArrowUpDownFilled,
+  IconBeachUmbrellaFilled,
+  IconBellFilled,
+  IconCalendarFilled,
+  IconEyeFilled,
+  IconSnowflakeRegular,
+} from "@telefonica/mistica";
 import { updateAchievements } from "./state-manager";
-import { CHRISTMAS_DAY, TOTAL_CALENDAR_DAYS } from "./constants";
+import { TOTAL_CALENDAR_DAYS } from "./constants";
+
+const CHRISTMAS_DAY = "25";
 
 // Define your achievements and their conditions
 export const achievementsConfig = [
@@ -8,7 +17,7 @@ export const achievementsConfig = [
     id: "christmasDay",
     name: "Christmas Day",
     description: "Complete a task on Christmas Day",
-    icon: IconTree2Filled,
+    icon: IconBellFilled,
     check: (newCompletedDays) => newCompletedDays.some(isChristmasDay),
     message: "Achievement Unlocked: You completed a task on Christmas Day!",
     isSecret: false,
@@ -17,7 +26,7 @@ export const achievementsConfig = [
     id: "firstGlance",
     name: "First Glance",
     description: "Unlock the first day of the calendar",
-    icon: IconBugFilled,
+    icon: IconEyeFilled,
     check: (newCompletedDays) => newCompletedDays.length > 0, // Unlock when the first day is completed
     message:
       "Achievement Unlocked: First Glance - You have unlocked the first day of the calendar!",
@@ -27,7 +36,7 @@ export const achievementsConfig = [
     id: "dynamicDuo",
     name: "Dynamic Duo",
     description: "Complete two tasks on consecutive days",
-    icon: IconBugFilled,
+    icon: IconArrowUpDownFilled,
     check: (newCompletedDays) => hasConsecutiveDays(newCompletedDays),
     message:
       "Achievement Unlocked: Dynamic Duo - You have unlocked two consecutive days!",
@@ -37,7 +46,7 @@ export const achievementsConfig = [
     id: "whatAWeek",
     name: "What a Week",
     description: "Complete seven tasks on consecutive days",
-    icon: IconBugFilled,
+    icon: IconCalendarFilled,
     check: (newCompletedDays) =>
       hasConsecutiveDays(newCompletedDays) && newCompletedDays.length >= 7,
     message:
@@ -48,7 +57,7 @@ export const achievementsConfig = [
     id: "restDay",
     name: "Rest Day",
     description: "Unlock a weekend day",
-    icon: IconBugFilled,
+    icon: IconBeachUmbrellaFilled,
     check: (newCompletedDays) => newCompletedDays.some(isWeekendDay),
     message:
       "Achievement Unlocked: Rest Day - You have unlocked a weekend day!",
@@ -58,7 +67,7 @@ export const achievementsConfig = [
     id: "adventChampion",
     name: "Advent Champion",
     description: "Unlock all days in the advent calendar",
-    icon: IconBugFilled,
+    icon: IconSnowflakeRegular,
     check: (newCompletedDays) =>
       newCompletedDays.length === TOTAL_CALENDAR_DAYS,
     message:

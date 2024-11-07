@@ -1,11 +1,12 @@
 import {
   ResponsiveLayout,
   ButtonPrimary,
-  Text10,
+  Text,
   Text5,
   Box,
   Stack,
   Carousel,
+  Inline,
 } from "@telefonica/mistica";
 import CalendarCard from "../components/calendar-card";
 import NavBar from "../components/navbar";
@@ -125,9 +126,26 @@ const CalendarView = () => {
       <ResponsiveLayout>
         <Box paddingY={42}>
           <Stack space={48}>
-            <Stack space={16}>
-              <Text5>Mística Advent</Text5>
-              <Text10>Calendar '24</Text10>
+            <Stack space={0}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M4.19043 11.7969L12 2L19.8094 11.7969H15.4314L19.8094 17H13V22H11V17H4.19043L8.56849 11.7969H4.19043Z"
+                    fill="black"
+                  />
+                </svg>
+                <Text5>Mística Advent</Text5>
+              </div>
+
+              <Text size={80} weight="medium">
+                Calendar '24
+              </Text>
             </Stack>
             <Carousel
               initialActiveItem={initialActiveDay}

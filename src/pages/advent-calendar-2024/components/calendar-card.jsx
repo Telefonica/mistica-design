@@ -1,10 +1,16 @@
 import {
   Inline,
-  IconLockClosedFilled,
   Stack,
-  Text8,
+  Text10,
   skinVars,
   Tag,
+  Text8,
+  Text,
+  IconLockEyeClosedFilled,
+  Circle,
+  IconChevronRightRegular,
+  IconLockOpenFilled,
+  IconLockClosedFilled,
 } from "@telefonica/mistica";
 import { useState, useRef, useEffect } from "react";
 import styles from "./calendar-card.module.css";
@@ -43,32 +49,82 @@ const CalendarCard = ({ DateString, DayOfWeek, content, status, onEndDay }) => {
     }
   }
 
+  const LockedText = () => {
+    return (
+      <div style={{ position: "absolute", top: 32, right: 32 }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "end",
+          }}
+        >
+          {status === CARD_STATES.AVAILABLE ? (
+            <IconLockOpenFilled size={40} />
+          ) : (
+            <IconLockClosedFilled size={40} />
+          )}
+
+          <p
+            style={{
+              transformOrigin: "top left",
+              marginTop: 16,
+              textAlign: "right",
+              fontSize: 20,
+              marginRight: 4,
+              writingMode: "vertical-lr",
+            }}
+          >
+            {status === CARD_STATES.AVAILABLE
+              ? "Available!"
+              : "Locked until the day"}
+          </p>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
       <div
         onClick={handleClick}
         style={{
           cursor: status !== CARD_STATES.AVAILABLE ? "not-allowed" : "pointer",
-          border: `2px solid black`,
+          border: `2px solid ${
+            status !== CARD_STATES.AVAILABLE
+              ? skinVars.colors.divider
+              : skinVars.colors.neutralHigh
+          }`,
+          padding: 24,
+          position: "relative",
           ...backgroundStyles,
         }}
         aria-haspopup="dialog"
         className={styles.container}
       >
-        <Stack space={8}>
-          {status === CARD_STATES.AVAILABLE && (
-            <Tag type="warning">Available</Tag>
-          )}
-          <span>{DayOfWeek}</span>
-          <Text8>{day}</Text8>
-          {status === CARD_STATES.BLOCKED && (
-            <Inline space={4}>
-              <IconLockClosedFilled />
-              <p className="blocked-text">Blocked</p>
-            </Inline>
-          )}
-          {status === CARD_STATES.COMPLETED && <p>Completed</p>}
-          {status === CARD_STATES.BLOCKED ? "TRUE" : "FALSE"}
+        <Stack space="between">
+          <Stack space={8}>
+            <Text8>{DayOfWeek}</Text8>
+
+            <LockedText />
+          </Stack>
+          <Inline space="between" alignItems="center">
+            <Text size={80} weight="medium">
+              {day}
+            </Text>
+            {status === CARD_STATES.AVAILABLE && (
+              <Circle
+                size={56}
+                background={skinVars.colors.neutralLow}
+                border={skinVars.colors.neutralHigh}
+              >
+                <IconChevronRightRegular
+                  size={32}
+                  color={skinVars.colors.neutralHigh}
+                ></IconChevronRightRegular>
+              </Circle>
+            )}
+          </Inline>
         </Stack>
       </div>
       <dialog ref={dialogRef}>
