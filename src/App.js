@@ -17,6 +17,7 @@ import AdventCalendar2024 from "./pages/advent-calendar-2024/index";
 import WrappedFinale from "./pages/wrapped2023/finale";
 import Skin2Json from "./pages/skin2Json";
 import SkinTool from "./pages/skin-tool";
+import ComingSoon from "./pages/advent-calendar-2024/pages/coming-soon";
 import ProgressView from "./pages/advent-calendar-2024/pages/progress-view";
 
 export const SchemeContext = createContext();
@@ -70,6 +71,10 @@ const App = () => {
     {
       path: `/advent-calendar-2024`,
       element: <AdventCalendar2024 />,
+    },
+    {
+      path: `/advent-calendar-2024/coming-soon`,
+      element: <ComingSoon />,
     },
     {
       path: `/advent-calendar-2024/progress-view`,
