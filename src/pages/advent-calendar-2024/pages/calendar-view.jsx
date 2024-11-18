@@ -22,6 +22,10 @@ import {
   ACHIEVEMENT_PREFIX,
 } from "../utils/achievement-config";
 import { CARD_STATES, TOTAL_CALENDAR_DAYS } from "../utils/constants";
+import {
+  IllustrationWishesLetter,
+  IllustrationWoolClothes,
+} from "../assets/illustrations/illustrations";
 
 const CalendarView = () => {
   const location = useLocation();
@@ -104,7 +108,26 @@ const CalendarView = () => {
   };
 
   const contentByDate = {
-    "2024-10-28": "Today's challenge: Try a new hobby or activity.",
+    "2024-11-11": {
+      illustration: <IllustrationWishesLetter />,
+      title: "Movie Night",
+      description: "Watch a movie with your family or friends.",
+    },
+    "2024-11-12": {
+      illustration: <IllustrationWoolClothes />,
+      title: "Movie Night",
+      description: "Watch a movie with your family or friends.",
+    },
+    "2024-11-18": {
+      illustration: <IllustrationWishesLetter />,
+      title: "Movie Night",
+      description: "Watch a movie with your family or friends.",
+    },
+    "2024-11-19": {
+      illustration: <IllustrationWoolClothes />,
+      title: "Movie Night",
+      description: "Watch a movie with your family or friends.",
+    },
   };
 
   const calendarItems = useMemo(() => {
@@ -113,9 +136,10 @@ const CalendarView = () => {
         key={date}
         DateString={date}
         DayOfWeek={dayOfWeek}
-        content={contentByDate[date]}
+        content={contentByDate[date]?.title}
         status={getDayStatus(date)}
         onEndDay={() => markDayAsCompleted(date)}
+        illustration={contentByDate[date]?.illustration}
       />
     ));
   }, [completedDays, calendarDays]);
