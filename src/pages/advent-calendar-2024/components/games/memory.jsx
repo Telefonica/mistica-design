@@ -12,6 +12,7 @@ import telefonica from '../../../../img/games/telefonica.svg';
 import tu from '../../../../img/games/tu.svg';
 import vivo from '../../../../img/games/vivo.svg';
 import './memory.css';
+import { saveScore } from "../../utils/score-manager";
 
 const initialCards = [
     blau, blau,
@@ -24,6 +25,7 @@ const initialCards = [
     vivo, vivo,
     vivo, vivo
 ];
+
 const MemoryGame = () => {
     const timeLimit = 60; // Tiempo en segundos
     const [cards, setCards] = useState([]);
@@ -32,8 +34,8 @@ const MemoryGame = () => {
     const [score, setScore] = useState(0);
     const [timerStarted, setTimerStarted] = useState(false);
     const [timeRemaining, setTimeRemaining] = useState(timeLimit);
-    const [gameEnded, setGameEnded] = useState(false); // Para controlar cuando terminas
-    const [revealedCards, setRevealedCards] = useState([]); // Cartas que han sido reveladas y son una pareja
+    const [gameEnded, setGameEnded] = useState(false); // Para controlar cuando termina
+    const [revealedCards, setRevealedCards] = useState([]); // Cartas reveladas
 
     // Función para barajar las cartas
     const shuffle = (array) => {
@@ -57,10 +59,15 @@ const MemoryGame = () => {
             }, 1000);
             return () => clearInterval(timerId);
         } else if (timeRemaining === 0 && !gameEnded) {
-        setGameEnded(true);
+            setGameEnded(true);
         }
     }, [timerStarted, timeRemaining, gameEnded]);
 
+    useEffect(() => {
+        if (gameEnded) {
+            saveScore(score); // Guarda el score final en localStorage
+        }
+    }, [gameEnded, score]);
 
     const startTimer = () => {
         setTimerStarted(true);
@@ -117,7 +124,7 @@ const MemoryGame = () => {
                     aliquip ex ea commodo consequat. Excepteur sint occaecat 
                     cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text3>
                 <Text9 id="score">Score: {score}</Text9>
-                {gameEnded && <p>Congratsss! Your final score is: {score}</p>}
+                {gameEnded && <p>Congratulations! Your final score is: {score}</p>}
             </div>
             <div className="right-column">
                 <div className="card-grid">
