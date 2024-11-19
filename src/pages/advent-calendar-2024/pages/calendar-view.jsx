@@ -27,10 +27,21 @@ import {
   IllustrationWoolClothes,
 } from "../assets/illustrations/illustrations";
 import ToastWrapper from "../components/toast-wrapper";
+import contentByDate from "../utils/content-config";
+import {
+  initScore,
+  updatePoints,
+  allPoints,
+} from "../utils/score-manager";
 
 const CalendarView = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    initScore();
+    updatePoints();
+  }, []);
 
   // Load completed days from local storage on initial mount
   const [completedDays, setCompletedDays] = useState(() => {
@@ -118,6 +129,8 @@ const CalendarView = () => {
     achievementsConfig.forEach(({ id }) => {
       localStorage.removeItem(ACHIEVEMENT_PREFIX + id);
     });
+    localStorage.setItem("totalScore", "0");
+    localStorage.setItem("pendingScore", "0");
   };
 
   const getDayStatus = (date) => {
@@ -126,36 +139,13 @@ const CalendarView = () => {
     return CARD_STATES.AVAILABLE;
   };
 
-  const contentByDate = {
-    "2024-11-11": {
-      illustration: <IllustrationWishesLetter />,
-      title: "Movie Night",
-      description: "Watch a movie with your family or friends.",
-    },
-    "2024-11-12": {
-      illustration: <IllustrationWoolClothes />,
-      title: "Movie Night",
-      description: "Watch a movie with your family or friends.",
-    },
-    "2024-11-18": {
-      illustration: <IllustrationWishesLetter />,
-      title: "Movie Night",
-      description: "Watch a movie with your family or friends.",
-    },
-    "2024-11-19": {
-      illustration: <IllustrationWoolClothes />,
-      title: "Movie Night",
-      description: "Watch a movie with your family or friends.",
-    },
-  };
-
   const calendarItems = useMemo(() => {
     return calendarDays.map(({ date, dayOfWeek }) => (
       <CalendarCard
         key={date}
         DateString={date}
         DayOfWeek={dayOfWeek}
-        content={contentByDate[date]?.title}
+        content={contentByDate[date]?.content}
         status={getDayStatus(date)}
         onEndDay={() => markDayAsCompleted(date)}
         illustration={contentByDate[date]?.illustration}
@@ -200,6 +190,7 @@ const CalendarView = () => {
             <ButtonPrimary onPress={() => setAllDaysUnlocked(!allDaysUnlocked)}>
               {allDaysUnlocked ? "Enable blocked days" : "Disable blocked days"}
             </ButtonPrimary>
+            <Text5>Total score: {allPoints()}</Text5>
           </Stack>
         </Box>
       </ResponsiveLayout>
