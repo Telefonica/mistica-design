@@ -1,6 +1,6 @@
 import { IconQuestionRegular, skinVars } from "@telefonica/mistica";
 
-const Achievement = ({ icon: Icon, isCompleted, isSecret }) => {
+export const Achievement = ({ icon: Icon, isCompleted, isSecret }) => {
   return (
     <div
       style={{
@@ -18,7 +18,7 @@ const Achievement = ({ icon: Icon, isCompleted, isSecret }) => {
         outlineOffset: "-4px",
       }}
     >
-      {isSecret ? (
+      {isSecret && !isCompleted ? (
         <IconQuestionRegular></IconQuestionRegular>
       ) : (
         <Icon

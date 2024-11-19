@@ -1,16 +1,28 @@
 import {
   Inline,
-  IconLockClosedFilled,
   Stack,
-  Text8,
+  Text10,
   skinVars,
   Tag,
+  Text5,
+  Text,
+  IconLockEyeClosedFilled,
+  Circle,
+  IconChevronRightRegular,
 } from "@telefonica/mistica";
-import { useState, useRef, useEffect } from "react";
+import { useRef } from "react";
 import styles from "./calendar-card.module.css";
 import { CARD_STATES } from "../utils/constants";
+import { IconCompleted, IconLockOpen } from "../assets/icons/icons";
 
-const CalendarCard = ({ DateString, DayOfWeek, content, status, onEndDay }) => {
+const CalendarCard = ({
+  DateString,
+  DayOfWeek,
+  content,
+  status,
+  onEndDay,
+  illustration,
+}) => {
   const dialogRef = useRef(null);
   const day = new Date(DateString).getDate();
 
@@ -25,23 +37,100 @@ const CalendarCard = ({ DateString, DayOfWeek, content, status, onEndDay }) => {
     onEndDay(); // Notify the parent to update the state
   };
 
-  let backgroundStyles;
+  let cardStatusStyles;
 
   switch (status) {
     case CARD_STATES.COMPLETED: {
-      backgroundStyles = { background: skinVars.colors.successLow };
+      cardStatusStyles = {
+        background: skinVars.colors.backgroundContainerAlternative,
+        border: `2px solid ${skinVars.colors.backgroundContainerAlternative}`,
+      };
       break;
     }
     case CARD_STATES.BLOCKED: {
-      backgroundStyles = {
-        background: skinVars.colors.backgroundContainerAlternative,
+      cardStatusStyles = {
+        background: skinVars.colors.backgroundContainer,
+        border: `2px solid ${skinVars.colors.borderLow}`,
       };
       break;
     }
     default: {
-      backgroundStyles = { background: skinVars.colors.backgroundContainer };
+      cardStatusStyles = {
+        background: skinVars.colors.backgroundContainer,
+        border: `2px solid ${skinVars.colors.neutralHigh}`,
+      };
     }
   }
+
+  const IllustrationWrapper = ({ illustration, status }) => {
+    return (
+      <div
+        style={{
+          filter:
+            status === CARD_STATES.BLOCKED
+              ? "grayscale(100%) contrast(0%)"
+              : "none",
+          opacity: status === CARD_STATES.BLOCKED ? 0.1 : 1,
+          display: "inline-flex",
+          width: "100%",
+          justifyContent: "center",
+        }}
+      >
+        {illustration}
+      </div>
+    );
+  };
+
+  const StatusIndicator = () => {
+    return (
+      <div
+        style={{
+          position: "absolute",
+          top: 24,
+          right: 24,
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          {status === CARD_STATES.AVAILABLE ? (
+            <IconLockOpen size={40} />
+          ) : status === CARD_STATES.BLOCKED ? (
+            <IconLockEyeClosedFilled
+              size={40}
+              color={skinVars.colors.textSecondary}
+            />
+          ) : (
+            <IconCompleted size={40} />
+          )}
+
+          <p
+            style={{
+              transformOrigin: "top left",
+              marginTop: 16,
+              fontSize: 16,
+              writingMode: "vertical-lr",
+              fontWeight: "bold",
+              color:
+                status === CARD_STATES.AVAILABLE
+                  ? skinVars.colors.textPrimary
+                  : skinVars.colors.textSecondary,
+            }}
+          >
+            {status === CARD_STATES.AVAILABLE
+              ? "Available"
+              : status === CARD_STATES.BLOCKED
+              ? "Locked"
+              : "Completed"}
+          </p>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <>
@@ -49,26 +138,55 @@ const CalendarCard = ({ DateString, DayOfWeek, content, status, onEndDay }) => {
         onClick={handleClick}
         style={{
           cursor: status !== CARD_STATES.AVAILABLE ? "not-allowed" : "pointer",
-          border: `2px solid black`,
-          ...backgroundStyles,
+
+          padding: 24,
+          position: "relative",
+          ...cardStatusStyles,
         }}
         aria-haspopup="dialog"
         className={styles.container}
       >
-        <Stack space={8}>
-          {status === CARD_STATES.AVAILABLE && (
-            <Tag type="warning">Available</Tag>
+        <Stack space="between">
+          <Stack space={8}>
+            <Text5
+              color={
+                status === CARD_STATES.AVAILABLE
+                  ? skinVars.colors.textPrimary
+                  : skinVars.colors.textSecondary
+              }
+            >
+              {DayOfWeek}
+            </Text5>
+
+            <StatusIndicator />
+          </Stack>
+
+          {illustration && (
+            <IllustrationWrapper illustration={illustration} status={status} />
           )}
-          <span>{DayOfWeek}</span>
-          <Text8>{day}</Text8>
-          {status === CARD_STATES.BLOCKED && (
-            <Inline space={4}>
-              <IconLockClosedFilled />
-              <p className="blocked-text">Blocked</p>
-            </Inline>
-          )}
-          {status === CARD_STATES.COMPLETED && <p>Completed</p>}
-          {status === CARD_STATES.BLOCKED ? "TRUE" : "FALSE"}
+
+          <Inline space="between" alignItems="center">
+            <Text
+              size={64}
+              weight="medium"
+              color={
+                status === CARD_STATES.AVAILABLE
+                  ? skinVars.colors.textPrimary
+                  : skinVars.colors.textSecondary
+              }
+            >
+              {day}
+            </Text>
+
+            {status === CARD_STATES.AVAILABLE && (
+              <Circle size={48} background={skinVars.colors.brand}>
+                <IconChevronRightRegular
+                  size={24}
+                  color={skinVars.colors.inverse}
+                ></IconChevronRightRegular>
+              </Circle>
+            )}
+          </Inline>
         </Stack>
       </div>
       <dialog ref={dialogRef}>

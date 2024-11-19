@@ -175,36 +175,65 @@ const ProgressView = () => {
           </Text10>
         </Stack>
         <Inline space={8} wrap>
-          {achievementsConfig.map((achievement) => {
-            const achievementStatus = achievements[achievement.id] || {
-              isCompleted: false,
-              isSecret: achievement.isSecret,
-            };
-            return (
-              <Box key={achievement.id} style={{ border: "1px solid #ccc" }}>
-                <Tooltip
-                  target={
-                    <Achievement
-                      icon={achievement.icon}
-                      isCompleted={achievementStatus.isCompleted}
-                      isSecret={achievementStatus.isSecret}
-                    />
-                  }
-                  title={
-                    achievementStatus.isSecret
-                      ? "Secret achievement"
-                      : achievement.name
-                  }
-                  description={
-                    achievementStatus.isSecret
-                      ? "Continue searching for this achievement"
-                      : achievement.description
-                  }
-                />
-              </Box>
-            );
-          })}
+          {achievementsConfig.map(
+            ({ id, icon, name, description, isSecret }) => {
+              const achievementStatus = achievements[id] || {
+                isCompleted: false,
+                isSecret,
+              };
+
+              const tooltipTitle =
+                achievementStatus.isSecret && !achievementStatus.isCompleted
+                  ? "Secret achievement"
+                  : name;
+
+              const tooltipDescription =
+                achievementStatus.isSecret && !achievementStatus.isCompleted
+                  ? "Continue searching for this achievement"
+                  : description;
+
+              return (
+                <Box key={id} style={{ border: "1px solid #ccc" }}>
+                  <Tooltip
+                    target={
+                      <Achievement
+                        icon={icon}
+                        isCompleted={achievementStatus.isCompleted}
+                        isSecret={achievementStatus.isSecret}
+                      />
+                    }
+                    title={tooltipTitle}
+                    description={tooltipDescription}
+                  />
+                </Box>
+              );
+            }
+          )}
         </Inline>
+      </Stack>
+    );
+  };
+
+  const TotalProgress = () => {
+    return (
+      <Stack space={16}>
+        <Stack space={4}>
+          <Inline space={8}>
+            <IconProcessLoadingRegular></IconProcessLoadingRegular>
+            <Text4>Total progress</Text4>
+          </Inline>
+          <Text10>
+            {Math.round(
+              ((completedDays.length + completedAchievementsCount) /
+                (TOTAL_CALENDAR_DAYS + totalAchievements)) *
+                100
+            )}
+            %
+          </Text10>
+        </Stack>
+        <ProgressBar
+          progressPercent={(completedDays.length / TOTAL_CALENDAR_DAYS) * 100}
+        />
       </Stack>
     );
   };
@@ -215,27 +244,7 @@ const ProgressView = () => {
       <ResponsiveLayout>
         <Box padding={24}>
           <Stack space={48}>
-            <Stack space={16}>
-              <Stack space={4}>
-                <Inline space={8}>
-                  <IconProcessLoadingRegular></IconProcessLoadingRegular>
-                  <Text4>Total progress</Text4>
-                </Inline>
-                <Text10>
-                  {Math.round(
-                    ((completedDays.length + completedAchievementsCount) /
-                      (TOTAL_CALENDAR_DAYS + totalAchievements)) *
-                      100
-                  )}
-                  %
-                </Text10>
-              </Stack>
-              <ProgressBar
-                progressPercent={
-                  (completedDays.length / TOTAL_CALENDAR_DAYS) * 100
-                }
-              />
-            </Stack>
+            <TotalProgress />
             <GridLayout
               verticalSpace={48}
               template="6+6"

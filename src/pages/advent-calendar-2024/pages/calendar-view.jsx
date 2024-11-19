@@ -1,11 +1,12 @@
 import {
   ResponsiveLayout,
   ButtonPrimary,
-  Text10,
+  Text,
   Text5,
   Box,
   Stack,
   Carousel,
+  Inline,
 } from "@telefonica/mistica";
 import CalendarCard from "../components/calendar-card";
 import NavBar from "../components/navbar";
@@ -21,6 +22,11 @@ import {
   ACHIEVEMENT_PREFIX,
 } from "../utils/achievement-config";
 import { CARD_STATES, TOTAL_CALENDAR_DAYS } from "../utils/constants";
+import {
+  IllustrationWishesLetter,
+  IllustrationWoolClothes,
+} from "../assets/illustrations/illustrations";
+import ToastWrapper from "../components/toast-wrapper";
 import contentByDate from "../utils/content-config";
 import {
   initScore,
@@ -42,6 +48,23 @@ const CalendarView = () => {
     const savedDays = localStorage.getItem("completedDays");
     return savedDays ? JSON.parse(savedDays) : [];
   });
+  const [toastContent, setToastContent] = useState(null);
+  const [showToast, setShowToast] = useState(false);
+  const [toasts, setToasts] = useState([]); // Array to manage multiple toasts
+
+  const handleShowToast = ({ id, icon, message, name }) => {
+    const newToast = {
+      id,
+      icon,
+      name,
+      message,
+    };
+    setToasts((prevToasts) => [...prevToasts, newToast]);
+  };
+
+  const removeToast = (id) => {
+    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
+  };
 
   const [achievements, setAchievements] = useState([]);
 
@@ -94,7 +117,8 @@ const CalendarView = () => {
         achievements,
         setAchievements,
         navigate,
-        location
+        location,
+        handleShowToast
       );
     }
   };
@@ -121,9 +145,10 @@ const CalendarView = () => {
         key={date}
         DateString={date}
         DayOfWeek={dayOfWeek}
-        content={contentByDate[date] || "No challenge for today."}
+        content={contentByDate[date]?.content}
         status={getDayStatus(date)}
         onEndDay={() => markDayAsCompleted(date)}
+        illustration={contentByDate[date]?.illustration}
       />
     ));
   }, [completedDays, calendarDays]);
@@ -134,9 +159,26 @@ const CalendarView = () => {
       <ResponsiveLayout>
         <Box paddingY={42}>
           <Stack space={48}>
-            <Stack space={16}>
-              <Text5>Mística Advent</Text5>
-              <Text10>Calendar '24</Text10>
+            <Stack space={0}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M4.19043 11.7969L12 2L19.8094 11.7969H15.4314L19.8094 17H13V22H11V17H4.19043L8.56849 11.7969H4.19043Z"
+                    fill="black"
+                  />
+                </svg>
+                <Text5>Mística Advent</Text5>
+              </div>
+
+              <Text size={80} weight="medium">
+                Calendar '24
+              </Text>
             </Stack>
             <Carousel
               initialActiveItem={initialActiveDay}
@@ -152,6 +194,8 @@ const CalendarView = () => {
           </Stack>
         </Box>
       </ResponsiveLayout>
+
+      <ToastWrapper toasts={toasts} removeToast={removeToast} />
     </>
   );
 };
