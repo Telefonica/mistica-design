@@ -28,11 +28,7 @@ import {
 } from "../assets/illustrations/illustrations";
 import ToastWrapper from "../components/toast-wrapper";
 import contentByDate from "../utils/content-config";
-import {
-  initScore,
-  updatePoints,
-  allPoints,
-} from "../utils/score-manager";
+import { initScore, updatePoints, allPoints } from "../utils/score-manager";
 
 const CalendarView = () => {
   const location = useLocation();
@@ -145,6 +141,8 @@ const CalendarView = () => {
         key={date}
         DateString={date}
         DayOfWeek={dayOfWeek}
+        eventName={contentByDate[date]?.title}
+        eventDescription={contentByDate[date]?.description}
         content={contentByDate[date]?.content}
         status={getDayStatus(date)}
         onEndDay={() => markDayAsCompleted(date)}

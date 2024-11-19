@@ -14,10 +14,14 @@ import { useRef } from "react";
 import styles from "./calendar-card.module.css";
 import { CARD_STATES } from "../utils/constants";
 import { IconCompleted, IconLockOpen } from "../assets/icons/icons";
+import ModalView from "./modal-view";
 
 const CalendarCard = ({
   DateString,
   DayOfWeek,
+  eventName,
+  eventDescription,
+  eventEnd,
   content,
   status,
   onEndDay,
@@ -189,16 +193,16 @@ const CalendarCard = ({
           </Inline>
         </Stack>
       </div>
-      <dialog ref={dialogRef}>
-        <form method="dialog">
-          <p>Do you want to end the day for {day}?</p>
-          <>{content}</>
-          <button onClick={handleEndDay}>End Day</button>
-          <button type="button" onClick={() => dialogRef.current.close()}>
-            Cancel
-          </button>
-        </form>
-      </dialog>
+      <ModalView
+        ref={dialogRef}
+        day={day}
+        dayOfWeek={DayOfWeek}
+        title={eventName}
+        description={eventDescription}
+        content={content}
+        onClose={handleEndDay}
+        onCancel={() => dialogRef.current.close()}
+      />
     </>
   );
 };
