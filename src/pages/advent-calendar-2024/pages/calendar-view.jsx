@@ -26,6 +26,7 @@ import {
   IllustrationWishesLetter,
   IllustrationWoolClothes,
 } from "../assets/illustrations/illustrations";
+import ToastWrapper from "../components/toast-wrapper";
 
 const CalendarView = () => {
   const location = useLocation();
@@ -36,6 +37,23 @@ const CalendarView = () => {
     const savedDays = localStorage.getItem("completedDays");
     return savedDays ? JSON.parse(savedDays) : [];
   });
+  const [toastContent, setToastContent] = useState(null);
+  const [showToast, setShowToast] = useState(false);
+  const [toasts, setToasts] = useState([]); // Array to manage multiple toasts
+
+  const handleShowToast = ({ id, icon, message, name }) => {
+    const newToast = {
+      id,
+      icon,
+      name,
+      message,
+    };
+    setToasts((prevToasts) => [...prevToasts, newToast]);
+  };
+
+  const removeToast = (id) => {
+    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
+  };
 
   const [achievements, setAchievements] = useState([]);
 
@@ -88,7 +106,8 @@ const CalendarView = () => {
         achievements,
         setAchievements,
         navigate,
-        location
+        location,
+        handleShowToast
       );
     }
   };
@@ -184,6 +203,8 @@ const CalendarView = () => {
           </Stack>
         </Box>
       </ResponsiveLayout>
+
+      <ToastWrapper toasts={toasts} removeToast={removeToast} />
     </>
   );
 };

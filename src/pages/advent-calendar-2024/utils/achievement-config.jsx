@@ -19,7 +19,7 @@ export const achievementsConfig = [
     description: "Complete a task on Christmas Day",
     icon: IconBellFilled,
     check: (newCompletedDays) => newCompletedDays.some(isChristmasDay),
-    message: "Achievement Unlocked: You completed a task on Christmas Day!",
+    message: "You completed a task on Christmas Day!",
     isSecret: false,
   },
   {
@@ -28,8 +28,7 @@ export const achievementsConfig = [
     description: "Unlock the first day of the calendar",
     icon: IconEyeFilled,
     check: (newCompletedDays) => newCompletedDays.length > 0, // Unlock when the first day is completed
-    message:
-      "Achievement Unlocked: First Glance - You have unlocked the first day of the calendar!",
+    message: "You have unlocked the first day of the calendar!",
     isSecret: false,
   },
   {
@@ -38,8 +37,7 @@ export const achievementsConfig = [
     description: "Complete two tasks on consecutive days",
     icon: IconArrowUpDownFilled,
     check: (newCompletedDays) => hasConsecutiveDays(newCompletedDays),
-    message:
-      "Achievement Unlocked: Dynamic Duo - You have unlocked two consecutive days!",
+    message: "You have unlocked two consecutive days!",
     isSecret: false,
   },
   {
@@ -49,8 +47,7 @@ export const achievementsConfig = [
     icon: IconCalendarFilled,
     check: (newCompletedDays) =>
       hasConsecutiveDays(newCompletedDays) && newCompletedDays.length >= 7,
-    message:
-      "Achievement Unlocked: What a Week - You have unlocked 7 consecutive days!",
+    message: "You have unlocked 7 consecutive days!",
     isSecret: false,
   },
   {
@@ -59,8 +56,7 @@ export const achievementsConfig = [
     description: "Unlock a weekend day",
     icon: IconBeachUmbrellaFilled,
     check: (newCompletedDays) => newCompletedDays.some(isWeekendDay),
-    message:
-      "Achievement Unlocked: Rest Day - You have unlocked a weekend day!",
+    message: "You have unlocked a weekend day!",
     isSecret: false,
   },
   {
@@ -70,8 +66,7 @@ export const achievementsConfig = [
     icon: IconSnowflakeRegular,
     check: (newCompletedDays) =>
       newCompletedDays.length === TOTAL_CALENDAR_DAYS,
-    message:
-      "Achievement Unlocked: Advent Champion - You have unlocked all days!",
+    message: "You have unlocked all days!",
     isSecret: true,
   },
 ];
@@ -122,32 +117,26 @@ export const checkAndUnlockAchievements = (
   achievements,
   setAchievements,
   navigate,
-  location
+  location,
+  showToast
 ) => {
-  achievementsConfig.forEach(({ id, check, message, isSecret }) => {
+  achievementsConfig.forEach(({ id, check, name, message, icon, isSecret }) => {
     const isAchievementUnlocked =
       achievements[id]?.isCompleted || getAchievementFromLocalStorage(id);
-
-    console.log(
-      `Checking achievement: ${id}, Unlocked: ${isAchievementUnlocked}`
-    );
 
     // If the achievement is not yet unlocked and the condition is met
     if (!isAchievementUnlocked) {
       if (check(newCompletedDays)) {
-        console.log(`Unlocking achievement: ${id}`); // Debugging
-        alert(message); // Immediate test for alert functionality
-
         setAchievements((prev) => {
           const updatedAchievements = {
             ...prev,
             [id]: { isCompleted: true, isSecret }, // Mark achievement as completed
           };
-          console.log("Updated Achievements:", updatedAchievements); // Check state update
           return updatedAchievements;
         });
 
         setAchievementToLocalStorage(id, true);
+        showToast({ id, icon, name, message });
         updateAchievements(
           Object.keys(achievements)
             .filter((key) => achievements[key].isCompleted)

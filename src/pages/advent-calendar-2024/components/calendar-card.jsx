@@ -4,7 +4,7 @@ import {
   Text10,
   skinVars,
   Tag,
-  Text8,
+  Text5,
   Text,
   IconLockEyeClosedFilled,
   Circle,
@@ -86,8 +86,8 @@ const CalendarCard = ({
       <div
         style={{
           position: "absolute",
-          top: 32,
-          right: 32,
+          top: 24,
+          right: 24,
         }}
       >
         <div
@@ -148,7 +148,7 @@ const CalendarCard = ({
       >
         <Stack space="between">
           <Stack space={8}>
-            <Text8
+            <Text5
               color={
                 status === CARD_STATES.AVAILABLE
                   ? skinVars.colors.textPrimary
@@ -156,7 +156,7 @@ const CalendarCard = ({
               }
             >
               {DayOfWeek}
-            </Text8>
+            </Text5>
 
             <StatusIndicator />
           </Stack>
@@ -167,7 +167,7 @@ const CalendarCard = ({
 
           <Inline space="between" alignItems="center">
             <Text
-              size={80}
+              size={64}
               weight="medium"
               color={
                 status === CARD_STATES.AVAILABLE
