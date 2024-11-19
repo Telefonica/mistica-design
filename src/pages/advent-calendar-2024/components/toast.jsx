@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Stack,
   Text3,
@@ -9,16 +9,19 @@ import {
   IconButton,
   IconCloseRegular,
 } from "@telefonica/mistica";
+import styles from "./toast.module.css";
 
 const Toast = ({
   title,
   description,
   icon: Icon,
   duration = 3000,
-  style,
+  delay = 0,
   onClose,
+  style,
 }) => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(true); // Initial visibility is true
+  const [fadeOut, setFadeOut] = useState(false); // Controls fade-out animation
   const [isHovered, setIsHovered] = useState(false);
   const timeoutRef = useRef(null);
 
@@ -32,44 +35,53 @@ const Toast = ({
   const startHideTimeout = () => {
     clearHideTimeout();
     timeoutRef.current = setTimeout(() => {
-      setVisible(false); // This will trigger unmount if necessary
-      onClose?.(); // Pass the ID to remove the toast
+      setFadeOut(true); // Trigger fade-out before setting visible to false
+      onClose?.(); // Trigger onClose callback to remove toast
     }, duration);
   };
 
+  // Handle visibility change when hovered or not
   useEffect(() => {
-    if (!isHovered) {
-      startHideTimeout(); // Start timeout when not hovered
-    } else {
-      clearHideTimeout(); // Clear timeout when hovered
-    }
+    const handleTimeout = () => {
+      if (!isHovered) {
+        setTimeout(startHideTimeout, delay); // Delay before auto-dismissing
+      } else {
+        clearHideTimeout(); // Clear timeout when hovered
+      }
+    };
+
+    handleTimeout();
 
     return () => clearHideTimeout(); // Cleanup timeout on unmount
-  }, [isHovered, duration]);
+  }, [isHovered, delay, duration]);
 
-  // Always render dismiss button, regardless of toast visibility
-  const handleDismiss = () => {
-    setVisible(false);
-    clearHideTimeout();
-    onClose?.(); // Ensure it triggers onClose from parent
-  };
+  useEffect(() => {
+    if (fadeOut) {
+      // Wait for the exit animation to complete before removing the toast
+      timeoutRef.current = setTimeout(() => {
+        setVisible(false); // Remove from the DOM after animation
+      }, 500); // Match the duration of your fade-out transition
+    }
 
-  if (!visible) return null; // Hide toast when not visible
+    return () => clearTimeout(timeoutRef.current); // Cleanup the fade-out timeout
+  }, [fadeOut]);
+
+  if (!visible) return null; // If not visible, do not render the toast
 
   return (
     <div
+      className={`${styles.toast} ${fadeOut ? styles.exit : ""}`} // Add the exit class when fadeOut is true
       style={{
         background: skinVars.colors.background,
         padding: "24px",
         borderRadius: "8px",
         border: `2px solid ${skinVars.colors.border}`,
         zIndex: 1000,
-        width: 480,
-        position: "relative", // Ensures dismiss button is on top
+        width: "480px",
         ...style,
       }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => setIsHovered(true)} // Trigger hover state
+      onMouseLeave={() => setIsHovered(false)} // Reset hover state
     >
       <Inline space={16}>
         <div
@@ -96,11 +108,14 @@ const Toast = ({
             View progress
           </ButtonLink>
         </Stack>
-        {/* Dismiss button should always be on top */}
         <div style={{ position: "absolute", top: 8, right: 8 }}>
           <IconButton
             Icon={IconCloseRegular}
-            onPress={handleDismiss} // Handle dismiss in the component itself
+            onPress={() => {
+              setFadeOut(true); // Trigger fade-out animation on close
+              clearHideTimeout(); // Clear the timeout when manually closed
+              onClose?.(); // Trigger onClose callback to remove toast
+            }}
           />
         </div>
       </Inline>
