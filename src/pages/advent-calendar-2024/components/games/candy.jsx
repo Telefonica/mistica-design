@@ -78,10 +78,12 @@ const CandyCrush = () => {
   }
 
   function checkMatches() {
-    checkRowForFour();
-    checkColumnForFour();
-    checkRowForThree();
-    checkColumnForThree();
+    if (movesRemaining <= 9) {  // Solo contar puntos si los movimientos restantes son 9 o menos
+      checkRowForFour();
+      checkColumnForFour();
+      checkRowForThree();
+      checkColumnForThree();
+    }
   }
 
   function checkRowForFour() {
@@ -92,7 +94,9 @@ const CandyCrush = () => {
       const isBlank = decidedColor === '';
 
       if (rowOfFour.every(index => squares[index] === decidedColor) && !isBlank) {
-        setScore(prevScore => prevScore + 4);
+        if (movesRemaining <= 9) {  // Solo contar puntos si los movimientos restantes son 9 o menos
+          setScore(prevScore => prevScore + 4);
+        }
         animateAndClear(rowOfFour);
       }
     }
@@ -105,7 +109,9 @@ const CandyCrush = () => {
       const isBlank = decidedColor === '';
 
       if (columnOfFour.every(index => squares[index] === decidedColor) && !isBlank) {
-        setScore(prevScore => prevScore + 4);
+        if (movesRemaining <= 9) {  // Solo contar puntos si los movimientos restantes son 9 o menos
+          setScore(prevScore => prevScore + 4);
+        }
         animateAndClear(columnOfFour);
       }
     }
@@ -119,7 +125,9 @@ const CandyCrush = () => {
       const isBlank = decidedColor === '';
 
       if (rowOfThree.every(index => squares[index] === decidedColor) && !isBlank) {
-        setScore(prevScore => prevScore + 3);
+        if (movesRemaining <= 9) {  // Solo contar puntos si los movimientos restantes son 9 o menos
+          setScore(prevScore => prevScore + 3);
+        }
         animateAndClear(rowOfThree);
       }
     }
@@ -132,32 +140,21 @@ const CandyCrush = () => {
       const isBlank = decidedColor === '';
 
       if (columnOfThree.every(index => squares[index] === decidedColor) && !isBlank) {
-        setScore(prevScore => prevScore + 3);
+        if (movesRemaining <= 9) {  // Solo contar puntos si los movimientos restantes son 9 o menos
+          setScore(prevScore => prevScore + 3);
+        }
         animateAndClear(columnOfThree);
       }
     }
   }
 
   const handleDragStart = (e, index) => {
-    if (movesRemaining === 0) return; // Bloquea el drag si no hay movimientos restantes
+    if (movesRemaining === 0) 
+      return; // Bloquea el drag si no hay movimientos restantes
     setDraggingIndex(index);
     e.dataTransfer.setData('draggedIndex', index);
   };
   
-  // const handleDrop = (e, index) => {
-  //   if (movesRemaining === 0) return; // Bloquea el drop si no hay movimientos restantes
-  //   const draggedIndex = e.dataTransfer.getData('draggedIndex');
-    
-  //   let newSquares = [...squares];
-  //   let temp = newSquares[index];
-  //   newSquares[index] = newSquares[draggedIndex];
-  //   newSquares[draggedIndex] = temp;
-    
-  //   setSquares(newSquares);
-  //   setMovesRemaining(prev => prev - 1);
-  // };
-
-
   const handleDrop = (e, index) => {
     if (movesRemaining === 0) return;
     const draggedIndex = e.dataTransfer.getData('draggedIndex');
@@ -212,6 +209,3 @@ const CandyCrush = () => {
 };
 
 export default CandyCrush;
-
-
-

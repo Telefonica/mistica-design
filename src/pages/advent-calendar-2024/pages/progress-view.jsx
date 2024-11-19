@@ -26,12 +26,15 @@ import Achievement from "../components/achievement";
 import ProgressGrid from "../components/progress-grid";
 import NavBar from "../components/navbar";
 import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
+import { allPoints } from "../utils/score-manager";
+
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
   const [achievements, setAchievements] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
+  const totalScore = allPoints();
 
   const getCompletedDaysFromUrl = () => {
     const params = new URLSearchParams(location.search);
@@ -126,6 +129,9 @@ const ProgressView = () => {
 
     // Clear the combined achievements entry
     localStorage.removeItem("achievements");
+
+    // Clear the score stored in 'totalScore'
+    localStorage.setItem("totalScore", JSON.stringify(0));
 
     // Clear the component state
     setCompletedDays([]);
@@ -255,6 +261,10 @@ const ProgressView = () => {
                 />
               }
             ></GridLayout>
+            <Stack space={16}>
+              <Text4>Total Score</Text4>
+              <Text10>{totalScore}</Text10>
+            </Stack>
             <ButtonPrimary onPress={handleClearData}>
               Clear local stored data
             </ButtonPrimary>

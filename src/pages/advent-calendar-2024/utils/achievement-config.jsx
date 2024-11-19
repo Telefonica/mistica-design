@@ -65,6 +65,30 @@ export const achievementsConfig = [
       "Achievement Unlocked: Advent Champion - You have unlocked all days!",
     isSecret: true,
   },
+  {
+    id: "gameMaster",
+    name: "Game Master",
+    description: "Complete all game days",
+    icon: IconBugFilled,
+    check: (newCompletedDays) => {
+        const gameDays = ["2023-12-01", "2023-12-08", "2023-12-15", "2023-12-22"]; //CAMBIAR ESTO A LOS DÍAS DE JUEGOSSS
+        return gameDays.every((day) => newCompletedDays.includes(day));
+    },
+    message: "Achievement Unlocked: Game Master - You have completed all game days!",
+    isSecret: false,
+  },
+  {
+    id: "highScorer",
+    name: "High Scorer",
+    description: "Accumulate a score of 800 points or more",
+    icon: IconBugFilled,
+    check: () => {
+        const allpoints = JSON.parse(localStorage.getItem("totalScore")) || 0;
+        return allpoints >= 800;
+    },
+    message: "Achievement Unlocked: Score Master - You've scored 800 points or more!",
+    isSecret: false,
+  },
 ];
 
 // Existing functions
