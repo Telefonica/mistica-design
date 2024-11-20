@@ -74,10 +74,6 @@ const ModalView = forwardRef(
             }}
           >
             {content}
-            <button type="button" onClick={onClose}>
-              End Day
-            </button>
-
             <div style={{ position: "absolute", top: 48, right: 48 }}>
               <IconButton
                 type="neutral"
