@@ -84,6 +84,12 @@ const Home = () => {
       image:
         "https://images.unsplash.com/photo-1516383274235-5f42d6c6426d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80",
     },
+    {
+      title: "Mística product status",
+      description: "How Mistica is used across Telefonica products.",
+      link: "/product-status",
+      buttonLabel: "Visit",
+    },
   ];
 
   const resources = [
