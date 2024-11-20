@@ -27,5 +27,3 @@ const GamesView = ({ game }) => {
 };
 
 export default GamesView;
-
-

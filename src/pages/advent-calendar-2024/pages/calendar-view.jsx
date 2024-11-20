@@ -28,11 +28,7 @@ import {
 } from "../assets/illustrations/illustrations";
 import ToastWrapper from "../components/toast-wrapper";
 import contentByDate from "../utils/content-config";
-import {
-  initScore,
-  updatePoints,
-  allPoints,
-} from "../utils/score-manager";
+import { initScore, updatePoints, allPoints } from "../utils/score-manager";
 
 const CalendarView = () => {
   const location = useLocation();
@@ -48,8 +44,6 @@ const CalendarView = () => {
     const savedDays = localStorage.getItem("completedDays");
     return savedDays ? JSON.parse(savedDays) : [];
   });
-  const [toastContent, setToastContent] = useState(null);
-  const [showToast, setShowToast] = useState(false);
   const [toasts, setToasts] = useState([]); // Array to manage multiple toasts
 
   const handleShowToast = ({ id, icon, message, name }) => {
@@ -145,6 +139,8 @@ const CalendarView = () => {
         key={date}
         DateString={date}
         DayOfWeek={dayOfWeek}
+        eventName={contentByDate[date]?.title}
+        eventDescription={contentByDate[date]?.description}
         content={contentByDate[date]?.content}
         status={getDayStatus(date)}
         onEndDay={() => markDayAsCompleted(date)}
