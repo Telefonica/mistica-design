@@ -23,6 +23,7 @@ const CalendarCard = ({
   eventDescription,
   content,
   status,
+  forceAvailable,
   onEndDay,
   illustration,
 }) => {
@@ -30,7 +31,7 @@ const CalendarCard = ({
   const day = new Date(DateString).getDate();
 
   const handleClick = () => {
-    if (status === CARD_STATES.AVAILABLE) {
+    if (status === CARD_STATES.AVAILABLE || forceAvailable) {
       dialogRef.current.showModal();
     }
   };
@@ -145,7 +146,10 @@ const CalendarCard = ({
       <div
         onClick={handleClick}
         style={{
-          cursor: status !== CARD_STATES.AVAILABLE ? "not-allowed" : "pointer",
+          cursor:
+            status !== CARD_STATES.AVAILABLE && !forceAvailable
+              ? "not-allowed"
+              : "pointer",
 
           padding: 24,
           position: "relative",
@@ -186,14 +190,15 @@ const CalendarCard = ({
               {day}
             </Text>
 
-            {status === CARD_STATES.AVAILABLE && (
-              <Circle size={48} background={skinVars.colors.brand}>
-                <IconChevronRightRegular
-                  size={24}
-                  color={skinVars.colors.inverse}
-                ></IconChevronRightRegular>
-              </Circle>
-            )}
+            {status === CARD_STATES.AVAILABLE ||
+              (forceAvailable && (
+                <Circle size={48} background={skinVars.colors.brand}>
+                  <IconChevronRightRegular
+                    size={24}
+                    color={skinVars.colors.inverse}
+                  ></IconChevronRightRegular>
+                </Circle>
+              ))}
           </Inline>
         </Stack>
       </div>

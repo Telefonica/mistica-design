@@ -11,10 +11,7 @@ import {
 import CalendarCard from "../components/calendar-card";
 import NavBar from "../components/navbar";
 import { useState, useMemo, useEffect } from "react";
-import {
-  updateAchievements,
-  updateCompletedDays,
-} from "../utils/state-manager";
+import { updateCompletedDays } from "../utils/state-manager";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   checkAndUnlockAchievements,
@@ -22,22 +19,12 @@ import {
   ACHIEVEMENT_PREFIX,
 } from "../utils/achievement-config";
 import { CARD_STATES, TOTAL_CALENDAR_DAYS } from "../utils/constants";
-import {
-  IllustrationWishesLetter,
-  IllustrationWoolClothes,
-} from "../assets/illustrations/illustrations";
 import ToastWrapper from "../components/toast-wrapper";
 import contentByDate from "../utils/content-config";
-import { initScore, updatePoints, allPoints } from "../utils/score-manager";
 
 const CalendarView = () => {
   const location = useLocation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    initScore();
-    updatePoints();
-  }, []);
 
   // Load completed days from local storage on initial mount
   const [completedDays, setCompletedDays] = useState(() => {
@@ -123,8 +110,8 @@ const CalendarView = () => {
     achievementsConfig.forEach(({ id }) => {
       localStorage.removeItem(ACHIEVEMENT_PREFIX + id);
     });
-    localStorage.setItem("totalScore", "0");
-    localStorage.setItem("pendingScore", "0");
+
+    localStorage.removeItem("gameScores");
   };
 
   const getDayStatus = (date) => {
@@ -145,6 +132,7 @@ const CalendarView = () => {
         status={getDayStatus(date)}
         onEndDay={() => markDayAsCompleted(date)}
         illustration={contentByDate[date]?.illustration}
+        forceAvailable={contentByDate[date]?.forceAvailable}
       />
     ));
   }, [completedDays, calendarDays]);
@@ -186,7 +174,6 @@ const CalendarView = () => {
             <ButtonPrimary onPress={() => setAllDaysUnlocked(!allDaysUnlocked)}>
               {allDaysUnlocked ? "Enable blocked days" : "Disable blocked days"}
             </ButtonPrimary>
-            <Text5>Total score: {allPoints()}</Text5>
           </Stack>
         </Box>
       </ResponsiveLayout>
