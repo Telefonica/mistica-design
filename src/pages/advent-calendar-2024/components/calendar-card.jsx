@@ -21,7 +21,6 @@ const CalendarCard = ({
   DayOfWeek,
   eventName,
   eventDescription,
-  eventEnd,
   content,
   status,
   onEndDay,
@@ -38,6 +37,11 @@ const CalendarCard = ({
 
   const handleEndDay = () => {
     dialogRef.current.close();
+    onEndDay(); // Notify the parent to update the state
+  };
+
+  const handleCloseModal = () => {
+    dialogRef.current.close(); // Close the modal
     onEndDay(); // Notify the parent to update the state
   };
 
@@ -199,7 +203,7 @@ const CalendarCard = ({
         dayOfWeek={DayOfWeek}
         title={eventName}
         description={eventDescription}
-        content={content}
+        content={content ? content({ closeModal: handleCloseModal }) : null}
         onClose={handleEndDay}
         onCancel={() => dialogRef.current.close()}
       />

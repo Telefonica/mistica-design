@@ -7,12 +7,14 @@ import {
   Stack,
   Text,
   Text2,
+  Text3,
 } from "@telefonica/mistica";
 import { useState } from "react";
 import Score from "../score";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
+import { DecorationPatty } from "../../assets/decorations/decorations";
 
-const HigherOrLower = () => {
+const HigherOrLower = ({ onFinish }) => {
   const data = [
     { label: "Number of new components this year", value: 9 },
     { label: "Teams using the design system", value: 43 },
@@ -37,7 +39,7 @@ const HigherOrLower = () => {
       (guess === "higher" && isHigher) || (guess === "lower" && !isHigher);
 
     if (correct) {
-      setScore(score + 1);
+      setScore(score + 100);
       setMessage(
         `${next.label} (${next.value}) is ${
           isHigher ? "higher" : "lower"
@@ -46,7 +48,7 @@ const HigherOrLower = () => {
       setIsCorrect(true);
     } else {
       setMessage(
-        `Game over. ${next.label} (${next.value}) was ${
+        `${next.label} (${next.value}) was ${
           isHigher ? "higher" : "lower"
         } than ${current.label} (${current.value}).`
       );
@@ -70,13 +72,9 @@ const HigherOrLower = () => {
     }
   };
 
-  const resetGame = () => {
-    setScore(0);
-    setMessage("");
-    setIndex(0);
-    setStatus("guessing");
-    setIsCorrect(null);
-    setGameCompleted(false); // Reset game completion
+  const handleGameEnd = () => {
+    // Logic for completing the game
+    if (onFinish) onFinish(); // Notify to close the modal
   };
 
   const GuessLabel = ({ correct }) => (
@@ -106,7 +104,7 @@ const HigherOrLower = () => {
       }}
     >
       <div style={{ position: "absolute", left: 48, top: 64 }}>
-        <Score score={score} />
+        <Score score={`${score}`} />
       </div>
 
       <div style={{ maxWidth: 600 }}>
@@ -140,10 +138,11 @@ const HigherOrLower = () => {
 
         {status === "feedback" && (
           <Stack space={24}>
+            <GuessLabel correct={isCorrect} />
             <Text size={32} weight="medium">
               {message}
             </Text>
-            <GuessLabel correct={isCorrect} />
+
             <ButtonSecondary onPress={nextRound}>Next Round</ButtonSecondary>
           </Stack>
         )}
@@ -152,22 +151,23 @@ const HigherOrLower = () => {
           <Stack space={24}>
             {gameCompleted ? (
               <Stack space={16}>
-                <IconCompleted size={40} />
+                <DecorationPatty text={`${score}`}></DecorationPatty>
+                <Text3>Your final score</Text3>
                 <Text size={32} weight="medium">
                   Congratulations! You completed the game!
                 </Text>
-                <Text>Your final score is: {score}</Text>
               </Stack>
             ) : (
               <Stack space={16}>
+                <DecorationPatty text={`${score}`}></DecorationPatty>
+                <Text3>Your final score</Text3>
                 {isCorrect !== null && <GuessLabel correct={isCorrect} />}
                 <Text size={32} weight="medium">
                   {message || "Game Over!"}
                 </Text>
-                <Text>Your final score is: {score}</Text>
               </Stack>
             )}
-            <ButtonPrimary onPress={resetGame}>Play Again</ButtonPrimary>
+            <ButtonPrimary onPress={handleGameEnd}>End game</ButtonPrimary>
           </Stack>
         )}
       </div>

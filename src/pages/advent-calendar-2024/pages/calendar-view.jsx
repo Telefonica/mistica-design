@@ -44,8 +44,6 @@ const CalendarView = () => {
     const savedDays = localStorage.getItem("completedDays");
     return savedDays ? JSON.parse(savedDays) : [];
   });
-  const [toastContent, setToastContent] = useState(null);
-  const [showToast, setShowToast] = useState(false);
   const [toasts, setToasts] = useState([]); // Array to manage multiple toasts
 
   const handleShowToast = ({ id, icon, message, name }) => {
