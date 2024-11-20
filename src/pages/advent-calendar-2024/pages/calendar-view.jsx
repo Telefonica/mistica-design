@@ -7,6 +7,7 @@ import {
   Stack,
   Carousel,
   Inline,
+  Text4,
 } from "@telefonica/mistica";
 import CalendarCard from "../components/calendar-card";
 import NavBar from "../components/navbar";
@@ -158,7 +159,7 @@ const CalendarView = () => {
                     fill="black"
                   />
                 </svg>
-                <Text5>Mística Advent</Text5>
+                <Text4 medium>Mística Advent</Text4>
               </div>
 
               <Text size={80} weight="medium">
