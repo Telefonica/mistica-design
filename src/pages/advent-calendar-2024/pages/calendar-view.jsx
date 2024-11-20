@@ -21,6 +21,7 @@ import {
 import { CARD_STATES, TOTAL_CALENDAR_DAYS } from "../utils/constants";
 import ToastWrapper from "../components/toast-wrapper";
 import contentByDate from "../utils/content-config";
+import DecorationSnake from "../assets/decorations/decoration-snake.jsx";
 
 const CalendarView = () => {
   const location = useLocation();
@@ -163,6 +164,8 @@ const CalendarView = () => {
               <Text size={80} weight="medium">
                 Calendar '24
               </Text>
+
+              <DecorationSnake />
             </Stack>
             <Carousel
               initialActiveItem={initialActiveDay}
