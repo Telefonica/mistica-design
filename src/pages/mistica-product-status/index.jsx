@@ -137,7 +137,7 @@ const ProductStatus = () => {
       <Done /> /* Code integration */,
       <Done /> /* Production */,
     ],
-    "Digital Payments": [
+    "Digital Payments (App / Web)": [
       "Global",
       <Done /> /* Design Guidelines */,
       <Done /> /* Design Libs */,
@@ -172,35 +172,42 @@ const ProductStatus = () => {
       <Pending /> /* Code integration */,
       <Done /> /* Production */,
     ],
-    "TU (Web)": [
+    "TU.com (Web)": [
       "Spain",
       <Done /> /* Design Guidelines */,
       <Done /> /* Design Libs */,
       <Done /> /* Code integration */,
       <Done /> /* Production */,
     ],
-    Fonditel: [
+    "Fonditel (App)": [
       "Spain",
       <Done /> /* Design Guidelines */,
       <Done /> /* Design Libs */,
       <Done /> /* Code integration */,
       <Done /> /* Production */,
     ],
-    "Network Tokenization": [
+    "Fonditel (Web)": [
       "Spain",
       <Done /> /* Design Guidelines */,
       <Done /> /* Design Libs */,
       <Done /> /* Code integration */,
       <Done /> /* Production */,
     ],
-    "Smart Wifi": [
+    "Network Tokenization (App)": [
+      "Spain",
+      <Done /> /* Design Guidelines */,
+      <Done /> /* Design Libs */,
+      <Done /> /* Code integration */,
+      <Done /> /* Production */,
+    ],
+    "Smart Wifi (App)": [
       "Spain & Brazil",
       <Done /> /* Design Guidelines */,
       <Done /> /* Design Libs */,
       <Done /> /* Code integration */,
       <Done /> /* Production */,
     ],
-    "NFT Marketplace": [
+    "NFT Marketplace (Web)": [
       "Spain & Brazil",
       <Pending /> /* Design Guidelines */,
       <Done /> /* Design Libs */,
@@ -221,14 +228,14 @@ const ProductStatus = () => {
       <Done /> /* Code integration */,
       <Done /> /* Production */,
     ],
-    "Conexión Segura": [
+    "Conexión Segura (App)": [
       "Spain",
       <Done /> /* Design Guidelines */,
       <Done /> /* Design Libs */,
       <Done /> /* Code integration */,
       <Done /> /* Production */,
     ],
-    "Movistar Money": [
+    "Movistar Money (Web)": [
       "Spain",
       <Wip /> /* Design Guidelines */,
       <Done /> /* Design Libs */,
