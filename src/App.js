@@ -18,7 +18,7 @@ import WrappedFinale from "./pages/wrapped2023/finale";
 import Skin2Json from "./pages/skin2Json";
 import SkinTool from "./pages/skin-tool";
 import ProgressView from "./pages/advent-calendar-2024/pages/progress-view";
-import GamesView from "./pages/advent-calendar-2024/pages/games-view";
+import ProductStatus from "./pages/mistica-product-status/index";
 
 export const SchemeContext = createContext();
 
@@ -83,6 +83,10 @@ const App = () => {
     {
       path: `/skin-tool`,
       element: <SkinTool />,
+    },
+    {
+      path: `/product-status`,
+      element: <ProductStatus />,
     },
   ]);
   const [theme, setTheme] = useState("light");
