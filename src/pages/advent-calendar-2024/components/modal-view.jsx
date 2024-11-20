@@ -1,6 +1,5 @@
 import { forwardRef } from "react";
 import {
-  ResponsiveLayout,
   skinVars,
   Stack,
   Text,
@@ -11,7 +10,7 @@ import {
 import { DecorationSnake } from "../assets/decorations/decorations";
 
 const ModalView = forwardRef(
-  ({ title, day, dayOfWeek, description, content, onClose, onCancel }, ref) => {
+  ({ title, day, dayOfWeek, description, content, onCancel }, ref) => {
     return (
       <dialog
         ref={ref}
@@ -71,6 +70,7 @@ const ModalView = forwardRef(
               height: "100vh",
               display: "flex",
               flexDirection: "column",
+              position: "relative",
             }}
           >
             {content}
