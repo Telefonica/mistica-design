@@ -6,11 +6,14 @@ import {
   Text4,
   IconButton,
   IconCloseRegular,
+  useScreenSize,
 } from "@telefonica/mistica";
 import { DecorationSnake } from "../assets/decorations/decorations";
 
 const ModalView = forwardRef(
   ({ title, day, dayOfWeek, description, content, onCancel }, ref) => {
+    const { isMobile } = useScreenSize();
+
     return (
       <dialog
         ref={ref}
@@ -24,14 +27,31 @@ const ModalView = forwardRef(
           border: "none",
         }}
       >
-        <div style={{ display: "flex" }}>
+        {isMobile && onCancel !== null && (
+          <div
+            style={{ position: "absolute", top: 16, right: 16, zIndex: 999 }}
+          >
+            <IconButton
+              type="brand"
+              backgroundType="solid"
+              Icon={IconCloseRegular}
+              onPress={onCancel}
+            />
+          </div>
+        )}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: isMobile ? "column" : "row",
+          }}
+        >
           <div
             style={{
-              width: "65%",
-              maxWidth: "640px",
-              height: "100vh",
+              width: isMobile ? "100%" : "65%",
+              maxWidth: isMobile ? undefined : "640px",
+              height: isMobile ? "auto" : "100vh",
               background: skinVars.colors.backgroundAlternative,
-              padding: "56px",
+              padding: isMobile ? "16px" : "56px",
               position: "relative",
               display: "flex",
               flexDirection: "column",
@@ -40,14 +60,18 @@ const ModalView = forwardRef(
           >
             <div
               style={{
-                position: "absolute",
+                position: isMobile ? "inherit" : "absolute",
                 paddingBottom: "16px",
-                top: 64,
-                left: 64,
+                top: isMobile ? 0 : 64,
+                left: isMobile ? 0 : 64,
               }}
             >
               <Stack space={0}>
-                <Text color={skinVars.colors.brand} size={64} weight="medium">
+                <Text
+                  color={skinVars.colors.brand}
+                  size={isMobile ? 24 : 60}
+                  weight="medium"
+                >
                   {day}
                 </Text>
                 <Text4 color={skinVars.colors.brand} weight="medium">
@@ -58,8 +82,8 @@ const ModalView = forwardRef(
             <Stack space={24}>
               <Text
                 color={skinVars.colors.brand}
-                size={80}
-                lineHeight={84}
+                size={isMobile ? 32 : 80}
+                lineHeight={isMobile ? 34 : 80}
                 weight="bold"
               >
                 {title}
@@ -75,15 +99,16 @@ const ModalView = forwardRef(
             method="dialog"
             style={{
               width: "100%",
-              height: "100vh",
+              height: isMobile ? "auto" : "100vh",
               display: "flex",
               flexDirection: "column",
               position: "relative",
-              padding: "56px",
+              padding: isMobile ? "16px" : "56px",
             }}
           >
             {content}
-            {onCancel !== null && (
+            {}
+            {!isMobile && onCancel !== null && (
               <div style={{ position: "absolute", top: 48, right: 48 }}>
                 <IconButton
                   type="neutral"

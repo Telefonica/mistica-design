@@ -18,15 +18,15 @@ const Score = ({ score, time, timeRunning, movements, isFinal }) => {
           <DecorationPatty size={128} text={score} stroke="0.75" />
         </div>
       ) : (
-        <Inline space={24}>
+        <div style={{ display: "flex", gap: 24 }}>
           {score && (
-            <div style={{ display: "flex", gap: 16 }}>
+            <div style={{ display: "inline-flex", gap: 16 }}>
               <Text4>Score</Text4>
               <Tag type="active">{score}</Tag>
             </div>
           )}
           {time && (
-            <div style={{ display: "flex", gap: 16 }}>
+            <div style={{ display: "inline-flex", gap: 16 }}>
               <Text4>Time</Text4>
               <Tag
                 type={timeRunning ? "error" : "inactive"}
@@ -37,12 +37,12 @@ const Score = ({ score, time, timeRunning, movements, isFinal }) => {
             </div>
           )}
           {movements && (
-            <div style={{ display: "flex", gap: 16 }}>
+            <div style={{ display: "inline-flex", gap: 16 }}>
               <Text4>Movements</Text4>
               <Tag type="promo">{movements}</Tag>
             </div>
           )}
-        </Inline>
+        </div>
       )}
     </>
   );

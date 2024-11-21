@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import {
-  ResponsiveLayout,
   Stack,
   Text,
   RadioGroup,
-  RadioButton,
-  ButtonPrimary,
   BoxedRow,
   BoxedRowList,
   Text5,
@@ -15,11 +12,9 @@ import {
   IconAngelRegular,
   IconCocktailRegular,
   skinVars,
-  useThemeVariant,
   TextLink,
-  ProgressBar,
-  ProgressBarStepped,
   Align,
+  useScreenSize,
 } from "@telefonica/mistica";
 import DecorationPatty from "../../assets/decorations/decoration-patty";
 import QuizProgress from "../quiz-progress";
@@ -295,6 +290,7 @@ export const GuessWhat = ({ quizType, questions }) => {
   const [answers, setAnswers] = useState(Array(questions.length).fill("")); // Store answers dynamically based on the number of questions
   const [finalResult, setFinalResult] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Track the current question index
+  const { isMobile } = useScreenSize();
 
   const quizName = `Guess what ${quizType} you are`;
 
@@ -383,7 +379,7 @@ export const GuessWhat = ({ quizType, questions }) => {
   const finalLink = componentAssets[finalResult];
 
   return (
-    <Align x="center" y="center" height="100vh">
+    <Align x="center" y="center" height={isMobile ? "auto" : "100vh"}>
       {/* Show question based on current question index */}
       {!finalResult && (
         <>
@@ -401,25 +397,26 @@ export const GuessWhat = ({ quizType, questions }) => {
               <div key={currentQuestionIndex}>
                 <Stack space={64}>
                   <Text5>{questions[currentQuestionIndex].question}</Text5>
-
-                  <RadioGroup
-                    name={`question-${currentQuestionIndex}`}
-                    value={answers[currentQuestionIndex]}
-                    onChange={handleAnswerChange(currentQuestionIndex)}
-                  >
-                    <BoxedRowList>
-                      {questions[currentQuestionIndex].options.map(
-                        (option, optionIndex) => (
-                          <BoxedRow
-                            title={option.label}
-                            key={optionIndex}
-                            id={`question-${currentQuestionIndex}-option-${optionIndex}`}
-                            radioValue={option.value}
-                          ></BoxedRow>
-                        )
-                      )}
-                    </BoxedRowList>
-                  </RadioGroup>
+                  <div style={{ textAlign: "initial" }}>
+                    <RadioGroup
+                      name={`question-${currentQuestionIndex}`}
+                      value={answers[currentQuestionIndex]}
+                      onChange={handleAnswerChange(currentQuestionIndex)}
+                    >
+                      <BoxedRowList>
+                        {questions[currentQuestionIndex].options.map(
+                          (option, optionIndex) => (
+                            <BoxedRow
+                              title={option.label}
+                              key={optionIndex}
+                              id={`question-${currentQuestionIndex}-option-${optionIndex}`}
+                              radioValue={option.value}
+                            ></BoxedRow>
+                          )
+                        )}
+                      </BoxedRowList>
+                    </RadioGroup>
+                  </div>
                 </Stack>
               </div>
             </Stack>

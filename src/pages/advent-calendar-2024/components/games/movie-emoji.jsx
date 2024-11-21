@@ -10,7 +10,7 @@ import {
   Text5,
   Text,
   Align,
-  ProgressBarStepped,
+  useScreenSize,
 } from "@telefonica/mistica";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
 import Score from "../score";
@@ -50,6 +50,7 @@ const EmojiMovies = ({ onFinish }) => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const { isMobile } = useScreenSize();
 
   const gameName = "Emoji Movies";
 
@@ -98,7 +99,7 @@ const EmojiMovies = ({ onFinish }) => {
 
   if (gameOver) {
     return (
-      <Align y="center" x="center" height={"100vh"}>
+      <Align y="center" x="center" height={isMobile ? "auto" : "100vh"}>
         <div style={{ ...flexStyles, gap: 48 }}>
           <Score score={`${score}`} isFinal />
           <ButtonPrimary onPress={handleGameEnd}>Finish</ButtonPrimary>
@@ -120,9 +121,14 @@ const EmojiMovies = ({ onFinish }) => {
   );
 
   return (
-    <Align y="center" x="center" height="calc(100vh - (56px * 2))">
-      <QuizProgress current={currentQuestionIndex + 1} total={movies.length} />
+    <Align
+      y="center"
+      x="center"
+      height={isMobile ? "auto" : "calc(100vh - (56px * 2))"}
+    >
       <GameBar score={`${score}`} />
+      <QuizProgress current={currentQuestionIndex + 1} total={movies.length} />
+
       <div
         style={{
           textAlign: "center",

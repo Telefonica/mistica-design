@@ -1,19 +1,28 @@
 import Score from "./score";
+import { useScreenSize } from "@telefonica/mistica";
 
-const GameBar = ({ score, timeRemaining, timerStarted }) => {
+const GameBar = ({ score, time, timeRunning, movements }) => {
+  const { isMobile } = useScreenSize();
   return (
     <div
       style={{
-        display: "inline-flex",
-        justifyContent: "space-between",
+        display: isMobile ? "flex" : "inline-flex",
+        width: isMobile ? "100%" : "auto",
+        alignSelf: "flex-start",
         flexDirection: "column",
         gap: 16,
-        position: "absolute",
-        left: 56,
-        top: 56,
+        position: isMobile ? "inherit" : "absolute",
+        left: isMobile ? 0 : 56,
+        top: isMobile ? 0 : 56,
+        marginBottom: isMobile ? 24 : 0,
       }}
     >
-      <Score score={score} />
+      <Score
+        score={score}
+        time={time}
+        timeRunning={timeRunning}
+        movements={movements}
+      />
     </div>
   );
 };

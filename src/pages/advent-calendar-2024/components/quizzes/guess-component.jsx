@@ -9,6 +9,7 @@ import {
   Text5,
   Text,
   Align,
+  useScreenSize,
 } from "@telefonica/mistica";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
 import Score from "../score";
@@ -40,6 +41,8 @@ const GuessTheComponent = ({ component, onFinish }) => {
   const { id, asset, answer, correctAnswer, options } = component;
   const gameName = `Guess The Component ${id}`;
   const shuffledOptions = [...options, answer].sort(() => Math.random() - 0.5);
+
+  const { isMobile } = useScreenSize();
 
   useEffect(() => {
     const savedGames = JSON.parse(localStorage.getItem("gameScores")) || {};
@@ -87,7 +90,7 @@ const GuessTheComponent = ({ component, onFinish }) => {
 
   if (currentStep === "gameOver") {
     return (
-      <Align y="center" x="center" height={"100vh"}>
+      <Align y="center" x="center" height={isMobile ? "auto" : "100vh"}>
         <div style={{ ...flexStyles, gap: 48 }}>
           <Score score={`${score}`} isFinal />
           <ButtonPrimary onPress={handleGameEnd}>Finish</ButtonPrimary>
@@ -97,7 +100,11 @@ const GuessTheComponent = ({ component, onFinish }) => {
   }
 
   return (
-    <Align y="center" x="center" height="calc(100vh - (56px * 2))">
+    <Align
+      y="center"
+      x="center"
+      height={isMobile ? "auto" : "calc(100vh - (56px * 2))"}
+    >
       <GameBar score={`${score}`} />
       <div
         style={{
@@ -114,7 +121,10 @@ const GuessTheComponent = ({ component, onFinish }) => {
       >
         <div
           style={{
-            padding: 80,
+            display: "flex",
+            padding: "64px 0",
+            alignContent: "center",
+            justifyContent: "center",
             background: skinVars.colors.backgroundAlternative,
             borderRadius: 16,
             position: "relative",
@@ -125,17 +135,19 @@ const GuessTheComponent = ({ component, onFinish }) => {
         </div>
 
         {currentStep === "guessing" && (
-          <RadioGroup options={shuffledOptions} onChange={handleOptionClick}>
-            <BoxedRowList>
-              {shuffledOptions.map((option, index) => (
-                <BoxedRow
-                  title={option}
-                  key={index}
-                  radioValue={option}
-                ></BoxedRow>
-              ))}
-            </BoxedRowList>
-          </RadioGroup>
+          <div style={{ textAlign: "initial" }}>
+            <RadioGroup options={shuffledOptions} onChange={handleOptionClick}>
+              <BoxedRowList>
+                {shuffledOptions.map((option, index) => (
+                  <BoxedRow
+                    title={option}
+                    key={index}
+                    radioValue={option}
+                  ></BoxedRow>
+                ))}
+              </BoxedRowList>
+            </RadioGroup>
+          </div>
         )}
         {currentStep === "answer" && (
           <div style={{ ...flexStyles, gap: 24 }}>
