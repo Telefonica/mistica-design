@@ -9,10 +9,11 @@ import {
   Text2,
   Text3,
 } from "@telefonica/mistica";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Score from "../score";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
 import { DecorationPatty } from "../../assets/decorations/decorations";
+import { saveGameData } from "../../utils/score-manager";
 
 const HigherOrLower = ({ onFinish }) => {
   const data = [
@@ -23,12 +24,21 @@ const HigherOrLower = ({ onFinish }) => {
     { label: "Hours spent fixing design tokens", value: 700 },
   ];
 
-  const [index, setIndex] = useState(0); // Tracks the current question index
+  const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("guessing");
   const [isCorrect, setIsCorrect] = useState(null);
-  const [gameCompleted, setGameCompleted] = useState(false); // New state to track game completion
+
+  useEffect(() => {
+    const savedGames = JSON.parse(localStorage.getItem("gameScores")) || {};
+    const savedGame = savedGames["higherOrLower"];
+
+    if (savedGame?.completed) {
+      setScore(savedGame.score);
+      setStatus("final");
+    }
+  }, []);
 
   const current = data[index];
   const next = data[index + 1];
@@ -39,7 +49,7 @@ const HigherOrLower = ({ onFinish }) => {
       (guess === "higher" && isHigher) || (guess === "lower" && !isHigher);
 
     if (correct) {
-      setScore(score + 100);
+      setScore(score + 100); // Increment score for correct guess
       setMessage(
         `${next.label} (${next.value}) is ${
           isHigher ? "higher" : "lower"
@@ -53,8 +63,6 @@ const HigherOrLower = ({ onFinish }) => {
         } than ${current.label} (${current.value}).`
       );
       setIsCorrect(false);
-      setStatus("end");
-      return;
     }
 
     setStatus("feedback");
@@ -65,16 +73,15 @@ const HigherOrLower = ({ onFinish }) => {
       setIndex(index + 1); // Move to the next question
       setMessage("");
       setStatus("guessing");
-      setIsCorrect(null); // Reset correctness for next round
+      setIsCorrect(null);
     } else {
-      setGameCompleted(true); // Mark game as completed
-      setStatus("end");
+      setStatus("final");
+      saveGameData("Higher or lower", score, true);
     }
   };
 
   const handleGameEnd = () => {
-    // Logic for completing the game
-    if (onFinish) onFinish(); // Notify to close the modal
+    if (onFinish) onFinish(); // Notify the parent component
   };
 
   const GuessLabel = ({ correct }) => (
@@ -147,27 +154,16 @@ const HigherOrLower = ({ onFinish }) => {
           </Stack>
         )}
 
-        {status === "end" && (
+        {status === "final" && (
           <Stack space={24}>
-            {gameCompleted ? (
-              <Stack space={16}>
-                <DecorationPatty text={`${score}`}></DecorationPatty>
-                <Text3>Your final score</Text3>
-                <Text size={32} weight="medium">
-                  Congratulations! You completed the game!
-                </Text>
-              </Stack>
-            ) : (
-              <Stack space={16}>
-                <DecorationPatty text={`${score}`}></DecorationPatty>
-                <Text3>Your final score</Text3>
-                {isCorrect !== null && <GuessLabel correct={isCorrect} />}
-                <Text size={32} weight="medium">
-                  {message || "Game Over!"}
-                </Text>
-              </Stack>
-            )}
-            <ButtonPrimary onPress={handleGameEnd}>End game</ButtonPrimary>
+            <Stack space={16}>
+              <DecorationPatty text={`${score}`}></DecorationPatty>
+              <Text3>Your final score</Text3>
+              <Text size={32} weight="medium">
+                Congratulations! You completed the game!
+              </Text>
+            </Stack>
+            <ButtonPrimary onPress={handleGameEnd}>Back home</ButtonPrimary>
           </Stack>
         )}
       </div>

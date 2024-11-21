@@ -3,29 +3,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  max-width: fit-content;
   text-align: center;
-}
-
-.left-column {
-  flex: 1;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  text-align: left;
-  gap: 10px;
-  max-height: 100vh;
-}
-
-.right-column {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0px;
-  max-height: 100vh;
+  width: 100%;
+  height: 100vh;
 }
 
 .simon-board {

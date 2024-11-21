@@ -1,153 +1,227 @@
 import {
-    Text10,
-    Text4,
-    Text3
+  skinVars,
+  Text,
+  Text3,
+  Text6,
+  ButtonPrimary,
+  Stack,
 } from "@telefonica/mistica";
-import './wordle.css';
+import "./wordle.css";
 import React, { useState, useEffect } from "react";
+import Score from "../score";
+import { saveGameData } from "../../utils/score-manager";
+import { IconCompleted, IconWrong } from "../../assets/icons/icons";
 
 const words = ["tokens"];
 const chosenWord = words[0].toLowerCase();
 
-const WordleGame = () => {
+const WordleGame = ({ onFinish }) => {
   const [currentAttempt, setCurrentAttempt] = useState([]);
   const [attempts, setAttempts] = useState([]);
   const [message, setMessage] = useState("");
+  const [score, setScore] = useState(0);
+  const [gameStatus, setGameStatus] = useState("playing");
+
   const maxAttempts = 10;
-  const [score, setScore] = useState(0); // Track the score
-  const [gameOver, setGameOver] = useState(false);
+  const gameName = "wordle";
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      const key = event.key.toLowerCase();
+    const savedGame = JSON.parse(localStorage.getItem("gameScores"))?.[
+      gameName
+    ];
+    if (savedGame?.completed) {
+      setScore(savedGame.score);
+      setGameStatus("completed");
+      setMessage("Game Completed!");
+    }
+  }, []);
 
-      if (key === "enter" && !gameOver) {
-        checkWord();
-      } else if (key === "backspace") {
+  useEffect(() => {
+    const handleKeyDown = ({ key }) => {
+      const lowerKey = key.toLowerCase();
+
+      if (lowerKey === "enter" && gameStatus === "playing") checkWord();
+      if (lowerKey === "backspace")
         setCurrentAttempt((prev) => prev.slice(0, -1));
-      } else if (/^[a-z]$/.test(key) && currentAttempt.length < chosenWord.length && !gameOver) {
-        setCurrentAttempt((prev) => [...prev, key]);
+      if (
+        /^[a-z]$/.test(lowerKey) &&
+        currentAttempt.length < chosenWord.length
+      ) {
+        setCurrentAttempt((prev) => [...prev, lowerKey]);
       }
     };
 
     document.addEventListener("keydown", handleKeyDown);
-    
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [currentAttempt, gameOver]);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [currentAttempt, gameStatus]);
+
+  const handleGameEnd = () => {
+    if (onFinish) onFinish();
+    saveGameData(
+      gameName,
+      score,
+      gameStatus === "completed" || gameStatus === "failed"
+    );
+  };
 
   const checkWord = () => {
-    const input = currentAttempt.join("").toLowerCase(); // Convertir a minúsculas para comparar
+    const input = currentAttempt.join("").toLowerCase();
+
     if (input.length !== chosenWord.length) {
-      setMessage(`La palabra debe tener ${chosenWord.length} letras.`);
+      setMessage(`The word must be ${chosenWord.length} letters.`);
       return;
     }
 
-    if (input !== chosenWord) {
-            setAttempts((prev) => [...prev, input]);
-    }
-    setCurrentAttempt([]); // Reiniciar cada intento nuevo que haces
+    setAttempts((prev) => [...prev, input]);
+    setCurrentAttempt([]);
 
     if (input === chosenWord) {
-      const points = calculateScore(attempts.length + 1);
-      setScore(points);
-      setMessage(`¡WHAAAT A MASTER OF WORDLE! ${chosenWord.toUpperCase()} was the hidden word ;)`);
-      setGameOver(true);
-      return;
-    } else {
-      if (attempts.length + 1 === maxAttempts) {
-        setMessage(`Too many opportunities :(. The hidden word was: ${chosenWord.toUpperCase()}`);
-        setGameOver(true);
-        return;
-      }
+      setScore(calculateScore(attempts.length + 1));
+      setMessage(`Amazing! The word was ${chosenWord.toUpperCase()}.`);
+      setGameStatus("completed");
+    } else if (attempts.length + 1 === maxAttempts) {
+      setMessage(
+        `Too many attempts. The word was ${chosenWord.toUpperCase()}.`
+      );
+      setGameStatus("failed");
     }
   };
 
-  const calculateScore = (attemptCount) => {
-    return Math.max(0, 100 - (attemptCount - 1) * 10); // Score logic: 100 points max, subtract 20 for each attempt over the first
-  };
+  const calculateScore = (attemptCount) =>
+    Math.max(0, 100 - (attemptCount - 1) * 10);
+
+  const getLetterStyles = (status) => ({
+    background:
+      {
+        correct: skinVars.colors.success,
+        partial: skinVars.colors.warning,
+        wrong: skinVars.colors.backgroundAlternative,
+      }[status] || skinVars.colors.background,
+    border: `2px solid ${
+      {
+        correct: skinVars.colors.success,
+        partial: skinVars.colors.warning,
+        wrong: skinVars.colors.border,
+      }[status] || skinVars.colors.border
+    }`,
+  });
 
   const getLetterStatus = (letter, index, input) => {
-    const letterCount = {}; // Contador de letras de la palabra
-    for (const char of chosenWord) {
-      letterCount[char] = (letterCount[char] || 0) + 1;
-    }
+    const letterCount = [...chosenWord].reduce(
+      (count, char) => ({ ...count, [char]: (count[char] || 0) + 1 }),
+      {}
+    );
 
-    //inicializar wrong
-    const status = Array(input.length).fill('wrong');
+    const statuses = Array(input.length).fill("wrong");
 
-    input.split('').forEach((char, i) => {
+    input.split("").forEach((char, i) => {
       if (char === chosenWord[i]) {
-        status[i] = 'correct';
+        statuses[i] = "correct";
         letterCount[char] -= 1;
       }
     });
 
-    input.split('').forEach((char, i) => {
-      if (status[i] === 'wrong' && letterCount[char] > 0) {
-        status[i] = 'partial';
-        letterCount[char] -= 1; //para evitar duplicados
+    input.split("").forEach((char, i) => {
+      if (statuses[i] === "wrong" && letterCount[char] > 0) {
+        statuses[i] = "partial";
+        letterCount[char] -= 1;
       }
     });
 
-    return status[index];
+    return statuses[index];
   };
 
+  const GuessLabel = ({ correct }) => (
+    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+      {correct ? <IconCompleted size={40} /> : <IconWrong size={40} />}
+      <Text
+        size={24}
+        color={correct ? skinVars.colors.brand : skinVars.colors.error}
+      >
+        {correct ? "Correct!" : "Game over"}
+      </Text>
+    </div>
+  );
+
+  const renderRow = (word, isCurrent = false) => (
+    <div className="letter-boxes">
+      {Array.from({ length: chosenWord.length }, (_, i) => (
+        <div
+          key={i}
+          className="letter-box"
+          style={
+            isCurrent
+              ? getLetterStyles("default")
+              : getLetterStyles(getLetterStatus(word[i], i, word))
+          }
+        >
+          <Text6>{(word[i] || "").toUpperCase()}</Text6>
+        </div>
+      ))}
+    </div>
+  );
+
   return (
-    <div className="wordle-game">
-      <div className="left-column">
-        <Text10>Wordle</Text10>
-        <Text4>Instructions</Text4>
-        <Text3>
-        A crucial word has disappeared from Mística, and it's up to you to find it! <br />
-        Each guess brings you closer to restoring order. Type your attempts, hit 'Enter,' and let the letters reveal their secrets. <br />
-        Can you uncover the missing word and bring balance back to Mística? <br /><br />
-        </Text3>
-        <p>
-  In the game, colors guide your guesses:<br />
-  - <span style={{ color: 'gray' }}>Gray</span> means the letter is not in the word.<br />
-  - <span style={{ color: '#FFD700' }}>Yellow</span> indicates the letter is in the word but in the wrong position.<br />
-  - <span style={{ color: 'green' }}>Green</span> shows that the letter is correct and in the right spot.<br />
-  Use these clues wisely to solve the mystery!
-</p>
-    <Text3>Score: {score}</Text3>
-        {message && <p>{message}</p>}
+    <>
+      <div style={{ position: "absolute", left: 48, top: 64 }}>
+        <Score score={`${score}`} movements={`${attempts.length}`} />
       </div>
-      <div className="right-column">
-        <div className="word-grid">
-          {attempts.map((attempt, rowIndex) => (
-            <div key={rowIndex} className="letter-boxes">
-              {attempt.split("").map((letter, index) => (
-                <div key={index} className={`letter-box ${getLetterStatus(letter, index, attempt)}`}>
-                  {letter.toUpperCase()} {/* Mostrar letras en mayúsculas */}
-                </div>
-              ))}
+
+      <div className="wordle-game">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 48,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 8,
+            }}
+          >
+            {attempts.map((attempt, i) => renderRow(attempt))}
+            {gameStatus === "playing"
+              ? renderRow(currentAttempt.join(""), true)
+              : gameStatus === "failed"
+              ? renderRow(chosenWord) // Show the correct answer only if the game is failed
+              : null}
+          </div>
+          {gameStatus !== "playing" && gameStatus === "completed" && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 24,
+              }}
+            >
+              <GuessLabel correct={gameStatus === "completed"} />
+              <Text3>{message}</Text3>
+              <ButtonPrimary onPress={handleGameEnd}>Back home</ButtonPrimary>
             </div>
-          ))}
-          {gameOver ? (
-            <div className="letter-boxes">
-              {chosenWord.split("").map((letter, index) => (
-                <div key={index} className={`letter-box correct`}>
-                  {letter.toUpperCase()}
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="letter-boxes">
-              {currentAttempt.map((letter, index) => (
-                <div key={index} className="letter-box">{letter.toUpperCase()}</div>
-              ))}
-              {Array(chosenWord.length - currentAttempt.length)
-                .fill(null)
-                .map((_, index) => (
-                  <div key={index} className="letter-box"></div>
-                ))}
+          )}
+          {gameStatus === "failed" && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 24,
+              }}
+            >
+              <GuessLabel correct={gameStatus === "completed"} />
+              <Text3>{message}</Text3>
+              <ButtonPrimary onPress={handleGameEnd}>Back home</ButtonPrimary>
             </div>
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

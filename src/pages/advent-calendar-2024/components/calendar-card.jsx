@@ -25,12 +25,15 @@ const CalendarCard = ({
   status,
   onEndDay,
   illustration,
+  repeatable,
 }) => {
   const dialogRef = useRef(null);
   const day = new Date(DateString).getDate();
+  const today = new Date().toISOString().split("T")[0];
+  const isRepeatable = repeatable && DateString === today;
 
   const handleClick = () => {
-    if (status === CARD_STATES.AVAILABLE) {
+    if (status === CARD_STATES.AVAILABLE || isRepeatable) {
       dialogRef.current.showModal();
     }
   };
@@ -145,7 +148,10 @@ const CalendarCard = ({
       <div
         onClick={handleClick}
         style={{
-          cursor: status !== CARD_STATES.AVAILABLE ? "not-allowed" : "pointer",
+          cursor:
+            status !== CARD_STATES.AVAILABLE && !isRepeatable
+              ? "not-allowed"
+              : "pointer",
 
           padding: 24,
           position: "relative",
@@ -186,14 +192,15 @@ const CalendarCard = ({
               {day}
             </Text>
 
-            {status === CARD_STATES.AVAILABLE && (
-              <Circle size={48} background={skinVars.colors.brand}>
-                <IconChevronRightRegular
-                  size={24}
-                  color={skinVars.colors.inverse}
-                ></IconChevronRightRegular>
-              </Circle>
-            )}
+            {status === CARD_STATES.AVAILABLE ||
+              (isRepeatable && (
+                <Circle size={48} background={skinVars.colors.brand}>
+                  <IconChevronRightRegular
+                    size={24}
+                    color={skinVars.colors.inverse}
+                  ></IconChevronRightRegular>
+                </Circle>
+              ))}
           </Inline>
         </Stack>
       </div>
@@ -205,7 +212,7 @@ const CalendarCard = ({
         description={eventDescription}
         content={content ? content({ closeModal: handleCloseModal }) : null}
         onClose={handleEndDay}
-        onCancel={() => dialogRef.current.close()}
+        onCancel={isRepeatable ? handleEndDay : null}
       />
     </>
   );
