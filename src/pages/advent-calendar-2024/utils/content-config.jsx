@@ -13,10 +13,29 @@ import MemoryGame from "../components/games/memory";
 import SimonSays from "../components/games/simon";
 import WordleGame from "../components/games/wordle";
 import { GuessWhat, icons, questions } from "../components/quizzes/guess-what";
+import { componentQuestions } from "../components/quizzes/guess-what";
+import { iconQuestions } from "../components/quizzes/guess-what";
+import { componentAssets } from "../components/quizzes/guess-what";
 
 const contentByDate = {
-  "2024-11-20": {
+  "2024-11-04": {
     repeatable: true,
+    content: (
+      <GuessWhat questions={componentQuestions} quizType={"component"} />
+    ),
+    title: "Component Match",
+    description:
+      "If you were an Mística icon, which one would you be? Choose the answers that best fit you and find out! ",
+  },
+  "2024-11-13": {
+    repeatable: true,
+    content: <GuessWhat questions={iconQuestions} quizType={"icon"} />,
+    title: "Icon Match",
+    description:
+      "If you were an Mística icon, which one would you be? Choose the answers that best fit you and find out! ",
+  },
+  "2024-11-20": {
+    repeatable: false,
 
     illustration: <IllustrationWishesLetter />,
     content: ({ closeModal }) => <HigherOrLower onFinish={closeModal} />,
@@ -128,13 +147,6 @@ const contentByDate = {
         </Text1>
       </>
     ),
-  },
-  "2024-11-24": {
-    content: (
-      <GuessWhat questions={questions} quizAnswer={"icon"} icons={icons} />
-    ),
-    title: "Quiz",
-    description: "Test your knowledge and see how well you know Mística!",
   },
 };
 
