@@ -8,7 +8,6 @@ import {
   Timer, 
 } from "@telefonica/mistica";
 import NavBar from "../components/navbar";
-import Snowfall from '../components/snow-fall-animation';
 
 const ComingSoonPage = () => {
 
@@ -38,8 +37,6 @@ const endTimestamp = new Date(defaultTargetDate).getTime();
           </Stack>
         </Box>
       </ResponsiveLayout>
-      
-      <Snowfall numFlakes={40} />
     </>
   );
 };
