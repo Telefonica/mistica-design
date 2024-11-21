@@ -7,14 +7,12 @@ import {
   Stack,
   Carousel,
   Inline,
+  Text4,
 } from "@telefonica/mistica";
 import CalendarCard from "../components/calendar-card";
 import NavBar from "../components/navbar";
 import { useState, useMemo, useEffect } from "react";
-import {
-  updateAchievements,
-  updateCompletedDays,
-} from "../utils/state-manager";
+import { updateCompletedDays } from "../utils/state-manager";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   checkAndUnlockAchievements,
@@ -22,6 +20,9 @@ import {
   ACHIEVEMENT_PREFIX,
 } from "../utils/achievement-config";
 import { CARD_STATES, TOTAL_CALENDAR_DAYS } from "../utils/constants";
+import ToastWrapper from "../components/toast-wrapper";
+import contentByDate from "../utils/content-config";
+import DecorationSnake from "../assets/decorations/decoration-snake.jsx";
 
 const CalendarView = () => {
   const location = useLocation();
@@ -32,6 +33,21 @@ const CalendarView = () => {
     const savedDays = localStorage.getItem("completedDays");
     return savedDays ? JSON.parse(savedDays) : [];
   });
+  const [toasts, setToasts] = useState([]); // Array to manage multiple toasts
+
+  const handleShowToast = ({ id, icon, message, name }) => {
+    const newToast = {
+      id,
+      icon,
+      name,
+      message,
+    };
+    setToasts((prevToasts) => [...prevToasts, newToast]);
+  };
+
+  const removeToast = (id) => {
+    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
+  };
 
   const [achievements, setAchievements] = useState([]);
 
@@ -84,7 +100,8 @@ const CalendarView = () => {
         achievements,
         setAchievements,
         navigate,
-        location
+        location,
+        handleShowToast
       );
     }
   };
@@ -95,6 +112,8 @@ const CalendarView = () => {
     achievementsConfig.forEach(({ id }) => {
       localStorage.removeItem(ACHIEVEMENT_PREFIX + id);
     });
+
+    localStorage.removeItem("gameScores");
   };
 
   const getDayStatus = (date) => {
@@ -103,19 +122,19 @@ const CalendarView = () => {
     return CARD_STATES.AVAILABLE;
   };
 
-  const contentByDate = {
-    "2024-10-28": "Today's challenge: Try a new hobby or activity.",
-  };
-
   const calendarItems = useMemo(() => {
     return calendarDays.map(({ date, dayOfWeek }) => (
       <CalendarCard
         key={date}
         DateString={date}
         DayOfWeek={dayOfWeek}
-        content={contentByDate[date]}
+        eventName={contentByDate[date]?.title}
+        eventDescription={contentByDate[date]?.description}
+        content={contentByDate[date]?.content}
         status={getDayStatus(date)}
         onEndDay={() => markDayAsCompleted(date)}
+        illustration={contentByDate[date]?.illustration}
+        repeatable={contentByDate[date]?.repeatable}
       />
     ));
   }, [completedDays, calendarDays]);
@@ -140,12 +159,14 @@ const CalendarView = () => {
                     fill="black"
                   />
                 </svg>
-                <Text5>Mística Advent</Text5>
+                <Text4 medium>Mística Advent</Text4>
               </div>
 
               <Text size={80} weight="medium">
                 Calendar '24
               </Text>
+
+              <DecorationSnake />
             </Stack>
             <Carousel
               initialActiveItem={initialActiveDay}
@@ -160,6 +181,8 @@ const CalendarView = () => {
           </Stack>
         </Box>
       </ResponsiveLayout>
+
+      <ToastWrapper toasts={toasts} removeToast={removeToast} />
     </>
   );
 };

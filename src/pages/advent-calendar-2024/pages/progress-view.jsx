@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import {
   Box,
   Stack,
-  Text3,
+  Text,
   Text4,
   Text8,
   Text10,
@@ -26,10 +26,13 @@ import Achievement from "../components/achievement";
 import ProgressGrid from "../components/progress-grid";
 import NavBar from "../components/navbar";
 import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
+import Score from "../components/score";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
   const [achievements, setAchievements] = useState({});
+  const [gameScores, setGameScores] = useState({});
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -115,6 +118,11 @@ const ProgressView = () => {
     }
   }, [completedDays]);
 
+  useEffect(() => {
+    const scores = JSON.parse(localStorage.getItem("gameScores")) || {};
+    setGameScores(scores);
+  }, []);
+
   const handleClearData = () => {
     // Clear local storage for completed days and individual achievements
     localStorage.removeItem("completedDays");
@@ -124,12 +132,15 @@ const ProgressView = () => {
       localStorage.removeItem(ACHIEVEMENT_PREFIX + id);
     });
 
+    localStorage.removeItem("gameScores");
+
     // Clear the combined achievements entry
     localStorage.removeItem("achievements");
 
     // Clear the component state
     setCompletedDays([]);
     setAchievements({});
+    setGameScores({});
 
     // Clear the URL query parameters
     const params = new URLSearchParams(location.search);
@@ -264,6 +275,39 @@ const ProgressView = () => {
                 />
               }
             ></GridLayout>
+
+            <Stack space={16}>
+              <Text4>Scores Per Game</Text4>
+              {Object.keys(gameScores).length > 0 ? (
+                <Stack space={8}>
+                  {Object.entries(gameScores).map(
+                    ([game, { score, completed }]) => (
+                      <Box
+                        key={game}
+                        padding={8}
+                        style={{ border: "1px solid #ccc" }}
+                      >
+                        <Inline space={8}>
+                          <Text>{game}</Text>
+                          <Text>Score: {score}</Text>
+                          <Text>Completed: {completed ? "Yes" : "No"}</Text>
+                        </Inline>
+                      </Box>
+                    )
+                  )}
+                  <Text>
+                    Total score:{" "}
+                    {Object.values(gameScores).reduce(
+                      (acc, { score }) => acc + score,
+                      0
+                    )}
+                  </Text>
+                </Stack>
+              ) : (
+                <Text10>No scores recorded yet.</Text10>
+              )}
+            </Stack>
+
             <ButtonPrimary onPress={handleClearData}>
               Clear local stored data
             </ButtonPrimary>

@@ -4,25 +4,36 @@ import {
   Text10,
   skinVars,
   Tag,
-  Text8,
+  Text5,
   Text,
   IconLockEyeClosedFilled,
   Circle,
   IconChevronRightRegular,
-  IconLockOpenFilled,
-  IconLockClosedFilled,
-  IconCheckFilled,
 } from "@telefonica/mistica";
-import { useState, useRef, useEffect } from "react";
+import { useRef } from "react";
 import styles from "./calendar-card.module.css";
 import { CARD_STATES } from "../utils/constants";
+import { IconCompleted, IconLockOpen } from "../assets/icons/icons";
+import ModalView from "./modal-view";
 
-const CalendarCard = ({ DateString, DayOfWeek, content, status, onEndDay }) => {
+const CalendarCard = ({
+  DateString,
+  DayOfWeek,
+  eventName,
+  eventDescription,
+  content,
+  status,
+  onEndDay,
+  illustration,
+  repeatable,
+}) => {
   const dialogRef = useRef(null);
   const day = new Date(DateString).getDate();
+  const today = new Date().toISOString().split("T")[0];
+  const isRepeatable = repeatable && DateString === today;
 
   const handleClick = () => {
-    if (status === CARD_STATES.AVAILABLE) {
+    if (status === CARD_STATES.AVAILABLE || isRepeatable) {
       dialogRef.current.showModal();
     }
   };
@@ -32,62 +43,99 @@ const CalendarCard = ({ DateString, DayOfWeek, content, status, onEndDay }) => {
     onEndDay(); // Notify the parent to update the state
   };
 
-  let backgroundStyles;
+  const handleCloseModal = () => {
+    dialogRef.current.close(); // Close the modal
+    onEndDay(); // Notify the parent to update the state
+  };
+
+  let cardStatusStyles;
 
   switch (status) {
     case CARD_STATES.COMPLETED: {
-      backgroundStyles = { background: skinVars.colors.successLow };
+      cardStatusStyles = {
+        background: skinVars.colors.backgroundContainerAlternative,
+        border: `2px solid ${skinVars.colors.backgroundContainerAlternative}`,
+      };
       break;
     }
     case CARD_STATES.BLOCKED: {
-      backgroundStyles = {
-        background: skinVars.colors.backgroundContainerAlternative,
+      cardStatusStyles = {
+        background: skinVars.colors.backgroundContainer,
+        border: `2px solid ${skinVars.colors.borderLow}`,
       };
       break;
     }
     default: {
-      backgroundStyles = { background: skinVars.colors.backgroundContainer };
+      cardStatusStyles = {
+        background: skinVars.colors.backgroundContainer,
+        border: `2px solid ${skinVars.colors.neutralHigh}`,
+      };
     }
   }
 
+  const IllustrationWrapper = ({ illustration, status }) => {
+    return (
+      <div
+        style={{
+          filter:
+            status === CARD_STATES.BLOCKED
+              ? "grayscale(100%) contrast(0%)"
+              : "none",
+          opacity: status === CARD_STATES.BLOCKED ? 0.1 : 1,
+          display: "inline-flex",
+          width: "100%",
+          justifyContent: "center",
+        }}
+      >
+        {illustration}
+      </div>
+    );
+  };
+
   const StatusIndicator = () => {
     return (
-      <div style={{ position: "absolute", top: 32, right: 32 }}>
+      <div
+        style={{
+          position: "absolute",
+          top: 24,
+          right: 24,
+        }}
+      >
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            alignItems: "end",
+            alignItems: "center",
           }}
         >
           {status === CARD_STATES.AVAILABLE ? (
-            <IconLockOpenFilled size={40} />
+            <IconLockOpen size={40} />
           ) : status === CARD_STATES.BLOCKED ? (
-            <IconLockClosedFilled size={40} />
+            <IconLockEyeClosedFilled
+              size={40}
+              color={skinVars.colors.textSecondary}
+            />
           ) : (
-            <Circle size={40} background={skinVars.colors.successHigh}>
-              <IconCheckFilled size={24} color={skinVars.colors.inverse} />
-            </Circle>
+            <IconCompleted size={40} />
           )}
 
           <p
             style={{
               transformOrigin: "top left",
               marginTop: 16,
-              textAlign: "right",
-              fontSize: 20,
-              marginRight: 4,
+              fontSize: 16,
               writingMode: "vertical-lr",
+              fontWeight: "bold",
               color:
-                status === CARD_STATES.COMPLETED
-                  ? skinVars.colors.successHigh
-                  : skinVars.colors.textPrimary,
+                status === CARD_STATES.AVAILABLE
+                  ? skinVars.colors.textPrimary
+                  : skinVars.colors.textSecondary,
             }}
           >
             {status === CARD_STATES.AVAILABLE
-              ? "Available!"
+              ? "Available"
               : status === CARD_STATES.BLOCKED
-              ? "Locked until the day"
+              ? "Locked"
               : "Completed"}
           </p>
         </div>
@@ -100,54 +148,72 @@ const CalendarCard = ({ DateString, DayOfWeek, content, status, onEndDay }) => {
       <div
         onClick={handleClick}
         style={{
-          cursor: status !== CARD_STATES.AVAILABLE ? "not-allowed" : "pointer",
-          border: `2px solid ${
-            status !== CARD_STATES.AVAILABLE
-              ? skinVars.colors.divider
-              : skinVars.colors.neutralHigh
-          }`,
+          cursor:
+            status !== CARD_STATES.AVAILABLE && !isRepeatable
+              ? "not-allowed"
+              : "pointer",
+
           padding: 24,
           position: "relative",
-          ...backgroundStyles,
+          ...cardStatusStyles,
         }}
         aria-haspopup="dialog"
         className={styles.container}
       >
         <Stack space="between">
           <Stack space={8}>
-            <Text8>{DayOfWeek}</Text8>
+            <Text5
+              color={
+                status === CARD_STATES.AVAILABLE
+                  ? skinVars.colors.textPrimary
+                  : skinVars.colors.textSecondary
+              }
+            >
+              {DayOfWeek}
+            </Text5>
 
             <StatusIndicator />
           </Stack>
+
+          {illustration && (
+            <IllustrationWrapper illustration={illustration} status={status} />
+          )}
+
           <Inline space="between" alignItems="center">
-            <Text size={80} weight="medium">
+            <Text
+              size={64}
+              weight="medium"
+              color={
+                status === CARD_STATES.AVAILABLE
+                  ? skinVars.colors.textPrimary
+                  : skinVars.colors.textSecondary
+              }
+            >
               {day}
             </Text>
-            {status === CARD_STATES.AVAILABLE && (
-              <Circle
-                size={56}
-                background={skinVars.colors.neutralLow}
-                border={skinVars.colors.neutralHigh}
-              >
-                <IconChevronRightRegular
-                  size={32}
-                  color={skinVars.colors.neutralHigh}
-                ></IconChevronRightRegular>
-              </Circle>
-            )}
+
+            {status === CARD_STATES.AVAILABLE ||
+              (isRepeatable && (
+                <Circle size={48} background={skinVars.colors.brand}>
+                  <IconChevronRightRegular
+                    size={24}
+                    color={skinVars.colors.inverse}
+                  ></IconChevronRightRegular>
+                </Circle>
+              ))}
           </Inline>
         </Stack>
       </div>
-      <dialog ref={dialogRef}>
-        <form method="dialog">
-          <p>Do you want to end the day for {day}?</p>
-          <>{content}</>
-          <button onClick={handleEndDay}>End Day</button>
-          <button type="button" onClick={() => dialogRef.current.close()}>
-            Cancel
-          </button>
-        </form>
-      </dialog>
+      <ModalView
+        ref={dialogRef}
+        day={day}
+        dayOfWeek={DayOfWeek}
+        title={eventName}
+        description={eventDescription}
+        content={content ? content({ closeModal: handleCloseModal }) : null}
+        onClose={handleEndDay}
+        onCancel={isRepeatable ? handleEndDay : null}
+      />
     </>
   );
 };
