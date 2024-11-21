@@ -147,7 +147,7 @@ const CalendarView = () => {
   const snowflake2 = document.createElement("img");
   snowflake2.src = snowflakeSrc2;
 
-  const customSnow = [snowflake1, snowflake2];
+  const customSnow = [snowflake1, snowflake2, snowflake2];
 
   return (
     <>
@@ -155,17 +155,11 @@ const CalendarView = () => {
         color="#EEF0FB"
         radius={[50, 50]}
         speed={[1.0, 2.0]} // default [1.0, 3.0]
-        snowflakeCount={8}
+        snowflakeCount={20}
         images={customSnow}
         // snowflakeCount={Math.floor(Math.random() * (2000 - 200 + 1)) + 200}
       />
-      <Snowfall
-        color="#EEF0FB"
-        radius={[8, 8]}
-        speed={[1.0, 2.0]} // default [1.0, 3.0]
-        snowflakeCount={20}
-        // snowflakeCount={Math.floor(Math.random() * (2000 - 200 + 1)) + 200}
-      />
+
       <NavBar />
       <ResponsiveLayout>
         <Box paddingY={42}>
