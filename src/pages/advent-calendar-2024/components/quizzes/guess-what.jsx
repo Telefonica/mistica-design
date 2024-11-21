@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   ResponsiveLayout,
   Stack,
-  Text4,
+  Text,
   RadioGroup,
   RadioButton,
   ButtonPrimary,
@@ -241,22 +241,28 @@ export const GuessWhat = ({ quizName, quizAnswer, questions, icons }) => {
       {finalResult && (
         <div>
           {quizAnswer === "icon" ? (
-            <>
-              <h2>Your icon: {finalResult}</h2>
-              <DecorationPatty size={220}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 24,
+              }}
+            >
+              <Text5>Your icon is</Text5>
+              <DecorationPatty size={220} stroke="0.5">
                 {FinalIcon && (
                   <FinalIcon size={110} color={skinVars.colors.brand} />
                 )}{" "}
               </DecorationPatty>
+              <Text size={28} weight="bold">
+                {finalResult}
+              </Text>
               {/* Dynamically render the icon */}
-              <p>
-                Based on your answers, the icon that best represents you is:{" "}
-                <strong>
-                  {finalResult.charAt(0).toUpperCase() + finalResult.slice(1)}
-                </strong>
-                .
-              </p>
-            </>
+              <Text5>
+                Based on your answers this is the icon that best represents you.
+              </Text5>
+            </div>
           ) : (
             <>
               <h2>Your component: {components[finalResult].name}</h2>
