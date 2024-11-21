@@ -25,7 +25,6 @@ import contentByDate from "../utils/content-config";
 
 import DecorationSnake from "../assets/decorations/decoration-snake.jsx";
 
-
 const CalendarView = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -68,7 +67,7 @@ const CalendarView = () => {
   const calendarDays = Array.from(
     { length: TOTAL_CALENDAR_DAYS },
     (_, index) => {
-      const firstDayAvailable = index + 1;
+      const firstDayAvailable = index + 2;
       const date = new Date(Date.UTC(2024, 10, firstDayAvailable)); // 11 = December in UTC
       return {
         date: date.toISOString().split("T")[0],
@@ -137,9 +136,7 @@ const CalendarView = () => {
         status={getDayStatus(date)}
         onEndDay={() => markDayAsCompleted(date)}
         illustration={contentByDate[date]?.illustration}
-
         repeatable={contentByDate[date]?.repeatable}
-
       />
     ));
   }, [completedDays, calendarDays]);

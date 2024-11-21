@@ -19,8 +19,10 @@ import {
   TextLink,
   ProgressBar,
   ProgressBarStepped,
+  Align,
 } from "@telefonica/mistica";
 import DecorationPatty from "../../assets/decorations/decoration-patty";
+import QuizProgress from "../quiz-progress";
 
 export const iconAssets = {
   lightning: IconLightningRegular,
@@ -381,28 +383,20 @@ export const GuessWhat = ({ quizType, questions }) => {
   const finalLink = componentAssets[finalResult];
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <Align x="center" y="center" height="100vh">
       {/* Show question based on current question index */}
       {!finalResult && (
         <>
+          <QuizProgress
+            current={currentQuestionIndex + 1}
+            total={questions.length}
+          />
+
           <form
             onSubmit={(e) => e.preventDefault()}
             style={{ maxWidth: 600, width: "100%" }}
           >
             <Stack space={24}>
-              <ProgressBarStepped
-                currentStep={currentQuestionIndex + 1}
-                steps={questions.length}
-              />
               {/* Display only the current question */}
               <div key={currentQuestionIndex}>
                 <Stack space={64}>
@@ -446,9 +440,9 @@ export const GuessWhat = ({ quizType, questions }) => {
           >
             <Text5>Your {quizType} is</Text5>
             {quizType === "icon" && (
-              <DecorationPatty size={220} stroke="0.5">
+              <DecorationPatty size={128} stroke="0.75">
                 {FinalIcon && (
-                  <FinalIcon size={110} color={skinVars.colors.brand} />
+                  <FinalIcon size={64} color={skinVars.colors.brand} />
                 )}{" "}
               </DecorationPatty>
             )}
@@ -470,6 +464,6 @@ export const GuessWhat = ({ quizType, questions }) => {
           </div>
         </div>
       )}
-    </div>
+    </Align>
   );
 };

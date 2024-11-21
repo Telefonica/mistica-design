@@ -6,6 +6,7 @@ import {
   IconEyeFilled,
   IconSnowflakeRegular,
   IconBugFilled,
+  IconVideoCameraFilled,
 } from "@telefonica/mistica";
 import { updateAchievements } from "./state-manager";
 import { TOTAL_CALENDAR_DAYS } from "./constants";
@@ -81,6 +82,21 @@ export const achievementsConfig = [
     },
     message:
       "Achievement Unlocked: Game Master - You have completed all game days!",
+    isSecret: false,
+  },
+  {
+    id: "movieMaster",
+    name: "Movie Master",
+    description: "Get the maximum score in the Emoji Movies game",
+    icon: IconVideoCameraFilled,
+    check: () => {
+      const gameScores = JSON.parse(localStorage.getItem("gameScores")) || {};
+      const emojiMoviesScore = gameScores["Emoji Movies"]?.score || 0;
+      return emojiMoviesScore === 400;
+    },
+
+    message:
+      "You know your movies! You achieve the maximum score in the Emoji Movies game!",
     isSecret: false,
   },
 ];
