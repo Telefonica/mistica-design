@@ -13,7 +13,7 @@ import WordleGame from "../components/games/wordle";
 
 const contentByDate = {
   "2024-11-20": {
-    forceAvailable: true,
+    repeatable: true,
     illustration: <IllustrationWishesLetter />,
     content: ({ closeModal }) => <HigherOrLower onFinish={closeModal} />,
     title: "Higher or Lower",
@@ -21,6 +21,7 @@ const contentByDate = {
       "Answer the question by guessing whether the number is higher or lower than the given data.",
   },
   "2024-11-21": {
+    repeatable: true,
     illustration: <IllustrationWoolClothes />,
     content: ({ closeModal }) => <MemoryGame onFinish={closeModal} />,
     title: "Memory cards",

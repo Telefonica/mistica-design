@@ -132,7 +132,7 @@ const CalendarView = () => {
         status={getDayStatus(date)}
         onEndDay={() => markDayAsCompleted(date)}
         illustration={contentByDate[date]?.illustration}
-        forceAvailable={contentByDate[date]?.forceAvailable}
+        repeatable={contentByDate[date]?.repeatable}
       />
     ));
   }, [completedDays, calendarDays]);
