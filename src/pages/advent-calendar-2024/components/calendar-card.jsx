@@ -210,7 +210,11 @@ const CalendarCard = ({
         dayOfWeek={DayOfWeek}
         title={eventName}
         description={eventDescription}
-        content={content ? content({ closeModal: handleCloseModal }) : null}
+        content={
+          typeof content === "function"
+            ? content({ closeModal: handleCloseModal })
+            : content
+        }
         onClose={handleEndDay}
         onCancel={isRepeatable ? handleEndDay : null}
       />
