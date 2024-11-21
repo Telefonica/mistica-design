@@ -7,13 +7,11 @@ import {
   Stack,
 } from "@telefonica/mistica";
 import "./wordle.css";
-
 import React, { useState, useEffect, useRef } from "react";
 import Score from "../score";
 import { saveGameData } from "../../utils/score-manager";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
 import { DecorationPatty } from "../../assets/decorations/decorations";
-
 
 const words = ["tokens"];
 const chosenWord = words[0].toLowerCase();
@@ -24,25 +22,22 @@ const WordleGame = ({ onFinish }) => {
   const [message, setMessage] = useState("");
   const [score, setScore] = useState(0);
   const [gameStatus, setGameStatus] = useState("playing");
-
   const gameContainerRef = useRef(null); //for scroll
-
 
   const maxAttempts = 10;
   const gameName = "wordle";
 
   useEffect(() => {
-
     if (gameContainerRef.current) {
       // Use setTimeout to ensure scroll happens after render
       setTimeout(() => {
-        gameContainerRef.current.scrollTop = gameContainerRef.current.scrollHeight;
+        gameContainerRef.current.scrollTop =
+          gameContainerRef.current.scrollHeight;
       }, 0);
     }
   }, [attempts, currentAttempt]);
 
   useEffect(() => {
-
     const savedGame = JSON.parse(localStorage.getItem("gameScores"))?.[
       gameName
     ];
@@ -53,7 +48,7 @@ const WordleGame = ({ onFinish }) => {
     }
   }, []);
 
-
+  useEffect(() => {
     const handleKeyDown = (event) => {
       const { key } = event;
       const lowerKey = key.toLowerCase();
@@ -61,7 +56,6 @@ const WordleGame = ({ onFinish }) => {
       // Prevents default modal close when clicking enter
       event.preventDefault();
       event.stopPropagation();
-
 
       if (lowerKey === "enter" && gameStatus === "playing") checkWord();
       if (lowerKey === "backspace")
@@ -186,47 +180,43 @@ const WordleGame = ({ onFinish }) => {
 
   return (
     <>
-
-    <div
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "125px",
-        backgroundColor: "#FFFFFF",
-        zIndex: 0,
-      }}
-    />
-    <div style={{ position: "absolute", left: 48, top: 64, zIndex: 1 }}>
-      <Score score={`${score}`} movements={`${attempts.length}`} />
-    </div>
-    <div 
-  ref={gameContainerRef}
-  className="wordle-game"
-  style={{
-    maxHeight: '500px', 
-    overflowY: 'auto',
-  }}
->
-
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 8,
-            }}
-          >
-            {attempts.map((attempt, i) => renderRow(attempt))}
-            {gameStatus === "playing"
-              ? renderRow(currentAttempt.join(""), true)
-              : gameStatus === "failed"
-
-              }
-          </div>
-          {gameStatus !== "playing" && gameStatus === "completed" && (
-            <Stack space={24}>
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "125px",
+          backgroundColor: "#FFFFFF",
+          zIndex: 0,
+        }}
+      />
+      <div style={{ position: "absolute", left: 48, top: 64, zIndex: 1 }}>
+        <Score score={`${score}`} movements={`${attempts.length}`} />
+      </div>
+      <div
+        ref={gameContainerRef}
+        className="wordle-game"
+        style={{
+          maxHeight: "500px",
+          overflowY: "auto",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 8,
+          }}
+        >
+          {attempts.map((attempt, i) => renderRow(attempt))}
+          {gameStatus === "playing"
+            ? renderRow(currentAttempt.join(""), true)
+            : gameStatus === "failed"}
+        </div>
+        {gameStatus !== "playing" && gameStatus === "completed" && (
+          <Stack space={24}>
             <Stack space={16}>
               <DecorationPatty text={`${score}`}></DecorationPatty>
               <Text3>Your final score</Text3>
@@ -236,25 +226,22 @@ const WordleGame = ({ onFinish }) => {
             </Stack>
             <ButtonPrimary onPress={handleGameEnd}>Back home</ButtonPrimary>
           </Stack>
-
-          )}
-          {gameStatus === "failed" && (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 24,
-              }}
-            >
-              <GuessLabel correct={gameStatus === "completed"} />
-              <Text3>{message}</Text3>
-              <ButtonPrimary onPress={handleGameEnd}>Back home</ButtonPrimary>
-            </div>
-          )}
-        </div>
-
-
+        )}
+        {gameStatus === "failed" && (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 24,
+            }}
+          >
+            <GuessLabel correct={gameStatus === "completed"} />
+            <Text3>{message}</Text3>
+            <ButtonPrimary onPress={handleGameEnd}>Back home</ButtonPrimary>
+          </div>
+        )}
+      </div>
     </>
   );
 };
