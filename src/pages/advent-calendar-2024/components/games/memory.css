@@ -12,7 +12,7 @@
 .card-grid {
   padding-top: 20px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   max-width: fit-content;
   margin: 0 auto;
   gap: 15px;
@@ -45,20 +45,28 @@
   backface-visibility: hidden;
 }
 
+.card-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
 .card-front {
   backface-visibility: hidden;
 }
 
 .card {
-  width: 72px;
-  height: 72px;
+  width: 96px;
+  height: 96px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 10px;
   background-color: white;
-  border: 1px solid #ccc;
+  border: 1.5px solid #D1D5E4;
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -68,6 +76,7 @@
 .card.flipped {
   transform: rotateY(180deg);
   cursor: default;
+  border: 1.5px solid #0066FF;
 }
 
 /* Cara frontal de la carta (cuando está oculta) */
@@ -86,14 +95,6 @@
   backface-visibility: hidden;
 }
 
-.card img {
-  width: 70%;
-  height: 70%;
-  border-radius: 8px;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
-}
-
 .left-column {
   flex: 1;
   padding: 20px;
@@ -109,7 +110,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  justify-content: center;
 }
 
 #timer {
