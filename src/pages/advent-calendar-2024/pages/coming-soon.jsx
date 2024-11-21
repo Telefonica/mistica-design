@@ -20,22 +20,26 @@ const endTimestamp = new Date(defaultTargetDate).getTime();
         variant="inverse">
         <NavBar /> 
         <Align x="center" y="center" height="calc(100vh - 138px)">
-        <div style={{maxWidth:600}}>
-            <Box paddingY={42}>
-              <Stack space={48}>
-                <Stack space={24} >
-                    <Text7 size={60} weight="medium">Mística Advent Calendar</Text7>
-                    <Text>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis dolor dolorem sed ipsum vitae itaque, perferendis odit tempore delectus quidem tempora nihil illum est nam eius dolorum hic nulla quia.</Text>
-                    <Timer
-                        endTimestamp={endTimestamp}
-                        minTimeUnit="seconds"
-                        maxTimeUnit="days"
-                        themeVariant="inverse"
-                        boxed={false}
-                      />
-                </Stack>
-              </Stack>
-            </Box>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',    
+            textAlign: 'center',   
+            maxWidth: 600,
+          }}
+        >
+          <Stack space={24}>
+            <Text7 size={60} weight="medium">Mística Advent Calendar</Text7>
+            <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa praesentium, eaque repellendus consectetur exercitationem sint? Obcaecati, explicabo dolor quidem minus autem sequi ratione dolorum, ea doloremque </Text>
+            <Timer
+              endTimestamp={endTimestamp}
+              minTimeUnit="seconds"
+              maxTimeUnit="days"
+              themeVariant="inverse"
+              boxed={false}
+            />
+          </Stack>
         </div>
         </Align>
         </ResponsiveLayout>
