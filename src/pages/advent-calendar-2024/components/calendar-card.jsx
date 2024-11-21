@@ -31,7 +31,7 @@ const CalendarCard = ({
   const dialogRef = useRef(null);
   const day = new Date(DateString).getDate();
   const today = new Date().toISOString().split("T")[0];
-  const isRepeatable = repeatable && DateString === today;
+  const isRepeatable = repeatable;
 
   const handleClick = () => {
 

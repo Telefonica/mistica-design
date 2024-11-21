@@ -116,6 +116,7 @@ const CalendarView = () => {
     });
 
     localStorage.removeItem("gameScores");
+    localStorage.removeItem("quizData");
   };
 
   const getDayStatus = (date) => {
@@ -180,7 +181,7 @@ const CalendarView = () => {
               Clear Completed Days
             </ButtonPrimary>
             <ButtonPrimary onPress={() => setAllDaysUnlocked(!allDaysUnlocked)}>
-              {allDaysUnlocked ? "Enable blocked days" : "Disable blocked days"}
+              {allDaysUnlocked ? "Lock all days" : "Unlock all days"}
             </ButtonPrimary>
           </Stack>
         </Box>
