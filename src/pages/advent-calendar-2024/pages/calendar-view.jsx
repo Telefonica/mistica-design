@@ -24,6 +24,8 @@ import ToastWrapper from "../components/toast-wrapper";
 import contentByDate from "../utils/content-config";
 import DecorationSnake from "../assets/decorations/decoration-snake.jsx";
 import Snowfall from "react-snowfall";
+import snowflakeSrc1 from "../assets/decorations/snowflake-1.svg";
+import snowflakeSrc2 from "../assets/decorations/snowflake-2.svg";
 
 const CalendarView = () => {
   const location = useLocation();
@@ -141,9 +143,9 @@ const CalendarView = () => {
   }, [completedDays, calendarDays]);
 
   const snowflake1 = document.createElement("img");
-  snowflake1.src = "./snowflake_01.svg";
+  snowflake1.src = snowflakeSrc1;
   const snowflake2 = document.createElement("img");
-  snowflake2.src = "./snowflake_01.svg";
+  snowflake2.src = snowflakeSrc2;
 
   const customSnow = [snowflake1, snowflake2];
 
@@ -151,10 +153,17 @@ const CalendarView = () => {
     <>
       <Snowfall
         color="#EEF0FB"
+        radius={[50, 50]}
+        speed={[1.0, 2.0]} // default [1.0, 3.0]
+        snowflakeCount={8}
+        images={customSnow}
+        // snowflakeCount={Math.floor(Math.random() * (2000 - 200 + 1)) + 200}
+      />
+      <Snowfall
+        color="#EEF0FB"
         radius={[8, 8]}
         speed={[1.0, 2.0]} // default [1.0, 3.0]
         snowflakeCount={20}
-        // images={customSnow}
         // snowflakeCount={Math.floor(Math.random() * (2000 - 200 + 1)) + 200}
       />
       <NavBar />
