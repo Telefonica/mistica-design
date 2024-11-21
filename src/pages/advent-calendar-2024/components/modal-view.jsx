@@ -74,14 +74,16 @@ const ModalView = forwardRef(
             }}
           >
             {content}
-            <div style={{ position: "absolute", top: 48, right: 48 }}>
-              <IconButton
-                type="neutral"
-                backgroundType="soft"
-                Icon={IconCloseRegular}
-                onPress={onCancel}
-              />
-            </div>
+            {onCancel !== null && (
+              <div style={{ position: "absolute", top: 48, right: 48 }}>
+                <IconButton
+                  type="neutral"
+                  backgroundType="soft"
+                  Icon={IconCloseRegular}
+                  onPress={onCancel}
+                />
+              </div>
+            )}
           </form>
         </div>
       </dialog>

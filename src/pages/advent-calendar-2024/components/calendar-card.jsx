@@ -48,11 +48,6 @@ const CalendarCard = ({
     onEndDay(); // Notify the parent to update the state
   };
 
-  const handleDismiss = () => {
-    dialogRef.current.close();
-    isRepeatable && onEndDay();
-  };
-
   let cardStatusStyles;
 
   switch (status) {
@@ -217,7 +212,7 @@ const CalendarCard = ({
         description={eventDescription}
         content={content ? content({ closeModal: handleCloseModal }) : null}
         onClose={handleEndDay}
-        onCancel={handleDismiss}
+        onCancel={isRepeatable ? handleEndDay : null}
       />
     </>
   );
