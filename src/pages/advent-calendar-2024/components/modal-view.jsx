@@ -27,7 +27,8 @@ const ModalView = forwardRef(
         <div style={{ display: "flex" }}>
           <div
             style={{
-              width: "40%",
+              width: "65%",
+              maxWidth: "640px",
               height: "100vh",
               background: skinVars.colors.backgroundAlternative,
               padding: "56px",
@@ -37,7 +38,14 @@ const ModalView = forwardRef(
               justifyContent: "center",
             }}
           >
-            <div style={{ position: "absolute", top: 56, left: 56 }}>
+            <div
+              style={{
+                position: "absolute",
+                paddingBottom: "16px",
+                top: 64,
+                left: 64,
+              }}
+            >
               <Stack space={0}>
                 <Text color={skinVars.colors.brand} size={64} weight="medium">
                   {day}
@@ -71,6 +79,7 @@ const ModalView = forwardRef(
               display: "flex",
               flexDirection: "column",
               position: "relative",
+              padding: "56px",
             }}
           >
             {content}
