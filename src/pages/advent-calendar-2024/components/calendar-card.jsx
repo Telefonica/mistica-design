@@ -26,12 +26,17 @@ const CalendarCard = ({
   forceAvailable,
   onEndDay,
   illustration,
+  repeatable,
 }) => {
   const dialogRef = useRef(null);
   const day = new Date(DateString).getDate();
+  const today = new Date().toISOString().split("T")[0];
+  const isRepeatable = repeatable && DateString === today;
 
   const handleClick = () => {
-    if (status === CARD_STATES.AVAILABLE || forceAvailable) {
+
+    if (status === CARD_STATES.AVAILABLE || isRepeatable) {
+
       dialogRef.current.showModal();
     }
   };
@@ -147,7 +152,9 @@ const CalendarCard = ({
         onClick={handleClick}
         style={{
           cursor:
-            status !== CARD_STATES.AVAILABLE && !forceAvailable
+
+            status !== CARD_STATES.AVAILABLE && !isRepeatable
+
               ? "not-allowed"
               : "pointer",
 
@@ -191,7 +198,9 @@ const CalendarCard = ({
             </Text>
 
             {status === CARD_STATES.AVAILABLE ||
-              (forceAvailable && (
+
+              (isRepeatable && (
+
                 <Circle size={48} background={skinVars.colors.brand}>
                   <IconChevronRightRegular
                     size={24}
@@ -208,9 +217,13 @@ const CalendarCard = ({
         dayOfWeek={DayOfWeek}
         title={eventName}
         description={eventDescription}
-        content={content ? content({ closeModal: handleCloseModal }) : null}
+        content={
+          typeof content === "function"
+            ? content({ closeModal: handleCloseModal })
+            : content
+        }
         onClose={handleEndDay}
-        onCancel={() => dialogRef.current.close()}
+        onCancel={isRepeatable ? handleEndDay : null}
       />
     </>
   );

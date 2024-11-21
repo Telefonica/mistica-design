@@ -7,11 +7,13 @@ import {
   Stack,
 } from "@telefonica/mistica";
 import "./wordle.css";
+
 import React, { useState, useEffect, useRef } from "react";
 import Score from "../score";
 import { saveGameData } from "../../utils/score-manager";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
 import { DecorationPatty } from "../../assets/decorations/decorations";
+
 
 const words = ["tokens"];
 const chosenWord = words[0].toLowerCase();
@@ -22,12 +24,15 @@ const WordleGame = ({ onFinish }) => {
   const [message, setMessage] = useState("");
   const [score, setScore] = useState(0);
   const [gameStatus, setGameStatus] = useState("playing");
+
   const gameContainerRef = useRef(null); //for scroll
+
 
   const maxAttempts = 10;
   const gameName = "wordle";
 
   useEffect(() => {
+
     if (gameContainerRef.current) {
       // Use setTimeout to ensure scroll happens after render
       setTimeout(() => {
@@ -37,6 +42,7 @@ const WordleGame = ({ onFinish }) => {
   }, [attempts, currentAttempt]);
 
   useEffect(() => {
+
     const savedGame = JSON.parse(localStorage.getItem("gameScores"))?.[
       gameName
     ];
@@ -47,7 +53,7 @@ const WordleGame = ({ onFinish }) => {
     }
   }, []);
 
-  useEffect(() => {
+
     const handleKeyDown = (event) => {
       const { key } = event;
       const lowerKey = key.toLowerCase();
@@ -55,6 +61,7 @@ const WordleGame = ({ onFinish }) => {
       // Prevents default modal close when clicking enter
       event.preventDefault();
       event.stopPropagation();
+
 
       if (lowerKey === "enter" && gameStatus === "playing") checkWord();
       if (lowerKey === "backspace")
@@ -179,6 +186,7 @@ const WordleGame = ({ onFinish }) => {
 
   return (
     <>
+
     <div
       style={{
         position: "absolute",
@@ -201,6 +209,7 @@ const WordleGame = ({ onFinish }) => {
     overflowY: 'auto',
   }}
 >
+
           <div
             style={{
               display: "flex",
@@ -213,6 +222,7 @@ const WordleGame = ({ onFinish }) => {
             {gameStatus === "playing"
               ? renderRow(currentAttempt.join(""), true)
               : gameStatus === "failed"
+
               }
           </div>
           {gameStatus !== "playing" && gameStatus === "completed" && (
@@ -226,6 +236,7 @@ const WordleGame = ({ onFinish }) => {
             </Stack>
             <ButtonPrimary onPress={handleGameEnd}>Back home</ButtonPrimary>
           </Stack>
+
           )}
           {gameStatus === "failed" && (
             <div
@@ -242,6 +253,8 @@ const WordleGame = ({ onFinish }) => {
             </div>
           )}
         </div>
+
+
     </>
   );
 };

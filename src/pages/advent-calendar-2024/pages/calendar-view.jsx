@@ -7,6 +7,7 @@ import {
   Stack,
   Carousel,
   Inline,
+  Text4,
 } from "@telefonica/mistica";
 import CalendarCard from "../components/calendar-card";
 import NavBar from "../components/navbar";
@@ -21,6 +22,9 @@ import {
 import { CARD_STATES, TOTAL_CALENDAR_DAYS } from "../utils/constants";
 import ToastWrapper from "../components/toast-wrapper";
 import contentByDate from "../utils/content-config";
+
+import DecorationSnake from "../assets/decorations/decoration-snake.jsx";
+
 
 const CalendarView = () => {
   const location = useLocation();
@@ -132,7 +136,9 @@ const CalendarView = () => {
         status={getDayStatus(date)}
         onEndDay={() => markDayAsCompleted(date)}
         illustration={contentByDate[date]?.illustration}
-        forceAvailable={contentByDate[date]?.forceAvailable}
+
+        repeatable={contentByDate[date]?.repeatable}
+
       />
     ));
   }, [completedDays, calendarDays]);
@@ -157,12 +163,14 @@ const CalendarView = () => {
                     fill="black"
                   />
                 </svg>
-                <Text5>Mística Advent</Text5>
+                <Text4 medium>Mística Advent</Text4>
               </div>
 
               <Text size={80} weight="medium">
                 Calendar '24
               </Text>
+
+              <DecorationSnake />
             </Stack>
             <Carousel
               initialActiveItem={initialActiveDay}

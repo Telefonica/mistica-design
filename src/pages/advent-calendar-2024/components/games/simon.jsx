@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./simon.css";
+
 import { Text, Text3, Text4, ButtonPrimary, Stack, IconButton } from "@telefonica/mistica";
+
 
 import sound1 from "../../../../img/games/1.mp3";
 import sound2 from "../../../../img/games/2.mp3";
@@ -8,6 +10,7 @@ import sound3 from "../../../../img/games/3.mp3";
 import sound4 from "../../../../img/games/4.mp3";
 
 import Score from "../score";
+
 import { saveGameData } from "../../utils/score-manager";
 import { DecorationPatty } from "../../assets/decorations/decorations";
 
@@ -26,6 +29,7 @@ const UnmuteIcon = () => (
   </svg>
 );
 
+
 const SimonSays = ({ onFinish }) => {
   const [sequence, setSequence] = useState([]);
   const [playerSequence, setPlayerSequence] = useState([]);
@@ -35,6 +39,7 @@ const SimonSays = ({ onFinish }) => {
   const [highlight, setHighlight] = useState(null);
   const [message, setMessage] = useState('Press "Start" to begin');
   const [isGameOver, setIsGameOver] = useState(false);
+
   const [status, setStatus] = useState("playing");
   const [isMuted, setIsMuted] = useState(true);
 
@@ -44,22 +49,27 @@ const SimonSays = ({ onFinish }) => {
     if (onFinish) onFinish();
   };
 
+
   useEffect(() => {
     const gameScores = JSON.parse(localStorage.getItem("gameScores")) || {};
     const savedGame = gameScores[gameName];
 
     if (savedGame?.completed) {
       setScore(savedGame.score);
+
       setStatus("completed");
+
       setMessage("Game Completed!");
     }
   }, []);
+
 
   const toggleMute = () => {
     setIsMuted((prevState) => !prevState);
   };  
 
   let currentSound = null;
+
 
   function playSound(color) {
     if (isMuted) return;
@@ -68,9 +78,10 @@ const SimonSays = ({ onFinish }) => {
       currentSound.pause();
       currentSound.currentTime = 0;
     }
-  
+
     let sound;
     switch (color) {
+
       case "green":
         sound = new Audio(sound1);
         break;
@@ -81,12 +92,13 @@ const SimonSays = ({ onFinish }) => {
         sound = new Audio(sound3);
         break;
       case "blue":
+
         sound = new Audio(sound4);
         break;
       default:
         return;
     }
-  
+
     sound.play();
     currentSound = sound;
   }
@@ -108,8 +120,10 @@ const SimonSays = ({ onFinish }) => {
     setMessage("Follow the sequence!");
     setIsGameOver(false);
     setIsPlaying(true);
+
     setIsPlayerTurn(false);
     setStatus("playing");
+
     addColorToSequence();
   };
 
@@ -129,7 +143,9 @@ const SimonSays = ({ onFinish }) => {
       setTimeout(() => setHighlight(null), 500);
       if (i === sequence.length) {
         clearInterval(interval);
+
         setTimeout(() => setIsPlayerTurn(true), 500);
+
       }
     }, 800);
   }
@@ -139,7 +155,9 @@ const SimonSays = ({ onFinish }) => {
 
     setPlayerSequence((prevSequence) => {
       const newSequence = [...prevSequence, color];
+
       playSound(color);
+
 
       setHighlight(color);
       setTimeout(() => setHighlight(null), 500);
@@ -149,10 +167,12 @@ const SimonSays = ({ onFinish }) => {
       ) {
         setIsGameOver(true);
         setMessage("Game Over! You clicked the wrong color.");
+
         setStatus("completed");
         setIsPlaying(false);
         setIsPlayerTurn(false);
         saveGameData(gameName, score, isGameOver);
+
         return newSequence;
       }
 
@@ -171,20 +191,25 @@ const SimonSays = ({ onFinish }) => {
     } else {
       setIsGameOver(true);
       setMessage("Game Over!");
+
       setStatus("completed");
       setIsPlayerTurn(false);
       saveGameData(gameName, score, isGameOver);
+
     }
   };
 
   useEffect(() => {
+
     if (isGameOver) {
       saveGameData(gameName, score, isGameOver);
+
     }
   }, [isGameOver]);
 
   return (
     <>
+
       <div style={{ position: "absolute", left: 48, top: 64 }}>
         <Score score={`${score}`} />
       </div>
@@ -203,11 +228,13 @@ const SimonSays = ({ onFinish }) => {
           Icon={isMuted ? MuteIcon : UnmuteIcon}
           onPress={toggleMute}
         />
+
       </div>
 
       <div className="simon-game">
         {status === "playing" ? (
           <Stack space={16}>
+
             <div style={{ position: "relative" }}>
               <Text4>
                 {!isPlaying 
@@ -217,6 +244,7 @@ const SimonSays = ({ onFinish }) => {
                     : "Your turn!"}
               </Text4>
             </div>
+
             <div className="simon-board">
               {colors.map((color) => (
                 <div
@@ -225,7 +253,9 @@ const SimonSays = ({ onFinish }) => {
                     highlight === color ? "highlight" : ""
                   } ${isGameOver ? "gameover" : ""}`}
                   onClick={() => handlePlayerInput(color)}
+
                   style={{ pointerEvents: isGameOver || !isPlayerTurn ? "none" : "auto" }}
+
                 />
               ))}
             </div>

@@ -1,3 +1,4 @@
+
 import 
 { ButtonPrimary, 
   Text, 
@@ -14,12 +15,14 @@ import
   skinVars
 } from "@telefonica/mistica";
 import React, { useState, useEffect } from "react";
+
 import "./memory.css";
 import { saveGameData } from "../../utils/score-manager"; // Import your saveGameData function
 import Score from "../score";
 import { DecorationPatty } from "../../assets/decorations/decorations";
 
 const initialCards = [
+
   IconBugFilled,
   IconBugFilled,
   IconChildFilled,
@@ -36,6 +39,7 @@ const initialCards = [
   IconFlowerFilled,
   IconBusFilled,
   IconBusFilled
+
 ];
 
 const MemoryGame = ({ onFinish }) => {
@@ -172,6 +176,7 @@ const MemoryGame = ({ onFinish }) => {
         <div className="memory-game">
           <div className="right-column">
             <div className="card-grid">
+
             {cards.map((icon, index) => (
               <div
                 key={index}
@@ -206,6 +211,7 @@ const MemoryGame = ({ onFinish }) => {
                 )}
               </div>
             ))}
+
             </div>
           </div>
         </div>

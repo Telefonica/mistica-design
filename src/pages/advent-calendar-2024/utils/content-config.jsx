@@ -1,7 +1,9 @@
 import GamesView from "../pages/games-view";
 import QuizView from "../pages/quiz-view";
 import quizQuestions from "../components/quiz-questions";
+
 import { Text3, Text1, skinVars } from "@telefonica/mistica";
+
 import {
   IllustrationWoolClothes,
   IllustrationWishesLetter,
@@ -13,7 +15,9 @@ import WordleGame from "../components/games/wordle";
 
 const contentByDate = {
   "2024-11-20": {
-    forceAvailable: true,
+
+    repeatable: true,
+
     illustration: <IllustrationWishesLetter />,
     content: ({ closeModal }) => <HigherOrLower onFinish={closeModal} />,
     title: "Higher or Lower",
@@ -21,6 +25,7 @@ const contentByDate = {
       "Answer the question by guessing whether the number is higher or lower than the given data.",
   },
   "2024-11-21": {
+
     illustration: <IllustrationWoolClothes />,
     content: ({ closeModal }) => <MemoryGame onFinish={closeModal} />,
     title: "Memory cards",
@@ -46,18 +51,22 @@ const contentByDate = {
     </>
   )
 },
+
   "2024-11-23": {
     content: ({ closeModal }) => <WordleGame onFinish={closeModal} />,
     title: "Wordle",
     description: (
       <>
+
         <Text3 color={skinVars.colors.brand}>
           Type your attempts,
+
           hit 'Enter,' and let the letters reveal their secrets. <br />
           Can you uncover the missing word and bring balance back to Mística?{" "}
           <br />
           <br />
         </Text3>
+
         <Text1 color={skinVars.colors.brand}>
   <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
     <div
@@ -98,6 +107,7 @@ const contentByDate = {
   <br />
   Use these clues wisely to solve the mystery!
 </Text1>
+
       </>
     ),
   },
