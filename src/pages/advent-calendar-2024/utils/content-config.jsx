@@ -25,10 +25,19 @@ import CandyCrush from "../components/games/candy";
 import AdventCalendarHistory from "../components/static-content/advent-calendar-history";
 import ChristmasGreetings from "../components/static-content/christmas-greetings";
 import TopContributors from "../components/static-content/top-contributors";
+import {
+  Illustration02,
+  Illustration03,
+  Illustration04,
+  Illustration05,
+  Illustration06,
+  Illustration09,
+} from "../assets/illustrations/illustrations";
 
 const contentByDate = {
   "2024-12-02": {
     repeatable: false,
+    illustration: <Illustration02 />,
     content: ({ closeModal }) => <CandyCrush onFinish={closeModal} />,
     title: "“Brandy” crush",
     description:
@@ -36,6 +45,7 @@ const contentByDate = {
   },
   "2024-12-03": {
     repeatable: false,
+    illustration: <Illustration03 />,
     content: ({ closeModal }) => <EmojiMovies onFinish={closeModal} />,
     title: "Emoji movie",
     description:
@@ -43,6 +53,7 @@ const contentByDate = {
   },
   "2024-12-04": {
     repeatable: true,
+    illustration: <Illustration04 />,
     content: (
       <GuessWhat questions={componentQuestions} quizType={"component"} />
     ),
@@ -52,12 +63,25 @@ const contentByDate = {
   },
   "2024-12-05": {
     repeatable: false,
-
-    illustration: <IllustrationWishesLetter />,
+    illustration: <Illustration05 />,
     content: ({ closeModal }) => <HigherOrLower onFinish={closeModal} />,
     title: "Higher or Lower",
     description:
       "Answer the question by guessing whether the number is higher or lower than the given data.",
+  },
+  "2024-12-06": {
+    repeatable: true,
+    illustration: <Illustration06 />,
+    content: <AdventCalendarHistory />,
+    title: "Did you know...",
+    description: "Where the tradition Christmas calendar comes from?",
+  },
+  "2024-12-09": {
+    repeatable: true,
+    illustration: <Illustration09 />,
+    content: <TopContributors />,
+    title: "Top contributors",
+    description: "A big thank you to our contributors!",
   },
   "2024-12-10": {
     repeatable: false,

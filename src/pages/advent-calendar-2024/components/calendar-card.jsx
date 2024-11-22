@@ -32,6 +32,12 @@ const CalendarCard = ({
   const today = new Date().toISOString().split("T")[0];
   const isRepeatable = repeatable; //TODO: add !today;
 
+  console.log("CalendarCard", {
+    DateString,
+    DayOfWeek,
+    status,
+  });
+
   const handleClick = () => {
     if (status === CARD_STATES.AVAILABLE || isRepeatable) {
       dialogRef.current.showModal();
@@ -81,7 +87,7 @@ const CalendarCard = ({
             status === CARD_STATES.BLOCKED
               ? "grayscale(100%) contrast(0%)"
               : "none",
-          opacity: status === CARD_STATES.BLOCKED ? 0.1 : 1,
+          opacity: status === CARD_STATES.BLOCKED ? 0.35 : 1,
           display: "inline-flex",
           width: "100%",
           justifyContent: "center",

@@ -101,7 +101,6 @@ export const achievementsConfig = [
   },
 ];
 
-// Existing functions
 const hasConsecutiveDays = (dates) => {
   // Convert string dates to Date objects for comparison and sort them
   const sortedDates = dates.map((date) => new Date(date)).sort((a, b) => a - b);
@@ -109,13 +108,19 @@ const hasConsecutiveDays = (dates) => {
   // Check if we have at least two completed days
   if (sortedDates.length < 2) return false;
 
-  const lastIndex = sortedDates.length - 1;
-  const firstDate = sortedDates[lastIndex - 1];
-  const secondDate = sortedDates[lastIndex];
-  const oneDayInMs = 24 * 60 * 60 * 1000;
+  // Iterate over the sorted dates and check for consecutive days
+  for (let i = 0; i < sortedDates.length - 1; i++) {
+    const currentDate = sortedDates[i];
+    const nextDate = sortedDates[i + 1];
+    const oneDayInMs = 24 * 60 * 60 * 1000;
 
-  // Check if the second date is exactly one day after the first
-  return secondDate - firstDate === oneDayInMs;
+    // Check if the next date is exactly one day after the current date
+    if (nextDate - currentDate !== oneDayInMs) {
+      return false;
+    }
+  }
+
+  return true; // All dates are consecutive
 };
 
 // Function to check if a day is a weekend

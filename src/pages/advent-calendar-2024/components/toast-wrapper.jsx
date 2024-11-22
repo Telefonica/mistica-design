@@ -16,7 +16,6 @@ const ToastWrapper = ({ toasts, removeToast }) => {
       <Stack space={8}>
         {toasts.map((toast, index) => {
           const scaleValue = 1 - index * 0.2;
-          console.log(`scale(${scaleValue})`); // Log the scale value
 
           return (
             <Toast

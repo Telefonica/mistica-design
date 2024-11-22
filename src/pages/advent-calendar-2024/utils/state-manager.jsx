@@ -24,17 +24,10 @@ export const updateAchievements = (
   const existingAchievements =
     JSON.parse(localStorage.getItem("achievements")) || [];
 
-  console.log(
-    "Existing Achievements from local storage:",
-    existingAchievements
-  );
-
   // Create a new set of achievements by combining existing ones with new ones
   const updatedAchievements = Array.from(
     new Set([...existingAchievements, ...newAchievements])
   );
-
-  console.log("Updated Achievements to save:", updatedAchievements);
 
   // Update state and local storage
   setAchievements(updatedAchievements);
