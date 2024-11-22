@@ -18,6 +18,7 @@ import {
 } from "@telefonica/mistica";
 import DecorationPatty from "../../assets/decorations/decoration-patty";
 import QuizProgress from "../quiz-progress";
+import ContentWrapper from "../content-wrapper";
 
 export const iconAssets = {
   lightning: IconLightningRegular,
@@ -379,8 +380,7 @@ export const GuessWhat = ({ quizType, questions }) => {
   const finalLink = componentAssets[finalResult];
 
   return (
-    <Align x="center" y="center" height={isMobile ? "auto" : "100vh"}>
-      {/* Show question based on current question index */}
+    <ContentWrapper>
       {!finalResult && (
         <>
           <QuizProgress
@@ -388,10 +388,7 @@ export const GuessWhat = ({ quizType, questions }) => {
             total={questions.length}
           />
 
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            style={{ maxWidth: 600, width: "100%" }}
-          >
+          <form onSubmit={(e) => e.preventDefault()}>
             <Stack space={24}>
               {/* Display only the current question */}
               <div key={currentQuestionIndex}>
@@ -426,15 +423,8 @@ export const GuessWhat = ({ quizType, questions }) => {
 
       {/* Show final result */}
       {finalResult && (
-        <div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 24,
-            }}
-          >
+        <div style={{ textAlign: "center" }}>
+          <Stack space={8}>
             <Text5>Your {quizType} is</Text5>
             {quizType === "icon" && (
               <DecorationPatty size={128} stroke="0.75">
@@ -458,9 +448,9 @@ export const GuessWhat = ({ quizType, questions }) => {
               Based on your answers this is the {quizType} that best represents
               you.
             </Text5>
-          </div>
+          </Stack>
         </div>
       )}
-    </Align>
+    </ContentWrapper>
   );
 };

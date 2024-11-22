@@ -22,6 +22,7 @@ import "./memory.css";
 import { saveGameData } from "../../utils/score-manager"; // Import your saveGameData function
 import Score from "../score";
 import GameBar from "../game-bar";
+import { UI_LABEL } from "../../utils/constants";
 
 const initialCards = [
   IconBugFilled,
@@ -232,7 +233,9 @@ const MemoryGame = ({ onFinish }) => {
                 Congratulations! You completed the game!
               </Text>
             </Stack>
-            <ButtonPrimary onPress={handleGameEnd}>Back home</ButtonPrimary>
+            <ButtonPrimary onPress={handleGameEnd}>
+              {UI_LABEL.END_GAME_BUTTON}
+            </ButtonPrimary>
           </Stack>
         )}
       </Align>

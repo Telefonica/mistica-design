@@ -68,13 +68,18 @@ const CalendarView = () => {
     { length: TOTAL_CALENDAR_DAYS },
     (_, index) => {
       const firstDayAvailable = index + 2;
-      const date = new Date(Date.UTC(2024, 10, firstDayAvailable)); // 11 = December in UTC
-      return {
-        date: date.toISOString().split("T")[0],
-        dayOfWeek: weekdays[date.getUTCDay()],
-      };
+      const date = new Date(Date.UTC(2024, 11, firstDayAvailable)); // 11 = December in UTC
+      const dayOfWeek = weekdays[date.getUTCDay()];
+
+      // Return null for weekends
+      return dayOfWeek !== "Saturday" && dayOfWeek !== "Sunday"
+        ? {
+            date: date.toISOString().split("T")[0],
+            dayOfWeek,
+          }
+        : null;
     }
-  );
+  ).filter(Boolean); // Remove null entries
 
   const today = new Date().toISOString().split("T")[0];
   const todayIndex = calendarDays.findIndex(({ date }) => date === today);

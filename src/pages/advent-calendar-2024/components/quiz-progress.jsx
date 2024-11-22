@@ -17,7 +17,7 @@ const QuizProgress = ({ current, total }) => {
         marginBottom: isMobile ? 24 : 0,
       }}
     >
-      <div style={{ maxWidth: 600, width: "100%" }}>
+      <div style={{ maxWidth: isMobile ? undefined : 600, width: "100%" }}>
         <ProgressBarStepped currentStep={current} steps={total} />
       </div>
     </div>
