@@ -1,12 +1,12 @@
 import { skinVars } from "@telefonica/mistica";
 
-const IconLockOpen = ({ size }) => (
+const IconLockOpen = ({ size, color = skinVars.colors.neutralHigh }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
     height={size}
     viewBox="0 0 40 40"
-    fill={skinVars.colors.neutralHigh}
+    fill={color}
   >
     <path
       fill-rule="evenodd"

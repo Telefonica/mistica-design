@@ -26,7 +26,7 @@ import Achievement from "../components/achievement";
 import ProgressGrid from "../components/progress-grid";
 import NavBar from "../components/navbar";
 import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
-import Score from "../components/score";
+import { IconInvader } from "../assets/icons/icons";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
@@ -243,6 +243,11 @@ const ProgressView = () => {
     );
   };
 
+  const totalGamePoints = Object.values(gameScores).reduce(
+    (acc, { score }) => acc + score,
+    0
+  );
+
   return (
     <>
       <NavBar />
@@ -277,35 +282,13 @@ const ProgressView = () => {
             ></GridLayout>
 
             <Stack space={16}>
-              <Text4>Scores Per Game</Text4>
-              {Object.keys(gameScores).length > 0 ? (
-                <Stack space={8}>
-                  {Object.entries(gameScores).map(
-                    ([game, { score, completed }]) => (
-                      <Box
-                        key={game}
-                        padding={8}
-                        style={{ border: "1px solid #ccc" }}
-                      >
-                        <Inline space={8}>
-                          <Text>{game}</Text>
-                          <Text>Score: {score}</Text>
-                          <Text>Completed: {completed ? "Yes" : "No"}</Text>
-                        </Inline>
-                      </Box>
-                    )
-                  )}
-                  <Text>
-                    Total score:{" "}
-                    {Object.values(gameScores).reduce(
-                      (acc, { score }) => acc + score,
-                      0
-                    )}
-                  </Text>
-                </Stack>
-              ) : (
-                <Text10>No scores recorded yet.</Text10>
-              )}
+              <Stack space={4}>
+                <Inline space={8}>
+                  <IconInvader></IconInvader>
+                  <Text4>Total game points</Text4>
+                </Inline>
+                <Text10>{totalGamePoints}</Text10>
+              </Stack>
             </Stack>
 
             <ButtonPrimary onPress={handleClearData}>
