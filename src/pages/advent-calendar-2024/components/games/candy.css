@@ -1,133 +1,151 @@
 .candy-crush {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    gap: 20px; /* Espacio entre las columnas */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px; /* Espacio entre las columnas */
 }
 
 .left-column {
-    flex: 1; /* Ocupa 1/3 del espacio */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    gap: 10px;
+  flex: 1; /* Ocupa 1/3 del espacio */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  gap: 10px;
 }
 
 .right-column {
-    flex: 2; /* Ocupa 2/3 del espacio */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
+  flex: 2; /* Ocupa 2/3 del espacio */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .grid {
-    height: 560px;
-    width: 560px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centra el contenido dentro de la grilla */
-    align-items: center;
+  height: 560px;
+  width: 560px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra el contenido dentro de la grilla */
+  align-items: center;
 }
 
 /* Clase para bloquear la cuadrícula */
 .grid.locked {
-    pointer-events: none;
-    opacity: 0.5;
-  }
-  
-  .grid.locked::before {
-    content: "Game Over";
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    color: white;
-    background-color: rgba(0, 0, 0);
-    padding: 10px;
-    border-radius: 5px;
-  }
+  pointer-events: none;
+  opacity: 0.5;
+}
 
+.grid.locked::before {
+  content: "Game Over";
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: white;
+  background-color: rgba(0, 0, 0);
+  padding: 10px;
+  border-radius: 5px;
+}
 
 /* Estilos y animaciones */
 .grid div {
-    height: 70px;
-    width: 70px;
-    transition: transform 0.3s ease-in-out;
+  height: 70px;
+  width: 70px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .dragging {
-    opacity: 0.4;
-    transform: scale(0.5);
+  opacity: 0.4;
+  transform: scale(0.5);
 }
 
 .invalid-move {
-    animation: shake 0.3s ease;
+  animation: shake 0.3s ease;
 }
 
 /* Animación para intercambiar posiciones */
 @keyframes swap {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(100%, 100%); /* Ejemplo de cómo mover de un lugar a otro */
-    }
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(
+      100%,
+      100%
+    ); /* Ejemplo de cómo mover de un lugar a otro */
+  }
 }
 
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
+  0%,
+  100% {
+    transform: translateX(0);
   }
-  
-  .square.shake {
-    animation: shake 0.5s ease-in-out;
+  25% {
+    transform: translateX(-5px);
   }
-  
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+.square.shake {
+  animation: shake 0.5s ease-in-out;
+}
 
 .drop {
-    animation: drop 0.3s cubic-bezier(0.4, 0, 1, 1);
+  animation: drop 0.3s cubic-bezier(0.4, 0, 1, 1);
 }
 
 @keyframes drop {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(0); }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes disappear {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(0); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
 }
 
 .disappear {
-    animation: disappear 0.8s ease forwards;
+  animation: disappear 0.8s ease forwards;
 }
 
 /* Animación para filas o columnas de 3 o 4 elementos */
 @keyframes clearRowOrColumn {
-    0% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.5;
-      transform: scale(1.2);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(0.5);
-    }
+  0% {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  /* Clase para aplicar la animación */
-  .clear-animation {
-    animation: clearRowOrColumn 0.5s ease-out forwards;
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
   }
-  
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+/* Clase para aplicar la animación */
+.clear-animation {
+  animation: clearRowOrColumn 0.5s ease-out forwards;
+}

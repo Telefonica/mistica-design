@@ -69,7 +69,7 @@ const CalendarView = () => {
   const calendarDays = Array.from(
     { length: TOTAL_CALENDAR_DAYS },
     (_, index) => {
-      const firstDayAvailable = index + 1;
+      const firstDayAvailable = index + 2;
       const date = new Date(Date.UTC(2024, 10, firstDayAvailable)); // 11 = December in UTC
       return {
         date: date.toISOString().split("T")[0],
@@ -117,6 +117,7 @@ const CalendarView = () => {
     });
 
     localStorage.removeItem("gameScores");
+    localStorage.removeItem("quizData");
   };
 
   const getDayStatus = (date) => {
@@ -137,7 +138,7 @@ const CalendarView = () => {
         status={getDayStatus(date)}
         onEndDay={() => markDayAsCompleted(date)}
         illustration={contentByDate[date]?.illustration}
-        forceAvailable={contentByDate[date]?.forceAvailable}
+        repeatable={contentByDate[date]?.repeatable}
       />
     ));
   }, [completedDays, calendarDays]);
@@ -195,7 +196,7 @@ const CalendarView = () => {
               Clear Completed Days
             </ButtonPrimary>
             <ButtonPrimary onPress={() => setAllDaysUnlocked(!allDaysUnlocked)}>
-              {allDaysUnlocked ? "Enable blocked days" : "Disable blocked days"}
+              {allDaysUnlocked ? "Lock all days" : "Unlock all days"}
             </ButtonPrimary>
           </Stack>
         </Box>

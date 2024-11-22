@@ -10,34 +10,33 @@
 
 .simon-board {
   display: grid;
-  grid-template-columns: repeat(2, 120px);
-  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 11px;
   margin-bottom: 20px;
 }
 
 .color {
-  width: 120px;
-  height: 120px;
-  border-radius: 4px;
+  width: 130px;
+  height: 130px;
+  border-radius: 16px;
   transition: opacity 0.3s;
   cursor: pointer;
-  border: 1px solid #ccc;
 }
 
-.color.purple {
-  background-color: #660e99;
+.color.green {
+  background-color: #59C2C9;
+}
+
+.color.red {
+  background-color: #E66C64;
+}
+
+.color.yellow {
+  background-color: #EAC344;
 }
 
 .color.blue {
-  background-color: #0466ff;
-}
-
-.color.lightblue {
-  background-color: #079df5;
-}
-
-.color.black {
-  background-color: #2b3447;
+  background-color: #0066FF;
 }
 
 .color.highlight {

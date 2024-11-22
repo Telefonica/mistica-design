@@ -1,4 +1,5 @@
 import {
+  Align,
   ButtonDanger,
   ButtonPrimary,
   ButtonSecondary,
@@ -14,6 +15,8 @@ import Score from "../score";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
 import { DecorationPatty } from "../../assets/decorations/decorations";
 import { saveGameData } from "../../utils/score-manager";
+import GameBar from "../game-bar";
+import ContentWrapper from "../content-wrapper";
 
 const HigherOrLower = ({ onFinish }) => {
   const data = [
@@ -96,27 +99,18 @@ const HigherOrLower = ({ onFinish }) => {
     </div>
   );
 
-  return (
-    <div
-      style={{
-        padding: "20px",
-        textAlign: "center",
-        width: "fit-available",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100%",
-        position: "relative",
-      }}
-    >
-      <div style={{ position: "absolute", left: 48, top: 64 }}>
-        <Score score={`${score}`} />
-      </div>
+  const flexStyles = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  };
 
-      <div style={{ maxWidth: 600 }}>
-        {status === "guessing" && next && (
-          <Stack space={48}>
+  return (
+    <ContentWrapper>
+      {status === "guessing" && next && (
+        <>
+          <div style={{ ...flexStyles, textAlign: "center", gap: 48 }}>
             <Stack space={16}>
               <Text size={28}>Current:</Text>
               <Text size={32} weight="bold">
@@ -140,34 +134,35 @@ const HigherOrLower = ({ onFinish }) => {
                 Lower
               </ButtonDanger>
             </Inline>
-          </Stack>
-        )}
+          </div>
+        </>
+      )}
 
-        {status === "feedback" && (
-          <Stack space={24}>
-            <GuessLabel correct={isCorrect} />
+      {status === "feedback" && (
+        <div style={{ ...flexStyles, textAlign: "center", gap: 48 }}>
+          <GuessLabel correct={isCorrect} />
+          <Text size={32} weight="medium">
+            {message}
+          </Text>
+
+          <ButtonSecondary onPress={nextRound}>Next Round</ButtonSecondary>
+        </div>
+      )}
+
+      {status === "final" && (
+        <div style={{ ...flexStyles, textAlign: "center", gap: 48 }}>
+          <Stack space={16}>
+            <Score score={score} isFinal />
             <Text size={32} weight="medium">
-              {message}
+              Congratulations! You completed the game!
             </Text>
-
-            <ButtonSecondary onPress={nextRound}>Next Round</ButtonSecondary>
           </Stack>
-        )}
-
-        {status === "final" && (
-          <Stack space={24}>
-            <Stack space={16}>
-              <DecorationPatty text={`${score}`}></DecorationPatty>
-              <Text3>Your final score</Text3>
-              <Text size={32} weight="medium">
-                Congratulations! You completed the game!
-              </Text>
-            </Stack>
-            <ButtonPrimary onPress={handleGameEnd}>Back home</ButtonPrimary>
-          </Stack>
-        )}
-      </div>
-    </div>
+          <ButtonPrimary onPress={handleGameEnd}>
+            Save score and close
+          </ButtonPrimary>
+        </div>
+      )}
+    </ContentWrapper>
   );
 };
 
