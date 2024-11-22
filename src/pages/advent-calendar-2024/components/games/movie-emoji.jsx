@@ -11,6 +11,7 @@ import {
   Stack,
   useScreenSize,
   Align,
+  ButtonSecondary,
 } from "@telefonica/mistica";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
 import Score from "../score";
@@ -153,9 +154,9 @@ const EmojiMovies = ({ onFinish }) => {
             <Stack space={24}>
               <GuessLabel correct={isCorrect} />
               <Text5>{correctAnswer}</Text5>
-              <ButtonPrimary onPress={handleNext}>
+              <ButtonSecondary onPress={handleNext}>
                 {"Next Question"}
-              </ButtonPrimary>
+              </ButtonSecondary>
             </Stack>
           </div>
         )}

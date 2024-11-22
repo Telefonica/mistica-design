@@ -23,7 +23,6 @@ const CalendarCard = ({
   eventDescription,
   content,
   status,
-  forceAvailable,
   onEndDay,
   illustration,
   repeatable,
@@ -31,7 +30,7 @@ const CalendarCard = ({
   const dialogRef = useRef(null);
   const day = new Date(DateString).getDate();
   const today = new Date().toISOString().split("T")[0];
-  const isRepeatable = repeatable;
+  const isRepeatable = repeatable; //TODO: add !today;
 
   const handleClick = () => {
     if (status === CARD_STATES.AVAILABLE || isRepeatable) {
