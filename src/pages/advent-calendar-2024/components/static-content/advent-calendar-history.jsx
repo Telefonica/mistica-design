@@ -1,27 +1,29 @@
-import { 
-  ResponsiveLayout, 
-  Stack, 
-  Text3, 
-  skinVars, 
-} from "@telefonica/mistica";
+import { Stack, Text3, skinVars } from "@telefonica/mistica";
+import ContentWrapper from "../content-wrapper";
 
 const AdventCalendarHistory = () => {
   return (
-    
-      <ResponsiveLayout>
-      <div style={{ maxWidth: 600, margin: "0 auto", padding: "24px" }}>
-        <Stack space={32}>
-          <Stack space={16}>
+    <ContentWrapper>
+      <Stack space={32}>
+        <Stack space={16}>
           <Text3 color={skinVars.colors.textPrimary}>
-            The Advent calendar was born in Germany in the 19th century as a way to make the wait for Christmas more enjoyable. Initially, families marked the days with 24 chalk lines on doors or walls, erasing one each day. Later, in 1902, the first printed calendar was created, featuring illustrations to discover.
+            The Advent calendar was born in Germany in the 19th century as a way
+            to make the wait for Christmas more enjoyable. Initially, families
+            marked the days with 24 chalk lines on doors or walls, erasing one
+            each day. Later, in 1902, the first printed calendar was created,
+            featuring illustrations to discover.
           </Text3>
 
           <Text3 color={skinVars.colors.textPrimary}>
-            The candy-filled calendar arrived in 1958, thanks to Georg Lang, a German innovator. As a child, his mother gave him 24 cookies placed on a board, allowing him to eat one each day. Inspired by this, he designed a calendar with compartments hiding chocolates.
-           </Text3>
+            The candy-filled calendar arrived in 1958, thanks to Georg Lang, a
+            German innovator. As a child, his mother gave him 24 cookies placed
+            on a board, allowing him to eat one each day. Inspired by this, he
+            designed a calendar with compartments hiding chocolates.
+          </Text3>
 
           <Text3 color={skinVars.colors.textPrimary}>
-             Since that very first calendar, this tradition has evolved enormously, filling December with little surprises and joy. 
+            Since that very first calendar, this tradition has evolved
+            enormously, filling December with little surprises and joy.
           </Text3>
 
           <Text3 color={skinVars.colors.textPrimary}>
@@ -29,18 +31,16 @@ const AdventCalendarHistory = () => {
           </Text3>
 
           <img
-            src={require("../../assets/images/advent-calendar.png")} 
+            src={require("../../assets/images/advent-calendar.png")}
             alt="Advent Calendar"
             style={{
-              width: "100%", 
+              width: "100%",
               borderRadius: "24px",
             }}
           />
-          </Stack>
         </Stack>
-        </div>
-      </ResponsiveLayout>
-    
+      </Stack>
+    </ContentWrapper>
   );
 };
 

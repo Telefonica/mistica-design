@@ -16,6 +16,7 @@ import Score from "../score";
 import GameBar from "../game-bar";
 import MeterSvg from "../../assets/meter";
 import NakedCardGuessImg from "../../assets/images/naked-card.png";
+import ContentWrapper from "../content-wrapper";
 
 export const meterGuess = {
   id: "meter",
@@ -100,25 +101,9 @@ const GuessTheComponent = ({ component, onFinish }) => {
   }
 
   return (
-    <Align
-      y="center"
-      x="center"
-      height={isMobile ? "auto" : "calc(100vh - (56px * 2))"}
-    >
+    <>
       <GameBar score={`${score}`} />
-      <div
-        style={{
-          textAlign: "center",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          gap: 48,
-          position: "relative",
-          width: "100%",
-          maxWidth: 600,
-          textAlign: "center",
-        }}
-      >
+      <ContentWrapper>
         <div
           style={{
             display: "flex",
@@ -156,8 +141,8 @@ const GuessTheComponent = ({ component, onFinish }) => {
             <ButtonPrimary onPress={handleNext}>{"Next"}</ButtonPrimary>
           </div>
         )}
-      </div>
-    </Align>
+      </ContentWrapper>
+    </>
   );
 };
 

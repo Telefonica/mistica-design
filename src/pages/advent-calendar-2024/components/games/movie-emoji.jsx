@@ -5,17 +5,17 @@ import {
   BoxedRowList,
   ButtonPrimary,
   RadioGroup,
-  Boxed,
   skinVars,
   Text5,
   Text,
-  Align,
+  Stack,
   useScreenSize,
 } from "@telefonica/mistica";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
 import Score from "../score";
 import GameBar from "../game-bar";
 import QuizProgress from "../quiz-progress";
+import ContentWrapper from "../content-wrapper";
 
 const movies = [
   {
@@ -90,21 +90,12 @@ const EmojiMovies = ({ onFinish }) => {
     if (onFinish) onFinish(score); // Notify the parent component of the final score
   };
 
-  const flexStyles = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  };
-
   if (gameOver) {
     return (
-      <Align y="center" x="center" height={isMobile ? "auto" : "100vh"}>
-        <div style={{ ...flexStyles, gap: 48 }}>
-          <Score score={`${score}`} isFinal />
-          <ButtonPrimary onPress={handleGameEnd}>Finish</ButtonPrimary>
-        </div>
-      </Align>
+      <ContentWrapper>
+        <Score score={`${score}`} isFinal />
+        <ButtonPrimary onPress={handleGameEnd}>Finish</ButtonPrimary>
+      </ContentWrapper>
     );
   }
 
@@ -121,62 +112,41 @@ const EmojiMovies = ({ onFinish }) => {
   );
 
   return (
-    <Align
-      y="center"
-      x="center"
-      height={isMobile ? "auto" : "calc(100vh - (56px * 2))"}
-    >
+    <ContentWrapper>
       <GameBar score={`${score}`} />
       <QuizProgress current={currentQuestionIndex + 1} total={movies.length} />
 
       <div
         style={{
-          textAlign: "center",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          gap: 48,
+          padding: 80,
+          background: skinVars.colors.backgroundAlternative,
+          borderRadius: 16,
           position: "relative",
-          width: "100%",
-          maxWidth: 600,
         }}
       >
-        <div
-          style={{
-            padding: 80,
-            background: skinVars.colors.backgroundAlternative,
-
-            borderRadius: 16,
-            position: "relative",
-          }}
-        >
-          <p style={{ fontSize: "2rem" }}>{emojis}</p>
-        </div>
-        {!showResult ? (
-          <div style={{ width: "100%", maxWidth: 600 }}>
-            <RadioGroup options={shuffledOptions} onChange={handleOptionClick}>
-              <BoxedRowList>
-                {shuffledOptions.map((option, index) => (
-                  <BoxedRow
-                    title={option}
-                    key={index}
-                    radioValue={option}
-                  ></BoxedRow>
-                ))}
-              </BoxedRowList>
-            </RadioGroup>
-          </div>
-        ) : (
-          <div style={{ ...flexStyles, gap: 24 }}>
-            <GuessLabel correct={isCorrect} />
-            <Text5>{correctAnswer}</Text5>
-            <ButtonPrimary onPress={handleNext}>
-              {"Next Question"}
-            </ButtonPrimary>
-          </div>
-        )}
+        <p style={{ fontSize: "2rem" }}>{emojis}</p>
       </div>
-    </Align>
+
+      {!showResult ? (
+        <RadioGroup options={shuffledOptions} onChange={handleOptionClick}>
+          <BoxedRowList>
+            {shuffledOptions.map((option, index) => (
+              <BoxedRow
+                title={option}
+                key={index}
+                radioValue={option}
+              ></BoxedRow>
+            ))}
+          </BoxedRowList>
+        </RadioGroup>
+      ) : (
+        <Stack space={24}>
+          <GuessLabel correct={isCorrect} />
+          <Text5>{correctAnswer}</Text5>
+          <ButtonPrimary onPress={handleNext}>{"Next Question"}</ButtonPrimary>
+        </Stack>
+      )}
+    </ContentWrapper>
   );
 };
 

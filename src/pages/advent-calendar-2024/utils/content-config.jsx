@@ -22,6 +22,9 @@ import GuessTheComponent, {
   NakedCardGuess,
 } from "../components/quizzes/guess-component";
 import CandyCrush from "../components/games/candy";
+import AdventCalendarHistory from "../components/static-content/advent-calendar-history";
+import ChristmasGreetings from "../components/static-content/christmas-greetings";
+import TopContributors from "../components/static-content/top-contributors";
 
 const contentByDate = {
   "2024-11-02": {
@@ -65,6 +68,12 @@ const contentByDate = {
     description:
       "Can you guess which is? Only the wisest will succeed! The component image is blurred to make it more difficult, you don't need to put on your glasses 👓 ",
   },
+  "2024-11-11": {
+    repeatable: true,
+    content: <AdventCalendarHistory />,
+    title: "Did you know...",
+    description: "Where the tradition Christmas calendar comes from?",
+  },
   "2024-11-13": {
     repeatable: true,
     content: <GuessWhat questions={iconQuestions} quizType={"icon"} />,
@@ -80,6 +89,12 @@ const contentByDate = {
     title: "What Mística component is?",
     description:
       "Can you guess which is? Only the wisest will succeed! The component image is blurred to make it more difficult, you don't need to put on your glasses 👓 ",
+  },
+  "2024-11-20": {
+    repeatable: true,
+    content: <TopContributors />,
+    title: "Top contributors",
+    description: "A big thank you to our contributors!",
   },
   "2024-11-21": {
     illustration: <IllustrationWoolClothes />,
@@ -185,6 +200,12 @@ const contentByDate = {
         </Text1>
       </>
     ),
+  },
+  "2024-11-25": {
+    repeatable: true,
+    content: <ChristmasGreetings />,
+    title: "Happy Christmas!",
+    description: "And a merry new year",
   },
 };
 
