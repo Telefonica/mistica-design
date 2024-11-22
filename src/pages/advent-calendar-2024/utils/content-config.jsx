@@ -47,6 +47,15 @@ const contentByDate = {
     description:
       "If you were an Mística icon, which one would you be? Choose the answers that best fit you and find out! ",
   },
+  "2024-11-05": {
+    repeatable: false,
+
+    illustration: <IllustrationWishesLetter />,
+    content: ({ closeModal }) => <HigherOrLower onFinish={closeModal} />,
+    title: "Higher or Lower",
+    description:
+      "Answer the question by guessing whether the number is higher or lower than the given data.",
+  },
   "2024-11-10": {
     repeatable: false,
     content: ({ closeModal }) => (
@@ -71,15 +80,6 @@ const contentByDate = {
     title: "What Mística component is?",
     description:
       "Can you guess which is? Only the wisest will succeed! The component image is blurred to make it more difficult, you don't need to put on your glasses 👓 ",
-  },
-  "2024-11-20": {
-    repeatable: false,
-
-    illustration: <IllustrationWishesLetter />,
-    content: ({ closeModal }) => <HigherOrLower onFinish={closeModal} />,
-    title: "Higher or Lower",
-    description:
-      "Answer the question by guessing whether the number is higher or lower than the given data.",
   },
   "2024-11-21": {
     illustration: <IllustrationWoolClothes />,
