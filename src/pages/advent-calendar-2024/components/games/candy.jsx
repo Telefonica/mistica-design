@@ -1,4 +1,6 @@
+// CandyCrush.jsx
 import { ButtonPrimary, Text, Stack, Align } from "@telefonica/mistica";
+import { useScreenSize } from "@telefonica/mistica";
 import Score from "../score";
 import React, { useState, useEffect } from "react";
 import blau from "../../../../img/games/blau.svg";
@@ -10,6 +12,7 @@ import vivo from "../../../../img/games/vivo.svg";
 import "./candy.css";
 
 const CandyCrush = ({ onFinish }) => {
+  const { isMobile } = useScreenSize();
   const width = 8;
   const candyColors = [movistar, tu, vivo, blau, telefonica, o2];
   const maxMoves = 10;
@@ -18,17 +21,18 @@ const CandyCrush = ({ onFinish }) => {
   const [score, setScore] = useState(0);
   const [movesRemaining, setMovesRemaining] = useState(maxMoves);
   const [draggingIndex, setDraggingIndex] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const [invalidMove, setInvalidMove] = useState(null);
-  const [status, setStatus] = useState("playing"); // Estado para controlar el estado del juego
+  const [status, setStatus] = useState("playing");
 
   const handleGameEnd = () => {
-    if (onFinish) onFinish(); // Notify the parent component
+    if (onFinish) onFinish();
   };
 
   useEffect(() => {
     if (movesRemaining === 0) {
-      document.querySelector(".grid").classList.add("locked"); // Bloquea la cuadrícula
-      setStatus("gameover"); // Cambia el estado a "gameover"
+      document.querySelector(".grid").classList.add("locked");
+      setStatus("gameover");
     }
   }, [movesRemaining]);
 
@@ -42,7 +46,7 @@ const CandyCrush = ({ onFinish }) => {
       checkMatches();
     }, 100);
 
-    return () => clearInterval(intervalId); // Limpiar el intervalo al desmontar
+    return () => clearInterval(intervalId);
   }, [squares]);
 
   function createBoard() {
@@ -154,77 +158,109 @@ const CandyCrush = ({ onFinish }) => {
     }
   }
 
+  const swapCandies = (startIndex, endIndex) => {
+    if (movesRemaining === 0) return;
+    
+    const isAdjacent = Math.abs(startIndex - endIndex) === 1 || Math.abs(startIndex - endIndex) === width;
+    const isSameRow = Math.floor(startIndex / width) === Math.floor(endIndex / width);
+    const isValidVertical = Math.abs(startIndex - endIndex) === width;
+    
+    if (isAdjacent && (isSameRow || isValidVertical)) {
+      let newSquares = [...squares];
+      let temp = newSquares[endIndex];
+      newSquares[endIndex] = newSquares[startIndex];
+      newSquares[startIndex] = temp;
+      setSquares(newSquares);
+      setMovesRemaining(prev => prev - 1);
+      setInvalidMove(null);
+      setSelectedIndex(null);
+    } else {
+      setInvalidMove(startIndex);
+      setSelectedIndex(null);
+      if (isMobile && 'vibrate' in navigator) {
+        navigator.vibrate(200);
+      }
+    }
+  };
+
   const handleDragStart = (e, index) => {
-    if (movesRemaining === 0) return; // Bloquea el drag si no hay movimientos restantes
+    if (movesRemaining === 0 || isMobile) return;
     setDraggingIndex(index);
     e.dataTransfer.setData("draggedIndex", index);
   };
 
   const handleDrop = (e, index) => {
-    if (movesRemaining === 0) return;
-    const draggedIndex = e.dataTransfer.getData("draggedIndex");
-    const isAdjacent =
-      Math.abs(draggedIndex - index) === 1 ||
-      Math.abs(draggedIndex - index) === width;
-
-    if (isAdjacent) {
-      let newSquares = [...squares];
-      let temp = newSquares[index];
-      newSquares[index] = newSquares[draggedIndex];
-      newSquares[draggedIndex] = temp;
-      setSquares(newSquares);
-      setMovesRemaining((prev) => prev - 1);
-      setInvalidMove(null); // Reset el estado de movimiento inválido
-      setDraggingIndex(null);
-    } else {
-      setInvalidMove(draggedIndex); // Activamos el movimiento inválido
-      setDraggingIndex(null); // Limpiamos el estado de "draggingIndex"
-    }
+    if (movesRemaining === 0 || isMobile) return;
+    const draggedIndex = parseInt(e.dataTransfer.getData("draggedIndex"));
+    swapCandies(draggedIndex, index);
+    setDraggingIndex(null);
   };
 
   const handleDragOver = (e) => {
-    e.preventDefault();
+    if (!isMobile) e.preventDefault();
+  };
+
+  const handleMobileClick = (index) => {
+    if (movesRemaining === 0 || !isMobile) return;
+
+    if (selectedIndex === null) {
+      setSelectedIndex(index);
+    } else {
+      swapCandies(selectedIndex, index);
+    }
   };
 
   return (
     <div className="candy-crush">
       {status === "playing" ? (
         <div className="right-column">
-          <div className="grid">
+          <div className={`grid ${isMobile ? 'mobile-grid' : ''}`}>
             {squares.map((color, index) => (
               <div
                 key={index}
                 id={index}
-                className={`square ${draggingIndex === index ? "dragging" : ""} ${
-                  invalidMove === index ? "invalid-move" : ""
-                }`}
+                className={`square 
+                  ${draggingIndex === index ? "dragging" : ""} 
+                  ${selectedIndex === index ? "selected" : ""} 
+                  ${invalidMove === index ? "invalid-move" : ""}
+                  ${isMobile ? 'mobile-square' : ''}
+                `}
                 style={{ backgroundImage: `url(${color})` }}
-                draggable
-                onDragStart={(e) => handleDragStart(e, index)}
-                onDragOver={handleDragOver}
-                onDrop={(e) => handleDrop(e, index)}
+                {...(!isMobile && {
+                  draggable: true,
+                  onDragStart: (e) => handleDragStart(e, index),
+                  onDragOver: handleDragOver,
+                  onDrop: (e) => handleDrop(e, index),
+                })}
+                {...(isMobile && {
+                  onClick: () => handleMobileClick(index),
+                })}
               ></div>
             ))}
           </div>
-          <div style={{ position: "absolute", left: 48, top: 64, zIndex: 1 }}>
+          <div style={{ 
+            position: "absolute", 
+            left: isMobile ? 16 : 48, 
+            top: isMobile ? 32 : 64, 
+            zIndex: 1 
+          }}>
             <Score score={`${score}`} movements={`${movesRemaining}`} />
           </div>
         </div>
       ) : (
-        <Align
-          y="center"
-          x="center"
-        >
-        <Stack space={24} >
-            <Stack space={16}>
-            <Score score={score} isFinal />
-            <Text size={32} weight="medium">
-              Congratulations! You completed the game!
-            </Text>
-          </Stack>
-          <ButtonPrimary onPress={handleGameEnd}>Back home</ButtonPrimary>
-        </Stack>
-      </Align>
+        <div style={{ textAlign: "center" }}>
+          <Align y="center" x="center">
+            <Stack space={isMobile ? 16 : 24}>
+              <Stack space={isMobile ? 12 : 16}>
+                <Score score={score} isFinal />
+                <Text size={isMobile ? 24 : 32} weight="medium">
+                  Congratulations! You completed the game!
+                </Text>
+              </Stack>
+              <ButtonPrimary onPress={handleGameEnd}>Back home</ButtonPrimary>
+            </Stack>
+          </Align>
+        </div>
       )}
     </div>
   );
