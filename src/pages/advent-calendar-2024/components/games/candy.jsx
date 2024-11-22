@@ -1,4 +1,5 @@
-import { Text10, Text4, Text3, Text9 } from "@telefonica/mistica";
+import { ButtonPrimary, Text, Stack, Align } from "@telefonica/mistica";
+import Score from "../score";
 import React, { useState, useEffect } from "react";
 import blau from "../../../../img/games/blau.svg";
 import movistar from "../../../../img/games/movistar.svg";
@@ -17,7 +18,8 @@ const CandyCrush = ({ onFinish }) => {
   const [score, setScore] = useState(0);
   const [movesRemaining, setMovesRemaining] = useState(maxMoves);
   const [draggingIndex, setDraggingIndex] = useState(null);
-  const [invalidMove, setInvalidMove] = useState(null); // Estado para identificar si un movimiento es inválido
+  const [invalidMove, setInvalidMove] = useState(null);
+  const [status, setStatus] = useState("playing"); // Estado para controlar el estado del juego
 
   const handleGameEnd = () => {
     if (onFinish) onFinish(); // Notify the parent component
@@ -26,6 +28,7 @@ const CandyCrush = ({ onFinish }) => {
   useEffect(() => {
     if (movesRemaining === 0) {
       document.querySelector(".grid").classList.add("locked"); // Bloquea la cuadrícula
+      setStatus("gameover"); // Cambia el estado a "gameover"
     }
   }, [movesRemaining]);
 
@@ -78,7 +81,6 @@ const CandyCrush = ({ onFinish }) => {
 
   function checkMatches() {
     if (movesRemaining <= 9) {
-      // Solo contar puntos si los movimientos restantes son 9 o menos
       checkRowForFour();
       checkColumnForFour();
       checkRowForThree();
@@ -97,10 +99,7 @@ const CandyCrush = ({ onFinish }) => {
         rowOfFour.every((index) => squares[index] === decidedColor) &&
         !isBlank
       ) {
-        if (movesRemaining <= 9) {
-          // Solo contar puntos si los movimientos restantes son 9 o menos
-          setScore((prevScore) => prevScore + 4);
-        }
+        setScore((prevScore) => prevScore + 4);
         animateAndClear(rowOfFour);
       }
     }
@@ -116,10 +115,7 @@ const CandyCrush = ({ onFinish }) => {
         columnOfFour.every((index) => squares[index] === decidedColor) &&
         !isBlank
       ) {
-        if (movesRemaining <= 9) {
-          // Solo contar puntos si los movimientos restantes son 9 o menos
-          setScore((prevScore) => prevScore + 4);
-        }
+        setScore((prevScore) => prevScore + 4);
         animateAndClear(columnOfFour);
       }
     }
@@ -136,10 +132,7 @@ const CandyCrush = ({ onFinish }) => {
         rowOfThree.every((index) => squares[index] === decidedColor) &&
         !isBlank
       ) {
-        if (movesRemaining <= 9) {
-          // Solo contar puntos si los movimientos restantes son 9 o menos
-          setScore((prevScore) => prevScore + 3);
-        }
+        setScore((prevScore) => prevScore + 3);
         animateAndClear(rowOfThree);
       }
     }
@@ -155,10 +148,7 @@ const CandyCrush = ({ onFinish }) => {
         columnOfThree.every((index) => squares[index] === decidedColor) &&
         !isBlank
       ) {
-        if (movesRemaining <= 9) {
-          // Solo contar puntos si los movimientos restantes son 9 o menos
-          setScore((prevScore) => prevScore + 3);
-        }
+        setScore((prevScore) => prevScore + 3);
         animateAndClear(columnOfThree);
       }
     }
@@ -188,7 +178,6 @@ const CandyCrush = ({ onFinish }) => {
       setDraggingIndex(null);
     } else {
       setInvalidMove(draggedIndex); // Activamos el movimiento inválido
-
       setDraggingIndex(null); // Limpiamos el estado de "draggingIndex"
     }
   };
@@ -199,33 +188,44 @@ const CandyCrush = ({ onFinish }) => {
 
   return (
     <div className="candy-crush">
-      <div className="left-column">
-        <Text10>Candy Crush</Text10>
-        <p>
-          Instructions: Try to match Telefonica brands of the same type in a row
-          or column of 3!
-        </p>
-        <p id="score">Score: {score}</p>
-      </div>
-      <div className="right-column">
-        <div className="grid">
-          {squares.map((color, index) => (
-            <div
-              key={index}
-              id={index}
-              className={`square ${draggingIndex === index ? "dragging" : ""} ${
-                invalidMove === index ? "invalid-move" : ""
-              }`} // Aplica shake a la imagen arrastrada si el movimiento es inválido
-              style={{ backgroundImage: `url(${color})` }}
-              draggable
-              onDragStart={(e) => handleDragStart(e, index)}
-              onDragOver={handleDragOver}
-              onDrop={(e) => handleDrop(e, index)}
-            ></div>
-          ))}
+      {status === "playing" ? (
+        <div className="right-column">
+          <div className="grid">
+            {squares.map((color, index) => (
+              <div
+                key={index}
+                id={index}
+                className={`square ${draggingIndex === index ? "dragging" : ""} ${
+                  invalidMove === index ? "invalid-move" : ""
+                }`}
+                style={{ backgroundImage: `url(${color})` }}
+                draggable
+                onDragStart={(e) => handleDragStart(e, index)}
+                onDragOver={handleDragOver}
+                onDrop={(e) => handleDrop(e, index)}
+              ></div>
+            ))}
+          </div>
+          <div style={{ position: "absolute", left: 48, top: 64, zIndex: 1 }}>
+            <Score score={`${score}`} movements={`${movesRemaining}`} />
+          </div>
         </div>
-        <p id="timer">{movesRemaining} moves</p>
-      </div>
+      ) : (
+        <Align
+          y="center"
+          x="center"
+        >
+        <Stack space={24} >
+            <Stack space={16}>
+            <Score score={score} isFinal />
+            <Text size={32} weight="medium">
+              Congratulations! You completed the game!
+            </Text>
+          </Stack>
+          <ButtonPrimary onPress={handleGameEnd}>Back home</ButtonPrimary>
+        </Stack>
+      </Align>
+      )}
     </div>
   );
 };
