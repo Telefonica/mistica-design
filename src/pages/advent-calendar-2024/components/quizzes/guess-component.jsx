@@ -10,6 +10,7 @@ import {
   Text,
   Align,
   useScreenSize,
+  Stack,
 } from "@telefonica/mistica";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
 import Score from "../score";
@@ -17,6 +18,7 @@ import GameBar from "../game-bar";
 import MeterSvg from "../../assets/meter";
 import NakedCardGuessImg from "../../assets/images/naked-card.png";
 import ContentWrapper from "../content-wrapper";
+import { UI_LABEL } from "../../utils/constants";
 
 export const meterGuess = {
   id: "meter",
@@ -94,7 +96,9 @@ const GuessTheComponent = ({ component, onFinish }) => {
       <Align y="center" x="center" height={isMobile ? "auto" : "100vh"}>
         <div style={{ ...flexStyles, gap: 48 }}>
           <Score score={`${score}`} isFinal />
-          <ButtonPrimary onPress={handleGameEnd}>Finish</ButtonPrimary>
+          <ButtonPrimary onPress={handleGameEnd}>
+            {UI_LABEL.END_GAME_BUTTON}
+          </ButtonPrimary>
         </div>
       </Align>
     );
@@ -104,43 +108,53 @@ const GuessTheComponent = ({ component, onFinish }) => {
     <>
       <GameBar score={`${score}`} />
       <ContentWrapper>
-        <div
-          style={{
-            display: "flex",
-            padding: "64px 0",
-            alignContent: "center",
-            justifyContent: "center",
-            background: skinVars.colors.backgroundAlternative,
-            borderRadius: 16,
-            position: "relative",
-            filter: currentStep === "guessing" ? "blur(10px)" : "none",
-          }}
-        >
-          {asset}
-        </div>
+        <Stack space={32}>
+          <div
+            style={{
+              display: "flex",
+              padding: "64px 0",
+              alignContent: "center",
+              justifyContent: "center",
+              background: skinVars.colors.backgroundAlternative,
+              borderRadius: 16,
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                filter: currentStep === "guessing" ? "blur(4px)" : "none",
+              }}
+            >
+              {asset}
+            </div>
+          </div>
 
-        {currentStep === "guessing" && (
-          <div style={{ textAlign: "initial" }}>
-            <RadioGroup options={shuffledOptions} onChange={handleOptionClick}>
-              <BoxedRowList>
-                {shuffledOptions.map((option, index) => (
-                  <BoxedRow
-                    title={option}
-                    key={index}
-                    radioValue={option}
-                  ></BoxedRow>
-                ))}
-              </BoxedRowList>
-            </RadioGroup>
-          </div>
-        )}
-        {currentStep === "answer" && (
-          <div style={{ ...flexStyles, gap: 24 }}>
-            <GuessLabel correct={isCorrect} />
-            <Text5>{correctAnswer}</Text5>
-            <ButtonPrimary onPress={handleNext}>{"Next"}</ButtonPrimary>
-          </div>
-        )}
+          {currentStep === "guessing" && (
+            <div style={{ textAlign: "initial" }}>
+              <RadioGroup
+                options={shuffledOptions}
+                onChange={handleOptionClick}
+              >
+                <BoxedRowList>
+                  {shuffledOptions.map((option, index) => (
+                    <BoxedRow
+                      title={option}
+                      key={index}
+                      radioValue={option}
+                    ></BoxedRow>
+                  ))}
+                </BoxedRowList>
+              </RadioGroup>
+            </div>
+          )}
+          {currentStep === "answer" && (
+            <div style={{ ...flexStyles, gap: 24 }}>
+              <GuessLabel correct={isCorrect} />
+              <Text5>{correctAnswer}</Text5>
+              <ButtonPrimary onPress={handleNext}>{"Next"}</ButtonPrimary>
+            </div>
+          )}
+        </Stack>
       </ContentWrapper>
     </>
   );

@@ -7,3 +7,7 @@ export const CARD_STATES = {
   BLOCKED: "blocked",
   AVAILABLE: "available",
 };
+
+export const UI_LABEL = {
+  END_GAME_BUTTON: "Back to home",
+};

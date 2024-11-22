@@ -17,6 +17,7 @@ import { DecorationPatty } from "../../assets/decorations/decorations";
 import { saveGameData } from "../../utils/score-manager";
 import GameBar from "../game-bar";
 import ContentWrapper from "../content-wrapper";
+import { UI_LABEL } from "../../utils/constants";
 
 const HigherOrLower = ({ onFinish }) => {
   const data = [
@@ -150,16 +151,13 @@ const HigherOrLower = ({ onFinish }) => {
       )}
 
       {status === "final" && (
-        <div style={{ ...flexStyles, textAlign: "center", gap: 48 }}>
+        <div style={{ textAlign: "center" }}>
           <Stack space={16}>
             <Score score={score} isFinal />
-            <Text size={32} weight="medium">
-              Congratulations! You completed the game!
-            </Text>
+            <ButtonPrimary onPress={handleGameEnd}>
+              {UI_LABEL.END_GAME_BUTTON}
+            </ButtonPrimary>
           </Stack>
-          <ButtonPrimary onPress={handleGameEnd}>
-            Save score and close
-          </ButtonPrimary>
         </div>
       )}
     </ContentWrapper>
