@@ -198,15 +198,14 @@ const CalendarCard = ({
               {day}
             </Text>
 
-            {status === CARD_STATES.AVAILABLE ||
-              (isRepeatable && (
-                <Circle size={48} background={skinVars.colors.brand}>
-                  <IconChevronRightRegular
-                    size={24}
-                    color={skinVars.colors.inverse}
-                  ></IconChevronRightRegular>
-                </Circle>
-              ))}
+            {(status === CARD_STATES.AVAILABLE || isRepeatable) && (
+              <Circle size={48} background={skinVars.colors.brand}>
+                <IconChevronRightRegular
+                  size={24}
+                  color={skinVars.colors.inverse}
+                />
+              </Circle>
+            )}
           </Inline>
         </Stack>
       </div>

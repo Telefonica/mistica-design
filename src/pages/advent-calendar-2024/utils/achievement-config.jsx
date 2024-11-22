@@ -53,15 +53,6 @@ export const achievementsConfig = [
     isSecret: false,
   },
   {
-    id: "restDay",
-    name: "Rest Day",
-    description: "Unlock a weekend day",
-    icon: IconBeachUmbrellaFilled,
-    check: (newCompletedDays) => newCompletedDays.some(isWeekendDay),
-    message: "You have unlocked a weekend day!",
-    isSecret: false,
-  },
-  {
     id: "adventChampion",
     name: "Advent Champion",
     description: "Unlock all days in the advent calendar",
@@ -121,12 +112,6 @@ const hasConsecutiveDays = (dates) => {
   }
 
   return true; // All dates are consecutive
-};
-
-// Function to check if a day is a weekend
-const isWeekendDay = (date) => {
-  const day = new Date(date).getUTCDay(); // 0 for Sunday, 6 for Saturday
-  return day === 0 || day === 6; // Return true if it's a weekend
 };
 
 const isChristmasDay = (date) => {
