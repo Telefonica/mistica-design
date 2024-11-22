@@ -34,9 +34,7 @@ const CalendarCard = ({
   const isRepeatable = repeatable;
 
   const handleClick = () => {
-
     if (status === CARD_STATES.AVAILABLE || isRepeatable) {
-
       dialogRef.current.showModal();
     }
   };
@@ -152,9 +150,7 @@ const CalendarCard = ({
         onClick={handleClick}
         style={{
           cursor:
-
             status !== CARD_STATES.AVAILABLE && !isRepeatable
-
               ? "not-allowed"
               : "pointer",
 
@@ -198,9 +194,7 @@ const CalendarCard = ({
             </Text>
 
             {status === CARD_STATES.AVAILABLE ||
-
               (isRepeatable && (
-
                 <Circle size={48} background={skinVars.colors.brand}>
                   <IconChevronRightRegular
                     size={24}

@@ -1,0 +1,164 @@
+import React, { useState, useEffect } from "react";
+import { saveGameData } from "../../utils/score-manager";
+import {
+  BoxedRow,
+  BoxedRowList,
+  ButtonPrimary,
+  RadioGroup,
+  skinVars,
+  Text5,
+  Text,
+  Align,
+  useScreenSize,
+} from "@telefonica/mistica";
+import { IconCompleted, IconWrong } from "../../assets/icons/icons";
+import Score from "../score";
+import GameBar from "../game-bar";
+import MeterSvg from "../../assets/meter";
+import NakedCardGuessImg from "../../assets/images/naked-card.png";
+
+export const meterGuess = {
+  id: "meter",
+  asset: <MeterSvg />, // Replace with the correct path
+  answer: "Meter",
+  options: ["Progress Bar", "Loading Spinner"],
+  correctAnswer: "This is the Meter component!",
+};
+
+export const NakedCardGuess = {
+  id: "nakedCard",
+  asset: <img src={NakedCardGuessImg} />, // Replace with the correct path
+  answer: "Naked card",
+  options: ["Data card", "Media card"],
+  correctAnswer: "This is the Naked card component!",
+};
+
+const GuessTheComponent = ({ component, onFinish }) => {
+  const [currentStep, setCurrentStep] = useState("guessing"); // Steps: 'guessing', 'answer', 'gameOver'
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [score, setScore] = useState(0);
+
+  const { id, asset, answer, correctAnswer, options } = component;
+  const gameName = `Guess The Component ${id}`;
+  const shuffledOptions = [...options, answer].sort(() => Math.random() - 0.5);
+
+  const { isMobile } = useScreenSize();
+
+  useEffect(() => {
+    const savedGames = JSON.parse(localStorage.getItem("gameScores")) || {};
+    const savedGame = savedGames[gameName];
+
+    if (savedGame?.completed) {
+      setScore(savedGame.score);
+    }
+  }, []);
+
+  const handleOptionClick = (option) => {
+    const correct = option === answer;
+    setIsCorrect(correct);
+    setScore(correct ? 100 : 0); // Fixed score for correct answer
+    setCurrentStep("answer");
+  };
+
+  const handleNext = () => {
+    saveGameData(gameName, score, true); // Save the game state
+    setCurrentStep("gameOver");
+  };
+
+  const handleGameEnd = () => {
+    if (onFinish) onFinish(score); // Notify the parent component
+  };
+
+  const GuessLabel = ({ correct }) => (
+    <div style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+      {correct ? <IconCompleted size={40} /> : <IconWrong size={40} />}
+      <Text
+        size={24}
+        color={correct ? skinVars.colors.brand : skinVars.colors.error}
+      >
+        {correct ? "Correct!" : "Wrong!"}
+      </Text>
+    </div>
+  );
+
+  const flexStyles = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  };
+
+  if (currentStep === "gameOver") {
+    return (
+      <Align y="center" x="center" height={isMobile ? "auto" : "100vh"}>
+        <div style={{ ...flexStyles, gap: 48 }}>
+          <Score score={`${score}`} isFinal />
+          <ButtonPrimary onPress={handleGameEnd}>Finish</ButtonPrimary>
+        </div>
+      </Align>
+    );
+  }
+
+  return (
+    <Align
+      y="center"
+      x="center"
+      height={isMobile ? "auto" : "calc(100vh - (56px * 2))"}
+    >
+      <GameBar score={`${score}`} />
+      <div
+        style={{
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: 48,
+          position: "relative",
+          width: "100%",
+          maxWidth: 600,
+          textAlign: "center",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            padding: "64px 0",
+            alignContent: "center",
+            justifyContent: "center",
+            background: skinVars.colors.backgroundAlternative,
+            borderRadius: 16,
+            position: "relative",
+            filter: currentStep === "guessing" ? "blur(10px)" : "none",
+          }}
+        >
+          {asset}
+        </div>
+
+        {currentStep === "guessing" && (
+          <div style={{ textAlign: "initial" }}>
+            <RadioGroup options={shuffledOptions} onChange={handleOptionClick}>
+              <BoxedRowList>
+                {shuffledOptions.map((option, index) => (
+                  <BoxedRow
+                    title={option}
+                    key={index}
+                    radioValue={option}
+                  ></BoxedRow>
+                ))}
+              </BoxedRowList>
+            </RadioGroup>
+          </div>
+        )}
+        {currentStep === "answer" && (
+          <div style={{ ...flexStyles, gap: 24 }}>
+            <GuessLabel correct={isCorrect} />
+            <Text5>{correctAnswer}</Text5>
+            <ButtonPrimary onPress={handleNext}>{"Next"}</ButtonPrimary>
+          </div>
+        )}
+      </div>
+    </Align>
+  );
+};
+
+export default GuessTheComponent;

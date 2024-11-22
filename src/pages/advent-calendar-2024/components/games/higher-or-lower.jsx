@@ -1,4 +1,5 @@
 import {
+  Align,
   ButtonDanger,
   ButtonPrimary,
   ButtonSecondary,
@@ -14,6 +15,7 @@ import Score from "../score";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
 import { DecorationPatty } from "../../assets/decorations/decorations";
 import { saveGameData } from "../../utils/score-manager";
+import GameBar from "../game-bar";
 
 const HigherOrLower = ({ onFinish }) => {
   const data = [
@@ -96,78 +98,76 @@ const HigherOrLower = ({ onFinish }) => {
     </div>
   );
 
+  const flexStyles = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  };
+
   return (
-    <div
-      style={{
-        padding: "20px",
-        textAlign: "center",
-        width: "fit-available",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100%",
-        position: "relative",
-      }}
-    >
-      <div style={{ position: "absolute", left: 48, top: 64 }}>
-        <Score score={`${score}`} />
-      </div>
+    <Align y="center" x="center" height={"100vh"}>
+      {(status === "guessing" || status === "feedback") && (
+        <GameBar score={`${score}`} />
+      )}
 
       <div style={{ maxWidth: 600 }}>
         {status === "guessing" && next && (
-          <Stack space={48}>
-            <Stack space={16}>
-              <Text size={28}>Current:</Text>
-              <Text size={32} weight="bold">
-                <strong>{current.label}</strong> ({current.value})
-              </Text>
-              {next && (
-                <Stack space={16}>
-                  <Text size={28}>Will...</Text>
-                  <Text size={32} weight="bold">
-                    <strong>{next.label}</strong> be higher or lower?
-                  </Text>
-                </Stack>
-              )}
-            </Stack>
-            <Inline space={16} alignItems="center">
-              <ButtonPrimary onPress={() => handleGuess("higher")}>
-                Higher
-              </ButtonPrimary>
-              <Text2>or</Text2>
-              <ButtonDanger onPress={() => handleGuess("lower")}>
-                Lower
-              </ButtonDanger>
-            </Inline>
-          </Stack>
+          <>
+            <div style={{ ...flexStyles, textAlign: "center", gap: 48 }}>
+              <Stack space={16}>
+                <Text size={28}>Current:</Text>
+                <Text size={32} weight="bold">
+                  <strong>{current.label}</strong> ({current.value})
+                </Text>
+                {next && (
+                  <Stack space={16}>
+                    <Text size={28}>Will...</Text>
+                    <Text size={32} weight="bold">
+                      <strong>{next.label}</strong> be higher or lower?
+                    </Text>
+                  </Stack>
+                )}
+              </Stack>
+              <Inline space={16} alignItems="center">
+                <ButtonPrimary onPress={() => handleGuess("higher")}>
+                  Higher
+                </ButtonPrimary>
+                <Text2>or</Text2>
+                <ButtonDanger onPress={() => handleGuess("lower")}>
+                  Lower
+                </ButtonDanger>
+              </Inline>
+            </div>
+          </>
         )}
 
         {status === "feedback" && (
-          <Stack space={24}>
+          <div style={{ ...flexStyles, textAlign: "center", gap: 48 }}>
             <GuessLabel correct={isCorrect} />
             <Text size={32} weight="medium">
               {message}
             </Text>
 
             <ButtonSecondary onPress={nextRound}>Next Round</ButtonSecondary>
-          </Stack>
+          </div>
         )}
 
         {status === "final" && (
-          <Stack space={24}>
+          <div style={{ ...flexStyles, textAlign: "center", gap: 48 }}>
             <Stack space={16}>
-              <DecorationPatty text={`${score}`}></DecorationPatty>
-              <Text3>Your final score</Text3>
+              <Score score={score} isFinal />
               <Text size={32} weight="medium">
                 Congratulations! You completed the game!
               </Text>
             </Stack>
-            <ButtonPrimary onPress={handleGameEnd}>Back home</ButtonPrimary>
-          </Stack>
+            <ButtonPrimary onPress={handleGameEnd}>
+              Save score and close
+            </ButtonPrimary>
+          </div>
         )}
       </div>
-    </div>
+    </Align>
   );
 };
 
