@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.grid.locked {
+  animation: fadeIn 0.75s ease forwards;
+}
+
 form > .candy-crush {
   display: flex;
   justify-content: center;
@@ -39,13 +43,6 @@ form > .candy-crush {
 
 .invalid-move {
   animation: shake 0.3s ease;
-}
-
-/* New selected state for mobile */
-.selected {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-  border: 2px solid #fff;
 }
 
 @keyframes swap {
@@ -121,4 +118,24 @@ form > .candy-crush {
 
 .clear-animation {
   animation: clearRowOrColumn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.selected {
+  animation: fadeIn 0.75s ease forwards;
+}
+
+.square.highlighted {
+  border: 2px solid white;
+  outline: 1.5px solid #0066FF;
+  padding: 10px;
+  border-radius: 24px;
 }

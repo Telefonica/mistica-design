@@ -1,4 +1,3 @@
-// CandyCrush.jsx
 import { ButtonPrimary, Text, Stack, Align } from "@telefonica/mistica";
 import { useScreenSize } from "@telefonica/mistica";
 import Score from "../score";
@@ -24,6 +23,7 @@ const CandyCrush = ({ onFinish }) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [invalidMove, setInvalidMove] = useState(null);
   const [status, setStatus] = useState("playing");
+  const [highlightedSquares, setHighlightedSquares] = useState([]);
 
   const handleGameEnd = () => {
     if (onFinish) onFinish();
@@ -31,8 +31,11 @@ const CandyCrush = ({ onFinish }) => {
 
   useEffect(() => {
     if (movesRemaining === 0) {
-      document.querySelector(".grid").classList.add("locked");
-      setStatus("gameover");
+      // Apply transition effect before finishing the game
+      setTimeout(() => {
+        document.querySelector(".grid").classList.add("locked");
+        setStatus("gameover");
+      }, 750); // Wait 750ms before showing the gameover state
     }
   }, [movesRemaining]);
 
@@ -173,7 +176,7 @@ const CandyCrush = ({ onFinish }) => {
       setSquares(newSquares);
       setMovesRemaining(prev => prev - 1);
       setInvalidMove(null);
-      setSelectedIndex(null);
+      setSelectedIndex(null);  // Después del swap, reiniciar el índice seleccionado
     } else {
       setInvalidMove(startIndex);
       setSelectedIndex(null);
@@ -182,7 +185,7 @@ const CandyCrush = ({ onFinish }) => {
       }
     }
   };
-
+  
   const handleDragStart = (e, index) => {
     if (movesRemaining === 0 || isMobile) return;
     setDraggingIndex(index);
@@ -202,11 +205,49 @@ const CandyCrush = ({ onFinish }) => {
 
   const handleMobileClick = (index) => {
     if (movesRemaining === 0 || !isMobile) return;
-
+  
+    document.querySelectorAll(".square.highlighted").forEach((square) => {
+      square.classList.remove("highlighted");
+    });
+  
     if (selectedIndex === null) {
       setSelectedIndex(index);
+  
+      // Calcular las casillas adyacentes
+      const adjacentSquares = [];
+  
+      // Izquierda
+      if (index % width !== 0) {
+        adjacentSquares.push(index - 1);
+      }
+  
+      // Derecha
+      if (index % width !== width - 1) {
+        adjacentSquares.push(index + 1);
+      }
+  
+      // Arriba
+      if (index - width >= 0) {
+        adjacentSquares.push(index - width);
+      }
+  
+      // Abajo
+      if (index + width < width * width) {
+        adjacentSquares.push(index + width);
+      }
+
+      adjacentSquares.forEach((adjIndex) => {
+        document.getElementById(adjIndex).classList.add("highlighted");
+      });
+  
     } else {
-      swapCandies(selectedIndex, index);
+      const swapAndClear = () => {
+        swapCandies(selectedIndex, index);
+        setSelectedIndex(null);
+      };
+      setTimeout(() => {
+        swapAndClear();
+      }, 750);
     }
   };
 
@@ -224,6 +265,7 @@ const CandyCrush = ({ onFinish }) => {
                   ${selectedIndex === index ? "selected" : ""} 
                   ${invalidMove === index ? "invalid-move" : ""}
                   ${isMobile ? 'mobile-square' : ''}
+                  ${highlightedSquares.includes(index) ? 'highlighted' : ''}
                 `}
                 style={{ backgroundImage: `url(${color})` }}
                 {...(!isMobile && {
