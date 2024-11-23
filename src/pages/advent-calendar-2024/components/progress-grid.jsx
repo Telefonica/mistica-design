@@ -7,6 +7,7 @@ import {
   Stack,
   Text,
   Text6,
+  useScreenSize,
 } from "@telefonica/mistica";
 import IconCompleted from "../assets/icons/icon-completed.jsx";
 import contentByDate from "../utils/content-config"; // Asegúrate de importar tu configuración de contenido
@@ -38,6 +39,8 @@ const IllustrationWrapper = ({ illustration, status }) => {
 };
 
 const ProgressGrid = ({ completedDays }) => {
+  const { isMobile } = useScreenSize();
+
   // Extraer los días completados
   const completedDayNumbers = completedDays.map((date) =>
     new Date(date).getDate()
@@ -52,7 +55,7 @@ const ProgressGrid = ({ completedDays }) => {
       ? skinVars.colors.neutralLow
       : skinVars.colors.backgroundContainer,
     borderRadius: "16px",
-    width: 184,
+    width: "100%",
     height: 255,
     border: completed ? undefined : "1px solid",
     borderColor: skinVars.colors.border,
@@ -60,7 +63,7 @@ const ProgressGrid = ({ completedDays }) => {
   });
 
   return (
-    <Grid columns={8} gap={24}>
+    <Grid columns={isMobile ? 2 : 4} gap={isMobile ? 8 : 24}>
       {calendarDays.map((day) => {
         // Accede a la ilustración para cada día
         const illustration = contentByDate[day.date]?.illustration;
@@ -71,37 +74,35 @@ const ProgressGrid = ({ completedDays }) => {
           : CARD_STATES.BLOCKED;
 
         return (
-          <GridItem columnSpan={2} key={day.dayNumber}>
-            <div>
-              <div style={dayStyles(isDayCompleted(day.dayNumber))}>
-                <Stack space="between">
-                  {/* Icono de completado */}
-                  <div style={{ height: 24 }}>
-                    <Align x="end">
-                      {isDayCompleted(day.dayNumber) && (
-                        <IconCompleted size={24} />
-                      )}
-                    </Align>
-                  </div>
+          <GridItem columnSpan={1} key={day.dayNumber}>
+            <div style={dayStyles(isDayCompleted(day.dayNumber))}>
+              <Stack space="between">
+                {/* Icono de completado */}
+                <div style={{ height: 24 }}>
+                  <Align x="end">
+                    {isDayCompleted(day.dayNumber) && (
+                      <IconCompleted size={24} />
+                    )}
+                  </Align>
+                </div>
 
-                  {/* Renderiza la ilustración usando IllustrationWrapper */}
-                  {illustration ? (
-                    <IllustrationWrapper
-                      illustration={illustration}
-                      status={status}
-                    />
-                  ) : (
-                    <div style={{ height: "100px" }} /> // Espaciador si no hay ilustración
-                  )}
+                {/* Renderiza la ilustración usando IllustrationWrapper */}
+                {illustration ? (
+                  <IllustrationWrapper
+                    illustration={illustration}
+                    status={status}
+                  />
+                ) : (
+                  <div style={{ height: "100px" }} /> // Espaciador si no hay ilustración
+                )}
 
-                  {/* Texto del día */}
-                  <Text6>
-                    <Text color={skinVars.colors.textSecondary} weight="medium">
-                      {day.dayNumber}
-                    </Text>
-                  </Text6>
-                </Stack>
-              </div>
+                {/* Texto del día */}
+                <Text6>
+                  <Text color={skinVars.colors.textSecondary} weight="medium">
+                    {day.dayNumber}
+                  </Text>
+                </Text6>
+              </Stack>
             </div>
           </GridItem>
         );

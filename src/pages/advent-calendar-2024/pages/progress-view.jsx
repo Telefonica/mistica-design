@@ -5,8 +5,6 @@ import {
   Stack,
   Text,
   Text4,
-  Text8,
-  Text10,
   ButtonPrimary,
   ResponsiveLayout,
   Inline,
@@ -15,10 +13,10 @@ import {
   Tooltip,
   ProgressBar,
   skinVars,
-  IconProcessLoadingRegular,
   IconInformationRegular,
   Grid,
   GridItem,
+  useScreenSize,
 } from "@telefonica/mistica";
 import { base64Decode, base64Encode } from "../utils/url-encoder";
 import {
@@ -37,6 +35,8 @@ const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
   const [achievements, setAchievements] = useState({});
   const [gameScores, setGameScores] = useState({});
+
+  const { isMobile } = useScreenSize();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -180,8 +180,22 @@ const ProgressView = () => {
             <IconTrophyFilled size={20} />
             <Text4>Achievements</Text4>
           </Inline>
-          <Text size={80} lineHeight={80} weight="medium">
-            {completedAchievementsCount} <Text size={64}>of</Text>{" "}
+          <Text
+            size={80}
+            mobileSize={48}
+            lineHeight={80}
+            mobileLineHeight={48}
+            weight="medium"
+          >
+            {completedAchievementsCount}{" "}
+            <Text
+              size={64}
+              mobileSize={32}
+              lineHeight={64}
+              mobileLineHeight={32}
+            >
+              of
+            </Text>{" "}
             {totalAchievements}
           </Text>
         </Stack>
@@ -215,6 +229,7 @@ const ProgressView = () => {
                     }
                     title={tooltipTitle}
                     description={tooltipDescription}
+                    delay={false}
                   />
                 </Box>
               );
@@ -274,7 +289,7 @@ const ProgressView = () => {
               template="8+4"
               left={
                 <Stack space={32}>
-                  <Grid columns={8}>
+                  <Grid columns={isMobile ? undefined : 8}>
                     <GridItem columnSpan={6}>
                       <Stack space={16}>
                         <Inline space={8} alignItems="center">
@@ -282,9 +297,23 @@ const ProgressView = () => {
                           <Text4 medium>Completed Days</Text4>
                         </Inline>
                         <Stack space={32}>
-                          <Inline space="between" alignItems="end">
-                            <Text size={80} lineHeight={80} weight="medium">
-                              {completedDays.length} <Text size={64}>of</Text>{" "}
+                          <Inline space="between" alignItems="baseline">
+                            <Text
+                              size={80}
+                              mobileSize={48}
+                              lineHeight={80}
+                              mobileLineHeight={48}
+                              weight="medium"
+                            >
+                              {completedDays.length}{" "}
+                              <Text
+                                size={64}
+                                mobileSize={32}
+                                lineHeight={64}
+                                mobileLineHeight={32}
+                              >
+                                of
+                              </Text>{" "}
                               {TOTAL_CALENDAR_DAYS}
                             </Text>
 
@@ -305,7 +334,10 @@ const ProgressView = () => {
               right={
                 <div style={{ position: "sticky", height: "100vh", top: 80 }}>
                   <Grid columns={4} alignContent>
-                    <GridItem columnSpan={3} columnStart={2}>
+                    <GridItem
+                      columnSpan={isMobile ? "full" : 3}
+                      columnStart={isMobile ? undefined : 2}
+                    >
                       <Stack space={56}>
                         <AchievementList
                           completedAchievementsCount={
@@ -318,7 +350,13 @@ const ProgressView = () => {
                             <IconInvader size={20}></IconInvader>
                             <Text4>Total game points</Text4>
                           </Inline>
-                          <Text size={80} lineHeight={80} weight="medium">
+                          <Text
+                            size={80}
+                            mobileSize={48}
+                            lineHeight={80}
+                            mobileLineHeight={48}
+                            weight="medium"
+                          >
                             {totalGamePoints}
                           </Text>
                         </Stack>

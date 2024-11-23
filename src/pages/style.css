@@ -78,3 +78,10 @@ body {
   border: none !important;
   display: inline-flex !important;
 }
+
+/* Elimina el cuadrito de color en mobile */
+@media (hover: none) and (pointer: coarse) {
+  *:focus {
+    outline: none;
+  }
+}
