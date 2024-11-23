@@ -10,12 +10,15 @@ import {
   ButtonPrimary,
   ResponsiveLayout,
   Inline,
-  IconTrophyRegular,
-  IconCalendarRegular,
+  IconTrophyFilled,
   GridLayout,
   Tooltip,
   ProgressBar,
+  skinVars,
   IconProcessLoadingRegular,
+  IconInformationRegular,
+  Grid,
+  GridItem,
 } from "@telefonica/mistica";
 import { base64Decode, base64Encode } from "../utils/url-encoder";
 import {
@@ -26,8 +29,9 @@ import Achievement from "../components/achievement";
 import ProgressGrid from "../components/progress-grid";
 import NavBar from "../components/navbar";
 import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
-import { IconInvader } from "../assets/icons/icons";
+import { IconInvader, IconCard } from "../assets/icons/icons";
 import { calendarDays } from "../utils/calendar-config";
+import Snow from "../components/snow.tsx";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
@@ -171,14 +175,15 @@ const ProgressView = () => {
 
     return (
       <Stack space={16}>
-        <Stack space={4}>
-          <Inline space={8}>
-            <IconTrophyRegular></IconTrophyRegular>
+        <Stack space={16}>
+          <Inline space={8} alignItems="center">
+            <IconTrophyFilled size={20} />
             <Text4>Achievements</Text4>
           </Inline>
-          <Text10>
-            {completedAchievementsCount} of {totalAchievements}
-          </Text10>
+          <Text size={80} lineHeight={80} weight="medium">
+            {completedAchievementsCount} <Text size={64}>of</Text>{" "}
+            {totalAchievements}
+          </Text>
         </Stack>
         <Inline space={8} wrap>
           {achievementsConfig.map(
@@ -224,22 +229,30 @@ const ProgressView = () => {
     return (
       <Stack space={16}>
         <Stack space={4}>
-          <Inline space={8}>
-            <IconProcessLoadingRegular></IconProcessLoadingRegular>
-            <Text4>Total progress</Text4>
+          <Inline space={8} alignItems="center">
+            <Text4 medium>
+              Total progress{" "}
+              {Math.round(
+                ((completedDays.length + completedAchievementsCount) /
+                  (TOTAL_CALENDAR_DAYS + totalAchievements)) *
+                  100
+              )}
+              %
+            </Text4>
+            <Tooltip
+              position="right"
+              description="Total progress is calculated based on the number of completed days and achievements"
+              target={
+                <div style={{ height: 20 }}>
+                  <IconInformationRegular
+                    size={20}
+                    color={skinVars.colors.brand}
+                  />
+                </div>
+              }
+            />
           </Inline>
-          <Text10>
-            {Math.round(
-              ((completedDays.length + completedAchievementsCount) /
-                (TOTAL_CALENDAR_DAYS + totalAchievements)) *
-                100
-            )}
-            %
-          </Text10>
         </Stack>
-        <ProgressBar
-          progressPercent={(completedDays.length / TOTAL_CALENDAR_DAYS) * 100}
-        />
       </Stack>
     );
   };
@@ -251,46 +264,66 @@ const ProgressView = () => {
 
   return (
     <>
+      <Snow />
       <NavBar />
       <ResponsiveLayout>
-        <Box padding={24}>
+        <Box paddingY={24}>
           <Stack space={48}>
-            <TotalProgress />
             <GridLayout
               verticalSpace={48}
-              template="6+6"
+              template="8+4"
               left={
-                <Stack space={16}>
-                  <Stack space={4}>
-                    <Inline space={8}>
-                      <IconCalendarRegular></IconCalendarRegular>
-                      <Text4>Completed Days</Text4>
-                    </Inline>
-                    <Text10>
-                      {completedDays.length} of {calendarDays.length}
-                    </Text10>
-                  </Stack>
+                <Stack space={32}>
+                  <Grid columns={8}>
+                    <GridItem columnSpan={6}>
+                      <Stack space={16}>
+                        <Inline space={8} alignItems="center">
+                          <IconCard size={20} />
+                          <Text4 medium>Completed Days</Text4>
+                        </Inline>
+                        <Stack space={32}>
+                          <Inline space="between" alignItems="end">
+                            <Text size={80} lineHeight={80} weight="medium">
+                              {completedDays.length} <Text size={64}>of</Text>{" "}
+                              {TOTAL_CALENDAR_DAYS}
+                            </Text>
 
+                            <TotalProgress />
+                          </Inline>
+                          <ProgressBar
+                            progressPercent={
+                              (completedDays.length / TOTAL_CALENDAR_DAYS) * 100
+                            }
+                          />
+                        </Stack>
+                      </Stack>
+                    </GridItem>
+                  </Grid>
                   <ProgressGrid completedDays={completedDays} />
                 </Stack>
               }
               right={
-                <AchievementList
-                  completedAchievementsCount={completedAchievementsCount}
-                  totalAchievements={totalAchievements}
-                />
+                <Grid columns={4} alignContent>
+                  <GridItem columnSpan={3} columnStart={2}>
+                    <Stack space={56}>
+                      <AchievementList
+                        completedAchievementsCount={completedAchievementsCount}
+                        totalAchievements={totalAchievements}
+                      />
+                      <Stack space={16}>
+                        <Inline space={8} alignItems="center">
+                          <IconInvader size={20}></IconInvader>
+                          <Text4>Total game points</Text4>
+                        </Inline>
+                        <Text size={80} lineHeight={80} weight="medium">
+                          {totalGamePoints}
+                        </Text>
+                      </Stack>
+                    </Stack>
+                  </GridItem>
+                </Grid>
               }
             ></GridLayout>
-
-            <Stack space={16}>
-              <Stack space={4}>
-                <Inline space={8}>
-                  <IconInvader></IconInvader>
-                  <Text4>Total game points</Text4>
-                </Inline>
-                <Text10>{totalGamePoints}</Text10>
-              </Stack>
-            </Stack>
 
             <ButtonPrimary onPress={handleClearData}>
               Clear local stored data

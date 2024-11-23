@@ -24,11 +24,9 @@ import { CARD_STATES } from "../utils/constants";
 import ToastWrapper from "../components/toast-wrapper";
 import contentByDate from "../utils/content-config";
 import DecorationSnake from "../assets/decorations/decoration-snake.jsx";
-import Snowfall from "react-snowfall";
-import snowflakeSrc1 from "../assets/decorations/snowflake-1.svg";
-import snowflakeSrc2 from "../assets/decorations/snowflake-2.svg";
 import { calendarDays } from "../utils/calendar-config.jsx";
 import DecorationPatty from "../assets/decorations/decoration-patty.jsx";
+import Snow from "../components/snow.tsx";
 
 const CalendarView = () => {
   const location = useLocation();
@@ -140,24 +138,9 @@ const CalendarView = () => {
     ));
   }, [completedDays, availableDays, calendarDays]);
 
-  const snowflake1 = document.createElement("img");
-  snowflake1.src = snowflakeSrc1;
-  const snowflake2 = document.createElement("img");
-  snowflake2.src = snowflakeSrc2;
-
-  const customSnow = [snowflake1, snowflake2, snowflake2];
-
   return (
     <>
-      <Snowfall
-        color="#EEF0FB"
-        radius={[50, 50]}
-        speed={[1.0, 2.0]} // default [1.0, 3.0]
-        snowflakeCount={20}
-        images={customSnow}
-        // snowflakeCount={Math.floor(Math.random() * (2000 - 200 + 1)) + 200}
-      />
-
+      <Snow />
       <NavBar />
       <ResponsiveLayout>
         <Box paddingY={42}>

@@ -3,7 +3,6 @@ import {
   Inline,
   Box,
   TelefonicaLogo,
-  skinVars,
   ButtonSecondary,
   Touchable,
 } from "@telefonica/mistica";
@@ -38,11 +37,7 @@ const NavBar = () => {
             <ButtonSecondary onPress={handleViewProgress}>
               My progress
             </ButtonSecondary>
-            <TelefonicaLogo
-              type="imagotype"
-              color={skinVars.colors.neutralHigh}
-              size={32}
-            />
+            <TelefonicaLogo type="imagotype" size={32} />
           </Inline>
         </Inline>
       </Box>
