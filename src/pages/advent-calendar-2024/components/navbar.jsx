@@ -186,7 +186,7 @@ const NavBar = () => {
                 onPress={() => setIsSheetOpen(true)}
                 style={{ color: skinVars.colors.textPrimary }}
               >
-                How it works?
+                How to play
               </TextLink>
             </Text3>
             <TelefonicaLogo type="imagotype" size={40} />
