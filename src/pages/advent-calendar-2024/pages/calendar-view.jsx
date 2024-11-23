@@ -9,6 +9,7 @@ import {
   GridLayout,
   TextLink,
   skinVars,
+  useScreenSize,
 } from "@telefonica/mistica";
 import CalendarCard from "../components/calendar-card";
 import NavBar from "../components/navbar";
@@ -31,6 +32,8 @@ import DecorationPatty from "../assets/decorations/decoration-patty.jsx";
 const CalendarView = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const { isMobile } = useScreenSize();
 
   // Load completed days from local storage on initial mount
   const [completedDays, setCompletedDays] = useState(() => {
@@ -171,17 +174,17 @@ const CalendarView = () => {
                     style={{ display: "flex", alignItems: "center", gap: 16 }}
                   >
                     <Text
-                      size={96}
-                      lineHeight={96}
+                      size={isMobile ? 56 : 96}
+                      lineHeight={isMobile ? 64 : 96}
                       weight="medium"
-                      letterSpacing={-3.5}
+                      letterSpacing={isMobile ? -1.5 : -3.5}
                     >
                       Calendar
                     </Text>
                     <DecorationPatty
                       text="24"
-                      size={128}
-                      stroke="0.75"
+                      size={isMobile ? 64 : 128}
+                      stroke={isMobile ? 1.5 : 0.75}
                       color={skinVars.colors.error}
                       textColor={skinVars.colors.textPrimary}
                       textSize={16}
