@@ -6,14 +6,9 @@ import {
   Text4,
   ThemeVariant,
 } from "@telefonica/mistica";
-import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
+import { calendarDays } from "../utils/calendar-config";
 
 const ProgressGrid = ({ completedDays }) => {
-  const columns = 8;
-  const daysInNovember = Array.from(
-    { length: TOTAL_CALENDAR_DAYS },
-    (_, i) => i + 1
-  );
 
   // Extract day number from `YYYY-MM-DD` format
   const completedDayNumbers = completedDays.map((date) =>
@@ -38,11 +33,13 @@ const ProgressGrid = ({ completedDays }) => {
 
   return (
     <Inline space={8} wrap>
-      {daysInNovember.map((day) => (
-        <div key={day}>
-          <div style={dayStyles(isDayCompleted(day))}>
-            <ThemeVariant variant={isDayCompleted(day) ? "inverse" : "default"}>
-              <Text4>{day}</Text4>
+      {calendarDays.map((day) => (
+        <div key={day.dayNumber}>
+          <div style={dayStyles(isDayCompleted(day.dayNumber))}>
+            <ThemeVariant
+              variant={isDayCompleted(day.dayNumber) ? "inverse" : "default"}
+            >
+              <Text4>{day.dayNumber}</Text4>
             </ThemeVariant>
           </div>
         </div>

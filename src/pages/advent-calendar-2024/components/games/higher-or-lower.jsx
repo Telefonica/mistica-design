@@ -8,15 +8,14 @@ import {
   Stack,
   Text,
   Text2,
-  Text3,
+  Text5,
 } from "@telefonica/mistica";
 import { useState, useEffect } from "react";
 import Score from "../score";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
-import { DecorationPatty } from "../../assets/decorations/decorations";
 import { saveGameData } from "../../utils/score-manager";
-import GameBar from "../game-bar";
 import ContentWrapper from "../content-wrapper";
+import { UI_LABEL } from "../../utils/constants";
 
 const HigherOrLower = ({ onFinish }) => {
   const data = [
@@ -112,16 +111,18 @@ const HigherOrLower = ({ onFinish }) => {
         <>
           <div style={{ ...flexStyles, textAlign: "center", gap: 48 }}>
             <Stack space={16}>
-              <Text size={28}>Current:</Text>
-              <Text size={32} weight="bold">
-                <strong>{current.label}</strong> ({current.value})
+              <Text size={28} weight="bold">
+                Current:
               </Text>
+              <Text5>
+                {current.label} ({current.value})
+              </Text5>
               {next && (
                 <Stack space={16}>
-                  <Text size={28}>Will...</Text>
-                  <Text size={32} weight="bold">
-                    <strong>{next.label}</strong> be higher or lower?
+                  <Text size={28} weight="bold">
+                    Will...
                   </Text>
+                  <Text5>{next.label} be higher or lower?</Text5>
                 </Stack>
               )}
             </Stack>
@@ -141,25 +142,20 @@ const HigherOrLower = ({ onFinish }) => {
       {status === "feedback" && (
         <div style={{ ...flexStyles, textAlign: "center", gap: 48 }}>
           <GuessLabel correct={isCorrect} />
-          <Text size={32} weight="medium">
-            {message}
-          </Text>
+          <Text5>{message}</Text5>
 
           <ButtonSecondary onPress={nextRound}>Next Round</ButtonSecondary>
         </div>
       )}
 
       {status === "final" && (
-        <div style={{ ...flexStyles, textAlign: "center", gap: 48 }}>
+        <div style={{ textAlign: "center" }}>
           <Stack space={16}>
             <Score score={score} isFinal />
-            <Text size={32} weight="medium">
-              Congratulations! You completed the game!
-            </Text>
+            <ButtonPrimary onPress={handleGameEnd}>
+              {UI_LABEL.END_GAME_BUTTON}
+            </ButtonPrimary>
           </Stack>
-          <ButtonPrimary onPress={handleGameEnd}>
-            Save score and close
-          </ButtonPrimary>
         </div>
       )}
     </ContentWrapper>

@@ -423,31 +423,33 @@ export const GuessWhat = ({ quizType, questions }) => {
 
       {/* Show final result */}
       {finalResult && (
-        <>
-          <Text5>Your {quizType} is</Text5>
-          {quizType === "icon" && (
-            <DecorationPatty size={128} stroke="0.75">
-              {FinalIcon && (
-                <FinalIcon size={64} color={skinVars.colors.brand} />
-              )}{" "}
-            </DecorationPatty>
-          )}
+        <div style={{ textAlign: "center" }}>
+          <Stack space={8}>
+            <Text5>Your {quizType} is</Text5>
+            {quizType === "icon" && (
+              <DecorationPatty size={128} stroke="0.75">
+                {FinalIcon && (
+                  <FinalIcon size={64} color={skinVars.colors.brand} />
+                )}{" "}
+              </DecorationPatty>
+            )}
 
-          <Text size={28} weight="bold">
-            {finalResult}
-          </Text>
-          {quizType === "component" && (
-            <TextLink href={finalLink}>
-              {" "}
-              See {finalResult} documentation
-            </TextLink>
-          )}
-          {/* Dynamically render the icon */}
-          <Text5>
-            Based on your answers this is the {quizType} that best represents
-            you.
-          </Text5>
-        </>
+            <Text size={28} weight="bold">
+              {finalResult}
+            </Text>
+            {quizType === "component" && (
+              <TextLink href={finalLink}>
+                {" "}
+                See {finalResult} documentation
+              </TextLink>
+            )}
+            {/* Dynamically render the icon */}
+            <Text5>
+              Based on your answers this is the {quizType} that best represents
+              you.
+            </Text5>
+          </Stack>
+        </div>
       )}
     </ContentWrapper>
   );

@@ -10,12 +10,15 @@ import {
   Text,
   Stack,
   useScreenSize,
+  Align,
+  ButtonSecondary,
 } from "@telefonica/mistica";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
 import Score from "../score";
 import GameBar from "../game-bar";
 import QuizProgress from "../quiz-progress";
 import ContentWrapper from "../content-wrapper";
+import { UI_LABEL } from "../../utils/constants";
 
 const movies = [
   {
@@ -93,8 +96,14 @@ const EmojiMovies = ({ onFinish }) => {
   if (gameOver) {
     return (
       <ContentWrapper>
-        <Score score={`${score}`} isFinal />
-        <ButtonPrimary onPress={handleGameEnd}>Finish</ButtonPrimary>
+        <div style={{ textAlign: "center" }}>
+          <Stack space={32}>
+            <Score score={`${score}`} isFinal />
+            <ButtonPrimary onPress={handleGameEnd}>
+              {UI_LABEL.END_GAME_BUTTON}
+            </ButtonPrimary>
+          </Stack>
+        </div>
       </ContentWrapper>
     );
   }
@@ -115,37 +124,43 @@ const EmojiMovies = ({ onFinish }) => {
     <ContentWrapper>
       <GameBar score={`${score}`} />
       <QuizProgress current={currentQuestionIndex + 1} total={movies.length} />
+      <Stack space={32}>
+        <div
+          style={{
+            padding: 80,
+            background: skinVars.colors.backgroundAlternative,
+            borderRadius: 16,
+            position: "relative",
+            textAlign: "center",
+          }}
+        >
+          <p style={{ fontSize: "2rem" }}>{emojis}</p>
+        </div>
 
-      <div
-        style={{
-          padding: 80,
-          background: skinVars.colors.backgroundAlternative,
-          borderRadius: 16,
-          position: "relative",
-        }}
-      >
-        <p style={{ fontSize: "2rem" }}>{emojis}</p>
-      </div>
-
-      {!showResult ? (
-        <RadioGroup options={shuffledOptions} onChange={handleOptionClick}>
-          <BoxedRowList>
-            {shuffledOptions.map((option, index) => (
-              <BoxedRow
-                title={option}
-                key={index}
-                radioValue={option}
-              ></BoxedRow>
-            ))}
-          </BoxedRowList>
-        </RadioGroup>
-      ) : (
-        <Stack space={24}>
-          <GuessLabel correct={isCorrect} />
-          <Text5>{correctAnswer}</Text5>
-          <ButtonPrimary onPress={handleNext}>{"Next Question"}</ButtonPrimary>
-        </Stack>
-      )}
+        {!showResult ? (
+          <RadioGroup options={shuffledOptions} onChange={handleOptionClick}>
+            <BoxedRowList>
+              {shuffledOptions.map((option, index) => (
+                <BoxedRow
+                  title={option}
+                  key={index}
+                  radioValue={option}
+                ></BoxedRow>
+              ))}
+            </BoxedRowList>
+          </RadioGroup>
+        ) : (
+          <div style={{ textAlign: "center" }}>
+            <Stack space={24}>
+              <GuessLabel correct={isCorrect} />
+              <Text5>{correctAnswer}</Text5>
+              <ButtonSecondary onPress={handleNext}>
+                {"Next Question"}
+              </ButtonSecondary>
+            </Stack>
+          </div>
+        )}
+      </Stack>
     </ContentWrapper>
   );
 };

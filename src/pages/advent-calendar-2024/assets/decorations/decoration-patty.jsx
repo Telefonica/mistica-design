@@ -5,6 +5,7 @@ const DecorationPatty = ({
   color = skinVars.colors.brand,
   text = "",
   textColor = skinVars.colors.brand,
+  textSize = 10,
   children,
   stroke = "1.5",
 }) => (
@@ -34,9 +35,9 @@ const DecorationPatty = ({
             x="50%"
             y="50%"
             textAnchor="middle"
-            fontWeight={700}
+            fontWeight={500}
             fill={textColor}
-            fontSize="10"
+            fontSize={textSize}
             dy=".3em" // Vertical alignment adjustment
           >
             {text}

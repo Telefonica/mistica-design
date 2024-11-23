@@ -1,8 +1,8 @@
 import Lottie from "lottie-react";
 
-const DecorationSnake = () => (
+const DecorationSnake = ({ width = 300 }) => (
   <Lottie
-    style={{ width: 300 }}
+    style={{ width: width }}
     animationData={{
       v: "5.9.0",
       fr: 60,

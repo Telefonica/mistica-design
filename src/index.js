@@ -1,4 +1,3 @@
-import "@telefonica/mistica/css/roboto.css";
 import "@telefonica/mistica/css/reset.css";
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";

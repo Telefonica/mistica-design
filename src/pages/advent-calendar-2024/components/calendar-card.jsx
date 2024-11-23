@@ -23,7 +23,6 @@ const CalendarCard = ({
   eventDescription,
   content,
   status,
-  forceAvailable,
   onEndDay,
   illustration,
   repeatable,
@@ -31,7 +30,13 @@ const CalendarCard = ({
   const dialogRef = useRef(null);
   const day = new Date(DateString).getDate();
   const today = new Date().toISOString().split("T")[0];
-  const isRepeatable = repeatable;
+  const isRepeatable = repeatable; //TODO: add !today;
+
+  console.log("CalendarCard", {
+    DateString,
+    DayOfWeek,
+    status,
+  });
 
   const handleClick = () => {
     if (status === CARD_STATES.AVAILABLE || isRepeatable) {
@@ -82,7 +87,7 @@ const CalendarCard = ({
             status === CARD_STATES.BLOCKED
               ? "grayscale(100%) contrast(0%)"
               : "none",
-          opacity: status === CARD_STATES.BLOCKED ? 0.1 : 1,
+          opacity: status === CARD_STATES.BLOCKED ? 0.35 : 1,
           display: "inline-flex",
           width: "100%",
           justifyContent: "center",
@@ -193,15 +198,14 @@ const CalendarCard = ({
               {day}
             </Text>
 
-            {status === CARD_STATES.AVAILABLE ||
-              (isRepeatable && (
-                <Circle size={48} background={skinVars.colors.brand}>
-                  <IconChevronRightRegular
-                    size={24}
-                    color={skinVars.colors.inverse}
-                  ></IconChevronRightRegular>
-                </Circle>
-              ))}
+            {(status === CARD_STATES.AVAILABLE || isRepeatable) && (
+              <Circle size={48} background={skinVars.colors.brand}>
+                <IconChevronRightRegular
+                  size={24}
+                  color={skinVars.colors.inverse}
+                />
+              </Circle>
+            )}
           </Inline>
         </Stack>
       </div>

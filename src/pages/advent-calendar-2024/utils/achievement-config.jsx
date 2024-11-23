@@ -53,15 +53,6 @@ export const achievementsConfig = [
     isSecret: false,
   },
   {
-    id: "restDay",
-    name: "Rest Day",
-    description: "Unlock a weekend day",
-    icon: IconBeachUmbrellaFilled,
-    check: (newCompletedDays) => newCompletedDays.some(isWeekendDay),
-    message: "You have unlocked a weekend day!",
-    isSecret: false,
-  },
-  {
     id: "adventChampion",
     name: "Advent Champion",
     description: "Unlock all days in the advent calendar",
@@ -101,7 +92,6 @@ export const achievementsConfig = [
   },
 ];
 
-// Existing functions
 const hasConsecutiveDays = (dates) => {
   // Convert string dates to Date objects for comparison and sort them
   const sortedDates = dates.map((date) => new Date(date)).sort((a, b) => a - b);
@@ -109,19 +99,19 @@ const hasConsecutiveDays = (dates) => {
   // Check if we have at least two completed days
   if (sortedDates.length < 2) return false;
 
-  const lastIndex = sortedDates.length - 1;
-  const firstDate = sortedDates[lastIndex - 1];
-  const secondDate = sortedDates[lastIndex];
-  const oneDayInMs = 24 * 60 * 60 * 1000;
+  // Iterate over the sorted dates and check for consecutive days
+  for (let i = 0; i < sortedDates.length - 1; i++) {
+    const currentDate = sortedDates[i];
+    const nextDate = sortedDates[i + 1];
+    const oneDayInMs = 24 * 60 * 60 * 1000;
 
-  // Check if the second date is exactly one day after the first
-  return secondDate - firstDate === oneDayInMs;
-};
+    // Check if the next date is exactly one day after the current date
+    if (nextDate - currentDate !== oneDayInMs) {
+      return false;
+    }
+  }
 
-// Function to check if a day is a weekend
-const isWeekendDay = (date) => {
-  const day = new Date(date).getUTCDay(); // 0 for Sunday, 6 for Saturday
-  return day === 0 || day === 6; // Return true if it's a weekend
+  return true; // All dates are consecutive
 };
 
 const isChristmasDay = (date) => {

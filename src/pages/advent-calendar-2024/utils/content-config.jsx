@@ -25,24 +25,35 @@ import CandyCrush from "../components/games/candy";
 import AdventCalendarHistory from "../components/static-content/advent-calendar-history";
 import ChristmasGreetings from "../components/static-content/christmas-greetings";
 import TopContributors from "../components/static-content/top-contributors";
+import {
+  Illustration02,
+  Illustration03,
+  Illustration04,
+  Illustration05,
+  Illustration06,
+  Illustration09,
+} from "../assets/illustrations/illustrations";
 
 const contentByDate = {
-  "2024-11-02": {
+  "2024-12-02": {
     repeatable: false,
+    illustration: <Illustration02 />,
     content: ({ closeModal }) => <CandyCrush onFinish={closeModal} />,
     title: "“Brandy” crush",
     description:
       "Try to match Telefónica brands of the same type in a row or column of 3. You have 32 moves. Can you score the highest with the fewest moves?",
   },
-  "2024-11-03": {
+  "2024-12-03": {
     repeatable: false,
+    illustration: <Illustration03 />,
     content: ({ closeModal }) => <EmojiMovies onFinish={closeModal} />,
     title: "Emoji movie",
     description:
       "Can you guess which Christmas movie these emojis represent? 🎬.",
   },
-  "2024-11-04": {
+  "2024-12-04": {
     repeatable: true,
+    illustration: <Illustration04 />,
     content: (
       <GuessWhat questions={componentQuestions} quizType={"component"} />
     ),
@@ -50,16 +61,29 @@ const contentByDate = {
     description:
       "If you were an Mística icon, which one would you be? Choose the answers that best fit you and find out! ",
   },
-  "2024-11-05": {
+  "2024-12-05": {
     repeatable: false,
-
-    illustration: <IllustrationWishesLetter />,
+    illustration: <Illustration05 />,
     content: ({ closeModal }) => <HigherOrLower onFinish={closeModal} />,
     title: "Higher or Lower",
     description:
       "Answer the question by guessing whether the number is higher or lower than the given data.",
   },
-  "2024-11-10": {
+  "2024-12-06": {
+    repeatable: true,
+    illustration: <Illustration06 />,
+    content: <AdventCalendarHistory />,
+    title: "Did you know...",
+    description: "Where the tradition Christmas calendar comes from?",
+  },
+  "2024-12-09": {
+    repeatable: true,
+    illustration: <Illustration09 />,
+    content: <TopContributors />,
+    title: "Top contributors",
+    description: "A big thank you to our contributors!",
+  },
+  "2024-12-10": {
     repeatable: false,
     content: ({ closeModal }) => (
       <GuessTheComponent component={meterGuess} onFinish={closeModal} />
@@ -68,20 +92,20 @@ const contentByDate = {
     description:
       "Can you guess which is? Only the wisest will succeed! The component image is blurred to make it more difficult, you don't need to put on your glasses 👓 ",
   },
-  "2024-11-11": {
+  "2024-12-11": {
     repeatable: true,
     content: <AdventCalendarHistory />,
     title: "Did you know...",
     description: "Where the tradition Christmas calendar comes from?",
   },
-  "2024-11-13": {
+  "2024-12-13": {
     repeatable: true,
     content: <GuessWhat questions={iconQuestions} quizType={"icon"} />,
     title: "Icon Match",
     description:
       "If you were an Mística icon, which one would you be? Choose the answers that best fit you and find out! ",
   },
-  "2024-11-18": {
+  "2024-12-18": {
     repeatable: false,
     content: ({ closeModal }) => (
       <GuessTheComponent component={NakedCardGuess} onFinish={closeModal} />
@@ -90,13 +114,13 @@ const contentByDate = {
     description:
       "Can you guess which is? Only the wisest will succeed! The component image is blurred to make it more difficult, you don't need to put on your glasses 👓 ",
   },
-  "2024-11-20": {
+  "2024-12-20": {
     repeatable: true,
     content: <TopContributors />,
     title: "Top contributors",
     description: "A big thank you to our contributors!",
   },
-  "2024-11-21": {
+  "2024-12-21": {
     illustration: <IllustrationWoolClothes />,
     content: ({ closeModal }) => <MemoryGame onFinish={closeModal} />,
     title: "Memory cards",
@@ -111,7 +135,7 @@ const contentByDate = {
       </Text3>
     ),
   },
-  "2024-11-22": {
+  "2024-12-22": {
     content: ({ closeModal }) => <SimonSays onFinish={closeModal} />,
     title: "Simon says",
     description: (
@@ -130,7 +154,7 @@ const contentByDate = {
       </>
     ),
   },
-  "2024-11-23": {
+  "2024-12-23": {
     content: ({ closeModal }) => <WordleGame onFinish={closeModal} />,
     title: "Wordle",
     description: (
@@ -201,7 +225,7 @@ const contentByDate = {
       </>
     ),
   },
-  "2024-11-25": {
+  "2024-12-25": {
     repeatable: true,
     content: <ChristmasGreetings />,
     title: "Happy Christmas!",

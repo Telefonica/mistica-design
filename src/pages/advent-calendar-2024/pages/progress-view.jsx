@@ -27,6 +27,7 @@ import ProgressGrid from "../components/progress-grid";
 import NavBar from "../components/navbar";
 import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
 import { IconInvader } from "../assets/icons/icons";
+import { calendarDays } from "../utils/calendar-config";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
@@ -266,7 +267,7 @@ const ProgressView = () => {
                       <Text4>Completed Days</Text4>
                     </Inline>
                     <Text10>
-                      {completedDays.length} of {TOTAL_CALENDAR_DAYS}
+                      {completedDays.length} of {calendarDays.length}
                     </Text10>
                   </Stack>
 
