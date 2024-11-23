@@ -8,6 +8,7 @@ import {
   ButtonLink,
   IconButton,
   IconCloseRegular,
+  useScreenSize,
 } from "@telefonica/mistica";
 import styles from "./toast.module.css";
 
@@ -24,6 +25,8 @@ const Toast = ({
   const [fadeOut, setFadeOut] = useState(false); // Controls fade-out animation
   const [isHovered, setIsHovered] = useState(false);
   const timeoutRef = useRef(null);
+
+  const { isMobile } = useScreenSize();
 
   const clearHideTimeout = () => {
     if (timeoutRef.current) {
@@ -77,7 +80,7 @@ const Toast = ({
         borderRadius: "8px",
         border: `2px solid ${skinVars.colors.border}`,
         zIndex: 1000,
-        width: "480px",
+        width: isMobile ? "calc(100vw - 32px)" : "480px",
         ...style,
       }}
       onMouseEnter={() => setIsHovered(true)} // Trigger hover state

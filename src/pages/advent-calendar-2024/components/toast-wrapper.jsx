@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import Toast from "./toast"; // Assuming your Toast component is already implemented
-import { Stack } from "@telefonica/mistica";
+import { Stack, useScreenSize } from "@telefonica/mistica";
 
 const ToastWrapper = ({ toasts, removeToast }) => {
   const totalToasts = toasts.length;
+  const { isMobile } = useScreenSize();
 
   return (
     <div
       style={{
-        position: "absolute",
+        position: "fixed",
         bottom: "16px",
-        right: "16px",
+        right: isMobile ? "0" : "16px",
+        padding: isMobile ? "0 16px" : "0",
       }}
     >
       <Stack space={8}>
