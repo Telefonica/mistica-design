@@ -104,12 +104,13 @@ const ModalView = forwardRef(
               flexDirection: "column",
               position: "relative",
               padding: isMobile ? "16px" : "56px",
+              overflowX: isMobile ? "visible" : "scroll",
             }}
           >
             {content}
             {}
             {!isMobile && onCancel !== null && (
-              <div style={{ position: "absolute", top: 48, right: 48 }}>
+              <div style={{ position: "fixed", top: 48, right: 48 }}>
                 <IconButton
                   type="neutral"
                   backgroundType="soft"

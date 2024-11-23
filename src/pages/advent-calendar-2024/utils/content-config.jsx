@@ -33,6 +33,7 @@ import {
   Illustration06,
   Illustration09,
 } from "../assets/illustrations/illustrations";
+import Horoscope from "../components/static-content/horoscope";
 
 const contentByDate = {
   "2024-12-02": {
@@ -70,18 +71,85 @@ const contentByDate = {
       "Answer the question by guessing whether the number is higher or lower than the given data.",
   },
   "2024-12-06": {
-    repeatable: true,
+    repeatable: false,
     illustration: <Illustration06 />,
-    content: <AdventCalendarHistory />,
-    title: "Did you know...",
-    description: "Where the tradition Christmas calendar comes from?",
+    content: ({ closeModal }) => <WordleGame onFinish={closeModal} />,
+    title: "Wordle",
+    description: (
+      <>
+        <Text3 color={skinVars.colors.brand}>
+          Type your attempts, hit 'Enter,' and let the letters reveal their
+          secrets. <br />
+          Can you uncover the missing word and bring balance back to Mística?{" "}
+          <br />
+          <br />
+        </Text3>
+
+        <Text1 color={skinVars.colors.brand}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <div
+              style={{
+                width: "20px",
+                height: "20px",
+                backgroundColor: "#d9d9d9",
+                border: `2px solid white`,
+                borderRadius: "4px",
+              }}
+            ></div>
+            Gray means the letter is not in the word.
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              marginTop: "8px",
+            }}
+          >
+            <div
+              style={{
+                width: "20px",
+                height: "20px",
+                backgroundColor: skinVars.colors.warning,
+                border: `2px solid white`,
+                borderRadius: "4px",
+              }}
+            ></div>
+            Yellow indicates the letter is in the word but in the wrong
+            position.
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              marginTop: "8px",
+            }}
+          >
+            <div
+              style={{
+                width: "20px",
+                height: "20px",
+                backgroundColor: skinVars.colors.success,
+                border: `2px solid white`,
+                borderRadius: "4px",
+              }}
+            ></div>
+            Green shows that the letter is correct and in the right spot.
+          </div>
+          <br />
+          Use these clues wisely to solve the mystery!
+        </Text1>
+      </>
+    ),
   },
   "2024-12-09": {
     repeatable: true,
     illustration: <Illustration09 />,
-    content: <TopContributors />,
-    title: "Top contributors",
-    description: "A big thank you to our contributors!",
+    content: <Horoscope />,
+    title: "Mística zodiac sign",
+    description:
+      "What component are you based on your zodiac sign? Discover your match!",
   },
   "2024-12-10": {
     repeatable: false,

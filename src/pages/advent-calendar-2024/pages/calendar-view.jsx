@@ -176,16 +176,16 @@ const CalendarView = () => {
                       size={96}
                       mobileSize={56}
                       lineHeight={96}
-                      mobileLineHeight={56}
+                      mobileLineHeight={64}
                       weight="medium"
-                      letterSpacing={-3.5}
+                      letterSpacing={isMobile ? -1.5 : -3.5}
                     >
                       Calendar
                     </Text>
                     <DecorationPatty
                       text="24"
-                      size={isMobile ? "96" : 128}
-                      stroke={isMobile ? "0.90" : "0.75"}
+                      size={isMobile ? 64 : 128}
+                      stroke={isMobile ? 1.5 : 0.75}
                       color={skinVars.colors.error}
                       textColor={skinVars.colors.textPrimary}
                       textSize={16}
