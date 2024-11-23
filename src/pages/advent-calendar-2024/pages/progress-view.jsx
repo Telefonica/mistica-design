@@ -255,6 +255,7 @@ const ProgressView = () => {
               %
             </Text4>
             <Tooltip
+              delay={false}
               position="right"
               description="Total progress is calculated based on the number of completed days and achievements"
               target={
