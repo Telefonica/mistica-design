@@ -4,9 +4,11 @@ import {
   GridItem,
   Text6,
   ButtonLink,
+  useScreenSize,
 } from "@telefonica/mistica";
 
 const Horoscope = () => {
+  const { isMobile } = useScreenSize();
   const zodiacComponents = [
     {
       sign: "Aries",
@@ -107,7 +109,7 @@ const Horoscope = () => {
   ];
 
   return (
-    <Grid columns={3} rows={4} gap={24}>
+    <Grid columns={isMobile ? 1 : 3} gap={24}>
       {zodiacComponents.map(({ icon, sign, component, explanation, link }) => (
         <GridItem key={sign}>
           <DisplayDataCard
