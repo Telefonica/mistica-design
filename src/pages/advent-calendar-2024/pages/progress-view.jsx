@@ -174,7 +174,7 @@ const ProgressView = () => {
     // Count completed achievements
 
     return (
-      <Stack space={16}>
+      <Stack space={64}>
         <Stack space={16}>
           <Inline space={8} alignItems="center">
             <IconTrophyFilled size={20} />
