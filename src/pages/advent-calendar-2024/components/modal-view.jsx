@@ -104,7 +104,7 @@ const ModalView = forwardRef(
               flexDirection: "column",
               position: "relative",
               padding: isMobile ? "16px" : "56px",
-              overflow: "scroll",
+              overflowX: isMobile ? "visible" : "scroll",
             }}
           >
             {content}
