@@ -303,25 +303,29 @@ const ProgressView = () => {
                 </Stack>
               }
               right={
-                <Grid columns={4} alignContent>
-                  <GridItem columnSpan={3} columnStart={2}>
-                    <Stack space={56}>
-                      <AchievementList
-                        completedAchievementsCount={completedAchievementsCount}
-                        totalAchievements={totalAchievements}
-                      />
-                      <Stack space={16}>
-                        <Inline space={8} alignItems="center">
-                          <IconInvader size={20}></IconInvader>
-                          <Text4>Total game points</Text4>
-                        </Inline>
-                        <Text size={80} lineHeight={80} weight="medium">
-                          {totalGamePoints}
-                        </Text>
+                <div style={{ position: "sticky", height: "100vh", top: 80 }}>
+                  <Grid columns={4} alignContent>
+                    <GridItem columnSpan={3} columnStart={2}>
+                      <Stack space={56}>
+                        <AchievementList
+                          completedAchievementsCount={
+                            completedAchievementsCount
+                          }
+                          totalAchievements={totalAchievements}
+                        />
+                        <Stack space={16}>
+                          <Inline space={8} alignItems="center">
+                            <IconInvader size={20}></IconInvader>
+                            <Text4>Total game points</Text4>
+                          </Inline>
+                          <Text size={80} lineHeight={80} weight="medium">
+                            {totalGamePoints}
+                          </Text>
+                        </Stack>
                       </Stack>
-                    </Stack>
-                  </GridItem>
-                </Grid>
+                    </GridItem>
+                  </Grid>
+                </div>
               }
             ></GridLayout>
 
