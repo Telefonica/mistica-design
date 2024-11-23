@@ -110,7 +110,7 @@ const ModalView = forwardRef(
             {content}
             {}
             {!isMobile && onCancel !== null && (
-              <div style={{ position: "absolute", top: 48, right: 48 }}>
+              <div style={{ position: "fixed", top: 48, right: 48 }}>
                 <IconButton
                   type="neutral"
                   backgroundType="soft"
