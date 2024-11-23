@@ -1,16 +1,14 @@
 import {
   Inline,
   Stack,
-  Text10,
   skinVars,
-  Tag,
   Text5,
   Text,
   IconLockEyeClosedFilled,
   Circle,
   IconChevronRightRegular,
 } from "@telefonica/mistica";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import styles from "./calendar-card.module.css";
 import { CARD_STATES } from "../utils/constants";
 import { IconCompleted, IconLockOpen } from "../assets/icons/icons";
@@ -27,6 +25,7 @@ const CalendarCard = ({
   illustration,
   repeatable,
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
   const dialogRef = useRef(null);
   const day = new Date(DateString).getDate();
   const today = new Date().toISOString().split("T")[0];
@@ -165,7 +164,32 @@ const CalendarCard = ({
         }}
         aria-haspopup="dialog"
         className={styles.container}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => {
+          setIsHovered(false);
+        }}
       >
+        <div
+          style={{
+            background:
+              status === CARD_STATES.AVAILABLE
+                ? isHovered
+                  ? skinVars.colors.backgroundContainerHover
+                  : "transparent"
+                : status === CARD_STATES.COMPLETED && isRepeatable
+                ? isHovered
+                  ? skinVars.colors.backgroundContainerHover
+                  : "transparent"
+                : "transparent",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            transition: "background 0.3s ease",
+            pointerEvents: "none", // Ensure hover effects don't block clicks
+          }}
+        ></div>
         <Stack space="between">
           <Stack space={8}>
             <Text5
