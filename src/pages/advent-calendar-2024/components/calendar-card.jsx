@@ -40,16 +40,21 @@ const CalendarCard = ({
   const handleClick = () => {
     if (status === CARD_STATES.AVAILABLE || isRepeatable) {
       dialogRef.current.showModal();
+      document.body.style.overflow = "hidden";
     }
   };
 
   const handleEndDay = () => {
     dialogRef.current.close();
+    document.body.style.overflow = "auto";
+
     onEndDay(); // Notify the parent to update the state
   };
 
   const handleCloseModal = () => {
     dialogRef.current.close(); // Close the modal
+    document.body.style.overflow = "auto";
+
     onEndDay(); // Notify the parent to update the state
   };
 
