@@ -42,9 +42,7 @@ const ComingSoonPage = () => {
       <ResponsiveLayout variant="inverse">
         <Snow />
         <div style={{ position: "fixed", top: 24, left: 24 }}>
-          <Touchable to={"/advent-calendar-2024"}>
-            <RotatingSVG color={skinVars.colors.inverse} />
-          </Touchable>
+          <RotatingSVG color={skinVars.colors.inverse} />
         </div>
         <div
           style={{
