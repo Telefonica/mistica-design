@@ -36,7 +36,7 @@ const ProgressView = () => {
   const [achievements, setAchievements] = useState({});
   const [gameScores, setGameScores] = useState({});
 
-  const { isMobile } = useScreenSize();
+  const { isTabletOrSmaller } = useScreenSize();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -290,7 +290,7 @@ const ProgressView = () => {
               template="8+4"
               left={
                 <Stack space={32}>
-                  <Grid columns={isMobile ? undefined : 8}>
+                  <Grid columns={isTabletOrSmaller ? undefined : 8}>
                     <GridItem columnSpan={6}>
                       <Stack space={16}>
                         <Inline space={8} alignItems="center">
@@ -336,8 +336,8 @@ const ProgressView = () => {
                 <div style={{ position: "sticky", height: "auto", top: 80 }}>
                   <Grid columns={4} alignContent>
                     <GridItem
-                      columnSpan={isMobile ? "full" : 3}
-                      columnStart={isMobile ? undefined : 2}
+                      columnSpan={isTabletOrSmaller ? "full" : 3}
+                      columnStart={isTabletOrSmaller ? undefined : 2}
                     >
                       <Stack space={56}>
                         <AchievementList
