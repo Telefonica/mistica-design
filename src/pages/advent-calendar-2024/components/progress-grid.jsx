@@ -98,7 +98,7 @@ const ProgressGrid = ({ completedDays }) => {
 
                 {/* Texto del día */}
                 <Text6>
-                  <Text color={skinVars.colors.textSecondary} weight="medium">
+                  <Text color={skinVars.colors.textSecondary} weight="bold">
                     {day.dayNumber}
                   </Text>
                 </Text6>

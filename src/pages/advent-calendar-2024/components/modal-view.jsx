@@ -70,7 +70,7 @@ const ModalView = forwardRef(
                 <Text
                   color={skinVars.colors.brand}
                   size={isMobile ? 24 : 60}
-                  weight="medium"
+                  weight="bold"
                 >
                   {day}
                 </Text>
