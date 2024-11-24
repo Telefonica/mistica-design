@@ -7,6 +7,7 @@ import { useScreenSize } from "@telefonica/mistica";
 
 const Snow = () => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const { isTabletOrSmaller } = useScreenSize();
 
   useEffect(() => {
     let isMounted = true; // Controla si el componente sigue montado
@@ -48,14 +49,26 @@ const Snow = () => {
     };
   }, []);
 
-  return (
+  return isTabletOrSmaller ? (
     <Snowfall
       style={{
         position: "fixed",
         zIndex: "9999999",
       }}
       color="#EEF0FB"
-      radius={[45, 45]}
+      radius={[30, 30]}
+      speed={[1.0, 2.0]} // Velocidad de los copos
+      snowflakeCount={8}
+      images={images} // Pasamos las imágenes cargadas al componente
+    />
+  ) : (
+    <Snowfall
+      style={{
+        position: "fixed",
+        zIndex: "9999999",
+      }}
+      color="#EEF0FB"
+      radius={[50, 50]}
       speed={[1.0, 2.0]} // Velocidad de los copos
       snowflakeCount={20}
       images={images} // Pasamos las imágenes cargadas al componente
