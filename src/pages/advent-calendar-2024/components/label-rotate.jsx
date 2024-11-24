@@ -2,7 +2,7 @@ import { useState } from "react";
 import { skinVars, useScreenSize } from "@telefonica/mistica";
 import styles from "./label-rotate.module.css";
 
-const RotatingSVG = ({ fill }) => {
+const RotatingSVG = ({ fill, color = skinVars.colors.brand }) => {
   const [isHovered, setIsHovered] = useState(false);
   const { isMobile } = useScreenSize();
 
@@ -17,7 +17,7 @@ const RotatingSVG = ({ fill }) => {
         width={isMobile ? 48 : 84}
         height={isMobile ? 48 : 84}
         viewBox="0 0 96 96"
-        fill={skinVars.colors.brand}
+        fill={color}
       >
         <g className={`${styles.rotation} ${isHovered ? styles.slowMo : ""}`}>
           <path d="M44.6602 85.5299C44.3002 87.1399 42.9302 88.0299 40.6102 87.5099L38.6402 87.0599L38.6002 87.2399C38.4002 88.1199 38.8602 88.8699 39.7702 89.0699C40.7002 89.2799 41.2902 88.8899 41.5102 88.4499L43.5502 88.9099C43.1102 90.2199 41.6002 91.2899 39.3802 90.7899C37.1602 90.2899 36.0902 88.6199 36.5102 86.7599L37.7202 81.3999L39.5302 81.8099L39.5102 82.6599L39.5902 82.6799C40.0002 82.3399 40.9902 81.9699 42.2202 82.2399C44.0902 82.6599 45.0002 84.0499 44.6702 85.5099L44.6602 85.5299ZM39.0202 85.3199L38.9602 85.5699L40.7202 85.9699C41.8102 86.2199 42.3802 85.8599 42.5302 85.2299C42.6802 84.5799 42.3102 84.0499 41.4602 83.8599C40.2002 83.5799 39.2902 84.1499 39.0202 85.3299V85.3199Z" />

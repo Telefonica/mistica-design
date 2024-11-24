@@ -6,19 +6,98 @@ import {
   Text,
   Align,
   Timer,
+  Touchable,
+  Text1,
+  TextLink,
+  ButtonSecondary,
+  IconShareFilled,
+  Snackbar,
+  TelefonicaLogo,
+  skinVars,
 } from "@telefonica/mistica";
 import NavBar from "../components/navbar";
 import DecorationSnake from "../assets/decorations/decoration-snake";
+import RotatingSVG from "../components/label-rotate.jsx";
+import { useState } from "react";
+import Snow from "../components/snow.tsx";
 
 const ComingSoonPage = () => {
   const defaultTargetDate = "2024-12-01";
   const endTimestamp = new Date(defaultTargetDate).getTime();
+  const [isSnackbarOpen, setSnackbarOpen] = useState(false);
+
+  const copyToClipboard = () => {
+    const url = window.location.href; // Get the current URL
+
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        setSnackbarOpen(true); // Show the snackbar on success
+      })
+      .catch((err) => console.error("Failed to copy: ", err));
+  };
 
   return (
     <>
-      <ResponsiveLayout>
-        <NavBar />
-        <Align x="center" y="center" height="calc(100vh - 138px)">
+      <ResponsiveLayout variant="inverse">
+        <Snow />
+        <div style={{ position: "fixed", top: 24, left: 24 }}>
+          <Touchable to={"/advent-calendar-2024"}>
+            <RotatingSVG color={skinVars.colors.inverse} />
+          </Touchable>
+        </div>
+        <div
+          style={{
+            position: "fixed",
+            bottom: 80,
+            left: "-24px",
+            transform: "rotate(-90deg)",
+          }}
+        >
+          <Text1>
+            Made with{" "}
+            <strong>
+              <TextLink
+                style={{ color: "inherit" }}
+                href="https://brandfactory.telefonica.com/mistica"
+                newTab
+              >
+                Mística
+              </TextLink>
+            </strong>
+          </Text1>
+        </div>
+        <div
+          style={{
+            position: "fixed",
+            top: 24,
+            right: 24,
+          }}
+        >
+          <TelefonicaLogo type="imagotype" size={40} />
+        </div>
+        <div
+          style={{
+            position: "fixed",
+            bottom: 40,
+            right: 40,
+          }}
+        >
+          <ButtonSecondary
+            small
+            onPress={() => copyToClipboard()}
+            StartIcon={IconShareFilled}
+          >
+            Share
+          </ButtonSecondary>
+        </div>
+        {isSnackbarOpen && (
+          <Snackbar
+            onClose={() => setSnackbarOpen(false)} // Close the snackbar
+            message="Copied URL to clipboard!"
+          />
+        )}
+        <Align x="center" y="center" height="100vh">
           <div
             style={{
               display: "flex",
@@ -55,7 +134,9 @@ const ComingSoonPage = () => {
                   margin: "auto",
                 }}
               >
-                <DecorationSnake></DecorationSnake>
+                <DecorationSnake
+                  color={skinVars.colors.inverse}
+                ></DecorationSnake>
               </div>
               <Timer
                 endTimestamp={endTimestamp}
