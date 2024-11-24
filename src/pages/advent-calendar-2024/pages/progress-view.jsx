@@ -333,7 +333,7 @@ const ProgressView = () => {
                 </Stack>
               }
               right={
-                <div style={{ position: "sticky", height: "100vh", top: 80 }}>
+                <div style={{ position: "sticky", height: "auto", top: 80 }}>
                   <Grid columns={4} alignContent>
                     <GridItem
                       columnSpan={isMobile ? "full" : 3}
