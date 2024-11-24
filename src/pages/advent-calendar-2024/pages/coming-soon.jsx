@@ -107,7 +107,13 @@ const ComingSoonPage = () => {
             }}
           >
             <Stack space={24}>
-              <Text size={70} lineHeight={100} weight="bold">
+              <Text
+                size={70}
+                mobileSize={56}
+                lineHeight={100}
+                mobileLineHeight={56}
+                weight="bold"
+              >
                 Mística Advent Calendar
               </Text>
               <div
@@ -120,10 +126,12 @@ const ComingSoonPage = () => {
                 }}
               >
                 <Text>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-                  praesentium, eaque repellendus consectetur exercitationem
-                  sint? Obcaecati, explicabo dolor quidem minus autem sequi
-                  ratione dolorum, ea doloremque{" "}
+                  <p>
+                    Get ready to experience the magic of the Mística Advent
+                    Calendar. Every day brings a new surprise, filled with
+                    inspiration, joy, and a touch of holiday magic to brighten
+                    the end of your year.
+                  </p>
                 </Text>
               </div>
               <div
