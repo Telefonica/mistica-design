@@ -180,7 +180,7 @@ const ProgressView = () => {
             <div style={{ height: 20 }}>
               <IconTrophyFilled size={20} />
             </div>
-            <Text4>Achievements</Text4>
+            <Text4 medium>Achievements</Text4>
           </Inline>
           <Text
             size={80}
@@ -392,7 +392,7 @@ const ProgressView = () => {
                         <Stack space={16}>
                           <Inline space={8} alignItems="center">
                             <IconInvader size={20}></IconInvader>
-                            <Text4>Total game points</Text4>
+                            <Text4 medium>Total game points</Text4>
                           </Inline>
                           <Text
                             size={80}
