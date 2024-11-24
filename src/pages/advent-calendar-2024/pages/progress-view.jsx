@@ -177,7 +177,9 @@ const ProgressView = () => {
       <Stack space={isTabletOrSmaller ? 32 : 64}>
         <Stack space={16}>
           <Inline space={8} alignItems="center">
-            <IconTrophyFilled size={20} />
+            <div style={{ height: 20 }}>
+              <IconTrophyFilled size={20} />
+            </div>
             <Text4>Achievements</Text4>
           </Inline>
           <Text
@@ -356,6 +358,7 @@ const ProgressView = () => {
                       <Stack space={isTabletOrSmaller ? 24 : 16}>
                         <Inline space={8} alignItems="center">
                           <IconCard size={20} />
+
                           <Text4 medium>Completed Days</Text4>
                         </Inline>
                         <Stack space={isTabletOrSmaller ? 16 : 32}>
