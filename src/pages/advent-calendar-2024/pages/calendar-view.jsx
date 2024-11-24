@@ -177,7 +177,7 @@ const CalendarView = () => {
                       mobileSize={56}
                       lineHeight={96}
                       mobileLineHeight={64}
-                      weight="medium"
+                      weight="bold"
                       letterSpacing={isMobile ? -1.5 : -3.5}
                     >
                       Calendar

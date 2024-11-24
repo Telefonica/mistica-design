@@ -217,7 +217,7 @@ const CalendarCard = ({
           <Inline space="between" alignItems="center">
             <Text
               size={64}
-              weight="medium"
+              weight="bold"
               color={
                 status === CARD_STATES.AVAILABLE
                   ? skinVars.colors.textPrimary

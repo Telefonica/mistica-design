@@ -185,7 +185,7 @@ const ProgressView = () => {
             mobileSize={48}
             lineHeight={80}
             mobileLineHeight={48}
-            weight="medium"
+            weight="bold"
           >
             {completedAchievementsCount}{" "}
             <Text
@@ -304,7 +304,7 @@ const ProgressView = () => {
                               mobileSize={48}
                               lineHeight={80}
                               mobileLineHeight={48}
-                              weight="medium"
+                              weight="bold"
                             >
                               {completedDays.length}{" "}
                               <Text
@@ -356,7 +356,7 @@ const ProgressView = () => {
                             mobileSize={48}
                             lineHeight={80}
                             mobileLineHeight={48}
-                            weight="medium"
+                            weight="bold"
                           >
                             {totalGamePoints}
                           </Text>
