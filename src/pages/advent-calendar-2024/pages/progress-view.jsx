@@ -174,7 +174,7 @@ const ProgressView = () => {
     // Count completed achievements
 
     return (
-      <Stack space={64}>
+      <Stack space={isTabletOrSmaller ? 32 : 64}>
         <Stack space={16}>
           <Inline space={8} alignItems="center">
             <IconTrophyFilled size={20} />
@@ -241,8 +241,21 @@ const ProgressView = () => {
   };
 
   const TotalProgress = () => {
-    return (
-      <Stack space={16}>
+    return isTabletOrSmaller ? (
+      <Stack space={24}>
+        <Text
+          size={80}
+          mobileSize={48}
+          lineHeight={80}
+          mobileLineHeight={48}
+          weight="bold"
+        >
+          {completedDays.length}{" "}
+          <Text size={64} mobileSize={48} lineHeight={64} mobileLineHeight={48}>
+            of
+          </Text>{" "}
+          {TOTAL_CALENDAR_DAYS}
+        </Text>
         <Stack space={4}>
           <Inline space={8} alignItems="center">
             <Text4 medium>
@@ -270,6 +283,54 @@ const ProgressView = () => {
           </Inline>
         </Stack>
       </Stack>
+    ) : (
+      <div style={{ width: "100%" }}>
+        <Inline space="between" alignItems="baseline" fullWidth>
+          <Text
+            size={80}
+            mobileSize={48}
+            lineHeight={80}
+            mobileLineHeight={48}
+            weight="bold"
+          >
+            {completedDays.length}{" "}
+            <Text
+              size={64}
+              mobileSize={48}
+              lineHeight={64}
+              mobileLineHeight={48}
+            >
+              of
+            </Text>{" "}
+            {TOTAL_CALENDAR_DAYS}
+          </Text>
+
+          <Inline space={8} alignItems="center" fullWidth>
+            <Text4 medium>
+              Total progress{" "}
+              {Math.round(
+                ((completedDays.length + completedAchievementsCount) /
+                  (TOTAL_CALENDAR_DAYS + totalAchievements)) *
+                  100
+              )}
+              %
+            </Text4>
+            <Tooltip
+              delay={false}
+              position="right"
+              description="Total progress is calculated based on the number of completed days and achievements"
+              target={
+                <div style={{ height: 20 }}>
+                  <IconInformationRegular
+                    size={20}
+                    color={skinVars.colors.brand}
+                  />
+                </div>
+              }
+            />
+          </Inline>
+        </Inline>
+      </div>
     );
   };
 
@@ -292,34 +353,13 @@ const ProgressView = () => {
                 <Stack space={32}>
                   <Grid columns={isTabletOrSmaller ? undefined : 8}>
                     <GridItem columnSpan={6}>
-                      <Stack space={16}>
+                      <Stack space={isTabletOrSmaller ? 24 : 16}>
                         <Inline space={8} alignItems="center">
                           <IconCard size={20} />
                           <Text4 medium>Completed Days</Text4>
                         </Inline>
-                        <Stack space={32}>
-                          <Inline space="between" alignItems="baseline">
-                            <Text
-                              size={80}
-                              mobileSize={48}
-                              lineHeight={80}
-                              mobileLineHeight={48}
-                              weight="bold"
-                            >
-                              {completedDays.length}{" "}
-                              <Text
-                                size={64}
-                                mobileSize={32}
-                                lineHeight={64}
-                                mobileLineHeight={32}
-                              >
-                                of
-                              </Text>{" "}
-                              {TOTAL_CALENDAR_DAYS}
-                            </Text>
-
-                            <TotalProgress />
-                          </Inline>
+                        <Stack space={isTabletOrSmaller ? 16 : 32}>
+                          <TotalProgress />
                           <ProgressBar
                             progressPercent={
                               (completedDays.length / TOTAL_CALENDAR_DAYS) * 100
