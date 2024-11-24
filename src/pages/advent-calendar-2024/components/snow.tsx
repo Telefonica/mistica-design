@@ -7,7 +7,6 @@ import { useScreenSize } from "@telefonica/mistica";
 
 const Snow = () => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
-  const isMobile = useScreenSize();
 
   useEffect(() => {
     let isMounted = true; // Controla si el componente sigue montado
@@ -56,9 +55,9 @@ const Snow = () => {
         zIndex: "9999999",
       }}
       color="#EEF0FB"
-      radius={isMobile ? [30, 30] : [50, 50]}
+      radius={[45, 45]}
       speed={[1.0, 2.0]} // Velocidad de los copos
-      snowflakeCount={isMobile ? 8 : 20}
+      snowflakeCount={20}
       images={images} // Pasamos las imágenes cargadas al componente
     />
   );
