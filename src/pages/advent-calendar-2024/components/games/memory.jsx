@@ -226,17 +226,19 @@ const MemoryGame = ({ onFinish }) => {
         )}
 
         {status === "completed" && (
-          <Stack space={24}>
-            <Stack space={16}>
-              <Score score={`${score}`} isFinal />
-              <Text size={32} weight="medium">
-                Congratulations! You completed the game!
-              </Text>
+          <div style={{ textAlign: "center" }}>
+            <Stack space={24}>
+              <Stack space={16}>
+                <Score score={`${score}`} isFinal />
+                <Text size={32} weight="medium">
+                  Congratulations! You completed the game!
+                </Text>
+              </Stack>
+              <ButtonPrimary onPress={handleGameEnd}>
+                {UI_LABEL.END_GAME_BUTTON}
+              </ButtonPrimary>
             </Stack>
-            <ButtonPrimary onPress={handleGameEnd}>
-              {UI_LABEL.END_GAME_BUTTON}
-            </ButtonPrimary>
-          </Stack>
+          </div>
         )}
       </Align>
     </>

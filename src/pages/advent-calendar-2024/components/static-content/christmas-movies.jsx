@@ -1,10 +1,11 @@
+import { Grid, GridItem, TextLink } from "@telefonica/mistica";
 import { useState, useEffect } from "react";
 
 const ChristmasMovies = () => {
   const titles = [
     "Gremlins",
     "Jingle All The Way",
-    "Harry Potter and the Philosopher's Stone",
+    "Harry Potter and the Sorcerer's Stone",
     "Resident Evil",
     "Love Actually",
     "Charlie and the Chocolate Factory",
@@ -42,21 +43,30 @@ const ChristmasMovies = () => {
 
   return (
     <div>
-      {titles.map((title) => (
-        <div key={title}>
-          <h2>{title}</h2>
-          {movies[title]?.Error ? (
-            <p>Error: {movies[title].Error}</p>
-          ) : movies[title] ? (
-            <>
-              <p>{movies[title].Title || "Unknown Title"}</p>
-              <img src={movies[title].Poster || ""} alt={title} />
-            </>
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
-      ))}
+      <Grid columns={3} gap={16}>
+        {titles.map((title) => (
+          <GridItem key={title}>
+            <div key={title}>
+              <h2>{title}</h2>
+              {movies[title]?.Error ? (
+                <p>Error: {movies[title].Error}</p>
+              ) : movies[title] ? (
+                <>
+                  <p>{movies[title].Title || "Unknown Title"}</p>
+                  <img src={movies[title].Poster || ""} alt={title} />
+                  <TextLink
+                    href={`https://www.imdb.com/title/${movies[title].imdbID}/`}
+                  >
+                    See {movies[title].title} in IMDB
+                  </TextLink>
+                </>
+              ) : (
+                <p>Loading...</p>
+              )}
+            </div>
+          </GridItem>
+        ))}
+      </Grid>
     </div>
   );
 };
