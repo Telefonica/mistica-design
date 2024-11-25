@@ -149,7 +149,7 @@ const CalendarCard = ({
 
   return (
     <>
-      <div
+      <button
         onClick={handleClick}
         style={{
           cursor:
@@ -159,6 +159,8 @@ const CalendarCard = ({
 
           padding: 24,
           position: "relative",
+          alignItems: "inherit",
+          textAlign: "left",
           ...cardStatusStyles,
         }}
         aria-haspopup="dialog"
@@ -235,7 +237,7 @@ const CalendarCard = ({
             )}
           </Inline>
         </Stack>
-      </div>
+      </button>
       <ModalView
         ref={dialogRef}
         day={day}
