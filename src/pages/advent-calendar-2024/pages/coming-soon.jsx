@@ -125,10 +125,7 @@ const ComingSoonPage = () => {
               >
                 <Text>
                   <p>
-                    Get ready to experience the magic of the Mística Advent
-                    Calendar. Every day brings a new surprise, filled with
-                    inspiration, joy, and a touch of holiday magic to brighten
-                    the end of your year.
+                    Something special is on it's way...Keep an eye out!
                   </p>
                 </Text>
               </div>
