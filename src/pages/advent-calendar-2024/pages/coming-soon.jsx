@@ -1,7 +1,6 @@
 import {
   ResponsiveLayout,
-  Text7,
-  Box,
+  Text5,
   Stack,
   Text,
   Align,
@@ -112,8 +111,8 @@ const ComingSoonPage = () => {
                 mobileLineHeight={56}
                 weight="bold"
               >
-                Mística Advent Calendar
-              </Text>
+                Something special is on its way...
+              </Text> 
               <div
                 style={{
                   maxWidth: 600,
@@ -123,11 +122,10 @@ const ComingSoonPage = () => {
                   margin: "auto",
                 }}
               >
-                <Text>
-                  <p>
-                    Something special is on it's way...Keep an eye out!
-                  </p>
-                </Text>
+                <Text5>
+                  Keep an eye out!
+                
+                </Text5>
               </div>
               <div
                 style={{
@@ -135,6 +133,7 @@ const ComingSoonPage = () => {
                   justifyContent: "center",
                   textAlign: "center",
                   margin: "auto",
+                  padding: "4%",
                 }}
               >
                 <DecorationSnake
