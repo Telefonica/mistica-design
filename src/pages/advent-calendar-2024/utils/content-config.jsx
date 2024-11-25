@@ -1,30 +1,5 @@
-import GamesView from "../pages/games-view";
+import { Placeholder, skinVars, Text1, Text3 } from "@telefonica/mistica";
 
-import quizQuestions from "../components/quiz-questions";
-
-import { Text3, Text1, skinVars } from "@telefonica/mistica";
-
-import {
-  IllustrationWoolClothes,
-  IllustrationWishesLetter,
-} from "../assets/illustrations/illustrations";
-import HigherOrLower from "../components/games/higher-or-lower";
-import MemoryGame from "../components/games/memory";
-import SimonSays from "../components/games/simon";
-import WordleGame from "../components/games/wordle";
-import { GuessWhat, icons, questions } from "../components/quizzes/guess-what";
-import { componentQuestions } from "../components/quizzes/guess-what";
-import { iconQuestions } from "../components/quizzes/guess-what";
-import { componentAssets } from "../components/quizzes/guess-what";
-import EmojiMovies from "../components/games/movie-emoji";
-import GuessTheComponent, {
-  meterGuess,
-  NakedCardGuess,
-} from "../components/quizzes/guess-component";
-import CandyCrush from "../components/games/candy";
-import AdventCalendarHistory from "../components/static-content/advent-calendar-history";
-import ChristmasGreetings from "../components/static-content/christmas-greetings";
-import TopContributors from "../components/static-content/top-contributors";
 import {
   Illustration02,
   Illustration03,
@@ -32,15 +7,45 @@ import {
   Illustration05,
   Illustration06,
   Illustration09,
+  Illustration10,
+  Illustration11,
+  Illustration12,
+  Illustration13,
+  Illustration16,
+  Illustration17,
+  Illustration18,
+  Illustration19,
+  Illustration20,
+  Illustration23,
+  Illustration24,
+  Illustration25,
 } from "../assets/illustrations/illustrations";
-import Horoscope from "../components/static-content/horoscope";
+
+import CandyCrush from "../components/games/candy";
+import MemoryGame from "../components/games/memory";
+import EmojiMovies from "../components/games/movie-emoji";
+import SimonSays from "../components/games/simon";
+import WordleGame from "../components/games/wordle";
+import GuessTheComponent, {
+  meterGuess,
+  NakedCardGuess,
+} from "../components/quizzes/guess-component";
+import {
+  componentQuestions,
+  GuessWhat,
+  iconQuestions,
+} from "../components/quizzes/guess-what";
+import AdventCalendarHistory from "../components/static-content/advent-calendar-history";
+import ChristmasGreetings from "../components/static-content/christmas-greetings";
 import ChristmasMovies from "../components/static-content/christmas-movies";
+import Horoscope from "../components/static-content/horoscope";
+import TopContributors from "../components/static-content/top-contributors";
 
 const contentByDate = {
   "2024-12-02": {
     repeatable: false,
     illustration: <Illustration02 />,
-    illustrationDimmed: <Illustration04 />,
+    illustrationDimmed: <Illustration02 disabled />,
     content: ({ closeModal }) => <CandyCrush onFinish={closeModal} />,
     title: "“Brandy” crush",
     description:
@@ -49,6 +54,7 @@ const contentByDate = {
   "2024-12-03": {
     repeatable: false,
     illustration: <Illustration03 />,
+    illustrationDimmed: <Illustration03 disabled />,
     content: ({ closeModal }) => <EmojiMovies onFinish={closeModal} />,
     title: "Emoji movie",
     description:
@@ -57,6 +63,7 @@ const contentByDate = {
   "2024-12-04": {
     repeatable: true,
     illustration: <Illustration04 />,
+    illustrationDimmed: <Illustration04 disabled />,
     content: (
       <GuessWhat questions={componentQuestions} quizType={"component"} />
     ),
@@ -66,6 +73,8 @@ const contentByDate = {
   },
   "2024-12-05": {
     content: ({ closeModal }) => <WordleGame onFinish={closeModal} />,
+    illustration: <Illustration05 />,
+    illustrationDimmed: <Illustration05 disabled />,
     title: "Popcor",
     description: (
       <>
@@ -138,6 +147,7 @@ const contentByDate = {
   "2024-12-06": {
     repeatable: false,
     illustration: <Illustration06 />,
+    illustrationDimmed: <Illustration06 disabled />,
     content: ({ closeModal }) => <WordleGame onFinish={closeModal} />,
     title: "Wordle",
     description: (
@@ -211,6 +221,7 @@ const contentByDate = {
   "2024-12-09": {
     repeatable: true,
     illustration: <Illustration09 />,
+    illustrationDimmed: <Illustration09 disabled />,
     content: <Horoscope />,
     title: "Mística zodiac sign",
     description:
@@ -218,6 +229,8 @@ const contentByDate = {
   },
   "2024-12-10": {
     repeatable: false,
+    illustration: <Illustration10 />,
+    illustrationDimmed: <Illustration10 disabled />,
     content: ({ closeModal }) => (
       <GuessTheComponent component={meterGuess} onFinish={closeModal} />
     ),
@@ -227,12 +240,15 @@ const contentByDate = {
   },
   "2024-12-11": {
     repeatable: true,
+    illustration: <Illustration11 />,
+    illustrationDimmed: <Illustration11 disabled />,
     content: <AdventCalendarHistory />,
     title: "Did you know...",
     description: "Where the tradition Christmas calendar comes from?",
   },
   "2024-12-12": {
-    illustration: <IllustrationWoolClothes />,
+    illustration: <Illustration12 />,
+    illustrationDimmed: <Illustration12 disabled />,
     content: ({ closeModal }) => <MemoryGame onFinish={closeModal} />,
     title: "Memory cards",
     description: (
@@ -248,12 +264,30 @@ const contentByDate = {
   },
   "2024-12-13": {
     repeatable: true,
+    illustration: <Illustration13 />,
+    illustrationDimmed: <Illustration13 disabled />,
     content: <GuessWhat questions={iconQuestions} quizType={"icon"} />,
     title: "Icon Match",
     description:
       "If you were an Mística icon, which one would you be? Choose the answers that best fit you and find out! ",
   },
+  "2024-12-16": {
+    illustration: <Illustration16 />,
+    illustrationDimmed: <Illustration16 disabled />,
+    content: ({ closeModal }) => <Placeholder />,
+    title: "Pending",
+    description: "Pending",
+  },
+  "2024-12-17": {
+    illustration: <Illustration17 />,
+    illustrationDimmed: <Illustration17 disabled />,
+    content: ({ closeModal }) => <Placeholder />,
+    title: "Pending",
+    description: "Pending",
+  },
   "2024-12-18": {
+    illustration: <Illustration18 />,
+    illustrationDimmed: <Illustration18 disabled />,
     repeatable: false,
     content: ({ closeModal }) => (
       <GuessTheComponent component={NakedCardGuess} onFinish={closeModal} />
@@ -262,13 +296,24 @@ const contentByDate = {
     description:
       "Can you guess which is? Only the wisest will succeed! The component image is blurred to make it more difficult, you don't need to put on your glasses 👓 ",
   },
+  "2024-12-19": {
+    illustration: <Illustration19 />,
+    illustrationDimmed: <Illustration19 disabled />,
+    content: ({ closeModal }) => <Placeholder />,
+    title: "Pending",
+    description: "Pending",
+  },
   "2024-12-20": {
+    illustration: <Illustration20 />,
+    illustrationDimmed: <Illustration20 disabled />,
     repeatable: true,
     content: <TopContributors />,
     title: "Top contributors",
     description: "A big thank you to our contributors!",
   },
   "2024-12-22": {
+    illustration: <Illustration11 />,
+    illustrationDimmed: <Illustration11 disabled />,
     content: ({ closeModal }) => <SimonSays onFinish={closeModal} />,
     title: "Simon says",
     description: (
@@ -288,13 +333,24 @@ const contentByDate = {
     ),
   },
   "2024-12-23": {
+    illustration: <Illustration23 />,
+    illustrationDimmed: <Illustration23 disabled />,
     repeatable: true,
     content: <ChristmasMovies />,
     title: "Popcorn Night",
     description:
       "If you prefer to stay home these days and enjoy some peace and quiet, here are some “Christmas” movie recommendations.🍿 And don't worry, the Grinch won't mind you staying home! 😜",
   },
+  "2024-12-24": {
+    illustration: <Illustration24 />,
+    illustrationDimmed: <Illustration24 disabled />,
+    content: ({ closeModal }) => <Placeholder />,
+    title: "Pending",
+    description: "Pending",
+  },
   "2024-12-25": {
+    illustration: <Illustration25 />,
+    illustrationDimmed: <Illustration25 disabled />,
     repeatable: true,
     content: <ChristmasGreetings />,
     title: "Happy Christmas!",

@@ -16,7 +16,7 @@ import { CARD_STATES } from "../utils/constants"; // Importa CARD_STATES si no l
 import contentByDate from "../utils/content-config"; // Asegúrate de importar tu configuración de contenido
 
 // IllustrationWrapper Component
-const IllustrationWrapper = ({ illustration, status }) => {
+const IllustrationWrapper = ({ illustration, illustrationDimmed, status }) => {
   return (
     <Align x="center">
       <div
@@ -26,14 +26,9 @@ const IllustrationWrapper = ({ illustration, status }) => {
           alignItems: "center",
           width: "100px",
           height: "100px",
-          filter:
-            status === CARD_STATES.BLOCKED
-              ? "grayscale(100%) contrast(0%)"
-              : "none",
-          opacity: status === CARD_STATES.BLOCKED ? 0.35 : 1,
         }}
       >
-        {illustration}
+        {status === CARD_STATES.BLOCKED ? illustrationDimmed : illustration}
       </div>
     </Align>
   );
@@ -96,6 +91,9 @@ const ProgressGrid = ({ completedDays }) => {
                 {illustration ? (
                   <IllustrationWrapper
                     illustration={illustration}
+                    illustrationDimmed={
+                      contentByDate[day.date]?.illustrationDimmed
+                    }
                     status={status}
                   />
                 ) : (
