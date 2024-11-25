@@ -26,6 +26,7 @@ import AdventCalendarHistory from "../components/static-content/advent-calendar-
 import ChristmasGreetings from "../components/static-content/christmas-greetings";
 import TopContributors from "../components/static-content/top-contributors";
 import MusicLists from "../components/static-content/music-list";
+import TelefonicaAnniversary from "../components/static-content/telefonica-anniversary";
 import {
   Illustration02,
   Illustration03,
@@ -188,6 +189,13 @@ const contentByDate = {
     title: "Icon Match",
     description:
       "If you were an Mística icon, which one would you be? Choose the answers that best fit you and find out! ",
+  },
+  "2024-12-16": {
+    repeatable: true,
+    content: <TelefonicaAnniversary />,
+    title: "100 years",
+    description:
+      "This milestone doesn’t happen every day, which is why we’ve dedicated one of our calendar days to celebrate it!",
   },
   "2024-12-18": {
     repeatable: false,
