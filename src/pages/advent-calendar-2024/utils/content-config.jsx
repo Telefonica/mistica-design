@@ -34,6 +34,7 @@ import {
   Illustration09,
 } from "../assets/illustrations/illustrations";
 import Horoscope from "../components/static-content/horoscope";
+import ChristmasMovies from "../components/static-content/christmas-movies";
 
 const contentByDate = {
   "2024-12-02": {
@@ -63,12 +64,75 @@ const contentByDate = {
       "If you were an Mística icon, which one would you be? Choose the answers that best fit you and find out! ",
   },
   "2024-12-05": {
-    repeatable: false,
-    illustration: <Illustration05 />,
-    content: ({ closeModal }) => <HigherOrLower onFinish={closeModal} />,
-    title: "Higher or Lower",
-    description:
-      "Answer the question by guessing whether the number is higher or lower than the given data.",
+    content: ({ closeModal }) => <WordleGame onFinish={closeModal} />,
+    title: "Popcor",
+    description: (
+      <>
+        <Text3 color={skinVars.colors.brand}>
+          Type your attempts, hit 'Enter,' and let the letters reveal their
+          secrets. <br />
+          Can you uncover the missing word and bring balance back to Mística?{" "}
+          <br />
+          <br />
+        </Text3>
+
+        <Text1 color={skinVars.colors.brand}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <div
+              style={{
+                width: "20px",
+                height: "20px",
+                backgroundColor: "#d9d9d9",
+                border: `2px solid white`,
+                borderRadius: "4px",
+              }}
+            ></div>
+            Gray means the letter is not in the word.
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              marginTop: "8px",
+            }}
+          >
+            <div
+              style={{
+                width: "20px",
+                height: "20px",
+                backgroundColor: skinVars.colors.warning,
+                border: `2px solid white`,
+                borderRadius: "4px",
+              }}
+            ></div>
+            Yellow indicates the letter is in the word but in the wrong
+            position.
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              marginTop: "8px",
+            }}
+          >
+            <div
+              style={{
+                width: "20px",
+                height: "20px",
+                backgroundColor: skinVars.colors.success,
+                border: `2px solid white`,
+                borderRadius: "4px",
+              }}
+            ></div>
+            Green shows that the letter is correct and in the right spot.
+          </div>
+          <br />
+          Use these clues wisely to solve the mystery!
+        </Text1>
+      </>
+    ),
   },
   "2024-12-06": {
     repeatable: false,
@@ -223,75 +287,11 @@ const contentByDate = {
     ),
   },
   "2024-12-23": {
-    content: ({ closeModal }) => <WordleGame onFinish={closeModal} />,
-    title: "Wordle",
-    description: (
-      <>
-        <Text3 color={skinVars.colors.brand}>
-          Type your attempts, hit 'Enter,' and let the letters reveal their
-          secrets. <br />
-          Can you uncover the missing word and bring balance back to Mística?{" "}
-          <br />
-          <br />
-        </Text3>
-
-        <Text1 color={skinVars.colors.brand}>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <div
-              style={{
-                width: "20px",
-                height: "20px",
-                backgroundColor: "#d9d9d9",
-                border: `2px solid white`,
-                borderRadius: "4px",
-              }}
-            ></div>
-            Gray means the letter is not in the word.
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              marginTop: "8px",
-            }}
-          >
-            <div
-              style={{
-                width: "20px",
-                height: "20px",
-                backgroundColor: skinVars.colors.warning,
-                border: `2px solid white`,
-                borderRadius: "4px",
-              }}
-            ></div>
-            Yellow indicates the letter is in the word but in the wrong
-            position.
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              marginTop: "8px",
-            }}
-          >
-            <div
-              style={{
-                width: "20px",
-                height: "20px",
-                backgroundColor: skinVars.colors.success,
-                border: `2px solid white`,
-                borderRadius: "4px",
-              }}
-            ></div>
-            Green shows that the letter is correct and in the right spot.
-          </div>
-          <br />
-          Use these clues wisely to solve the mystery!
-        </Text1>
-      </>
-    ),
+    repeatable: true,
+    content: <ChristmasMovies />,
+    title: "Popcorn Night",
+    description:
+      "If you prefer to stay home these days and enjoy some peace and quiet, here are some “Christmas” movie recommendations.🍿 And don't worry, the Grinch won't mind you staying home! 😜",
   },
   "2024-12-25": {
     repeatable: true,

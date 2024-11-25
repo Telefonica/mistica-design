@@ -32,11 +32,7 @@ const CalendarCard = ({
   const today = new Date().toISOString().split("T")[0];
   const isRepeatable = repeatable; //TODO: add !today;
 
-  console.log("CalendarCard", {
-    DateString,
-    DayOfWeek,
-    status,
-  });
+
 
   const handleClick = () => {
     if (status === CARD_STATES.AVAILABLE || isRepeatable) {
