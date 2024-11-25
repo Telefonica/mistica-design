@@ -1,5 +1,6 @@
 import { ButtonPrimary, Text, Stack, Align } from "@telefonica/mistica";
 import { useScreenSize } from "@telefonica/mistica";
+import { saveGameData } from "../../utils/score-manager";
 import Score from "../score";
 import React, { useState, useEffect } from "react";
 import blau from "../../../../img/games/blau.svg";
@@ -11,6 +12,7 @@ import vivo from "../../../../img/games/vivo.svg";
 import "./candy.css";
 
 const CandyCrush = ({ onFinish }) => {
+  const gameName = "candyCrush";
   const { isMobile } = useScreenSize();
   const width = 8;
   const candyColors = [movistar, tu, vivo, blau, telefonica, o2];
@@ -27,6 +29,11 @@ const CandyCrush = ({ onFinish }) => {
 
   const handleGameEnd = () => {
     if (onFinish) onFinish();
+    saveGameData(
+      gameName,
+      score,
+      true
+    );
   };
 
   useEffect(() => {
