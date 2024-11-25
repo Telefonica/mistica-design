@@ -14,6 +14,8 @@ import {
   Snackbar,
   TelefonicaLogo,
   skinVars,
+  Text3,
+  Text2,
 } from "@telefonica/mistica";
 import NavBar from "../components/navbar";
 import DecorationSnake from "../assets/decorations/decoration-snake";
@@ -123,14 +125,14 @@ const ComingSoonPage = () => {
                   margin: "auto",
                 }}
               >
-                <Text>
+                <Text2>
                   <p>
                     Get ready to experience the magic of the Mística Advent
                     Calendar. Every day brings a new surprise, filled with
                     inspiration, joy, and a touch of holiday magic to brighten
                     the end of your year.
                   </p>
-                </Text>
+                </Text2>
               </div>
               <div
                 style={{
