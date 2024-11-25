@@ -23,7 +23,10 @@ import {
 
 import CandyCrush from "../components/games/candy";
 import MemoryGame from "../components/games/memory";
-import EmojiMovies from "../components/games/movie-emoji";
+import EmojiMovies, {
+  set1Movies,
+  set2Movies,
+} from "../components/games/movie-emoji";
 import SimonSays from "../components/games/simon";
 import WordleGame from "../components/games/wordle";
 import GuessTheComponent, {
@@ -56,7 +59,9 @@ const contentByDate = {
     repeatable: false,
     illustration: <Illustration03 />,
     illustrationDimmed: <Illustration03 disabled />,
-    content: ({ closeModal }) => <EmojiMovies onFinish={closeModal} />,
+    content: ({ closeModal }) => (
+      <EmojiMovies movies={set1Movies} onFinish={closeModal} />
+    ),
     title: "Emoji movie",
     description:
       "Can you guess which Christmas movie these emojis represent? 🎬.",
@@ -211,9 +216,12 @@ const contentByDate = {
   "2024-12-16": {
     illustration: <Illustration16 />,
     illustrationDimmed: <Illustration16 disabled />,
-    content: ({ closeModal }) => <Placeholder />,
-    title: "Pending",
-    description: "Pending",
+    content: ({ closeModal }) => (
+      <EmojiMovies movies={set2Movies} onFinish={closeModal} />
+    ),
+    title: "Emoji movie",
+    description:
+      "Can you guess which Christmas movie these emojis represent? 🎬.",
   },
   "2024-12-17": {
     illustration: <Illustration17 />,
