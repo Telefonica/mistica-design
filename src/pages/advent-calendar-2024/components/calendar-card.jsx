@@ -1,18 +1,17 @@
 import {
-  Inline,
-  Stack,
-  skinVars,
-  Text5,
-  Text,
-  IconLockEyeClosedFilled,
   Circle,
-  IconChevronRightRegular,
   IconArrowLineRightRegular,
+  IconLockEyeClosedFilled,
+  Inline,
+  skinVars,
+  Stack,
+  Text,
+  Text5,
 } from "@telefonica/mistica";
 import { useRef, useState } from "react";
-import styles from "./calendar-card.module.css";
-import { CARD_STATES } from "../utils/constants";
 import { IconCompleted, IconLockOpen } from "../assets/icons/icons";
+import { CARD_STATES } from "../utils/constants";
+import styles from "./calendar-card.module.css";
 import ModalView from "./modal-view";
 
 const CalendarCard = ({
@@ -118,7 +117,7 @@ const CalendarCard = ({
           ) : status === CARD_STATES.BLOCKED ? (
             <IconLockEyeClosedFilled
               size={40}
-              color={skinVars.colors.textSecondary}
+              color={skinVars.colors.neutralMedium}
             />
           ) : (
             <IconCompleted size={40} />

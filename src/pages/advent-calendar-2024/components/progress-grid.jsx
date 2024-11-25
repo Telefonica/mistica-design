@@ -1,18 +1,19 @@
-import React from "react";
 import {
   Align,
-  skinVars,
   Grid,
   GridItem,
+  IconLockEyeClosedFilled,
+  skinVars,
   Stack,
   Text,
   Text6,
   useScreenSize,
 } from "@telefonica/mistica";
+import React from "react";
 import IconCompleted from "../assets/icons/icon-completed.jsx";
-import contentByDate from "../utils/content-config"; // Asegúrate de importar tu configuración de contenido
 import { calendarDays } from "../utils/calendar-config";
 import { CARD_STATES } from "../utils/constants"; // Importa CARD_STATES si no lo tienes ya
+import contentByDate from "../utils/content-config"; // Asegúrate de importar tu configuración de contenido
 
 // IllustrationWrapper Component
 const IllustrationWrapper = ({ illustration, status }) => {
@@ -80,8 +81,13 @@ const ProgressGrid = ({ completedDays }) => {
                 {/* Icono de completado */}
                 <div style={{ height: 24 }}>
                   <Align x="end">
-                    {isDayCompleted(day.dayNumber) && (
+                    {isDayCompleted(day.dayNumber) === true ? (
                       <IconCompleted size={24} />
+                    ) : (
+                      <IconLockEyeClosedFilled
+                        size={24}
+                        color={skinVars.colors.neutralMedium}
+                      />
                     )}
                   </Align>
                 </div>
