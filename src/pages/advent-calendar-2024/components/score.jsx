@@ -1,6 +1,7 @@
 import {
   IconAlarmClockFilled,
   Inline,
+  skinVars,
   Tag,
   Text4,
   Text5,
@@ -15,7 +16,7 @@ const Score = ({ score, time, timeRunning, movements, isFinal }) => {
           style={{ display: "inline-flex", flexDirection: "column", gap: 8 }}
         >
           <Text5>Your final score is</Text5>
-          <DecorationPatty size={128} text={score} stroke="0.75" />
+          <DecorationPatty size={128} text={score} stroke="0.75" color={skinVars.colors.brand} />
         </div>
       ) : (
         <div style={{ display: "flex", gap: 24 }}>
