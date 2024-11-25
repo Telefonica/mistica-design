@@ -25,6 +25,7 @@ import CandyCrush from "../components/games/candy";
 import AdventCalendarHistory from "../components/static-content/advent-calendar-history";
 import ChristmasGreetings from "../components/static-content/christmas-greetings";
 import TopContributors from "../components/static-content/top-contributors";
+import MusicLists from "../components/static-content/music-list";
 import {
   Illustration02,
   Illustration03,
@@ -292,7 +293,13 @@ const contentByDate = {
         </Text1>
       </>
     ),
+  },  "2024-12-24": {
+    repeatable: true,
+    content: <MusicLists />,
+    title: "Happy Christmas!",
+    description: "And a merry new year",
   },
+
   "2024-12-25": {
     repeatable: true,
     content: <ChristmasGreetings />,
