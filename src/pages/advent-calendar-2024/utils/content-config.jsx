@@ -40,6 +40,7 @@ const contentByDate = {
   "2024-12-02": {
     repeatable: false,
     illustration: <Illustration02 />,
+    illustrationDimmed: <Illustration04 />,
     content: ({ closeModal }) => <CandyCrush onFinish={closeModal} />,
     title: "“Brandy” crush",
     description:

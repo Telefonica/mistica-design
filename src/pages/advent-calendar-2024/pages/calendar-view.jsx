@@ -144,6 +144,10 @@ const CalendarView = () => {
         status={getDayStatus(date)} // Ensure status is updated based on availability
         onEndDay={() => markDayAsCompleted(date)}
         illustration={contentByDate[date]?.illustration}
+        illustrationDimmed={
+          contentByDate[date]?.illustrationDimmed ||
+          contentByDate[date]?.illustration
+        }
         repeatable={contentByDate[date]?.repeatable}
       />
     ));

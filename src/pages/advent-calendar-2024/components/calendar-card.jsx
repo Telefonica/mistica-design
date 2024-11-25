@@ -24,6 +24,7 @@ const CalendarCard = ({
   status,
   onEndDay,
   illustration,
+  illustrationDimmed,
   repeatable,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -31,8 +32,6 @@ const CalendarCard = ({
   const day = new Date(DateString).getDate();
   const today = new Date().toISOString().split("T")[0];
   const isRepeatable = repeatable; //TODO: add !today;
-
-
 
   const handleClick = () => {
     if (status === CARD_STATES.AVAILABLE || isRepeatable) {
@@ -80,21 +79,20 @@ const CalendarCard = ({
     }
   }
 
-  const IllustrationWrapper = ({ illustration, status }) => {
+  const IllustrationWrapper = ({
+    illustration,
+    illustrationDimmed,
+    status,
+  }) => {
     return (
       <div
         style={{
-          filter:
-            status === CARD_STATES.BLOCKED
-              ? "grayscale(100%) contrast(0%)"
-              : "none",
-          opacity: status === CARD_STATES.BLOCKED ? 0.35 : 1,
           display: "inline-flex",
           width: "100%",
           justifyContent: "center",
         }}
       >
-        {illustration}
+        {status === CARD_STATES.BLOCKED ? illustrationDimmed : illustration}
       </div>
     );
   };
@@ -207,8 +205,12 @@ const CalendarCard = ({
             <StatusIndicator />
           </Stack>
 
-          {illustration && (
-            <IllustrationWrapper illustration={illustration} status={status} />
+          {(illustration || illustrationDimmed) && (
+            <IllustrationWrapper
+              illustration={illustration}
+              illustrationDimmed={illustrationDimmed}
+              status={status}
+            />
           )}
 
           <Inline space="between" alignItems="center">
