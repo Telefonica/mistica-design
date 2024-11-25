@@ -1,18 +1,17 @@
 import {
-  Inline,
-  Stack,
-  skinVars,
-  Text5,
-  Text,
-  IconLockEyeClosedFilled,
   Circle,
-  IconChevronRightRegular,
   IconArrowLineRightRegular,
+  IconLockEyeClosedFilled,
+  Inline,
+  skinVars,
+  Stack,
+  Text,
+  Text5,
 } from "@telefonica/mistica";
 import { useRef, useState } from "react";
-import styles from "./calendar-card.module.css";
-import { CARD_STATES } from "../utils/constants";
 import { IconCompleted, IconLockOpen } from "../assets/icons/icons";
+import { CARD_STATES } from "../utils/constants";
+import styles from "./calendar-card.module.css";
 import ModalView from "./modal-view";
 
 const CalendarCard = ({
@@ -24,6 +23,7 @@ const CalendarCard = ({
   status,
   onEndDay,
   illustration,
+  illustrationDimmed,
   repeatable,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -31,12 +31,6 @@ const CalendarCard = ({
   const day = new Date(DateString).getDate();
   const today = new Date().toISOString().split("T")[0];
   const isRepeatable = repeatable; //TODO: add !today;
-
-  console.log("CalendarCard", {
-    DateString,
-    DayOfWeek,
-    status,
-  });
 
   const handleClick = () => {
     if (status === CARD_STATES.AVAILABLE || isRepeatable) {
@@ -84,21 +78,20 @@ const CalendarCard = ({
     }
   }
 
-  const IllustrationWrapper = ({ illustration, status }) => {
+  const IllustrationWrapper = ({
+    illustration,
+    illustrationDimmed,
+    status,
+  }) => {
     return (
       <div
         style={{
-          filter:
-            status === CARD_STATES.BLOCKED
-              ? "grayscale(100%) contrast(0%)"
-              : "none",
-          opacity: status === CARD_STATES.BLOCKED ? 0.35 : 1,
           display: "inline-flex",
           width: "100%",
           justifyContent: "center",
         }}
       >
-        {illustration}
+        {status === CARD_STATES.BLOCKED ? illustrationDimmed : illustration}
       </div>
     );
   };
@@ -124,7 +117,7 @@ const CalendarCard = ({
           ) : status === CARD_STATES.BLOCKED ? (
             <IconLockEyeClosedFilled
               size={40}
-              color={skinVars.colors.textSecondary}
+              color={skinVars.colors.neutralMedium}
             />
           ) : (
             <IconCompleted size={40} />
@@ -211,8 +204,12 @@ const CalendarCard = ({
             <StatusIndicator />
           </Stack>
 
-          {illustration && (
-            <IllustrationWrapper illustration={illustration} status={status} />
+          {(illustration || illustrationDimmed) && (
+            <IllustrationWrapper
+              illustration={illustration}
+              illustrationDimmed={illustrationDimmed}
+              status={status}
+            />
           )}
 
           <Inline space="between" alignItems="center">
