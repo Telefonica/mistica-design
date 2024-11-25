@@ -1,26 +1,25 @@
 import {
-  ResponsiveLayout,
-  Inline,
   Box,
-  TelefonicaLogo,
-  Touchable,
-  Text3,
-  TextLink,
-  skinVars,
+  Circle,
+  Inline,
+  MainNavigationBar,
+  ResponsiveLayout,
   Sheet,
   SheetBody,
-  Text5,
   Stack,
+  TelefonicaLogo,
   Text,
-  Circle,
   Text1,
+  Text3,
+  Text5,
+  TextLink,
+  skinVars,
   useScreenSize,
-  MainNavigationBar,
 } from "@telefonica/mistica";
-import RotatingSVG from "./label-rotate";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { base64Encode } from "../utils/url-encoder";
-import { useState } from "react";
+import RotatingSVG from "./label-rotate";
 
 const SheetView = ({ isOpen, onClose, handleViewProgress }) => {
   return (
@@ -92,8 +91,23 @@ const SheetView = ({ isOpen, onClose, handleViewProgress }) => {
 const NavBar = () => {
   const navigate = useNavigate();
   const location = useLocation(); // Get the current location
-  const { isMobile } = useScreenSize();
+  const { isMobile, isTabletOrSmaller } = useScreenSize();
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [showLogo, setShowLogo] = useState(false);
+
+  useEffect(() => {
+    const updateLogoVisibility = () => {
+      setShowLogo(window.innerWidth < 1560);
+    };
+
+    // Set initial state and listen for resize events
+    updateLogoVisibility();
+    window.addEventListener("resize", updateLogoVisibility);
+
+    return () => {
+      window.removeEventListener("resize", updateLogoVisibility);
+    };
+  }, []);
 
   const handleViewProgress = () => {
     const completedDays =
@@ -137,6 +151,11 @@ const NavBar = () => {
             onPress: () => setIsSheetOpen(true),
             decoration: isSheetOpen ? "underline" : "none",
           },
+          {
+            title: "Discover Mística",
+            href: "https://brandfactory.telefonica.com/d/iSp7b1DkYygv/n-a#/get-started/what-is-mistica",
+            newTab: true,
+          },
         ]}
       />
       <SheetView
@@ -147,12 +166,11 @@ const NavBar = () => {
     </>
   ) : (
     <ResponsiveLayout>
-      <Box paddingY={24}>
+      <Box paddingY={40}>
         <Inline space="between" alignItems="center">
-          <Touchable to={"/advent-calendar-2024"}>
-            <RotatingSVG />
-          </Touchable>
-          <Inline space={64} alignItems="center">
+          <div></div>
+
+          <Inline space={isTabletOrSmaller ? 24 : 64} alignItems="center">
             <Text3
               medium
               decoration={
@@ -178,7 +196,7 @@ const NavBar = () => {
                 style={{ color: skinVars.colors.textPrimary }}
                 onPress={handleViewProgress}
               >
-                My progress (10%)
+                My progress
               </TextLink>
             </Text3>
             <Text3 medium>
@@ -189,7 +207,17 @@ const NavBar = () => {
                 How to play
               </TextLink>
             </Text3>
-            <TelefonicaLogo type="imagotype" size={40} />
+
+            <Text3 medium>
+              <TextLink
+                href="https://brandfactory.telefonica.com/d/iSp7b1DkYygv/n-a#/get-started/what-is-mistica"
+                newTab
+              >
+                Discover Mística
+              </TextLink>
+            </Text3>
+
+            {showLogo && <TelefonicaLogo type="imagotype" size={40} />}
           </Inline>
         </Inline>
       </Box>

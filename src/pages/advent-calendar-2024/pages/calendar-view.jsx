@@ -1,34 +1,42 @@
 import {
-  ResponsiveLayout,
-  ButtonPrimary,
-  Text,
   Box,
-  Stack,
+  ButtonPrimary,
   Carousel,
-  Text4,
+  Circle,
   GridLayout,
+  Inline,
+  ResponsiveLayout,
+  Sheet,
+  SheetBody,
+  Stack,
+  Text,
+  Text1,
+  Text3,
+  Text4,
+  Text5,
   TextLink,
   skinVars,
-  Inline,
   useScreenSize,
 } from "@telefonica/mistica";
-import CalendarCard from "../components/calendar-card";
-import NavBar from "../components/navbar";
-import { useState, useMemo } from "react";
-import { updateCompletedDays } from "../utils/state-manager";
+import { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import {
-  checkAndUnlockAchievements,
-  achievementsConfig,
-  ACHIEVEMENT_PREFIX,
-} from "../utils/achievement-config";
-import { CARD_STATES } from "../utils/constants";
-import ToastWrapper from "../components/toast-wrapper";
-import contentByDate from "../utils/content-config";
-import DecorationSnake from "../assets/decorations/decoration-snake.jsx";
-import { calendarDays } from "../utils/calendar-config.jsx";
 import DecorationPatty from "../assets/decorations/decoration-patty.jsx";
+import DecorationSnake from "../assets/decorations/decoration-snake.jsx";
+import CalendarCard from "../components/calendar-card";
+import CornerLayout from "../components/corner-layout.jsx";
+import NavBar from "../components/navbar";
 import Snow from "../components/snow.tsx";
+import ToastWrapper from "../components/toast-wrapper";
+import {
+  ACHIEVEMENT_PREFIX,
+  achievementsConfig,
+  checkAndUnlockAchievements,
+} from "../utils/achievement-config";
+import { calendarDays } from "../utils/calendar-config.jsx";
+import { CARD_STATES } from "../utils/constants";
+import contentByDate from "../utils/content-config";
+import { updateCompletedDays } from "../utils/state-manager";
+import { base64Encode } from "../utils/url-encoder.jsx";
 
 const CalendarView = () => {
   const location = useLocation();
@@ -140,10 +148,93 @@ const CalendarView = () => {
       />
     ));
   }, [completedDays, availableDays, calendarDays]);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+  const handleViewProgress = () => {
+    const completedDays =
+      JSON.parse(localStorage.getItem("completedDays")) || [];
+
+    // Encode completed days as a Base64 string
+    const encodedDays = base64Encode(completedDays.join(","));
+    const params = new URLSearchParams({
+      completedDays: encodedDays,
+    });
+
+    navigate(`/advent-calendar-2024/progress-view?${params.toString()}`);
+  };
+
+  const SheetView = ({ isOpen, onClose, handleViewProgress }) => {
+    return (
+      isOpen && (
+        <Sheet onClose={onClose}>
+          {({ modalTitleId }) => (
+            <SheetBody modalTitleId={modalTitleId}>
+              <Box paddingBottom={{ mobile: 16, desktop: 0 }}>
+                <Stack space={32}>
+                  <Stack space={32}>
+                    <Text5>How this calendar works</Text5>
+                    <Text3>
+                      Before you begin, it’s important to follow these simple
+                      instructions.
+                    </Text3>
+                    <Text3>
+                      <Stack space={32}>
+                        <Inline space={16}>
+                          <Circle size={24} background={skinVars.colors.brand}>
+                            <Text1 medium color={skinVars.colors.inverse}>
+                              1
+                            </Text1>
+                          </Circle>
+
+                          <p>
+                            Each day, you'll have a chance to participate and
+                            unlock a new square. Remember,{" "}
+                            <strong>it’s only available that day!</strong>
+                          </p>
+                        </Inline>
+
+                        <Inline space={16}>
+                          <Circle size={24} background={skinVars.colors.brand}>
+                            <Text1 medium color={skinVars.colors.inverse}>
+                              2
+                            </Text1>
+                          </Circle>
+                          <p>
+                            In{" "}
+                            <TextLink onPress={handleViewProgress}>
+                              My Progress
+                            </TextLink>{" "}
+                            page, you can see the days you've completed, your
+                            achievements, and the score you're accumulating. To
+                            make sure you don't lose your progress, it's
+                            important{" "}
+                            <strong>
+                              <Text color={skinVars.colors.errorHigh}>
+                                not to clear your browsing data.
+                              </Text>
+                            </strong>
+                          </p>
+                        </Inline>
+                      </Stack>
+                    </Text3>
+                    <Text3>
+                      <strong>That said...</strong> Can you unlock all the
+                      tiles? We challenge you to do it!
+                    </Text3>
+                  </Stack>
+                </Stack>
+              </Box>
+            </SheetBody>
+          )}
+        </Sheet>
+      )
+    );
+  };
 
   return (
     <>
       <Snow />
+      <CornerLayout />
       <NavBar />
       <ResponsiveLayout>
         <Box paddingY={42}>
@@ -200,7 +291,10 @@ const CalendarView = () => {
                   <Text4>
                     This year, at Mística, we want to give you a little surprise
                     every day this month in the run up to Christmas.{" "}
-                    <TextLink aria-label="Know more about our calendar">
+                    <TextLink
+                      onPress={() => setIsSheetOpen(true)}
+                      aria-label="Know more about our calendar"
+                    >
                       More
                     </TextLink>
                   </Text4>
@@ -221,7 +315,11 @@ const CalendarView = () => {
           </Stack>
         </Box>
       </ResponsiveLayout>
-
+      <SheetView
+        isOpen={isSheetOpen}
+        onClose={() => setIsSheetOpen(false)}
+        handleViewProgress={handleViewProgress}
+      />
       <ToastWrapper toasts={toasts} removeToast={removeToast} />
     </>
   );
