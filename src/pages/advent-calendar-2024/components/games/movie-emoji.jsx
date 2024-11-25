@@ -20,34 +20,74 @@ import QuizProgress from "../quiz-progress";
 import ContentWrapper from "../content-wrapper";
 import { UI_LABEL } from "../../utils/constants";
 
-const movies = [
+export const set1Movies = [
   {
     emojis: "🏠😱👦🎄",
     answer: "Home Alone",
-    options: ["Elf", "Love Actually"],
+    options: ["The Santa Clause", "The Incredibles"],
     correctAnswer: "Seems that you didn't forget this one!",
   },
   {
     emojis: "🧙‍♂️⚡️🦉🎓🏰",
     answer: "Harry Potter",
-    options: ["Frozen", "The Polar Express"],
+    options: ["The Chronicles of Narnia", "Percy Jackson & The Olympians"],
     correctAnswer: "You're a wizard Harry!",
   },
   {
     emojis: "🟢🎄🐶🎁",
     answer: "The Grinch",
-    options: ["A Christmas Carol", "Elf"],
+    options: ["Beethoven", "The Santa Clause"],
     correctAnswer: "You're a mean one, Mr. Grinch!",
+  },
+  {
+    emojis: "🧝‍♂️🎄🍝🍬",
+    answer: "Elf",
+    options: ["The Polar Express", "Jingle All the Way"],
+    correctAnswer:
+      "The best way to spread Christmas cheer is singing loud for all to hear!",
+  },
+  {
+    emojis: "🚂❄️🎅🎁",
+    answer: "The Polar Express",
+    options: ["The Snowman", "Miracle on 34th Street"],
+    correctAnswer: "Believe!",
+  },
+];
+
+export const set2Movies = [
+  {
+    emojis: "❤️🎄🎶🎁",
+    answer: "Love Actually",
+    options: ["Notting Hill", "Valentine's Day"],
+    correctAnswer: "To me, you are perfect.",
+  },
+  {
+    emojis: "👴🕯️🎄👻",
+    answer: "A Christmas Carol",
+    options: ["Scrooged", "The Muppet Christmas Carol"],
+    correctAnswer: "God bless us, everyone!",
   },
   {
     emojis: "❄️👸⛄🧊",
     answer: "Frozen",
-    options: ["The Grinch", "Harry Potter"],
+    options: ["Brave", "The Chronicles of Narnia"],
     correctAnswer: "Let it go!",
+  },
+  {
+    emojis: "🎃🎄👻🎅",
+    answer: "The Nightmare Before Christmas",
+    options: ["Coraline", "Beetlejuice"],
+    correctAnswer: "What's this?",
+  },
+  {
+    emojis: "🏢🔫🎄🚨",
+    answer: "Die Hard",
+    options: ["Lethal Weapon", "The Rock"],
+    correctAnswer: "Yippee-ki-yay, motherf—!",
   },
 ];
 
-const EmojiMovies = ({ onFinish }) => {
+const EmojiMovies = ({ movies, onFinish }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
