@@ -40,6 +40,7 @@ import ChristmasGreetings from "../components/static-content/christmas-greetings
 import ChristmasMovies from "../components/static-content/christmas-movies";
 import Horoscope from "../components/static-content/horoscope";
 import TopContributors from "../components/static-content/top-contributors";
+import MusicLists from "../components/static-content/music-list"
 
 const contentByDate = {
   "2024-12-02": {
@@ -217,12 +218,7 @@ const contentByDate = {
         </Text1>
       </>
     ),
-  },  "2024-12-24": {
-    repeatable: true,
-    content: <MusicLists />,
-    title: "Tired of carols?",
-    description: "These playlists are for those who want something different this season.",
-  },
+  },  
   "2024-12-09": {
     repeatable: true,
     illustration: <Illustration09 />,
@@ -349,9 +345,9 @@ const contentByDate = {
   "2024-12-24": {
     illustration: <Illustration24 />,
     illustrationDimmed: <Illustration24 disabled />,
-    content: ({ closeModal }) => <Placeholder />,
-    title: "Pending",
-    description: "Pending",
+    content: <MusicLists />,
+    title: "Tired of carols?",
+    description: "These playlists are for those who want something different this season.",
   },
   "2024-12-25": {
     illustration: <Illustration25 />,
