@@ -296,6 +296,7 @@ const CalendarView = () => {
                       color={skinVars.colors.error}
                       textColor={skinVars.colors.textPrimary}
                       textSize={16}
+                      easterEgg={true}
                     ></DecorationPatty>
                   </Inline>
                   <DecorationSnake width={isMobile ? "100%" : 371.84} />
