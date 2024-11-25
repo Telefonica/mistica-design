@@ -77,8 +77,8 @@ const CornerLayout = () => {
         <div
           style={{
             position: "fixed",
-            bottom: 80,
-            left: "-24px",
+            bottom: 88,
+            left: "-12px",
             transform: "rotate(-90deg)",
           }}
         >
@@ -101,8 +101,8 @@ const CornerLayout = () => {
         <div
           style={{
             position: "fixed",
-            top: 32,
-            right: 24,
+            top: 30,
+            right: 40,
           }}
         >
           <TelefonicaLogo type="imagotype" size={40} />
