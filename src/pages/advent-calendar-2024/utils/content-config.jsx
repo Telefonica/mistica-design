@@ -296,8 +296,8 @@ const contentByDate = {
   },  "2024-12-24": {
     repeatable: true,
     content: <MusicLists />,
-    title: "Happy Christmas!",
-    description: "And a merry new year",
+    title: "Tired of carols?",
+    description: "These playlists are for those who want something different this season.",
   },
 
   "2024-12-25": {
