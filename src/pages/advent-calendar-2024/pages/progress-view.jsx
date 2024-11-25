@@ -1,35 +1,35 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
 import {
   Box,
+  ButtonPrimary,
+  Grid,
+  GridItem,
+  GridLayout,
+  IconInformationRegular,
+  IconTrophyFilled,
+  Inline,
+  ProgressBar,
+  ResponsiveLayout,
+  skinVars,
   Stack,
   Text,
   Text4,
-  ButtonPrimary,
-  ResponsiveLayout,
-  Inline,
-  IconTrophyFilled,
-  GridLayout,
   Tooltip,
-  ProgressBar,
-  skinVars,
-  IconInformationRegular,
-  Grid,
-  GridItem,
   useScreenSize,
 } from "@telefonica/mistica";
-import { base64Decode, base64Encode } from "../utils/url-encoder";
-import {
-  achievementsConfig,
-  ACHIEVEMENT_PREFIX,
-} from "../utils/achievement-config";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { IconCard, IconInvader } from "../assets/icons/icons";
 import Achievement from "../components/achievement";
-import ProgressGrid from "../components/progress-grid";
+import CornerLayout from "../components/corner-layout.jsx";
 import NavBar from "../components/navbar";
-import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
-import { IconInvader, IconCard } from "../assets/icons/icons";
-import { calendarDays } from "../utils/calendar-config";
+import ProgressGrid from "../components/progress-grid";
 import Snow from "../components/snow.tsx";
+import {
+  ACHIEVEMENT_PREFIX,
+  achievementsConfig,
+} from "../utils/achievement-config";
+import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
+import { base64Decode, base64Encode } from "../utils/url-encoder";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
@@ -344,6 +344,7 @@ const ProgressView = () => {
   return (
     <>
       <Snow />
+      <CornerLayout />
       <NavBar />
       <ResponsiveLayout>
         <Box paddingY={24}>

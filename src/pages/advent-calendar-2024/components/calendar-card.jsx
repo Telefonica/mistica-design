@@ -7,6 +7,7 @@ import {
   IconLockEyeClosedFilled,
   Circle,
   IconChevronRightRegular,
+  IconArrowLineRightRegular,
 } from "@telefonica/mistica";
 import { useRef, useState } from "react";
 import styles from "./calendar-card.module.css";
@@ -71,7 +72,7 @@ const CalendarCard = ({
     case CARD_STATES.BLOCKED: {
       cardStatusStyles = {
         background: skinVars.colors.backgroundContainer,
-        border: `2px solid ${skinVars.colors.borderLow}`,
+        border: `2px solid ${skinVars.colors.border}`,
       };
       break;
     }
@@ -229,7 +230,7 @@ const CalendarCard = ({
 
             {(status === CARD_STATES.AVAILABLE || isRepeatable) && (
               <Circle size={48} background={skinVars.colors.brand}>
-                <IconChevronRightRegular
+                <IconArrowLineRightRegular
                   size={24}
                   color={skinVars.colors.inverse}
                 />

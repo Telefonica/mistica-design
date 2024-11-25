@@ -43,7 +43,7 @@ const contentByDate = {
     content: ({ closeModal }) => <CandyCrush onFinish={closeModal} />,
     title: "“Brandy” crush",
     description:
-      "Try to match Telefónica brands of the same type in a row or column of 3. You have 32 moves. Can you score the highest with the fewest moves?",
+      "Try to match Telefónica brands of the same type in a row or column of 3. You have 10 moves. Can you score the highest with the fewest moves?",
   },
   "2024-12-03": {
     repeatable: false,
@@ -167,6 +167,21 @@ const contentByDate = {
     title: "Did you know...",
     description: "Where the tradition Christmas calendar comes from?",
   },
+  "2024-12-12": {
+    illustration: <IllustrationWoolClothes />,
+    content: ({ closeModal }) => <MemoryGame onFinish={closeModal} />,
+    title: "Memory cards",
+    description: (
+      <Text3 color={skinVars.colors.brand}>
+        Chaos has struck in Mística—a series of icons have been shuffled out of
+        place! It's your mission to match them and restore harmony in less than
+        60s.
+        <br /> <br />
+        Flip the cards, find the pairs, and show off your memory skills to bring
+        everything back in order!
+      </Text3>
+    ),
+  },
   "2024-12-13": {
     repeatable: true,
     content: <GuessWhat questions={iconQuestions} quizType={"icon"} />,
@@ -188,21 +203,6 @@ const contentByDate = {
     content: <TopContributors />,
     title: "Top contributors",
     description: "A big thank you to our contributors!",
-  },
-  "2024-12-21": {
-    illustration: <IllustrationWoolClothes />,
-    content: ({ closeModal }) => <MemoryGame onFinish={closeModal} />,
-    title: "Memory cards",
-    description: (
-      <Text3 color={skinVars.colors.brand}>
-        Chaos has struck in Mística—a series of icons have been shuffled out of
-        place! It's your mission to match them and restore harmony in less than
-        60s.
-        <br /> <br />
-        Flip the cards, find the pairs, and show off your memory skills to bring
-        everything back in order!
-      </Text3>
-    ),
   },
   "2024-12-22": {
     content: ({ closeModal }) => <SimonSays onFinish={closeModal} />,
