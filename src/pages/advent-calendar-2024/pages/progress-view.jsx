@@ -27,6 +27,7 @@ import Snow from "../components/snow.tsx";
 import {
   ACHIEVEMENT_PREFIX,
   achievementsConfig,
+  getAchievementFromLocalStorage,
 } from "../utils/achievement-config";
 import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
 
@@ -38,20 +39,27 @@ const ProgressView = () => {
   const { isTabletOrSmaller } = useScreenSize();
 
   useEffect(() => {
+    // Retrieve and parse completed days
     const storedDays = localStorage.getItem("completedDays");
-    const parsedDays = JSON.parse(storedDays);
+    const parsedDays = storedDays ? JSON.parse(storedDays) : [];
     setCompletedDays(parsedDays);
 
-    const storedAchievements = localStorage.getItem("achievements");
-    const parsedAchievements = JSON.parse(storedAchievements);
-    const achievementsState = parsedAchievements.reduce((acc, id) => {
-      acc[id] = { isCompleted: true, isSecret: false };
-      return acc;
-    }, {});
-    setAchievements(achievementsState);
-
-    const scores = JSON.parse(localStorage.getItem("gameScores")) || {};
+    // Retrieve and parse game scores
+    const storedScores = localStorage.getItem("gameScores");
+    const scores = storedScores ? JSON.parse(storedScores) : {};
     setGameScores(scores);
+
+    // Dynamically build the achievements state based on localStorage values
+    const achievementsState = {};
+    achievementsConfig.forEach(({ id, isSecret }) => {
+      // If an achievement is stored in localStorage and is completed, set it to true
+      const isCompleted = getAchievementFromLocalStorage(id); // If the achievement is in localStorage, it's considered completed
+      achievementsState[id] = {
+        isCompleted, // true if completed, false if not
+        isSecret,
+      };
+    });
+    setAchievements(achievementsState);
   }, []);
 
   const handleClearData = () => {

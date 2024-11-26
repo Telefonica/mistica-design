@@ -121,7 +121,7 @@ const isChristmasDay = (date) => {
 export const ACHIEVEMENT_PREFIX = "achievement_"; // Prefix for localStorage keys
 
 // Function to get achievement status from localStorage
-const getAchievementFromLocalStorage = (id) => {
+export const getAchievementFromLocalStorage = (id) => {
   return JSON.parse(localStorage.getItem(ACHIEVEMENT_PREFIX + id)) || false;
 };
 
