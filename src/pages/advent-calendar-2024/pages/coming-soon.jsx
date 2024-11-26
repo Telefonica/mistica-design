@@ -3,6 +3,7 @@ import {
   ResponsiveLayout,
   skinVars,
   Snackbar,
+  Text5,
   Stack,
   Text,
   Text2,
@@ -57,8 +58,8 @@ const ComingSoonPage = () => {
                 mobileLineHeight={56}
                 weight="bold"
               >
-                Mística Advent Calendar
-              </Text>
+                Something special is on its way...
+              </Text> 
               <div
                 style={{
                   maxWidth: 600,
@@ -68,14 +69,10 @@ const ComingSoonPage = () => {
                   margin: "auto",
                 }}
               >
-                <Text2>
-                  <p>
-                    Get ready to experience the magic of the Mística Advent
-                    Calendar. Every day brings a new surprise, filled with
-                    inspiration, joy, and a touch of holiday magic to brighten
-                    the end of your year.
-                  </p>
-                </Text2>
+                <Text5>
+                  Keep an eye out!
+                
+                </Text5>
               </div>
               <div
                 style={{
@@ -83,6 +80,7 @@ const ComingSoonPage = () => {
                   justifyContent: "center",
                   textAlign: "center",
                   margin: "auto",
+                  padding: "4%",
                 }}
               >
                 <DecorationSnake
