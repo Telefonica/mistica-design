@@ -219,6 +219,18 @@ const CalendarView = () => {
                             </strong>
                           </p>
                         </Inline>
+                        <Inline space={16}>
+                          <Circle size={24} background={skinVars.colors.brand}>
+                            <Text1 medium color={skinVars.colors.inverse}>
+                              3
+                            </Text1>
+                          </Circle>
+                          <p>
+                            Always{" "}
+                            <strong>access it from the same device</strong> to
+                            avoid losing your score.
+                          </p>
+                        </Inline>
                       </Stack>
                     </Text3>
                     <Text3>
@@ -284,6 +296,7 @@ const CalendarView = () => {
                       color={skinVars.colors.error}
                       textColor={skinVars.colors.textPrimary}
                       textSize={16}
+                      easterEgg={true}
                     ></DecorationPatty>
                   </Inline>
                   <DecorationSnake width={isMobile ? "100%" : 371.84} />
