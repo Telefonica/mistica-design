@@ -91,8 +91,8 @@ const Illustration05 = ({ disabled = false }) => {
         fill="#0066FF"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M74.9081 128V103H80.9081V128H106.349V134H80.9081V210.424H74.9081V134H26V128H74.9081Z"
         fill="white"
       />

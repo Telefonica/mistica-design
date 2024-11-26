@@ -2,7 +2,6 @@ import {
   ButtonPrimary,
   Text,
   Stack,
-  Text3,
   IconBugFilled,
   IconChildFilled,
   IconCocktailFilled,

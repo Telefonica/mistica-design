@@ -1,4 +1,4 @@
-import { skinVars, Text } from "@telefonica/mistica";
+import { skinVars } from "@telefonica/mistica";
 import styles from "./decoration-patty.module.css";
 
 const DecorationPatty = ({

@@ -23,8 +23,8 @@ const Illustration19 = ({ disabled = false }) => {
           fill="#D1D5E4"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M229 76C229 92.5685 215.569 106 199 106C182.431 106 169 92.5685 169 76C169 60.0837 181.395 47.0623 197.059 46.0618C193.866 45.0579 191.575 42.3755 191.5 38.5H208C207.921 42.5607 205.741 45.3115 202.432 46.1942C217.384 47.8972 229 60.5921 229 76ZM199.01 57L218.02 76.0099L199.01 95.0199L180 76.01L199.01 57Z"
           fill="#D1D5E4"
         />
@@ -33,8 +33,8 @@ const Illustration19 = ({ disabled = false }) => {
           fill="#D1D5E4"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M173 132C173 161.271 149.271 185 120 185C90.7289 185 67 161.271 67 132C67 103.831 88.9762 80.7941 116.719 79.0999C108.287 77.3027 101.5 69.6628 101.5 60.5H139C139 68.9121 132.404 77.3243 123.889 79.1405C151.345 81.1319 173 104.037 173 132ZM119.987 104.902L146.997 131.912L119.987 158.922L92.9773 131.912L119.987 104.902Z"
           fill="#D1D5E4"
         />
@@ -43,8 +43,8 @@ const Illustration19 = ({ disabled = false }) => {
           fill="#D1D5E4"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M71 185C71 201.569 57.5685 215 41 215C24.4315 215 11 201.569 11 185C11 169.461 22.8137 156.682 37.9494 155.153C35.3595 153.841 33.5644 151.138 33.5 148H49.5C49.4341 151.214 47.5525 153.972 44.8609 155.246C59.6058 157.141 71 169.74 71 185ZM41.0098 166L60.0197 185.01L41.0097 204.02L21.9998 185.01L41.0098 166Z"
           fill="#D1D5E4"
         />
@@ -65,8 +65,8 @@ const Illustration19 = ({ disabled = false }) => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M120 185C149.271 185 173 161.271 173 132C173 102.729 149.271 79 120 79C90.7289 79 67 102.729 67 132C67 161.271 90.7289 185 120 185ZM146.997 131.912L119.987 104.902L92.9773 131.912L119.987 158.922L146.997 131.912Z"
         fill="#0066FF"
       />
@@ -80,8 +80,8 @@ const Illustration19 = ({ disabled = false }) => {
         fill="#FF6372"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M199 106C215.569 106 229 92.5685 229 76C229 59.4315 215.569 46 199 46C182.431 46 169 59.4315 169 76C169 92.5685 182.431 106 199 106ZM218.02 76.0099L199.01 57L180 76.01L199.01 95.0199L218.02 76.0099Z"
         fill="#344A6A"
       />
@@ -101,8 +101,8 @@ const Illustration19 = ({ disabled = false }) => {
       />
       <circle cx="199.5" cy="31.5" r="6.5" fill="#344A6A" />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M41 215C57.5685 215 71 201.569 71 185C71 168.431 57.5685 155 41 155C24.4315 155 11 168.431 11 185C11 201.569 24.4315 215 41 215ZM60.0197 185.01L41.0098 166L21.9998 185.01L41.0097 204.02L60.0197 185.01Z"
         fill="#FF6372"
       />
