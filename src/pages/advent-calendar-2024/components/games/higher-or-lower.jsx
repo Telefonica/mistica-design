@@ -45,7 +45,7 @@ export const HigherLowerdataSet2 = [
   { label: "Teams using the design system", value: 108 },
 ];
 
-const HigherOrLower = ({ data, onFinish }) => {
+const HigherOrLower = ({ set, data, onFinish }) => {
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [message, setMessage] = useState("");
@@ -54,7 +54,7 @@ const HigherOrLower = ({ data, onFinish }) => {
 
   useEffect(() => {
     const savedGames = JSON.parse(localStorage.getItem("gameScores")) || {};
-    const savedGame = savedGames["higherOrLower"];
+    const savedGame = savedGames[`higherOrLower${set}`];
 
     if (savedGame?.completed) {
       setScore(savedGame.score);
@@ -98,7 +98,7 @@ const HigherOrLower = ({ data, onFinish }) => {
       setIsCorrect(null);
     } else {
       setStatus("final");
-      saveGameData("Higher or lower", score, true);
+      saveGameData(`higherOrLower${set}`, score, true);
     }
   };
 

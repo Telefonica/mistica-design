@@ -188,7 +188,7 @@ const contentByDate = {
     illustration: <Illustration11 />,
     illustrationDimmed: <Illustration11 disabled />,
     content: ({ closeModal }) => (
-      <HigherOrLower data={HigherLowerdataSet1} onFinish={closeModal} />
+      <HigherOrLower set={1} data={HigherLowerdataSet1} onFinish={closeModal} />
     ),
     title: "Higher or Lower",
     description:
@@ -237,7 +237,7 @@ const contentByDate = {
     illustration: <Illustration17 />,
     illustrationDimmed: <Illustration17 disabled />,
     content: ({ closeModal }) => (
-      <HigherOrLower data={HigherLowerdataSet2} onFinish={closeModal} />
+      <HigherOrLower set={2} data={HigherLowerdataSet2} onFinish={closeModal} />
     ),
     title: "Higher or Lower",
     description:
