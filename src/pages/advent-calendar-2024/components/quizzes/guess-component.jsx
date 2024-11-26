@@ -106,7 +106,7 @@ const GuessTheComponent = ({ questions, onFinish, set }) => {
   };
 
   const handleGameEnd = () => {
-    if (onFinish) onFinish(score); // Notify the parent component
+    if (onFinish) onFinish(); // Notify the parent component
   };
 
   const GuessLabel = ({ correct }) => (

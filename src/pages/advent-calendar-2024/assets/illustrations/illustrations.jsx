@@ -1,5 +1,3 @@
-import IllustrationWishesLetter from "./illustration-wishes-letter";
-import IllustrationWoolClothes from "./illustration-wool-clothes";
 import Illustration02 from "./illustration-02";
 import Illustration03 from "./illustration-03";
 import Illustration04 from "./illustration-04";
@@ -20,8 +18,6 @@ import Illustration24 from "./illustration-24";
 import Illustration25 from "./illustration-25";
 
 export {
-  IllustrationWishesLetter,
-  IllustrationWoolClothes,
   Illustration02,
   Illustration03,
   Illustration04,

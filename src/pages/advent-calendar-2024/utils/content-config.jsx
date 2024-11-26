@@ -178,7 +178,7 @@ const contentByDate = {
     illustration: <Illustration10 />,
     illustrationDimmed: <Illustration10 disabled />,
     content: ({ closeModal }) => (
-      <GuessTheComponent component={meterGuess} onFinish={closeModal} />
+      <GuessTheComponent questions={guessComponentSet1} onFinish={closeModal} />
     ),
     title: "What Mística component is?",
     description:
