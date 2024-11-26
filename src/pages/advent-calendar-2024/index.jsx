@@ -4,9 +4,9 @@ import CalendarView from "./pages/calendar-view";
 
 import { RELEASE_DATE } from "./utils/constants";
 
-const AdventCalendar2024 = () => {
-  const targetDate = new Date(RELEASE_DATE);
+const targetDate = new Date(RELEASE_DATE);
 
+const AdventCalendar2024 = () => {
   const [isReleased, setIsReleased] = useState(false);
 
   useLayoutEffect(() => {
@@ -23,7 +23,7 @@ const AdventCalendar2024 = () => {
     }, timeToRelease);
 
     return () => clearTimeout(timeout);
-  }, [targetDate]);
+  }, []);
 
   if (!isReleased) {
     return <ComingSoonPage targetDate={targetDate.toLocaleString()} />;

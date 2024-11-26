@@ -22,8 +22,7 @@ const CalendarCard = ({
   content,
   status,
   onEndDay,
-  illustration,
-  illustrationDimmed,
+  Illustration,
   repeatable,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -84,11 +83,7 @@ const CalendarCard = ({
     }
   }
 
-  const IllustrationWrapper = ({
-    illustration,
-    illustrationDimmed,
-    status,
-  }) => {
+  const IllustrationWrapper = ({ Illustration, status }) => {
     return (
       <div
         style={{
@@ -97,7 +92,7 @@ const CalendarCard = ({
           justifyContent: "center",
         }}
       >
-        {status === CARD_STATES.BLOCKED ? illustrationDimmed : illustration}
+        <Illustration disabled={status === CARD_STATES.BLOCKED} />
       </div>
     );
   };
@@ -213,12 +208,8 @@ const CalendarCard = ({
             <StatusIndicator />
           </Stack>
 
-          {(illustration || illustrationDimmed) && (
-            <IllustrationWrapper
-              illustration={illustration}
-              illustrationDimmed={illustrationDimmed}
-              status={status}
-            />
+          {Illustration && (
+            <IllustrationWrapper Illustration={Illustration} status={status} />
           )}
 
           <Inline space="between" alignItems="center">

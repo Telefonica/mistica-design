@@ -36,16 +36,16 @@ const Toast = ({
     }
   };
 
-  const startHideTimeout = () => {
-    clearHideTimeout();
-    timeoutRef.current = setTimeout(() => {
-      setFadeOut(true); // Trigger fade-out before setting visible to false
-      onClose?.(); // Trigger onClose callback to remove toast
-    }, duration);
-  };
-
   // Handle visibility change when hovered or not
   useEffect(() => {
+    const startHideTimeout = () => {
+      clearHideTimeout();
+      timeoutRef.current = setTimeout(() => {
+        setFadeOut(true); // Trigger fade-out before setting visible to false
+        onClose?.(); // Trigger onClose callback to remove toast
+      }, duration);
+    };
+
     const handleTimeout = () => {
       if (!isHovered) {
         setTimeout(startHideTimeout, delay); // Delay before auto-dismissing
@@ -57,7 +57,7 @@ const Toast = ({
     handleTimeout();
 
     return () => clearHideTimeout(); // Cleanup timeout on unmount
-  }, [isHovered, delay, duration]);
+  }, [isHovered, delay, duration, onClose]);
 
   useEffect(() => {
     if (fadeOut) {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MemoryGame from "../components/games/memory";
 import WordleGame from "../components/games/wordle";
 import CandyCrush from "../components/games/candy";
-import { Box, ButtonPrimary } from "@telefonica/mistica";
+import { Box } from "@telefonica/mistica";
 import SimonSays from "../components/games/simon";
 
 const GamesView = ({ game }) => {

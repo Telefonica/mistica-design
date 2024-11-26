@@ -17,8 +17,7 @@ import {
   useScreenSize,
 } from "@telefonica/mistica";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { base64Encode } from "../utils/url-encoder";
+import { useLocation } from "react-router-dom";
 import RotatingSVG from "./label-rotate";
 
 const SheetView = ({ isOpen, onClose }) => {
@@ -100,7 +99,6 @@ const SheetView = ({ isOpen, onClose }) => {
 };
 
 const NavBar = () => {
-  const navigate = useNavigate();
   const location = useLocation(); // Get the current location
   const { isMobile, isTabletOrSmaller } = useScreenSize();
   const [isSheetOpen, setIsSheetOpen] = useState(false);

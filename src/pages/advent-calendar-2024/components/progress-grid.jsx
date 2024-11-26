@@ -16,7 +16,7 @@ import { CARD_STATES } from "../utils/constants"; // Importa CARD_STATES si no l
 import contentByDate from "../utils/content-config"; // Asegúrate de importar tu configuración de contenido
 
 // IllustrationWrapper Component
-const IllustrationWrapper = ({ illustration, illustrationDimmed, status }) => {
+const IllustrationWrapper = ({ Illustration, status }) => {
   return (
     <Align x="center">
       <div
@@ -28,7 +28,7 @@ const IllustrationWrapper = ({ illustration, illustrationDimmed, status }) => {
           height: "100px",
         }}
       >
-        {status === CARD_STATES.BLOCKED ? illustrationDimmed : illustration}
+        <Illustration disabled={status === CARD_STATES.BLOCKED} />
       </div>
     </Align>
   );
@@ -62,7 +62,7 @@ const ProgressGrid = ({ completedDays }) => {
     <Grid columns={isMobile ? 2 : 4} gap={isMobile ? 8 : 24}>
       {calendarDays.map((day) => {
         // Accede a la ilustración para cada día
-        const illustration = contentByDate[day.date]?.illustration;
+        const Illustration = contentByDate[day.date]?.Illustration;
 
         // Determina el estado del día
         const status = isDayCompleted(day.dayNumber)
@@ -88,12 +88,9 @@ const ProgressGrid = ({ completedDays }) => {
                 </div>
 
                 {/* Renderiza la ilustración usando IllustrationWrapper */}
-                {illustration ? (
+                {Illustration ? (
                   <IllustrationWrapper
-                    illustration={illustration}
-                    illustrationDimmed={
-                      contentByDate[day.date]?.illustrationDimmed
-                    }
+                    Illustration={Illustration}
                     status={status}
                   />
                 ) : (
