@@ -4,7 +4,7 @@ import ContentWrapper from "../content-wrapper";
 const AdventCalendarHistory = () => {
   return (
     <ContentWrapper>
-      <Stack space={32}>
+      <Stack space={48}>
         <Stack space={16}>
           <Text3 color={skinVars.colors.textPrimary}>
             The Advent calendar was born in Germany in the 19th century as a way
@@ -27,18 +27,17 @@ const AdventCalendarHistory = () => {
           </Text3>
 
           <Text3 color={skinVars.colors.textPrimary}>
-            This digital calendar is a tribute to this tradition.
+            Mística advent calendar is our tribute to this tradition.
           </Text3>
-
-          <img
-            src={require("../../assets/images/advent-calendar.png")}
-            alt="Advent Calendar"
-            style={{
-              width: "100%",
-              borderRadius: "24px",
-            }}
-          />
         </Stack>
+        <img
+          src={require("../../assets/images/advent-calendar.png")}
+          alt="Advent Calendar"
+          style={{
+            width: "100%",
+            borderRadius: 24,
+          }}
+        />
       </Stack>
     </ContentWrapper>
   );

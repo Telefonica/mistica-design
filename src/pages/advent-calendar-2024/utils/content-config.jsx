@@ -72,7 +72,7 @@ const contentByDate = {
       "Can you guess which Christmas movie these emojis represent? 🎬.",
   },
   "2024-12-04": {
-    repeatable: false,
+    repeatable: true,
     illustration: <Illustration04 />,
     illustrationDimmed: <Illustration04 disabled />,
     content: (

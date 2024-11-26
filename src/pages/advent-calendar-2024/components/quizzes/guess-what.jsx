@@ -424,7 +424,7 @@ export const GuessWhat = ({ quizType, questions }) => {
       {/* Show final result */}
       {finalResult && (
         <div style={{ textAlign: "center" }}>
-          <Stack space={8}>
+          <Stack space={16}>
             <Text5>Your {quizType} is</Text5>
             {quizType === "icon" && (
               <DecorationPatty size={128} stroke="0.75">

@@ -38,7 +38,7 @@ import {
                 buttonLink={
                   <ButtonLink
                     small
-                    href="https://open.spotify.com/playlist/37i9dQZF1DX2zhLcnFr1qI?si=c3bc02b6443441ee"
+                    href="https://open.spotify.com/playlist/0iQHZpckYQeEHluLqmGHRc?si=Ej-QL4_YQhVWlUlEMbuFA"
                   >
                     Listen
                   </ButtonLink>
@@ -94,7 +94,7 @@ import {
                 buttonLink={
                   <ButtonLink
                     small
-                    href="https://open.spotify.com/playlist/0iQHZpckYQeEHluLqmGHRc?si=Ej-QL4_YQhVWlUlEMbuFA"
+                    href="https://open.spotify.com/playlist/37i9dQZF1DX2zhLcnFr1qI?si=c3bc02b6443441ee"
                   >
                     Listen
                   </ButtonLink>
