@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import ComingSoonPage from "./pages/coming-soon";
 import CalendarView from "./pages/calendar-view";
 
@@ -9,17 +9,20 @@ const AdventCalendar2024 = () => {
 
   const [isReleased, setIsReleased] = useState(false);
 
-  useEffect(() => {
-    const checkReleaseDate = () => {
-      const now = new Date();
-      setIsReleased(now >= targetDate);
-    };
+  useLayoutEffect(() => {
+    const now = new Date();
+    const timeToRelease = Math.max(0, targetDate.getTime() - now.getTime());
 
-    checkReleaseDate();
+    if (timeToRelease === 0) {
+      setIsReleased(true);
+      return;
+    }
 
-    const interval = setInterval(checkReleaseDate, 1000);
+    const timeout = setTimeout(() => {
+      setIsReleased(true);
+    }, timeToRelease);
 
-    return () => clearInterval(interval);
+    return () => clearTimeout(timeout);
   }, [targetDate]);
 
   if (!isReleased) {
