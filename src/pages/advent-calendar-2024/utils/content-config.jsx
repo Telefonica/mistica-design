@@ -44,7 +44,10 @@ import ChristmasMovies from "../components/static-content/christmas-movies";
 import Horoscope from "../components/static-content/horoscope";
 import TopContributors from "../components/static-content/top-contributors";
 import MusicLists from "../components/static-content/music-list";
-import HigherOrLower from "../components/games/higher-or-lower";
+import HigherOrLower, {
+  HigherLowerdataSet1,
+  HigherLowerdataSet2,
+} from "../components/games/higher-or-lower";
 
 const contentByDate = {
   "2024-12-02": {
@@ -184,7 +187,9 @@ const contentByDate = {
     repeatable: false,
     illustration: <Illustration11 />,
     illustrationDimmed: <Illustration11 disabled />,
-    content: ({ closeModal }) => <HigherOrLower onFinish={closeModal} />,
+    content: ({ closeModal }) => (
+      <HigherOrLower data={HigherLowerdataSet1} onFinish={closeModal} />
+    ),
     title: "Higher or Lower",
     description:
       "Answer the question by guessing whether the number is higher or lower than the given data.",
@@ -231,7 +236,9 @@ const contentByDate = {
     repeatable: false,
     illustration: <Illustration17 />,
     illustrationDimmed: <Illustration17 disabled />,
-    content: ({ closeModal }) => <HigherOrLower onFinish={closeModal} />,
+    content: ({ closeModal }) => (
+      <HigherOrLower data={HigherLowerdataSet2} onFinish={closeModal} />
+    ),
     title: "Higher or Lower",
     description:
       "Answer the question by guessing whether the number is higher or lower than the given data.",

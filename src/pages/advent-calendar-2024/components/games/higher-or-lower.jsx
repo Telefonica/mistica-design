@@ -17,15 +17,35 @@ import { saveGameData } from "../../utils/score-manager";
 import ContentWrapper from "../content-wrapper";
 import { UI_LABEL } from "../../utils/constants";
 
-const HigherOrLower = ({ onFinish }) => {
-  const data = [
-    { label: "Number of new components this year", value: 9 },
-    { label: "Teams using the design system", value: 43 },
-    { label: "Instances of the most used component in Figma", value: 490000 },
-    { label: "Design tokens pushed this year", value: 1300 },
-    { label: "Hours spent fixing design tokens", value: 700 },
-  ];
+export const HigherLowerdataSet1 = [
+  { label: "Number of countries operating with Mística", value: 8 },
+  { label: "Number of new components this year", value: 13 },
+  { label: "Average time to close discussions (in days)", value: 7.95 },
+  { label: "Average time to resolve issues (in days)", value: 7.89 },
+  { label: "Number of Figma members", value: 3255 },
+  { label: "Number of design tokens", value: 1042 },
+  { label: "Number of discussion created this year", value: 75 },
+  { label: "Number of products created with Mística", value: 19 },
+  { label: "Visits to Brand Factory", value: 88.873 },
+];
 
+export const HigherLowerdataSet2 = [
+  { label: "Instances of the most used component in Figma", value: 858000 },
+  { label: "Visits to the most visited component (Card)", value: 4381 },
+  { label: "Number of workspaces in Figma", value: 10 },
+  {
+    label:
+      "Average number of issues with the 'bug 🐞' label created in the last 4 months",
+    value: 5.75,
+  },
+  { label: "Brands added this year in Mistica", value: 1 },
+  { label: "Average time to close Pull Requests", value: 5.38 },
+  { label: "Average time to close discussions", value: 7.95 },
+  { label: "Number of discussions in 2024", value: 75 },
+  { label: "Teams using the design system", value: 108 },
+];
+
+const HigherOrLower = ({ data, onFinish }) => {
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [message, setMessage] = useState("");
