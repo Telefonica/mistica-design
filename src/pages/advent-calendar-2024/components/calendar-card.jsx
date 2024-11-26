@@ -254,7 +254,7 @@ const CalendarCard = ({
             : content
         }
         onClose={handleEndDay}
-        onCancel={isRepeatable ? handleEndDay : null}
+        onCancel={repeatable ? handleEndDay : null}
       />
     </>
   );
