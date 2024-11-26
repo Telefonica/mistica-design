@@ -3,10 +3,11 @@ import ContentWrapper from "../content-wrapper";
 import contentByDate from "../../utils/content-config";
 
 const ChristmasGreetings = () => {
+  const FinalIllustration = contentByDate["2024-12-25"].Illustration;
   return (
     <ContentWrapper textAlign={"center"}>
       <Stack space={52}>
-        <div>{contentByDate["2024-12-25"].illustration}</div>
+        <FinalIllustration />
         <Text5>
           Thanks for joining us these past days.
           <br></br>

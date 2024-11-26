@@ -6,7 +6,6 @@ import {
   Text5,
   Stack,
   Text,
-  Text2,
   Timer,
 } from "@telefonica/mistica";
 import { useState } from "react";
@@ -18,17 +17,6 @@ const ComingSoonPage = () => {
   const defaultTargetDate = "2024-12-02";
   const endTimestamp = new Date(defaultTargetDate).getTime();
   const [isSnackbarOpen, setSnackbarOpen] = useState(false);
-
-  const copyToClipboard = () => {
-    const url = window.location.href; // Get the current URL
-
-    navigator.clipboard
-      .writeText(url)
-      .then(() => {
-        setSnackbarOpen(true); // Show the snackbar on success
-      })
-      .catch((err) => console.error("Failed to copy: ", err));
-  };
 
   return (
     <>
@@ -59,7 +47,7 @@ const ComingSoonPage = () => {
                 weight="bold"
               >
                 Something special is on its way...
-              </Text> 
+              </Text>
               <div
                 style={{
                   maxWidth: 600,
@@ -69,10 +57,7 @@ const ComingSoonPage = () => {
                   margin: "auto",
                 }}
               >
-                <Text5>
-                  Keep an eye out!
-                
-                </Text5>
+                <Text5>Keep an eye out!</Text5>
               </div>
               <div
                 style={{

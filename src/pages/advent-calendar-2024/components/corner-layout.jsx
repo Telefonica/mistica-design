@@ -11,13 +11,9 @@ import {
   useScreenSize,
 } from "@telefonica/mistica";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { base64Encode } from "../utils/url-encoder";
 import RotatingSVG from "./label-rotate";
 
 const CornerLayout = () => {
-  const navigate = useNavigate();
-  const location = useLocation(); // Get the current location
   const { isLargeDesktop, isTabletOrBigger } = useScreenSize();
   const [isSnackbarOpen, setSnackbarOpen] = useState(false);
   const [showLogo, setShowLogo] = useState(false);

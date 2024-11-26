@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Toast from "./toast"; // Assuming your Toast component is already implemented
 import { Stack, useScreenSize } from "@telefonica/mistica";
 
@@ -17,8 +16,6 @@ const ToastWrapper = ({ toasts, removeToast }) => {
     >
       <Stack space={8}>
         {toasts.map((toast, index) => {
-          const scaleValue = 1 - index * 0.2;
-
           return (
             <Toast
               id={toast.id}

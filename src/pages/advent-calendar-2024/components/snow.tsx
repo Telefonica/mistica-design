@@ -1,4 +1,3 @@
-import React from "react";
 import Snowfall from "react-snowfall";
 import { useEffect, useState } from "react";
 import snowflakeSrc1 from "../assets/decorations/snowflake-1.svg";
@@ -49,31 +48,16 @@ const Snow = () => {
     };
   }, []);
 
-  return isTabletOrSmaller ? (
-    <Snowfall
-      style={{
-        position: "fixed",
-        zIndex: "9999999",
-      }}
-      color="#EEF0FB"
-      radius={[30, 30]}
-      speed={[1.0, 2.0]} // Velocidad de los copos
-      snowflakeCount={8}
-      images={images} // Pasamos las imágenes cargadas al componente
-    />
-  ) : (
-    <Snowfall
-      style={{
-        position: "fixed",
-        zIndex: "9999999",
-      }}
-      color="#EEF0FB"
-      radius={[50, 50]}
-      speed={[1.0, 2.0]} // Velocidad de los copos
-      snowflakeCount={20}
-      images={images} // Pasamos las imágenes cargadas al componente
-    />
-  );
+  return Snowfall({
+    style: {
+      position: "fixed",
+    },
+    color: "#EEF0FB",
+    radius: isTabletOrSmaller ? [30, 30] : [50, 50],
+    speed: [1, 2], // Velocidad de los copos
+    snowflakeCount: isTabletOrSmaller ? 8 : 20,
+    images, // Pasamos las imágenes cargadas al componente
+  });
 };
 
 export default Snow;

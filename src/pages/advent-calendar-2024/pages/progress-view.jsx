@@ -17,7 +17,6 @@ import {
   useScreenSize,
 } from "@telefonica/mistica";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import { IconCard, IconInvader } from "../assets/icons/icons";
 import Achievement from "../components/achievement";
 import CornerLayout from "../components/corner-layout.jsx";
