@@ -17,35 +17,67 @@ import Score from "../score";
 import GameBar from "../game-bar";
 import MeterSvg from "../../assets/meter";
 import NakedCardGuessImg from "../../assets/images/naked-card.png";
+import BadgeGuessImg from "../../assets/images/badge.png";
+import ChipGuessImg from "../../assets/images/chip.png";
+import SwitchGuessImg from "../../assets/images/switch.png";
+import TooltipGuessImg from "../../assets/images/tooltip.png";
 import ContentWrapper from "../content-wrapper";
 import { UI_LABEL } from "../../utils/constants";
 
-export const meterGuess = {
-  id: "meter",
-  asset: <MeterSvg />, // Replace with the correct path
-  answer: "Meter",
-  options: ["Progress Bar", "Loading Spinner"],
-  correctAnswer: "This is the Meter component!",
-};
+export const guessComponentSet1 = [
+  {
+    id: "nakedCard",
+    asset: <img src={NakedCardGuessImg} />,
+    answer: "Naked card",
+    options: ["Data card", "Media card"],
+    correctAnswer: "This is the Naked card component!",
+  },
+  {
+    id: "meter",
+    asset: <MeterSvg />,
+    answer: "Meter",
+    options: ["Progress Bar", "Loading Spinner"],
+    correctAnswer: "This is the Meter component!",
+  },
+  {
+    id: "chip",
+    asset: <img src={ChipGuessImg} />,
+    answer: "Chip",
+    options: ["Button", "Tag"],
+  },
+];
 
-export const NakedCardGuess = {
-  id: "nakedCard",
-  asset: <img src={NakedCardGuessImg} />, // Replace with the correct path
-  answer: "Naked card",
-  options: ["Data card", "Media card"],
-  correctAnswer: "This is the Naked card component!",
-};
+export const guessComponentSet2 = [
+  {
+    id: "toltiop",
+    asset: <img src={TooltipGuessImg} />,
+    answer: "Tooltip",
+    options: ["Sheet", "Select"],
+  },
+  {
+    id: "badge",
+    asset: <img src={BadgeGuessImg} />,
+    answer: "Badge",
+    options: ["Radio button", "Logo"],
+  },
+  {
+    id: "switch",
+    asset: <img src={SwitchGuessImg} />,
+    answer: "Switch",
+    options: ["Stacking group", "Counter"],
+  },
+];
 
-const GuessTheComponent = ({ component, onFinish }) => {
+const GuessTheComponent = ({ questions, onFinish, set }) => {
   const [currentStep, setCurrentStep] = useState("guessing"); // Steps: 'guessing', 'answer', 'gameOver'
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
 
-  const { id, asset, answer, correctAnswer, options } = component;
-  const gameName = `Guess The Component ${id}`;
+  const gameName = `guessComponent${set}`;
+  const currentQuestion = questions[currentIndex];
+  const { asset, answer, correctAnswer, options } = currentQuestion;
   const shuffledOptions = [...options, answer].sort(() => Math.random() - 0.5);
-
-  const { isMobile } = useScreenSize();
 
   useEffect(() => {
     const savedGames = JSON.parse(localStorage.getItem("gameScores")) || {};
@@ -54,18 +86,23 @@ const GuessTheComponent = ({ component, onFinish }) => {
     if (savedGame?.completed) {
       setScore(savedGame.score);
     }
-  }, []);
+  }, [gameName]);
 
   const handleOptionClick = (option) => {
     const correct = option === answer;
     setIsCorrect(correct);
-    setScore(correct ? 100 : 0); // Fixed score for correct answer
+    setScore((prevScore) => prevScore + (correct ? 100 : 0));
     setCurrentStep("answer");
   };
 
   const handleNext = () => {
-    saveGameData(gameName, score, true); // Save the game state
-    setCurrentStep("gameOver");
+    if (currentIndex < questions.length - 1) {
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+      setCurrentStep("guessing");
+    } else {
+      saveGameData(gameName, score, true); // Save the total score for the set
+      setCurrentStep("gameOver");
+    }
   };
 
   const handleGameEnd = () => {
@@ -93,7 +130,7 @@ const GuessTheComponent = ({ component, onFinish }) => {
 
   if (currentStep === "gameOver") {
     return (
-      <ContentWrapper textAlign={"center"}>
+      <ContentWrapper textAlign="center">
         <div style={{ ...flexStyles, gap: 48 }}>
           <Score score={`${score}`} isFinal />
           <ButtonPrimary onPress={handleGameEnd}>
