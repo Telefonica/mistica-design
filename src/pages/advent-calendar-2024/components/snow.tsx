@@ -51,7 +51,6 @@ const Snow = () => {
   return Snowfall({
     style: {
       position: "fixed",
-      zIndex: "9999999",
     },
     color: "#EEF0FB",
     radius: isTabletOrSmaller ? [30, 30] : [50, 50],

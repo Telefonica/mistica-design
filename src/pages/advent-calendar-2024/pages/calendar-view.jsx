@@ -220,11 +220,11 @@ const CalendarView = () => {
   };
 
   return (
-    <>
+    <ResponsiveLayout>
       <Snow />
-      <CornerLayout />
-      <NavBar />
-      <ResponsiveLayout>
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <CornerLayout />
+        <NavBar />
         <Box paddingY={42}>
           <Stack space={48}>
             <GridLayout
@@ -269,7 +269,7 @@ const CalendarView = () => {
                       textColor={skinVars.colors.textPrimary}
                       textSize={16}
                       easterEgg={true}
-                    ></DecorationPatty>
+                    />
                   </Inline>
                   <DecorationSnake width={isMobile ? "100%" : 371.84} />
                 </Stack>
@@ -289,7 +289,7 @@ const CalendarView = () => {
                   </Text4>
                 </Stack>
               }
-            ></GridLayout>
+            />
 
             <Carousel
               initialActiveItem={initialActiveDay}
@@ -303,10 +303,10 @@ const CalendarView = () => {
             </ButtonPrimary>
           </Stack>
         </Box>
-      </ResponsiveLayout>
-      <SheetView isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} />
-      <ToastWrapper toasts={toasts} removeToast={removeToast} />
-    </>
+        <SheetView isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} />
+        <ToastWrapper toasts={toasts} removeToast={removeToast} />
+      </div>
+    </ResponsiveLayout>
   );
 };
 
