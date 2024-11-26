@@ -29,7 +29,6 @@ import {
   achievementsConfig,
 } from "../utils/achievement-config";
 import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
-import { base64Decode, base64Encode } from "../utils/url-encoder";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
@@ -38,92 +37,19 @@ const ProgressView = () => {
 
   const { isTabletOrSmaller } = useScreenSize();
 
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const getCompletedDaysFromUrl = () => {
-    const params = new URLSearchParams(location.search);
-    const days = params.get("completedDays");
-    return days ? base64Decode(days).split(",") : [];
-  };
-
-  const getAchievementsFromUrl = () => {
-    const params = new URLSearchParams(location.search);
-    const achievements = params.get("achievements");
-    return achievements ? base64Decode(achievements).split(",") : [];
-  };
-
-  const updateUrlWithCompletedDays = (days) => {
-    const params = new URLSearchParams(location.search);
-    params.set("completedDays", base64Encode(days.join(",")));
-    navigate({ search: params.toString() }, { replace: true });
-  };
-
-  const updateUrlWithAchievements = (achievements) => {
-    const params = new URLSearchParams(location.search);
-    params.set("achievements", base64Encode(achievements.join(",")));
-    navigate({ search: params.toString() }, { replace: true });
-  };
-
   useEffect(() => {
-    const daysFromUrl = getCompletedDaysFromUrl();
-    const achievementsFromUrl = getAchievementsFromUrl();
+    const storedDays = localStorage.getItem("completedDays");
+    const parsedDays = JSON.parse(storedDays);
+    setCompletedDays(parsedDays);
 
-    if (daysFromUrl.length > 0) {
-      setCompletedDays(daysFromUrl);
-    } else {
-      const storedDays = localStorage.getItem("completedDays");
-      if (storedDays) {
-        const parsedDays = JSON.parse(storedDays);
-        setCompletedDays(parsedDays);
-        updateUrlWithCompletedDays(parsedDays);
-      }
-    }
+    const storedAchievements = localStorage.getItem("achievements");
+    const parsedAchievements = JSON.parse(storedAchievements);
+    const achievementsState = parsedAchievements.reduce((acc, id) => {
+      acc[id] = { isCompleted: true, isSecret: false };
+      return acc;
+    }, {});
+    setAchievements(achievementsState);
 
-    if (achievementsFromUrl.length > 0) {
-      const achievementsState = achievementsFromUrl.reduce((acc, id) => {
-        acc[id] = { isCompleted: true, isSecret: false };
-        return acc;
-      }, {});
-      setAchievements(achievementsState);
-    } else {
-      const storedAchievements = localStorage.getItem("achievements");
-      if (storedAchievements) {
-        const parsedAchievements = JSON.parse(storedAchievements);
-        const achievementsState = parsedAchievements.reduce((acc, id) => {
-          acc[id] = { isCompleted: true, isSecret: false };
-          return acc;
-        }, {});
-        setAchievements(achievementsState);
-        updateUrlWithAchievements(parsedAchievements);
-      }
-    }
-  }, [location.search]);
-
-  const checkAchievements = (completedDays) => {
-    const newAchievements = {};
-
-    achievementsConfig.forEach(({ id, check, isSecret }) => {
-      const isCompleted = check(completedDays);
-      newAchievements[id] = { isCompleted, isSecret };
-    });
-
-    return newAchievements;
-  };
-
-  useEffect(() => {
-    if (completedDays.length > 0) {
-      const newAchievements = checkAchievements(completedDays);
-      setAchievements(newAchievements);
-
-      const completedAchievementIds = Object.keys(newAchievements).filter(
-        (id) => newAchievements[id].isCompleted
-      );
-      updateUrlWithAchievements(completedAchievementIds);
-    }
-  }, [completedDays]);
-
-  useEffect(() => {
     const scores = JSON.parse(localStorage.getItem("gameScores")) || {};
     setGameScores(scores);
   }, []);
@@ -146,14 +72,6 @@ const ProgressView = () => {
     setCompletedDays([]);
     setAchievements({});
     setGameScores({});
-
-    // Clear the URL query parameters
-    const params = new URLSearchParams(location.search);
-    params.delete("completedDays");
-    params.delete("achievements");
-
-    // Update the URL to reflect cleared data
-    navigate({ search: params.toString() }, { replace: true });
   };
 
   const completedAchievementsCount = achievementsConfig.filter(
