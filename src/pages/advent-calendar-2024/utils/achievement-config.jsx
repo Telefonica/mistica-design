@@ -81,8 +81,10 @@ export const achievementsConfig = [
     icon: IconVideoCameraFilled,
     check: () => {
       const gameScores = JSON.parse(localStorage.getItem("gameScores")) || {};
-      const emojiMoviesScore = gameScores["Emoji Movies"]?.score || 0;
-      return emojiMoviesScore === 400;
+      const emojiMovies1Score = gameScores["Emoji Movies1"]?.score || 0;
+      const emojiMovies2Score = gameScores["Emoji Movies2"]?.score || 0;
+      const totalScore = emojiMovies1Score + emojiMovies2Score;
+      return totalScore > 800;
     },
 
     message:
