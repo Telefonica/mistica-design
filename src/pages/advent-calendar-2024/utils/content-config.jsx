@@ -29,10 +29,6 @@ import EmojiMovies, {
 } from "../components/games/movie-emoji";
 import SimonSays from "../components/games/simon";
 import WordleGame from "../components/games/wordle";
-import GuessTheComponent, {
-  meterGuess,
-  NakedCardGuess,
-} from "../components/quizzes/guess-component";
 import {
   componentQuestions,
   GuessWhat,
@@ -48,6 +44,11 @@ import HigherOrLower, {
   HigherLowerdataSet1,
   HigherLowerdataSet2,
 } from "../components/games/higher-or-lower";
+import GuessTheComponent from "../components/quizzes/guess-component";
+import {
+  guessComponentSet1,
+  guessComponentSet2,
+} from "../components/quizzes/guess-component";
 
 const contentByDate = {
   "2024-12-02": {
@@ -248,7 +249,11 @@ const contentByDate = {
     illustration: <Illustration18 />,
     illustrationDimmed: <Illustration18 disabled />,
     content: ({ closeModal }) => (
-      <GuessTheComponent component={NakedCardGuess} onFinish={closeModal} />
+      <GuessTheComponent
+        set={2}
+        questions={guessComponentSet2}
+        onFinish={closeModal}
+      />
     ),
     title: "What Mística component is?",
     description:
