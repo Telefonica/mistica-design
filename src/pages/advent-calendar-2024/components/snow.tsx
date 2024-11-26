@@ -4,7 +4,7 @@ import snowflakeSrc1 from "../assets/decorations/snowflake-1.svg";
 import snowflakeSrc2 from "../assets/decorations/snowflake-2.svg";
 import { useScreenSize } from "@telefonica/mistica";
 
-const Snow = (): JSX.Element => {
+const Snow = () => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const { isTabletOrSmaller } = useScreenSize();
 
