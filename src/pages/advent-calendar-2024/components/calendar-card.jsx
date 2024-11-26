@@ -29,8 +29,11 @@ const CalendarCard = ({
   const [isHovered, setIsHovered] = useState(false);
   const dialogRef = useRef(null);
   const day = new Date(DateString).getDate();
-  const today = new Date().toISOString().split("T")[0];
-  const isRepeatable = repeatable; //TODO: add !today;
+  const today = new Date().getDate();
+  const isRepeatable =
+    repeatable &&
+    DateString === today &&
+    (status === CARD_STATES.AVAILABLE || status === CARD_STATES.COMPLETED);
 
   const handleClick = () => {
     if (status === CARD_STATES.AVAILABLE || isRepeatable) {
@@ -201,6 +204,7 @@ const CalendarCard = ({
               }
             >
               {DayOfWeek}
+              {isRepeatable && "isRepeatable"}
             </Text5>
 
             <StatusIndicator />

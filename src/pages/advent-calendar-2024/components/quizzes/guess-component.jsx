@@ -93,14 +93,14 @@ const GuessTheComponent = ({ component, onFinish }) => {
 
   if (currentStep === "gameOver") {
     return (
-      <Align y="center" x="center" height={isMobile ? "auto" : "100vh"}>
+      <ContentWrapper textAlign={"center"}>
         <div style={{ ...flexStyles, gap: 48 }}>
           <Score score={`${score}`} isFinal />
           <ButtonPrimary onPress={handleGameEnd}>
             {UI_LABEL.END_GAME_BUTTON}
           </ButtonPrimary>
         </div>
-      </Align>
+      </ContentWrapper>
     );
   }
 

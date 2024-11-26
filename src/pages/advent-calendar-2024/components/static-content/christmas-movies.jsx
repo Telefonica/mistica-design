@@ -1,5 +1,13 @@
-import { Grid, GridItem, TextLink } from "@telefonica/mistica";
+import {
+  Grid,
+  GridItem,
+  Stack,
+  Text3,
+  TextLink,
+  useScreenSize,
+} from "@telefonica/mistica";
 import { useState, useEffect } from "react";
+import ContentWrapper from "../content-wrapper";
 
 const ChristmasMovies = () => {
   const titles = [
@@ -12,6 +20,8 @@ const ChristmasMovies = () => {
   ];
 
   const [movies, setMovies] = useState({});
+
+  const { isMobile } = useScreenSize();
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -42,32 +52,43 @@ const ChristmasMovies = () => {
   }, []);
 
   return (
-    <div>
-      <Grid columns={3} gap={16}>
+    <ContentWrapper maxWidth={860}>
+      <Grid columns={isMobile ? 1 : 3} gap={16}>
         {titles.map((title) => (
           <GridItem key={title}>
             <div key={title}>
-              <h2>{title}</h2>
-              {movies[title]?.Error ? (
-                <p>Error: {movies[title].Error}</p>
-              ) : movies[title] ? (
-                <>
-                  <p>{movies[title].Title || "Unknown Title"}</p>
-                  <img src={movies[title].Poster || ""} alt={title} />
-                  <TextLink
-                    href={`https://www.imdb.com/title/${movies[title].imdbID}/`}
-                  >
-                    See {movies[title].title} in IMDB
-                  </TextLink>
-                </>
-              ) : (
-                <p>Loading...</p>
-              )}
+              <Stack space={16}>
+                <Text3 weight="medium">{title}</Text3>
+                {movies[title]?.Error ? (
+                  <p>Error: {movies[title].Error}</p>
+                ) : movies[title] ? (
+                  <Stack space={16}>
+                    <img
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        aspectRatio: "2/3",
+                      }}
+                      src={movies[title].Poster || ""}
+                      alt={title}
+                    />
+                    <Text3>
+                      <TextLink
+                        href={`https://www.imdb.com/title/${movies[title].imdbID}/`}
+                      >
+                        See {movies[title].Title} in IMDB
+                      </TextLink>
+                    </Text3>
+                  </Stack>
+                ) : (
+                  <p>Loading...</p>
+                )}
+              </Stack>
             </div>
           </GridItem>
         ))}
       </Grid>
-    </div>
+    </ContentWrapper>
   );
 };
 

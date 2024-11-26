@@ -1,6 +1,6 @@
 import { useScreenSize, Align } from "@telefonica/mistica";
 
-const ContentWrapper = ({ children, textAlign }) => {
+const ContentWrapper = ({ children, textAlign, maxWidth = 600 }) => {
   const { isMobile } = useScreenSize();
   return (
     <Align
@@ -10,7 +10,7 @@ const ContentWrapper = ({ children, textAlign }) => {
     >
       <div
         style={{
-          maxWidth: isMobile ? undefined : 600,
+          maxWidth: isMobile ? undefined : maxWidth,
           width: "100%",
           textAlign: textAlign,
         }}

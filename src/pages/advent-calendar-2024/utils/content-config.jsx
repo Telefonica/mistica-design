@@ -43,9 +43,8 @@ import ChristmasGreetings from "../components/static-content/christmas-greetings
 import ChristmasMovies from "../components/static-content/christmas-movies";
 import Horoscope from "../components/static-content/horoscope";
 import TopContributors from "../components/static-content/top-contributors";
-import MusicLists from "../components/static-content/music-list"
+import MusicLists from "../components/static-content/music-list";
 import HigherOrLower from "../components/games/higher-or-lower";
-
 
 const contentByDate = {
   "2024-12-02": {
@@ -69,7 +68,7 @@ const contentByDate = {
       "Can you guess which Christmas movie these emojis represent? 🎬.",
   },
   "2024-12-04": {
-    repeatable: true,
+    repeatable: false,
     illustration: <Illustration04 />,
     illustrationDimmed: <Illustration04 disabled />,
     content: (
@@ -80,6 +79,7 @@ const contentByDate = {
       "If you were a component, which one would you be? Find out here! 🧩",
   },
   "2024-12-05": {
+    repeatable: false,
     content: ({ closeModal }) => <WordleGame onFinish={closeModal} />,
     illustration: <Illustration05 />,
     illustrationDimmed: <Illustration05 disabled />,
@@ -153,7 +153,7 @@ const contentByDate = {
     ),
   },
   "2024-12-06": {
-    repeatable: false,
+    repeatable: true,
     illustration: <Illustration06 />,
     illustrationDimmed: <Illustration06 disabled />,
     content: <AdventCalendarHistory />,
@@ -181,7 +181,7 @@ const contentByDate = {
       "Can you guess which is? Only the wisest will succeed! The component image is blurred to make it more difficult, you don't need to put on your glasses 👓 ",
   },
   "2024-12-11": {
-    repeatable: true,
+    repeatable: false,
     illustration: <Illustration11 />,
     illustrationDimmed: <Illustration11 disabled />,
     content: ({ closeModal }) => <HigherOrLower onFinish={closeModal} />,
@@ -199,6 +199,7 @@ const contentByDate = {
       "If you were an Mística icon, which one would you be? Choose the answers that best fit you and find out! ",
   },
   "2024-12-13": {
+    repeatable: false,
     illustration: <Illustration13 />,
     illustrationDimmed: <Illustration13 disabled />,
     content: ({ closeModal }) => <MemoryGame onFinish={closeModal} />,
@@ -216,6 +217,7 @@ const contentByDate = {
   },
 
   "2024-12-16": {
+    repeatable: false,
     illustration: <Illustration16 />,
     illustrationDimmed: <Illustration16 disabled />,
     content: ({ closeModal }) => (
@@ -226,6 +228,7 @@ const contentByDate = {
       "Can you guess which Christmas movie these emojis represent? 🎬.",
   },
   "2024-12-17": {
+    repeatable: false,
     illustration: <Illustration17 />,
     illustrationDimmed: <Illustration17 disabled />,
     content: ({ closeModal }) => <HigherOrLower onFinish={closeModal} />,
@@ -234,9 +237,9 @@ const contentByDate = {
       "Answer the question by guessing whether the number is higher or lower than the given data.",
   },
   "2024-12-18": {
+    repeatable: false,
     illustration: <Illustration18 />,
     illustrationDimmed: <Illustration18 disabled />,
-    repeatable: false,
     content: ({ closeModal }) => (
       <GuessTheComponent component={NakedCardGuess} onFinish={closeModal} />
     ),
@@ -245,6 +248,7 @@ const contentByDate = {
       "Can you guess which is? Only the wisest will succeed! The component image is blurred to make it more difficult, you don't need to put on your glasses 👓 ",
   },
   "2024-12-19": {
+    repeatable: true,
     illustration: <Illustration19 />,
     illustrationDimmed: <Illustration19 disabled />,
     content: <TopContributors />,
@@ -252,9 +256,9 @@ const contentByDate = {
     description: "A big thank you to our contributors!",
   },
   "2024-12-20": {
+    repeatable: false,
     illustration: <Illustration20 />,
     illustrationDimmed: <Illustration20 disabled />,
-    repeatable: true,
     content: ({ closeModal }) => <SimonSays onFinish={closeModal} />,
     title: "Simon says",
     description: (
@@ -274,25 +278,27 @@ const contentByDate = {
     ),
   },
   "2024-12-23": {
+    repeatable: true,
     illustration: <Illustration23 />,
     illustrationDimmed: <Illustration23 disabled />,
-    repeatable: true,
     content: <ChristmasMovies />,
     title: "Popcorn Night",
     description:
       "If you prefer to stay home these days and enjoy some peace and quiet, here are some “Christmas” movie recommendations.🍿 And don't worry, the Grinch won't mind you staying home! 😜",
   },
   "2024-12-24": {
+    repeatable: true,
     illustration: <Illustration24 />,
     illustrationDimmed: <Illustration24 disabled />,
     content: <MusicLists />,
     title: "Tired of carols?",
-    description: "These playlists are for those who want something different this season.",
+    description:
+      "These playlists are for those who want something different this season.",
   },
   "2024-12-25": {
+    repeatable: true,
     illustration: <Illustration25 />,
     illustrationDimmed: <Illustration25 disabled />,
-    repeatable: true,
     content: <ChristmasGreetings />,
     title: "Happy Christmas!",
     description: "And a merry new year",

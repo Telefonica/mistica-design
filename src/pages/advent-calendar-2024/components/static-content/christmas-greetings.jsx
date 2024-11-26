@@ -1,11 +1,12 @@
 import { Stack, Text5, Text3, TextLink, skinVars } from "@telefonica/mistica";
 import ContentWrapper from "../content-wrapper";
+import contentByDate from "../../utils/content-config";
 
 const ChristmasGreetings = () => {
   return (
     <ContentWrapper textAlign={"center"}>
       <Stack space={52}>
-        <span style={{ fontSize: "100px" }}>🎄</span>
+        <div>{contentByDate["2024-12-25"].illustration}</div>
         <Text5>
           Thanks for joining us these past days.
           <br></br>

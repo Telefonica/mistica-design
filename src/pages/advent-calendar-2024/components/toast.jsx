@@ -11,6 +11,7 @@ import {
   useScreenSize,
 } from "@telefonica/mistica";
 import styles from "./toast.module.css";
+import DecorationPatty from "../assets/decorations/decoration-patty";
 
 const Toast = ({
   title,
@@ -87,22 +88,9 @@ const Toast = ({
       onMouseLeave={() => setIsHovered(false)} // Reset hover state
     >
       <Inline space={16}>
-        <div
-          style={{
-            background:
-              "linear-gradient(120deg, rgba(255,249,208,1) 0%, rgba(255,178,178,1) 24%, rgba(59,95,253,1) 66%, rgba(255,99,114,1) 100%)",
-            padding: "16px",
-            display: "inline-flex",
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: "8px",
-            outline: `1px solid ${skinVars.colors.inverse}`,
-            outlineOffset: "-4px",
-            position: "relative",
-          }}
-        >
-          <Icon color={skinVars.colors.inverse} />
-        </div>
+        <DecorationPatty size={48} color={skinVars.colors.error}>
+          <Icon size={16} color={skinVars.colors.brand} />
+        </DecorationPatty>
         <Stack space={8}>
           <Text2 weight="bold">Achievement unlocked</Text2>
           <Text3 weight="bold">{title}</Text3>
