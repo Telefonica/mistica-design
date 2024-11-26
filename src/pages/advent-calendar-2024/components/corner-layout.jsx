@@ -36,19 +36,6 @@ const CornerLayout = () => {
     };
   }, []);
 
-  const handleViewProgress = () => {
-    const completedDays =
-      JSON.parse(localStorage.getItem("completedDays")) || [];
-
-    // Encode completed days as a Base64 string
-    const encodedDays = base64Encode(completedDays.join(","));
-    const params = new URLSearchParams({
-      completedDays: encodedDays,
-    });
-
-    navigate(`/advent-calendar-2024/progress-view?${params.toString()}`);
-  };
-
   const copyToClipboard = () => {
     const url = window.location.href; // Get the current URL
 
@@ -59,9 +46,6 @@ const CornerLayout = () => {
       })
       .catch((err) => console.error("Failed to copy: ", err));
   };
-
-  // Helper function to determine if the link should be underlined
-  const isCurrentPage = (path) => location.pathname === path;
 
   return (
     <ResponsiveLayout>

@@ -39,8 +39,6 @@ import { updateCompletedDays } from "../utils/state-manager";
 import { base64Encode } from "../utils/url-encoder.jsx";
 
 const CalendarView = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
   const { isMobile } = useScreenSize();
 
   // Load completed days from local storage on initial mount
@@ -90,20 +88,13 @@ const CalendarView = () => {
       const newCompletedDays = [...completedDays, date];
       // Update completed days state and local storage
       localStorage.setItem("completedDays", JSON.stringify(newCompletedDays));
-      updateCompletedDays(
-        newCompletedDays,
-        setCompletedDays,
-        navigate,
-        location
-      );
+      updateCompletedDays(newCompletedDays, setCompletedDays);
 
       // Check for achievements
       checkAndUnlockAchievements(
         newCompletedDays,
         achievements,
         setAchievements,
-        navigate,
-        location,
         handleShowToast
       );
     }
@@ -111,7 +102,7 @@ const CalendarView = () => {
 
   const clearLocalStorage = () => {
     localStorage.removeItem("completedDays"); // Clear from local storage
-    updateCompletedDays([], setCompletedDays, navigate, location); // Clear state
+    updateCompletedDays([], setCompletedDays); // Clear state
     achievementsConfig.forEach(({ id }) => {
       localStorage.removeItem(ACHIEVEMENT_PREFIX + id);
     });
@@ -154,20 +145,7 @@ const CalendarView = () => {
   }, [completedDays, availableDays, calendarDays]);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
-  const handleViewProgress = () => {
-    const completedDays =
-      JSON.parse(localStorage.getItem("completedDays")) || [];
-
-    // Encode completed days as a Base64 string
-    const encodedDays = base64Encode(completedDays.join(","));
-    const params = new URLSearchParams({
-      completedDays: encodedDays,
-    });
-
-    navigate(`/advent-calendar-2024/progress-view?${params.toString()}`);
-  };
-
-  const SheetView = ({ isOpen, onClose, handleViewProgress }) => {
+  const SheetView = ({ isOpen, onClose }) => {
     return (
       isOpen && (
         <Sheet onClose={onClose}>
@@ -205,7 +183,9 @@ const CalendarView = () => {
                           </Circle>
                           <p>
                             In{" "}
-                            <TextLink onPress={handleViewProgress}>
+                            <TextLink
+                              to={`/advent-calendar-2024/progress-view`}
+                            >
                               My Progress
                             </TextLink>{" "}
                             page, you can see the days you've completed, your
@@ -332,11 +312,7 @@ const CalendarView = () => {
           </Stack>
         </Box>
       </ResponsiveLayout>
-      <SheetView
-        isOpen={isSheetOpen}
-        onClose={() => setIsSheetOpen(false)}
-        handleViewProgress={handleViewProgress}
-      />
+      <SheetView isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} />
       <ToastWrapper toasts={toasts} removeToast={removeToast} />
     </>
   );

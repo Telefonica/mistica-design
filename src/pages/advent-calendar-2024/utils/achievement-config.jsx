@@ -135,8 +135,6 @@ export const checkAndUnlockAchievements = (
   newCompletedDays,
   achievements,
   setAchievements,
-  navigate,
-  location,
   showToast
 ) => {
   achievementsConfig.forEach(({ id, check, name, message, icon, isSecret }) => {
@@ -160,9 +158,7 @@ export const checkAndUnlockAchievements = (
           Object.keys(achievements)
             .filter((key) => achievements[key].isCompleted)
             .map((key) => key),
-          setAchievements,
-          navigate,
-          location
+          setAchievements
         );
       }
     }

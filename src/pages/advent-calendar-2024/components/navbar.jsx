@@ -21,7 +21,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { base64Encode } from "../utils/url-encoder";
 import RotatingSVG from "./label-rotate";
 
-const SheetView = ({ isOpen, onClose, handleViewProgress }) => {
+const SheetView = ({ isOpen, onClose }) => {
   return (
     isOpen && (
       <Sheet onClose={onClose}>
@@ -59,7 +59,7 @@ const SheetView = ({ isOpen, onClose, handleViewProgress }) => {
                         </Circle>
                         <p>
                           In{" "}
-                          <TextLink onPress={handleViewProgress}>
+                          <TextLink to={`/advent-calendar-2024/progress-view`}>
                             My Progress
                           </TextLink>{" "}
                           page, you can see the days you've completed, your
@@ -120,19 +120,6 @@ const NavBar = () => {
     };
   }, []);
 
-  const handleViewProgress = () => {
-    const completedDays =
-      JSON.parse(localStorage.getItem("completedDays")) || [];
-
-    // Encode completed days as a Base64 string
-    const encodedDays = base64Encode(completedDays.join(","));
-    const params = new URLSearchParams({
-      completedDays: encodedDays,
-    });
-
-    navigate(`/advent-calendar-2024/progress-view?${params.toString()}`);
-  };
-
   // Helper function to determine if the link should be underlined
   const isCurrentPage = (path) => location.pathname === path;
 
@@ -152,7 +139,7 @@ const NavBar = () => {
           },
           {
             title: "My Progress",
-            onPress: handleViewProgress,
+            to: "/advent-calendar-2024/progress-view",
             decoration: isCurrentPage("/advent-calendar-2024/progress-view")
               ? "underline"
               : "none",
@@ -169,11 +156,7 @@ const NavBar = () => {
           },
         ]}
       />
-      <SheetView
-        isOpen={isSheetOpen}
-        onClose={() => setIsSheetOpen(false)}
-        handleViewProgress={handleViewProgress}
-      />
+      <SheetView isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} />
     </>
   ) : (
     <ResponsiveLayout>
@@ -205,7 +188,7 @@ const NavBar = () => {
             >
               <TextLink
                 style={{ color: skinVars.colors.textPrimary }}
-                onPress={handleViewProgress}
+                to={"/advent-calendar-2024/progress-view"}
               >
                 My progress
               </TextLink>
@@ -232,11 +215,7 @@ const NavBar = () => {
           </Inline>
         </Inline>
       </Box>
-      <SheetView
-        isOpen={isSheetOpen}
-        onClose={() => setIsSheetOpen(false)}
-        handleViewProgress={handleViewProgress}
-      />
+      <SheetView isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} />
     </ResponsiveLayout>
   );
 };
