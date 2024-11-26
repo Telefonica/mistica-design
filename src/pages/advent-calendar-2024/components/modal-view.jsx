@@ -11,7 +11,7 @@ import {
 import { DecorationSnake } from "../assets/decorations/decorations";
 
 const ModalView = forwardRef(
-  ({ title, day, dayOfWeek, description, content, onCancel }, ref) => {
+  ({ title, day, dayOfWeek, description, content, onCancel, repeatable }, ref) => {
     const { isMobile } = useScreenSize();
 
     return (

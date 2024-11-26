@@ -57,8 +57,7 @@ export const achievementsConfig = [
     name: "Advent Champion",
     description: "Unlock all days in the advent calendar",
     icon: IconSnowflakeRegular,
-    check: (newCompletedDays) =>
-      newCompletedDays.length === TOTAL_CALENDAR_DAYS,
+    check: (newCompletedDays) => newCompletedDays.length === 18,
     message: "You have unlocked all days!",
     isSecret: true,
   },

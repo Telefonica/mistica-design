@@ -45,15 +45,18 @@ const CalendarCard = ({
   const handleEndDay = () => {
     dialogRef.current.close();
     document.body.style.overflow = "auto";
-
     onEndDay(); // Notify the parent to update the state
   };
 
   const handleCloseModal = () => {
     dialogRef.current.close(); // Close the modal
     document.body.style.overflow = "auto";
-
     onEndDay(); // Notify the parent to update the state
+  };
+
+  const handleDismiss = () => {
+    dialogRef.current.close();
+    document.body.style.overflow = "auto";
   };
 
   let cardStatusStyles;
@@ -254,7 +257,7 @@ const CalendarCard = ({
             : content
         }
         onClose={handleEndDay}
-        onCancel={repeatable ? handleEndDay : null}
+        onCancel={repeatable ? handleEndDay : handleDismiss}
       />
     </>
   );
