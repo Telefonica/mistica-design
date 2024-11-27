@@ -279,7 +279,8 @@ const CalendarView = () => {
                   <Text4 weight="medium">Welcome!</Text4>
                   <Text4>
                     This year, at Mística, we want to give you a little surprise
-                    every day this month in the run up to Christmas.{" "}
+                    every day this month in the run up to Christmas. Stay tuned
+                    for the 25th!{" "}
                     <TextLink
                       onPress={() => setIsSheetOpen(true)}
                       aria-label="Know more about our calendar"
