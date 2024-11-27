@@ -85,14 +85,14 @@ export const set2Movies = [
   },
 ];
 
-const EmojiMovies = ({ movies, onFinish }) => {
+const EmojiMovies = ({ set, movies, onFinish }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
-  const gameName = "Emoji Movies";
+  const gameName = `Emoji Movies${set}`;
 
   const { emojis, answer, correctAnswer, options } =
     movies[currentQuestionIndex];

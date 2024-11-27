@@ -63,7 +63,7 @@ const contentByDate = {
     repeatable: false,
     Illustration: Illustration03,
     content: ({ closeModal }) => (
-      <EmojiMovies movies={set1Movies} onFinish={closeModal} />
+      <EmojiMovies set={1} movies={set1Movies} onFinish={closeModal} />
     ),
     title: "Emoji movie",
     description:
@@ -216,7 +216,7 @@ const contentByDate = {
     repeatable: false,
     Illustration: Illustration16,
     content: ({ closeModal }) => (
-      <EmojiMovies movies={set2Movies} onFinish={closeModal} />
+      <EmojiMovies set={2} movies={set2Movies} onFinish={closeModal} />
     ),
     title: "Emoji movie",
     description:

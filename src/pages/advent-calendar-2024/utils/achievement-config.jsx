@@ -65,7 +65,17 @@ export const achievementsConfig = [
     description: "Complete all game days",
     icon: IconBugFilled,
     check: (newCompletedDays) => {
-      const gameDays = ["2023-12-01", "2023-12-08", "2023-12-15", "2023-12-22"]; //CAMBIAR ESTO A LOS DÍAS DE JUEGOSSS
+      const gameDays = [
+        "2024-12-02",
+        "2024-12-03",
+        "2024-12-05",
+        "2024-12-10",
+        "2024-12-11",
+        "2024-12-13",
+        "2024-12-17",
+        "2024-12-18",
+        "2024-12-20",
+      ];
       return gameDays.every((day) => newCompletedDays.includes(day));
     },
     message:
@@ -79,8 +89,10 @@ export const achievementsConfig = [
     icon: IconVideoCameraFilled,
     check: () => {
       const gameScores = JSON.parse(localStorage.getItem("gameScores")) || {};
-      const emojiMoviesScore = gameScores["Emoji Movies"]?.score || 0;
-      return emojiMoviesScore === 400;
+      const emojiMovies1Score = gameScores["Emoji Movies1"]?.score || 0;
+      const emojiMovies2Score = gameScores["Emoji Movies2"]?.score || 0;
+      const totalScore = emojiMovies1Score + emojiMovies2Score;
+      return totalScore > 800;
     },
 
     message:
