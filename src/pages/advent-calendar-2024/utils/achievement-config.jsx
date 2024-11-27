@@ -1,6 +1,5 @@
 import {
   IconArrowUpDownFilled,
-  IconBeachUmbrellaFilled,
   IconBellFilled,
   IconCalendarFilled,
   IconEyeFilled,
@@ -9,7 +8,6 @@ import {
   IconVideoCameraFilled,
 } from "@telefonica/mistica";
 import { updateAchievements } from "./state-manager";
-import { TOTAL_CALENDAR_DAYS } from "./constants";
 
 const CHRISTMAS_DAY = "25";
 
@@ -126,7 +124,7 @@ const hasConsecutiveDays = (dates) => {
 };
 
 const isChristmasDay = (date) => {
-  const [_, month, day] = date.split("-");
+  const [, , day] = date.split("-");
   return day === CHRISTMAS_DAY;
 };
 

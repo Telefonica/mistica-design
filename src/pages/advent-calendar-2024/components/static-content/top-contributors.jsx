@@ -1,17 +1,13 @@
 import {
-  Align,
   Avatar,
   Stack,
   Text4,
   BoxedRowList,
   BoxedRow,
-  useScreenSize,
 } from "@telefonica/mistica";
 import ContentWrapper from "../content-wrapper";
 
 const TopContributors = () => {
-  const { isMobile } = useScreenSize();
-
   return (
     <ContentWrapper>
       <Stack space={32}>

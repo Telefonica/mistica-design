@@ -1,5 +1,4 @@
 import {
-  Align,
   ButtonDanger,
   ButtonPrimary,
   ButtonSecondary,
@@ -60,7 +59,7 @@ const HigherOrLower = ({ set, data, onFinish }) => {
       setScore(savedGame.score);
       setStatus("final");
     }
-  }, []);
+  }, [set]);
 
   const current = data[index];
   const next = data[index + 1];

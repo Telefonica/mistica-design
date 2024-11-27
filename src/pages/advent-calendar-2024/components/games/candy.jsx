@@ -11,11 +11,12 @@ import tu from "../../../../img/games/tu.svg";
 import vivo from "../../../../img/games/vivo.svg";
 import "./candy.css";
 
+const candyColors = [movistar, tu, vivo, blau, telefonica, o2];
+
 const CandyCrush = ({ onFinish }) => {
   const gameName = "candyCrush";
   const { isMobile } = useScreenSize();
   const width = 8;
-  const candyColors = [movistar, tu, vivo, blau, telefonica, o2];
   const maxMoves = 10;
 
   const [squares, setSquares] = useState([]);
@@ -25,15 +26,10 @@ const CandyCrush = ({ onFinish }) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [invalidMove, setInvalidMove] = useState(null);
   const [status, setStatus] = useState("playing");
-  const [highlightedSquares, setHighlightedSquares] = useState([]);
 
   const handleGameEnd = () => {
     if (onFinish) onFinish();
-    saveGameData(
-      gameName,
-      score,
-      true
-    );
+    saveGameData(gameName, score, true);
   };
 
   useEffect(() => {
@@ -47,152 +43,158 @@ const CandyCrush = ({ onFinish }) => {
   }, [movesRemaining]);
 
   useEffect(() => {
+    function createBoard() {
+      const initialSquares = [];
+      for (let i = 0; i < width * width; i++) {
+        const randomColor = Math.floor(Math.random() * candyColors.length);
+        initialSquares.push(candyColors[randomColor]);
+      }
+      setSquares(initialSquares);
+    }
+
     createBoard();
   }, []);
 
   useEffect(() => {
+    function moveDown() {
+      let newSquares = [...squares];
+      for (let i = width * (width - 1) - 1; i >= 0; i--) {
+        if (
+          newSquares[i + width] === undefined ||
+          newSquares[i + width] === ""
+        ) {
+          newSquares[i + width] = newSquares[i];
+          newSquares[i] = "";
+        }
+      }
+      for (let i = 0; i < width; i++) {
+        if (newSquares[i] === "") {
+          const randomColor = Math.floor(Math.random() * candyColors.length);
+          newSquares[i] = candyColors[randomColor];
+        }
+      }
+      setSquares(newSquares);
+    }
+
+    function checkMatches() {
+      if (movesRemaining <= 9) {
+        checkRowForFour();
+        checkColumnForFour();
+        checkRowForThree();
+        checkColumnForThree();
+      }
+    }
+
+    function checkRowForFour() {
+      for (let i = 0; i < 63; i++) {
+        if (i % width > width - 4) continue;
+        const rowOfFour = [i, i + 1, i + 2, i + 3];
+        const decidedColor = squares[i];
+        const isBlank = decidedColor === "";
+
+        if (
+          rowOfFour.every((index) => squares[index] === decidedColor) &&
+          !isBlank
+        ) {
+          setScore((prevScore) => prevScore + 4);
+          animateAndClear(rowOfFour);
+        }
+      }
+    }
+
+    function checkColumnForFour() {
+      for (let i = 0; i < 47; i++) {
+        const columnOfFour = [i, i + width, i + width * 2, i + width * 3];
+        const decidedColor = squares[i];
+        const isBlank = decidedColor === "";
+
+        if (
+          columnOfFour.every((index) => squares[index] === decidedColor) &&
+          !isBlank
+        ) {
+          setScore((prevScore) => prevScore + 4);
+          animateAndClear(columnOfFour);
+        }
+      }
+    }
+
+    function checkRowForThree() {
+      for (let i = 0; i < 64; i++) {
+        if (i % width > width - 3) continue;
+        const rowOfThree = [i, i + 1, i + 2];
+        const decidedColor = squares[i];
+        const isBlank = decidedColor === "";
+
+        if (
+          rowOfThree.every((index) => squares[index] === decidedColor) &&
+          !isBlank
+        ) {
+          setScore((prevScore) => prevScore + 3);
+          animateAndClear(rowOfThree);
+        }
+      }
+    }
+
+    function checkColumnForThree() {
+      for (let i = 0; i < 48; i++) {
+        const columnOfThree = [i, i + width, i + width * 2];
+        const decidedColor = squares[i];
+        const isBlank = decidedColor === "";
+
+        if (
+          columnOfThree.every((index) => squares[index] === decidedColor) &&
+          !isBlank
+        ) {
+          setScore((prevScore) => prevScore + 3);
+          animateAndClear(columnOfThree);
+        }
+      }
+    }
+
+    function animateAndClear(squaresToClear) {
+      let newSquares = [...squares];
+      squaresToClear.forEach((index) => {
+        newSquares[index] = "";
+      });
+      setSquares(newSquares);
+    }
+
     const intervalId = setInterval(() => {
       moveDown();
       checkMatches();
     }, 100);
 
     return () => clearInterval(intervalId);
-  }, [squares]);
-
-  function createBoard() {
-    const initialSquares = [];
-    for (let i = 0; i < width * width; i++) {
-      const randomColor = Math.floor(Math.random() * candyColors.length);
-      initialSquares.push(candyColors[randomColor]);
-    }
-    setSquares(initialSquares);
-  }
-
-  function moveDown() {
-    let newSquares = [...squares];
-    for (let i = width * (width - 1) - 1; i >= 0; i--) {
-      if (newSquares[i + width] === undefined || newSquares[i + width] === "") {
-        newSquares[i + width] = newSquares[i];
-        newSquares[i] = "";
-      }
-    }
-    for (let i = 0; i < width; i++) {
-      if (newSquares[i] === "") {
-        const randomColor = Math.floor(Math.random() * candyColors.length);
-        newSquares[i] = candyColors[randomColor];
-      }
-    }
-    setSquares(newSquares);
-  }
-
-  function animateAndClear(squaresToClear) {
-    let newSquares = [...squares];
-    squaresToClear.forEach((index) => {
-      newSquares[index] = "";
-    });
-    setSquares(newSquares);
-  }
-
-  function checkMatches() {
-    if (movesRemaining <= 9) {
-      checkRowForFour();
-      checkColumnForFour();
-      checkRowForThree();
-      checkColumnForThree();
-    }
-  }
-
-  function checkRowForFour() {
-    for (let i = 0; i < 63; i++) {
-      if (i % width > width - 4) continue;
-      const rowOfFour = [i, i + 1, i + 2, i + 3];
-      const decidedColor = squares[i];
-      const isBlank = decidedColor === "";
-
-      if (
-        rowOfFour.every((index) => squares[index] === decidedColor) &&
-        !isBlank
-      ) {
-        setScore((prevScore) => prevScore + 4);
-        animateAndClear(rowOfFour);
-      }
-    }
-  }
-
-  function checkColumnForFour() {
-    for (let i = 0; i < 47; i++) {
-      const columnOfFour = [i, i + width, i + width * 2, i + width * 3];
-      const decidedColor = squares[i];
-      const isBlank = decidedColor === "";
-
-      if (
-        columnOfFour.every((index) => squares[index] === decidedColor) &&
-        !isBlank
-      ) {
-        setScore((prevScore) => prevScore + 4);
-        animateAndClear(columnOfFour);
-      }
-    }
-  }
-
-  function checkRowForThree() {
-    for (let i = 0; i < 64; i++) {
-      if (i % width > width - 3) continue;
-      const rowOfThree = [i, i + 1, i + 2];
-      const decidedColor = squares[i];
-      const isBlank = decidedColor === "";
-
-      if (
-        rowOfThree.every((index) => squares[index] === decidedColor) &&
-        !isBlank
-      ) {
-        setScore((prevScore) => prevScore + 3);
-        animateAndClear(rowOfThree);
-      }
-    }
-  }
-
-  function checkColumnForThree() {
-    for (let i = 0; i < 48; i++) {
-      const columnOfThree = [i, i + width, i + width * 2];
-      const decidedColor = squares[i];
-      const isBlank = decidedColor === "";
-
-      if (
-        columnOfThree.every((index) => squares[index] === decidedColor) &&
-        !isBlank
-      ) {
-        setScore((prevScore) => prevScore + 3);
-        animateAndClear(columnOfThree);
-      }
-    }
-  }
+  }, [squares, movesRemaining]);
 
   const swapCandies = (startIndex, endIndex) => {
     if (movesRemaining === 0) return;
-    
-    const isAdjacent = Math.abs(startIndex - endIndex) === 1 || Math.abs(startIndex - endIndex) === width;
-    const isSameRow = Math.floor(startIndex / width) === Math.floor(endIndex / width);
+
+    const isAdjacent =
+      Math.abs(startIndex - endIndex) === 1 ||
+      Math.abs(startIndex - endIndex) === width;
+    const isSameRow =
+      Math.floor(startIndex / width) === Math.floor(endIndex / width);
     const isValidVertical = Math.abs(startIndex - endIndex) === width;
-    
+
     if (isAdjacent && (isSameRow || isValidVertical)) {
       let newSquares = [...squares];
       let temp = newSquares[endIndex];
       newSquares[endIndex] = newSquares[startIndex];
       newSquares[startIndex] = temp;
       setSquares(newSquares);
-      setMovesRemaining(prev => prev - 1);
+      setMovesRemaining((prev) => prev - 1);
       setInvalidMove(null);
-      setSelectedIndex(null);  // Después del swap, reiniciar el índice seleccionado
+      setSelectedIndex(null); // Después del swap, reiniciar el índice seleccionado
     } else {
       setInvalidMove(startIndex);
       setSelectedIndex(null);
-      if (isMobile && 'vibrate' in navigator) {
+      if (isMobile && "vibrate" in navigator) {
         navigator.vibrate(200);
       }
     }
   };
-  
+
   const handleDragStart = (e, index) => {
     if (movesRemaining === 0 || isMobile) return;
     setDraggingIndex(index);
@@ -212,32 +214,32 @@ const CandyCrush = ({ onFinish }) => {
 
   const handleMobileClick = (index) => {
     if (movesRemaining === 0 || !isMobile) return;
-  
+
     document.querySelectorAll(".square.highlighted").forEach((square) => {
       square.classList.remove("highlighted");
     });
-  
+
     if (selectedIndex === null) {
       setSelectedIndex(index);
-  
+
       // Calcular las casillas adyacentes
       const adjacentSquares = [];
-  
+
       // Izquierda
       if (index % width !== 0) {
         adjacentSquares.push(index - 1);
       }
-  
+
       // Derecha
       if (index % width !== width - 1) {
         adjacentSquares.push(index + 1);
       }
-  
+
       // Arriba
       if (index - width >= 0) {
         adjacentSquares.push(index - width);
       }
-  
+
       // Abajo
       if (index + width < width * width) {
         adjacentSquares.push(index + width);
@@ -246,7 +248,6 @@ const CandyCrush = ({ onFinish }) => {
       adjacentSquares.forEach((adjIndex) => {
         document.getElementById(adjIndex).classList.add("highlighted");
       });
-  
     } else {
       const swapAndClear = () => {
         swapCandies(selectedIndex, index);
@@ -262,7 +263,7 @@ const CandyCrush = ({ onFinish }) => {
     <div className="candy-crush">
       {status === "playing" ? (
         <div className="right-column">
-          <div className={`grid ${isMobile ? 'mobile-grid' : ''}`}>
+          <div className={`grid ${isMobile ? "mobile-grid" : ""}`}>
             {squares.map((color, index) => (
               <div
                 key={index}
@@ -271,8 +272,7 @@ const CandyCrush = ({ onFinish }) => {
                   ${draggingIndex === index ? "dragging" : ""} 
                   ${selectedIndex === index ? "selected" : ""} 
                   ${invalidMove === index ? "invalid-move" : ""}
-                  ${isMobile ? 'mobile-square' : ''}
-                  ${highlightedSquares.includes(index) ? 'highlighted' : ''}
+                  ${isMobile ? "mobile-square" : ""}
                 `}
                 style={{ backgroundImage: `url(${color})` }}
                 {...(!isMobile && {
@@ -287,12 +287,14 @@ const CandyCrush = ({ onFinish }) => {
               ></div>
             ))}
           </div>
-          <div style={{ 
-            position: "absolute", 
-            left: isMobile ? 16 : 48, 
-            top: isMobile ? 32 : 64, 
-            zIndex: 1 
-          }}>
+          <div
+            style={{
+              position: "absolute",
+              left: isMobile ? 16 : 48,
+              top: isMobile ? 32 : 64,
+              zIndex: 1,
+            }}
+          >
             <Score score={`${score}`} movements={`${movesRemaining}`} />
           </div>
         </div>

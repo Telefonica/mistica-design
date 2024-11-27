@@ -19,8 +19,8 @@ const Illustration06 = ({ disabled = false }) => {
           fill="#D1D5E4"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M90.9013 100H84.5013V94.84H71.8613V89.24L81.3413 72H90.9013V89H93.9013V94.84H90.9013V100ZM78.7013 88.8V89H84.5013V79.64H83.7013L78.7013 88.8Z"
           fill="#D1D5E4"
         />
@@ -87,14 +87,14 @@ const Illustration06 = ({ disabled = false }) => {
         fill="#344A6A"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M84.5013 100H90.9013V94.84H93.9013V89H90.9013V72H81.3413L71.8613 89.24V94.84H84.5013V100ZM78.7013 89V88.8L83.7013 79.64H84.5013V89H78.7013Z"
         fill="#344A6A"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M165 32H20V40H165V32ZM165 44H20V52H165V44Z"
         fill="#FF6372"
       />

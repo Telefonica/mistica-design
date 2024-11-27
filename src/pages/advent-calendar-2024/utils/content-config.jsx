@@ -1,4 +1,4 @@
-import { Placeholder, skinVars, Text1, Text3 } from "@telefonica/mistica";
+import { skinVars, Text1, Text3 } from "@telefonica/mistica";
 
 import {
   Illustration02,
@@ -53,8 +53,7 @@ import {
 const contentByDate = {
   "2024-12-02": {
     repeatable: false,
-    illustration: <Illustration02 />,
-    illustrationDimmed: <Illustration02 disabled />,
+    Illustration: Illustration02,
     content: ({ closeModal }) => <CandyCrush onFinish={closeModal} />,
     title: "“Brandy” crush",
     description:
@@ -62,8 +61,7 @@ const contentByDate = {
   },
   "2024-12-03": {
     repeatable: false,
-    illustration: <Illustration03 />,
-    illustrationDimmed: <Illustration03 disabled />,
+    Illustration: Illustration03,
     content: ({ closeModal }) => (
       <EmojiMovies set={1} movies={set1Movies} onFinish={closeModal} />
     ),
@@ -73,8 +71,7 @@ const contentByDate = {
   },
   "2024-12-04": {
     repeatable: true,
-    illustration: <Illustration04 />,
-    illustrationDimmed: <Illustration04 disabled />,
+    Illustration: Illustration04,
     content: (
       <GuessWhat questions={componentQuestions} quizType={"component"} />
     ),
@@ -85,8 +82,7 @@ const contentByDate = {
   "2024-12-05": {
     repeatable: false,
     content: ({ closeModal }) => <WordleGame onFinish={closeModal} />,
-    illustration: <Illustration05 />,
-    illustrationDimmed: <Illustration05 disabled />,
+    Illustration: Illustration05,
     title: "Wordle",
     description: (
       <>
@@ -158,16 +154,14 @@ const contentByDate = {
   },
   "2024-12-06": {
     repeatable: true,
-    illustration: <Illustration06 />,
-    illustrationDimmed: <Illustration06 disabled />,
+    Illustration: Illustration06,
     content: <AdventCalendarHistory />,
     title: "Did you know...",
     description: "Where the tradition Christmas calendar comes from?",
   },
   "2024-12-09": {
     repeatable: true,
-    illustration: <Illustration09 />,
-    illustrationDimmed: <Illustration09 disabled />,
+    Illustration: Illustration09,
     content: <Horoscope />,
     title: "Mística zodiac sign",
     description:
@@ -175,8 +169,7 @@ const contentByDate = {
   },
   "2024-12-10": {
     repeatable: false,
-    illustration: <Illustration10 />,
-    illustrationDimmed: <Illustration10 disabled />,
+    Illustration: Illustration10,
     content: ({ closeModal }) => (
       <GuessTheComponent questions={guessComponentSet1} onFinish={closeModal} />
     ),
@@ -186,8 +179,7 @@ const contentByDate = {
   },
   "2024-12-11": {
     repeatable: false,
-    illustration: <Illustration11 />,
-    illustrationDimmed: <Illustration11 disabled />,
+    Illustration: Illustration11,
     content: ({ closeModal }) => (
       <HigherOrLower set={1} data={HigherLowerdataSet1} onFinish={closeModal} />
     ),
@@ -197,8 +189,7 @@ const contentByDate = {
   },
   "2024-12-12": {
     repeatable: true,
-    illustration: <Illustration12 />,
-    illustrationDimmed: <Illustration12 disabled />,
+    Illustration: Illustration12,
     content: <GuessWhat questions={iconQuestions} quizType={"icon"} />,
     title: "Icon Match",
     description:
@@ -206,8 +197,7 @@ const contentByDate = {
   },
   "2024-12-13": {
     repeatable: false,
-    illustration: <Illustration13 />,
-    illustrationDimmed: <Illustration13 disabled />,
+    Illustration: Illustration13,
     content: ({ closeModal }) => <MemoryGame onFinish={closeModal} />,
     title: "Memory cards",
     description: (
@@ -224,8 +214,7 @@ const contentByDate = {
 
   "2024-12-16": {
     repeatable: false,
-    illustration: <Illustration16 />,
-    illustrationDimmed: <Illustration16 disabled />,
+    Illustration: Illustration16,
     content: ({ closeModal }) => (
       <EmojiMovies set={2} movies={set2Movies} onFinish={closeModal} />
     ),
@@ -235,8 +224,7 @@ const contentByDate = {
   },
   "2024-12-17": {
     repeatable: false,
-    illustration: <Illustration17 />,
-    illustrationDimmed: <Illustration17 disabled />,
+    Illustration: Illustration17,
     content: ({ closeModal }) => (
       <HigherOrLower set={2} data={HigherLowerdataSet2} onFinish={closeModal} />
     ),
@@ -246,8 +234,7 @@ const contentByDate = {
   },
   "2024-12-18": {
     repeatable: false,
-    illustration: <Illustration18 />,
-    illustrationDimmed: <Illustration18 disabled />,
+    Illustration: Illustration18,
     content: ({ closeModal }) => (
       <GuessTheComponent
         set={2}
@@ -261,16 +248,14 @@ const contentByDate = {
   },
   "2024-12-19": {
     repeatable: true,
-    illustration: <Illustration19 />,
-    illustrationDimmed: <Illustration19 disabled />,
+    Illustration: Illustration19,
     content: <TopContributors />,
     title: "Top contributors",
     description: "A big thank you to our contributors!",
   },
   "2024-12-20": {
     repeatable: false,
-    illustration: <Illustration20 />,
-    illustrationDimmed: <Illustration20 disabled />,
+    Illustration: Illustration20,
     content: ({ closeModal }) => <SimonSays onFinish={closeModal} />,
     title: "Simon says",
     description: (
@@ -291,8 +276,7 @@ const contentByDate = {
   },
   "2024-12-23": {
     repeatable: true,
-    illustration: <Illustration23 />,
-    illustrationDimmed: <Illustration23 disabled />,
+    Illustration: Illustration23,
     content: <ChristmasMovies />,
     title: "Popcorn Night",
     description:
@@ -300,8 +284,7 @@ const contentByDate = {
   },
   "2024-12-24": {
     repeatable: true,
-    illustration: <Illustration24 />,
-    illustrationDimmed: <Illustration24 disabled />,
+    Illustration: Illustration24,
     content: <MusicLists />,
     title: "Tired of carols?",
     description:
@@ -309,8 +292,7 @@ const contentByDate = {
   },
   "2024-12-25": {
     repeatable: true,
-    illustration: <Illustration25 />,
-    illustrationDimmed: <Illustration25 disabled />,
+    Illustration: Illustration25,
     content: <ChristmasGreetings />,
     title: "Happy Christmas!",
     description: "And a merry new year",

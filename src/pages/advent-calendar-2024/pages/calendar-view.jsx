@@ -18,8 +18,7 @@ import {
   skinVars,
   useScreenSize,
 } from "@telefonica/mistica";
-import { useMemo, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import DecorationPatty from "../assets/decorations/decoration-patty.jsx";
 import DecorationSnake from "../assets/decorations/decoration-snake.jsx";
 import CalendarCard from "../components/calendar-card";
@@ -36,7 +35,6 @@ import { calendarDays } from "../utils/calendar-config.jsx";
 import { CARD_STATES } from "../utils/constants";
 import contentByDate from "../utils/content-config";
 import { updateCompletedDays } from "../utils/state-manager";
-import { base64Encode } from "../utils/url-encoder.jsx";
 
 const CalendarView = () => {
   const { isMobile } = useScreenSize();
@@ -123,26 +121,20 @@ const CalendarView = () => {
     }
   };
 
-  const calendarItems = useMemo(() => {
-    return calendarDays.map(({ date, dayOfWeek }) => (
-      <CalendarCard
-        key={date}
-        DateString={date}
-        DayOfWeek={dayOfWeek}
-        eventName={contentByDate[date]?.title}
-        eventDescription={contentByDate[date]?.description}
-        content={contentByDate[date]?.content}
-        status={getDayStatus(date)} // Ensure status is updated based on availability
-        onEndDay={() => markDayAsCompleted(date)}
-        illustration={contentByDate[date]?.illustration}
-        illustrationDimmed={
-          contentByDate[date]?.illustrationDimmed ||
-          contentByDate[date]?.illustration
-        }
-        repeatable={contentByDate[date]?.repeatable}
-      />
-    ));
-  }, [completedDays, availableDays, calendarDays]);
+  const calendarItems = calendarDays.map(({ date, dayOfWeek }) => (
+    <CalendarCard
+      key={date}
+      DateString={date}
+      DayOfWeek={dayOfWeek}
+      eventName={contentByDate[date]?.title}
+      eventDescription={contentByDate[date]?.description}
+      content={contentByDate[date]?.content}
+      status={getDayStatus(date)} // Ensure status is updated based on availability
+      onEndDay={() => markDayAsCompleted(date)}
+      Illustration={contentByDate[date]?.Illustration}
+      repeatable={contentByDate[date]?.repeatable}
+    />
+  ));
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   const SheetView = ({ isOpen, onClose }) => {
@@ -228,11 +220,11 @@ const CalendarView = () => {
   };
 
   return (
-    <>
+    <ResponsiveLayout>
       <Snow />
-      <CornerLayout />
-      <NavBar />
-      <ResponsiveLayout>
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <CornerLayout />
+        <NavBar />
         <Box paddingY={42}>
           <Stack space={48}>
             <GridLayout
@@ -277,7 +269,7 @@ const CalendarView = () => {
                       textColor={skinVars.colors.textPrimary}
                       textSize={16}
                       easterEgg={true}
-                    ></DecorationPatty>
+                    />
                   </Inline>
                   <DecorationSnake width={isMobile ? "100%" : 371.84} />
                 </Stack>
@@ -297,7 +289,7 @@ const CalendarView = () => {
                   </Text4>
                 </Stack>
               }
-            ></GridLayout>
+            />
 
             <Carousel
               initialActiveItem={initialActiveDay}
@@ -311,10 +303,10 @@ const CalendarView = () => {
             </ButtonPrimary>
           </Stack>
         </Box>
-      </ResponsiveLayout>
-      <SheetView isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} />
-      <ToastWrapper toasts={toasts} removeToast={removeToast} />
-    </>
+        <SheetView isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} />
+        <ToastWrapper toasts={toasts} removeToast={removeToast} />
+      </div>
+    </ResponsiveLayout>
   );
 };
 

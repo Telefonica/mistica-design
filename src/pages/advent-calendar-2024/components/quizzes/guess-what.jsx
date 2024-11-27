@@ -13,8 +13,6 @@ import {
   IconCocktailRegular,
   skinVars,
   TextLink,
-  Align,
-  useScreenSize,
 } from "@telefonica/mistica";
 import DecorationPatty from "../../assets/decorations/decoration-patty";
 import QuizProgress from "../quiz-progress";
@@ -291,7 +289,6 @@ export const GuessWhat = ({ quizType, questions }) => {
   const [answers, setAnswers] = useState(Array(questions.length).fill("")); // Store answers dynamically based on the number of questions
   const [finalResult, setFinalResult] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Track the current question index
-  const { isMobile } = useScreenSize();
 
   const quizName = `Guess what ${quizType} you are`;
 

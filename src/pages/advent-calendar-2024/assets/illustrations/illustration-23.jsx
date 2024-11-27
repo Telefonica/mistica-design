@@ -10,7 +10,7 @@ const Illustration23 = ({ disabled = false }) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_949_9508)">
+        <g clipPath="url(#clip0_949_9508)">
           <path
             d="M92.9542 27.5193L89.9868 19.5L87.0193 27.5193L79 30.4868L87.0193 33.4542L89.9868 41.4735L92.9542 33.4542L100.974 30.4868L92.9542 27.5193Z"
             fill="#D1D5E4"
@@ -61,7 +61,7 @@ const Illustration23 = ({ disabled = false }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_949_8602)">
+      <g clipPath="url(#clip0_949_8602)">
         <path
           d="M139.325 67.5L141.303 72.8462L146.649 74.8245L141.303 76.8028L139.325 82.149L137.346 76.8028L132 74.8245L137.346 72.8462L139.325 67.5Z"
           fill="#0066FF"

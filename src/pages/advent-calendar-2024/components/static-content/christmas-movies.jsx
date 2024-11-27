@@ -9,16 +9,16 @@ import {
 import { useState, useEffect } from "react";
 import ContentWrapper from "../content-wrapper";
 
-const ChristmasMovies = () => {
-  const titles = [
-    "Gremlins",
-    "Jingle All The Way",
-    "Harry Potter and the Sorcerer's Stone",
-    "Resident Evil",
-    "Love Actually",
-    "Charlie and the Chocolate Factory",
-  ];
+const titles = [
+  "Gremlins",
+  "Jingle All The Way",
+  "Harry Potter and the Sorcerer's Stone",
+  "Resident Evil",
+  "Love Actually",
+  "Charlie and the Chocolate Factory",
+];
 
+const ChristmasMovies = () => {
   const [movies, setMovies] = useState({});
 
   const { isMobile } = useScreenSize();

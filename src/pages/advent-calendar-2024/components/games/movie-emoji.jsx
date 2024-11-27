@@ -9,8 +9,6 @@ import {
   Text5,
   Text,
   Stack,
-  useScreenSize,
-  Align,
   ButtonSecondary,
 } from "@telefonica/mistica";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
@@ -93,7 +91,6 @@ const EmojiMovies = ({ set, movies, onFinish }) => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
-  const { isMobile } = useScreenSize();
 
   const gameName = `Emoji Movies${set}`;
 
