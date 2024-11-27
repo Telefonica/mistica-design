@@ -8,8 +8,6 @@ import {
   skinVars,
   Text5,
   Text,
-  Align,
-  useScreenSize,
   Stack,
 } from "@telefonica/mistica";
 import { IconCompleted, IconWrong } from "../../assets/icons/icons";
@@ -27,7 +25,7 @@ import { UI_LABEL } from "../../utils/constants";
 export const guessComponentSet1 = [
   {
     id: "nakedCard",
-    asset: <img src={NakedCardGuessImg} />,
+    asset: <img src={NakedCardGuessImg} alt="" />,
     answer: "Naked card",
     options: ["Data card", "Media card"],
     correctAnswer: "This is the Naked card component!",
@@ -41,7 +39,7 @@ export const guessComponentSet1 = [
   },
   {
     id: "chip",
-    asset: <img src={ChipGuessImg} />,
+    asset: <img src={ChipGuessImg} alt="" />,
     answer: "Chip",
     options: ["Button", "Tag"],
   },
@@ -50,19 +48,19 @@ export const guessComponentSet1 = [
 export const guessComponentSet2 = [
   {
     id: "toltiop",
-    asset: <img src={TooltipGuessImg} />,
+    asset: <img src={TooltipGuessImg} alt="" />,
     answer: "Tooltip",
     options: ["Sheet", "Select"],
   },
   {
     id: "badge",
-    asset: <img src={BadgeGuessImg} />,
+    asset: <img src={BadgeGuessImg} alt="" />,
     answer: "Badge",
     options: ["Radio button", "Logo"],
   },
   {
     id: "switch",
-    asset: <img src={SwitchGuessImg} />,
+    asset: <img src={SwitchGuessImg} alt="" />,
     answer: "Switch",
     options: ["Stacking group", "Counter"],
   },
