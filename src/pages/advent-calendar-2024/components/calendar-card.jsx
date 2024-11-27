@@ -8,7 +8,7 @@ import {
   Text,
   Text5,
 } from "@telefonica/mistica";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { IconCompleted, IconLockOpen } from "../assets/icons/icons";
 import { CARD_STATES } from "../utils/constants";
 import styles from "./calendar-card.module.css";
@@ -26,36 +26,37 @@ const CalendarCard = ({
   repeatable,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const dialogRef = useRef(null);
   const day = new Date(DateString).getDate();
   const today = new Date().getDate();
-  const isRepeatable =
-    repeatable &&
-    DateString === today &&
-    (status === CARD_STATES.AVAILABLE || status === CARD_STATES.COMPLETED);
+  const isRepeatable = repeatable && DateString === today;
 
   const handleClick = () => {
     if (status === CARD_STATES.AVAILABLE || isRepeatable) {
-      dialogRef.current.showModal();
-      document.body.style.overflow = "hidden";
+      setIsModalOpen((prev) => !prev); // Toggle modal state
     }
   };
 
+  // Effect to show the modal when `isModalOpen` is true
+  useEffect(() => {
+    if (isModalOpen) {
+      dialogRef.current?.showModal();
+    }
+  }, [isModalOpen]);
+
   const handleEndDay = () => {
     dialogRef.current.close();
-    document.body.style.overflow = "auto";
     onEndDay(); // Notify the parent to update the state
   };
 
   const handleCloseModal = () => {
     dialogRef.current.close(); // Close the modal
-    document.body.style.overflow = "auto";
     onEndDay(); // Notify the parent to update the state
   };
 
   const handleDismiss = () => {
     dialogRef.current.close();
-    document.body.style.overflow = "auto";
   };
 
   let cardStatusStyles;
@@ -155,7 +156,7 @@ const CalendarCard = ({
         style={{
           cursor:
             status !== CARD_STATES.AVAILABLE && !isRepeatable
-              ? "not-allowed"
+              ? "inherit"
               : "pointer",
 
           padding: 24,
@@ -202,7 +203,6 @@ const CalendarCard = ({
               }
             >
               {DayOfWeek}
-              {isRepeatable && "isRepeatable"}
             </Text5>
 
             <StatusIndicator />
@@ -236,20 +236,22 @@ const CalendarCard = ({
           </Inline>
         </Stack>
       </button>
-      <ModalView
-        ref={dialogRef}
-        day={day}
-        dayOfWeek={DayOfWeek}
-        title={eventName}
-        description={eventDescription}
-        content={
-          typeof content === "function"
-            ? content({ closeModal: handleCloseModal })
-            : content
-        }
-        onClose={handleEndDay}
-        onCancel={repeatable ? handleEndDay : handleDismiss}
-      />
+      {isModalOpen && (
+        <ModalView
+          ref={dialogRef}
+          day={day}
+          dayOfWeek={DayOfWeek}
+          title={eventName}
+          description={eventDescription}
+          content={
+            typeof content === "function"
+              ? content({ closeModal: handleCloseModal })
+              : content
+          }
+          onClose={handleEndDay}
+          onCancel={repeatable ? handleEndDay : handleDismiss}
+        />
+      )}
     </>
   );
 };

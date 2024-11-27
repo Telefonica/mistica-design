@@ -15,6 +15,7 @@ const GameBar = ({ score, time, timeRunning, movements }) => {
         left: isMobile ? 0 : 56,
         top: isMobile ? 0 : 56,
         marginBottom: isMobile ? 24 : 0,
+        zIndex: 2,
       }}
     >
       <Score
