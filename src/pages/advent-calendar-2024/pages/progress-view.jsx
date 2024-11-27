@@ -29,6 +29,7 @@ import {
   getAchievementFromLocalStorage,
 } from "../utils/achievement-config";
 import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
+import { calendarDays } from "../utils/calendar-config.jsx";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
@@ -181,7 +182,7 @@ const ProgressView = () => {
           <Text size={64} mobileSize={48} lineHeight={64} mobileLineHeight={48}>
             of
           </Text>{" "}
-          {TOTAL_CALENDAR_DAYS}
+          {calendarDays.length}
         </Text>
         <Stack space={4}>
           <Inline space={8} alignItems="center">
