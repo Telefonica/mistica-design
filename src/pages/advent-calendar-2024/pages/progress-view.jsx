@@ -337,10 +337,6 @@ const ProgressView = () => {
                 </div>
               }
             ></GridLayout>
-
-            <ButtonPrimary onPress={handleClearData}>
-              Clear local stored data
-            </ButtonPrimary>
           </Stack>
         </Box>
       </ResponsiveLayout>

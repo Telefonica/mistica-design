@@ -296,12 +296,6 @@ const CalendarView = () => {
               initialActiveItem={initialActiveDay}
               items={calendarItems}
             />
-            <ButtonPrimary onPress={clearLocalStorage}>
-              Clear Completed Days
-            </ButtonPrimary>
-            <ButtonPrimary onPress={unlockAllDays}>
-              {isAllDaysAvailable ? "Lock all days" : "Unlock all days"}
-            </ButtonPrimary>
           </Stack>
         </Box>
         <SheetView isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} />
