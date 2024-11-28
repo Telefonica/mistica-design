@@ -11,8 +11,11 @@ import {
 import { DecorationSnake } from "../assets/decorations/decorations";
 
 const ModalView = forwardRef(
-  ({ title, day, dayOfWeek, description, content, onCancel, repeatable }, ref) => {
-    const { isMobile } = useScreenSize();
+  (
+    { title, day, dayOfWeek, description, content, onCancel, repeatable },
+    ref
+  ) => {
+    const { isMobile, isLargeDesktop } = useScreenSize();
 
     return (
       <dialog
@@ -55,35 +58,28 @@ const ModalView = forwardRef(
               position: "relative",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
+              justifyContent: "space-around",
+              gap: isMobile ? "16px" : "56px",
             }}
           >
-            <div
-              style={{
-                position: isMobile ? "inherit" : "absolute",
-                paddingBottom: "16px",
-                top: isMobile ? 0 : 64,
-                left: isMobile ? 0 : 64,
-              }}
-            >
-              <Stack space={0}>
-                <Text
-                  color={skinVars.colors.brand}
-                  size={isMobile ? 24 : 60}
-                  weight="bold"
-                >
-                  {day}
-                </Text>
-                <Text4 color={skinVars.colors.brand} weight="medium">
-                  {dayOfWeek}
-                </Text4>{" "}
-              </Stack>
-            </div>
+            <Stack space={0}>
+              <Text
+                color={skinVars.colors.brand}
+                size={isMobile ? 24 : 60}
+                weight="bold"
+              >
+                {day}
+              </Text>
+              <Text4 color={skinVars.colors.brand} weight="medium">
+                {dayOfWeek}
+              </Text4>{" "}
+            </Stack>
+
             <Stack space={24}>
               <Text
                 color={skinVars.colors.brand}
-                size={isMobile ? 32 : 80}
-                lineHeight={isMobile ? 34 : 80}
+                size={isMobile ? 32 : isLargeDesktop ? 80 : 64}
+                lineHeight={isMobile ? 34 : isLargeDesktop ? 80 : 64}
                 weight="bold"
               >
                 {title}
