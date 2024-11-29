@@ -734,7 +734,7 @@ const ClaimYourGift = () => {
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "testing";
+    a.download = "Mística Advent Calendar 2024";
 
     document.body.appendChild(a);
     a.click();
