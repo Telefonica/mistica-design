@@ -882,7 +882,9 @@ const ClaimYourGift = () => {
               <Grid columns={12}>
                 <GridItem columnSpan={7}>{leftContent}</GridItem>
                 <GridItem columnStart={9} columnSpan={4}>
-                  {rightContent}
+                  <div style={{ position: "sticky", height: "auto", top: 80 }}>
+                    {rightContent}
+                  </div>
                 </GridItem>
               </Grid>
             </ResponsiveLayout>
