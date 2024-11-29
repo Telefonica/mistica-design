@@ -725,8 +725,10 @@ const ClaimYourGift = () => {
     const originalSvgElement = document.getElementById("illustration-svg");
     const clonedSvgElement = originalSvgElement.cloneNode(true);
 
-    clonedSvgElement.setAttribute("width", "500px");
-    clonedSvgElement.setAttribute("height", "700px");
+    const posterWidth = 500;
+
+    clonedSvgElement.setAttribute("width", `${posterWidth}`);
+    clonedSvgElement.setAttribute("height", `${(posterWidth * 7) / 5}px`);
     const svgString = new XMLSerializer().serializeToString(clonedSvgElement);
     const url = URL.createObjectURL(
       new Blob([svgString], { type: "image/svg+xml" })
