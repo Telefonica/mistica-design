@@ -51,6 +51,23 @@ export const achievementsConfig = [
     isSecret: false,
   },
   {
+    id: "movieMaster",
+    name: "Movie Master",
+    description: "Get the maximum score in the Emoji Movies game",
+    icon: IconVideoCameraFilled,
+    check: () => {
+      const gameScores = JSON.parse(localStorage.getItem("gameScores")) || {};
+      const emojiMovies1Score = gameScores["Emoji Movies1"]?.score || 0;
+      const emojiMovies2Score = gameScores["Emoji Movies2"]?.score || 0;
+      const totalScore = emojiMovies1Score + emojiMovies2Score;
+      return totalScore > 800;
+    },
+
+    message:
+      "You know your movies! You achieve the maximum score in the Emoji Movies game!",
+    isSecret: false,
+  },
+  {
     id: "adventChampion",
     name: "Advent Champion",
     description: "Unlock all days in the advent calendar",
@@ -80,24 +97,7 @@ export const achievementsConfig = [
     },
     message:
       "Achievement Unlocked: Game Master - You have completed all game days!",
-    isSecret: false,
-  },
-  {
-    id: "movieMaster",
-    name: "Movie Master",
-    description: "Get the maximum score in the Emoji Movies game",
-    icon: IconVideoCameraFilled,
-    check: () => {
-      const gameScores = JSON.parse(localStorage.getItem("gameScores")) || {};
-      const emojiMovies1Score = gameScores["Emoji Movies1"]?.score || 0;
-      const emojiMovies2Score = gameScores["Emoji Movies2"]?.score || 0;
-      const totalScore = emojiMovies1Score + emojiMovies2Score;
-      return totalScore > 800;
-    },
-
-    message:
-      "You know your movies! You achieve the maximum score in the Emoji Movies game!",
-    isSecret: false,
+    isSecret: true,
   },
 ];
 
