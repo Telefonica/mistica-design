@@ -269,80 +269,83 @@ const ProgressView = () => {
   return (
     <>
       <Snow />
-      <CornerLayout />
-      <NavBar />
-      <ResponsiveLayout>
-        <Box paddingY={24}>
-          <Stack space={48}>
-            <GridLayout
-              verticalSpace={48}
-              template="8+4"
-              left={
-                <Stack space={32}>
-                  <Grid columns={isTabletOrSmaller ? undefined : 8}>
-                    <GridItem columnSpan={6}>
-                      <Stack space={isTabletOrSmaller ? 24 : 16}>
-                        <Inline space={8} alignItems="center">
-                          <IconCard size={20} />
-
-                          <Text4 medium>Completed Days</Text4>
-                        </Inline>
-                        <Stack space={isTabletOrSmaller ? 16 : 32}>
-                          <TotalProgress />
-                          <ProgressBar
-                            progressPercent={
-                              (completedDays.length / TOTAL_CALENDAR_DAYS) * 100
-                            }
-                          />
-                        </Stack>
-                      </Stack>
-                    </GridItem>
-                  </Grid>
-                  <ProgressGrid completedDays={completedDays} />
-                </Stack>
-              }
-              right={
-                <div style={{ position: "sticky", height: "auto", top: 80 }}>
-                  <Grid columns={4} alignContent>
-                    <GridItem
-                      columnSpan={isTabletOrSmaller ? "full" : 3}
-                      columnStart={isTabletOrSmaller ? undefined : 2}
-                    >
-                      <Stack space={56}>
-                        <AchievementList
-                          completedAchievementsCount={
-                            completedAchievementsCount
-                          }
-                          totalAchievements={totalAchievements}
-                        />
-                        <Stack space={16}>
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <CornerLayout />
+        <NavBar />
+        <ResponsiveLayout>
+          <Box paddingY={24}>
+            <Stack space={48}>
+              <GridLayout
+                verticalSpace={48}
+                template="8+4"
+                left={
+                  <Stack space={32}>
+                    <Grid columns={isTabletOrSmaller ? undefined : 8}>
+                      <GridItem columnSpan={6}>
+                        <Stack space={isTabletOrSmaller ? 24 : 16}>
                           <Inline space={8} alignItems="center">
-                            <IconInvader size={20}></IconInvader>
-                            <Text4 medium>Total game points</Text4>
-                          </Inline>
-                          <Text
-                            size={80}
-                            mobileSize={48}
-                            lineHeight={80}
-                            mobileLineHeight={48}
-                            weight="bold"
-                          >
-                            {totalGamePoints}
-                          </Text>
-                        </Stack>
-                      </Stack>
-                    </GridItem>
-                  </Grid>
-                </div>
-              }
-            ></GridLayout>
+                            <IconCard size={20} />
 
-            <ButtonPrimary onPress={handleClearData}>
-              Clear local stored data
-            </ButtonPrimary>
-          </Stack>
-        </Box>
-      </ResponsiveLayout>
+                            <Text4 medium>Completed Days</Text4>
+                          </Inline>
+                          <Stack space={isTabletOrSmaller ? 16 : 32}>
+                            <TotalProgress />
+                            <ProgressBar
+                              progressPercent={
+                                (completedDays.length / TOTAL_CALENDAR_DAYS) *
+                                100
+                              }
+                            />
+                          </Stack>
+                        </Stack>
+                      </GridItem>
+                    </Grid>
+                    <ProgressGrid completedDays={completedDays} />
+                  </Stack>
+                }
+                right={
+                  <div style={{ position: "sticky", height: "auto", top: 80 }}>
+                    <Grid columns={4} alignContent>
+                      <GridItem
+                        columnSpan={isTabletOrSmaller ? "full" : 3}
+                        columnStart={isTabletOrSmaller ? undefined : 2}
+                      >
+                        <Stack space={56}>
+                          <AchievementList
+                            completedAchievementsCount={
+                              completedAchievementsCount
+                            }
+                            totalAchievements={totalAchievements}
+                          />
+                          <Stack space={16}>
+                            <Inline space={8} alignItems="center">
+                              <IconInvader size={20}></IconInvader>
+                              <Text4 medium>Total game points</Text4>
+                            </Inline>
+                            <Text
+                              size={80}
+                              mobileSize={48}
+                              lineHeight={80}
+                              mobileLineHeight={48}
+                              weight="bold"
+                            >
+                              {totalGamePoints}
+                            </Text>
+                          </Stack>
+                        </Stack>
+                      </GridItem>
+                    </Grid>
+                  </div>
+                }
+              ></GridLayout>
+
+              <ButtonPrimary onPress={handleClearData}>
+                Clear local stored data
+              </ButtonPrimary>
+            </Stack>
+          </Box>
+        </ResponsiveLayout>
+      </div>
     </>
   );
 };

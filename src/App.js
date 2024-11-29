@@ -20,6 +20,7 @@ import SkinTool from "./pages/skin-tool";
 import ComingSoon from "./pages/advent-calendar-2024/pages/coming-soon";
 import ProgressView from "./pages/advent-calendar-2024/pages/progress-view";
 import ProductStatus from "./pages/mistica-product-status/index";
+import ClaimYourGift from "./pages/advent-calendar-2024/pages/claim-your-gift";
 
 export const SchemeContext = createContext();
 
@@ -80,6 +81,10 @@ const App = () => {
     {
       path: `/advent-calendar-2024/progress-view`,
       element: <ProgressView />,
+    },
+    {
+      path: `/advent-calendar-2024/claim-your-gift`,
+      element: <ClaimYourGift />,
     },
     {
       path: `/skin2json`,

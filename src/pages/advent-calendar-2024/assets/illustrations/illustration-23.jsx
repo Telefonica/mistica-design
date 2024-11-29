@@ -1,11 +1,10 @@
 import React from "react";
 
-const Illustration23 = ({ disabled = false }) => {
+const Illustration23 = ({ disabled = false, size = "240" }) => {
   if (disabled) {
     return (
       <svg
-        width="240"
-        height="240"
+        width={size}
         viewBox="0 0 240 240"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +45,7 @@ const Illustration23 = ({ disabled = false }) => {
         </g>
         <defs>
           <clipPath id="clip0_949_9508">
-            <rect width="240" height="240" fill="white" />
+            <rect width="100%" height="100%" fill="white" />
           </clipPath>
         </defs>
       </svg>
@@ -55,8 +54,7 @@ const Illustration23 = ({ disabled = false }) => {
 
   return (
     <svg
-      width="240"
-      height="240"
+      width={size}
       viewBox="0 0 240 240"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +107,7 @@ const Illustration23 = ({ disabled = false }) => {
       </g>
       <defs>
         <clipPath id="clip0_949_8602">
-          <rect width="240" height="240" fill="white" />
+          <rect width="100%" height="100%" fill="white" />
         </clipPath>
       </defs>
     </svg>
