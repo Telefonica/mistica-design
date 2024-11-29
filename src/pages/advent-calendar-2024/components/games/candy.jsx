@@ -13,7 +13,7 @@ import "./candy.css";
 
 const candyColors = [movistar, tu, vivo, blau, telefonica, o2];
 
-const CandyCrush = ({ onFinish }) => {
+const CandyCrush = ({ onFinish, onFinalScreen }) => {
   const gameName = "candyCrush";
   const { isMobile } = useScreenSize();
   const width = 8;
@@ -38,6 +38,7 @@ const CandyCrush = ({ onFinish }) => {
       setTimeout(() => {
         document.querySelector(".grid").classList.add("locked");
         setStatus("gameover");
+        onFinalScreen();
       }, 750); // Wait 750ms before showing the gameover state
     }
   }, [movesRemaining]);

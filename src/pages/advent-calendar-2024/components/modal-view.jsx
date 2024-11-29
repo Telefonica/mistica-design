@@ -12,7 +12,7 @@ import { DecorationSnake } from "../assets/decorations/decorations";
 
 const ModalView = forwardRef(
   (
-    { title, day, dayOfWeek, description, content, onCancel, repeatable },
+    { title, day, dayOfWeek, description, content, onCancel, showDismiss },
     ref
   ) => {
     const { isMobile, isLargeDesktop } = useScreenSize();
@@ -30,7 +30,7 @@ const ModalView = forwardRef(
           border: "none",
         }}
       >
-        {isMobile && onCancel !== null && (
+        {isMobile && showDismiss && (
           <div
             style={{ position: "absolute", top: 16, right: 16, zIndex: 999 }}
           >
@@ -104,8 +104,7 @@ const ModalView = forwardRef(
             }}
           >
             {content}
-            {}
-            {!isMobile && onCancel !== null && (
+            {!isMobile && showDismiss && (
               <div style={{ position: "fixed", top: 48, right: 48 }}>
                 <IconButton
                   type="neutral"

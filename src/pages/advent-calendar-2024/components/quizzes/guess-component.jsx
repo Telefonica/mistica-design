@@ -66,7 +66,7 @@ export const guessComponentSet2 = [
   },
 ];
 
-const GuessTheComponent = ({ questions, onFinish, set }) => {
+const GuessTheComponent = ({ questions, onFinish, onFinalScreen, set }) => {
   const [currentStep, setCurrentStep] = useState("guessing"); // Steps: 'guessing', 'answer', 'gameOver'
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -100,6 +100,7 @@ const GuessTheComponent = ({ questions, onFinish, set }) => {
     } else {
       saveGameData(gameName, score, true); // Save the total score for the set
       setCurrentStep("gameOver");
+      onFinalScreen(); // Notify the parent component
     }
   };
 

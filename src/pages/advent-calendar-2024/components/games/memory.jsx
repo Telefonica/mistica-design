@@ -42,7 +42,7 @@ const initialCards = [
   IconBusFilled,
 ];
 
-const MemoryGame = ({ onFinish }) => {
+const MemoryGame = ({ onFinish, onFinalScreen }) => {
   const gameName = "memoryGame"; // Unique identifier for this game
   const timeLimit = 60; // Time in seconds
 
@@ -79,6 +79,7 @@ const MemoryGame = ({ onFinish }) => {
     if (savedGame?.completed) {
       setScore(savedGame.score);
       setGameEnded(true);
+      onFinalScreen(); // Notify the parent component
       setStatus("completed");
     } else {
       setCards(shuffle([...initialCards]));
@@ -94,6 +95,7 @@ const MemoryGame = ({ onFinish }) => {
       return () => clearInterval(timerId);
     } else if (timeRemaining === 0 && !gameEnded) {
       setGameEnded(true);
+      onFinalScreen(); // Notify the parent component
       setStatus("completed");
     }
   }, [timerStarted, timeRemaining, gameEnded]);
@@ -146,6 +148,7 @@ const MemoryGame = ({ onFinish }) => {
     // Check if all pairs are matched
     if (matchedPairs + 1 === cards.length / 2) {
       setGameEnded(true);
+      onFinalScreen(); // Notify the parent component
       setStatus("completed");
     }
   };

@@ -17,7 +17,7 @@ import { IconCompleted, IconWrong } from "../../assets/icons/icons";
 const words = ["tokens"];
 const chosenWord = words[0].toLowerCase();
 
-const WordleGame = ({ onFinish }) => {
+const WordleGame = ({ onFinish, onFinalScreen }) => {
   const [currentAttempt, setCurrentAttempt] = useState([]);
   const [attempts, setAttempts] = useState([]);
   const [message, setMessage] = useState("");
@@ -75,6 +75,7 @@ const WordleGame = ({ onFinish }) => {
     if (input === chosenWord) {
       setScore(calculateScore(attempts.length + 1));
       setMessage(`Amazing! The word was ${chosenWord.toUpperCase()}.`);
+      onFinalScreen();
       setGameStatus("completed");
     } else if (attempts.length + 1 === maxAttempts) {
       setMessage(

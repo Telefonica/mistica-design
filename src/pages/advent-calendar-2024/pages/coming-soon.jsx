@@ -13,8 +13,8 @@ import DecorationSnake from "../assets/decorations/decoration-snake";
 import CornerLayout from "../components/corner-layout.jsx";
 import Snow from "../components/snow.tsx";
 
-const ComingSoonPage = () => {
-  const defaultTargetDate = "2024-12-02";
+const ComingSoonPage = ({ targetDate }) => {
+  const defaultTargetDate = targetDate;
   const endTimestamp = new Date(defaultTargetDate).getTime();
   const [isSnackbarOpen, setSnackbarOpen] = useState(false);
 
