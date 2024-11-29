@@ -28,7 +28,6 @@ import {
   achievementsConfig,
   getAchievementFromLocalStorage,
 } from "../utils/achievement-config";
-import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
 import { calendarDays } from "../utils/calendar-config.jsx";
 
 const ProgressView = () => {
@@ -190,7 +189,7 @@ const ProgressView = () => {
               Total progress{" "}
               {Math.round(
                 ((completedDays.length + completedAchievementsCount) /
-                  (TOTAL_CALENDAR_DAYS + totalAchievements)) *
+                  (calendarDays.length + totalAchievements)) *
                   100
               )}
               %
@@ -230,7 +229,7 @@ const ProgressView = () => {
             >
               of
             </Text>{" "}
-            {TOTAL_CALENDAR_DAYS}
+            {calendarDays.length}
           </Text>
 
           <Inline space={8} alignItems="center" fullWidth>
@@ -238,7 +237,7 @@ const ProgressView = () => {
               Total progress{" "}
               {Math.round(
                 ((completedDays.length + completedAchievementsCount) /
-                  (TOTAL_CALENDAR_DAYS + totalAchievements)) *
+                  (calendarDays.length + totalAchievements)) *
                   100
               )}
               %
@@ -292,7 +291,7 @@ const ProgressView = () => {
                           <TotalProgress />
                           <ProgressBar
                             progressPercent={
-                              (completedDays.length / TOTAL_CALENDAR_DAYS) * 100
+                              (completedDays.length / calendarDays.length) * 100
                             }
                           />
                         </Stack>

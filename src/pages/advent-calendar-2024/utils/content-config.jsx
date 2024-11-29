@@ -54,7 +54,9 @@ const contentByDate = {
   "2024-12-02": {
     repeatable: false,
     Illustration: Illustration02,
-    content: ({ closeModal }) => <CandyCrush onFinish={closeModal} />,
+    content: ({ closeModal, hideDismiss }) => (
+      <CandyCrush onFinish={closeModal} onFinalScreen={hideDismiss} />
+    ),
     title: "“Brandy” crush",
     description:
       "Try to match Telefónica brands of the same type in a row or column of 3. You have 10 moves. Can you score the highest with the fewest moves?",
@@ -62,8 +64,13 @@ const contentByDate = {
   "2024-12-03": {
     repeatable: false,
     Illustration: Illustration03,
-    content: ({ closeModal }) => (
-      <EmojiMovies set={1} movies={set1Movies} onFinish={closeModal} />
+    content: ({ closeModal, hideDismiss }) => (
+      <EmojiMovies
+        set={1}
+        movies={set1Movies}
+        onFinish={closeModal}
+        onFinalScreen={hideDismiss}
+      />
     ),
     title: "Emoji movie",
     description:
@@ -81,7 +88,9 @@ const contentByDate = {
   },
   "2024-12-05": {
     repeatable: false,
-    content: ({ closeModal }) => <WordleGame onFinish={closeModal} />,
+    content: ({ closeModal, hideDismiss }) => (
+      <WordleGame onFinish={closeModal} onFinalScreen={hideDismiss} />
+    ),
     Illustration: Illustration05,
     title: "Wordle",
     description: (
@@ -170,8 +179,12 @@ const contentByDate = {
   "2024-12-10": {
     repeatable: false,
     Illustration: Illustration10,
-    content: ({ closeModal }) => (
-      <GuessTheComponent questions={guessComponentSet1} onFinish={closeModal} />
+    content: ({ closeModal, hideDismiss }) => (
+      <GuessTheComponent
+        questions={guessComponentSet1}
+        onFinish={closeModal}
+        onFinalScreen={hideDismiss}
+      />
     ),
     title: "What Mística component is?",
     description:
@@ -180,8 +193,13 @@ const contentByDate = {
   "2024-12-11": {
     repeatable: false,
     Illustration: Illustration11,
-    content: ({ closeModal }) => (
-      <HigherOrLower set={1} data={HigherLowerdataSet1} onFinish={closeModal} />
+    content: ({ closeModal, hideDismiss }) => (
+      <HigherOrLower
+        set={1}
+        data={HigherLowerdataSet1}
+        onFinish={closeModal}
+        onFinalScreen={hideDismiss}
+      />
     ),
     title: "Higher or Lower",
     description:
@@ -198,7 +216,9 @@ const contentByDate = {
   "2024-12-13": {
     repeatable: false,
     Illustration: Illustration13,
-    content: ({ closeModal }) => <MemoryGame onFinish={closeModal} />,
+    content: ({ closeModal, hideDismiss }) => (
+      <MemoryGame onFinish={closeModal} onFinalScreen={hideDismiss} />
+    ),
     title: "Memory cards",
     description: (
       <Text3 color={skinVars.colors.brand}>
@@ -215,8 +235,13 @@ const contentByDate = {
   "2024-12-16": {
     repeatable: false,
     Illustration: Illustration16,
-    content: ({ closeModal }) => (
-      <EmojiMovies set={2} movies={set2Movies} onFinish={closeModal} />
+    content: ({ closeModal, hideDismiss }) => (
+      <EmojiMovies
+        set={2}
+        movies={set2Movies}
+        onFinish={closeModal}
+        onFinalScreen={hideDismiss}
+      />
     ),
     title: "Emoji movie",
     description:
@@ -225,8 +250,13 @@ const contentByDate = {
   "2024-12-17": {
     repeatable: false,
     Illustration: Illustration17,
-    content: ({ closeModal }) => (
-      <HigherOrLower set={2} data={HigherLowerdataSet2} onFinish={closeModal} />
+    content: ({ closeModal, hideDismiss }) => (
+      <HigherOrLower
+        set={2}
+        data={HigherLowerdataSet2}
+        onFinish={closeModal}
+        onFinalScreen={hideDismiss}
+      />
     ),
     title: "Higher or Lower",
     description:
@@ -235,11 +265,12 @@ const contentByDate = {
   "2024-12-18": {
     repeatable: false,
     Illustration: Illustration18,
-    content: ({ closeModal }) => (
+    content: ({ closeModal, hideDismiss }) => (
       <GuessTheComponent
         set={2}
         questions={guessComponentSet2}
         onFinish={closeModal}
+        onFinalScreen={hideDismiss}
       />
     ),
     title: "What Mística component is?",
@@ -256,7 +287,9 @@ const contentByDate = {
   "2024-12-20": {
     repeatable: false,
     Illustration: Illustration20,
-    content: ({ closeModal }) => <SimonSays onFinish={closeModal} />,
+    content: ({ closeModal, hideDismiss }) => (
+      <SimonSays onFinish={closeModal} onFinalScreen={hideDismiss} />
+    ),
     title: "Simon says",
     description: (
       <>

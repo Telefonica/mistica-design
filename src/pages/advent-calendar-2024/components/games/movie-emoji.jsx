@@ -85,7 +85,7 @@ export const set2Movies = [
   },
 ];
 
-const EmojiMovies = ({ set, movies, onFinish }) => {
+const EmojiMovies = ({ set, movies, onFinish, onFinalScreen }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -131,6 +131,7 @@ const EmojiMovies = ({ set, movies, onFinish }) => {
   };
 
   if (gameOver) {
+    onFinalScreen(); // Notify the parent component
     return (
       <ContentWrapper>
         <div style={{ textAlign: "center" }}>
