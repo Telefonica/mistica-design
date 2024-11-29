@@ -4,8 +4,6 @@ import { teamsMembers } from "./data/teamsData";
 import { medianBFSessions } from "./data/brandFactoryData";
 import { releases, mergedPRs } from "./data/devData";
 import { formatCount } from "./utils";
-import { Helmet } from "react-helmet";
-import thumbnail from "./assets/thumbnail.png";
 
 import {
   Title2,
@@ -102,28 +100,6 @@ const Wrapped2023 = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Wrapped 2023</title>
-        <meta
-          name="description"
-          content="Wrapped 2023 is a celebration of the work of the Telefonica Design System team in 2023"
-        />
-        <meta property="og:title" content="Wrapped 2023" />
-        <meta
-          property="og:description"
-          content="Wrapped 2023 is a celebration of the work of the Telefonica Design System team in 2023"
-        />
-        <meta
-          property="og:image"
-          content="https://mistica-design-dg8f5xdzr-aweell.vercel.app/static/media/thumbnail.bd98c1039c876d408948.png"
-        />
-        <meta property="twitter:title" content="Wrapped 2023" />
-        <meta
-          property="twitter:description"
-          content="Wrapped 2023 is a celebration of the work of the Telefonica Design System team in 2023"
-        />
-        <meta property="twitter:card" content="summary_large_image" />
-      </Helmet>
       <Wrapper>
         <Section color="#031A34">
           <Cover></Cover>

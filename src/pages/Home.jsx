@@ -37,12 +37,21 @@ import TeamMember from "../components/teamMember";
 import thumbnailWrapped2023 from "../pages/wrapped2023/assets/thumbnail.png";
 import skinTool from "../img/skin-tool.png";
 import AppLayout from "../components/app-layout";
+import ComingSoon from "../pages/advent-calendar-2024/assets/images/coming-soon.png";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const { isDesktopOrBigger } = useScreenSize();
   const { isDarkMode } = useTheme();
 
   const projects = [
+    {
+      title: "Mística 2024",
+      description: "Coming soon...",
+      link: "/advent-calendar-2024",
+      buttonLabel: "Visit",
+      image: ComingSoon,
+    },
     {
       title: "Mistica wrapped 2023",
       description:
@@ -175,109 +184,124 @@ const Home = () => {
   ];
 
   return (
-    <AppLayout>
-      <Slideshow
-        inverseBullets={isDarkMode ? true : false}
-        withBullets
-        items={projects.map((project, index) => (
-          <Hero
-            headline={
-              <ThemeVariant isInverse>
-                <Tag type="active">Project</Tag>
-              </ThemeVariant>
-            }
-            background="alternative"
-            title={project.title}
-            description={project.description}
-            media={
-              <Image
-                height={"100%"}
-                src={project.image}
-                aspectRatio="4:3"
-              ></Image>
-            }
-            buttonLink={
-              <ButtonLink to={project.link} newTab={true}>
-                {project.buttonLabel}
-              </ButtonLink>
-            }
-          ></Hero>
-        ))}
-      ></Slideshow>
+    <>
+      <Helmet>
+        <title>Advent calendar</title>
+        <meta name="description" content="Coming soon..." />
+        <meta property="og:title" content="Advent calendar" />
+        <meta property="og:description" content="Coming soon..." />
+        <meta
+          property="og:image"
+          content="https://mistica-design-qwb4-lqrrl9njr-alex-buenos-projects.vercel.app/static/media/coming-soon.f61036da17b3da68badb.png"
+        />
+        <meta property="twitter:title" content="Advent calendar" />
+        <meta property="twitter:description" content="Coming soon..." />
+        <meta property="twitter:card" content="summary_large_image" />
+      </Helmet>
+      <AppLayout>
+        <Slideshow
+          inverseBullets={isDarkMode ? true : false}
+          withBullets
+          items={projects.map((project, index) => (
+            <Hero
+              headline={
+                <ThemeVariant isInverse>
+                  <Tag type="active">Project</Tag>
+                </ThemeVariant>
+              }
+              background="alternative"
+              title={project.title}
+              description={project.description}
+              media={
+                <Image
+                  height={"100%"}
+                  src={project.image}
+                  aspectRatio="4:3"
+                ></Image>
+              }
+              buttonLink={
+                <ButtonLink to={project.link} newTab={true}>
+                  {project.buttonLabel}
+                </ButtonLink>
+              }
+            ></Hero>
+          ))}
+        ></Slideshow>
 
-      <ResponsiveLayout>
-        <Box paddingY={isDesktopOrBigger ? 120 : 24}>
-          <Stack space={80}>
-            <Box paddingY={isDesktopOrBigger ? 40 : 24}>
-              <Stack space={48}>
-                <Title2>Our resources</Title2>
+        <ResponsiveLayout>
+          <Box paddingY={isDesktopOrBigger ? 120 : 24}>
+            <Stack space={80}>
+              <Box paddingY={isDesktopOrBigger ? 40 : 24}>
+                <Stack space={48}>
+                  <Title2>Our resources</Title2>
 
-                <SubGrid columns={isDesktopOrBigger ? resources.length : 1}>
-                  {resources.map((resource, index) => (
-                    <DisplayDataCard
-                      isInverse={resource.inverse}
-                      key={index}
-                      icon={
-                        <Circle
-                          size={40}
-                          backgroundColor={skinVars.colors.brandLow}
-                        >
-                          {resource.icon}
-                        </Circle>
-                      }
-                      title={resource.title}
-                      buttonLink={
-                        <ButtonLink href={resource.link}>
-                          {resource.buttonLabel}
-                        </ButtonLink>
-                      }
-                    />
-                  ))}
-                </SubGrid>
-              </Stack>
-            </Box>
-
-            <Box paddingY={isDesktopOrBigger ? 40 : 24}>
-              <Stack space={48}>
-                <Title2>Guides</Title2>
-                <NegativeBox>
-                  <RowList>
-                    {guides.map((guide, index) => (
-                      <Row
-                        index={index + 1}
-                        title={guide.title}
-                        description={guide.description}
-                        onPress={() => {
-                          window.open(guide.link, "_blank");
-                        }}
+                  <SubGrid columns={isDesktopOrBigger ? resources.length : 1}>
+                    {resources.map((resource, index) => (
+                      <DisplayDataCard
+                        isInverse={resource.inverse}
+                        key={index}
+                        icon={
+                          <Circle
+                            size={40}
+                            backgroundColor={skinVars.colors.brandLow}
+                          >
+                            {resource.icon}
+                          </Circle>
+                        }
+                        title={resource.title}
+                        buttonLink={
+                          <ButtonLink href={resource.link}>
+                            {resource.buttonLabel}
+                          </ButtonLink>
+                        }
                       />
                     ))}
-                  </RowList>
-                </NegativeBox>
-              </Stack>
-            </Box>
+                  </SubGrid>
+                </Stack>
+              </Box>
 
-            <Box paddingY={isDesktopOrBigger ? 40 : 24}>
-              <Stack space={48}>
-                <Title2>Meet the team</Title2>
+              <Box paddingY={isDesktopOrBigger ? 40 : 24}>
+                <Stack space={48}>
+                  <Title2>Guides</Title2>
+                  <NegativeBox>
+                    <RowList>
+                      {guides.map((guide, index) => (
+                        <Row
+                          index={index + 1}
+                          title={guide.title}
+                          description={guide.description}
+                          onPress={() => {
+                            window.open(guide.link, "_blank");
+                          }}
+                        />
+                      ))}
+                    </RowList>
+                  </NegativeBox>
+                </Stack>
+              </Box>
 
-                <SubGrid columns={isDesktopOrBigger ? 2 : 1} gap={48}>
-                  {team.map((member, index) => (
-                    <TeamMember
-                      key={index}
-                      name={member.name}
-                      description={member.description}
-                      src={member.src}
-                      src2={member.src2}
-                    ></TeamMember>
-                  ))}
-                </SubGrid>
-              </Stack>
-            </Box>
-          </Stack>
-        </Box>
-      </ResponsiveLayout>
-    </AppLayout>
+              <Box paddingY={isDesktopOrBigger ? 40 : 24}>
+                <Stack space={48}>
+                  <Title2>Meet the team</Title2>
+
+                  <SubGrid columns={isDesktopOrBigger ? 2 : 1} gap={48}>
+                    {team.map((member, index) => (
+                      <TeamMember
+                        key={index}
+                        name={member.name}
+                        description={member.description}
+                        src={member.src}
+                        src2={member.src2}
+                      ></TeamMember>
+                    ))}
+                  </SubGrid>
+                </Stack>
+              </Box>
+            </Stack>
+          </Box>
+        </ResponsiveLayout>
+      </AppLayout>
+    </>
   );
 };
 

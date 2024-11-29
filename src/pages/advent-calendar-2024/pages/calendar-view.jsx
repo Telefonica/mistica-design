@@ -1,6 +1,5 @@
 import {
   Box,
-  ButtonPrimary,
   Carousel,
   Circle,
   GridLayout,
@@ -26,11 +25,7 @@ import CornerLayout from "../components/corner-layout.jsx";
 import NavBar from "../components/navbar";
 import Snow from "../components/snow.tsx";
 import ToastWrapper from "../components/toast-wrapper";
-import {
-  ACHIEVEMENT_PREFIX,
-  achievementsConfig,
-  checkAndUnlockAchievements,
-} from "../utils/achievement-config";
+import { checkAndUnlockAchievements } from "../utils/achievement-config";
 import { calendarDays } from "../utils/calendar-config.jsx";
 import { CARD_STATES } from "../utils/constants";
 import contentByDate from "../utils/content-config";
@@ -61,21 +56,6 @@ const CalendarView = () => {
   };
 
   const [achievements, setAchievements] = useState([]);
-  const [availableDays, setAvailableDays] = useState([]);
-  const [isAllDaysAvailable, setIsAllDaysAvailable] = useState(false);
-
-  const unlockAllDays = () => {
-    if (isAllDaysAvailable) {
-      // Lock all days
-      setAvailableDays([]); // Clear the available days
-    } else {
-      // Unlock all days
-      const allDates = calendarDays.map((day) => day.date);
-      setAvailableDays(allDates); // Set all days as available
-    }
-    // Toggle the availability state
-    setIsAllDaysAvailable((prevState) => !prevState);
-  };
 
   const today = new Date().toISOString().split("T")[0];
   const todayIndex = calendarDays.findIndex(({ date }) => date === today);
@@ -98,22 +78,9 @@ const CalendarView = () => {
     }
   };
 
-  const clearLocalStorage = () => {
-    localStorage.removeItem("completedDays"); // Clear from local storage
-    updateCompletedDays([], setCompletedDays); // Clear state
-    achievementsConfig.forEach(({ id }) => {
-      localStorage.removeItem(ACHIEVEMENT_PREFIX + id);
-    });
-
-    localStorage.removeItem("gameScores");
-    localStorage.removeItem("quizData");
-  };
-
   const getDayStatus = (date) => {
     if (completedDays.includes(date)) {
       return CARD_STATES.COMPLETED;
-    } else if (isAllDaysAvailable || availableDays.includes(date)) {
-      return CARD_STATES.AVAILABLE; // Available if all days are unlocked or the day is in availableDays
     } else if (date !== today) {
       return CARD_STATES.BLOCKED; // Block past dates
     } else {
@@ -297,12 +264,6 @@ const CalendarView = () => {
                 initialActiveItem={initialActiveDay}
                 items={calendarItems}
               />
-              <ButtonPrimary onPress={clearLocalStorage}>
-                Clear Completed Days
-              </ButtonPrimary>
-              <ButtonPrimary onPress={unlockAllDays}>
-                {isAllDaysAvailable ? "Lock all days" : "Unlock all days"}
-              </ButtonPrimary>
             </Stack>
           </Box>
           <SheetView

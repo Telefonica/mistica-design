@@ -23,6 +23,8 @@ import NavBar from "../components/navbar.jsx";
 import React, { useLayoutEffect, useState } from "react";
 import contentByDate from "../utils/content-config.jsx";
 import { telefonicaSansDemiboldBase64 } from "../assets/fonts/telefonica_sans_demibold_base64.jsx";
+import { calendarDays } from "../utils/calendar-config.jsx";
+import { achievementsConfig } from "../utils/achievement-config.jsx";
 
 const illustrationKeys = Object.keys(contentByDate);
 
@@ -626,7 +628,7 @@ const PosterSvg = ({
             fontSize={24}
             fontWeight={550}
           >
-            {completedDays} of 25
+            {completedDays} of {calendarDays.length}
           </text>
 
           <text
@@ -639,7 +641,7 @@ const PosterSvg = ({
             fontSize={24}
             fontWeight={550}
           >
-            {achievements} of 8
+            {achievements} of {achievementsConfig.length}
           </text>
 
           <text

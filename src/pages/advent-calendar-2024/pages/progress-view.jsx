@@ -1,6 +1,5 @@
 import {
   Box,
-  ButtonPrimary,
   Grid,
   GridItem,
   GridLayout,
@@ -24,11 +23,11 @@ import NavBar from "../components/navbar";
 import ProgressGrid from "../components/progress-grid";
 import Snow from "../components/snow.tsx";
 import {
-  ACHIEVEMENT_PREFIX,
   achievementsConfig,
   getAchievementFromLocalStorage,
 } from "../utils/achievement-config";
 import { TOTAL_CALENDAR_DAYS } from "../utils/constants";
+import { calendarDays } from "../utils/calendar-config.jsx";
 
 const ProgressView = () => {
   const [completedDays, setCompletedDays] = useState([]);
@@ -60,26 +59,6 @@ const ProgressView = () => {
     });
     setAchievements(achievementsState);
   }, []);
-
-  const handleClearData = () => {
-    // Clear local storage for completed days and individual achievements
-    localStorage.removeItem("completedDays");
-
-    // Clear individual achievements based on the achievementsConfig
-    achievementsConfig.forEach(({ id }) => {
-      localStorage.removeItem(ACHIEVEMENT_PREFIX + id);
-    });
-
-    localStorage.removeItem("gameScores");
-
-    // Clear the combined achievements entry
-    localStorage.removeItem("achievements");
-
-    // Clear the component state
-    setCompletedDays([]);
-    setAchievements({});
-    setGameScores({});
-  };
 
   const completedAchievementsCount = achievementsConfig.filter(
     (achievement) => {
@@ -181,7 +160,7 @@ const ProgressView = () => {
           <Text size={64} mobileSize={48} lineHeight={64} mobileLineHeight={48}>
             of
           </Text>{" "}
-          {TOTAL_CALENDAR_DAYS}
+          {calendarDays.length}
         </Text>
         <Stack space={4}>
           <Inline space={8} alignItems="center">
@@ -338,10 +317,6 @@ const ProgressView = () => {
                   </div>
                 }
               ></GridLayout>
-
-              <ButtonPrimary onPress={handleClearData}>
-                Clear local stored data
-              </ButtonPrimary>
             </Stack>
           </Box>
         </ResponsiveLayout>
