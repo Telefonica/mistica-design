@@ -710,7 +710,11 @@ const ClaimYourGift = () => {
       <Touchable
         key={key}
         style={{
-          border: `1px solid ${skinVars.colors.border}`,
+          border: `1px solid ${
+            key === selectedIllustrationKey
+              ? skinVars.colors.borderSelected
+              : skinVars.colors.border
+          }`,
           borderRadius: "16px",
           background: skinVars.colors.background,
         }}
