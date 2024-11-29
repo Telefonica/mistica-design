@@ -239,7 +239,9 @@ const CalendarView = () => {
                         easterEgg={true}
                       />
                     </Inline>
-                    <DecorationSnake width={isMobile ? 341 : 371.84} />
+                    <DecorationSnake
+                      width={isMobile ? `calc(min(341px, 100%))` : 371.84}
+                    />
                   </Stack>
                 }
                 right={
