@@ -1,5 +1,7 @@
 export const RELEASE_DATE = "2024-12-02T00:00:00";
 
+export const CLAIM_GIFT_DATE = "2024-12-25T00:00:01";
+
 export const TOTAL_CALENDAR_DAYS = 24;
 
 export const CARD_STATES = {

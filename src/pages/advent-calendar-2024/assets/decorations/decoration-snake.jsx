@@ -1,24 +1,25 @@
 import { skinVars } from "@telefonica/mistica";
 import Lottie from "lottie-react";
+import { useLayoutEffect, useMemo } from "react";
 
 const DecorationSnake = ({ width = 300, color = skinVars.colors.brand }) => {
-  // Define los estilos CSS dinámicos
-  const styles = `
-    .snake-animation path {
-      fill: ${color};
-      stroke: ${color};
+  useLayoutEffect(() => {
+    const styles = `
+      .snake-animation path {
+        fill: ${color};
+        stroke: ${color};
+      }
+    `;
+
+    if (typeof document !== "undefined") {
+      const styleTag = document.createElement("style");
+      styleTag.textContent = styles;
+      document.head.appendChild(styleTag);
     }
-  `;
+  }, [color]);
 
-  // Inserta los estilos en el documento
-  if (typeof document !== "undefined") {
-    const styleTag = document.createElement("style");
-    styleTag.textContent = styles;
-    document.head.appendChild(styleTag);
-  }
-
-  return (
-    <div style={{ width: width }}>
+  const lottieElement = useMemo(
+    () => (
       <Lottie
         className="snake-animation" // Clase para aplicar estilos
         animationData={{
@@ -201,8 +202,11 @@ const DecorationSnake = ({ width = 300, color = skinVars.colors.brand }) => {
           markers: [],
         }}
       />
-    </div>
+    ),
+    []
   );
+
+  return <div style={{ width: width }}>{lottieElement}</div>;
 };
 
 export default DecorationSnake;

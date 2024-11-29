@@ -1,6 +1,5 @@
 import {
   Box,
-  ButtonPrimary,
   Carousel,
   Circle,
   GridLayout,
@@ -26,11 +25,7 @@ import CornerLayout from "../components/corner-layout.jsx";
 import NavBar from "../components/navbar";
 import Snow from "../components/snow.tsx";
 import ToastWrapper from "../components/toast-wrapper";
-import {
-  ACHIEVEMENT_PREFIX,
-  achievementsConfig,
-  checkAndUnlockAchievements,
-} from "../utils/achievement-config";
+import { checkAndUnlockAchievements } from "../utils/achievement-config";
 import { calendarDays } from "../utils/calendar-config.jsx";
 import { CARD_STATES } from "../utils/constants";
 import contentByDate from "../utils/content-config";
@@ -61,21 +56,6 @@ const CalendarView = () => {
   };
 
   const [achievements, setAchievements] = useState([]);
-  const [availableDays, setAvailableDays] = useState([]);
-  const [isAllDaysAvailable, setIsAllDaysAvailable] = useState(false);
-
-  const unlockAllDays = () => {
-    if (isAllDaysAvailable) {
-      // Lock all days
-      setAvailableDays([]); // Clear the available days
-    } else {
-      // Unlock all days
-      const allDates = calendarDays.map((day) => day.date);
-      setAvailableDays(allDates); // Set all days as available
-    }
-    // Toggle the availability state
-    setIsAllDaysAvailable((prevState) => !prevState);
-  };
 
   const today = new Date().toISOString().split("T")[0];
   const todayIndex = calendarDays.findIndex(({ date }) => date === today);
@@ -98,22 +78,9 @@ const CalendarView = () => {
     }
   };
 
-  const clearLocalStorage = () => {
-    localStorage.removeItem("completedDays"); // Clear from local storage
-    updateCompletedDays([], setCompletedDays); // Clear state
-    achievementsConfig.forEach(({ id }) => {
-      localStorage.removeItem(ACHIEVEMENT_PREFIX + id);
-    });
-
-    localStorage.removeItem("gameScores");
-    localStorage.removeItem("quizData");
-  };
-
   const getDayStatus = (date) => {
     if (completedDays.includes(date)) {
       return CARD_STATES.COMPLETED;
-    } else if (isAllDaysAvailable || availableDays.includes(date)) {
-      return CARD_STATES.AVAILABLE; // Available if all days are unlocked or the day is in availableDays
     } else if (date !== today) {
       return CARD_STATES.BLOCKED; // Block past dates
     } else {
@@ -220,88 +187,95 @@ const CalendarView = () => {
   };
 
   return (
-    <ResponsiveLayout>
+    <>
       <Snow />
       <div style={{ position: "relative", zIndex: 1 }}>
         <CornerLayout />
         <NavBar />
-        <Box paddingY={42}>
-          <Stack space={48}>
-            <GridLayout
-              verticalSpace={24}
-              template="8+4"
-              left={
-                <Stack space={0}>
-                  <div
-                    style={{ display: "flex", alignItems: "center", gap: 8 }}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
+        <ResponsiveLayout>
+          <Box paddingY={42}>
+            <Stack space={48}>
+              <GridLayout
+                verticalSpace={24}
+                template="8+4"
+                left={
+                  <Stack space={0}>
+                    <div
+                      style={{ display: "flex", alignItems: "center", gap: 8 }}
                     >
-                      <path
-                        d="M4.19043 11.7969L12 2L19.8094 11.7969H15.4314L19.8094 17H13V22H11V17H4.19043L8.56849 11.7969H4.19043Z"
-                        fill="black"
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M4.19043 11.7969L12 2L19.8094 11.7969H15.4314L19.8094 17H13V22H11V17H4.19043L8.56849 11.7969H4.19043Z"
+                          fill="black"
+                        />
+                      </svg>
+
+                      <Text4 medium>Mística Advent</Text4>
+                    </div>
+                    <Inline space={16} alignItems="center">
+                      <Text
+                        size={96}
+                        mobileSize={56}
+                        lineHeight={96}
+                        mobileLineHeight={64}
+                        weight="bold"
+                        letterSpacing={isMobile ? -1.5 : -3.5}
+                      >
+                        Calendar
+                      </Text>
+                      <DecorationPatty
+                        text="24"
+                        size={isMobile ? 64 : 128}
+                        stroke={isMobile ? 1.5 : 0.75}
+                        color={skinVars.colors.error}
+                        textColor={skinVars.colors.textPrimary}
+                        textSize={16}
+                        easterEgg={true}
                       />
-                    </svg>
-
-                    <Text4 medium>Mística Advent</Text4>
-                  </div>
-                  <Inline space={16} alignItems="center">
-                    <Text
-                      size={96}
-                      mobileSize={56}
-                      lineHeight={96}
-                      mobileLineHeight={64}
-                      weight="bold"
-                      letterSpacing={isMobile ? -1.5 : -3.5}
-                    >
-                      Calendar
-                    </Text>
-                    <DecorationPatty
-                      text="24"
-                      size={isMobile ? 64 : 128}
-                      stroke={isMobile ? 1.5 : 0.75}
-                      color={skinVars.colors.error}
-                      textColor={skinVars.colors.textPrimary}
-                      textSize={16}
-                      easterEgg={true}
+                    </Inline>
+                    <DecorationSnake
+                      width={isMobile ? `calc(min(341px, 100%))` : 371.84}
                     />
-                  </Inline>
-                  <DecorationSnake width={isMobile ? "100%" : 371.84} />
-                </Stack>
-              }
-              right={
-                <Stack space={16}>
-                  <Text4 weight="medium">Welcome!</Text4>
-                  <Text4>
-                    This year, at Mística, we want to give you a little surprise
-                    every day this month in the run up to Christmas. Stay tuned
-                    for the 25th!{" "}
-                    <TextLink
-                      onPress={() => setIsSheetOpen(true)}
-                      aria-label="Know more about our calendar"
-                    >
-                      More
-                    </TextLink>
-                  </Text4>
-                </Stack>
-              }
-            />
+                  </Stack>
+                }
+                right={
+                  <Stack space={16}>
+                    <Text4 weight="medium">Welcome!</Text4>
+                    <Text4>
+                      This year, at Mística, we want to give you a little
+                      surprise every day this month in the run up to Christmas.
+                      Stay tuned for the 25th!{" "}
+                      <TextLink
+                        onPress={() => setIsSheetOpen(true)}
+                        aria-label="Know more about our calendar"
+                      >
+                        More
+                      </TextLink>
+                    </Text4>
+                  </Stack>
+                }
+              />
 
-            <Carousel
-              initialActiveItem={initialActiveDay}
-              items={calendarItems}
-            />
-          </Stack>
-        </Box>
-        <SheetView isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} />
-        <ToastWrapper toasts={toasts} removeToast={removeToast} />
+              <Carousel
+                initialActiveItem={initialActiveDay}
+                items={calendarItems}
+              />
+            </Stack>
+          </Box>
+          <SheetView
+            isOpen={isSheetOpen}
+            onClose={() => setIsSheetOpen(false)}
+          />
+          <ToastWrapper toasts={toasts} removeToast={removeToast} />
+        </ResponsiveLayout>
       </div>
-    </ResponsiveLayout>
+    </>
   );
 };
 

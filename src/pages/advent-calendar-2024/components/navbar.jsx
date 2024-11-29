@@ -1,9 +1,13 @@
 import {
   Box,
   Circle,
+  Divider,
   Inline,
   MainNavigationBar,
+  NegativeBox,
   ResponsiveLayout,
+  Row,
+  RowList,
   Sheet,
   SheetBody,
   Stack,
@@ -16,9 +20,10 @@ import {
   skinVars,
   useScreenSize,
 } from "@telefonica/mistica";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import RotatingSVG from "./label-rotate";
+import { CLAIM_GIFT_DATE } from "../utils/constants";
 
 const SheetView = ({ isOpen, onClose }) => {
   return (
@@ -98,11 +103,31 @@ const SheetView = ({ isOpen, onClose }) => {
   );
 };
 
+const targetDate = new Date(CLAIM_GIFT_DATE);
+
 const NavBar = () => {
   const location = useLocation(); // Get the current location
   const { isMobile, isTabletOrSmaller } = useScreenSize();
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [showLogo, setShowLogo] = useState(false);
+
+  const [isGiftEnabled, setIsGiftEnabled] = useState(false);
+
+  useLayoutEffect(() => {
+    const now = new Date();
+    const timeToReleaseGift = Math.max(
+      0,
+      Math.min(2147483647, targetDate.getTime() - now.getTime())
+    );
+
+    const timeout = setTimeout(() => {
+      setIsGiftEnabled(true);
+    }, timeToReleaseGift);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
 
   useEffect(() => {
     const updateLogoVisibility = () => {
@@ -127,6 +152,24 @@ const NavBar = () => {
         right={<TelefonicaLogo type="imagotype" size={32} />}
         withBorder={false}
         logo={<RotatingSVG />}
+        burgerMenuExtra={
+          <div style={{ marginTop: -16 }}>
+            <Divider />
+            <NegativeBox>
+              <RowList>
+                <Row
+                  title="Claim your gift"
+                  {...(isGiftEnabled
+                    ? {
+                        to: "/advent-calendar-2024/claim-your-gift",
+                      }
+                    : { onPress: () => {} })}
+                  disabled={!isGiftEnabled}
+                />
+              </RowList>
+            </NegativeBox>
+          </div>
+        }
         sections={[
           {
             title: "Home",
@@ -163,6 +206,27 @@ const NavBar = () => {
           <div></div>
 
           <Inline space={isTabletOrSmaller ? 24 : 64} alignItems="center">
+            <Text3
+              medium
+              decoration={
+                isCurrentPage("/advent-calendar-2024/claim-your-gift")
+                  ? "underline"
+                  : "none"
+              }
+            >
+              <TextLink
+                style={{ color: skinVars.colors.textPrimary }}
+                {...(isGiftEnabled
+                  ? {
+                      to: "/advent-calendar-2024/claim-your-gift",
+                    }
+                  : { onPress: () => {} })}
+                disabled={!isGiftEnabled}
+              >
+                Claim your gift
+              </TextLink>
+            </Text3>
+
             <Text3
               medium
               decoration={

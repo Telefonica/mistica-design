@@ -12,7 +12,10 @@ const AdventCalendar2024 = () => {
 
   useLayoutEffect(() => {
     const now = new Date();
-    const timeToRelease = Math.max(0, targetDate.getTime() - now.getTime());
+    const timeToRelease = Math.max(
+      0,
+      Math.min(2147483647, targetDate.getTime() - now.getTime())
+    );
 
     if (timeToRelease === 0) {
       setIsReleased(true);

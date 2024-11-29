@@ -1,11 +1,10 @@
 import React from "react";
 
-const Illustration24 = ({ disabled = false }) => {
+const Illustration24 = ({ disabled = false, size = "240" }) => {
   if (disabled) {
     return (
       <svg
-        width="240"
-        height="240"
+        width={size}
         viewBox="0 0 240 240"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -66,8 +65,7 @@ const Illustration24 = ({ disabled = false }) => {
 
   return (
     <svg
-      width="240"
-      height="240"
+      width={size}
       viewBox="0 0 240 240"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
