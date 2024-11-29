@@ -43,11 +43,11 @@ export const achievementsConfig = [
   {
     id: "whatAWeek",
     name: "What a Week",
-    description: "Complete seven tasks on consecutive days",
+    description: "Complete five tasks on consecutive days",
     icon: IconCalendarFilled,
     check: (newCompletedDays) =>
-      hasConsecutiveDays(newCompletedDays) && newCompletedDays.length >= 7,
-    message: "You have unlocked 7 consecutive days!",
+      hasConsecutiveDays(newCompletedDays) && newCompletedDays.length >= 5,
+    message: "You have unlocked 5 consecutive days!",
     isSecret: false,
   },
   {
