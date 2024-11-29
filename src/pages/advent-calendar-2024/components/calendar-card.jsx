@@ -8,7 +8,7 @@ import {
   Text,
   Text5,
 } from "@telefonica/mistica";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { IconCompleted, IconLockOpen } from "../assets/icons/icons";
 import { CARD_STATES } from "../utils/constants";
 import styles from "./calendar-card.module.css";
@@ -27,6 +27,7 @@ const CalendarCard = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showDismiss, setShowDismiss] = useState(true);
   const dialogRef = useRef(null);
   const day = new Date(DateString).getDate();
   const today = new Date().getDate();
@@ -34,7 +35,7 @@ const CalendarCard = ({
 
   const handleClick = () => {
     if (status === CARD_STATES.AVAILABLE || isRepeatable) {
-      setIsModalOpen((prev) => !prev); // Toggle modal state
+      setIsModalOpen(true); // Toggle modal state
     }
   };
 
@@ -52,12 +53,25 @@ const CalendarCard = ({
 
   const handleCloseModal = () => {
     dialogRef.current.close(); // Close the modal
+    setIsModalOpen(false); // Update the state
     onEndDay(); // Notify the parent to update the state
   };
 
   const handleDismiss = () => {
     dialogRef.current.close();
+    setIsModalOpen(false);
   };
+
+  const renderContent = useCallback(
+    ({ closeModal, hideDismiss }) =>
+      typeof content === "function"
+        ? content({
+            closeModal,
+            hideDismiss: () => setShowDismiss(false), // Wrap the function to avoid immediate state updates
+          })
+        : content,
+    [content] // Dependencies for memoization
+  );
 
   let cardStatusStyles;
 
@@ -236,6 +250,7 @@ const CalendarCard = ({
           </Inline>
         </Stack>
       </button>
+
       {isModalOpen && (
         <ModalView
           ref={dialogRef}
@@ -243,13 +258,13 @@ const CalendarCard = ({
           dayOfWeek={DayOfWeek}
           title={eventName}
           description={eventDescription}
-          content={
-            typeof content === "function"
-              ? content({ closeModal: handleCloseModal })
-              : content
-          }
+          content={renderContent({
+            closeModal: handleCloseModal,
+            hideDismiss: () => setShowDismiss(false), // Wrapped to avoid direct state updates
+          })}
           onClose={handleEndDay}
           onCancel={repeatable ? handleEndDay : handleDismiss}
+          showDismiss={showDismiss}
         />
       )}
     </>

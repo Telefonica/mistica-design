@@ -44,7 +44,7 @@ export const HigherLowerdataSet2 = [
   { label: "Teams using the design system", value: 108 },
 ];
 
-const HigherOrLower = ({ set, data, onFinish }) => {
+const HigherOrLower = ({ set, data, onFinish, onFinalScreen }) => {
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [message, setMessage] = useState("");
@@ -98,6 +98,7 @@ const HigherOrLower = ({ set, data, onFinish }) => {
     } else {
       setStatus("final");
       saveGameData(`higherOrLower${set}`, score, true);
+      onFinalScreen(); // Notify the parent component
     }
   };
 

@@ -42,7 +42,7 @@ const AdventCalendar2024 = () => {
           <meta property="twitter:description" content="Coming soon..." />
           <meta property="twitter:card" content="summary_large_image" />
         </Helmet>
-        <ComingSoonPage targetDate={targetDate.toLocaleString()} />
+        <ComingSoonPage targetDate={targetDate} />
       </>
     );
   }

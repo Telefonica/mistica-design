@@ -56,7 +56,7 @@ const UnmuteIcon = () => (
   </svg>
 );
 
-const SimonSays = ({ onFinish }) => {
+const SimonSays = ({ onFinish, onFinalScreen }) => {
   const [sequence, setSequence] = useState([]);
   const [playerSequence, setPlayerSequence] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -154,6 +154,7 @@ const SimonSays = ({ onFinish }) => {
       }, 1000);
     } else {
       setIsGameOver(true);
+      onFinalScreen();
       setStatus("completed");
       setIsPlayerTurn(false);
       saveGameData(gameName, score, isGameOver);
@@ -198,7 +199,9 @@ const SimonSays = ({ onFinish }) => {
         newSequence[newSequence.length - 1] !== sequence[newSequence.length - 1]
       ) {
         setIsGameOver(true);
+        onFinalScreen();
         setStatus("completed");
+
         setIsPlaying(false);
         setIsPlayerTurn(false);
         saveGameData(gameName, score, isGameOver);
@@ -279,8 +282,7 @@ const SimonSays = ({ onFinish }) => {
         ) : (
           <Stack space={24}>
             <Stack space={16}>
-              <DecorationPatty text={`${score}`}></DecorationPatty>
-              <Text3>Your final score</Text3>
+              <Score score={`${score}`} isFinal />
               <Text size={32} weight="medium">
                 Congratulations! You completed the game!
               </Text>
