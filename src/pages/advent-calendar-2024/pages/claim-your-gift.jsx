@@ -673,7 +673,7 @@ const PosterSvg = ({
 };
 
 const ClaimYourGift = () => {
-  const { isMobile } = useScreenSize();
+  const { isMobile, isTabletOrSmaller } = useScreenSize();
   const [selectedIllustrationKey, setSelectedIllustrationKey] = useState(
     illustrationKeys[0]
   );
@@ -806,7 +806,7 @@ const ClaimYourGift = () => {
             width={isMobile ? `calc(min(341px, 100%))` : 371.84}
           />
         </>
-        <Box width={isMobile ? "100%" : 586}>
+        <Box width={isTabletOrSmaller ? "100%" : 586}>
           <Text3 regular>
             One last surprise from the Mística advent calendar! You can generate
             a poster with your favorite illustration and download it to print

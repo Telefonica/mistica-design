@@ -17,6 +17,7 @@ import {
   Text3,
   Text5,
   TextLink,
+  Tooltip,
   skinVars,
   useScreenSize,
 } from "@telefonica/mistica";
@@ -206,26 +207,47 @@ const NavBar = () => {
           <div></div>
 
           <Inline space={isTabletOrSmaller ? 24 : 64} alignItems="center">
-            <Text3
-              medium
-              decoration={
-                isCurrentPage("/advent-calendar-2024/claim-your-gift")
-                  ? "underline"
-                  : "none"
-              }
-            >
-              <TextLink
-                style={{ color: skinVars.colors.textPrimary }}
-                {...(isGiftEnabled
-                  ? {
-                      to: "/advent-calendar-2024/claim-your-gift",
+            {!isGiftEnabled ? (
+              <Tooltip
+                delay={false}
+                target={
+                  <Text3
+                    medium
+                    decoration={
+                      isCurrentPage("/advent-calendar-2024/claim-your-gift")
+                        ? "underline"
+                        : "none"
                     }
-                  : { onPress: () => {} })}
-                disabled={!isGiftEnabled}
+                  >
+                    <TextLink
+                      style={{ color: skinVars.colors.textPrimary }}
+                      onPress={() => {}}
+                      disabled
+                    >
+                      Claim your gift
+                    </TextLink>
+                  </Text3>
+                }
+                description="You will be able to claim the gift on December 25."
+              />
+            ) : (
+              <Text3
+                medium
+                decoration={
+                  isCurrentPage("/advent-calendar-2024/claim-your-gift")
+                    ? "underline"
+                    : "none"
+                }
               >
-                Claim your gift
-              </TextLink>
-            </Text3>
+                <TextLink
+                  style={{ color: skinVars.colors.textPrimary }}
+                  to={"/advent-calendar-2024/claim-your-gift"}
+                  disabled={!isGiftEnabled}
+                >
+                  Claim your gift
+                </TextLink>
+              </Text3>
+            )}
 
             <Text3
               medium
