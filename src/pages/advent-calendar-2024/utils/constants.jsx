@@ -1,4 +1,4 @@
-export const RELEASE_DATE = "2024-11-29T14:08:00";
+export const RELEASE_DATE = "2024-12-02T00:00:00";
 
 export const TOTAL_CALENDAR_DAYS = 24;
 
