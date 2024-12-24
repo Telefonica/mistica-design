@@ -13,3 +13,5 @@ export const CARD_STATES = {
 export const UI_LABEL = {
   END_GAME_BUTTON: "Back to home",
 };
+
+export const CHRISTMAS_DAY = "2024-12-25";

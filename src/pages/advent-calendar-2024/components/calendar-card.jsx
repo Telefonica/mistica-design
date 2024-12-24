@@ -10,7 +10,7 @@ import {
 } from "@telefonica/mistica";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { IconCompleted, IconLockOpen } from "../assets/icons/icons";
-import { CARD_STATES } from "../utils/constants";
+import { CARD_STATES, CHRISTMAS_DAY } from "../utils/constants";
 import styles from "./calendar-card.module.css";
 import ModalView from "./modal-view";
 
@@ -48,6 +48,7 @@ const CalendarCard = ({
 
   const handleEndDay = () => {
     dialogRef.current.close();
+    setIsModalOpen(false); // Update the state
     onEndDay(); // Notify the parent to update the state
   };
 

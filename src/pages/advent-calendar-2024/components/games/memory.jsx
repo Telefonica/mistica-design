@@ -76,14 +76,7 @@ const MemoryGame = ({ onFinish, onFinalScreen }) => {
     const gameScores = JSON.parse(localStorage.getItem("gameScores")) || {};
     const savedGame = gameScores[gameName];
 
-    if (savedGame?.completed) {
-      setScore(savedGame.score);
-      setGameEnded(true);
-      onFinalScreen(); // Notify the parent component
-      setStatus("completed");
-    } else {
-      setCards(shuffle([...initialCards]));
-    }
+    setCards(shuffle([...initialCards]));
   }, []);
 
   // Timer effect

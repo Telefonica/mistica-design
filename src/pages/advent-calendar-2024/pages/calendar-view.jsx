@@ -27,7 +27,7 @@ import Snow from "../components/snow.tsx";
 import ToastWrapper from "../components/toast-wrapper";
 import { checkAndUnlockAchievements } from "../utils/achievement-config";
 import { calendarDays } from "../utils/calendar-config.jsx";
-import { CARD_STATES } from "../utils/constants";
+import { CARD_STATES, CHRISTMAS_DAY } from "../utils/constants";
 import contentByDate from "../utils/content-config";
 import { updateCompletedDays } from "../utils/state-manager";
 
@@ -77,15 +77,17 @@ const CalendarView = () => {
       );
     }
   };
-
   const getDayStatus = (date) => {
+    if (today === CHRISTMAS_DAY) {
+      return CARD_STATES.AVAILABLE; // All cards available on the 25th
+    }
     if (completedDays.includes(date)) {
       return CARD_STATES.COMPLETED;
-    } else if (date !== today) {
-      return CARD_STATES.BLOCKED; // Block past dates
-    } else {
-      return CARD_STATES.AVAILABLE; // Default to available if today
     }
+    if (date !== CHRISTMAS_DAY && date !== today) {
+      return CARD_STATES.BLOCKED; // Block past dates
+    }
+    return CARD_STATES.AVAILABLE;
   };
 
   const calendarItems = calendarDays.map(({ date, dayOfWeek }) => (

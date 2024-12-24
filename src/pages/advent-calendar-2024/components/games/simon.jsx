@@ -75,16 +75,6 @@ const SimonSays = ({ onFinish, onFinalScreen }) => {
     if (onFinish) onFinish();
   };
 
-  useEffect(() => {
-    const gameScores = JSON.parse(localStorage.getItem("gameScores")) || {};
-    const savedGame = gameScores[gameName];
-
-    if (savedGame?.completed) {
-      setScore(savedGame.score);
-      setStatus("completed");
-    }
-  }, []);
-
   const toggleMute = () => {
     setIsMuted((prevState) => !prevState);
   };
