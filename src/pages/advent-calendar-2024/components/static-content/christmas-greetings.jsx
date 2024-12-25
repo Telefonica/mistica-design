@@ -34,6 +34,12 @@ const ChristmasGreetings = () => {
               </Text3>
             </TextLink>
           </div>
+          <Text3 weight="medium">One more thing...</Text3>
+          <TextLink to="/advent-calendar-2024/claim-your-gift">
+            <Text3 weight="medium" color={skinVars.colors.brand}>
+              Claim your gift
+            </Text3>
+          </TextLink>
         </Stack>
       </Stack>
     </ContentWrapper>
