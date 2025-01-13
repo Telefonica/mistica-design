@@ -11,6 +11,8 @@ import {
   ResponsiveLayout,
   Stack,
   skinVars,
+  Tooltip,
+  IconInformationRegular,
 } from "@telefonica/mistica";
 
 const ProductStatus = () => {
@@ -371,10 +373,59 @@ const ProductStatus = () => {
               heading={[
                 "",
                 "Country",
-                "Design guidelines",
-                "Design libraries",
-                "Code libraries",
-                "Production",
+                <Inline space={8} alignItems="center">
+                  Design guidelines
+                  <Tooltip
+                    delay={false}
+                    target={
+                      <IconInformationRegular
+                        size={12}
+                        color={skinVars.colors.neutralMedium}
+                      />
+                    }
+                    description="Applies the visual style of the design system but does not use its components or the full system."
+                  />
+                </Inline>,
+                <Inline space={8} alignItems="center">
+                  Design libraries
+                  <Tooltip
+                    delay={false}
+                    target={
+                      <IconInformationRegular
+                        size={12}
+                        color={skinVars.colors.neutralMedium}
+                      />
+                    }
+                    description="Uses the provided design libraries but is not implemented in code."
+                  />
+                </Inline>,
+
+                <Inline space={8} alignItems="center">
+                  Code libraries
+                  <Tooltip
+                    delay={false}
+                    target={
+                      <IconInformationRegular
+                        size={12}
+                        color={skinVars.colors.neutralMedium}
+                      />
+                    }
+                    description="Implements the design system libraries in code for development."
+                  />
+                </Inline>,
+                <Inline space={8} alignItems="center">
+                  Production
+                  <Tooltip
+                    delay={false}
+                    target={
+                      <IconInformationRegular
+                        size={12}
+                        color={skinVars.colors.neutralMedium}
+                      />
+                    }
+                    description="The product is live and uses the design system in production."
+                  />
+                </Inline>,
               ]}
               columnTextAlign={columnAlign}
               content={components.map((component) => ({
