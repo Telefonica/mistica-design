@@ -77,17 +77,8 @@ const CalendarView = () => {
       );
     }
   };
-  const getDayStatus = (date) => {
-    if (today === CHRISTMAS_DAY) {
-      return CARD_STATES.AVAILABLE; // All cards available on the 25th
-    }
-    if (completedDays.includes(date)) {
-      return CARD_STATES.COMPLETED;
-    }
-    if (date !== CHRISTMAS_DAY && date !== today) {
-      return CARD_STATES.BLOCKED; // Block past dates
-    }
-    return CARD_STATES.AVAILABLE;
+  const getDayStatus = () => {
+    return CARD_STATES.AVAILABLE; // All days are unlocked and available
   };
 
   const calendarItems = calendarDays.map(({ date, dayOfWeek }) => (
