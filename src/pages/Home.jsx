@@ -46,8 +46,8 @@ const Home = () => {
 
   const projects = [
     {
-      title: "Mística 2024",
-      description: "Coming soon...",
+      title: "Advent calendar 2024",
+      description: "Our advent calendar for the year 2024.",
       link: "/advent-calendar-2024",
       buttonLabel: "Visit",
       image: ComingSoon,
