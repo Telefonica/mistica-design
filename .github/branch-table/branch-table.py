@@ -19,7 +19,7 @@ def get_issue_status(repo_owner, repo_name, issue_number, github_token):
     query($owner: String!, $repo: String!, $issueNumber: Int!) {
       repository(owner: $owner, name: $repo) {
         issue(number: $issueNumber) {
-          projectItems(first: 10) {
+          projectItems(first: 50) {
             nodes {
               fieldValueByName(name: "Status") {
                 ... on ProjectV2ItemFieldSingleSelectValue {
@@ -41,11 +41,13 @@ def get_issue_status(repo_owner, repo_name, issue_number, github_token):
     
     response = requests.post(url, json={"query": query, "variables": variables}, headers=headers)
     
+    print("GitHub GraphQL Response:", response.json()) 
+    
     if response.status_code == 200:
         data = response.json()
         try:
             status = data["data"]["repository"]["issue"]["projectItems"]["nodes"][0]["fieldValueByName"]["name"]
-            return status
+            return status if status else "No Status"
         except (IndexError, TypeError, KeyError):
             return "Unknown"
     else:
