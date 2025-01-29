@@ -23,6 +23,7 @@ jobs:
         run: |
           pip install requests pandas
           pip install tabulate
+          pip install load_dotenv
 
       - name: Run sync for the brand(s)
         env:
