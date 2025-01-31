@@ -1,5 +1,7 @@
 # Figma Changelog
 
+[16.1.1](changelog-versions/16.1.1.md)
+
 [16.1.0](changelog-versions/16.1.0.md)
 
 ## [16.0.0](changelog-versions/16.0.0.md)
