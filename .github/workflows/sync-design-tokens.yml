@@ -19,7 +19,7 @@ jobs:
       # https://docs.github.com/en/rest/actions/workflows?apiVersion=2022-11-28#create-a-workflow-dispatch-event
       - name: Trigger mistica-web repo workflow
         run: |
-          curl -L \
+          curl -L -f \
               -X POST \
               -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
@@ -29,7 +29,7 @@ jobs:
 
       - name: Trigger mistica-ios repo workflow
         run: |
-          curl -L \
+          curl -L -f \
               -X POST \
               -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
@@ -39,7 +39,7 @@ jobs:
 
       - name: Trigger mistica-android repo workflow
         run: |
-          curl -L \
+          curl -L -f \
               -X POST \
               -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
