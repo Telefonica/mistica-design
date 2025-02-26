@@ -1,0 +1,29 @@
+/* Estilo del mensaje y confeti que se mueve hacia arriba */
+.animated-message {
+    transition: opacity 1s ease-out, transform 4s ease-out;
+  }
+  
+  .animated-message.fade-out {
+    opacity: 0;
+    transform: translateY(-100%); /* Mueve el contenido hacia arriba */
+  }
+  
+  /* Herramientas avanzadas */
+  .advanced-tools-container {
+    position: relative;
+    top: 0;
+    animation: slideUp 3s forwards;
+  }
+  
+  /* Animación para que las herramientas avanzadas suban */
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
