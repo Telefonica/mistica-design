@@ -5,7 +5,7 @@ function transformToJSON(rawCode) {
   // Adjusting the regex to handle multi-line colors and avoid breaking inside gradients
   const lightColorsRegex = /colors\s*:\s*{\s*([\s\S]+?)\s*}\s*,/;
   const darkColorsRegex = /darkModeColors\s*:\s*{\s*([\s\S]+?)\s*}\s*,/;
-  const radiusRegex = /borderRadii\s*:\s*{\s*([^}]+)\s*};/s;
+  const radiusRegex = /borderRadii\s*:\s*{\s*([^}]+)\s*}/s;
 
   // Function to extract the palette
   const extractPalette = (code, regex) => {
@@ -156,10 +156,12 @@ function transformToJSON(rawCode) {
   const extractRadius = (code, regex) => {
     const match = code.match(regex);
     if (match) {
-      const radiusBlock = match[1];
+      const radiusBlock = match[0];
+      console.log(radiusBlock);
       const radiusArray = radiusBlock.match(/\s*(\w+):\s*'(\d+px)'/g);
 
       if (radiusArray) {
+        // Create a formatted JSON structure for each radius with additional information
         const formattedRadius = radiusArray.reduce((acc, radius) => {
           const [key, value] = radius.split(":");
           const trimmedKey = key.trim();
