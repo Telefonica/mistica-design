@@ -4,23 +4,61 @@ const toCamelCase = (str) =>
 const toPascalCase = (str) => capitalize(toCamelCase(str));
 
 const buildColor = (colorDescription) => {
+  let colorValue = colorDescription.value;
+
+  // Check if colorValue is an object (gradient)
   if (
-    colorDescription.value.startsWith("{") &&
-    colorDescription.value.endsWith("}")
+    typeof colorValue === "object" &&
+    colorValue.angle &&
+    Array.isArray(colorValue.colors)
   ) {
-    return colorDescription.value.replace("{", "").replace("}", "");
+    // Handle gradient object
+    const { angle, colors } = colorValue;
+
+    const stops = colors
+      .map((stop) => {
+        let stopValue = stop.value;
+
+        // Handle `applyAlpha(palette.color, alpha)`
+        let stopMatch = stopValue.match(
+          /applyAlpha\((palette\.(\w+)),\s*([\d.]+)\)/
+        );
+        if (stopMatch) {
+          const [, , color, alpha] = stopMatch;
+          return `applyAlpha({palette.${color}}, ${alpha}) ${stop.stop * 100}%`;
+        }
+
+        // Handle `palette.color`
+        stopMatch = stopValue.match(/palette\.(\w+)/);
+        if (stopMatch) {
+          const [, color] = stopMatch;
+          return `{palette.${color}} ${stop.stop * 100}%`;
+        }
+
+        return stopValue; // Return for solid color stops
+      })
+      .join(", ");
+
+    return `linear-gradient(${angle}deg, ${stops})`;
   }
 
-  const colorWithAlphaRegExp = /rgba\(\{(.+)\}, (0\.\d+)\)/;
-  const colorWithAlphaMatches =
-    colorDescription.value.match(colorWithAlphaRegExp);
-  if (colorWithAlphaMatches) {
-    const colorName = colorWithAlphaMatches[1];
-    const alpha = colorWithAlphaMatches[2];
-    return `applyAlpha(${colorName}, ${alpha})`;
+  // If colorValue is a string, handle it as a simple color or alpha
+  if (typeof colorValue === "string") {
+    // Handle `applyAlpha(palette.color, alpha) X%`
+    const colorWithAlphaRegExp = /rgba\(\{(.+)\}, (0\.\d+)\)/;
+    const colorWithAlphaMatches = colorValue.match(colorWithAlphaRegExp);
+    if (colorWithAlphaMatches) {
+      const colorName = colorWithAlphaMatches[1];
+      const alpha = colorWithAlphaMatches[2];
+      return `applyAlpha(${colorName}, ${alpha})`;
+    }
+
+    // Return the raw color if no special formatting is needed
+    return colorValue.replace("{", "").replace("}", "");
   }
 
-  throw new Error(`Unknown color format: ${colorDescription.value}`);
+  // If it's neither a string nor an object, just return it as-is
+  return colorValue;
 };
 
 const buildRadius = (radiusDescription) => {
@@ -69,7 +107,7 @@ export const palette = {
     ${Object.entries(designTokens.global.palette)
       .map(
         ([colorName, colorDescription]) =>
-          `${colorName}:'${colorDescription.value}'`
+          `${colorName}: '${colorDescription.value}'`
       )
       .join(",")}
 };
