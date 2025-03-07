@@ -1,20 +1,20 @@
 function transformToJSON(rawCode) {
   // Regular expressions to match relevant patterns
   const paletteRegex = /export\s+const\s+palette\s*=\s*{\s*([^}]+)\s*};/s;
-  const lightColorsRegex = /colors\s*:\s*{\s*([^}]+)\s*}/s;
-  const darkColorsRegex = /darkModeColors\s*:\s*{\s*([^}]+)\s*}/s;
-  const radiusRegex = /borderRadii\s*:\s*{\s*([^}]+)\s*}/s;
 
-  // Function to extract information from code using regex
+  // Adjusting the regex to handle multi-line colors and avoid breaking inside gradients
+  const lightColorsRegex = /colors\s*:\s*{\s*([\s\S]+?)\s*}\s*,/;
+  const darkColorsRegex = /darkModeColors\s*:\s*{\s*([\s\S]+?)\s*}\s*,/;
+  const radiusRegex = /borderRadii\s*:\s*{\s*([^}]+)\s*};/s;
+
+  // Function to extract the palette
   const extractPalette = (code, regex) => {
     const match = code.match(regex);
-    console.log(match);
     if (match) {
       const colorsBlock = match[1];
       const colorsArray = colorsBlock.match(/\s*(\w+):\s*'#[a-fA-F0-9]+'/g);
 
       if (colorsArray) {
-        // Create a formatted JSON structure for each color with additional information
         const formattedColors = colorsArray.reduce((acc, color) => {
           const [key, value] = color.split(":");
           const trimmedKey = key.trim();
@@ -37,58 +37,127 @@ function transformToJSON(rawCode) {
     return null;
   };
 
+  // Function to extract light/dark colors
   const extractColors = (code, regex) => {
     const match = code.match(regex);
-    if (match) {
-      const colorsBlock = match[1];
-      const colorsArray = colorsBlock.match(
-        /\s*(\w+):\s*(?:palette\.(\w+)|applyAlpha\(palette\.(\w+),\s*(\d*(?:\.\d+)?)\))/g
-      );
+    if (!match) return null;
 
-      if (colorsArray) {
-        // Create a formatted JSON structure for each color with additional information
-        const formattedColors = colorsArray.reduce((acc, color) => {
-          const [key, value] = color.split(":");
-          const trimmedKey = key.trim();
-          const match = value.match(
-            /palette\.(\w+)|applyAlpha\(palette\.(\w+),\s*(\d*(?:\.\d+)?)\)/
-          );
+    const colorsBlock = match[1];
+    const colorsArray = colorsBlock
+      .split("\n")
+      .filter((line) => line.includes(":"));
 
-          if (match) {
-            const [, paletteColor, alphaColor, alpha] = match;
-            if (alpha) {
-              acc[trimmedKey] = {
-                value: `rgba({palette.${alphaColor}}, ${alpha})`,
-                type: "color",
-                description: alphaColor,
+    if (!colorsArray.length) return null;
+
+    return colorsArray.reduce((acc, line) => {
+      const [key, value] = line.split(":");
+      if (!value) return acc;
+
+      const trimmedKey = key.trim();
+      let trimmedValue = value.trim();
+
+      console.log(trimmedValue);
+
+      // Handle linear-gradient values (multi-line gradients and template literals)
+      if (trimmedValue.startsWith("`linear-gradient")) {
+        // Remove backticks at the beginning and end
+        trimmedValue = trimmedValue.slice(1, -1);
+
+        // Now process the gradient, splitting the angle and stops
+        const gradientMatch = trimmedValue.match(
+          /linear-gradient\((\d+)deg,\s*(.+)\)/
+        );
+
+        console.log(gradientMatch);
+
+        if (gradientMatch) {
+          const angle = parseInt(gradientMatch[1], 10);
+          const stopsRaw = gradientMatch[2].split(/,\s*(?![^()]*\))/); // Split stops correctly
+
+          const stops = stopsRaw
+            .map((stop) => {
+              stop = stop.trim();
+
+              // Handle `applyAlpha(palette.color, alpha) X%`
+              let stopMatch = stop.match(
+                /applyAlpha\((palette\.(\w+)),\s*([\d.]+)\)\s*(\d+)%?/
+              );
+
+              if (stopMatch) {
+                const [, , color, alpha, stopValue] = stopMatch;
+                return {
+                  value: `rgba({palette.${color}}, ${alpha})`,
+                  stop: parseFloat(stopValue) / 100,
+                };
+              }
+
+              // Handle `palette.color X%`
+              stopMatch = stop.match(/palette\.(\w+)\s*(\d+)%?/);
+              if (stopMatch) {
+                const [, color, stopValue] = stopMatch;
+                return {
+                  value: `{palette.${color}}`,
+                  stop: parseFloat(stopValue) / 100,
+                };
+              }
+
+              // For solid colors, return as palette reference
+              return {
+                value: stop,
+                stop: 0, // Default stop if no percentage is provided
               };
-            } else {
-              acc[trimmedKey] = {
-                value: `{palette.${paletteColor}}`,
-                type: "color",
-                description: paletteColor,
-              };
-            }
+            })
+            .filter(Boolean);
+
+          if (stops.length > 0) {
+            acc[trimmedKey] = {
+              type: "linear-gradient",
+              value: {
+                angle,
+                colors: stops,
+              },
+              description: trimmedKey,
+            };
           }
 
           return acc;
-        }, {});
-
-        return formattedColors;
+        }
       }
-    }
-    return null;
+
+      // Handle non-gradient values (solid colors)
+      trimmedValue = trimmedValue.replace(/\${(palette\.[^}]+)}/g, "{$1}");
+      trimmedValue = trimmedValue.replace(
+        /\${applyAlpha\((palette\.[^,]+),\s*([\d.]+)\)}/g,
+        (match, color, alpha) => `rgba({${color}}, ${alpha})`
+      );
+
+      // Detect solid color references
+      let colorMatch = trimmedValue.match(
+        /palette\.(\w+)|applyAlpha\(palette\.(\w+),\s*([\d.]+)\)/
+      );
+      if (colorMatch) {
+        const [, paletteColor, alphaColor, alpha] = colorMatch;
+        acc[trimmedKey] = {
+          value: alpha
+            ? `rgba({palette.${alphaColor}}, ${alpha})`
+            : `{palette.${paletteColor}}`,
+          type: "color",
+          description: alpha ? alphaColor : paletteColor,
+        };
+      }
+
+      return acc;
+    }, {});
   };
 
+  // Function to extract border radius values
   const extractRadius = (code, regex) => {
     const match = code.match(regex);
     if (match) {
-      const radiusBlock = match[0];
-      console.log(radiusBlock);
+      const radiusBlock = match[1];
       const radiusArray = radiusBlock.match(/\s*(\w+):\s*'(\d+px)'/g);
 
       if (radiusArray) {
-        // Create a formatted JSON structure for each radius with additional information
         const formattedRadius = radiusArray.reduce((acc, radius) => {
           const [key, value] = radius.split(":");
           const trimmedKey = key.trim();
@@ -109,11 +178,6 @@ function transformToJSON(rawCode) {
       }
     }
     return null;
-  };
-
-  const extractInfo = (code, regex) => {
-    const match = code.match(regex);
-    return match ? match[0] : null;
   };
 
   // Extract information
