@@ -102,6 +102,8 @@ function transformToJSON(rawCode) {
               }
 
               // For solid colors, return as palette reference
+              // Remove `${}` from template literals in the gradient
+              stop = stop.replace(/\${(palette\.[^}]+)}/g, "{$1}"); // Remove $ and curly braces
               return {
                 value: stop,
                 stop: 0, // Default stop if no percentage is provided
