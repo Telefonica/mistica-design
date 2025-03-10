@@ -11,6 +11,7 @@ export const BRAND_KEY = {
   [BRANDS.TELEFONICA]: "m8srmP3eedfvDaqYnbM6PI",
   [BRANDS.BLAU]: "czemeClWRGBI8oF7caNa5m",
   [BRANDS.TU]: "19IXMaFqdYeC1IIdTwXBgY",
+  [BRANDS.ESIMFLAG]: "5WSkNxQ7GwbfagfJqXfZSs",
 };
 
 export const MIDDLEWARE_KEY =
