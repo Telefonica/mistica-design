@@ -37,4 +37,5 @@ export const BRANDS = {
   TELEFONICA: "telefonica",
   BLAU: "blau",
   TU: "tu",
+  ESIMFLAG: "esimflag",
 };
