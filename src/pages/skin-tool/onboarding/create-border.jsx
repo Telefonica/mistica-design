@@ -14,19 +14,25 @@ import {
   ButtonSecondary,
   Grid,
   GridItem,
-  ButtonLayout,
   IconWifiRegular,
   DataCard,
-  HighlightedCard,
   PosterCard,
   Image,
   BoxedRow,
   Tag,
   Inline,
   Row,
-  ThemeContext,
   ThemeContextProvider,
   getTelefonicaSkin,
+  Box,
+  Align,
+  Boxed,
+  Stack,
+  Callout,
+  IconBoxRegular,
+  SnapCard,
+  ButtonLayout,
+  IconLightbulbRegular,
 } from "@telefonica/mistica";
 import { useNavigate } from "react-router-dom";
 import {
@@ -181,6 +187,7 @@ const CreateBorder = () => {
           borderRadii: {
             ...skinVars.borderRadii,
             container: `${borderConfig.radius}px`,
+            legacyDisplay: `${borderConfig.radius}px`,
             button: buttonConfig.roundedButtons
               ? "999px"
               : `${buttonConfig.radius}px`,
@@ -196,156 +203,168 @@ const CreateBorder = () => {
           </div>
           <Text2 color={skinVars.colors.textSecondary}>Step 3 of 4</Text2>
         </div>
-
-        <div className="title-section">
-          <svg
-            width="37"
-            height="37"
-            viewBox="0 0 37 37"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10 36V24C10 17.3726 15.3726 12 22 12H35"
-              stroke="#031A34"
-              strokeWidth="2.5"
-            />
-            <rect
-              x="1.25"
-              y="1.25"
-              width="34.5"
-              height="34.5"
-              rx="7.75"
-              stroke="#0066FF"
-              strokeWidth="2.5"
-            />
-          </svg>
-
-          <Text6>Adjust border radius</Text6>
-          <Text2 color={skinVars.colors.textSecondary}>
-            Set a border radius style for elements and components with visible
-            corners.
-          </Text2>
-        </div>
-
-        <div className="typo-card">
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              width: "872px",
-            }}
-          >
-            <Grid columns={4} rows={2} gap={8}>
-              <GridItem rowSpan={2}>
-                <PosterCard
-                  aspectRatio="7:10"
-                  title="Out & About"
-                  description="11 offers"
-                  backgroundImage="https://picsum.photos/1200/1200"
-                />
-              </GridItem>
-              <GridItem rowSpan={1} columnSpan={2}>
-                <HighlightedCard
-                  title="This is new!"
-                  description="Discover iPhone 16"
-                  imageUrl="https://m.media-amazon.com/images/I/41mw+mi7l2L._AC_SL1239_.jpg"
-                  imageFit="fill"
-                  onClose={() => {}}
-                  button={
-                    <ButtonPrimary small onPress={() => {}}>
-                      Explore marketplace
-                    </ButtonPrimary>
-                  }
-                />
-              </GridItem>
-              <GridItem rowSpan={2}>
-                <DataCard
-                  button={
-                    <ButtonLayout
-                      primaryButton={
-                        <ButtonPrimary onPress={() => {}}>
-                          Hey Ho!
-                        </ButtonPrimary>
-                      }
-                      secondaryButton={
-                        <ButtonSecondary onPress={() => {}}>
-                          Let's Go!
-                        </ButtonSecondary>
-                      }
-                    />
-                  }
-                  asset={<IconWifiRegular color={skinVars.colors.brand} />}
-                  title="Title"
-                  description="Description"
-                />
-              </GridItem>
-              <GridItem columnSpan={2}>
-                <BoxedRow
-                  asset={
-                    <Image
-                      src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MP_95771590/fee_786_587_png"
-                      height={120}
-                      aspectRatio="1:1"
-                    />
-                  }
-                  headline={<Tag type="promo">Teléfono móvil</Tag>}
-                  title="iPhone 12 128GB"
-                  onPress={() => {}}
-                />
-              </GridItem>
-            </Grid>
-          </div>
-
-          <Inline space={40} alignItems="center">
-            <div style={{ display: "flex", gap: "20px" }}>
-              {borders.map((border, index) => (
-                <div key={index} style={{ textAlign: "center" }}>
-                  <button
-                    onClick={() => handleBorderClick(index)}
-                    style={{
-                      position: "relative",
-                      width: "60px",
-                      height: "60px",
-                      backgroundColor: "white",
-                      border: `2px solid ${skinVars.colors.border}`,
-                      display: "flex",
-                      alignItems: "flex-end",
-                      justifyContent: "flex-end",
-                      ...(activeBorderIndex === index ? selectedStyle : {}),
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: 0,
-                        right: 0,
-                        display: "inline-flex",
-                      }}
-                    >
-                      {border.svg}
-                    </div>
-                  </button>
-                  <div style={{ marginTop: "8px", fontSize: "16px" }}>
-                    {border.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div>
-              <Row
-                title="Rounded buttons"
-                description="Allows you to define rounded buttons in any style"
-                switch={{
-                  defaultValue: borderConfig.roundedButtons,
-                  onChange: handleRoundedButtonsChange,
-                }}
+        <Stack space={48}>
+          <div className="title-section">
+            <svg
+              width="37"
+              height="37"
+              viewBox="0 0 37 37"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 36V24C10 17.3726 15.3726 12 22 12H35"
+                stroke="#031A34"
+                strokeWidth="2.5"
               />
-            </div>
-          </Inline>
-        </div>
+              <rect
+                x="1.25"
+                y="1.25"
+                width="34.5"
+                height="34.5"
+                rx="7.75"
+                stroke="#0066FF"
+                strokeWidth="2.5"
+              />
+            </svg>
+
+            <Text6>Adjust border radius</Text6>
+            <Text2 color={skinVars.colors.textSecondary}>
+              Set a border radius style for elements and components with visible
+              corners.
+            </Text2>
+          </div>
+          <Align x="center">
+            <Boxed>
+              <ResponsiveLayout fullWidth variant="alternative">
+                <Box width={872} padding={40}>
+                  <Grid
+                    columns={3}
+                    rows={1}
+                    gap={24}
+                    alignItems="end"
+                    justifyItems="stretch"
+                  >
+                    <GridItem>
+                      <div style={{ height: 244 }}>
+                        <PosterCard
+                          title="Out & About"
+                          description="11 offers"
+                          backgroundImage="https://picsum.photos/1200/1200"
+                          onPress={() => {}}
+                          aspectRatio="7:10"
+                        />
+                      </div>
+                    </GridItem>
+                    <GridItem rowSpan={1}>
+                      <Stack space={24}>
+                        <Callout
+                          asset={
+                            <IconLightbulbRegular
+                              color={skinVars.colors.brand}
+                            />
+                          }
+                          onClose={() => {}}
+                          title="Some title"
+                          description="This is a description for the callout"
+                        />
+                        <BoxedRow
+                          asset={
+                            <Image
+                              src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MP_95771590/fee_786_587_png"
+                              height={80}
+                              aspectRatio="1:1"
+                            />
+                          }
+                          headline={<Tag type="promo">Teléfono móvil</Tag>}
+                          title="iPhone 12 128GB"
+                          onPress={() => {}}
+                        />
+                      </Stack>
+                    </GridItem>
+
+                    <GridItem>
+                      <Stack space={24}>
+                        <div style={{ display: "flex", gap: 16 }}>
+                          <ButtonPrimary
+                            style={{ width: "100%" }}
+                            onPress={() => {}}
+                          >
+                            Hey Ho!
+                          </ButtonPrimary>
+                          <ButtonSecondary
+                            style={{ width: "100%" }}
+                            onPress={() => {}}
+                          >
+                            Let's Go!
+                          </ButtonSecondary>
+                        </div>
+                        <DataCard
+                          asset={
+                            <IconWifiRegular color={skinVars.colors.brand} />
+                          }
+                          title="Internet"
+                          description="30 GB + Unlimited voice"
+                        />
+                      </Stack>
+                    </GridItem>
+                  </Grid>
+                </Box>
+              </ResponsiveLayout>
+              <Box padding={40}>
+                <Inline space="between" alignItems="flex-start">
+                  <div style={{ display: "flex", gap: "20px" }}>
+                    {borders.map((border, index) => (
+                      <div key={index} style={{ textAlign: "center" }}>
+                        <button
+                          onClick={() => handleBorderClick(index)}
+                          style={{
+                            position: "relative",
+                            width: "60px",
+                            height: "60px",
+                            backgroundColor: "white",
+                            border: `2px solid ${skinVars.colors.border}`,
+                            display: "flex",
+                            alignItems: "flex-end",
+                            justifyContent: "flex-end",
+                            ...(activeBorderIndex === index
+                              ? selectedStyle
+                              : {}),
+                          }}
+                        >
+                          <div
+                            style={{
+                              position: "absolute",
+                              bottom: 0,
+                              right: 0,
+                              display: "inline-flex",
+                            }}
+                          >
+                            {border.svg}
+                          </div>
+                        </button>
+                        <div style={{ marginTop: "8px", fontSize: "16px" }}>
+                          {border.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div>
+                    <Row
+                      title="Rounded buttons"
+                      description="Allows you to define rounded buttons in any style"
+                      switch={{
+                        defaultValue: borderConfig.roundedButtons,
+                        onChange: handleRoundedButtonsChange,
+                      }}
+                    />
+                  </div>
+                </Inline>
+              </Box>
+            </Boxed>
+          </Align>
+        </Stack>
 
         <div className="buttons">
           <ButtonSecondary onPress={() => navigate("/create-typo")}>

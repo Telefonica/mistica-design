@@ -1,50 +1,86 @@
 /* VIVO */
 @font-face {
-    font-family: 'VivoType';
-    src: url('./Vivo/VivoTypeRegular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'VivoType';
-    src: url('./Vivo/VivoTypeBold.otf') format('opentype');
-    font-weight: bold;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'VivoType';
-    src: url('./Vivo/VivoTypeLight.otf') format('opentype');
-    font-weight: 300;
-    font-style: normal;
-  }
-
-  /* Telefonica Sans */
-@font-face {
-  font-family: 'Telefonica Sans';
-  src: url('./Telefonica Sans/General use/Telefonica Sans Regular.otf') format('opentype');
+  font-family: "VivoType";
+  src: url("./Vivo/VivoTypeRegular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Telefonica Sans';
-  src: url('./Telefonica Sans/General use/Telefonica Sans Bold.otf') format('opentype');
+  font-family: "VivoType";
+  src: url("./Vivo/VivoTypeBold.otf") format("opentype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Telefonica Sans';
-  src: url('./Telefonica Sans/General use/Telefonica Sans Light.otf') format('opentype');
+  font-family: "VivoType";
+  src: url("./Vivo/VivoTypeLight.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Telefonica Sans */
+@font-face {
+  font-family: "Telefonica Sans";
+  src: url("./Telefonica Sans/General use/Telefonica Sans Regular.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Telefonica Sans";
+  src: url("./Telefonica Sans/General use/Telefonica Sans Bold.otf")
+    format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Telefonica Sans";
+  src: url("./Telefonica Sans/General use/Telefonica Sans Light.otf")
+    format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Telefonica Sans';
-  src: url('./Telefonica Sans/General use/Telefonica Sans Medium.otf') format('opentype');
+  font-family: "Telefonica Sans";
+  src: url("./Telefonica Sans/General use/Telefonica Sans Medium.otf")
+    format("opentype");
   font-weight: 500;
   font-style: normal;
+}
+
+/* Regular */
+@font-face {
+  font-family: "On Air";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./OnAir/OnAir-Regular.woff2") format("woff2");
+}
+
+/* Light */
+@font-face {
+  font-family: "On Air";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./OnAir/OnAir-Light.woff2") format("woff2");
+}
+
+/* Medium */
+@font-face {
+  font-family: "On Air";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./OnAir/OnAir-Medium.woff2") format("woff2");
+}
+
+/* Bold */
+@font-face {
+  font-family: "On Air";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./OnAir/OnAir-Bold.woff2") format("woff2");
 }

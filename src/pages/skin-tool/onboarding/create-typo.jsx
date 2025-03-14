@@ -1,5 +1,5 @@
-// This file defines the `CreateTypo` component, the second step in the skin creation flow. 
-// It allows users to select a font and weight for display text, persists selections in localStorage using storageUtils, and provides a preview of the typography choices. 
+// This file defines the `CreateTypo` component, the second step in the skin creation flow.
+// It allows users to select a font and weight for display text, persists selections in localStorage using storageUtils, and provides a preview of the typography choices.
 
 // To-do: try to convert custom components to existing Mística components
 
@@ -20,19 +20,26 @@ import {
   Stack,
   DisplayMediaCard,
   Select,
+  Boxed,
+  Align,
+  Text,
 } from "@telefonica/mistica";
 import { useNavigate } from "react-router-dom";
-import { STORAGE_KEYS, setStorageItem, getStorageItem, DEFAULT_VALUES } from '../utils/storageUtils';
+import {
+  STORAGE_KEYS,
+  setStorageItem,
+  getStorageItem,
+  DEFAULT_VALUES,
+} from "../utils/storageUtils";
 import "./create-typo.css";
 import "../fonts/fonts.css";
 
 const CreateTypo = () => {
-
   // To redirect the user to previous or next steps
   const navigate = useNavigate();
 
   // Initialize states using getStorageItem from storageUtils
-  const [typography, setTypography] = useState(() => 
+  const [typography, setTypography] = useState(() =>
     getStorageItem(STORAGE_KEYS.TYPOGRAPHY, DEFAULT_VALUES.typography)
   );
 
@@ -42,7 +49,7 @@ const CreateTypo = () => {
     return weights.indexOf(typography.weight);
   });
 
-  const fonts = ["Telefonica Sans", "VivoType"];
+  const fonts = ["Telefonica Sans", "VivoType", "On Air"];
   const weights = ["Bold", "Medium", "Regular", "Light"];
 
   // Effect hook to persist typography changes to localStorage
@@ -52,9 +59,9 @@ const CreateTypo = () => {
 
   // Function to handle font selection from the dropdown
   const handleFontChange = (newFont) => {
-    setTypography(prev => ({
+    setTypography((prev) => ({
       ...prev,
-      font: newFont
+      font: newFont,
     }));
   };
 
@@ -62,9 +69,9 @@ const CreateTypo = () => {
   const handleClick = (index) => {
     const weight = weights[index].toLowerCase();
     setActiveIndex(index);
-    setTypography(prev => ({
+    setTypography((prev) => ({
       ...prev,
-      weight: weight
+      weight: weight,
     }));
   };
 
@@ -107,111 +114,134 @@ const CreateTypo = () => {
           Choose a font and a weight for the display texts.
         </Text2>
       </div>
-
-      <div className="typo-card">
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            gap: 40,
-          }}
-        >
-          <Box width={375}>
-            <DisplayDataCard
-              title="Telefonica Sans"
-              description="4 styles"
-              extra={
-                <Box paddingTop={32}>
-                  <Stack space={6}>
-                    <Text2 color={skinVars.colors.textSecondary}>Preview</Text2>
-                    <div style={{ fontFamily: typography.font }}>
-                    <Text4
-                      weight={typography.weight}
-                      style={{ fontFamily: typography.font }}
+      <Align x="center">
+        <div style={{ fontFamily: typography.font }}>
+          <Boxed>
+            <ResponsiveLayout fullWidth variant="alternative">
+              <Box width={872} padding={40}>
+                <Inline space={40}>
+                  <Box width={375}>
+                    <div
+                      style={{
+                        aspectRatio: "16/12",
+                        height: "100%",
+                        display: "flex",
+                      }}
                     >
-                      Step outside your comfort zone. Dream big. Discover what's possible.
-                    </Text4>
+                      <Boxed>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between",
+                            height: "100%",
+                            padding: 24,
+                          }}
+                        >
+                          <Stack space={6}>
+                            <Text size={28} weight={typography.weight}>
+                              {typography.font}
+                            </Text>
+                            <Text2 color={skinVars.colors.textSecondary}>
+                              4 Styles
+                            </Text2>
+                          </Stack>
+                          <Stack space={6}>
+                            <Text2 color={skinVars.colors.textSecondary}>
+                              Preview
+                            </Text2>
+                            <div style={{ fontFamily: typography.font }}>
+                              <Text4
+                                weight={typography.weight}
+                                style={{ fontFamily: typography.font }}
+                              >
+                                Step outside your comfort zone. Dream big.
+                                Discover what's possible.
+                              </Text4>
+                            </div>
+                          </Stack>
+                        </div>
+                      </Boxed>
                     </div>
-                  </Stack>
-                </Box>
-              }
-            />
-          </Box>
+                  </Box>
 
-          <div style={{ fontFamily: typography.font }}>
-          <Box width={375}>
-            <DisplayMediaCard
-              backgroundImage="https://picsum.photos/1200/1200"
-              extra={
-                <Text5
-                  weight={typography.weight}
-                  style={{ fontFamily: typography.font }}
+                  <Box width={375}>
+                    <DisplayMediaCard
+                      aspectRatio={16 / 12}
+                      backgroundImage="https://picsum.photos/1200/1200"
+                      extra={
+                        <Text5
+                          weight={typography.weight}
+                          style={{ fontFamily: typography.font }}
+                        >
+                          This is an example of Display Text
+                        </Text5>
+                      }
+                      description="Display Texts are often used in large text"
+                    />
+                  </Box>
+                </Inline>
+              </Box>
+            </ResponsiveLayout>
+            <Box padding={40}>
+              <div style={{ display: "flex", flexDirection: "row" }}>
+                <Select
+                  fullWidth
+                  name="Font"
+                  label="Font Mística"
+                  options={fonts.map((font) => ({ value: font, text: font }))}
+                  value={typography.font}
+                  onChangeValue={handleFontChange}
+                />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "flex-end",
+                    alignItems: "center",
+                    margin: 0,
+                    width: "100%",
+                    gap: "16px",
+                  }}
                 >
-                  This is an example of Display Text
-                </Text5>
-              }
-              description="Display Texts are often used in large text"
-            />
-          </Box>
-          </div>
-        </div>
-        <Inline space={40} alignItems="center" flexDirection="column">
-          <Select
-            name="Font"
-            label="Font Mística"
-            options={fonts.map((font) => ({ value: font, text: font }))}
-            fullWidth
-            value={typography.font}
-            onChangeValue={handleFontChange}
-          />
-
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              margin: 0,
-              width: "100%",
-              gap: "16px",
-            }}
-          >
-            <div style={{ display: "flex", gap: "20px" }}>
-              {weights.map((label, index) => (
-                <div key={index} style={{ textAlign: "center" }}>
-                  <button
-                    onClick={() => handleClick(index)}
-                    style={{
-                      width: "60px",
-                      height: "60px",
-                      fontSize: "28px",
-                      backgroundColor: "white",
-                      fontWeight: weights[index],
-                      border: `2px solid ${skinVars.colors.border}`,
-                      ...(activeIndex === index ? selectedStyle : {}),
-                    }}
-                  >
-                    <Text5 weight={label.toLowerCase()}>Aa</Text5>
-                  </button>
-                  <div style={{ marginTop: "8px", fontSize: "16px" }}>
-                    {label}
+                  <div style={{ display: "flex", gap: "20px" }}>
+                    {weights.map((label, index) => (
+                      <div key={index} style={{ textAlign: "center" }}>
+                        <button
+                          onClick={() => handleClick(index)}
+                          style={{
+                            width: "60px",
+                            height: "60px",
+                            fontSize: "28px",
+                            backgroundColor: "white",
+                            fontWeight: weights[index],
+                            border: `2px solid ${skinVars.colors.border}`,
+                            ...(activeIndex === index ? selectedStyle : {}),
+                          }}
+                        >
+                          <Text5 weight={label.toLowerCase()}>Aa</Text5>
+                        </button>
+                        <div style={{ marginTop: "8px", fontSize: "16px" }}>
+                          {label}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            </Box>
+          </Boxed>
+          <div className="buttons">
+            <ButtonSecondary onPress={() => navigate("/create-skin")}>
+              Back to colors
+            </ButtonSecondary>
+            <ButtonPrimary onPress={() => navigate("/create-border")}>
+              Next step: border
+            </ButtonPrimary>
           </div>
-        </Inline>
-      </div>
-
-      <div className="buttons">
-        <ButtonSecondary onPress={() => navigate("/create-skin")}>
-          Back to colors
-        </ButtonSecondary>
-        <ButtonPrimary onPress={() => navigate("/create-border")}>
-          Next step: border
-        </ButtonPrimary>
-      </div>
+        </div>
+      </Align>
     </ResponsiveLayout>
   );
 };
