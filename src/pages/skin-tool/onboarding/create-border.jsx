@@ -26,7 +26,6 @@ import {
   Row,
   ThemeContext,
   ThemeContextProvider,
-  getVivoSkin,
   getTelefonicaSkin,
 } from "@telefonica/mistica";
 import { useNavigate } from "react-router-dom";
@@ -41,20 +40,20 @@ import "./create-typo.css";
 const CreateBorder = () => {
   const navigate = useNavigate();
 
-  // Holds the current theme context from ThemeContext, providing baseline theme settings to extend with custom border styles
-  const currentTheme = useContext(ThemeContext);
-
   // Defines the available border radius options in pixels, corresponding to Ultra Soft, Soft and Square * NOT FINAL VALUES
-  const containerBorderRadiusValues = [32, 24, 0];
-  const buttonBorderRadiusValues = [16, 8, 0];
+  const containerBorderRadiusValues = [16, 8, 0];
+  const buttonBorderRadiusValues = [12, 8, 0];
 
   // Drives the custom theme’s border settings and is updated when the user selects a new radius or toggles rounded buttons, persisting changes to localStorage
   const [borderConfig, setBorderConfig] = useState(() =>
     getStorageItem(STORAGE_KEYS.BORDER, DEFAULT_VALUES.border)
   );
-  const [buttonConfig, setButtonConfig] = useState(() =>
-    getStorageItem(STORAGE_KEYS.BORDER, DEFAULT_VALUES.border)
-  );
+  const [buttonConfig, setButtonConfig] = useState(() => ({
+    radius:
+      getStorageItem(STORAGE_KEYS.BORDER, DEFAULT_VALUES.border).radius / 2,
+    roundedButtons: getStorageItem(STORAGE_KEYS.BORDER, DEFAULT_VALUES.border)
+      .roundedButtons,
+  }));
 
   // Array of objects defining the border style options, each with a label and an SVG icon for visual representation
   const borders = [
@@ -136,15 +135,25 @@ const CreateBorder = () => {
   // Updates the selected border radius when a border style button is clicked
   const handleBorderClick = (index) => {
     setActiveBorderIndex(index);
+    const containerRadius = containerBorderRadiusValues[index];
+    const buttonRadius = buttonBorderRadiusValues[index];
     setBorderConfig((prev) => ({
       ...prev,
-      radius: containerBorderRadiusValues[index],
+      radius: containerRadius,
+    }));
+    setButtonConfig((prev) => ({
+      ...prev,
+      radius: buttonRadius,
     }));
   };
 
   // Toggles the roundedButtons property in borderConfig when the user switches the "Rounded buttons" option * FIX, variable works but is not reflected on the UI
   const handleRoundedButtonsChange = (value) => {
     setBorderConfig((prev) => ({
+      ...prev,
+      roundedButtons: value,
+    }));
+    setButtonConfig((prev) => ({
       ...prev,
       roundedButtons: value,
     }));
@@ -172,7 +181,9 @@ const CreateBorder = () => {
           borderRadii: {
             ...skinVars.borderRadii,
             container: `${borderConfig.radius}px`,
-            button: `${buttonConfig.radius}px`,
+            button: buttonConfig.roundedButtons
+              ? "999px"
+              : `${buttonConfig.radius}px`,
           },
         },
       }}
