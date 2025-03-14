@@ -1,4 +1,4 @@
-// This file defines the `CreateBorder` component, the third step in the skin creation flow. 
+// This file defines the `CreateBorder` component, the third step in the skin creation flow.
 // It allows users to adjust border radius styles for UI elements and toggle rounded buttons, persisting selections in localStorage.
 
 // To-do: fix the problem with the rounded borders not appearing and fix buttons roundness when checkbox is not selected. Add final ultra soft, soft and square pixel values
@@ -25,10 +25,18 @@ import {
   Inline,
   Row,
   ThemeContext,
+  ThemeContextProvider,
+  getVivoSkin,
+  getTelefonicaSkin,
 } from "@telefonica/mistica";
 import { useNavigate } from "react-router-dom";
-import { STORAGE_KEYS, setStorageItem, getStorageItem, DEFAULT_VALUES } from '../utils/storageUtils';
-import './create-typo.css';
+import {
+  STORAGE_KEYS,
+  setStorageItem,
+  getStorageItem,
+  DEFAULT_VALUES,
+} from "../utils/storageUtils";
+import "./create-typo.css";
 
 const CreateBorder = () => {
   const navigate = useNavigate();
@@ -37,86 +45,88 @@ const CreateBorder = () => {
   const currentTheme = useContext(ThemeContext);
 
   // Defines the available border radius options in pixels, corresponding to Ultra Soft, Soft and Square * NOT FINAL VALUES
-  const borderRadiusValues = [32, 24, 0];
+  const containerBorderRadiusValues = [32, 24, 0];
+  const buttonBorderRadiusValues = [16, 8, 0];
 
   // Drives the custom theme’s border settings and is updated when the user selects a new radius or toggles rounded buttons, persisting changes to localStorage
-  const [borderConfig, setBorderConfig] = useState(() => 
+  const [borderConfig, setBorderConfig] = useState(() =>
     getStorageItem(STORAGE_KEYS.BORDER, DEFAULT_VALUES.border)
   );
-
-  // An extended version of currentTheme with updated border-related properties reflecting user selections
-  const customTheme = {
-    ...currentTheme,
-    borders: {
-      ...currentTheme.borders,
-      radius: borderConfig.radius + "px",
-    },
-    borderRadii: {
-      ...currentTheme.borderRadii,
-      container: borderConfig.radius + "px",
-      button: borderConfig.roundedButtons ? "999px" : borderConfig.radius + "px",
-    },
-    components: {
-      ...currentTheme.components,
-      Card: {
-        ...currentTheme.components?.Card,
-        borderRadius: borderConfig.radius + "px",
-      },
-      DataCard: {
-        ...currentTheme.components?.DataCard,
-        borderRadius: borderConfig.radius + "px",
-      },
-      HighlightedCard: {
-        ...currentTheme.components?.HighlightedCard,
-        borderRadius: borderConfig.radius + "px",
-      },
-      PosterCard: {
-        ...currentTheme.components?.PosterCard,
-        borderRadius: borderConfig.radius + "px",
-      },
-      BoxedRow: {
-        ...currentTheme.components?.BoxedRow,
-        borderRadius: borderConfig.radius + "px",
-      },
-    },
-  };
+  const [buttonConfig, setButtonConfig] = useState(() =>
+    getStorageItem(STORAGE_KEYS.BORDER, DEFAULT_VALUES.border)
+  );
 
   // Array of objects defining the border style options, each with a label and an SVG icon for visual representation
   const borders = [
     {
       label: "Ultra Soft",
       svg: (
-        <svg width="42" height="41" viewBox="0 0 42 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 41V26C2 12.7452 12.7452 2 26 2H42" stroke="#031A34" strokeWidth="2.5"/>
+        <svg
+          width="42"
+          height="41"
+          viewBox="0 0 42 41"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 41V26C2 12.7452 12.7452 2 26 2H42"
+            stroke="#031A34"
+            strokeWidth="2.5"
+          />
         </svg>
       ),
     },
     {
       label: "Soft",
       svg: (
-        <svg width="42" height="41" viewBox="0 0 42 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 41V18C2 9.16344 9.16344 2 18 2H42" stroke="#031A34" strokeWidth="2.5"/>
+        <svg
+          width="42"
+          height="41"
+          viewBox="0 0 42 41"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 41V18C2 9.16344 9.16344 2 18 2H42"
+            stroke="#031A34"
+            strokeWidth="2.5"
+          />
         </svg>
       ),
     },
     {
       label: "Square",
       svg: (
-        <svg width="42" height="41" viewBox="0 0 42 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 41V4C2 2.89543 2.89543 2 4 2H42" stroke="#031A34" strokeWidth="2.5"/>
+        <svg
+          width="42"
+          height="41"
+          viewBox="0 0 42 41"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 41V4C2 2.89543 2.89543 2 4 2H42"
+            stroke="#031A34"
+            strokeWidth="2.5"
+          />
         </svg>
       ),
     },
   ];
 
-  // Determines the initial index of the selected border radius in borderRadiusValues based on the stored borderConfig.radius
+  // Determines the initial index of the selected border radius in containerBorderRadiusValues based on the stored borderConfig.radius
   const getInitialBorderIndex = () => {
     const savedRadius = borderConfig.radius;
-    return borderRadiusValues.findIndex(value => value === savedRadius) || 0;
+    return (
+      containerBorderRadiusValues.findIndex((value) => value === savedRadius) ||
+      0
+    );
   };
 
   // State variable tracking the currently selected border style’s index in the borders array
-  const [activeBorderIndex, setActiveBorderIndex] = useState(getInitialBorderIndex);
+  const [activeBorderIndex, setActiveBorderIndex] = useState(
+    getInitialBorderIndex
+  );
 
   // Effect hook to persist borderConfig changes to localStorage
   useEffect(() => {
@@ -126,17 +136,17 @@ const CreateBorder = () => {
   // Updates the selected border radius when a border style button is clicked
   const handleBorderClick = (index) => {
     setActiveBorderIndex(index);
-    setBorderConfig(prev => ({
+    setBorderConfig((prev) => ({
       ...prev,
-      radius: borderRadiusValues[index]
+      radius: containerBorderRadiusValues[index],
     }));
   };
 
   // Toggles the roundedButtons property in borderConfig when the user switches the "Rounded buttons" option * FIX, variable works but is not reflected on the UI
   const handleRoundedButtonsChange = (value) => {
-    setBorderConfig(prev => ({
+    setBorderConfig((prev) => ({
       ...prev,
-      roundedButtons: value
+      roundedButtons: value,
     }));
   };
 
@@ -150,22 +160,23 @@ const CreateBorder = () => {
     backgroundColor: "white",
   };
 
-  // A wrapper component that applies the selected border radius to its children (various Mística cards). * FIX, the border stroke disappears when is rounded
-  const CardWrapper = ({ children, style, ...props }) => (
-    <div 
-      style={{ 
-        borderRadius: `${borderConfig.radius}px`,
-        overflow: 'hidden',
-        ...style 
-      }} 
-      {...props}
-    >
-      {children}
-    </div>
-  );
-  
   return (
-    <ThemeContext.Provider value={customTheme}>
+    <ThemeContextProvider
+      theme={{
+        i18n: {
+          locale: "es-ES",
+          phoneNumberFormattingRegionCode: "ES",
+        },
+        skin: {
+          ...getTelefonicaSkin(),
+          borderRadii: {
+            ...skinVars.borderRadii,
+            container: `${borderConfig.radius}px`,
+            button: `${buttonConfig.radius}px`,
+          },
+        },
+      }}
+    >
       <ResponsiveLayout>
         <div className="header">
           <p>loguito</p>
@@ -176,80 +187,102 @@ const CreateBorder = () => {
         </div>
 
         <div className="title-section">
-          <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 36V24C10 17.3726 15.3726 12 22 12H35" stroke="#031A34" strokeWidth="2.5"/>
-            <rect x="1.25" y="1.25" width="34.5" height="34.5" rx="7.75" stroke="#0066FF" strokeWidth="2.5"/>
+          <svg
+            width="37"
+            height="37"
+            viewBox="0 0 37 37"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 36V24C10 17.3726 15.3726 12 22 12H35"
+              stroke="#031A34"
+              strokeWidth="2.5"
+            />
+            <rect
+              x="1.25"
+              y="1.25"
+              width="34.5"
+              height="34.5"
+              rx="7.75"
+              stroke="#0066FF"
+              strokeWidth="2.5"
+            />
           </svg>
 
           <Text6>Adjust border radius</Text6>
           <Text2 color={skinVars.colors.textSecondary}>
-            Set a border radius style for elements and components with visible corners.
+            Set a border radius style for elements and components with visible
+            corners.
           </Text2>
         </div>
 
         <div className="typo-card">
-          <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", width: "872px"}}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              width: "872px",
+            }}
+          >
             <Grid columns={4} rows={2} gap={8}>
               <GridItem rowSpan={2}>
-                <CardWrapper>
-                  <PosterCard
-                    aspectRatio="7:10"
-                    title="Out & About"
-                    description="11 offers"
-                    backgroundImage="https://picsum.photos/1200/1200"
-                  />
-                </CardWrapper>
+                <PosterCard
+                  aspectRatio="7:10"
+                  title="Out & About"
+                  description="11 offers"
+                  backgroundImage="https://picsum.photos/1200/1200"
+                />
               </GridItem>
               <GridItem rowSpan={1} columnSpan={2}>
-                <CardWrapper>
-                  <HighlightedCard
-                    title="This is new!"
-                    description="Discover iPhone 16"
-                    imageUrl="https://m.media-amazon.com/images/I/41mw+mi7l2L._AC_SL1239_.jpg"
-                    imageFit="fill"
-                    onClose={() => {}}
-                    button={
-                      <ButtonPrimary small onPress={() => {}}>
-                        Explore marketplace
-                      </ButtonPrimary>
-                    }
-                  />
-                </CardWrapper>
+                <HighlightedCard
+                  title="This is new!"
+                  description="Discover iPhone 16"
+                  imageUrl="https://m.media-amazon.com/images/I/41mw+mi7l2L._AC_SL1239_.jpg"
+                  imageFit="fill"
+                  onClose={() => {}}
+                  button={
+                    <ButtonPrimary small onPress={() => {}}>
+                      Explore marketplace
+                    </ButtonPrimary>
+                  }
+                />
               </GridItem>
               <GridItem rowSpan={2}>
-                <CardWrapper>
-                  <DataCard
-                    button={
-                      <ButtonLayout
-                        primaryButton={
-                          <ButtonPrimary onPress={() => {}}>Hey Ho!</ButtonPrimary>
-                        }
-                        secondaryButton={
-                          <ButtonSecondary onPress={() => {}}>Let's Go!</ButtonSecondary>
-                        }
-                      />
-                    }
-                    asset={<IconWifiRegular color={skinVars.colors.brand} />}
-                    title="Title"
-                    description="Description"
-                  />
-                </CardWrapper>
+                <DataCard
+                  button={
+                    <ButtonLayout
+                      primaryButton={
+                        <ButtonPrimary onPress={() => {}}>
+                          Hey Ho!
+                        </ButtonPrimary>
+                      }
+                      secondaryButton={
+                        <ButtonSecondary onPress={() => {}}>
+                          Let's Go!
+                        </ButtonSecondary>
+                      }
+                    />
+                  }
+                  asset={<IconWifiRegular color={skinVars.colors.brand} />}
+                  title="Title"
+                  description="Description"
+                />
               </GridItem>
               <GridItem columnSpan={2}>
-                <CardWrapper>
-                  <BoxedRow
-                    asset={
-                      <Image
-                        src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MP_95771590/fee_786_587_png"
-                        height={120}
-                        aspectRatio="1:1"
-                      />
-                    }
-                    headline={<Tag type="promo">Teléfono móvil</Tag>}
-                    title="iPhone 12 128GB"
-                    onPress={() => {}}
-                  />
-                </CardWrapper>
+                <BoxedRow
+                  asset={
+                    <Image
+                      src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MP_95771590/fee_786_587_png"
+                      height={120}
+                      aspectRatio="1:1"
+                    />
+                  }
+                  headline={<Tag type="promo">Teléfono móvil</Tag>}
+                  title="iPhone 12 128GB"
+                  onPress={() => {}}
+                />
               </GridItem>
             </Grid>
           </div>
@@ -283,7 +316,9 @@ const CreateBorder = () => {
                       {border.svg}
                     </div>
                   </button>
-                  <div style={{ marginTop: "8px", fontSize: "16px" }}>{border.label}</div>
+                  <div style={{ marginTop: "8px", fontSize: "16px" }}>
+                    {border.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -292,9 +327,9 @@ const CreateBorder = () => {
               <Row
                 title="Rounded buttons"
                 description="Allows you to define rounded buttons in any style"
-                switch={{ 
+                switch={{
                   defaultValue: borderConfig.roundedButtons,
-                  onChange: handleRoundedButtonsChange
+                  onChange: handleRoundedButtonsChange,
                 }}
               />
             </div>
@@ -302,11 +337,15 @@ const CreateBorder = () => {
         </div>
 
         <div className="buttons">
-          <ButtonSecondary onPress={() => navigate('/create-typo')}>Back to typography</ButtonSecondary>
-          <ButtonPrimary onPress={() => navigate('/onboarding-complete')}>Finish</ButtonPrimary>
+          <ButtonSecondary onPress={() => navigate("/create-typo")}>
+            Back to typography
+          </ButtonSecondary>
+          <ButtonPrimary onPress={() => navigate("/onboarding-complete")}>
+            Finish
+          </ButtonPrimary>
         </div>
       </ResponsiveLayout>
-    </ThemeContext.Provider>
+    </ThemeContextProvider>
   );
 };
 
