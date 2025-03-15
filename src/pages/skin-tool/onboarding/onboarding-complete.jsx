@@ -43,7 +43,7 @@ const OnboardingComplete = () => {
     const initialContentTimer = setTimeout(() => {
       setShowInitialContent(false);
       setShowAdvancedTools(true);
-    }, 114000);
+    }, 4000);
 
     return () => {
       clearTimeout(confettiTimer);

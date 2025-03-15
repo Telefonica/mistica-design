@@ -112,9 +112,22 @@ const ConfettiEffect = () => {
       }
     };
 
+    // Track animation start time
+    const startTime = Date.now();
+    const totalDuration = 4000; // 10 seconds
+    const fadeOutDuration = 2000; // 2 seconds fade out
+
     // Render function
     const render = () => {
+      const elapsedTime = Date.now() - startTime;
+      const opacity =
+        elapsedTime > totalDuration - fadeOutDuration
+          ? 1 -
+            (elapsedTime - (totalDuration - fadeOutDuration)) / fadeOutDuration
+          : 1;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.globalAlpha = Math.max(0, Math.min(1, opacity)); // Ensure opacity stays between 0 and 1
 
       confetti.forEach((confetto, index) => {
         let width = confetto.dimensions.x * confetto.scale.x;
@@ -150,7 +163,9 @@ const ConfettiEffect = () => {
       );
       sequins = sequins.filter((sequin) => sequin.position.y < canvas.height);
 
-      window.requestAnimationFrame(render);
+      if (elapsedTime < totalDuration) {
+        window.requestAnimationFrame(render);
+      }
     };
 
     // Set canvas size

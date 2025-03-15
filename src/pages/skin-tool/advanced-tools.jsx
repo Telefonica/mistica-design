@@ -30,10 +30,20 @@ import {
   IconButton,
   IconEditPencilRegular,
   Title1,
+  BoxedRow,
+  BoxedRowList,
+  Box,
+  GridLayout,
+  Placeholder,
+  Stack,
+  Title3,
+  Align,
+  Tabs,
 } from "@telefonica/mistica";
-import getColorScale from "./utils/getColorScale";
+import { getColorScale, renderColorScale } from "./utils/color-utils";
 import Theme from "./utils/theme";
 import ColorDialog from "./utils/color-input";
+import "./advanced-tools.css";
 
 // Component definition for ThemePreviewWithTools
 const ThemePreviewWithTools = () => {
@@ -147,327 +157,237 @@ const ThemePreviewWithTools = () => {
   // Component to render a single color box with optional edit icon
   const ColorBox = ({ colorKey, label, showEditIcon = false }) => {
     return (
-      <div
-        className="each-color"
-        onClick={() => handleColorClick(colorKey)}
-        style={{
-          cursor: "pointer",
-          padding: "12px",
-          borderRadius: "8px",
-          backgroundColor:
-            selectedColor === colors[colorKey]
-              ? "rgba(0, 0, 0, 0.05)"
-              : "transparent",
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "row",
-          marginBottom: "16px",
-          width: "100%",
-        }}
-      >
-        <div
-          className="color-preview"
-          style={{
-            width: "48px",
-            height: "48px",
-            backgroundColor: colors[colorKey] || "#FFFFFF",
-            border: `2px solid ${skinVars.colors.border}`,
-            borderRadius: "8px",
-            flexShrink: 0,
-          }}
-        />
-        <div
-          style={{
-            marginLeft: "16px",
-            flexGrow: 1,
-            display: "flex",
-            flexDirection: "column",
-            gap: 4,
-          }}
-        >
-          <Text2 weight="medium">{label}</Text2>
-          <Text1 color={skinVars.colors.textSecondary}>
-            {colors[colorKey]
-              ? colors[colorKey].toUpperCase()
-              : "Definir color"}
-          </Text1>
-        </div>
-        {showEditIcon && (
-          <div style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
-            <IconButton
-              onPress={() => openColorDialog(colorKey)}
-              Icon={IconEditPencilRegular}
-              type="brand"
-            />
-          </div>
-        )}
-      </div>
+      <BoxedRow
+        asset={
+          <div
+            style={{
+              backgroundColor: colors[colorKey] || "#FFFFFF",
+              width: 40,
+              height: 40,
+              border: `1px solid ${skinVars.colors.border}`,
+              borderRadius: "8px",
+            }}
+          />
+        }
+        title={label}
+        description={
+          colors[colorKey] ? colors[colorKey].toUpperCase() : "Definir color"
+        }
+        onPress={() => handleColorClick(colorKey)}
+        withChevron={false}
+        right={
+          showEditIcon && (
+            <div
+              style={{ display: "flex", alignItems: "center", flexShrink: 0 }}
+            >
+              <IconButton
+                onPress={() => openColorDialog(colorKey)}
+                Icon={IconEditPencilRegular}
+                type="brand"
+              />
+            </div>
+          )
+        }
+      />
     );
   };
 
   //Main render function for the component ColorBox
   return (
     <>
-      <style>{`
-        .color-list {
-          display: flex;
-          flex-direction: column;
-          background: white;
-          border-radius: 16px;
-          padding: 24px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      <MainNavigationBar
+        sections={sections}
+        selectedIndex={index}
+        right={
+          <ButtonPrimary small onPress={handleExportJSON}>
+            Export JSON
+          </ButtonPrimary>
         }
-        .color-preview {
-          width: 48px;
-          height: 48px;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-        }
-        .color-swatch-large {
-          width: 40px;
-          height: 40px;
-          border-radius: 4px;
-          margin: 4px;
-        }
-        .preview-section {
-          flex-grow: 1;
-        }
-        .preview-card {
-          width: 384px;
-          background: white;
-          border-radius: 24px;
-          overflow: hidden;
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        }
-        .preview-header {
-          padding: 24px;
-          color: white;
-        }
-        .preview-header-top {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 16px;
-        }
-        .preview-content {
-          padding: 24px;
-        }
-      `}</style>
+      />
       <ResponsiveLayout>
-        <MainNavigationBar
-          sections={sections}
-          selectedIndex={index}
-          right={
-            <ButtonPrimary small onPress={handleExportJSON}>
-              Export JSON
-            </ButtonPrimary>
-          }
-        />
+        <Box paddingY={32}>
+          <GridLayout
+            template="3+9"
+            left={
+              <Stack space={64}>
+                <Tabs tabs={[{ text: "Palette" }, { text: "Tokens" }]} />
+                <Stack space={40}>
+                  <Stack space={24}>
+                    <Title3>Core palette colors</Title3>
+                    <Text2 color={skinVars.colors.textSecondary}>
+                      En base a los colores core se crea la paleta tonal usada
+                      en los componentes. Puedes editar los colores core,
+                      nombrarlos y añadir colores extra.
+                    </Text2>
+                  </Stack>
+                  <BoxedRowList>
+                    <ColorBox
+                      colorKey="brandColor"
+                      label="Brand"
+                      showEditIcon={true}
+                    />
+                    <ColorBox
+                      colorKey="errorColor"
+                      label="Error"
+                      showEditIcon={true}
+                    />
+                    <ColorBox
+                      colorKey="warningColor"
+                      label="Warning"
+                      showEditIcon={true}
+                    />
+                    <ColorBox
+                      colorKey="successColor"
+                      label="Success"
+                      showEditIcon={true}
+                    />
+                    <ColorBox
+                      colorKey="promoColor"
+                      label="Promo"
+                      showEditIcon={true}
+                    />
+                    <ColorBox
+                      colorKey="neutral1"
+                      label="Neutral1"
+                      showEditIcon={true}
+                    />
+                    <ColorBox
+                      colorKey="neutral2"
+                      label="Neutral2"
+                      showEditIcon={true}
+                    />
+                    <ColorBox
+                      colorKey="neutral3"
+                      label="Neutral3"
+                      showEditIcon={true}
+                    />
+                  </BoxedRowList>
+                </Stack>
+              </Stack>
+            }
+            right={
+              <Box paddingTop={124}>
+                {(index === 0 && (
+                  <Stack space={64}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 24,
 
-        {index === 0 && (
-          <div
-            style={{
-              display: `flex`,
-              justifyContent: "space-between",
-              padding: `32px`,
-            }}
-          >
-            <div style={{ width: "280px", flexShrink: 0 }}>
-              <Text2>Core palette colors</Text2>
-              <div className="color-list">
-                <ColorBox
-                  colorKey="brandColor"
-                  label="Brand"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="errorColor"
-                  label="Error"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="warningColor"
-                  label="Warning"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="successColor"
-                  label="Success"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="promoColor"
-                  label="Promo"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="neutral1"
-                  label="Neutral1"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="neutral2"
-                  label="Neutral2"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="neutral3"
-                  label="Neutral3"
-                  showEditIcon={false}
-                />
-              </div>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                width: 600,
-                gap: "32px",
-              }}
-            >
-              <Text5>Primary colors</Text5>
-              <Text2 color={skinVars.colors.textSecondary}>
-                Based on the core color of the palette, the rest of the colors
-                are derived. You can manually adjust each derived color if you
-                need to.
-              </Text2>
-              {selectedColorKey && (
-                <ColorBox
-                  colorKey={selectedColorKey}
-                  label={selectedColorKey}
-                  showEditIcon={true}
-                />
-              )}
-              {Object.entries(colorScaleOutput).map(([key, scale]) => (
-                <div key={key}>
-                  <Text2>{key.replace("Color", "")} Scale</Text2>
-                  <div
-                    style={{ display: "flex", flexWrap: "wrap", marginTop: 16 }}
-                  >
-                    {scale.map((color, index) => (
-                      <div
-                        key={index}
-                        className="color-swatch-large"
-                        style={{ backgroundColor: color }}
-                      />
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {index === 1 && (
-          <div style={{ display: `flex`, gap: `32px`, padding: `32px` }}>
-            <div style={{ width: "280px", flexShrink: 0 }}>
-              <Text2>Core palette colors</Text2>
-              <div className="color-list">
-                <ColorBox
-                  colorKey="brandColor"
-                  label="Brand"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="errorColor"
-                  label="Error"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="warningColor"
-                  label="Warning"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="successColor"
-                  label="Success"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="promoColor"
-                  label="Promo"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="neutral1"
-                  label="Neutral1"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="neutral2"
-                  label="Neutral2"
-                  showEditIcon={false}
-                />
-                <ColorBox
-                  colorKey="neutral3"
-                  label="Neutral3"
-                  showEditIcon={false}
-                />
-              </div>
-            </div>
-            <div className="preview-section">
-              <Title1>Preview</Title1>
-              <Theme themeColors={{ ...colors, selectedColor }}>
-                <div className="preview-card">
-                  <div
-                    className="preview-header"
-                    style={{ backgroundColor: colors.brandColor }}
-                  >
-                    <div className="preview-header-top">
-                      <IconChevronLeftRegular />
-                      <IconShareRegular />
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Title3>Tonal Palette</Title3>
+                      <div style={{ width: 480, textAlign: "center" }}>
+                        <Text2
+                          textAlign="center"
+                          color={skinVars.colors.textSecondary}
+                        >
+                          Visualiza los colores de la paleta tonal derivados del
+                          color principal, puedes editarlos y ver cuáles son
+                          usados en los componentes.
+                        </Text2>
+                      </div>
                     </div>
-                    <HeaderLayout
-                      isInverse={true}
-                      header={
-                        <Header
-                          headline="Hussle"
-                          title="Save on winter workouts with a free gym Day Pass"
-                        />
-                      }
-                      extra={
-                        <Inline space={16}>
-                          <Row
-                            asset={<IconTimeRegular />}
-                            title="Ends Tue 28 Feb"
-                          />
-                          <Row asset={<IconWifiRegular />} title="Online" />
-                        </Inline>
-                      }
-                    />
-                  </div>
-                  <div className="preview-content">
-                    <Title2>At a glance</Title2>
-                    <Row
-                      asset={<IconCheckRegular />}
-                      description="Enjoy day of access to over 1000 gyms nationwide"
-                    />
-                    <Row
-                      asset={<IconCheckRegular />}
-                      description="Only available for gyms with a Day Pass RRP of 15 or under"
-                    />
-                    <ButtonLayout
-                      align="full-width"
-                      primaryButton={
-                        <ButtonPrimary onPress={() => {}}>
-                          Use Now
-                        </ButtonPrimary>
-                      }
-                      secondaryButton={
-                        <ButtonSecondary onPress={() => {}}>
-                          Save
-                        </ButtonSecondary>
-                      }
-                    />
-                  </div>
-                </div>
-              </Theme>
-            </div>
-          </div>
-        )}
+                    <Align x="center" height="fit-content">
+                      {Object.entries(colorScaleOutput).map(([key, scale]) =>
+                        renderColorScale(key, scale, Stack, Inline)
+                      )}
+                    </Align>
+                  </Stack>
+                )) ||
+                  (index === 1 && (
+                    <Stack space={64}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 24,
+
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Title3>Preview</Title3>
+                        <div style={{ width: 480, textAlign: "center" }}>
+                          <Text2
+                            textAlign="center"
+                            color={skinVars.colors.textSecondary}
+                          >
+                            Visualiza los colores de la paleta tonal derivados
+                            del color principal, puedes editarlos y ver cuáles
+                            son usados en los componentes.
+                          </Text2>
+                        </div>
+                      </div>
+                      <Align x="center">
+                        <Theme themeColors={{ ...colors, selectedColor }}>
+                          <div className="preview-card">
+                            <div
+                              className="preview-header"
+                              style={{ backgroundColor: colors.brandColor }}
+                            >
+                              <div className="preview-header-top">
+                                <IconChevronLeftRegular />
+                                <IconShareRegular />
+                              </div>
+                              <HeaderLayout
+                                isInverse={true}
+                                header={
+                                  <Header
+                                    headline="Hussle"
+                                    title="Save on winter workouts with a free gym Day Pass"
+                                  />
+                                }
+                                extra={
+                                  <Inline space={16}>
+                                    <Row
+                                      asset={<IconTimeRegular />}
+                                      title="Ends Tue 28 Feb"
+                                    />
+                                    <Row
+                                      asset={<IconWifiRegular />}
+                                      title="Online"
+                                    />
+                                  </Inline>
+                                }
+                              />
+                            </div>
+                            <div className="preview-content">
+                              <Title2>At a glance</Title2>
+                              <Row
+                                asset={<IconCheckRegular />}
+                                description="Enjoy day of access to over 1000 gyms nationwide"
+                              />
+                              <Row
+                                asset={<IconCheckRegular />}
+                                description="Only available for gyms with a Day Pass RRP of 15 or under"
+                              />
+                              <ButtonLayout
+                                align="full-width"
+                                primaryButton={
+                                  <ButtonPrimary onPress={() => {}}>
+                                    Use Now
+                                  </ButtonPrimary>
+                                }
+                                secondaryButton={
+                                  <ButtonSecondary onPress={() => {}}>
+                                    Save
+                                  </ButtonSecondary>
+                                }
+                              />
+                            </div>
+                          </div>
+                        </Theme>
+                      </Align>
+                    </Stack>
+                  ))}
+              </Box>
+            }
+          />
+        </Box>
       </ResponsiveLayout>
 
       <ColorDialog

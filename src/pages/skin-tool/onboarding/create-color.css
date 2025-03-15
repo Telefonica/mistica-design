@@ -55,6 +55,10 @@
   align-items: center;
 }
 
+.color-preview:has(div) {
+  height: 100%;
+}
+
 /* Botones inferiores */
 .buttons {
   display: flex;
