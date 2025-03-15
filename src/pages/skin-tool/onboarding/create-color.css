@@ -55,8 +55,14 @@
   align-items: center;
 }
 
-.color-preview:has(div) {
+.colorCard {
   height: 100%;
+  width: 100%;
+}
+
+.colorCard > div {
+  height: calc(100% - 48px);
+  width: 100%;
 }
 
 /* Botones inferiores */
