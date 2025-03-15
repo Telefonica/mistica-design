@@ -97,11 +97,6 @@ const ThemePreviewWithTools = () => {
     { title: "Skin Preview", onPress: () => setNavIndex(3) },
   ];
 
-  const tabs = [
-    { text: "Palette", onPress: () => setTabIndex(0) },
-    { text: "Tokens", onPress: () => setTabIndex(1) },
-  ];
-
   // Function to export the current theme configuration as a JSON file
   const handleExportJSON = () => {
     const exportData = {
@@ -243,7 +238,7 @@ const ThemePreviewWithTools = () => {
       <MainNavigationBar
         logo={<MisticaLogo size={250} type="imagotype" />}
         sections={sections}
-        selectednavIndex={navIndex}
+        selectedIndex={navIndex}
         right={
           <ButtonPrimary small onPress={handleExportJSON}>
             Export JSON
@@ -257,7 +252,7 @@ const ThemePreviewWithTools = () => {
             left={
               <Stack space={64}>
                 <Tabs
-                  tabs={tabs}
+                  tabs={[{ text: "Palette" }, { text: "Tokens" }]}
                   selectedIndex={tabIndex}
                   onChange={setTabIndex}
                 />
