@@ -81,9 +81,9 @@ const StepHeader = ({
 
             <Align x="center" width={872}>
               <ResponsiveLayout>
-                <Boxed>
-                  <div className="transition">{children}</div>
-                </Boxed>
+                <div className="transition">
+                  <Boxed>{children}</Boxed>
+                </div>
               </ResponsiveLayout>
             </Align>
           </Stack>

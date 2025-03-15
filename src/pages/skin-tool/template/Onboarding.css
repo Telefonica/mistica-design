@@ -1,19 +1,18 @@
-/* Transition styles for the Onboarding component */
-
 .transition {
   opacity: 0;
-  transform: translateY(40px);
-  animation: fadeIn 0.8s ease-out 0.2s forwards;
+  animation: slideIn 2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
 }
 
-@keyframes fadeIn {
+@keyframes slideIn {
   0% {
     opacity: 0;
     transform: translateY(40px);
+    filter: blur(5px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0px);
   }
 }
 
