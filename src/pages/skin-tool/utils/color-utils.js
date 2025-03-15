@@ -257,9 +257,88 @@ const getRelativeLuminance = (color) => {
 };
 
 /**
- * Determines the best text color (black or white) based on background color
+ * Calculates the contrast ratio between two colors
+ * @param {number} luminance1 - Relative luminance of first color
+ * @param {number} luminance2 - Relative luminance of second color
+ * @returns {number} - Contrast ratio between the two colors
+ */
+const calculateContrastRatio = (luminance1, luminance2) => {
+  const brightest = Math.max(luminance1, luminance2);
+  const darkest = Math.min(luminance1, luminance2);
+  return (brightest + 0.05) / (darkest + 0.05);
+};
+
+/**
+ * Adjusts the luminance of a color to achieve minimum contrast ratio
+ * @param {string} color - Color in HEX format
+ * @param {number} bgLuminance - Background luminance
+ * @param {number} targetRatio - Target contrast ratio
+ * @param {boolean} darken - Whether to darken or lighten the color
+ * @returns {string} - Adjusted color in HEX format
+ */
+const adjustColorForContrast = (color, bgLuminance, targetRatio, darken) => {
+  // Remove # if present
+  color = color.replace(/^#/, "");
+
+  // Parse the hex values
+  let r = parseInt(color.slice(0, 2), 16) / 255;
+  let g = parseInt(color.slice(2, 4), 16) / 255;
+  let b = parseInt(color.slice(4, 6), 16) / 255;
+
+  // Calculate current luminance
+  const R = r <= 0.03928 ? r / 12.92 : Math.pow((r + 0.055) / 1.055, 2.4);
+  const G = g <= 0.03928 ? g / 12.92 : Math.pow((g + 0.055) / 1.055, 2.4);
+  const B = b <= 0.03928 ? b / 12.92 : Math.pow((b + 0.055) / 1.055, 2.4);
+
+  let luminance = 0.2126 * R + 0.7152 * G + 0.0722 * B;
+  let ratio = calculateContrastRatio(luminance, bgLuminance);
+
+  // Adjust luminance until we reach target ratio
+  const step = 0.05;
+  let iterations = 0;
+  const maxIterations = 20; // Prevent infinite loops
+
+  while (ratio < targetRatio && iterations < maxIterations) {
+    if (darken) {
+      // Darken the color
+      r = Math.max(0, r - step);
+      g = Math.max(0, g - step);
+      b = Math.max(0, b - step);
+    } else {
+      // Lighten the color
+      r = Math.min(1, r + step);
+      g = Math.min(1, g + step);
+      b = Math.min(1, b + step);
+    }
+
+    // Recalculate luminance and ratio
+    const newR = r <= 0.03928 ? r / 12.92 : Math.pow((r + 0.055) / 1.055, 2.4);
+    const newG = g <= 0.03928 ? g / 12.92 : Math.pow((g + 0.055) / 1.055, 2.4);
+    const newB = b <= 0.03928 ? b / 12.92 : Math.pow((b + 0.055) / 1.055, 2.4);
+
+    luminance = 0.2126 * newR + 0.7152 * newG + 0.0722 * newB;
+    ratio = calculateContrastRatio(luminance, bgLuminance);
+    iterations++;
+  }
+
+  // Convert back to hex
+  const hexR = Math.round(r * 255)
+    .toString(16)
+    .padStart(2, "0");
+  const hexG = Math.round(g * 255)
+    .toString(16)
+    .padStart(2, "0");
+  const hexB = Math.round(b * 255)
+    .toString(16)
+    .padStart(2, "0");
+
+  return `#${hexR}${hexG}${hexB}`;
+};
+
+/**
+ * Determines the best text color based on background color with a minimum contrast ratio of 4.5:1
  * @param {string} backgroundColor - Background color in HEX format or CSS color-mix
- * @returns {string} - "#000000" for black text or "#FFFFFF" for white text
+ * @returns {string} - HEX color for text that ensures minimum 4.5:1 contrast ratio
  */
 const getContrastTextColor = (backgroundColor) => {
   // For color-mix values, extract the final color
@@ -272,19 +351,39 @@ const getContrastTextColor = (backgroundColor) => {
       const whitePercent = parseInt(whitePercentMatch[1]);
       // If white percentage is very high, we can assume it's a light color
       if (whitePercent > 70) {
-        return "#000000"; // Use black text for very light backgrounds
+        backgroundColor = "#FFFFFF"; // Treat as white for high white percentages
+      } else {
+        backgroundColor = hexColorMatch[0]; // Use the hex color for further calculation
       }
-      backgroundColor = hexColorMatch[0]; // Use the hex color for further calculation
     } else {
       return "#000000"; // Default to black if we can't parse
     }
   }
 
-  const luminance = getRelativeLuminance(backgroundColor);
+  const bgLuminance = getRelativeLuminance(backgroundColor);
 
-  // Use white text on dark backgrounds, black text on light backgrounds
-  // The threshold 0.5 is a common value, but can be adjusted for better results
-  return luminance < 0.2 ? "#FFFFFF" : "#000000";
+  // Calculate contrast ratios for black and white text
+  const blackContrast = calculateContrastRatio(bgLuminance, 0); // 0 is luminance for black
+  const whiteContrast = calculateContrastRatio(bgLuminance, 1); // 1 is luminance for white
+
+  const TARGET_RATIO = 4.5; // WCAG AA standard for normal text
+
+  // If either black or white already meets the contrast requirement, use it
+  if (blackContrast >= TARGET_RATIO) {
+    return "#000000";
+  }
+  if (whiteContrast >= TARGET_RATIO) {
+    return "#FFFFFF";
+  }
+
+  // Neither black nor white meets the requirement, so adjust one of them
+  // For dark backgrounds, adjust white to be more visible
+  // For light backgrounds, adjust black to be more visible
+  if (bgLuminance < 0.5) {
+    return adjustColorForContrast("FFFFFF", bgLuminance, TARGET_RATIO, true); // Darken white
+  } else {
+    return adjustColorForContrast("000000", bgLuminance, TARGET_RATIO, false); // Lighten black
+  }
 };
 // Export all color utility functions
 export {
@@ -296,6 +395,8 @@ export {
   rgbToHex,
   getRelativeLuminance,
   getContrastTextColor,
+  calculateContrastRatio,
+  adjustColorForContrast,
 };
 
 // For backward compatibility
