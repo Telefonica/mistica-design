@@ -19,6 +19,8 @@ import {
   Stack,
   ButtonLink,
   Boxed,
+  IconButton,
+  IconEditPencilRegular,
 } from "@telefonica/mistica";
 import React, { useState, useEffect } from "react";
 import "./create-color.css";
@@ -76,10 +78,22 @@ const CreateColor = () => {
         style={{
           backgroundColor: colors[colorKey] || "#FFFFFF",
           border: `2px solid ${skinVars.colors.border}`,
+          position: "relative",
         }}
         onClick={() => document.getElementById(`${colorKey}-input`).click()}
       >
-        {!colors[colorKey] && (
+        {colors[colorKey] ? (
+          <div style={{ position: "absolute", bottom: 8, right: 8 }}>
+            <IconButton
+              onPress={() =>
+                document.getElementById(`${colorKey}-input`).click()
+              }
+              Icon={IconEditPencilRegular}
+              backgroundType="soft"
+              small
+            />
+          </div>
+        ) : (
           <IconLayersRegular size={40} color={skinVars.colors.border} />
         )}
       </div>
