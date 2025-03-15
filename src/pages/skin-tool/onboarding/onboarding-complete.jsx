@@ -1,17 +1,18 @@
-// This file defines the `OnboardingComplete` component, which serves as the final screen in the onboarding flow. 
-// It displays a celebratory message with confetti animation, marks the flow as completed in localStorage, and transitions to an advanced tools section after a delay. 
+// This file defines the `OnboardingComplete` component, which serves as the final screen in the onboarding flow.
+// It displays a celebratory message with confetti animation, marks the flow as completed in localStorage, and transitions to an advanced tools section after a delay.
 
 import React, { useState, useEffect } from "react";
-import { ResponsiveLayout, ProgressBarStepped, Text2, Text6, Text4, skinVars, } from "@telefonica/mistica";
-import { markFlowAsCompleted } from '../utils/storageUtils.js';
-import ConfettiEffect from '../utils/ConfettiEffect.jsx'
+import { ResponsiveLayout } from "@telefonica/mistica";
+import { markFlowAsCompleted } from "../utils/storageUtils.js";
+import ConfettiEffect from "../utils/ConfettiEffect.jsx";
 import AdvancedTools from "../advanced-tools.jsx";
+import StepHeader from "../template/Onboarding.jsx";
 
 const OnboardingComplete = () => {
   // State to control the visibility of the confetti animation
   const [showConfetti, setShowConfetti] = useState(true);
 
-  //State to control the visibility of the advanced tools section 
+  //State to control the visibility of the advanced tools section
   const [showAdvancedTools, setShowAdvancedTools] = useState(false);
 
   // State to control the visibility of the initial celebratory content
@@ -46,36 +47,35 @@ const OnboardingComplete = () => {
 
   return (
     <ResponsiveLayout>
-        {showInitialContent && (
-          <div className={`header ${fadeOut ? 'fade-out' : ''}`}>
-            <p>loguito</p>
-            <div className="progress-bar">
-              <ProgressBarStepped steps="4" currentStep="4" />
-            </div>
-            <Text2 color={skinVars.colors.textSecondary}>Step 4 of 4</Text2>
-          </div>
-        )}
+      {showInitialContent && (
+        <StepHeader
+          currentStep={4}
+          totalSteps={4}
+          title="🎉 Your skin is ready!"
+          description="Now it's time to fine-tune it for perfection."
+          className={`${fadeOut ? "fade-out" : ""}`}
+        />
+      )}
 
-        {showInitialContent && (
-          <div className={`animated-message ${fadeOut ? 'fade-out' : ''}`} style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              position: "relative",
-              height: "calc(100vh - 60px)",
-              textAlign: "center",
-              gap: "16px",
-          }}>
-              {showConfetti && <ConfettiEffect />}
-              <Text6>🎉 Your skin is ready!</Text6>
-              <Text4 color={skinVars.colors.textSecondary}>
-              Now it's time to fine-tune it for perfection.
-              </Text4>
-          </div>
-        )}
+      {showInitialContent && (
+        <div
+          className={`animated-message ${fadeOut ? "fade-out" : ""}`}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "relative",
+            height: "calc(100vh - 60px)",
+            textAlign: "center",
+            gap: "16px",
+          }}
+        >
+          {showConfetti && <ConfettiEffect />}
+        </div>
+      )}
 
-        {showAdvancedTools && <AdvancedTools />}
+      {showAdvancedTools && <AdvancedTools />}
     </ResponsiveLayout>
   );
 };

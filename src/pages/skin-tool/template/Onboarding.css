@@ -1,0 +1,48 @@
+/* Transition styles for the Onboarding component */
+
+.transition {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeIn 0.8s ease-out 0.2s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Additional styles for the Onboarding component */
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 35px;
+}
+
+.progress-bar {
+  width: 750px;
+}
+
+.title-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 76px;
+  gap: 16px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  justify-content: center;
+}
