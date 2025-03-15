@@ -284,7 +284,7 @@ const getContrastTextColor = (backgroundColor) => {
 
   // Use white text on dark backgrounds, black text on light backgrounds
   // The threshold 0.5 is a common value, but can be adjusted for better results
-  return luminance < 0.5 ? "#FFFFFF" : "#000000";
+  return luminance < 0.2 ? "#FFFFFF" : "#000000";
 };
 // Export all color utility functions
 export {

@@ -53,7 +53,7 @@ const OnboardingComplete = () => {
   }, []);
 
   return (
-    <ResponsiveLayout>
+    <>
       {showInitialContent && (
         <OnboardingTemplate
           currentStep={4}
@@ -79,7 +79,7 @@ const OnboardingComplete = () => {
       )}
 
       {showAdvancedTools && <AdvancedTools />}
-    </ResponsiveLayout>
+    </>
   );
 };
 

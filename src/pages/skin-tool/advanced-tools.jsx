@@ -39,11 +39,13 @@ import {
   Title3,
   Align,
   Tabs,
+  TelefonicaLogo,
 } from "@telefonica/mistica";
 import { getColorScale, renderColorScale } from "./utils/color-utils";
 import Theme from "./utils/theme";
 import ColorDialog from "./utils/color-input";
 import "./advanced-tools.css";
+import MisticaLogo from "./assets/logo.tsx";
 
 // Component definition for ThemePreviewWithTools
 const ThemePreviewWithTools = () => {
@@ -196,6 +198,7 @@ const ThemePreviewWithTools = () => {
   return (
     <>
       <MainNavigationBar
+        logo={<MisticaLogo size={250} type="imagotype" />}
         sections={sections}
         selectedIndex={index}
         right={
@@ -389,7 +392,6 @@ const ThemePreviewWithTools = () => {
           />
         </Box>
       </ResponsiveLayout>
-
       <ColorDialog
         isOpen={isColorDialogOpen}
         onClose={handleCancelColor}
