@@ -49,8 +49,9 @@ import MisticaLogo from "./assets/logo.tsx";
 
 // Component definition for ThemePreviewWithTools
 const ThemePreviewWithTools = () => {
-  // State to track the currently selected section index in the navigation bar
-  const [index, setIndex] = useState(0);
+  // State to track the currently selected section navIndex in the navigation bar
+  const [navIndex, setNavIndex] = useState(0);
+  const [tabIndex, setTabIndex] = useState(0);
 
   //State for the skin name, defaulting to custom-skin
   const [skinName, setSkinName] = useState("custom-skin");
@@ -90,10 +91,15 @@ const ThemePreviewWithTools = () => {
 
   // Array defining the sections available in the navigation bar
   const sections = [
-    { title: "Color Palette", onPress: () => setIndex(0) },
-    { title: "Preview", onPress: () => setIndex(1) },
-    { title: "Typography", onPress: () => setIndex(2) },
-    { title: "Border", onPress: () => setIndex(3) },
+    { title: "Color", onPress: () => setNavIndex(0) },
+    { title: "Typography", onPress: () => setNavIndex(1) },
+    { title: "Border", onPress: () => setNavIndex(2) },
+    { title: "Skin Preview", onPress: () => setNavIndex(3) },
+  ];
+
+  const tabs = [
+    { text: "Palette", onPress: () => setTabIndex(0) },
+    { text: "Tokens", onPress: () => setTabIndex(1) },
   ];
 
   // Function to export the current theme configuration as a JSON file
@@ -194,13 +200,50 @@ const ThemePreviewWithTools = () => {
     );
   };
 
+  const SkinTokens = ({ colorKey, label, showEditIcon = false }) => {
+    return (
+      <BoxedRow
+        asset={
+          <div
+            style={{
+              backgroundColor: colors[colorKey] || "#FFFFFF",
+              width: 40,
+              height: 40,
+              border: `1px solid ${skinVars.colors.border}`,
+              borderRadius: "8px",
+            }}
+          />
+        }
+        title={label}
+        description={
+          colors[colorKey] ? colors[colorKey].toUpperCase() : "Definir color"
+        }
+        onPress={() => handleColorClick(colorKey)}
+        withChevron={false}
+        right={
+          showEditIcon && (
+            <div
+              style={{ display: "flex", alignItems: "center", flexShrink: 0 }}
+            >
+              <IconButton
+                onPress={() => openColorDialog(colorKey)}
+                Icon={IconEditPencilRegular}
+                type="brand"
+              />
+            </div>
+          )
+        }
+      />
+    );
+  };
+
   //Main render function for the component ColorBox
   return (
     <>
       <MainNavigationBar
         logo={<MisticaLogo size={250} type="imagotype" />}
         sections={sections}
-        selectedIndex={index}
+        selectednavIndex={navIndex}
         right={
           <ButtonPrimary small onPress={handleExportJSON}>
             Export JSON
@@ -213,64 +256,89 @@ const ThemePreviewWithTools = () => {
             template="3+9"
             left={
               <Stack space={64}>
-                <Tabs tabs={[{ text: "Palette" }, { text: "Tokens" }]} />
-                <Stack space={40}>
-                  <Stack space={24}>
-                    <Title3>Core palette colors</Title3>
-                    <Text2 color={skinVars.colors.textSecondary}>
-                      En base a los colores core se crea la paleta tonal usada
-                      en los componentes. Puedes editar los colores core,
-                      nombrarlos y añadir colores extra.
-                    </Text2>
+                <Tabs
+                  tabs={tabs}
+                  selectedIndex={tabIndex}
+                  onChange={setTabIndex}
+                />
+
+                {tabIndex === 0 ? (
+                  <Stack space={40}>
+                    <Stack space={24}>
+                      <Title3>Skin palette colors</Title3>
+                      <Text2 color={skinVars.colors.textSecondary}>
+                        En base a los colores core se crea la paleta tonal usada
+                        en los componentes. Puedes editar los colores core,
+                        nombrarlos y añadir colores extra.
+                      </Text2>
+                    </Stack>
+                    <BoxedRowList>
+                      <ColorBox
+                        colorKey="brandColor"
+                        label="Brand"
+                        showEditIcon={true}
+                      />
+                      <ColorBox
+                        colorKey="errorColor"
+                        label="Error"
+                        showEditIcon={true}
+                      />
+                      <ColorBox
+                        colorKey="warningColor"
+                        label="Warning"
+                        showEditIcon={true}
+                      />
+                      <ColorBox
+                        colorKey="successColor"
+                        label="Success"
+                        showEditIcon={true}
+                      />
+                      <ColorBox
+                        colorKey="promoColor"
+                        label="Promo"
+                        showEditIcon={true}
+                      />
+                      <ColorBox
+                        colorKey="neutral1"
+                        label="Neutral1"
+                        showEditIcon={true}
+                      />
+                      <ColorBox
+                        colorKey="neutral2"
+                        label="Neutral2"
+                        showEditIcon={true}
+                      />
+                      <ColorBox
+                        colorKey="neutral3"
+                        label="Neutral3"
+                        showEditIcon={true}
+                      />
+                    </BoxedRowList>
                   </Stack>
-                  <BoxedRowList>
-                    <ColorBox
-                      colorKey="brandColor"
-                      label="Brand"
-                      showEditIcon={true}
-                    />
-                    <ColorBox
-                      colorKey="errorColor"
-                      label="Error"
-                      showEditIcon={true}
-                    />
-                    <ColorBox
-                      colorKey="warningColor"
-                      label="Warning"
-                      showEditIcon={true}
-                    />
-                    <ColorBox
-                      colorKey="successColor"
-                      label="Success"
-                      showEditIcon={true}
-                    />
-                    <ColorBox
-                      colorKey="promoColor"
-                      label="Promo"
-                      showEditIcon={true}
-                    />
-                    <ColorBox
-                      colorKey="neutral1"
-                      label="Neutral1"
-                      showEditIcon={true}
-                    />
-                    <ColorBox
-                      colorKey="neutral2"
-                      label="Neutral2"
-                      showEditIcon={true}
-                    />
-                    <ColorBox
-                      colorKey="neutral3"
-                      label="Neutral3"
-                      showEditIcon={true}
-                    />
-                  </BoxedRowList>
-                </Stack>
+                ) : (
+                  <Stack space={40}>
+                    <Stack space={24}>
+                      <Title3>Tokens</Title3>
+                      <Text2 color={skinVars.colors.textSecondary}>
+                        Los tokens son valores transversale a todas las marcas a
+                        los cuales se les asocia colores existentes en la paleta
+                        de color.
+                      </Text2>
+                    </Stack>
+                    <BoxedRowList>
+                      <ColorBox
+                        colorKey="brandColor"
+                        label="Brand"
+                        showEditIcon={true}
+                      />
+                    </BoxedRowList>
+                  </Stack>
+                )}
               </Stack>
             }
             right={
               <Box paddingTop={124}>
-                {(index === 0 && (
+                {(navIndex === 0 && (
                   <Stack space={64}>
                     <div
                       style={{
@@ -301,7 +369,7 @@ const ThemePreviewWithTools = () => {
                     </Align>
                   </Stack>
                 )) ||
-                  (index === 1 && (
+                  (navIndex === 3 && (
                     <Stack space={64}>
                       <div
                         style={{
