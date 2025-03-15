@@ -21,6 +21,7 @@ import {
   Text1,
   Grid,
   GridItem,
+  BoxedAccordion,
 } from "@telefonica/mistica";
 import { useNavigate } from "react-router-dom";
 import {
@@ -31,7 +32,7 @@ import {
 } from "../utils/storageUtils";
 import "./create-typo.css";
 import "../fonts/fonts.css";
-import StepHeader from "../template/Onboarding";
+import OnboardingTemplate from "../template/Onboarding";
 
 const CreateTypo = () => {
   // To redirect the user to previous or next steps
@@ -86,7 +87,7 @@ const CreateTypo = () => {
 
   return (
     <>
-      <StepHeader
+      <OnboardingTemplate
         currentStep={2}
         totalSteps={4}
         title="Define the typography"
@@ -111,120 +112,125 @@ const CreateTypo = () => {
           </svg>
         }
       >
-        <div style={{ fontFamily: typography.font }}>
-          <ResponsiveLayout variant="alternative">
+        <Boxed>
+          <div style={{ fontFamily: typography.font }}>
+            <ResponsiveLayout variant="alternative">
+              <Box padding={40}>
+                <Inline space={40}>
+                  <Box width={375}>
+                    <div
+                      style={{
+                        aspectRatio: "16/12",
+                        height: "100%",
+                        display: "flex",
+                      }}
+                    >
+                      <Boxed>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between",
+                            height: "100%",
+                            padding: 24,
+                          }}
+                        >
+                          <Stack space={6}>
+                            <Text size={28} weight={typography.weight}>
+                              {typography.font}
+                            </Text>
+                            <Text2 color={skinVars.colors.textSecondary}>
+                              4 Styles
+                            </Text2>
+                          </Stack>
+                          <Stack space={6}>
+                            <Text2 color={skinVars.colors.textSecondary}>
+                              Preview
+                            </Text2>
+                            <div style={{ fontFamily: typography.font }}>
+                              <Text4
+                                weight={typography.weight}
+                                style={{ fontFamily: typography.font }}
+                              >
+                                Step outside your comfort zone. Dream big.
+                                Discover what's possible.
+                              </Text4>
+                            </div>
+                          </Stack>
+                        </div>
+                      </Boxed>
+                    </div>
+                  </Box>
+
+                  <Box width={375}>
+                    <DisplayMediaCard
+                      aspectRatio={16 / 12}
+                      backgroundImage="https://picsum.photos/1200/1200"
+                      extra={
+                        <Text5
+                          weight={typography.weight}
+                          style={{ fontFamily: typography.font }}
+                        >
+                          This is an example of Display Text
+                        </Text5>
+                      }
+                      description="Display Texts are often used in large text"
+                    />
+                  </Box>
+                </Inline>
+              </Box>
+            </ResponsiveLayout>
+
             <Box padding={40}>
-              <Inline space={40}>
-                <Box width={375}>
-                  <div
-                    style={{
-                      aspectRatio: "16/12",
-                      height: "100%",
-                      display: "flex",
-                    }}
-                  >
-                    <Boxed>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "space-between",
-                          height: "100%",
-                          padding: 24,
-                        }}
-                      >
-                        <Stack space={6}>
-                          <Text size={28} weight={typography.weight}>
-                            {typography.font}
-                          </Text>
-                          <Text2 color={skinVars.colors.textSecondary}>
-                            4 Styles
-                          </Text2>
-                        </Stack>
-                        <Stack space={6}>
-                          <Text2 color={skinVars.colors.textSecondary}>
-                            Preview
-                          </Text2>
-                          <div style={{ fontFamily: typography.font }}>
-                            <Text4
-                              weight={typography.weight}
-                              style={{ fontFamily: typography.font }}
-                            >
-                              Step outside your comfort zone. Dream big.
-                              Discover what's possible.
-                            </Text4>
-                          </div>
-                        </Stack>
-                      </div>
-                    </Boxed>
+              <Grid columns={2}>
+                <GridItem>
+                  <div style={{ width: 375 }}>
+                    <Select
+                      fullWidth
+                      name="Font"
+                      label="Font Mística"
+                      options={fonts.map((font) => ({
+                        value: font,
+                        text: font,
+                      }))}
+                      value={typography.font}
+                      onChangeValue={handleFontChange}
+                    />
                   </div>
-                </Box>
-
-                <Box width={375}>
-                  <DisplayMediaCard
-                    aspectRatio={16 / 12}
-                    backgroundImage="https://picsum.photos/1200/1200"
-                    extra={
-                      <Text5
-                        weight={typography.weight}
-                        style={{ fontFamily: typography.font }}
-                      >
-                        This is an example of Display Text
-                      </Text5>
-                    }
-                    description="Display Texts are often used in large text"
-                  />
-                </Box>
-              </Inline>
+                </GridItem>
+                <GridItem>
+                  <Align x="center">
+                    <Inline space={16}>
+                      {weights.map((label, index) => (
+                        <div key={index} style={{ textAlign: "center" }}>
+                          <Stack space={8}>
+                            <button
+                              onClick={() => handleClick(index)}
+                              style={{
+                                cursor: "pointer",
+                                width: "60px",
+                                height: "60px",
+                                fontSize: "28px",
+                                backgroundColor: "white",
+                                fontWeight: weights[index],
+                                border: `2px solid ${skinVars.colors.border}`,
+                                ...(activeIndex === index ? selectedStyle : {}),
+                              }}
+                            >
+                              <Text5 weight={label.toLowerCase()}>Aa</Text5>
+                            </button>
+                            <Text1>{label}</Text1>
+                          </Stack>
+                        </div>
+                      ))}
+                    </Inline>
+                  </Align>
+                </GridItem>
+              </Grid>
             </Box>
-          </ResponsiveLayout>
-
-          <Box padding={40}>
-            <Grid columns={2}>
-              <GridItem>
-                <div style={{ width: 375 }}>
-                  <Select
-                    fullWidth
-                    name="Font"
-                    label="Font Mística"
-                    options={fonts.map((font) => ({ value: font, text: font }))}
-                    value={typography.font}
-                    onChangeValue={handleFontChange}
-                  />
-                </div>
-              </GridItem>
-              <GridItem>
-                <Align x="center">
-                  <Inline space={16}>
-                    {weights.map((label, index) => (
-                      <div key={index} style={{ textAlign: "center" }}>
-                        <Stack space={8}>
-                          <button
-                            onClick={() => handleClick(index)}
-                            style={{
-                              cursor: "pointer",
-                              width: "60px",
-                              height: "60px",
-                              fontSize: "28px",
-                              backgroundColor: "white",
-                              fontWeight: weights[index],
-                              border: `2px solid ${skinVars.colors.border}`,
-                              ...(activeIndex === index ? selectedStyle : {}),
-                            }}
-                          >
-                            <Text5 weight={label.toLowerCase()}>Aa</Text5>
-                          </button>
-                          <Text1>{label}</Text1>
-                        </Stack>
-                      </div>
-                    ))}
-                  </Inline>
-                </Align>
-              </GridItem>
-            </Grid>
-          </Box>
-        </div>
-      </StepHeader>
+          </div>
+        </Boxed>
+      </OnboardingTemplate>
     </>
   );
 };

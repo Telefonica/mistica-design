@@ -2,11 +2,18 @@
 // It displays a celebratory message with confetti animation, marks the flow as completed in localStorage, and transitions to an advanced tools section after a delay.
 
 import React, { useState, useEffect } from "react";
-import { ResponsiveLayout } from "@telefonica/mistica";
+import {
+  Align,
+  ResponsiveLayout,
+  Stack,
+  Text4,
+  Text6,
+  Text8,
+} from "@telefonica/mistica";
 import { markFlowAsCompleted } from "../utils/storageUtils.js";
 import ConfettiEffect from "../utils/ConfettiEffect.jsx";
 import AdvancedTools from "../advanced-tools.jsx";
-import StepHeader from "../template/Onboarding.jsx";
+import OnboardingTemplate from "../template/Onboarding.jsx";
 
 const OnboardingComplete = () => {
   // State to control the visibility of the confetti animation
@@ -27,7 +34,7 @@ const OnboardingComplete = () => {
 
     const confettiTimer = setTimeout(() => {
       setShowConfetti(false);
-    }, 3000);
+    }, 10000);
 
     const fadeOutTimer = setTimeout(() => {
       setFadeOut(true);
@@ -36,7 +43,7 @@ const OnboardingComplete = () => {
     const initialContentTimer = setTimeout(() => {
       setShowInitialContent(false);
       setShowAdvancedTools(true);
-    }, 4000);
+    }, 114000);
 
     return () => {
       clearTimeout(confettiTimer);
@@ -48,31 +55,27 @@ const OnboardingComplete = () => {
   return (
     <ResponsiveLayout>
       {showInitialContent && (
-        <StepHeader
+        <OnboardingTemplate
           currentStep={4}
           totalSteps={4}
-          title="🎉 Your skin is ready!"
-          description="Now it's time to fine-tune it for perfection."
           className={`${fadeOut ? "fade-out" : ""}`}
-        />
-      )}
-
-      {showInitialContent && (
-        <div
-          className={`animated-message ${fadeOut ? "fade-out" : ""}`}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            position: "relative",
-            height: "calc(100vh - 60px)",
-            textAlign: "center",
-            gap: "16px",
-          }}
         >
-          {showConfetti && <ConfettiEffect />}
-        </div>
+          <div
+            style={{
+              display: "flex",
+              gap: 24,
+              flexDirection: "column",
+              height: "calc(100vh - 500px)",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Text8 textAlign="center">🎉 Your skin is ready!</Text8>
+            <Text6>Now it's time to fine-tune it for perfection.</Text6>
+
+            {showConfetti && <ConfettiEffect />}
+          </div>
+        </OnboardingTemplate>
       )}
 
       {showAdvancedTools && <AdvancedTools />}

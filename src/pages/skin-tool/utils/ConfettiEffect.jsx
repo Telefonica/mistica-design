@@ -1,5 +1,6 @@
-// Confetti animation component
+// Confetti animation component with physics and sequins
 
+import { skinVars } from "@telefonica/mistica";
 import { useRef, useEffect } from "react";
 
 const ConfettiEffect = () => {
@@ -9,73 +10,168 @@ const ConfettiEffect = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    const confettiPieces = [];
-    const colors = ["#EAC344", "#C466EF", "#E66C64", "#59C2C9", "#0066FF"];
-    const confettiCount = 100;
+    // Configuration
+    const confettiCount = 50;
+    const sequinCount = 10;
+    const gravityConfetti = 0.3;
+    const gravitySequins = 0.55;
+    const dragConfetti = 0.075;
+    const dragSequins = 0.02;
+    const terminalVelocity = 3;
 
-    const createConfettiPiece = () => ({
-      x: canvas.width / 2, // Center the confetti to the screen horizontal
-      y: canvas.height / 2, // Center the confetti to the screen vertical
-      size: Math.random() * 8 + 5,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      velocityX: (Math.random() - 0.5) * 10, // Animation expands on the sides
-      velocityY: (Math.random() - 0.8) * 10, // Animation goes up
-      rotation: Math.random() * 360,
-      opacity: 1,
-    });
+    // Arrays to store particles
+    let confetti = [];
+    let sequins = [];
 
-    for (let i = 0; i < confettiCount; i++) {
-      confettiPieces.push(createConfettiPiece());
+    // Colors with front and back sides
+    const colors = [
+      { front: "#EAC344", back: "#EAC344" },
+      { front: "#C466EF", back: "#C466EF" },
+      { front: "#E66C64", back: "#E66C64" },
+      {
+        front: "#59C2C9",
+        back: "#59C2C9",
+      },
+      { front: "#0066FF", back: "#0066FF" },
+    ];
+
+    // Helper functions
+    const randomRange = (min, max) => Math.random() * (max - min) + min;
+
+    const initConfettoVelocity = (xRange, yRange) => {
+      const x = randomRange(xRange[0], xRange[1]);
+      const range = yRange[1] - yRange[0] + 1;
+      let y =
+        yRange[1] -
+        Math.abs(randomRange(0, range) + randomRange(0, range) - range);
+      if (y >= yRange[1] - 1) {
+        y += Math.random() < 0.25 ? randomRange(1, 3) : 0;
+      }
+      return { x: x, y: -y };
+    };
+
+    // Confetto Class
+    function Confetto() {
+      this.randomModifier = randomRange(0, 99);
+      this.color = colors[Math.floor(randomRange(0, colors.length))];
+      this.dimensions = {
+        x: randomRange(5, 9),
+        y: randomRange(8, 15),
+      };
+      this.position = {
+        x: randomRange(canvas.width / 2 - 300, canvas.width / 2 + 300),
+        y: randomRange(canvas.height / 2 - 150, canvas.height / 2 + 150),
+      };
+      this.rotation = randomRange(0, 2 * Math.PI);
+      this.scale = { x: 1, y: 1 };
+      this.velocity = initConfettoVelocity([-9, 9], [6, 11]);
     }
 
-    const updateConfetti = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    Confetto.prototype.update = function () {
+      this.velocity.x -= this.velocity.x * dragConfetti;
+      this.velocity.y = Math.min(
+        this.velocity.y + gravityConfetti,
+        terminalVelocity
+      );
+      this.velocity.x += Math.random() > 0.5 ? Math.random() : -Math.random();
 
-      confettiPieces.forEach((piece, index) => {
-        piece.x += piece.velocityX;
-        piece.y += piece.velocityY;
-        piece.velocityY += 0.2; // Gravity simulation
-        piece.rotation += piece.velocityX * 2;
-        piece.opacity -= 0.01;
+      this.position.x += this.velocity.x;
+      this.position.y += this.velocity.y;
+      this.scale.y = Math.cos((this.position.y + this.randomModifier) * 0.09);
+    };
 
-        if (piece.opacity <= 0) {
-          confettiPieces.splice(index, 1);
-        }
+    // Sequin Class
+    function Sequin() {
+      this.color = colors[Math.floor(randomRange(0, colors.length))].back;
+      this.radius = randomRange(1, 2);
+      this.position = {
+        x: randomRange(canvas.width / 2 - 100, canvas.width / 2 + 100),
+        y: randomRange(canvas.height / 2 - 50, canvas.height / 2 + 50),
+      };
+      this.velocity = {
+        x: randomRange(-6, 6),
+        y: randomRange(-8, -12),
+      };
+    }
 
-        drawConfettiPiece(piece);
-      });
+    Sequin.prototype.update = function () {
+      this.velocity.x -= this.velocity.x * dragSequins;
+      this.velocity.y = this.velocity.y + gravitySequins;
 
-      if (confettiPieces.length > 0) {
-        requestAnimationFrame(updateConfetti);
+      this.position.x += this.velocity.x;
+      this.position.y += this.velocity.y;
+    };
+
+    // Initialize particles
+    const initBurst = () => {
+      for (let i = 0; i < confettiCount; i++) {
+        confetti.push(new Confetto());
+      }
+      for (let i = 0; i < sequinCount; i++) {
+        sequins.push(new Sequin());
       }
     };
 
-    const drawConfettiPiece = (piece) => {
-      ctx.save();
-      ctx.translate(piece.x, piece.y);
-      ctx.rotate((piece.rotation * Math.PI) / 180);
-      ctx.globalAlpha = piece.opacity;
-      ctx.fillStyle = piece.color;
-      ctx.fillRect(-piece.size / 2, -piece.size / 2, piece.size, piece.size);
-      ctx.restore();
+    // Render function
+    const render = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      confetti.forEach((confetto, index) => {
+        let width = confetto.dimensions.x * confetto.scale.x;
+        let height = confetto.dimensions.y * confetto.scale.y;
+
+        ctx.translate(confetto.position.x, confetto.position.y);
+        ctx.rotate(confetto.rotation);
+
+        confetto.update();
+
+        ctx.fillStyle =
+          confetto.scale.y > 0 ? confetto.color.front : confetto.color.back;
+        ctx.fillRect(-width / 2, -height / 2, width, height);
+
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+      });
+
+      sequins.forEach((sequin, index) => {
+        ctx.translate(sequin.position.x, sequin.position.y);
+
+        sequin.update();
+
+        ctx.fillStyle = sequin.color;
+        ctx.beginPath();
+        ctx.arc(0, 0, sequin.radius, 0, 2 * Math.PI);
+        ctx.fill();
+
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+      });
+
+      confetti = confetti.filter(
+        (confetto) => confetto.position.y < canvas.height
+      );
+      sequins = sequins.filter((sequin) => sequin.position.y < canvas.height);
+
+      window.requestAnimationFrame(render);
     };
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
 
-    updateConfetti();
+    // Initialize
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+    initBurst();
+    render();
 
-    setTimeout(() => {
-      confettiPieces.length = 0;
-    }, 3000);
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+    };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{ position: "fixed", zIndex: 9999 }}
-    />
-  );
+  return <canvas ref={canvasRef} style={{ position: "fixed", zIndex: 9999 }} />;
 };
 
 export default ConfettiEffect;

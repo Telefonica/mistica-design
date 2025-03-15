@@ -18,12 +18,13 @@ import {
   Box,
   Stack,
   ButtonLink,
+  Boxed,
 } from "@telefonica/mistica";
 import React, { useState, useEffect } from "react";
 import "./create-color.css";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import StepHeader from "../template/Onboarding.jsx";
+import OnboardingTemplate from "../template/Onboarding.jsx";
 
 // Initilal color palette with empty values
 const initialColors = {
@@ -115,7 +116,7 @@ const CreateColor = () => {
   );
 
   return (
-    <StepHeader
+    <OnboardingTemplate
       currentStep={1}
       totalSteps={4}
       title="Build Your Brand's Palette"
@@ -126,29 +127,31 @@ const CreateColor = () => {
       nextLabel="Continue to typography"
       onReset={handleResetColors}
     >
-      <Box padding={40}>
-        <Grid columns={8} gap={24} rows={2}>
-          <GridItem rowSpan={2} columnSpan={2}>
-            <ColorBox colorKey="brandColor" label="Brand" />
-          </GridItem>
-          <GridItem rowSpan={1} columnSpan={6}>
-            <Inline space={16} fullWidth>
-              <ColorBox colorKey="successColor" label="Success" />
-              <ColorBox colorKey="errorColor" label="Error" />
-              <ColorBox colorKey="warningColor" label="Warning" />
-              <ColorBox colorKey="promoColor" label="Promo" />
-            </Inline>
-          </GridItem>
-          <GridItem rowSpan={1} columnSpan={6}>
-            <Inline space={16} fullWidth>
-              <ColorBox colorKey="neutral1" label="Neutral 1" />
-              <ColorBox colorKey="neutral2" label="Neutral 2" />
-              <ColorBox colorKey="neutral3" label="Neutral 3" />
-            </Inline>
-          </GridItem>
-        </Grid>
-      </Box>
-    </StepHeader>
+      <Boxed>
+        <Box padding={40}>
+          <Grid columns={8} gap={24} rows={2}>
+            <GridItem rowSpan={2} columnSpan={2}>
+              <ColorBox colorKey="brandColor" label="Brand" />
+            </GridItem>
+            <GridItem rowSpan={1} columnSpan={6}>
+              <Inline space={16} fullWidth>
+                <ColorBox colorKey="successColor" label="Success" />
+                <ColorBox colorKey="errorColor" label="Error" />
+                <ColorBox colorKey="warningColor" label="Warning" />
+                <ColorBox colorKey="promoColor" label="Promo" />
+              </Inline>
+            </GridItem>
+            <GridItem rowSpan={1} columnSpan={6}>
+              <Inline space={16} fullWidth>
+                <ColorBox colorKey="neutral1" label="Neutral 1" />
+                <ColorBox colorKey="neutral2" label="Neutral 2" />
+                <ColorBox colorKey="neutral3" label="Neutral 3" />
+              </Inline>
+            </GridItem>
+          </Grid>
+        </Box>
+      </Boxed>
+    </OnboardingTemplate>
   );
 };
 

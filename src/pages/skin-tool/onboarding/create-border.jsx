@@ -42,7 +42,7 @@ import {
   DEFAULT_VALUES,
 } from "../utils/storageUtils";
 import "./create-typo.css";
-import StepHeader from "../template/Onboarding";
+import OnboardingTemplate from "../template/Onboarding";
 
 const CreateBorder = () => {
   const navigate = useNavigate();
@@ -197,7 +197,7 @@ const CreateBorder = () => {
         },
       }}
     >
-      <StepHeader
+      <OnboardingTemplate
         currentStep={3}
         totalSteps={4}
         title="Define the borders"
@@ -222,125 +222,131 @@ const CreateBorder = () => {
           </svg>
         }
       >
-        <ResponsiveLayout fullWidth variant="alternative">
-          <Box padding={40}>
-            <Grid
-              columns={3}
-              rows={1}
-              gap={24}
-              alignItems="end"
-              justifyItems="stretch"
-            >
-              <GridItem>
-                <div style={{ height: 244 }}>
-                  <PosterCard
-                    title="Out & About"
-                    description="11 offers"
-                    backgroundImage="https://picsum.photos/1200/1200"
-                    onPress={() => {}}
-                    aspectRatio="7:10"
-                  />
-                </div>
-              </GridItem>
-              <GridItem rowSpan={1}>
-                <Stack space={24}>
-                  <Callout
-                    asset={
-                      <IconLightbulbRegular color={skinVars.colors.brand} />
-                    }
-                    onClose={() => {}}
-                    title="Some title"
-                    description="This is a description for the callout"
-                  />
-                  <BoxedRow
-                    asset={
-                      <Image
-                        src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MP_95771590/fee_786_587_png"
-                        height={80}
-                        loadingFallback={false}
-                        aspectRatio="1:1"
-                      />
-                    }
-                    headline={<Tag type="promo">Teléfono móvil</Tag>}
-                    title="iPhone 12 128GB"
-                    onPress={() => {}}
-                  />
-                </Stack>
-              </GridItem>
-
-              <GridItem>
-                <Stack space={24}>
-                  <div style={{ display: "flex", gap: 16 }}>
-                    <ButtonPrimary style={{ width: "100%" }} onPress={() => {}}>
-                      Hey Ho!
-                    </ButtonPrimary>
-                    <ButtonSecondary
-                      style={{ width: "100%" }}
+        <Boxed>
+          <ResponsiveLayout fullWidth variant="alternative">
+            <Box padding={40}>
+              <Grid
+                columns={3}
+                rows={1}
+                gap={24}
+                alignItems="end"
+                justifyItems="stretch"
+              >
+                <GridItem>
+                  <div style={{ height: 244 }}>
+                    <PosterCard
+                      title="Out & About"
+                      description="11 offers"
+                      backgroundImage="https://picsum.photos/1200/1200"
                       onPress={() => {}}
-                    >
-                      Let's Go!
-                    </ButtonSecondary>
+                      aspectRatio="7:10"
+                    />
                   </div>
-                  <DataCard
-                    asset={<IconWifiRegular color={skinVars.colors.brand} />}
-                    title="Internet"
-                    description="30 GB + Unlimited voice"
-                  />
-                </Stack>
-              </GridItem>
-            </Grid>
-          </Box>
-        </ResponsiveLayout>
-        <Box padding={40}>
-          <Inline space="between" alignItems="flex-start">
-            <div style={{ display: "flex", gap: "20px" }}>
-              {borders.map((border, index) => (
-                <div key={index} style={{ textAlign: "center" }}>
-                  <button
-                    onClick={() => handleBorderClick(index)}
-                    style={{
-                      position: "relative",
-                      width: "60px",
-                      height: "60px",
-                      backgroundColor: "white",
-                      border: `2px solid ${skinVars.colors.border}`,
-                      display: "flex",
-                      alignItems: "flex-end",
-                      justifyContent: "flex-end",
-                      ...(activeBorderIndex === index ? selectedStyle : {}),
-                    }}
-                  >
-                    <div
+                </GridItem>
+                <GridItem rowSpan={1}>
+                  <Stack space={24}>
+                    <Callout
+                      asset={
+                        <IconLightbulbRegular color={skinVars.colors.brand} />
+                      }
+                      onClose={() => {}}
+                      title="Some title"
+                      description="This is a description for the callout"
+                    />
+                    <BoxedRow
+                      asset={
+                        <Image
+                          src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MP_95771590/fee_786_587_png"
+                          height={56}
+                          loadingFallback={false}
+                          aspectRatio="1:1"
+                          noBorderRadius
+                        />
+                      }
+                      headline={<Tag type="promo">Teléfono móvil</Tag>}
+                      title="iPhone 12 128GB"
+                      onPress={() => {}}
+                    />
+                  </Stack>
+                </GridItem>
+
+                <GridItem>
+                  <Stack space={24}>
+                    <div style={{ display: "flex", gap: 16 }}>
+                      <ButtonPrimary
+                        style={{ width: "100%" }}
+                        onPress={() => {}}
+                      >
+                        Hey Ho!
+                      </ButtonPrimary>
+                      <ButtonSecondary
+                        style={{ width: "100%" }}
+                        onPress={() => {}}
+                      >
+                        Let's Go!
+                      </ButtonSecondary>
+                    </div>
+                    <DataCard
+                      asset={<IconWifiRegular color={skinVars.colors.brand} />}
+                      title="Internet"
+                      description="30 GB + Unlimited voice"
+                    />
+                  </Stack>
+                </GridItem>
+              </Grid>
+            </Box>
+          </ResponsiveLayout>
+          <Box padding={40}>
+            <Inline space="between" alignItems="flex-start">
+              <div style={{ display: "flex", gap: "20px" }}>
+                {borders.map((border, index) => (
+                  <div key={index} style={{ textAlign: "center" }}>
+                    <button
+                      onClick={() => handleBorderClick(index)}
                       style={{
-                        position: "absolute",
-                        bottom: 0,
-                        right: 0,
-                        display: "inline-flex",
+                        position: "relative",
+                        width: "60px",
+                        height: "60px",
+                        backgroundColor: "white",
+                        border: `2px solid ${skinVars.colors.border}`,
+                        display: "flex",
+                        alignItems: "flex-end",
+                        justifyContent: "flex-end",
+                        ...(activeBorderIndex === index ? selectedStyle : {}),
                       }}
                     >
-                      {border.svg}
+                      <div
+                        style={{
+                          position: "absolute",
+                          bottom: 0,
+                          right: 0,
+                          display: "inline-flex",
+                        }}
+                      >
+                        {border.svg}
+                      </div>
+                    </button>
+                    <div style={{ marginTop: "8px", fontSize: "16px" }}>
+                      {border.label}
                     </div>
-                  </button>
-                  <div style={{ marginTop: "8px", fontSize: "16px" }}>
-                    {border.label}
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
 
-            <div>
-              <Row
-                title="Rounded buttons"
-                description="Allows you to define rounded buttons in any style"
-                switch={{
-                  defaultValue: borderConfig.roundedButtons,
-                  onChange: handleRoundedButtonsChange,
-                }}
-              />
-            </div>
-          </Inline>
-        </Box>
-      </StepHeader>
+              <div>
+                <Row
+                  title="Rounded buttons"
+                  description="Allows you to define rounded buttons in any style"
+                  switch={{
+                    defaultValue: borderConfig.roundedButtons,
+                    onChange: handleRoundedButtonsChange,
+                  }}
+                />
+              </div>
+            </Inline>
+          </Box>
+        </Boxed>
+      </OnboardingTemplate>
     </ThemeContextProvider>
   );
 };

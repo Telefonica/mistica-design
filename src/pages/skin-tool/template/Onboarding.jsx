@@ -1,4 +1,4 @@
-// This file defines a reusable StepHeader component for the skin creation flow steps.
+// This file defines a reusable OnboardingTemplate component for the skin creation flow steps.
 // It encapsulates the common header structure with customizable step number, title, description, and SVG icon.
 // It also includes navigation buttons for consistent navigation between steps.
 
@@ -11,17 +11,15 @@ import {
   Stack,
   Align,
   Boxed,
-  Box,
   ResponsiveLayout,
   ButtonPrimary,
   ButtonSecondary,
-  FadeIn,
 } from "@telefonica/mistica";
 import "./Onboarding.css";
 import { useNavigate } from "react-router-dom";
 
 /**
- * StepHeader - A reusable component for step headers in the skin creation flow
+ * OnboardingTemplate - A reusable component for step headers in the skin creation flow
  * @param {Object} props - Component props
  * @param {number} props.currentStep - Current step number (1-based)
  * @param {number} props.totalSteps - Total number of steps
@@ -36,7 +34,7 @@ import { useNavigate } from "react-router-dom";
  * @param {Function} props.onReset - Optional function for reset button
  * @param {string} props.resetLabel - Label for the reset button
  */
-const StepHeader = ({
+const OnboardingTemplate = ({
   currentStep,
   totalSteps = 4,
   title,
@@ -81,9 +79,7 @@ const StepHeader = ({
 
             <Align x="center" width={872}>
               <ResponsiveLayout>
-                <div className="transition">
-                  <Boxed>{children}</Boxed>
-                </div>
+                <div className="transition">{children}</div>
               </ResponsiveLayout>
             </Align>
           </Stack>
@@ -113,4 +109,4 @@ const StepHeader = ({
   );
 };
 
-export default StepHeader;
+export default OnboardingTemplate;
