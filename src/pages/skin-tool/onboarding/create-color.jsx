@@ -83,7 +83,7 @@ const CreateColor = () => {
         )}
       </div>
       <Box width={120}>
-        <Stack space={4}>
+        <Stack space={0}>
           <input
             id={`${colorKey}-input`}
             type="color"

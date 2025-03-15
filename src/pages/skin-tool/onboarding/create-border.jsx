@@ -188,6 +188,7 @@ const CreateBorder = () => {
           borderRadii: {
             ...skinVars.borderRadii,
             container: `${borderConfig.radius}px`,
+            indicator: `${borderConfig.radius}px`,
             legacyDisplay: `${borderConfig.radius}px`,
             button: buttonConfig.roundedButtons
               ? "999px"
