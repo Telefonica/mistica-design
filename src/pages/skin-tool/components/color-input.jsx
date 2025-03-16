@@ -1,6 +1,4 @@
-// Este archivo define el componente `ColorDialog` usando el Sheet nativo de Mística.
-// Proporciona la misma funcionalidad que la versión personalizada anterior,
-// pero utilizando componentes nativos de Mística para mejor consistencia de UI.
+// Componente ColorDialog actualizado para src/pages/skin-tool/components/color-input.jsx
 
 import React from "react";
 import {
@@ -17,8 +15,8 @@ import {
   Text1,
   Input,
   Box,
-  Text3,
   Text5,
+  Text3,
   TextField,
   Grid,
   GridItem,
@@ -39,7 +37,7 @@ const ColorDialog = ({
   onColorChange,
 
   // Props para el modo de selección de paleta
-  mode = "edit", // "edit" o "palette"
+  mode = "edit", // "edit", "create" o "palette"
   availableColors = {},
   currentColorKey,
   onSelectColor,
@@ -47,14 +45,27 @@ const ColorDialog = ({
   // Si no está abierto, no mostramos nada
   if (!isOpen) return null;
 
+  // Determinar el título según el modo
+  const getDialogTitle = () => {
+    if (mode === "create") return "Nuevo color personalizado";
+    if (mode === "edit") return "Editar color";
+    return currentColorKey || "Seleccionar color";
+  };
+
+  // Determinar el texto del botón según el modo
+  const getButtonText = () => {
+    if (mode === "create") return "Crear";
+    return "Guardar";
+  };
+
   return (
     <Sheet onClose={onClose}>
       {({ modalTitleId }) => (
         <SheetBody modalTitleId={modalTitleId}>
           <Box paddingBottom={{ mobile: 16, desktop: 0 }}>
-            {mode === "edit" ? (
+            {mode === "edit" || mode === "create" ? (
               <Stack space={24}>
-                <Text5>Core palette color</Text5>
+                <Text5>{getDialogTitle()}</Text5>
                 <Grid columns={2} gap={24}>
                   <input
                     type="color"
@@ -63,10 +74,11 @@ const ColorDialog = ({
                   />
                   <Stack space={16}>
                     <TextField
-                      label="Name"
+                      label={mode === "create" ? "Color name" : "Color name"}
                       value={colorName}
                       onChange={(e) => onColorNameChange(e.target.value)}
                       fullWidth
+                      placeholder={mode === "create" ? "Oceanic blue" : ""}
                     />
                     <Stack space={8}>
                       <TextField
@@ -79,16 +91,18 @@ const ColorDialog = ({
                   </Stack>
                 </Grid>
                 <Stack space={56}>
-                  <Checkbox name="checkbox" defaultChecked>
-                    <Stack space={8}>
-                      Activar cambio automático de la paleta tonal
-                      <Text2 color={skinVars.colors.textSecondary}>
-                        If you change a core color of the palette, the derived
-                        tones will automatically change, taking the new color as
-                        reference.
-                      </Text2>
-                    </Stack>
-                  </Checkbox>
+                  {mode === "edit" && (
+                    <Checkbox name="checkbox" defaultChecked>
+                      <Stack space={8}>
+                        Activar cambio automático de la paleta tonal
+                        <Text2 color={skinVars.colors.textSecondary}>
+                          If you change a core color of the palette, the derived
+                          tones will automatically change, taking the new color
+                          as reference.
+                        </Text2>
+                      </Stack>
+                    </Checkbox>
+                  )}
 
                   <ButtonLayout
                     align="full-width"
@@ -96,15 +110,14 @@ const ColorDialog = ({
                       <ButtonPrimary
                         onPress={() => {
                           onSave();
-                          onClose();
                         }}
                       >
-                        Save
+                        {getButtonText()}
                       </ButtonPrimary>
                     }
                     secondaryButton={
                       <ButtonSecondary onPress={onClose} type="secondary">
-                        Cancel
+                        Cancelar
                       </ButtonSecondary>
                     }
                   />
@@ -113,7 +126,7 @@ const ColorDialog = ({
             ) : (
               // Modo selección de paleta
               <Stack space={24}>
-                <Text5>{currentColorKey}</Text5>
+                <Text5>{getDialogTitle()}</Text5>
                 <Stack space={16}>
                   <BoxedRowList>
                     {Object.entries(availableColors)
@@ -146,7 +159,7 @@ const ColorDialog = ({
                     align="full-width"
                     secondaryButton={
                       <ButtonSecondary onPress={onClose} type="secondary">
-                        Cancel
+                        Cancelar
                       </ButtonSecondary>
                     }
                   />

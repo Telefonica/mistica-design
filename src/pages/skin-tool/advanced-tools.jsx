@@ -1,5 +1,4 @@
-// Actualización de ThemePreviewWithTools para usar el ColorDialog modificado
-// para ambos casos: editar colores y seleccionar desde paleta
+// Implementación completa para src/pages/skin-tool/advanced-tools.jsx
 
 import React, { useState } from "react";
 import {
@@ -29,14 +28,15 @@ import {
   BoxedRowList,
   Box,
   GridLayout,
-  Placeholder,
   Stack,
   Title3,
   Align,
   Tabs,
-  TelefonicaLogo,
   IconInformationRegular,
   Touchable,
+  IconAddMoreRegular,
+  IconTrashCanRegular,
+  Divider,
 } from "@telefonica/mistica";
 import { colorTokens } from "./utils/skin-contract.js";
 import { getColorScale, renderColorScale } from "./utils/color-utils";
@@ -63,12 +63,14 @@ const ThemePreviewWithTools = () => {
     return storedColors
       ? JSON.parse(storedColors)
       : {
-          primaryColor: "#0072F0",
-          secondaryColor: "#FFB600",
-          warningColor: "#FF4C4C",
+          brandColor: "#0072F0",
+          errorColor: "#FF4C4C",
+          warningColor: "#FFB600",
           successColor: "#00C9B0",
-          highlightColor: "#B24FFF",
-          neutralColor: "#001E64",
+          promoColor: "#B24FFF",
+          neutral1: "#001E64",
+          neutral2: "#EEEEEE",
+          neutral3: "#DDDDDD",
         };
   });
 
@@ -84,12 +86,20 @@ const ThemePreviewWithTools = () => {
   //State to track the current color key being edited in the color dialog
   const [currentColorKey, setCurrentColorKey] = useState(null);
 
-  // Nuevos estados para la selección desde paleta
+  // Estados para la selección desde paleta
   const [isPaletteSelectorOpen, setIsPaletteSelectorOpen] = useState(false);
   const [currentTokenKey, setCurrentTokenKey] = useState(null);
 
   // Temporary color value used in the color dialog before saving
   const [tempColor, setTempColor] = useState("#0072F0");
+
+  // Estado para rastrear el token actualmente seleccionado
+  const [selectedTokenKey, setSelectedTokenKey] = useState(null);
+
+  // Nuevos estados para la creación de colores personalizados
+  const [isNewColorDialogOpen, setIsNewColorDialogOpen] = useState(false);
+  const [newColorName, setNewColorName] = useState("");
+  const [newColorValue, setNewColorValue] = useState("#0072F0");
 
   // Array defining the sections available in the navigation bar
   const sections = [
@@ -190,9 +200,6 @@ const ThemePreviewWithTools = () => {
     setTempColor(newColor);
   };
 
-  // Estado para rastrear el token actualmente seleccionado
-  const [selectedTokenKey, setSelectedTokenKey] = useState(null);
-
   // Función para abrir el selector de paleta para un token específico
   const openPaletteSelector = (tokenKey) => {
     setCurrentTokenKey(tokenKey);
@@ -206,7 +213,6 @@ const ThemePreviewWithTools = () => {
     const newColors = {
       ...colors,
       [currentTokenKey]: colorValue,
-      // También podríamos guardar una relación entre token y color de paleta aquí si fuera necesario
     };
     setColors(newColors);
     localStorage.setItem("skinColors", JSON.stringify(newColors));
@@ -220,54 +226,83 @@ const ThemePreviewWithTools = () => {
     setSelectedTokenKey(null); // Limpiar la selección cuando se cierra
   };
 
-  // Component to render a single color box with optional edit icon
-  const ColorBox = ({ colorKey, label, showEditIcon = false }) => {
-    // Verificar si este color está seleccionado actualmente
-    const isSelected = selectedColorKey === colorKey;
+  // Función para abrir el diálogo de creación de nuevo color
+  const openNewColorDialog = () => {
+    setNewColorName("");
+    setNewColorValue("#0072F0");
+    setIsNewColorDialogOpen(true);
+  };
 
-    return (
-      <div
-        style={{
-          transition: "all 0.08s ease-in-out",
-          outline: isSelected ? `2px solid ${skinVars.colors.brand}` : "none",
-          outlineOffset: isSelected ? "2px" : "0px",
-          borderRadius: "8px",
-        }}
-      >
-        <BoxedRow
-          asset={
-            <div
-              style={{
-                backgroundColor: colors[colorKey] || "#FFFFFF",
-                width: 40,
-                height: 40,
-                border: `1px solid ${skinVars.colors.border}`,
-                borderRadius: "8px",
-              }}
-            />
-          }
-          title={label}
-          description={
-            colors[colorKey] ? colors[colorKey].toUpperCase() : "Definir color"
-          }
-          onPress={() => handleColorClick(colorKey)}
-          withChevron={false}
-          right={
-            showEditIcon && (
-              <div
-                style={{ display: "flex", alignItems: "center", flexShrink: 0 }}
-              >
-                <IconButton
-                  onPress={() => openColorDialog(colorKey)}
-                  Icon={IconEditPencilRegular}
-                  type="brand"
-                />
-              </div>
-            )
-          }
-        />
-      </div>
-    );
+  // Función para guardar un nuevo color personalizado
+  const handleSaveNewColor = () => {
+    if (newColorName && newColorValue) {
+      // Crear una key válida para el nuevo color (sin espacios, todo minúsculas)
+      let colorKey = newColorName.toLowerCase().replace(/\s+/g, "");
+
+      // Verificar que la key no exista ya
+      if (colors[colorKey]) {
+        // Si ya existe, añadimos un número al final
+        const timestamp = Date.now().toString().slice(-4);
+        colorKey = `${colorKey}${timestamp}`;
+      }
+
+      // Añadir el nuevo color a la paleta
+      const newColors = {
+        ...colors,
+        [colorKey]: newColorValue,
+      };
+
+      // Actualizar el estado y guardar en localStorage
+      setColors(newColors);
+      localStorage.setItem("skinColors", JSON.stringify(newColors));
+
+      // Seleccionar el nuevo color para mostrar su escala
+      setSelectedColor(newColorValue);
+      setSelectedColorKey(colorKey);
+      setColorScaleOutput({
+        [colorKey]: getColorScale(newColorValue),
+      });
+
+      // Cerrar el diálogo
+      setIsNewColorDialogOpen(false);
+    }
+  };
+
+  // Función para cancelar la creación de un nuevo color
+  const handleCancelNewColor = () => {
+    setIsNewColorDialogOpen(false);
+  };
+
+  // Funciones para actualizar el valor y nombre del nuevo color
+  const handleNewColorChange = (value) => {
+    setNewColorValue(value);
+  };
+
+  const handleNewColorNameChange = (value) => {
+    setNewColorName(value);
+  };
+
+  // Función para eliminar un color personalizado
+  const handleDeleteColor = (colorKey) => {
+    // Preguntar al usuario si está seguro de eliminar el color
+    if (
+      window.confirm(
+        `¿Estás seguro de que quieres eliminar el color "${colorKey}"?`
+      )
+    ) {
+      // Crear una copia de los colores sin el color a eliminar
+      const { [colorKey]: deletedColor, ...remainingColors } = colors;
+
+      // Actualizar el estado y localStorage
+      setColors(remainingColors);
+      localStorage.setItem("skinColors", JSON.stringify(remainingColors));
+
+      // Si el color eliminado era el seleccionado, limpiar la selección
+      if (selectedColorKey === colorKey) {
+        setSelectedColorKey(null);
+        setColorScaleOutput({});
+      }
+    }
   };
 
   // Función para encontrar el nombre del color de la paleta por su valor
@@ -311,6 +346,79 @@ const ThemePreviewWithTools = () => {
 
     // Si no se encuentra coincidencia, devolver el valor hexadecimal
     return colorValue.toUpperCase();
+  };
+
+  // Component to render a single color box with optional edit and delete icons
+  const ColorBox = ({
+    colorKey,
+    label,
+    showEditIcon = false,
+    isCustomColor = false,
+  }) => {
+    // Verificar si este color está seleccionado actualmente
+    const isSelected = selectedColorKey === colorKey;
+
+    return (
+      <div
+        style={{
+          transition: "all 0.08s ease-in-out",
+          outline: isSelected ? `2px solid ${skinVars.colors.brand}` : "none",
+          outlineOffset: isSelected ? "2px" : "0px",
+          borderRadius: "8px",
+        }}
+      >
+        <BoxedRow
+          asset={
+            <div
+              style={{
+                backgroundColor: colors[colorKey] || "#FFFFFF",
+                width: 40,
+                height: 40,
+                border: `1px solid ${skinVars.colors.border}`,
+                borderRadius: "8px",
+              }}
+            />
+          }
+          title={label}
+          description={
+            colors[colorKey] ? colors[colorKey].toUpperCase() : "Definir color"
+          }
+          onPress={() => handleColorClick(colorKey)}
+          withChevron={false}
+          right={
+            <Align y="center">
+              {showEditIcon && (
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    flexShrink: 0,
+                    gap: 4,
+                  }}
+                >
+                  <IconButton
+                    onPress={() => openColorDialog(colorKey)}
+                    Icon={IconEditPencilRegular}
+                    type="brand"
+                    small
+                  />
+
+                  {/* Mostrar el botón de eliminar solo para colores personalizados */}
+                  {isCustomColor && (
+                    <IconButton
+                      onPress={() => handleDeleteColor(colorKey)}
+                      Icon={IconTrashCanRegular}
+                      type="danger"
+                      small
+                    />
+                  )}
+                </div>
+              )}
+            </Align>
+          }
+        />
+      </div>
+    );
   };
 
   // Componente para renderizar un token de color con su nombre y valor
@@ -381,7 +489,19 @@ const ThemePreviewWithTools = () => {
     );
   };
 
-  //Main render function for the component ColorBox
+  // Definición de colores core para identificar cuáles son personalizados
+  const coreColors = [
+    "brandColor",
+    "errorColor",
+    "warningColor",
+    "successColor",
+    "promoColor",
+    "neutral1",
+    "neutral2",
+    "neutral3",
+  ];
+
+  //Main render function for the component
   return (
     <>
       <MainNavigationBar
@@ -427,48 +547,105 @@ const ThemePreviewWithTools = () => {
                         nombrarlos y añadir colores extra.
                       </Text2>
                     </Stack>
-                    <BoxedRowList>
-                      <ColorBox
-                        colorKey="brandColor"
-                        label="Brand"
-                        showEditIcon={true}
-                      />
-                      <ColorBox
-                        colorKey="errorColor"
-                        label="Error"
-                        showEditIcon={true}
-                      />
-                      <ColorBox
-                        colorKey="warningColor"
-                        label="Warning"
-                        showEditIcon={true}
-                      />
-                      <ColorBox
-                        colorKey="successColor"
-                        label="Success"
-                        showEditIcon={true}
-                      />
-                      <ColorBox
-                        colorKey="promoColor"
-                        label="Promo"
-                        showEditIcon={true}
-                      />
-                      <ColorBox
-                        colorKey="neutral1"
-                        label="Neutral1"
-                        showEditIcon={true}
-                      />
-                      <ColorBox
-                        colorKey="neutral2"
-                        label="Neutral2"
-                        showEditIcon={true}
-                      />
-                      <ColorBox
-                        colorKey="neutral3"
-                        label="Neutral3"
-                        showEditIcon={true}
-                      />
-                    </BoxedRowList>
+                    <Stack space={40}>
+                      <BoxedRowList>
+                        {/* Colores core */}
+                        <ColorBox
+                          colorKey="brandColor"
+                          label="Brand"
+                          showEditIcon={true}
+                          isCustomColor={false}
+                        />
+                        <ColorBox
+                          colorKey="errorColor"
+                          label="Error"
+                          showEditIcon={true}
+                          isCustomColor={false}
+                        />
+                        <ColorBox
+                          colorKey="warningColor"
+                          label="Warning"
+                          showEditIcon={true}
+                          isCustomColor={false}
+                        />
+                        <ColorBox
+                          colorKey="successColor"
+                          label="Success"
+                          showEditIcon={true}
+                          isCustomColor={false}
+                        />
+                        <ColorBox
+                          colorKey="promoColor"
+                          label="Promo"
+                          showEditIcon={true}
+                          isCustomColor={false}
+                        />
+                        <ColorBox
+                          colorKey="neutral1"
+                          label="Neutral1"
+                          showEditIcon={true}
+                          isCustomColor={false}
+                        />
+                        <ColorBox
+                          colorKey="neutral2"
+                          label="Neutral2"
+                          showEditIcon={true}
+                          isCustomColor={false}
+                        />
+                        <ColorBox
+                          colorKey="neutral3"
+                          label="Neutral3"
+                          showEditIcon={true}
+                          isCustomColor={false}
+                        />
+                      </BoxedRowList>
+                      <Stack space={24}>
+                        <Title3
+                          right={
+                            <IconButton
+                              onPress={openNewColorDialog}
+                              Icon={IconAddMoreRegular}
+                              small
+                              type="neutral"
+                            />
+                          }
+                        >
+                          Extra colors
+                        </Title3>
+                        <BoxedRowList>
+                          {/* Colores personalizados (añadidos por el usuario) */}
+
+                          {Object.entries(colors).map(([key, value]) => {
+                            // Solo mostrar colores que no sean core
+                            if (!coreColors.includes(key)) {
+                              return (
+                                <ColorBox
+                                  key={key}
+                                  colorKey={key}
+                                  label={key}
+                                  showEditIcon={true}
+                                  isCustomColor={true}
+                                />
+                              );
+                            }
+                            return null;
+                          })}
+
+                          <BoxedRow
+                            onPress={openNewColorDialog}
+                            title="Add new color"
+                            withChevron={false}
+                            right={
+                              <Align y="">
+                                <IconAddMoreRegular
+                                  color={skinVars.colors.brand}
+                                />
+                              </Align>
+                            }
+                          />
+                        </BoxedRowList>
+                      </Stack>
+                    </Stack>
                   </Stack>
                 ) : (
                   <Stack space={40}>
@@ -504,9 +681,9 @@ const ThemePreviewWithTools = () => {
             right={
               <div
                 style={{
-                  height: "calc(100vh - 248px)",
+                  height: "calc(100vh - 280px)",
                   position: "sticky",
-                  top: 248,
+                  top: 235,
                 }}
               >
                 <Box paddingTop={0}>
@@ -659,8 +836,24 @@ const ThemePreviewWithTools = () => {
           neutral1: colors.neutral1 || "",
           neutral2: colors.neutral2 || "",
           neutral3: colors.neutral3 || "",
+          // Incluir colores personalizados en la selección de paleta
+          ...Object.fromEntries(
+            Object.entries(colors).filter(([key]) => !coreColors.includes(key))
+          ),
         }}
         onSelectColor={handleSelectPaletteColor}
+      />
+
+      {/* Color Dialog para crear nuevos colores */}
+      <ColorDialog
+        isOpen={isNewColorDialogOpen}
+        onClose={handleCancelNewColor}
+        onSave={handleSaveNewColor}
+        colorName={newColorName}
+        onColorNameChange={handleNewColorNameChange}
+        colorValue={newColorValue}
+        onColorChange={handleNewColorChange}
+        mode="create"
       />
     </>
   );
