@@ -45,6 +45,7 @@ import Theme from "./utils/theme";
 import ColorDialog from "./components/color-input";
 import "./advanced-tools.css";
 import MisticaLogo from "./assets/logo.tsx";
+import { generateExportJSON } from "./utils/storageUtils.js";
 
 // Component definition for ThemePreviewWithTools
 const ThemePreviewWithTools = () => {
@@ -112,10 +113,8 @@ const ThemePreviewWithTools = () => {
 
   // Function to export the current theme configuration as a JSON file
   const handleExportJSON = () => {
-    const exportData = {
-      name: skinName,
-      colors: colors,
-    };
+    const exportData = generateExportJSON(colors, skinName);
+
     const blob = new Blob([JSON.stringify(exportData, null, 2)], {
       type: "application/json",
     });

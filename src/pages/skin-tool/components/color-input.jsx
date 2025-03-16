@@ -61,11 +61,10 @@ const ColorDialog = ({
   return (
     <Sheet onClose={onClose}>
       {({ modalTitleId }) => (
-        <SheetBody modalTitleId={modalTitleId}>
-          <Box paddingBottom={{ mobile: 16, desktop: 0 }}>
+        <SheetBody title={getDialogTitle()} modalTitleId={modalTitleId}>
+          <Box paddingBottom={{ mobile: 16, desktop: 0 }} paddingTop={40}>
             {mode === "edit" || mode === "create" ? (
               <Stack space={24}>
-                <Text5>{getDialogTitle()}</Text5>
                 <Grid columns={2} gap={24}>
                   <input
                     type="color"
@@ -126,44 +125,45 @@ const ColorDialog = ({
             ) : (
               // Modo selección de paleta
               <Stack space={24}>
-                <Text5>{getDialogTitle()}</Text5>
-                <Stack space={16}>
-                  <BoxedRowList>
-                    {Object.entries(availableColors)
-                      .filter(([key, value]) => value && value.trim() !== "")
-                      .map(([key, value]) => (
-                        <BoxedRow
-                          key={key}
-                          asset={
-                            <Box
-                              style={{
-                                backgroundColor: value,
-                                width: 40,
-                                height: 40,
-                                border: `1px solid ${skinVars.colors.border}`,
-                                borderRadius: "8px",
-                              }}
-                            />
-                          }
-                          title={key}
-                          description={value.toUpperCase()}
-                          onPress={() => {
-                            onSelectColor(key, value);
-                            onClose();
-                          }}
-                          withChevron={false}
-                        />
-                      ))}
-                  </BoxedRowList>
-                  <ButtonLayout
-                    align="full-width"
-                    secondaryButton={
-                      <ButtonSecondary onPress={onClose} type="secondary">
-                        Cancelar
-                      </ButtonSecondary>
-                    }
-                  />
-                </Stack>
+                <Box paddingTop={40}>
+                  <Stack space={16}>
+                    <BoxedRowList>
+                      {Object.entries(availableColors)
+                        .filter(([key, value]) => value && value.trim() !== "")
+                        .map(([key, value]) => (
+                          <BoxedRow
+                            key={key}
+                            asset={
+                              <Box
+                                style={{
+                                  backgroundColor: value,
+                                  width: 40,
+                                  height: 40,
+                                  border: `1px solid ${skinVars.colors.border}`,
+                                  borderRadius: "8px",
+                                }}
+                              />
+                            }
+                            title={key}
+                            description={value.toUpperCase()}
+                            onPress={() => {
+                              onSelectColor(key, value);
+                              onClose();
+                            }}
+                            withChevron={false}
+                          />
+                        ))}
+                    </BoxedRowList>
+                    <ButtonLayout
+                      align="full-width"
+                      secondaryButton={
+                        <ButtonSecondary onPress={onClose} type="secondary">
+                          Cancelar
+                        </ButtonSecondary>
+                      }
+                    />
+                  </Stack>
+                </Box>
               </Stack>
             )}
           </Box>
