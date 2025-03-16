@@ -37,6 +37,7 @@ import {
   IconAddMoreRegular,
   IconTrashCanRegular,
   Divider,
+  useDialog,
 } from "@telefonica/mistica";
 import { colorTokens } from "./utils/skin-contract.js";
 import { getColorScale, renderColorScale } from "./utils/color-utils";
@@ -283,26 +284,29 @@ const ThemePreviewWithTools = () => {
   };
 
   // Función para eliminar un color personalizado
+  const { confirm } = useDialog();
+
   const handleDeleteColor = (colorKey) => {
-    // Preguntar al usuario si está seguro de eliminar el color
-    if (
-      window.confirm(
-        `¿Estás seguro de que quieres eliminar el color "${colorKey}"?`
-      )
-    ) {
-      // Crear una copia de los colores sin el color a eliminar
-      const { [colorKey]: deletedColor, ...remainingColors } = colors;
+    confirm({
+      title: "Eliminar color",
+      message: `¿Estás seguro de que quieres eliminar el color "${colorKey}"?`,
+      acceptText: "Eliminar",
+      cancelText: "Cancelar",
+      onAccept: () => {
+        // Crear una copia de los colores sin el color a eliminar
+        const { [colorKey]: deletedColor, ...remainingColors } = colors;
 
-      // Actualizar el estado y localStorage
-      setColors(remainingColors);
-      localStorage.setItem("skinColors", JSON.stringify(remainingColors));
+        // Actualizar el estado y localStorage
+        setColors(remainingColors);
+        localStorage.setItem("skinColors", JSON.stringify(remainingColors));
 
-      // Si el color eliminado era el seleccionado, limpiar la selección
-      if (selectedColorKey === colorKey) {
-        setSelectedColorKey(null);
-        setColorScaleOutput({});
-      }
-    }
+        // Si el color eliminado era el seleccionado, limpiar la selección
+        if (selectedColorKey === colorKey) {
+          setSelectedColorKey(null);
+          setColorScaleOutput({});
+        }
+      },
+    });
   };
 
   // Función para encontrar el nombre del color de la paleta por su valor
@@ -475,7 +479,7 @@ const ThemePreviewWithTools = () => {
     return (
       <Stack space={24} key={groupName}>
         <Title1>{groupName}</Title1>
-        <Stack space={-1}>
+        <Stack space={0}>
           {Object.entries(tokenGroup).map(([tokenKey, tokenLabel]) => (
             <SkinTokens
               key={tokenKey}
