@@ -13,7 +13,6 @@ const STORAGE_KEYS = {
 
 // Default values for the skin configuration. * Should all variables appear?
 const DEFAULT_VALUES = {
-  skinName: "custom-skin",
   colors: {
     brandColor: "#0066FF",
     successColor: "#FFFFFF",
@@ -32,6 +31,7 @@ const DEFAULT_VALUES = {
     radius: 4,
     roundedButtons: true,
   },
+  skinName: "custom-skin",
 };
 
 // Function to retrieve an item from localStorage with a fallback to default value
@@ -79,20 +79,17 @@ const generateSkinConfig = () => {
 
   return {
     name: skinName,
-    global: {
-      palette: {
-        brand: colors.brandColor,
-        success: colors.successColor,
-        error: colors.errorColor,
-        warning: colors.warningColor,
-        promo: colors.promoColor,
-        background: colors.neutral1,
-        backgroundAlternative: colors.neutral2,
-        borderLow: colors.neutral3,
-        // Should return the rest of color variables or only the ones skin tool lets you choose?
-      },
+    colors: {
+      brand: colors.brandColor,
+      success: colors.successColor,
+      error: colors.errorColor,
+      warning: colors.warningColor,
+      promo: colors.promoColor,
+      background: colors.neutral1,
+      backgroundAlternative: colors.neutral2,
+      borderLow: colors.neutral3,
+      // Should return the rest of color variables or only the ones skin tool lets you choose?
     },
-
     typography: {
       fontFamily: typography.font,
       fontWeight: typography.weight,
