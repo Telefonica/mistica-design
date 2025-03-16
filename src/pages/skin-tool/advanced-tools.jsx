@@ -35,6 +35,8 @@ import {
   Align,
   Tabs,
   TelefonicaLogo,
+  IconInformationRegular,
+  Touchable,
 } from "@telefonica/mistica";
 import { colorTokens } from "./utils/skin-contract.js";
 import { getColorScale, renderColorScale } from "./utils/color-utils";
@@ -407,7 +409,18 @@ const ThemePreviewWithTools = () => {
                 {tabIndex === 0 ? (
                   <Stack space={40}>
                     <Stack space={24}>
-                      <Title3>Skin palette colors</Title3>
+                      <Title3
+                        right={
+                          <Touchable>
+                            <IconInformationRegular
+                              size={16}
+                              color={skinVars.colors.neutralMedium}
+                            />
+                          </Touchable>
+                        }
+                      >
+                        Skin palette colors
+                      </Title3>
                       <Text2 color={skinVars.colors.textSecondary}>
                         En base a los colores core se crea la paleta tonal usada
                         en los componentes. Puedes editar los colores core,
@@ -460,7 +473,18 @@ const ThemePreviewWithTools = () => {
                 ) : (
                   <Stack space={40}>
                     <Stack space={24}>
-                      <Title3>Tokens</Title3>
+                      <Title3
+                        right={
+                          <Touchable>
+                            <IconInformationRegular
+                              size={16}
+                              color={skinVars.colors.neutralMedium}
+                            />
+                          </Touchable>
+                        }
+                      >
+                        Tokens
+                      </Title3>
                       <Text2 color={skinVars.colors.textSecondary}>
                         Los tokens son valores transversales a todas las marcas
                         a los cuales se les asocia colores existentes en la

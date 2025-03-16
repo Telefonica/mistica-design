@@ -26,7 +26,7 @@ const MisticaLogo = ({
       <path
         d="M28.25 23.2679L25.7483 16.3464L25.5199 15.7157C24.033 11.9459 20.3639 12.8495 20.3639 12.8495L18.3184 18.5038C17.6906 20.2397 17.7735 22.1556 18.5487 23.83C19.324 25.5044 20.728 26.7999 22.452 27.4315C25.0135 28.3713 27.8842 27.7079 29.7827 25.7377C29.1041 25.0328 28.5817 24.191 28.25 23.2679Z"
         fill="url(#paint0_linear_4_8116)"
-        fill-opacity="0.4"
+        fillOpacity="0.4"
       />
     </g>
     <path
@@ -43,7 +43,7 @@ const MisticaLogo = ({
         gradientUnits="userSpaceOnUse"
       >
         <stop />
-        <stop offset="1" stop-opacity="0" />
+        <stop offset="1" stopOpacity="0" />
       </linearGradient>
       <clipPath id="clip0_4_8116">
         <rect width="42" height="28" fill="white" />
