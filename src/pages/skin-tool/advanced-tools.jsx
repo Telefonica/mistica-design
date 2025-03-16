@@ -1,10 +1,5 @@
-// This file defines a React component `ThemePreviewWithTools` that allows users to preview and customize a theme's color palette, typography, and borders.
-// It integrates with localStorage to persist color selections, provides a navigation bar to switch between sections, and includes export functionality
-// for the customized theme as JSON.
-
-// Next steps:
-//      1. change some code to Mística components (dialog, drawer) (maybe is it possible to mistify the colorbox component?)
-//      2.
+// Actualización de ThemePreviewWithTools para usar el ColorDialog modificado
+// para ambos casos: editar colores y seleccionar desde paleta
 
 import React, { useState } from "react";
 import {
@@ -44,7 +39,7 @@ import {
 import { colorTokens } from "./utils/skin-contract.js";
 import { getColorScale, renderColorScale } from "./utils/color-utils";
 import Theme from "./utils/theme";
-import ColorDialog from "./utils/color-input";
+import ColorDialog from "./components/color-input";
 import "./advanced-tools.css";
 import MisticaLogo from "./assets/logo.tsx";
 
@@ -86,6 +81,10 @@ const ThemePreviewWithTools = () => {
 
   //State to track the current color key being edited in the color dialog
   const [currentColorKey, setCurrentColorKey] = useState(null);
+
+  // Nuevos estados para la selección desde paleta
+  const [isPaletteSelectorOpen, setIsPaletteSelectorOpen] = useState(false);
+  const [currentTokenKey, setCurrentTokenKey] = useState(null);
 
   // Temporary color value used in the color dialog before saving
   const [tempColor, setTempColor] = useState("#0072F0");
@@ -133,14 +132,45 @@ const ThemePreviewWithTools = () => {
   // Function to save the edited color from the dialog and update the theme
   const handleSaveColor = () => {
     if (currentColorKey) {
-      const newColors = {
+      // El color anterior que estamos cambiando
+      const oldColorValue = colors[currentColorKey];
+
+      // El nuevo valor del color
+      const newColorValue = tempColor;
+
+      let newColors = {
         ...colors,
-        [currentColorKey]: tempColor,
+        [currentColorKey]: newColorValue,
       };
+
+      // Actualizar todos los tokens que usan el color anterior
+      // pero solo si estamos editando un color de la paleta
+      const paletteColorKeys = [
+        "brandColor",
+        "errorColor",
+        "warningColor",
+        "successColor",
+        "promoColor",
+        "neutral1",
+        "neutral2",
+        "neutral3",
+      ];
+
+      if (paletteColorKeys.includes(currentColorKey)) {
+        // Recorrer todos los colores para encontrar tokens que usan el color anterior
+        Object.entries(colors).forEach(([key, value]) => {
+          // Solo actualizar tokens, no colores de la paleta
+          if (!paletteColorKeys.includes(key) && value === oldColorValue) {
+            // Este token usa el color que estamos cambiando, actualízalo
+            newColors[key] = newColorValue;
+          }
+        });
+      }
+
       setColors(newColors);
-      setSelectedColor(tempColor);
+      setSelectedColor(newColorValue);
       setColorScaleOutput({
-        [currentColorKey]: getColorScale(tempColor),
+        [currentColorKey]: getColorScale(newColorValue),
       });
       localStorage.setItem("skinColors", JSON.stringify(newColors));
     }
@@ -158,72 +188,171 @@ const ThemePreviewWithTools = () => {
     setTempColor(newColor);
   };
 
+  // Estado para rastrear el token actualmente seleccionado
+  const [selectedTokenKey, setSelectedTokenKey] = useState(null);
+
+  // Función para abrir el selector de paleta para un token específico
+  const openPaletteSelector = (tokenKey) => {
+    setCurrentTokenKey(tokenKey);
+    setSelectedTokenKey(tokenKey); // Guardar el token seleccionado
+    setIsPaletteSelectorOpen(true);
+  };
+
+  // Función para manejar la selección de un color de la paleta
+  const handleSelectPaletteColor = (sourceKey, colorValue) => {
+    // Actualiza el color seleccionado del token
+    const newColors = {
+      ...colors,
+      [currentTokenKey]: colorValue,
+      // También podríamos guardar una relación entre token y color de paleta aquí si fuera necesario
+    };
+    setColors(newColors);
+    localStorage.setItem("skinColors", JSON.stringify(newColors));
+    setIsPaletteSelectorOpen(false);
+    setSelectedTokenKey(null); // Limpiar la selección
+  };
+
+  // Función que se llama al cerrar el selector de paleta
+  const handleClosePaletteSelector = () => {
+    setIsPaletteSelectorOpen(false);
+    setSelectedTokenKey(null); // Limpiar la selección cuando se cierra
+  };
+
   // Component to render a single color box with optional edit icon
   const ColorBox = ({ colorKey, label, showEditIcon = false }) => {
+    // Verificar si este color está seleccionado actualmente
+    const isSelected = selectedColorKey === colorKey;
+
     return (
-      <BoxedRow
-        asset={
-          <div
-            style={{
-              backgroundColor: colors[colorKey] || "#FFFFFF",
-              width: 40,
-              height: 40,
-              border: `1px solid ${skinVars.colors.border}`,
-              borderRadius: "8px",
-            }}
-          />
-        }
-        title={label}
-        description={
-          colors[colorKey] ? colors[colorKey].toUpperCase() : "Definir color"
-        }
-        onPress={() => handleColorClick(colorKey)}
-        withChevron={false}
-        right={
-          showEditIcon && (
+      <div
+        style={{
+          transition: "all 0.08s ease-in-out",
+          outline: isSelected ? `2px solid ${skinVars.colors.brand}` : "none",
+          outlineOffset: isSelected ? "2px" : "0px",
+          borderRadius: "8px",
+        }}
+      >
+        <BoxedRow
+          asset={
             <div
-              style={{ display: "flex", alignItems: "center", flexShrink: 0 }}
-            >
-              <IconButton
-                onPress={() => openColorDialog(colorKey)}
-                Icon={IconEditPencilRegular}
-                type="brand"
-              />
-            </div>
-          )
-        }
-      />
+              style={{
+                backgroundColor: colors[colorKey] || "#FFFFFF",
+                width: 40,
+                height: 40,
+                border: `1px solid ${skinVars.colors.border}`,
+                borderRadius: "8px",
+              }}
+            />
+          }
+          title={label}
+          description={
+            colors[colorKey] ? colors[colorKey].toUpperCase() : "Definir color"
+          }
+          onPress={() => handleColorClick(colorKey)}
+          withChevron={false}
+          right={
+            showEditIcon && (
+              <div
+                style={{ display: "flex", alignItems: "center", flexShrink: 0 }}
+              >
+                <IconButton
+                  onPress={() => openColorDialog(colorKey)}
+                  Icon={IconEditPencilRegular}
+                  type="brand"
+                />
+              </div>
+            )
+          }
+        />
+      </div>
     );
   };
 
-  // Component to render a single token color with its name and value
+  // Función para encontrar el nombre del color de la paleta por su valor
+  const findPaletteColorName = (colorValue) => {
+    if (!colorValue) return "Definir color";
+
+    // Normalizar el valor de color (convertir a minúsculas para evitar problemas de case sensitivity)
+    const normalizedColorValue = colorValue.toLowerCase();
+
+    // Definir cuáles son las claves de los colores de la paleta
+    const paletteColorKeys = [
+      "brandColor",
+      "errorColor",
+      "warningColor",
+      "successColor",
+      "promoColor",
+      "neutral1",
+      "neutral2",
+      "neutral3",
+    ];
+
+    // Convertir los nombres internos a nombres más amigables
+    const friendlyNames = {
+      brandColor: "Brand",
+      errorColor: "Error",
+      warningColor: "Warning",
+      successColor: "Success",
+      promoColor: "Promo",
+      neutral1: "Neutral 1",
+      neutral2: "Neutral 2",
+      neutral3: "Neutral 3",
+    };
+
+    // Busca solo en los colores de la paleta si hay alguna coincidencia con el valor
+    for (const key of paletteColorKeys) {
+      const paletteColor = colors[key];
+      if (paletteColor && paletteColor.toLowerCase() === normalizedColorValue) {
+        return friendlyNames[key] || key;
+      }
+    }
+
+    // Si no se encuentra coincidencia, devolver el valor hexadecimal
+    return colorValue.toUpperCase();
+  };
+
+  // Componente para renderizar un token de color con su nombre y valor
   const SkinTokens = ({ colorKey, label, showEditIcon = false }) => {
+    // Obtener el valor del color para este token
+    const colorValue = colors[colorKey] || "";
+
+    // Buscar el nombre del color en la paleta
+    const colorSource = findPaletteColorName(colorValue);
+
+    // Verificar si este token está seleccionado actualmente
+    const isSelected = selectedTokenKey === colorKey;
+
     return (
-      <BoxedRow
-        asset={
-          <div
-            style={{
-              backgroundColor: colors[colorKey] || "#FFFFFF",
-              width: 40,
-              height: 40,
-              border: `1px solid ${skinVars.colors.border}`,
-              borderRadius: "999px",
-            }}
-          />
-        }
-        onPress={() => openColorDialog(colorKey)}
-        withChevron={false}
-        extra={
-          <Stack space={4}>
-            <Text1 medium>{colorKey}</Text1>
-            <Text2>
-              {colors[colorKey]
-                ? colors[colorKey].toUpperCase()
-                : "Definir color"}
-            </Text2>
-          </Stack>
-        }
-      />
+      <div
+        style={{
+          transition: "all 0.08s ease-in-out",
+          outline: isSelected ? `2px solid ${skinVars.colors.brand}` : "none",
+          outlineOffset: isSelected ? "2px" : "0px",
+          borderRadius: "8px",
+        }}
+      >
+        <BoxedRow
+          asset={
+            <div
+              style={{
+                backgroundColor: colorValue || "#FFFFFF",
+                width: 40,
+                height: 40,
+                border: `1px solid ${skinVars.colors.border}`,
+                borderRadius: "999px",
+              }}
+            />
+          }
+          onPress={() => openPaletteSelector(colorKey)}
+          withChevron={false}
+          extra={
+            <Stack space={4}>
+              <Text1 medium>{colorKey}</Text1>
+              <Text2>{colorValue ? colorSource : "Definir color"}</Text2>
+            </Stack>
+          }
+        />
+      </div>
     );
   };
 
@@ -364,7 +493,6 @@ const ThemePreviewWithTools = () => {
                           display: "flex",
                           flexDirection: "column",
                           gap: 24,
-
                           alignItems: "center",
                           justifyContent: "center",
                         }}
@@ -395,7 +523,6 @@ const ThemePreviewWithTools = () => {
                             display: "flex",
                             flexDirection: "column",
                             gap: 24,
-
                             alignItems: "center",
                             justifyContent: "center",
                           }}
@@ -480,6 +607,8 @@ const ThemePreviewWithTools = () => {
           />
         </Box>
       </ResponsiveLayout>
+
+      {/* Color Dialog para editar colores de la paleta */}
       <ColorDialog
         isOpen={isColorDialogOpen}
         onClose={handleCancelColor}
@@ -488,6 +617,26 @@ const ThemePreviewWithTools = () => {
         onColorNameChange={setSkinName}
         colorValue={tempColor}
         onColorChange={handleColorChange}
+        mode="edit"
+      />
+
+      {/* Color Dialog para seleccionar colores de la paleta para los tokens */}
+      <ColorDialog
+        isOpen={isPaletteSelectorOpen}
+        onClose={handleClosePaletteSelector}
+        mode="palette"
+        currentColorKey={currentTokenKey}
+        availableColors={{
+          brandColor: colors.brandColor || "",
+          errorColor: colors.errorColor || "",
+          warningColor: colors.warningColor || "",
+          successColor: colors.successColor || "",
+          promoColor: colors.promoColor || "",
+          neutral1: colors.neutral1 || "",
+          neutral2: colors.neutral2 || "",
+          neutral3: colors.neutral3 || "",
+        }}
+        onSelectColor={handleSelectPaletteColor}
       />
     </>
   );
