@@ -39,7 +39,7 @@ import {
   Divider,
   useDialog,
 } from "@telefonica/mistica";
-import { colorTokens } from "./utils/skin-contract.js";
+import { colorTokens } from "./utils/skinContract.js";
 import { getColorScale, renderColorScale } from "./utils/color-utils";
 import Theme from "./utils/theme";
 import ColorDialog from "./components/color-input";
@@ -307,6 +307,18 @@ const ThemePreviewWithTools = () => {
         }
       },
     });
+  };
+
+  const isTokenKey = (key) => {
+    // Obtener todas las claves de tokens de todos los grupos
+    const allTokenKeys = [];
+    Object.values(colorTokens).forEach((group) => {
+      Object.keys(group).forEach((tokenKey) => {
+        allTokenKeys.push(tokenKey);
+      });
+    });
+
+    return allTokenKeys.includes(key);
   };
 
   // Función para encontrar el nombre del color de la paleta por su valor
@@ -620,8 +632,8 @@ const ThemePreviewWithTools = () => {
                           {/* Colores personalizados (añadidos por el usuario) */}
 
                           {Object.entries(colors).map(([key, value]) => {
-                            // Solo mostrar colores que no sean core
-                            if (!coreColors.includes(key)) {
+                            // Solo mostrar colores que no sean core Y no sean tokens
+                            if (!coreColors.includes(key) && !isTokenKey(key)) {
                               return (
                                 <ColorBox
                                   key={key}
@@ -840,9 +852,11 @@ const ThemePreviewWithTools = () => {
           neutral1: colors.neutral1 || "",
           neutral2: colors.neutral2 || "",
           neutral3: colors.neutral3 || "",
-          // Incluir colores personalizados en la selección de paleta
+          // Incluir colores personalizados en la selección de paleta (excluyendo tokens)
           ...Object.fromEntries(
-            Object.entries(colors).filter(([key]) => !coreColors.includes(key))
+            Object.entries(colors).filter(
+              ([key]) => !coreColors.includes(key) && !isTokenKey(key)
+            )
           ),
         }}
         onSelectColor={handleSelectPaletteColor}
