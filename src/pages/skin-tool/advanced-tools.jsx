@@ -38,6 +38,10 @@ import {
   IconTrashCanRegular,
   Divider,
   useDialog,
+  Grid,
+  GridItem,
+  RowList,
+  Boxed,
 } from "@telefonica/mistica";
 import { colorTokens } from "./utils/skinContract.js";
 import { getColorScale, renderColorScale } from "./utils/color-utils";
@@ -105,9 +109,12 @@ const ThemePreviewWithTools = () => {
 
   // Array defining the sections available in the navigation bar
   const sections = [
-    { title: "Color", onPress: () => setNavIndex(0) },
+    {
+      title: "Color",
+      onPress: () => setNavIndex(0),
+    },
     { title: "Typography", onPress: () => setNavIndex(1) },
-    { title: "Border", onPress: () => setNavIndex(2) },
+    { title: "Radius", onPress: () => setNavIndex(2) },
     { title: "Skin Preview", onPress: () => setNavIndex(3) },
   ];
 
@@ -456,7 +463,7 @@ const ThemePreviewWithTools = () => {
           borderRadius: "8px",
         }}
       >
-        <BoxedRow
+        <Row
           asset={
             <div
               style={{
@@ -472,7 +479,7 @@ const ThemePreviewWithTools = () => {
           withChevron={false}
           extra={
             <Stack space={4}>
-              <Text1 medium>{colorKey}</Text1>
+              <Text2 medium>{colorKey}</Text2>
               <Text2>{colorValue ? colorSource : "Definir color"}</Text2>
             </Stack>
           }
@@ -491,14 +498,18 @@ const ThemePreviewWithTools = () => {
       <Stack space={24} key={groupName}>
         <Title1>{groupName}</Title1>
         <Stack space={0}>
-          {Object.entries(tokenGroup).map(([tokenKey, tokenLabel]) => (
-            <SkinTokens
-              key={tokenKey}
-              colorKey={tokenKey}
-              label={tokenLabel}
-              showEditIcon={showEditIcon}
-            />
-          ))}
+          <Boxed>
+            <RowList>
+              {Object.entries(tokenGroup).map(([tokenKey, tokenLabel]) => (
+                <SkinTokens
+                  key={tokenKey}
+                  colorKey={tokenKey}
+                  label={tokenLabel}
+                  showEditIcon={showEditIcon}
+                />
+              ))}
+            </RowList>
+          </Boxed>
         </Stack>
       </Stack>
     );
@@ -516,7 +527,6 @@ const ThemePreviewWithTools = () => {
     "neutral3",
   ];
 
-  //Main render function for the component
   return (
     <>
       <MainNavigationBar
@@ -531,9 +541,8 @@ const ThemePreviewWithTools = () => {
       />
       <ResponsiveLayout>
         <Box paddingY={32}>
-          <GridLayout
-            template="3+9"
-            left={
+          <Grid columns={12} gap={40}>
+            <GridItem columnSpan={4}>
               <Stack space={64}>
                 <Tabs
                   tabs={[{ text: "Palette" }, { text: "Tokens" }]}
@@ -692,8 +701,8 @@ const ThemePreviewWithTools = () => {
                   </Stack>
                 )}
               </Stack>
-            }
-            right={
+            </GridItem>
+            <GridItem columnSpan={8}>
               <div
                 style={{
                   height: "calc(100vh - 280px)",
@@ -819,8 +828,8 @@ const ThemePreviewWithTools = () => {
                     ))}
                 </Box>
               </div>
-            }
-          />
+            </GridItem>
+          </Grid>
         </Box>
       </ResponsiveLayout>
 
