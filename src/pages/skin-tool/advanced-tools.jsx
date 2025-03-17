@@ -530,7 +530,7 @@ const ThemePreviewWithTools = () => {
   return (
     <>
       <MainNavigationBar
-        logo={<MisticaLogo size={250} type="imagotype" />}
+        logo={<MisticaLogo type="imagotype" />}
         sections={sections}
         selectedIndex={navIndex}
         right={
