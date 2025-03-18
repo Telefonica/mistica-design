@@ -36,7 +36,7 @@ import {
   Chip,
 } from "@telefonica/mistica";
 
-// Importar el componente mejorado
+// Importar el componente SesameAI
 import SesameAI from "./components/SesameAI";
 
 const Prototype = () => {
@@ -47,17 +47,20 @@ const Prototype = () => {
 
   // Handle recommendations from Sesame AI
   const handleRecommendations = (plans) => {
+    console.log("Recibidos planes:", plans);
     setRecommendations(plans);
   };
 
   // Handle conversation start
   const handleConversationStart = () => {
+    console.log("Conversación iniciada");
     setConversationActive(true);
     setCallEnded(false);
   };
 
   // Handle conversation end
   const handleConversationEnd = () => {
+    console.log("Conversación finalizada");
     setConversationActive(false);
   };
 
@@ -125,7 +128,7 @@ const Prototype = () => {
           <Box padding={40} paddingBottom={80}>
             <ResponsiveLayout>
               <Stack space={80}>
-                {/* Usar el componente SesameAI en lugar de SesameAI */}
+                {/* Usar el componente SesameAI */}
                 <SesameAI
                   onResponse={handleRecommendations}
                   onConversationStart={handleConversationStart}

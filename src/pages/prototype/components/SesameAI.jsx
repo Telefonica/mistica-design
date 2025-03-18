@@ -11,12 +11,13 @@ import {
   IconButton,
   skinVars,
   Spinner,
+  Button,
+  ButtonPrimary,
 } from "@telefonica/mistica";
 
 /**
  * SesameAI component
- * Esta versión no intenta reproducir audio en el navegador, ya que el audio es manejado
- * directamente por el servidor Python usando los dispositivos de audio del sistema.
+ * Versión con mejor conectividad y registro de eventos
  */
 const SesameAI = ({
   onResponse,
@@ -30,37 +31,68 @@ const SesameAI = ({
   const [assistantResponse, setAssistantResponse] = useState("");
   const [error, setError] = useState(null);
   const [connectionStatus, setConnectionStatus] = useState("");
+  const [logs, setLogs] = useState([]);
 
-  // Server URL
+  // Server URL - Asegúrate de que esta URL es correcta
   const API_URL = "http://localhost:5000/api";
+
+  // Función para añadir logs
+  const addLog = (message) => {
+    console.log(message); // Loguear también en consola
+    setLogs((prevLogs) =>
+      [...prevLogs, `${new Date().toLocaleTimeString()}: ${message}`].slice(-10)
+    );
+  };
 
   // Comprobar estado del servidor
   const checkServerStatus = async () => {
     try {
+      addLog("Comprobando estado del servidor...");
       const response = await fetch("http://localhost:5000/health");
       if (!response.ok) {
         throw new Error(`Error de servidor: ${response.status}`);
       }
       const data = await response.json();
-      console.log("Estado del servidor:", data);
+      addLog(`Estado del servidor: ${JSON.stringify(data)}`);
 
       setConnectionStatus(
         data.sesame_connected
-          ? "conectado"
+          ? data.sesame_initialized
+            ? "conectado y listo"
+            : "conectado, inicializando"
           : "servidor activo, sesame desconectado"
       );
 
       return data;
     } catch (err) {
       console.error("Error comprobando estado del servidor:", err);
-      setConnectionStatus("error");
+      addLog(`Error: ${err.message}`);
+      setConnectionStatus(`error: ${err.message}`);
       return null;
+    }
+  };
+
+  // Reiniciar el servidor
+  const restartServer = async () => {
+    try {
+      addLog("Solicitando reinicio del servidor...");
+      const response = await fetch("http://localhost:5000/restart");
+      const data = await response.json();
+      addLog(`Respuesta: ${JSON.stringify(data)}`);
+
+      // Comprobar estado después del reinicio
+      setTimeout(checkServerStatus, 2000);
+
+      return data.success;
+    } catch (err) {
+      addLog(`Error reiniciando: ${err.message}`);
+      return false;
     }
   };
 
   // Iniciar conversación
   const startConversation = async () => {
-    console.log("Iniciando conversación...");
+    addLog("Iniciando conversación...");
     setIsConnecting(true);
     setError(null);
 
@@ -76,14 +108,16 @@ const SesameAI = ({
 
     try {
       // Obtener mensaje de bienvenida
-      console.log("Solicitando mensaje de bienvenida...");
+      addLog("Solicitando mensaje de bienvenida...");
       const response = await fetch(`${API_URL}/welcome`);
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
 
       const data = await response.json();
-      console.log("Mensaje de bienvenida recibido:", data);
+      addLog(
+        `Mensaje de bienvenida recibido: ${data.text.substring(0, 30)}...`
+      );
 
       // Actualizar UI
       setAssistantResponse(data.text);
@@ -92,6 +126,7 @@ const SesameAI = ({
 
       // Enviar planes al componente padre
       if (data.plans && data.plans.length > 0 && onResponse) {
+        addLog(`Enviando ${data.plans.length} planes al componente padre`);
         onResponse(data.plans);
       }
 
@@ -100,9 +135,17 @@ const SesameAI = ({
         onConversationStart();
       }
 
-      console.log("✅ Conversación iniciada correctamente");
+      addLog("✅ Conversación iniciada correctamente");
+
+      // Enviar un "hola" automático para activar el saludo
+      setTimeout(() => {
+        if (transcript === "") {
+          handleUserInput(null, "hola");
+        }
+      }, 1000);
     } catch (err) {
       console.error("❌ Error iniciando conversación:", err);
+      addLog(`Error: ${err.message}`);
       setError(`Error de conexión: ${err.message}`);
       setIsConnecting(false);
     }
@@ -110,7 +153,7 @@ const SesameAI = ({
 
   // Finalizar conversación
   const endConversation = () => {
-    console.log("Finalizando conversación...");
+    addLog("Finalizando conversación...");
 
     // Actualizar estado
     setIsListening(false);
@@ -121,15 +164,17 @@ const SesameAI = ({
       onConversationEnd();
     }
 
-    console.log("✅ Conversación finalizada");
+    addLog("✅ Conversación finalizada");
   };
 
   // Enviar texto
-  const handleUserInput = (e) => {
-    e.preventDefault();
-    if (transcript.trim() === "") return;
+  const handleUserInput = (e, textOverride = null) => {
+    if (e) e.preventDefault();
 
-    console.log(`Enviando texto: "${transcript}"`);
+    const textToSend = textOverride || transcript;
+    if (textToSend.trim() === "") return;
+
+    addLog(`Enviando texto: "${textToSend}"`);
 
     // Enviar al servidor
     fetch(`${API_URL}/query`, {
@@ -137,7 +182,7 @@ const SesameAI = ({
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ text: transcript }),
+      body: JSON.stringify({ text: textToSend }),
     })
       .then((response) => {
         if (!response.ok) {
@@ -146,36 +191,40 @@ const SesameAI = ({
         return response.json();
       })
       .then((data) => {
-        console.log("Respuesta recibida:", data);
+        addLog(`Respuesta recibida: ${data.text.substring(0, 30)}...`);
 
         // Actualizar UI
         setAssistantResponse(data.text);
 
         // Enviar planes
         if (data.plans && data.plans.length > 0 && onResponse) {
+          addLog(`Enviando ${data.plans.length} planes al componente padre`);
           onResponse(data.plans);
         }
 
-        // Limpiar
-        setTranscript("");
+        // Limpiar si no era un textOverride
+        if (!textOverride) {
+          setTranscript("");
+        }
       })
       .catch((err) => {
         console.error("❌ Error enviando texto:", err);
+        addLog(`Error: ${err.message}`);
         setError(`Error: ${err.message}`);
       });
   };
 
   // Auto-iniciar al montar el componente
   useEffect(() => {
-    console.log("Componente montado, iniciando en 500ms...");
+    addLog("Componente montado, iniciando en 1 segundo...");
     const timer = setTimeout(() => {
       startConversation();
-    }, 500);
+    }, 1000);
 
-    // Comprobar estado del servidor cada 5 segundos
+    // Comprobar estado del servidor cada 10 segundos
     const statusInterval = setInterval(() => {
       checkServerStatus();
-    }, 5000);
+    }, 10000);
 
     // Cleanup
     return () => {
@@ -188,20 +237,55 @@ const SesameAI = ({
   return (
     <Box>
       <Stack space={24}>
-        {/* Indicador de estado */}
+        {/* Indicador de estado y botones de acción */}
         <Box
           padding={8}
           borderRadius={8}
           backgroundColor={skinVars.colors.backgroundAlternative}
         >
-          <Text3>Estado: {connectionStatus || "comprobando..."}</Text3>
-          <Text3
-            color={skinVars.colors.textSecondary}
-            style={{ fontSize: "14px" }}
-          >
-            El audio se reproduce directamente en tu sistema, usando tus
-            altavoces
-          </Text3>
+          <Stack space={8}>
+            <Text3>
+              Estado del servidor: {connectionStatus || "comprobando..."}
+            </Text3>
+            <Text3
+              color={skinVars.colors.textSecondary}
+              style={{ fontSize: "14px" }}
+            >
+              El audio se reproduce directamente a través de tus altavoces del
+              sistema
+            </Text3>
+            <Box style={{ display: "flex", gap: "8px" }}>
+              <ButtonPrimary
+                small
+                onPress={restartServer}
+                style={{ alignSelf: "flex-start" }}
+              >
+                Reiniciar servidor
+              </ButtonPrimary>
+              <ButtonPrimary
+                small
+                onPress={() => handleUserInput(null, "hola")}
+                style={{ alignSelf: "flex-start" }}
+              >
+                Decir "Hola"
+              </ButtonPrimary>
+            </Box>
+          </Stack>
+        </Box>
+
+        {/* Logs */}
+        <Box
+          padding={8}
+          borderRadius={8}
+          backgroundColor={skinVars.colors.backgroundBrandLow}
+          style={{ display: logs.length > 0 ? "block" : "none" }}
+        >
+          <Text3 color={skinVars.colors.textSecondary}>Logs:</Text3>
+          {logs.map((log, index) => (
+            <Text3 key={index} style={{ fontSize: "12px", marginTop: "2px" }}>
+              {log}
+            </Text3>
+          ))}
         </Box>
 
         {/* Avatar del asistente y respuesta */}
