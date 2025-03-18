@@ -21,6 +21,7 @@ import ComingSoon from "./pages/advent-calendar-2024/pages/coming-soon";
 import ProgressView from "./pages/advent-calendar-2024/pages/progress-view";
 import ProductStatus from "./pages/mistica-product-status/index";
 import ClaimYourGift from "./pages/advent-calendar-2024/pages/claim-your-gift";
+import Prototype from "./pages/prototype/index.jsx";
 
 export const SchemeContext = createContext();
 
@@ -97,6 +98,10 @@ const App = () => {
     {
       path: `/product-status`,
       element: <ProductStatus />,
+    },
+    {
+      path: `/prototype`,
+      element: <Prototype />,
     },
   ]);
   const [theme, setTheme] = useState("light");
