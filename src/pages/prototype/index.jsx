@@ -36,7 +36,7 @@ import {
   Chip,
 } from "@telefonica/mistica";
 
-// Importar el componente simplificado (o puedes usar SesameAIWebSocket)
+// Importar el componente mejorado
 import SesameAI from "./components/SesameAI";
 
 const Prototype = () => {
@@ -125,7 +125,7 @@ const Prototype = () => {
           <Box padding={40} paddingBottom={80}>
             <ResponsiveLayout>
               <Stack space={80}>
-                {/* Usar el componente SesameAI en lugar de SesameAIWebSocket */}
+                {/* Usar el componente SesameAI en lugar de SesameAI */}
                 <SesameAI
                   onResponse={handleRecommendations}
                   onConversationStart={handleConversationStart}
@@ -153,6 +153,7 @@ const Prototype = () => {
                             title: "Fibra 600 Mb y 2 líneas móviles 35 GB",
                             price: "52,90 €/mes",
                             id: "plan1",
+                            description: "Velocidad simétrica, sin permanencia",
                           })
                         }
                       />
@@ -164,6 +165,7 @@ const Prototype = () => {
                             title: "Fibra 1 Gb y 2 líneas móviles ilimitadas",
                             price: "64,90 €/mes",
                             id: "plan2",
+                            description: "Máxima velocidad, sin permanencia",
                           })
                         }
                       />
@@ -175,6 +177,8 @@ const Prototype = () => {
                             title: "Fibra 300 Mb y 1 línea móvil 25 GB",
                             price: "42,90 €/mes",
                             id: "plan3",
+                            description:
+                              "Ideal para uso individual, sin permanencia",
                           })
                         }
                       />
