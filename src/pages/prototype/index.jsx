@@ -36,7 +36,7 @@ import {
   Chip,
 } from "@telefonica/mistica";
 // Import the WebSocket version of SesameAI
-import SesameAIWebSocket from "../../components/SesameAIWebSocket";
+import SesameAIWebSocket from "./components/SesameAIWebSocket";
 
 const Prototype = () => {
   const isDesktopOrBigger = useTheme;
