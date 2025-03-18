@@ -41,27 +41,8 @@ const SesameAIWebSocket = ({
   const audioQueueRef = useRef([]);
   const isPlayingRef = useRef(false);
 
-  // Mock plans data (will be replaced with real data from the assistant)
-  const fiberPlans = [
-    {
-      id: "plan1",
-      title: "Fibra 600 Mb y 2 líneas móviles 35 GB",
-      price: "52,90 €/mes",
-      description: "Velocidad simétrica, sin permanencia",
-    },
-    {
-      id: "plan2",
-      title: "Fibra 1 Gb y 2 líneas móviles ilimitadas",
-      price: "64,90 €/mes",
-      description: "Máxima velocidad, sin permanencia",
-    },
-    {
-      id: "plan3",
-      title: "Fibra 300 Mb y 1 línea móvil 25 GB",
-      price: "42,90 €/mes",
-      description: "Ideal para uso individual, sin permanencia",
-    },
-  ];
+  // Server URL - change to your Flask server address
+  const SOCKET_SERVER_URL = "http://localhost:5000";
 
   // Initialize audio context
   const initAudioContext = () => {
@@ -191,7 +172,7 @@ const SesameAIWebSocket = ({
     initAudioContext();
 
     // Connect to WebSocket server
-    const socket = io("http://localhost:5000");
+    const socket = io(SOCKET_SERVER_URL);
     socketRef.current = socket;
 
     // Set up event handlers
@@ -214,62 +195,27 @@ const SesameAIWebSocket = ({
       setIsListening(true);
       startRecording();
 
-      // Initial greeting
-      const greeting = `Hola, soy ${character} de Movistar. ¿En qué puedo ayudarte hoy? Puedo recomendarte planes de fibra óptica según tus necesidades.`;
-      setAssistantResponse(greeting);
-
       // Notify parent component
       if (onConversationStart) {
         onConversationStart();
       }
     });
 
+    socket.on("text_response", (data) => {
+      // Display text response from server
+      setAssistantResponse(data.text);
+    });
+
+    socket.on("plans_data", (data) => {
+      // Send plans to parent component if available
+      if (data.plans && data.plans.length > 0 && onResponse) {
+        onResponse(data.plans);
+      }
+    });
+
     socket.on("audio_data", (data) => {
       // Play audio received from server
       playAudio(data.audio);
-
-      // For demo purposes, simulate text responses based on audio
-      // In a real implementation, you would get text transcriptions from the server
-      setTimeout(() => {
-        // Randomly select a response type
-        const responseType = Math.floor(Math.random() * 5);
-        let response = "";
-        let plans = [];
-
-        switch (responseType) {
-          case 0:
-            response = `Hola, soy ${character} de Movistar. ¿En qué puedo ayudarte hoy? Puedo recomendarte planes de fibra óptica según tus necesidades.`;
-            break;
-          case 1:
-            response =
-              "Tenemos excelentes planes de fibra óptica. Te muestro algunas opciones que podrían interesarte:";
-            plans = fiberPlans;
-            break;
-          case 2:
-            response =
-              "Nuestro plan más rápido es el de Fibra 1 Gb con líneas móviles ilimitadas:";
-            plans = [fiberPlans[1]];
-            break;
-          case 3:
-            response = "Te recomiendo nuestro plan más económico:";
-            plans = [fiberPlans[2]];
-            break;
-          case 4:
-            response =
-              "Para familias, recomiendo nuestros planes con múltiples líneas móviles:";
-            plans = [fiberPlans[0], fiberPlans[1]];
-            break;
-          default:
-            response = "¿Hay algo más en lo que pueda ayudarte?";
-        }
-
-        setAssistantResponse(response);
-
-        // Send plans to parent component if available
-        if (plans.length > 0 && onResponse) {
-          onResponse(plans);
-        }
-      }, 500);
     });
 
     socket.on("error", (data) => {
@@ -315,17 +261,23 @@ const SesameAIWebSocket = ({
     e.preventDefault();
     if (transcript.trim() === "") return;
 
-    // Send text input to server (for demo purposes)
-    // In a real implementation, you would use the microphone input
-    setTranscript("");
+    // Send text input to server
+    if (socketRef.current) {
+      socketRef.current.emit("send_text", { text: transcript });
+      setTranscript("");
+    }
   };
 
   // Auto-start conversation when component mounts
   useEffect(() => {
-    startConversation();
+    // Small delay to allow page to load completely
+    const timer = setTimeout(() => {
+      startConversation();
+    }, 500);
 
     // Cleanup function
     return () => {
+      clearTimeout(timer);
       endConversation();
     };
   }, []);

@@ -35,8 +35,9 @@ import {
   DataCard,
   Chip,
 } from "@telefonica/mistica";
-// Import the WebSocket version of SesameAI
-import SesameAIWebSocket from "./components/SesameAIWebSocket";
+
+// Importar el componente simplificado (o puedes usar SesameAIWebSocket)
+import SesameAI from "./components/SesameAI";
 
 const Prototype = () => {
   const isDesktopOrBigger = useTheme;
@@ -124,12 +125,14 @@ const Prototype = () => {
           <Box padding={40} paddingBottom={80}>
             <ResponsiveLayout>
               <Stack space={80}>
-                <SesameAIWebSocket
+                {/* Usar el componente SesameAI en lugar de SesameAIWebSocket */}
+                <SesameAI
                   onResponse={handleRecommendations}
                   onConversationStart={handleConversationStart}
                   onConversationEnd={handleConversationEnd}
                   character="Maya"
                 />
+
                 <Grid columns={3} gap={24}>
                   {recommendations.length > 0 ? (
                     recommendations.map((plan, index) => (

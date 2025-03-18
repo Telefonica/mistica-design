@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Stack,
@@ -16,8 +16,7 @@ import {
 /**
  * SesameAI component for voice assistant integration
  *
- * This component integrates with the SesameAI voice assistant to provide
- * a conversational interface for recommending internet fiber plans.
+ * This is a simplified version that uses REST API instead of WebSockets
  */
 const SesameAI = ({
   onResponse,
@@ -31,151 +30,137 @@ const SesameAI = ({
   const [assistantResponse, setAssistantResponse] = useState("");
   const [error, setError] = useState(null);
 
-  // Reference to store the WebSocket connection
-  const wsRef = useRef(null);
-
-  // Mock plans data (in a real implementation, this would come from the assistant)
-  const fiberPlans = [
-    {
-      id: "plan1",
-      title: "Fibra 600 Mb y 2 líneas móviles 35 GB",
-      price: "52,90 €/mes",
-      description: "Velocidad simétrica, sin permanencia",
-    },
-    {
-      id: "plan2",
-      title: "Fibra 1 Gb y 2 líneas móviles ilimitadas",
-      price: "64,90 €/mes",
-      description: "Máxima velocidad, sin permanencia",
-    },
-    {
-      id: "plan3",
-      title: "Fibra 300 Mb y 1 línea móvil 25 GB",
-      price: "42,90 €/mes",
-      description: "Ideal para uso individual, sin permanencia",
-    },
-  ];
-
-  // Function to simulate receiving a response from the assistant
-  const simulateAssistantResponse = (userQuery) => {
-    setIsConnecting(false);
-    setIsListening(true);
-
-    // Simulate processing time
-    setTimeout(() => {
-      let response = "";
-      let plans = [];
-
-      // Simple keyword matching to simulate AI understanding
-      const query = userQuery.toLowerCase();
-
-      if (
-        query.includes("hola") ||
-        query.includes("buenos días") ||
-        query.includes("buenas")
-      ) {
-        response = `Hola, soy ${character} de Movistar. ¿En qué puedo ayudarte hoy? Puedo recomendarte planes de fibra óptica según tus necesidades.`;
-      } else if (
-        query.includes("fibra") ||
-        query.includes("internet") ||
-        query.includes("planes")
-      ) {
-        response =
-          "Tenemos excelentes planes de fibra óptica. Te muestro algunas opciones que podrían interesarte:";
-        plans = fiberPlans;
-      } else if (
-        query.includes("más rápido") ||
-        query.includes("velocidad") ||
-        query.includes("1 gb")
-      ) {
-        response =
-          "Nuestro plan más rápido es el de Fibra 1 Gb con líneas móviles ilimitadas:";
-        plans = [fiberPlans[1]];
-      } else if (
-        query.includes("económico") ||
-        query.includes("barato") ||
-        query.includes("precio")
-      ) {
-        response = "Te recomiendo nuestro plan más económico:";
-        plans = [fiberPlans[2]];
-      } else if (
-        query.includes("familia") ||
-        query.includes("varias líneas") ||
-        query.includes("hijos")
-      ) {
-        response =
-          "Para familias, recomiendo nuestros planes con múltiples líneas móviles:";
-        plans = [fiberPlans[0], fiberPlans[1]];
-      } else {
-        response =
-          "Disculpa, no he entendido tu consulta. ¿Podrías decirme qué tipo de plan de internet estás buscando?";
-      }
-
-      setAssistantResponse(response);
-
-      // Send plans to parent component if available
-      if (plans.length > 0 && onResponse) {
-        onResponse(plans);
-      }
-    }, 1000);
-  };
+  // Server URL (replace with your API endpoint)
+  const API_URL = "http://localhost:5000/api";
 
   // Function to handle starting the conversation
   const startConversation = () => {
     setIsConnecting(true);
     setError(null);
 
-    // Simulate connection delay
-    setTimeout(() => {
-      // Simulate initial greeting from assistant
-      const greeting = `Hola, soy ${character} de Movistar. ¿En qué puedo ayudarte hoy? Puedo recomendarte planes de fibra óptica según tus necesidades.`;
-      setAssistantResponse(greeting);
-      setIsConnecting(false);
-      setIsListening(true);
+    // Fetch welcome message from the server
+    fetch(`${API_URL}/welcome`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error de conexión con el servidor");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Show welcome message
+        setAssistantResponse(data.text);
+        setIsConnecting(false);
+        setIsListening(true);
 
-      // Notify parent component that conversation has started
-      if (onConversationStart) {
-        onConversationStart();
-      }
-    }, 1500);
+        // Send plans to parent component if available
+        if (data.plans && data.plans.length > 0 && onResponse) {
+          onResponse(data.plans);
+        }
+
+        // Notify parent component
+        if (onConversationStart) {
+          onConversationStart();
+        }
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+        setError(
+          "Error de conexión con el servidor. Por favor, inténtalo de nuevo."
+        );
+        setIsConnecting(false);
+      });
   };
 
   // Function to handle ending the conversation
   const endConversation = () => {
     setIsListening(false);
     setTranscript("");
-    setAssistantResponse("");
 
-    // Notify parent component that conversation has ended
+    // Notify parent component
     if (onConversationEnd) {
       onConversationEnd();
     }
   };
 
-  // Function to handle user input (simulated for now)
+  // Function to handle user input
   const handleUserInput = (e) => {
     e.preventDefault();
     if (transcript.trim() === "") return;
 
-    // Process user input
-    simulateAssistantResponse(transcript);
-    setTranscript("");
+    // Send user input to server
+    fetch(`${API_URL}/query`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text: transcript }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error al procesar la consulta");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Show response
+        setAssistantResponse(data.text);
+
+        // Send plans to parent component if available
+        if (data.plans && data.plans.length > 0 && onResponse) {
+          onResponse(data.plans);
+        }
+
+        // Clear transcript
+        setTranscript("");
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+        setError(
+          "Error al procesar la consulta. Por favor, inténtalo de nuevo."
+        );
+      });
   };
 
   // Auto-start conversation when component mounts
   useEffect(() => {
-    startConversation();
+    // Small delay to allow page to load completely
+    const timer = setTimeout(() => {
+      startConversation();
+    }, 500);
 
     // Cleanup function
     return () => {
+      clearTimeout(timer);
       endConversation();
     };
   }, []);
 
   // Function to handle plan selection feedback
   const handlePlanSelected = (plan) => {
-    const response = `Has seleccionado el plan ${plan.title} por ${plan.price}. ¡Excelente elección! Este plan incluye ${plan.description}. ¿Deseas proceder con la contratación o tienes alguna otra pregunta?`;
-    setAssistantResponse(response);
+    // Send plan selection to server
+    fetch(`${API_URL}/select-plan`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ plan }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error al seleccionar el plan");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Show response
+        setAssistantResponse(data.text);
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+        setError(
+          "Error al seleccionar el plan. Por favor, inténtalo de nuevo."
+        );
+      });
   };
 
   // This function would be called from the parent component when a plan is selected
