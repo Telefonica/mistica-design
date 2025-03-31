@@ -203,7 +203,8 @@
         "tagBackgroundSuccessInverse",
         "tagBackgroundWarningInverse",
         "tagBackgroundErrorInverse",
-        "cardContentOverlay"
+        "cardContentOverlay",
+        "inputBorder"
       ],
       "properties": {
         "appBarBackground": { "$ref": "#/definitions/constantProperties" },
@@ -354,6 +355,7 @@
         "tagBackgroundWarningInverse": { "$ref": "#/definitions/constantProperties" },
         "tagBackgroundErrorInverse": { "$ref": "#/definitions/constantProperties" },
         "cardContentOverlay": { "$ref": "#/definitions/constantProperties" },
+        "inputBorder": { "$ref": "#/definitions/constantProperties" },
         "extended": {
           "type": "object",
           "patternProperties": {
