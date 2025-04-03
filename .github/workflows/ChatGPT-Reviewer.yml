@@ -13,24 +13,10 @@ concurrency:
 
 jobs:
   chatgpt:
+    if: ${{ github.event.pull_request.body == '' || github.event.pull_request.body == null }}
     runs-on: ubuntu-latest
     steps:
-      # Check if PR body is empty
-      - name: Check PR body
-        id: check_pr_body
-        run: |
-          PR_BODY="${{ github.event.pull_request.body }}"
-          if [ -z "$PR_BODY" ] || [ "$PR_BODY" == "null" ]; then
-            echo "PR body is empty, will generate description"
-            echo "is_empty=true" >> $GITHUB_OUTPUT
-          else
-            echo "PR body already has content, skipping description generation"
-            echo "is_empty=false" >> $GITHUB_OUTPUT
-          fi
-
-      # Only run the OpenAI description generator if PR body is empty
       - uses: platisd/openai-pr-description@master
-        if: steps.check_pr_body.outputs.is_empty == 'true'
         with:
           github_token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
