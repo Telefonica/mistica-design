@@ -5,6 +5,7 @@ on:
   pull_request:
     paths:
       - "tokens/**"
+      - ".github/workflows/schema-validator.yml"
     branches:
       - pre-production
       - production
