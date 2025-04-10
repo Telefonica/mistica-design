@@ -28,4 +28,3 @@ jobs:
         with:
           file: "tokens/${{ matrix.skin }}.json"
           schema: "tokens/schema/skin-schema.json"
-        continue-on-error: true
