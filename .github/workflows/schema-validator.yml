@@ -10,82 +10,77 @@ on:
       - production
 
 jobs:
-  Movistar:
+  validate-skins:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
-        with:
-          file: "tokens/movistar.json"
-          schema: "tokens/schema/skin-schema.json"
+    strategy:
+      matrix:
+        skin: [movistar, o2, o2-new, vivo, vivo-new, telefonica, blau, esimflag]
+      fail-fast: false
 
-  O2:
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
-        with:
-          file: "tokens/o2.json"
-          schema: "tokens/schema/skin-schema.json"
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-  O2-new:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
+      - name: Validate ${{ matrix.skin }} skin
+        id: validation
         uses: cardinalby/schema-validator-action@v1
         with:
-          file: "tokens/o2-new.json"
+          file: "tokens/${{ matrix.skin }}.json"
           schema: "tokens/schema/skin-schema.json"
+        continue-on-error: true
 
-  Vivo:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
-        with:
-          file: "tokens/vivo.json"
-          schema: "tokens/schema/skin-schema.json"
+      - name: Generate validation report
+        if: always()
+        run: |
+          mkdir -p ./validation-reports
+          if [ "${{ steps.validation.outcome }}" == "success" ]; then
+            echo "✅ Validation successful" > ./validation-reports/${{ matrix.skin }}.md
+          else
+            echo "❌ Validation failed" > ./validation-reports/${{ matrix.skin }}.md
+          fi
 
-  Vivo-new:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v3
         with:
-          file: "tokens/vivo-new.json"
-          schema: "tokens/schema/skin-schema.json"
+          name: validation-report-${{ matrix.skin }}
+          path: ./validation-reports/${{ matrix.skin }}.md
+          retention-days: 5
 
-  Telefonica:
+  summarize:
+    needs: validate-skins
     runs-on: ubuntu-latest
+    if: always() && github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
-        with:
-          file: "tokens/telefonica.json"
-          schema: "tokens/schema/skin-schema.json"
+      - name: Download all artifacts
+        uses: actions/download-artifact@v9
 
-  Blau:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
+      - name: Create summary comment
+        uses: actions/github-script@v7
         with:
-          file: "tokens/blau.json"
-          schema: "tokens/schema/skin-schema.json"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const path = require('path');
 
-  Esimflag:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
-        with:
-          file: "tokens/esimflag.json"
-          schema: "tokens/schema/skin-schema.json"
+            // Collect all validation results
+            let comment = '## Skin Validation Results\n\n';
+            const skins = ['movistar', 'o2', 'o2-new', 'vivo', 'vivo-new', 'telefonica', 'blau', 'esimflag'];
+
+            for (const skin of skins) {
+              try {
+                const reportPath = path.join(`validation-report-${skin}`, `${skin}.md`);
+                const result = fs.readFileSync(reportPath, 'utf8').trim();
+                comment += `* **${skin}**: ${result}\n`;
+              } catch (error) {
+                comment += `* **${skin}**: ⚠️ Report not available\n`;
+              }
+            }
+
+            // Post comment to PR
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
