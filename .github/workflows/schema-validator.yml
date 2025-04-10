@@ -50,7 +50,7 @@ jobs:
       # Upload the report as an artifact
       - name: Upload validation report
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: validation-report-${{ matrix.skin }}
           path: ./validation-reports/${{ matrix.skin }}.md
@@ -63,7 +63,7 @@ jobs:
     if: always() && github.event_name == 'pull_request'
     steps:
       - name: Download all validation reports
-        uses: actions/download-artifact@v3
+        uses: dawidd6/action-download-artifact@v9
         with:
           path: ./validation-reports
 
@@ -91,7 +91,7 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
 
       - name: Find Comment
-        uses: peter-evans/find-comment@v2
+        uses: peter-evans/find-comment@v3
         id: find-comment
         with:
           issue-number: ${{ github.event.pull_request.number }}
@@ -99,7 +99,7 @@ jobs:
           body-includes: "Skin Validation Results"
 
       - name: Create or update comment
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v4
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
