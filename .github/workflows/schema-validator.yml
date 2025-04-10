@@ -28,3 +28,80 @@ jobs:
         with:
           file: "tokens/${{ matrix.skin }}.json"
           schema: "tokens/schema/skin-schema.json"
+        continue-on-error: true
+
+      # Save the validation output to a file even if validation fails
+      - name: Store validation results
+        if: always()
+        run: |
+          mkdir -p ./validation-reports
+          echo "### Validation for ${{ matrix.skin }}" > ./validation-reports/${{ matrix.skin }}.md
+          echo "\`\`\`" >> ./validation-reports/${{ matrix.skin }}.md
+          if [ "${{ steps.validation.outcome }}" == "success" ]; then
+            echo "✅ Validation successful" >> ./validation-reports/${{ matrix.skin }}.md
+          else
+            echo "❌ Error: Validation failed for ${{ matrix.skin }}" >> ./validation-reports/${{ matrix.skin }}.md
+            # Try to capture any stdout/stderr from the validation step
+            echo "${{ steps.validation.outputs.stdout || '' }}" >> ./validation-reports/${{ matrix.skin }}.md
+            echo "${{ steps.validation.outputs.stderr || '' }}" >> ./validation-reports/${{ matrix.skin }}.md
+          fi
+          echo "\`\`\`" >> ./validation-reports/${{ matrix.skin }}.md
+
+      # Upload the report as an artifact
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: validation-report-${{ matrix.skin }}
+          path: ./validation-reports/${{ matrix.skin }}.md
+          retention-days: 5
+
+  # Create or update a comment on the PR with the validation results
+  comment-pr:
+    needs: validate-skins
+    runs-on: ubuntu-latest
+    if: always() && github.event_name == 'pull_request'
+    steps:
+      - name: Download all validation reports
+        uses: actions/download-artifact@v3
+        with:
+          path: ./validation-reports
+
+      - name: Collect validation results
+        id: results
+        run: |
+          echo "COMMENT_BODY<<EOF" >> $GITHUB_ENV
+          echo "# Skin Validation Results" >> $GITHUB_ENV
+          echo "" >> $GITHUB_ENV
+          echo "Updated: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_ENV
+          echo "" >> $GITHUB_ENV
+
+          # Loop through all validation reports
+          for dir in ./validation-reports/validation-report-*; do
+            if [ -d "$dir" ]; then
+              for file in "$dir"/*.md; do
+                if [ -f "$file" ]; then
+                  cat "$file" >> $GITHUB_ENV
+                  echo "" >> $GITHUB_ENV
+                  echo "" >> $GITHUB_ENV
+                fi
+              done
+            fi
+          done
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: find-comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: "github-actions[bot]"
+          body-includes: "Skin Validation Results"
+
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: ${{ env.COMMENT_BODY }}
+          edit-mode: replace
