@@ -64,6 +64,7 @@ jobs:
       - name: Download all validation reports
         uses: dawidd6/action-download-artifact@v9
         with:
+          github_token: ${{secrets.NOVUM_PRIVATE_REPOS_READONLY}}
           path: ./validation-reports
 
       - name: Collect validation results
