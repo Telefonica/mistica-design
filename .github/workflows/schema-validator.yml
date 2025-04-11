@@ -5,87 +5,26 @@ on:
   pull_request:
     paths:
       - "tokens/**"
+      - ".github/workflows/schema-validator.yml"
     branches:
       - pre-production
       - production
 
 jobs:
-  Movistar:
+  validate-skins:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
-        with:
-          file: "tokens/movistar.json"
-          schema: "tokens/schema/skin-schema.json"
+    strategy:
+      matrix:
+        skin: [movistar, o2, o2-new, vivo, vivo-new, telefonica, blau, esimflag]
+      fail-fast: false
 
-  O2:
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
-        with:
-          file: "tokens/o2.json"
-          schema: "tokens/schema/skin-schema.json"
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-  O2-new:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
+      - name: Validate ${{ matrix.skin }} skin
+        id: validation
         uses: cardinalby/schema-validator-action@v1
         with:
-          file: "tokens/o2-new.json"
-          schema: "tokens/schema/skin-schema.json"
-
-  Vivo:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
-        with:
-          file: "tokens/vivo.json"
-          schema: "tokens/schema/skin-schema.json"
-
-  Vivo-new:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
-        with:
-          file: "tokens/vivo-new.json"
-          schema: "tokens/schema/skin-schema.json"
-
-  Telefonica:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
-        with:
-          file: "tokens/telefonica.json"
-          schema: "tokens/schema/skin-schema.json"
-
-  Blau:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
-        with:
-          file: "tokens/blau.json"
-          schema: "tokens/schema/skin-schema.json"
-
-  Esimflag:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Validate action.yml against a remote schema
-        uses: cardinalby/schema-validator-action@v1
-        with:
-          file: "tokens/esimflag.json"
+          file: "tokens/${{ matrix.skin }}.json"
           schema: "tokens/schema/skin-schema.json"
