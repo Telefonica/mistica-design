@@ -24,7 +24,7 @@ jobs:
 
       - name: Validate ${{ matrix.skin }} skin
         id: validation
-        uses: cardinalby/schema-validator-action@v3
+        uses: cardinalby/schema-validator-action@v1
         with:
           file: "tokens/${{ matrix.skin }}.json"
           schema: "tokens/schema/skin-schema.json"
