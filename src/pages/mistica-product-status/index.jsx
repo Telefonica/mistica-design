@@ -291,6 +291,13 @@ const ProductStatus = () => {
       <Pending /> /* Code integration */,
       <Done /> /* Production */,
     ],
+    eSimFlag: [
+      "España",
+      <Done /> /* Design Guidelines */,
+      <Pending /> /* Design Libs */,
+      <Wip /> /* Code integration */,
+      <Wip /> /* Production */,
+    ],
     Hispam: [
       "Arg / Chile",
       <Tag type="active">Kénos</Tag> /* Design Guidelines */,
