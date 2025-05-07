@@ -12,6 +12,9 @@ import { useState } from "react";
 import { createContext } from "react";
 import SkinGenerator from "./pages/skinGenerator";
 import PaletteGenerator from "./pages/paletteGenerator";
+import CreateColor from "./pages/skin-tool/onboarding/create-color";
+import CreateTypo from "./pages/skin-tool/onboarding/create-typo";
+import CreateBorder from "./pages/skin-tool/onboarding/create-border";
 import Wrapped2023 from "./pages/wrapped2023/index";
 import AdventCalendar2024 from "./pages/advent-calendar-2024/index";
 import WrappedFinale from "./pages/wrapped2023/finale";
@@ -21,6 +24,7 @@ import ComingSoon from "./pages/advent-calendar-2024/pages/coming-soon";
 import ProgressView from "./pages/advent-calendar-2024/pages/progress-view";
 import ProductStatus from "./pages/mistica-product-status/index";
 import ClaimYourGift from "./pages/advent-calendar-2024/pages/claim-your-gift";
+import OnboardingComplete from "./pages/skin-tool/onboarding/onboarding-complete";
 
 export const SchemeContext = createContext();
 
@@ -55,8 +59,20 @@ const App = () => {
       element: <SkinGenerator />,
     },
     {
-      path: `/palette-generator`,
-      element: <PaletteGenerator />,
+      path: `/create-skin`,
+      element: <CreateColor />
+    },
+    {
+      path: `/create-typo`,
+      element: <CreateTypo />
+    },
+    {
+      path: `/create-border`,
+      element: <CreateBorder />
+    },
+    {
+      path: `/onboarding-complete`,
+      element: <OnboardingComplete />
     },
     {
       path: `/palette-generator`,
