@@ -125,6 +125,11 @@
       "type": "color",
       "description": "blauBlueSecondary60"
     },
+    "completedStep": {
+      "value": "{palette.blauBlueSecondary}",
+      "type": "color",
+      "description": "blauBlueSecondary"
+    },
     "coverBackgroundHover": {
       "value": "rgba({palette.darkModeBlack}, 0.25)",
       "type": "color",
@@ -341,9 +346,9 @@
       "description": "grey3"
     },
     "barTrackInverse": {
-      "value": "rgba({palette.white}, 0.5)",
+      "value": "rgba({palette.grey6}, 0.2)",
       "type": "color",
-      "description": "white"
+      "description": "grey6"
     },
     "loadingBar": {
       "value": "{palette.blauBlueSecondary}",
@@ -887,6 +892,11 @@
       "value": "{palette.blauBlueSecondary60}",
       "type": "color",
       "description": "blauBlueSecondary60"
+    },
+    "completedStep": {
+      "value": "{palette.blauBlueSecondary}",
+      "type": "color",
+      "description": "blauBlueSecondary"
     },
     "coverBackgroundHover": {
       "value": "rgba({palette.darkModeBlack}, 0.25)",
@@ -1904,7 +1914,7 @@
         "type": "color"
       },
       "blauRed": {
-        "value": "#F64417",
+        "value": "#D12937",
         "type": "color"
       },
       "blauRed10": {
@@ -1928,23 +1938,23 @@
         "type": "color"
       },
       "grey1": {
-        "value": "#F5F9FA",
+        "value": "#F6F6F6",
         "type": "color"
       },
       "grey2": {
-        "value": "#E7E7E7",
+        "value": "#F2F2F2",
         "type": "color"
       },
       "grey3": {
-        "value": "#B8B8B8",
+        "value": "#DDDDDD",
         "type": "color"
       },
       "grey4": {
-        "value": "#A0A0A0",
+        "value": "#8A8C90",
         "type": "color"
       },
       "grey5": {
-        "value": "#808285",
+        "value": "#666666",
         "type": "color"
       },
       "grey6": {
@@ -1961,6 +1971,10 @@
       },
       "darkModeGrey": {
         "value": "#242424",
+        "type": "color"
+      },
+      "darkModeGrey5": {
+        "value": "#6D7D88",
         "type": "color"
       },
       "darkModeGrey6": {
