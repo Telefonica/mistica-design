@@ -28,6 +28,7 @@ export const contrastPairs = [
       "backgroundBrand",
       "backgroundBrandSecondary",
       "badge",
+      "completedStep",
     ],
     minRatio: 4.5,
   },
