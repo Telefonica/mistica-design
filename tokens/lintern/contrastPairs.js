@@ -5,7 +5,6 @@ export const contrastPairs = [
       "textSecondary",
       "textActivated",
       "textError",
-      "textButtonSecondary",
       "textLink",
     ],
     bg: [
@@ -25,7 +24,9 @@ export const contrastPairs = [
     bg: [
       "brandHigh",
       "backgroundContainerBrand",
+      "backgroundContainerBrandOverInverse",
       "backgroundBrand",
+      "backgroundBrandSecondary",
       "badge",
     ],
     minRatio: 4.5,
@@ -34,6 +35,7 @@ export const contrastPairs = [
     fg: ["textSecondaryInverse"],
     bg: [
       "backgroundContainerBrand",
+      "backgroundContainerBrandOverInverse",
       "backgroundBrand",
     ],
     minRatio: 4.5,
@@ -47,7 +49,7 @@ export const contrastPairs = [
     bg: ["backgroundContainerError"],
     minRatio: 4.5,
   },
-
+  // Buttons
   {
     fg: ["textButtonPrimary"],
     bg: [
@@ -70,6 +72,30 @@ export const contrastPairs = [
     minRatio: 4.5,
   },
   {
+    fg: ["textButtonSecondary"],
+    bg: [
+      "background",
+      "backgroundAlternative",
+      "backgroundContainer",
+      "buttonSecondaryBackgroundHover",
+      "buttonSecondaryBackgroundPressed",
+    ],
+    minRatio: 4.5,
+  },
+  {
+    fg: ["textButtonSecondaryInverse"],
+    bg: [
+      "backgroundBrand",
+      "backgroundContainerBrand",
+      "backgroundContainerBrandOverInverse",
+      "buttonSecondaryBackgroundInverseHover",
+      "buttonSecondaryBackgroundInversePressed",
+      "backgroundBrandSecondary",
+    ],
+    minRatio: 4.5,
+  },
+
+  {
     fg: ["textLinkDanger"],
     bg: [
       "background",
@@ -79,6 +105,7 @@ export const contrastPairs = [
     ],
     minRatio: 4.5,
   },
+  // Controls
   {
     fg: [
       "control",
