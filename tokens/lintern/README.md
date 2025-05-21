@@ -39,7 +39,7 @@ Checks defined foreground/background pairs against accessibility contrast ratios
 Ensures tokens referencing {palette.color} match their description field.
 
 🔹 Invalid Palette References
-Detects references to {palette.xxx} that do not exist in global.palette, helping to avoid broken tokens and runtime issues.
+Detects references to {palette.xxx} that do not exist in global.palette.
 
 ## 🛠 Customizing Pairs
 
