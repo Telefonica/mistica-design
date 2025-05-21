@@ -15,7 +15,7 @@ export const contrastPairs = [
     minRatio: 4.5,
   },
   {
-    fg: ["textBrand"],
+    fg: ["textBrand", "textActivated"],
     bg: ["brandLow"],
     minRatio: 4.5,
   },
@@ -111,7 +111,6 @@ export const contrastPairs = [
     ],
     minRatio: 4.5,
   },
-
   {
     fg: ["textLinkDanger"],
     bg: [
