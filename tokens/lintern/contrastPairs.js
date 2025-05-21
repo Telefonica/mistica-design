@@ -64,19 +64,30 @@ export const contrastPairs = [
   },
   {
     fg: ["textButtonPrimaryInverse"],
+    bg: ["buttonPrimaryBackgroundInverse"],
+    minRatio: 4.5,
+  },
+  {
+    fg: ["textButtonPrimaryInversePressed"],
     bg: [
-      "buttonPrimaryBackgroundInverse",
       "buttonPrimaryBackgroundInverseHover",
       "buttonPrimaryBackgroundInversePressed",
     ],
     minRatio: 4.5,
   },
+
   {
     fg: ["textButtonSecondary"],
     bg: [
       "background",
       "backgroundAlternative",
       "backgroundContainer",
+    ],
+    minRatio: 4.5,
+  },
+  {
+    fg: ["textButtonSecondaryPressed"],
+    bg: [
       "buttonSecondaryBackgroundHover",
       "buttonSecondaryBackgroundPressed",
     ],
@@ -88,9 +99,15 @@ export const contrastPairs = [
       "backgroundBrand",
       "backgroundContainerBrand",
       "backgroundContainerBrandOverInverse",
+      "backgroundBrandSecondary",
+    ],
+    minRatio: 4.5,
+  },
+  {
+    fg: ["textButtonSecondaryInversePressed"],
+    bg: [
       "buttonSecondaryBackgroundInverseHover",
       "buttonSecondaryBackgroundInversePressed",
-      "backgroundBrandSecondary",
     ],
     minRatio: 4.5,
   },
