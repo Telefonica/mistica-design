@@ -127,6 +127,15 @@ function validate(tokensData) {
               message: `La descripción "${token.description}" no coincide con la referencia esperada "${refName}" extraída de {palette.${refName}}`,
             });
           }
+
+          if (!palette[refName]) {
+            errors.push({
+              type: "invalid-palette-ref",
+              token: `${theme}.${tokenName}`,
+              reference: refName,
+              message: `La referencia a {palette.${refName}} no existe en global.palette`,
+            });
+          }
         }
       }
     }
@@ -224,6 +233,10 @@ function printReport(report) {
       (e) => e.type === "contrast-fail"
     );
 
+    const invalidRefs = errors.filter(
+      (e) => e.type === "invalid-palette-ref"
+    );
+
     if (descErrors.length > 0) {
       descErrors.forEach((e) => {
         console.log(
@@ -251,6 +264,32 @@ function printReport(report) {
       console.log(
         chalk.green(
           "  ✔ Todas las descripciones coinciden con la referencia en palette"
+        )
+      );
+    }
+
+    if (invalidRefs.length > 0) {
+      invalidRefs.forEach((e) => {
+        console.log(
+          chalk.red(
+            `  [invalid-palette-ref] Token: ${e.token}`
+          )
+        );
+        console.log(
+          chalk.gray(
+            `    Referencia inválida: {palette.${e.reference}}`
+          )
+        );
+        console.log(
+          chalk.yellow(
+            `    Mensaje: ${e.message}`
+          )
+        );
+      });
+    } else {
+      console.log(
+        chalk.green(
+          "  ✔ Todas las referencias a palette son válidas"
         )
       );
     }
