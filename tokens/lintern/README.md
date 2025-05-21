@@ -38,6 +38,9 @@ Checks defined foreground/background pairs against accessibility contrast ratios
 🔹 Description/Reference Match
 Ensures tokens referencing {palette.color} match their description field.
 
+🔹 Invalid Palette References
+Detects references to {palette.xxx} that do not exist in global.palette.
+
 ## 🛠 Customizing Pairs
 
 You can edit contrast rules in lintern/contrastPairs.js:
