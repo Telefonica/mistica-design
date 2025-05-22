@@ -66,9 +66,10 @@ export const contrastPairs = [
 🔍 Revisando my-tokens.json
 ✔ Todas las descripciones coinciden con la referencia en palette
 [contrast-fail] light.text.primary vs light.background.default
-Foreground: #767676 (gray700)
-Background: #f5f5f5 (gray100)
-Ratio: 3.55 < mínimo: 4.5
+  Foreground: #767676 (gray700)
+  Background: #f5f5f5 (gray100)
+  Ratio: 3.55 < mínimo: 4.5
+  ✦ Suggestion: gray800 (#4A4A4A, 6.12)
 
 Resumen:
 
