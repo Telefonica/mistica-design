@@ -97,36 +97,64 @@ function suggestForegroundAlternatives(
 ) {
   if (!fgRef) return [];
 
-  const familyMatch = fgRef.match(
-    /^([a-zA-Z]+)[0-9]*$/
-  );
-  if (!familyMatch) return [];
+  const match = fgRef.match(/^([a-zA-Z]+)(\d+)$/);
+  if (!match) return [];
 
-  const family = familyMatch[1];
+  const family = match[1];
+  const baseIndex = parseInt(match[2], 10);
 
-  const candidates = Object.entries(palette)
-    .filter(
-      ([key]) =>
-        key.startsWith(family) && key !== fgRef
-    )
+  // Collect all tokens in the same family with numeric suffixes
+  const sameFamily = Object.entries(palette)
     .map(([key, token]) => {
-      const color = token.value;
-      const ratio = wcagContrast.hex(
-        color,
-        bgColor
-      );
-      return { key, color, ratio };
+      const m = key.match(/^([a-zA-Z]+)(\d+)$/);
+      if (!m || m[1] !== family) return null;
+      return {
+        key,
+        index: parseInt(m[2], 10),
+        color: token.value,
+      };
     })
-    .filter((c) => c.ratio >= minRatio);
+    .filter(Boolean)
+    .sort((a, b) => a.index - b.index);
 
-  // Sort by closest to minRatio (smallest positive difference)
-  candidates.sort(
-    (a, b) =>
-      Math.abs(a.ratio - minRatio) -
-      Math.abs(b.ratio - minRatio)
-  );
+  // Generate ordered list of adjacent indices: +1, -1, +2, -2, ...
+  const ordered = [];
+  const seen = new Set();
+  for (
+    let offset = 1;
+    offset < sameFamily.length;
+    offset++
+  ) {
+    for (const direction of [1, -1]) {
+      const idx = baseIndex + direction * offset;
+      const candidate = sameFamily.find(
+        (t) => t.index === idx
+      );
+      if (candidate && !seen.has(candidate.key)) {
+        ordered.push(candidate);
+        seen.add(candidate.key);
+      }
+    }
+  }
 
-  return candidates.slice(0, 1);
+  // Return the first valid alternative with enough contrast
+  for (const candidate of ordered) {
+    const ratio = wcagContrast.hex(
+      candidate.color,
+      bgColor
+    );
+    if (ratio >= minRatio) {
+      return [
+        {
+          key: candidate.key,
+          color: candidate.color,
+          ratio,
+        },
+      ];
+    }
+  }
+
+  return [];
 }
 
 function validate(
