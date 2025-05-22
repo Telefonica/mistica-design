@@ -206,7 +206,8 @@
         "tagBackgroundWarningInverse",
         "tagBackgroundErrorInverse",
         "cardContentOverlay",
-        "inputBorder"
+        "inputBorder",
+        "inputBorderInverse"
       ],
       "properties": {
         "appBarBackground": { "$ref": "#/definitions/constantProperties" },
@@ -360,6 +361,7 @@
         "tagBackgroundErrorInverse": { "$ref": "#/definitions/constantProperties" },
         "cardContentOverlay": { "$ref": "#/definitions/constantProperties" },
         "inputBorder": { "$ref": "#/definitions/constantProperties" },
+        "inputBorderInverse": { "$ref": "#/definitions/constantProperties" },
         "extended": {
           "type": "object",
           "patternProperties": {
