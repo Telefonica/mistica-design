@@ -89,6 +89,46 @@ async function loadTokens(fileName) {
   }
 }
 
+function suggestForegroundAlternatives(
+  fgRef,
+  palette,
+  bgColor,
+  minRatio
+) {
+  if (!fgRef) return [];
+
+  const familyMatch = fgRef.match(
+    /^([a-zA-Z]+)[0-9]*$/
+  );
+  if (!familyMatch) return [];
+
+  const family = familyMatch[1];
+
+  const candidates = Object.entries(palette)
+    .filter(
+      ([key]) =>
+        key.startsWith(family) && key !== fgRef
+    )
+    .map(([key, token]) => {
+      const color = token.value;
+      const ratio = wcagContrast.hex(
+        color,
+        bgColor
+      );
+      return { key, color, ratio };
+    })
+    .filter((c) => c.ratio >= minRatio);
+
+  // Sort by closest to minRatio (smallest positive difference)
+  candidates.sort(
+    (a, b) =>
+      Math.abs(a.ratio - minRatio) -
+      Math.abs(b.ratio - minRatio)
+  );
+
+  return candidates.slice(0, 1);
+}
+
 function validate(
   tokensData,
   tokenFilter = null
@@ -224,7 +264,7 @@ function validate(
   return report;
 }
 
-function printReport(report) {
+function printReport(report, palette) {
   for (const [file, errors] of Object.entries(
     report.details
   )) {
@@ -327,6 +367,34 @@ function printReport(report) {
             `    Ratio: ${e.ratio} < mínimo: ${e.minRatio}`
           )
         );
+
+        // Suggest alternatives if fgRef and palette present
+        if (e.fgRef && palette) {
+          const suggestions =
+            suggestForegroundAlternatives(
+              e.fgRef,
+              palette,
+              e.bg,
+              e.minRatio
+            );
+          if (suggestions.length > 0) {
+            const family =
+              e.fgRef.match(/^([a-zA-Z]+)/)[1];
+            const formatted = suggestions
+              .map(
+                (s) =>
+                  `${s.key} (${
+                    s.color
+                  }, ${s.ratio.toFixed(2)})`
+              )
+              .join(", ");
+            console.log(
+              chalk.yellow(
+                `    ✦ Suggestion: ${formatted}`
+              )
+            );
+          }
+        }
       });
     } else {
       console.log(
@@ -405,7 +473,28 @@ async function run() {
       tokensData,
       tokenNameToCheck
     );
-    printReport(report);
+    for (const [fileName, data] of Object.entries(
+      tokensData
+    )) {
+      const palette = data.global?.palette || {};
+      if (report.details[fileName]?.length > 0) {
+        printReport(
+          {
+            filesChecked: report.filesChecked,
+            filesWithErrors:
+              report.filesWithErrors,
+            totalErrors: report.totalErrors,
+            details: {
+              [fileName]:
+                report.details[fileName],
+            },
+          },
+          palette
+        );
+      } else {
+        printReport(report, palette);
+      }
+    }
   } catch (e) {
     console.error("Error ejecutando linter:", e);
     process.exit(1);
