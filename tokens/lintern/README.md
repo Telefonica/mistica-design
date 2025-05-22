@@ -14,7 +14,7 @@ npm install
 
 ### 2. Run the linter
 
-Option A: Choose file interactively
+#### Option A: Choose file interactively
 
 ```
 npm run lintern
@@ -22,13 +22,21 @@ npm run lintern
 
 You'll be prompted to select which JSON file to validate.
 
-Option B: Pass a filename
+#### Option B: Pass a filename
 
 ```
 npm run lintern my-tokens.json
 ```
 
 This runs the validation directly on a specific file inside tokens/.
+
+#### Option C: Validate contrast for a specific token
+
+```
+npm run lintern my-tokens.json textPrimary
+```
+
+This restricts contrast validation to pairs where textPrimary is either the foreground or background token, across all themes (e.g. light.textPrimary and dark.textPrimary).
 
 ## ✅ What It Checks
 

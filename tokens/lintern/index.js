@@ -89,7 +89,10 @@ async function loadTokens(fileName) {
   }
 }
 
-function validate(tokensData) {
+function validate(
+  tokensData,
+  tokenFilter = null
+) {
   const report = {
     filesChecked: 0,
     filesWithErrors: 0,
@@ -160,6 +163,14 @@ function validate(tokensData) {
               data,
               `${theme}.${bgKey}`
             );
+
+            if (tokenFilter) {
+              const involved = [
+                fgKey,
+                bgKey,
+              ].includes(tokenFilter);
+              if (!involved) continue;
+            }
 
             if (!fgToken || !bgToken) continue;
             if (
@@ -374,16 +385,26 @@ async function promptForFile() {
 async function run() {
   try {
     const args = process.argv.slice(2);
-    let fileToCheck = args[0]; // archivo JSON opcional
+    const fileToCheck = args[0]?.endsWith(".json")
+      ? args[0]
+      : null;
+    const tokenNameToCheck = fileToCheck
+      ? args[1]
+      : args[0]; // second arg if file is present, else first arg
 
-    if (!fileToCheck) {
-      fileToCheck = await promptForFile();
+    let selectedFile = fileToCheck;
+
+    if (!selectedFile) {
+      selectedFile = await promptForFile();
     }
 
     const tokensData = await loadTokens(
-      fileToCheck
+      selectedFile
     );
-    const report = validate(tokensData);
+    const report = validate(
+      tokensData,
+      tokenNameToCheck
+    );
     printReport(report);
   } catch (e) {
     console.error("Error ejecutando linter:", e);
