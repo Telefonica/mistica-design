@@ -89,7 +89,78 @@ async function loadTokens(fileName) {
   }
 }
 
-function validate(tokensData) {
+function suggestForegroundAlternatives(
+  fgRef,
+  palette,
+  bgColor,
+  minRatio
+) {
+  if (!fgRef) return [];
+
+  const match = fgRef.match(/^([a-zA-Z]+)(\d+)$/);
+  if (!match) return [];
+
+  const family = match[1];
+  const baseIndex = parseInt(match[2], 10);
+
+  // Collect all tokens in the same family with numeric suffixes
+  const sameFamily = Object.entries(palette)
+    .map(([key, token]) => {
+      const m = key.match(/^([a-zA-Z]+)(\d+)$/);
+      if (!m || m[1] !== family) return null;
+      return {
+        key,
+        index: parseInt(m[2], 10),
+        color: token.value,
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.index - b.index);
+
+  // Generate ordered list of adjacent indices: +1, -1, +2, -2, ...
+  const ordered = [];
+  const seen = new Set();
+  for (
+    let offset = 1;
+    offset < sameFamily.length;
+    offset++
+  ) {
+    for (const direction of [1, -1]) {
+      const idx = baseIndex + direction * offset;
+      const candidate = sameFamily.find(
+        (t) => t.index === idx
+      );
+      if (candidate && !seen.has(candidate.key)) {
+        ordered.push(candidate);
+        seen.add(candidate.key);
+      }
+    }
+  }
+
+  // Return the first valid alternative with enough contrast
+  for (const candidate of ordered) {
+    const ratio = wcagContrast.hex(
+      candidate.color,
+      bgColor
+    );
+    if (ratio >= minRatio) {
+      return [
+        {
+          key: candidate.key,
+          color: candidate.color,
+          ratio,
+        },
+      ];
+    }
+  }
+
+  return [];
+}
+
+function validate(
+  tokensData,
+  tokenFilter = null
+) {
   const report = {
     filesChecked: 0,
     filesWithErrors: 0,
@@ -161,6 +232,14 @@ function validate(tokensData) {
               `${theme}.${bgKey}`
             );
 
+            if (tokenFilter) {
+              const involved = [
+                fgKey,
+                bgKey,
+              ].includes(tokenFilter);
+              if (!involved) continue;
+            }
+
             if (!fgToken || !bgToken) continue;
             if (
               isSkippable(fgToken) ||
@@ -213,7 +292,7 @@ function validate(tokensData) {
   return report;
 }
 
-function printReport(report) {
+function printReport(report, palette) {
   for (const [file, errors] of Object.entries(
     report.details
   )) {
@@ -316,6 +395,34 @@ function printReport(report) {
             `    Ratio: ${e.ratio} < mínimo: ${e.minRatio}`
           )
         );
+
+        // Suggest alternatives if fgRef and palette present
+        if (e.fgRef && palette) {
+          const suggestions =
+            suggestForegroundAlternatives(
+              e.fgRef,
+              palette,
+              e.bg,
+              e.minRatio
+            );
+          if (suggestions.length > 0) {
+            const family =
+              e.fgRef.match(/^([a-zA-Z]+)/)[1];
+            const formatted = suggestions
+              .map(
+                (s) =>
+                  `${s.key} (${
+                    s.color
+                  }, ${s.ratio.toFixed(2)})`
+              )
+              .join(", ");
+            console.log(
+              chalk.yellow(
+                `    ✦ Suggestion: ${formatted}`
+              )
+            );
+          }
+        }
       });
     } else {
       console.log(
@@ -374,17 +481,48 @@ async function promptForFile() {
 async function run() {
   try {
     const args = process.argv.slice(2);
-    let fileToCheck = args[0]; // archivo JSON opcional
+    const fileToCheck = args[0]?.endsWith(".json")
+      ? args[0]
+      : null;
+    const tokenNameToCheck = fileToCheck
+      ? args[1]
+      : args[0]; // second arg if file is present, else first arg
 
-    if (!fileToCheck) {
-      fileToCheck = await promptForFile();
+    let selectedFile = fileToCheck;
+
+    if (!selectedFile) {
+      selectedFile = await promptForFile();
     }
 
     const tokensData = await loadTokens(
-      fileToCheck
+      selectedFile
     );
-    const report = validate(tokensData);
-    printReport(report);
+    const report = validate(
+      tokensData,
+      tokenNameToCheck
+    );
+    for (const [fileName, data] of Object.entries(
+      tokensData
+    )) {
+      const palette = data.global?.palette || {};
+      if (report.details[fileName]?.length > 0) {
+        printReport(
+          {
+            filesChecked: report.filesChecked,
+            filesWithErrors:
+              report.filesWithErrors,
+            totalErrors: report.totalErrors,
+            details: {
+              [fileName]:
+                report.details[fileName],
+            },
+          },
+          palette
+        );
+      } else {
+        printReport(report, palette);
+      }
+    }
   } catch (e) {
     console.error("Error ejecutando linter:", e);
     process.exit(1);
