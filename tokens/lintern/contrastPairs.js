@@ -140,6 +140,7 @@ export const contrastPairs = [
     fg: [
       "controlInverse",
       "controlActivatedInverse",
+      "inputBorderInverse",
     ],
     bg: [
       "backgroundBrand",
