@@ -225,37 +225,57 @@
       "type": "color",
       "description": "blue"
     },
-    "buttonSecondaryBorderPressed": {
-      "value": "{palette.blue70}",
-      "type": "color",
-      "description": "blue70"
-    },
-    "buttonSecondaryBackgroundHover": {
-      "value": "{palette.blue10}",
-      "type": "color",
-      "description": "blue10"
-    },
-    "buttonSecondaryBackgroundPressed": {
-      "value": "{palette.blue10}",
-      "type": "color",
-      "description": "blue10"
-    },
     "buttonSecondaryBorderInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
+    },
+    "buttonSecondaryBorderMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderPressed": {
+      "value": "{palette.blue70}",
+      "type": "color",
+      "description": "blue70"
     },
     "buttonSecondaryBorderInversePressed": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBorderMediaPressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundHover": {
+      "value": "{palette.blue10}",
+      "type": "color",
+      "description": "blue10"
+    },
     "buttonSecondaryBackgroundInverseHover": {
       "value": "rgba({palette.white}, 0.1)",
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBackgroundMediaHover": {
+      "value": "rgba({palette.white}, 0.1)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundPressed": {
+      "value": "{palette.blue10}",
+      "type": "color",
+      "description": "blue10"
+    },
     "buttonSecondaryBackgroundInversePressed": {
+      "value": "rgba({palette.white}, 0.1)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundMediaPressed": {
       "value": "rgba({palette.white}, 0.1)",
       "type": "color",
       "description": "white"
@@ -290,17 +310,27 @@
       "type": "color",
       "description": "blue"
     },
-    "textButtonSecondaryPressed": {
-      "value": "{palette.blue70}",
-      "type": "color",
-      "description": "blue70"
-    },
     "textButtonSecondaryInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+    "textButtonSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textButtonSecondaryPressed": {
+      "value": "{palette.blue70}",
+      "type": "color",
+      "description": "blue70"
+    },
     "textButtonSecondaryInversePressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textButtonSecondaryMediaPressed": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
@@ -1028,22 +1058,7 @@
       "type": "color",
       "description": "white"
     },
-    "buttonSecondaryBackgroundPressed": {
-      "value": "rgba({palette.grey2}, 0.15)",
-      "type": "color",
-      "description": "grey2"
-    },
     "buttonSecondaryBorder": {
-      "value": "{palette.grey2}",
-      "type": "color",
-      "description": "grey2"
-    },
-    "buttonSecondaryBackgroundHover": {
-      "value": "rgba({palette.grey2}, 0.15)",
-      "type": "color",
-      "description": "grey2"
-    },
-    "buttonSecondaryBorderPressed": {
       "value": "{palette.grey2}",
       "type": "color",
       "description": "grey2"
@@ -1053,8 +1068,28 @@
       "type": "color",
       "description": "grey2"
     },
+    "buttonSecondaryBorderMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderPressed": {
+      "value": "{palette.grey2}",
+      "type": "color",
+      "description": "grey2"
+    },
     "buttonSecondaryBorderInversePressed": {
       "value": "{palette.grey2}",
+      "type": "color",
+      "description": "grey2"
+    },
+    "buttonSecondaryBorderMediaPressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundHover": {
+      "value": "rgba({palette.grey2}, 0.15)",
       "type": "color",
       "description": "grey2"
     },
@@ -1063,10 +1098,25 @@
       "type": "color",
       "description": "grey2"
     },
+    "buttonSecondaryBackgroundMediaHover": {
+      "value": "rgba({palette.white}, 0.1)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundPressed": {
+      "value": "rgba({palette.grey2}, 0.15)",
+      "type": "color",
+      "description": "grey2"
+    },
     "buttonSecondaryBackgroundInversePressed": {
       "value": "rgba({palette.grey2}, 0.15)",
       "type": "color",
       "description": "grey2"
+    },
+    "buttonSecondaryBackgroundMediaPressed": {
+      "value": "rgba({palette.white}, 0.1)",
+      "type": "color",
+      "description": "white"
     },
     "textButtonPrimary": {
       "value": "{palette.primary}",
@@ -1098,12 +1148,17 @@
       "type": "color",
       "description": "grey2"
     },
-    "textButtonSecondaryPressed": {
+    "textButtonSecondaryInverse": {
       "value": "{palette.grey2}",
       "type": "color",
       "description": "grey2"
     },
-    "textButtonSecondaryInverse": {
+    "textButtonSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textButtonSecondaryPressed": {
       "value": "{palette.grey2}",
       "type": "color",
       "description": "grey2"
@@ -1112,6 +1167,11 @@
       "value": "{palette.grey2}",
       "type": "color",
       "description": "grey2"
+    },
+    "textButtonSecondaryMediaPressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "textLink": {
       "value": "{palette.blue30}",
