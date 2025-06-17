@@ -185,17 +185,37 @@
       "type": "color",
       "description": "white"
     },
-    "buttonPrimaryBackgroundPressed": {
-      "value": "{palette.primary45}",
+    "buttonPrimaryBackgroundMedia": {
+      "value": "{palette.white}",
       "type": "color",
-      "description": "primary45"
+      "description": "white"
     },
     "buttonPrimaryBackgroundHover": {
       "value": "{palette.primary45}",
       "type": "color",
       "description": "primary45"
     },
+    "buttonPrimaryBackgroundInverseHover": {
+      "value": "rgba({palette.white}, 0.8)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonPrimaryBackgroundMediaHover": {
+      "value": "rgba({palette.white}, 0.8)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonPrimaryBackgroundPressed": {
+      "value": "{palette.primary45}",
+      "type": "color",
+      "description": "primary45"
+    },
     "buttonPrimaryBackgroundInversePressed": {
+      "value": "rgba({palette.white}, 0.8)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonPrimaryBackgroundMediaPressed": {
       "value": "rgba({palette.white}, 0.8)",
       "type": "color",
       "description": "white"
@@ -250,7 +270,17 @@
       "type": "color",
       "description": "primary"
     },
+    "textButtonPrimaryMedia": {
+      "value": "{palette.primary}",
+      "type": "color",
+      "description": "primary"
+    },
     "textButtonPrimaryInversePressed": {
+      "value": "{palette.primary}",
+      "type": "color",
+      "description": "primary"
+    },
+    "textButtonPrimaryMediaPressed": {
       "value": "{palette.primary}",
       "type": "color",
       "description": "primary"
@@ -963,12 +993,27 @@
       "type": "color",
       "description": "grey2"
     },
-    "buttonPrimaryBackgroundPressed": {
+    "buttonPrimaryBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonPrimaryBackgroundHover": {
       "value": "{palette.grey3}",
       "type": "color",
       "description": "grey3"
     },
-    "buttonPrimaryBackgroundHover": {
+    "buttonPrimaryBackgroundInverseHover": {
+      "value": "{palette.grey3}",
+      "type": "color",
+      "description": "grey3"
+    },
+    "buttonPrimaryBackgroundMediaHover": {
+      "value": "rgba({palette.white}, 0.8)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonPrimaryBackgroundPressed": {
       "value": "{palette.grey3}",
       "type": "color",
       "description": "grey3"
@@ -977,6 +1022,11 @@
       "value": "{palette.grey3}",
       "type": "color",
       "description": "grey3"
+    },
+    "buttonPrimaryBackgroundMediaPressed": {
+      "value": "rgba({palette.white}, 0.8)",
+      "type": "color",
+      "description": "white"
     },
     "buttonSecondaryBackgroundPressed": {
       "value": "rgba({palette.grey2}, 0.15)",
@@ -1028,7 +1078,17 @@
       "type": "color",
       "description": "primary"
     },
+    "textButtonPrimaryMedia": {
+      "value": "{palette.primary}",
+      "type": "color",
+      "description": "primary"
+    },
     "textButtonPrimaryInversePressed": {
+      "value": "{palette.primary}",
+      "type": "color",
+      "description": "primary"
+    },
+    "textButtonPrimaryMediaPressed": {
       "value": "{palette.primary}",
       "type": "color",
       "description": "primary"
