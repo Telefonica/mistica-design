@@ -1,7 +1,5 @@
 # Figma Changelog
 
-[18.0.1](changelog-versions/18.0.1.md)
-
 [17.4.1](changelog-versions/17.4.1.md)
 
 [17.4.0](changelog-versions/17.4.0.md)
@@ -147,4 +145,5 @@
 [4.8.0](changelog-versions/4.8.0.md)
 
 ---
+
 [Changelog history →](https://paper.dropbox.com/doc/Changelog-Mistica-Design-System--BlDyPv0kWq8W502b64VVIPMsAQ-il1pWXaGur0Nm88P831X2)
