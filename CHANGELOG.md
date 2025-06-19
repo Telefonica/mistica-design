@@ -2,6 +2,8 @@
 
 [18.0.1](changelog-versions/18.0.1.md)
 
+[17.4.1](changelog-versions/17.4.1.md)
+
 [17.4.0](changelog-versions/17.4.0.md)
 
 [17.3.0](changelog-versions/17.3.0.md)
