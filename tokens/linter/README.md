@@ -7,7 +7,7 @@ A CLI tool to validate and enforce consistency, accessibility, and structure in 
 ### 1. Install dependencies
 
 ```
-cd tokens/lintern
+cd tokens/linter
 
 npm install
 ```
@@ -17,7 +17,7 @@ npm install
 #### Option A: Choose file interactively
 
 ```
-npm run lintern
+npm run linter
 ```
 
 You'll be prompted to select which JSON file to validate.
@@ -25,7 +25,7 @@ You'll be prompted to select which JSON file to validate.
 #### Option B: Pass a filename
 
 ```
-npm run lintern my-tokens.json
+npm run linter my-tokens.json
 ```
 
 This runs the validation directly on a specific file inside tokens/.
@@ -33,7 +33,7 @@ This runs the validation directly on a specific file inside tokens/.
 #### Option C: Validate contrast for a specific token
 
 ```
-npm run lintern my-tokens.json textPrimary
+npm run linter my-tokens.json textPrimary
 ```
 
 This restricts contrast validation to pairs where textPrimary is either the foreground or background token, across all themes (e.g. light.textPrimary and dark.textPrimary).
@@ -51,7 +51,7 @@ Detects references to {palette.xxx} that do not exist in global.palette.
 
 ## 🛠 Customizing Pairs
 
-You can edit contrast rules in lintern/contrastPairs.js:
+You can edit contrast rules in linter/contrastPairs.js:
 
 ```
 export const contrastPairs = [
