@@ -182,17 +182,27 @@
       "type": "color",
       "description": "o2Red65"
     },
-    "buttonLinkDangerBackgroundPressed": {
-      "value": "{palette.o2Red10}",
-      "type": "color",
-      "description": "o2Red10"
-    },
     "buttonLinkDangerBackgroundInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+    "buttonLinkDangerBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkDangerBackgroundPressed": {
+      "value": "{palette.o2Red10}",
+      "type": "color",
+      "description": "o2Red10"
+    },
     "buttonLinkDangerBackgroundInversePressed": {
+      "value": "{palette.o2Red10}",
+      "type": "color",
+      "description": "o2Red10"
+    },
+    "buttonLinkDangerBackgroundMediaPressed": {
       "value": "{palette.o2Red10}",
       "type": "color",
       "description": "o2Red10"
@@ -207,6 +217,11 @@
       "type": "color",
       "description": "white"
     },
+    "buttonLinkBackgroundMediaPressed": {
+      "value": "rgba({palette.white}, 0.08)",
+      "type": "color",
+      "description": "white"
+    },
     "buttonPrimaryBackground": {
       "value": "{palette.beyondBlue}",
       "type": "color",
@@ -217,12 +232,27 @@
       "type": "color",
       "description": "white"
     },
-    "buttonPrimaryBackgroundPressed": {
+    "buttonPrimaryBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonPrimaryBackgroundHover": {
       "value": "{palette.beyondBlue70}",
       "type": "color",
       "description": "beyondBlue70"
     },
-    "buttonPrimaryBackgroundHover": {
+    "buttonPrimaryBackgroundInverseHover": {
+      "value": "{palette.beyondBlue30}",
+      "type": "color",
+      "description": "beyondBlue30"
+    },
+    "buttonPrimaryBackgroundMediaHover": {
+      "value": "{palette.beyondBlue30}",
+      "type": "color",
+      "description": "beyondBlue30"
+    },
+    "buttonPrimaryBackgroundPressed": {
       "value": "{palette.beyondBlue70}",
       "type": "color",
       "description": "beyondBlue70"
@@ -232,42 +262,67 @@
       "type": "color",
       "description": "beyondBlue30"
     },
+    "buttonPrimaryBackgroundMediaPressed": {
+      "value": "{palette.beyondBlue30}",
+      "type": "color",
+      "description": "beyondBlue30"
+    },
     "buttonSecondaryBorder": {
       "value": "{palette.beyondBlue}",
       "type": "color",
       "description": "beyondBlue"
-    },
-    "buttonSecondaryBorderPressed": {
-      "value": "{palette.beyondBlue70}",
-      "type": "color",
-      "description": "beyondBlue70"
-    },
-    "buttonSecondaryBackgroundHover": {
-      "value": "{palette.beyondBlue10}",
-      "type": "color",
-      "description": "beyondBlue10"
-    },
-    "buttonSecondaryBackgroundPressed": {
-      "value": "{palette.beyondBlue10}",
-      "type": "color",
-      "description": "beyondBlue10"
     },
     "buttonSecondaryBorderInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBorderMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderPressed": {
+      "value": "{palette.beyondBlue70}",
+      "type": "color",
+      "description": "beyondBlue70"
+    },
     "buttonSecondaryBorderInversePressed": {
       "value": "{palette.beyondBlue30}",
       "type": "color",
       "description": "beyondBlue30"
+    },
+    "buttonSecondaryBorderMediaPressed": {
+      "value": "{palette.beyondBlue30}",
+      "type": "color",
+      "description": "beyondBlue30"
+    },
+    "buttonSecondaryBackgroundHover": {
+      "value": "{palette.beyondBlue10}",
+      "type": "color",
+      "description": "beyondBlue10"
     },
     "buttonSecondaryBackgroundInverseHover": {
       "value": "rgba({palette.white}, 0.15)",
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBackgroundMediaHover": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundPressed": {
+      "value": "{palette.beyondBlue10}",
+      "type": "color",
+      "description": "beyondBlue10"
+    },
     "buttonSecondaryBackgroundInversePressed": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundMediaPressed": {
       "value": "rgba({palette.white}, 0.15)",
       "type": "color",
       "description": "white"
@@ -282,7 +337,17 @@
       "type": "color",
       "description": "beyondBlue"
     },
+    "textButtonPrimaryMedia": {
+      "value": "{palette.beyondBlue}",
+      "type": "color",
+      "description": "beyondBlue"
+    },
     "textButtonPrimaryInversePressed": {
+      "value": "{palette.beyondBlue70}",
+      "type": "color",
+      "description": "beyondBlue70"
+    },
+    "textButtonPrimaryMediaPressed": {
       "value": "{palette.beyondBlue70}",
       "type": "color",
       "description": "beyondBlue70"
@@ -292,17 +357,27 @@
       "type": "color",
       "description": "beyondBlue"
     },
-    "textButtonSecondaryPressed": {
-      "value": "{palette.beyondBlue70}",
-      "type": "color",
-      "description": "beyondBlue70"
-    },
     "textButtonSecondaryInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+    "textButtonSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textButtonSecondaryPressed": {
+      "value": "{palette.beyondBlue70}",
+      "type": "color",
+      "description": "beyondBlue70"
+    },
     "textButtonSecondaryInversePressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textButtonSecondaryMediaPressed": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
@@ -317,7 +392,17 @@
       "type": "color",
       "description": "white"
     },
+    "textLinkMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "textLinkDanger": {
+      "value": "{palette.o2Red65}",
+      "type": "color",
+      "description": "o2Red65"
+    },
+    "textLinkDangerMedia": {
       "value": "{palette.o2Red65}",
       "type": "color",
       "description": "o2Red65"
@@ -965,13 +1050,18 @@
       "type": "color",
       "description": "o2Red65"
     },
-    "buttonLinkDangerBackgroundPressed": {
-      "value": "rgba({palette.white}, 0.08)",
+    "buttonLinkDangerBackgroundInverse": {
+      "value": "rgba({palette.white}, 0)",
       "type": "color",
       "description": "white"
     },
-    "buttonLinkDangerBackgroundInverse": {
-      "value": "rgba({palette.white}, 0)",
+    "buttonLinkDangerBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkDangerBackgroundPressed": {
+      "value": "rgba({palette.white}, 0.08)",
       "type": "color",
       "description": "white"
     },
@@ -980,12 +1070,22 @@
       "type": "color",
       "description": "white"
     },
+    "buttonLinkDangerBackgroundMediaPressed": {
+      "value": "{palette.o2Red10}",
+      "type": "color",
+      "description": "o2Red10"
+    },
     "buttonLinkBackgroundPressed": {
       "value": "rgba({palette.white}, 0.08)",
       "type": "color",
       "description": "white"
     },
     "buttonLinkBackgroundInversePressed": {
+      "value": "rgba({palette.white}, 0.08)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkBackgroundMediaPressed": {
       "value": "rgba({palette.white}, 0.08)",
       "type": "color",
       "description": "white"
@@ -1000,12 +1100,27 @@
       "type": "color",
       "description": "darkModeBeyondBlue"
     },
-    "buttonPrimaryBackgroundPressed": {
+    "buttonPrimaryBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonPrimaryBackgroundHover": {
       "value": "{palette.beyondBlue55}",
       "type": "color",
       "description": "beyondBlue55"
     },
-    "buttonPrimaryBackgroundHover": {
+    "buttonPrimaryBackgroundInverseHover": {
+      "value": "{palette.beyondBlue55}",
+      "type": "color",
+      "description": "beyondBlue55"
+    },
+    "buttonPrimaryBackgroundMediaHover": {
+      "value": "{palette.beyondBlue30}",
+      "type": "color",
+      "description": "beyondBlue30"
+    },
+    "buttonPrimaryBackgroundPressed": {
       "value": "{palette.beyondBlue55}",
       "type": "color",
       "description": "beyondBlue55"
@@ -1015,17 +1130,12 @@
       "type": "color",
       "description": "beyondBlue55"
     },
-    "buttonSecondaryBackgroundPressed": {
-      "value": "rgba({palette.white}, 0.15)",
+    "buttonPrimaryBackgroundMediaPressed": {
+      "value": "{palette.beyondBlue30}",
       "type": "color",
-      "description": "white"
+      "description": "beyondBlue30"
     },
     "buttonSecondaryBorder": {
-      "value": "{palette.white}",
-      "type": "color",
-      "description": "white"
-    },
-    "buttonSecondaryBorderPressed": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
@@ -1035,10 +1145,25 @@
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBorderMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderPressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "buttonSecondaryBorderInversePressed": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
+    },
+    "buttonSecondaryBorderMediaPressed": {
+      "value": "{palette.beyondBlue30}",
+      "type": "color",
+      "description": "beyondBlue30"
     },
     "buttonSecondaryBackgroundHover": {
       "value": "rgba({palette.white}, 0.15)",
@@ -1050,7 +1175,22 @@
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBackgroundMediaHover": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundPressed": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
     "buttonSecondaryBackgroundInversePressed": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundMediaPressed": {
       "value": "rgba({palette.white}, 0.15)",
       "type": "color",
       "description": "white"
@@ -1065,17 +1205,22 @@
       "type": "color",
       "description": "white"
     },
+    "textButtonPrimaryMedia": {
+      "value": "{palette.beyondBlue}",
+      "type": "color",
+      "description": "beyondBlue"
+    },
     "textButtonPrimaryInversePressed": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
-    "textButtonSecondary": {
-      "value": "{palette.grey30}",
+    "textButtonPrimaryMediaPressed": {
+      "value": "{palette.beyondBlue70}",
       "type": "color",
-      "description": "grey30"
+      "description": "beyondBlue70"
     },
-    "textButtonSecondaryPressed": {
+    "textButtonSecondary": {
       "value": "{palette.grey30}",
       "type": "color",
       "description": "grey30"
@@ -1085,10 +1230,25 @@
       "type": "color",
       "description": "grey30"
     },
+    "textButtonSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textButtonSecondaryPressed": {
+      "value": "{palette.grey30}",
+      "type": "color",
+      "description": "grey30"
+    },
     "textButtonSecondaryInversePressed": {
       "value": "{palette.grey30}",
       "type": "color",
       "description": "grey30"
+    },
+    "textButtonSecondaryMediaPressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "textLink": {
       "value": "{palette.beyondBlue40}",
@@ -1100,10 +1260,20 @@
       "type": "color",
       "description": "beyondBlue40"
     },
+    "textLinkMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "textLinkDanger": {
       "value": "{palette.o2Red45}",
       "type": "color",
       "description": "o2Red45"
+    },
+    "textLinkDangerMedia": {
+      "value": "{palette.o2Red65}",
+      "type": "color",
+      "description": "o2Red65"
     },
     "textLinkSnackbar": {
       "value": "{palette.beyondBlue30}",
