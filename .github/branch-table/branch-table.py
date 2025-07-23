@@ -3,6 +3,56 @@ import pandas as pd
 import os
 import re
 from datetime import datetime, timezone
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Function to get the status of an issue from GitHub Projects (GraphQL)
+def get_issue_status(repo_owner, repo_name, issue_number, github_token):
+    url = "https://api.github.com/graphql"
+    headers = {
+        "Authorization": f"Bearer {github_token}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+    
+    query = """
+    query($owner: String!, $repo: String!, $issueNumber: Int!) {
+      repository(owner: $owner, name: $repo) {
+        issue(number: $issueNumber) {
+          projectItems(first: 50) {
+            nodes {
+              fieldValueByName(name: "Status") {
+                ... on ProjectV2ItemFieldSingleSelectValue {
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    """
+    
+    variables = {
+        "owner": repo_owner,
+        "repo": repo_name,
+        "issueNumber": int(issue_number)
+    }
+    
+    response = requests.post(url, json={"query": query, "variables": variables}, headers=headers)
+    
+    print("GitHub GraphQL Response:", response.json()) 
+    
+    if response.status_code == 200:
+        data = response.json()
+        try:
+            status = data["data"]["repository"]["issue"]["projectItems"]["nodes"][0]["fieldValueByName"]["name"]
+            return status if status else "No Status"
+        except (IndexError, TypeError, KeyError):
+            return "Unknown"
+    else:
+        print(f"Error fetching issue status: {response.status_code} - {response.text}")
+        return "Error"
 
 # Function to get the files from specific Figma projects
 def get_figma_project_files(project_ids, figma_token):
@@ -60,7 +110,7 @@ def format_time_difference(days):
     return ", ".join(formatted_time)
 
 # Function to process files and generate a table with the desired information
-def analyze_files(file_keys, figma_token):
+def analyze_files(file_keys, figma_token, repo_owner, repo_name, github_token):
     table_data = []
     
     for file in file_keys:
@@ -72,7 +122,6 @@ def analyze_files(file_keys, figma_token):
             branches = file_data.get("branches", [])
             num_branches = len(branches)
             
-            # Only add the file if it has branches
             if num_branches > 0:
                 first_branch = True
                 for branch in branches:
@@ -81,9 +130,13 @@ def analyze_files(file_keys, figma_token):
                     
                     # Extract the issue number using regex
                     issue_match = re.match(r"#(\d+)", branch_name)
-                    issue_number = "#" + issue_match.group(1) if issue_match else ""
+                    issue_number = issue_match.group(1) if issue_match else None
+                    issue_display = f"#{issue_number}" if issue_number else ""
 
-                   # Calculate the days since the last modification using timezone-aware datetime
+                    # Get the issue status from GitHub
+                    issue_status = get_issue_status(repo_owner, repo_name, issue_number, github_token) if issue_number else ""
+
+                    # Calculate the days since the last modification using timezone-aware datetime
                     last_modified_str = branch["last_modified"]
                     last_modified_dt = datetime.strptime(last_modified_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
                     current_time = datetime.now(timezone.utc)
@@ -94,16 +147,14 @@ def analyze_files(file_keys, figma_token):
                     
                     table_data.append({
                         "File Name": file_name if first_branch else "",
-                        # "Branches": num_branches if first_branch else "",
                         "Branch Names": branch_link,
-                        "Issue": issue_number,
+                        "Issue": issue_display,
+                        "Status": issue_status,
                         "Last Modification": formatted_time
                     })
 
-                    # After the first branch, set first_branch to False
                     first_branch = False
     
-    # Create a DataFrame with the collected information
     df = pd.DataFrame(table_data)
     return df
 
@@ -129,32 +180,31 @@ def update_github_issue(issue_number, repo_owner, repo_name, markdown_content, g
 figma_token = os.getenv("FIGMA_TOKEN")
 github_token = os.getenv("GITHUB_TOKEN")
 
-# List of project IDs to fetch files from
+# GitHub repo details
+repo_owner = "Telefonica"
+repo_name = "mistica-design"
+
+# List of Figma project IDs
 project_ids = [
-    "25719143", # Mística Libraries
+    "25719143",  # Mística Libraries
     "266390224", # Mística Skins Libraries
-    "27955986", # Specs
+    "27955986",  # Specs
     "170790970", # Community Specs
-    "30110755" # Materials
-    # Add more project id here
+    "30110755"   # Materials
 ]
 
 # Fetch all file keys from the specified Figma projects
 file_keys = get_figma_project_files(project_ids, figma_token)
 
 # Analyze the files and generate the table
-df = analyze_files(file_keys, figma_token)
+df = analyze_files(file_keys, figma_token, repo_owner, repo_name, github_token)
 
 # Convert the table to markdown format
 markdown_table = df.to_markdown(index=False)
 
 # Update the issue on GitHub
-repo_owner = "Telefonica"
-repo_name = "mistica-design"
-issue_number = 1927  # Change this number to the issue number you want to update
-
+issue_number = 1927  # Change this as needed
 update_github_issue(issue_number, repo_owner, repo_name, markdown_table, github_token)
 
 # Print the table to the console
 print(markdown_table)
-

@@ -13,6 +13,7 @@ concurrency:
 
 jobs:
   chatgpt:
+    if: ${{ github.event.pull_request.body == '' || github.event.pull_request.body == null }}
     runs-on: ubuntu-latest
     steps:
       - uses: platisd/openai-pr-description@master

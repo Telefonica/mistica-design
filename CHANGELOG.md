@@ -1,5 +1,33 @@
 # Figma Changelog
 
+## [18.0.0](changelog-versions/18.0.0.md)
+
+[17.4.1](changelog-versions/17.4.1.md)
+
+[17.4.0](changelog-versions/17.4.0.md)
+
+[17.3.0](changelog-versions/17.3.0.md)
+
+[17.2.0](changelog-versions/17.2.0.md)
+
+[17.1.0](changelog-versions/17.1.0.md)
+
+## [17.0.0](changelog-versions/17.0.0.md)
+
+[16.4.0](changelog-versions/16.4.0.md)
+
+[16.3.0](changelog-versions/16.3.0.md)
+
+[16.2.0](changelog-versions/16.2.0.md)
+
+[16.1.1](changelog-versions/16.1.1.md)
+
+[16.1.0](changelog-versions/16.1.0.md)
+
+## [16.0.0](changelog-versions/16.0.0.md)
+
+[15.3.0](changelog-versions/15.3.0.md)
+
 [15.2.0](changelog-versions/15.2.0.md)
 
 [15.1.0](changelog-versions/15.1.0.md)

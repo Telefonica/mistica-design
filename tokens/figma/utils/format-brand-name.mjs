@@ -9,6 +9,10 @@ function formatBrandName(brand) {
     return "Telefónica";
   }
 
+  if (brand === "esimflag") {
+    return "eSimFLAG";
+  }
+
   // For other brands, remove the hyphen and convert to sentence case
   return brand
     .replace(/-/g, " ") // Remove hyphens and replace with spaces
