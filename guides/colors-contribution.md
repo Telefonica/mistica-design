@@ -181,7 +181,7 @@ And gradient definitions:
 
 Where the value an object with the angle and the different color stops of the gradient.
 
-Note: Altough gradients can either use solid or transparent colors we recommend to use transparent rgba() colors with a value of 1 if solid since we have some overrides in our components that need this format (cardContentoverlay token for example should use rgba() colors)
+Note: Altough gradients can either use solid or transparent colors we recommend to use transparent rgba() colors with a value of 1 if solid since we have some overrides in our components that need this format (`cardContentOverlay` token for example should use rgba() colors)
 
 Constants allow the following modifications:
 
