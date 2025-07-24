@@ -135,7 +135,7 @@ It must follow the following format:
 ```
 "name": {
   "value": "the desired value",
-  "type": "color"
+  "type": "color" | "linear-gradient"
 }
 ```
 
@@ -156,6 +156,32 @@ It's also possible to apply opacity modifications to the values:
 ```
 
 Where 0.5 is the alpha channel and can have a value between 0 and 1.
+
+And gradient definitions:
+
+```
+ "value":  {
+        "angle": 180,
+        "colors": [
+          {
+            "value": "rgba({palette.white}, 0)",
+            "stop": 0
+          },
+          {
+            "value": "rgba({palette.white}, 0.4)",
+            "stop": 0.3
+          },
+          {
+            "value": "rgba({palette.white}, 0.7)",
+            "stop": 1
+          }
+        ]
+      }
+```
+
+Where the value an object with the angle and the different color stops of the gradient.
+
+Note: Altough gradients can either use solid or transparent colors we recommend to use transparent rgba() colors with a value of 1 if solid since we have some overrides in our components that need this format (cardContentoverlay token for example should use rgba() colors)
 
 Constants allow the following modifications:
 
@@ -215,7 +241,7 @@ In order to add a new constant you need to add a new entry in:
 
 - `global` / `constants` / `required`: `"yourTokenName"`
 - `global` / `constants` / `properties`: `"yourTokenName": { "$ref": "#/definitions/constantProperties" }`,
- 
+
 ![add-constant](https://github.com/Telefonica/mistica-design/assets/44420072/35c596af-6b40-457d-a43f-e25cba010e64)
 
 ### Add a new variable
@@ -227,10 +253,9 @@ To add a new variable you need to update the constant properties:
 
 ![add-variable](https://github.com/Telefonica/mistica-design/assets/44420072/a2516b84-5b2a-4484-8557-f5804b276559)
 
-
 Inside both arrays you can find all the brands so you can add the variable names needed.
 
-Each `pattern` has two regex expressions combined (rgba and non rgba values), so you will need to add two entries of the variable name. 
+Each `pattern` has two regex expressions combined (rgba and non rgba values), so you will need to add two entries of the variable name.
 
 You'll need to update also the regex that checks that valid description is provided:
 
