@@ -42,7 +42,7 @@ For these special cases, we suggest creating **extended tokens** and recommend f
 
 ## Mística Brand Palettes
 
-In Mística, we offer **brand palettes**—a combination of the brand’s official palette and additional colors derived from it to cover system-specific cases (for example, a hover color).
+In Mística, we offer **brand palettes** a combination of the brand’s official palette and additional colors derived from it to cover system-specific cases (for example, a hover color).
 
 These brand palettes have **no implicit logic**. Instead, they are used as a base to build color tokens in Mística.
 
