@@ -1,3 +1,5 @@
+# Token releases
+
 Every time a token or group of tokens are added, modified or removed a new release in the mistica-design repo will be created following semantic versioning scheme.
 
 - Major:
