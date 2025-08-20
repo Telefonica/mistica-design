@@ -68,3 +68,7 @@ I need a new token for my product because the `backgroundContainer` logic, when 
 - Dark mode value: instead of `{palette.darkModeGrey}`, I change it to `{palette.grey4}`
 
 3. Now I have a token that uses the brand palette but has its own custom logic.
+
+## Caveats of using extended tokens
+
+Using **brand palette** values underneath helps with color updates coming from Mística supported brands but also a **brand palette** color name could change, when updating Mística, extended tokens have also to be reviewed if needed to avoid problems
