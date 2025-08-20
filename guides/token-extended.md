@@ -2,6 +2,10 @@
 
 Although Mística tokens cover most of the needs a product may have in terms of color or other visual properties, there may be cases where specific tokens need to be created to address scenarios not covered by the default Mística skins.
 
+More information:
+
+* [Brand factory: Extended tokens](https://brandfactory.telefonica.com/document/1846#/fundamentals/customization/design-tokens)
+
 ## Implicit Logic in Mística Tokens
 
 Mística tokens follow certain implicit rules:
