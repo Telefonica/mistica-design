@@ -150,17 +150,27 @@
       "type": "color",
       "description": "coral65"
     },
-    "buttonLinkDangerBackgroundPressed": {
-      "value": "{palette.coral10}",
-      "type": "color",
-      "description": "coral10"
-    },
     "buttonLinkDangerBackgroundInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+    "buttonLinkDangerBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkDangerBackgroundPressed": {
+      "value": "{palette.coral10}",
+      "type": "color",
+      "description": "coral10"
+    },
     "buttonLinkDangerBackgroundInversePressed": {
+      "value": "{palette.coral10}",
+      "type": "color",
+      "description": "coral10"
+    },
+    "buttonLinkDangerBackgroundMediaPressed": {
       "value": "{palette.coral10}",
       "type": "color",
       "description": "coral10"
@@ -175,6 +185,11 @@
       "type": "color",
       "description": "white"
     },
+    "buttonLinkBackgroundMediaPressed": {
+      "value": "rgba({palette.white}, 0.08)",
+      "type": "color",
+      "description": "white"
+    },
     "buttonPrimaryBackground": {
       "value": "{palette.telefonicaBlue}",
       "type": "color",
@@ -185,12 +200,27 @@
       "type": "color",
       "description": "white"
     },
-    "buttonPrimaryBackgroundPressed": {
+    "buttonPrimaryBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonPrimaryBackgroundHover": {
       "value": "{palette.telefonicaBlue70}",
       "type": "color",
       "description": "telefonicaBlue70"
     },
-    "buttonPrimaryBackgroundHover": {
+    "buttonPrimaryBackgroundInverseHover": {
+      "value": "{palette.telefonicaBlue10}",
+      "type": "color",
+      "description": "telefonicaBlue10"
+    },
+    "buttonPrimaryBackgroundMediaHover": {
+      "value": "{palette.telefonicaBlue10}",
+      "type": "color",
+      "description": "telefonicaBlue10"
+    },
+    "buttonPrimaryBackgroundPressed": {
       "value": "{palette.telefonicaBlue70}",
       "type": "color",
       "description": "telefonicaBlue70"
@@ -200,42 +230,67 @@
       "type": "color",
       "description": "telefonicaBlue10"
     },
+    "buttonPrimaryBackgroundMediaPressed": {
+      "value": "{palette.telefonicaBlue10}",
+      "type": "color",
+      "description": "telefonicaBlue10"
+    },
     "buttonSecondaryBorder": {
       "value": "{palette.telefonicaBlue}",
       "type": "color",
       "description": "telefonicaBlue"
-    },
-    "buttonSecondaryBorderPressed": {
-      "value": "{palette.telefonicaBlue70}",
-      "type": "color",
-      "description": "telefonicaBlue70"
-    },
-    "buttonSecondaryBackgroundHover": {
-      "value": "{palette.telefonicaBlue10}",
-      "type": "color",
-      "description": "telefonicaBlue10"
-    },
-    "buttonSecondaryBackgroundPressed": {
-      "value": "{palette.telefonicaBlue10}",
-      "type": "color",
-      "description": "telefonicaBlue10"
     },
     "buttonSecondaryBorderInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBorderMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderPressed": {
+      "value": "{palette.telefonicaBlue70}",
+      "type": "color",
+      "description": "telefonicaBlue70"
+    },
     "buttonSecondaryBorderInversePressed": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
+    },
+    "buttonSecondaryBorderMediaPressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundHover": {
+      "value": "{palette.telefonicaBlue10}",
+      "type": "color",
+      "description": "telefonicaBlue10"
     },
     "buttonSecondaryBackgroundInverseHover": {
       "value": "rgba({palette.white}, 0.1)",
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBackgroundMediaHover": {
+      "value": "rgba({palette.white}, 0.1)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundPressed": {
+      "value": "{palette.telefonicaBlue10}",
+      "type": "color",
+      "description": "telefonicaBlue10"
+    },
     "buttonSecondaryBackgroundInversePressed": {
+      "value": "rgba({palette.white}, 0.1)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundMediaPressed": {
       "value": "rgba({palette.white}, 0.1)",
       "type": "color",
       "description": "white"
@@ -250,7 +305,17 @@
       "type": "color",
       "description": "telefonicaBlue"
     },
+    "textButtonPrimaryMedia": {
+      "value": "{palette.telefonicaBlue}",
+      "type": "color",
+      "description": "telefonicaBlue"
+    },
     "textButtonPrimaryInversePressed": {
+      "value": "{palette.telefonicaBlue70}",
+      "type": "color",
+      "description": "telefonicaBlue70"
+    },
+    "textButtonPrimaryMediaPressed": {
       "value": "{palette.telefonicaBlue70}",
       "type": "color",
       "description": "telefonicaBlue70"
@@ -260,17 +325,27 @@
       "type": "color",
       "description": "telefonicaBlue"
     },
-    "textButtonSecondaryPressed": {
-      "value": "{palette.telefonicaBlue70}",
-      "type": "color",
-      "description": "telefonicaBlue70"
-    },
     "textButtonSecondaryInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+    "textButtonSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textButtonSecondaryPressed": {
+      "value": "{palette.telefonicaBlue70}",
+      "type": "color",
+      "description": "telefonicaBlue70"
+    },
     "textButtonSecondaryInversePressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textButtonSecondaryMediaPressed": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
@@ -285,7 +360,17 @@
       "type": "color",
       "description": "white"
     },
+    "textLinkMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "textLinkDanger": {
+      "value": "{palette.coral60}",
+      "type": "color",
+      "description": "coral60"
+    },
+    "textLinkDangerMedia": {
       "value": "{palette.coral60}",
       "type": "color",
       "description": "coral60"
@@ -775,6 +860,11 @@
         ]
       },
       "description": "black"
+    },
+    "cardFooterOverlay": {
+      "value": "rgba({palette.black}, 0.7)",
+      "type": "color",
+      "description": "black"
     }
   },
   "dark": {
@@ -928,12 +1018,17 @@
       "type": "color",
       "description": "coral65"
     },
-    "buttonLinkDangerBackgroundPressed": {
+    "buttonLinkDangerBackgroundInverse": {
       "value": "rgba({palette.coral60}, 0.16)",
       "type": "color",
       "description": "coral60"
     },
-    "buttonLinkDangerBackgroundInverse": {
+    "buttonLinkDangerBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkDangerBackgroundPressed": {
       "value": "rgba({palette.coral60}, 0.16)",
       "type": "color",
       "description": "coral60"
@@ -942,6 +1037,11 @@
       "value": "rgba({palette.coral60}, 0.16)",
       "type": "color",
       "description": "coral60"
+    },
+    "buttonLinkDangerBackgroundMediaPressed": {
+      "value": "{palette.coral10}",
+      "type": "color",
+      "description": "coral10"
     },
     "buttonLinkBackgroundPressed": {
       "value": "rgba({palette.telefonicaBlue30}, 0.16)",
@@ -953,6 +1053,11 @@
       "type": "color",
       "description": "telefonicaBlue30"
     },
+    "buttonLinkBackgroundMediaPressed": {
+      "value": "rgba({palette.white}, 0.08)",
+      "type": "color",
+      "description": "white"
+    },
     "buttonPrimaryBackground": {
       "value": "{palette.telefonicaBlue}",
       "type": "color",
@@ -963,12 +1068,27 @@
       "type": "color",
       "description": "white"
     },
-    "buttonPrimaryBackgroundPressed": {
+    "buttonPrimaryBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonPrimaryBackgroundHover": {
       "value": "{palette.telefonicaBlue70}",
       "type": "color",
       "description": "telefonicaBlue70"
     },
-    "buttonPrimaryBackgroundHover": {
+    "buttonPrimaryBackgroundInverseHover": {
+      "value": "{palette.telefonicaBlue10}",
+      "type": "color",
+      "description": "telefonicaBlue10"
+    },
+    "buttonPrimaryBackgroundMediaHover": {
+      "value": "{palette.telefonicaBlue10}",
+      "type": "color",
+      "description": "telefonicaBlue10"
+    },
+    "buttonPrimaryBackgroundPressed": {
       "value": "{palette.telefonicaBlue70}",
       "type": "color",
       "description": "telefonicaBlue70"
@@ -978,22 +1098,12 @@
       "type": "color",
       "description": "telefonicaBlue10"
     },
-    "buttonSecondaryBackgroundPressed": {
-      "value": "rgba({palette.white}, 0.15)",
+    "buttonPrimaryBackgroundMediaPressed": {
+      "value": "{palette.telefonicaBlue10}",
       "type": "color",
-      "description": "white"
+      "description": "telefonicaBlue10"
     },
     "buttonSecondaryBorder": {
-      "value": "{palette.white}",
-      "type": "color",
-      "description": "white"
-    },
-    "buttonSecondaryBackgroundHover": {
-      "value": "rgba({palette.white}, 0.15)",
-      "type": "color",
-      "description": "white"
-    },
-    "buttonSecondaryBorderPressed": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
@@ -1003,8 +1113,28 @@
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBorderMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderPressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "buttonSecondaryBorderInversePressed": {
       "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderMediaPressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundHover": {
+      "value": "rgba({palette.white}, 0.15)",
       "type": "color",
       "description": "white"
     },
@@ -1013,8 +1143,23 @@
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBackgroundMediaHover": {
+      "value": "rgba({palette.white}, 0.1)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundPressed": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
     "buttonSecondaryBackgroundInversePressed": {
       "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundMediaPressed": {
+      "value": "rgba({palette.white}, 0.1)",
       "type": "color",
       "description": "white"
     },
@@ -1028,7 +1173,17 @@
       "type": "color",
       "description": "telefonicaBlue"
     },
+    "textButtonPrimaryMedia": {
+      "value": "{palette.telefonicaBlue}",
+      "type": "color",
+      "description": "telefonicaBlue"
+    },
     "textButtonPrimaryInversePressed": {
+      "value": "{palette.telefonicaBlue70}",
+      "type": "color",
+      "description": "telefonicaBlue70"
+    },
+    "textButtonPrimaryMediaPressed": {
       "value": "{palette.telefonicaBlue70}",
       "type": "color",
       "description": "telefonicaBlue70"
@@ -1038,17 +1193,27 @@
       "type": "color",
       "description": "white"
     },
-    "textButtonSecondaryPressed": {
-      "value": "{palette.white}",
-      "type": "color",
-      "description": "white"
-    },
     "textButtonSecondaryInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+    "textButtonSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textButtonSecondaryPressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "textButtonSecondaryInversePressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textButtonSecondaryMediaPressed": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
@@ -1063,10 +1228,20 @@
       "type": "color",
       "description": "darkModeTelefonicaBlue"
     },
+    "textLinkMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "textLinkDanger": {
       "value": "{palette.coral}",
       "type": "color",
       "description": "coral"
+    },
+    "textLinkDangerMedia": {
+      "value": "{palette.coral60}",
+      "type": "color",
+      "description": "coral60"
     },
     "textLinkSnackbar": {
       "value": "{palette.darkModeTelefonicaBlue}",
@@ -1552,6 +1727,11 @@
           }
         ]
       },
+      "description": "black"
+    },
+    "cardFooterOverlay": {
+      "value": "rgba({palette.black}, 0.7)",
+      "type": "color",
       "description": "black"
     }
   },
