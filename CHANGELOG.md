@@ -1,5 +1,7 @@
 # Figma Changelog
 
+## [19.0.0](changelog-versions/19.0.0.md)
+
 [18.1.0](changelog-versions/18.1.0.md)
 
 ## [18.0.0](changelog-versions/18.0.0.md)
