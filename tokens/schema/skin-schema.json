@@ -152,8 +152,10 @@
         "warning",
         "textPrimary",
         "textPrimaryInverse",
+        "textPrimaryMedia",
         "textSecondary",
         "textSecondaryInverse",
+        "textSecondaryMedia",
         "textButtonPrimary",
         "textButtonPrimaryInverse",
         "textButtonPrimaryMedia",
@@ -324,8 +326,10 @@
         "warning": { "$ref": "#/definitions/constantProperties" },
         "textPrimary": { "$ref": "#/definitions/constantProperties" },
         "textPrimaryInverse": { "$ref": "#/definitions/constantProperties" },
+        "textPrimaryMedia": { "$ref": "#/definitions/constantProperties" },
         "textSecondary": { "$ref": "#/definitions/constantProperties" },
         "textSecondaryInverse": { "$ref": "#/definitions/constantProperties" },
+        "textSecondaryMedia": { "$ref": "#/definitions/constantProperties" },
         "textButtonPrimary": { "$ref": "#/definitions/constantProperties" },
         "textButtonPrimaryInverse": { "$ref": "#/definitions/constantProperties" },
         "textButtonPrimaryMedia": { "$ref": "#/definitions/constantProperties" },
@@ -395,7 +399,7 @@
         "tagBackgroundWarningInverse": { "$ref": "#/definitions/constantProperties" },
         "tagBackgroundErrorInverse": { "$ref": "#/definitions/constantProperties" },
         "cardContentOverlay": { "$ref": "#/definitions/constantProperties" },
-        "cardFooterOverlay": { "$ref": "#/definitions/constantProperties" }, 
+        "cardFooterOverlay": { "$ref": "#/definitions/constantProperties" },
         "inputBorder": { "$ref": "#/definitions/constantProperties" },
         "inputBorderInverse": { "$ref": "#/definitions/constantProperties" },
         "extended": {
@@ -649,7 +653,7 @@
       "patternProperties": {
         "value": {
           "type": "string",
-          "pattern": "^(0|2|4|8|12|16|20|circle|999|(0|4|8|12|16|20) (0|4|8|12|16|20) (0|4|8|12|16|20) (0|4|8|12|16|20))$"
+          "pattern": "^(0|2|4|8|12|16|20|24|32|circle|999|(0|4|8|12|16|20|24|32) (0|4|8|12|16|20|24|32) (0|4|8|12|16|20|24|32) (0|4|8|12|16|20|24|32))$"
         },
         "type": {
           "const": "borderRadius"
