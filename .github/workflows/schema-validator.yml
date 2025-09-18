@@ -15,7 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        skin: [movistar, o2, o2-new, vivo, vivo-new, telefonica, blau, esimflag]
+        skin:
+          [
+            movistar,
+            movistar-new,
+            o2,
+            o2-new,
+            vivo,
+            vivo-new,
+            telefonica,
+            blau,
+            esimflag,
+          ]
       fail-fast: false
 
     steps:
