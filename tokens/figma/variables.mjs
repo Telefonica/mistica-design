@@ -31,7 +31,7 @@ export const ICON_SETS = {
 
 export const BRAND_NAMES = {
   [BRANDS.MOVISTAR]: "Movistar",
-  [BRANDS.MOVISTAR_NEW]: "Movistar New (Alpha)",
+  [BRANDS.MOVISTAR_NEW]: "Movistar New",
   [BRANDS.VIVO_NEW]: "Vivo",
   [BRANDS.O2_NEW]: "O2",
   [BRANDS.TELEFONICA]: "Telefónica",
