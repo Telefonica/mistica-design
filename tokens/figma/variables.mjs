@@ -9,6 +9,7 @@ import formatBrandName from "./utils/format-brand-name.mjs";
 
 export const FONT_FAMILIES = {
   [BRANDS.MOVISTAR]: "On Air",
+  [BRANDS.MOVISTAR_NEW]: "Movistar Sans",
   [BRANDS.VIVO_NEW]: "Vivo Type",
   [BRANDS.O2_NEW]: "On Air",
   [BRANDS.TELEFONICA]: "Telefonica Sans",
@@ -19,6 +20,7 @@ export const FONT_FAMILIES = {
 
 export const ICON_SETS = {
   [BRANDS.MOVISTAR]: "Default",
+  [BRANDS.MOVISTAR_NEW]: "Default",
   [BRANDS.VIVO_NEW]: "Vivo",
   [BRANDS.O2_NEW]: "O2",
   [BRANDS.TELEFONICA]: "Default",
@@ -29,6 +31,7 @@ export const ICON_SETS = {
 
 export const BRAND_NAMES = {
   [BRANDS.MOVISTAR]: "Movistar",
+  [BRANDS.MOVISTAR_NEW]: "Movistar New",
   [BRANDS.VIVO_NEW]: "Vivo",
   [BRANDS.O2_NEW]: "O2",
   [BRANDS.TELEFONICA]: "Telefónica",
