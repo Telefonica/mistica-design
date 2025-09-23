@@ -694,12 +694,10 @@
           "type": "object",
           "properties": {
             "desktop": {
-              "type": "number",
-              "enum": [14, 16, 18, 20, 24, 28, 32, 40, 48, 56, 64]
+              "type": "number"
             },
             "mobile": {
-              "type": "number",
-              "enum": [12, 14, 16, 18, 20, 24, 28, 32, 40, 48]
+              "type": "number"
             }
           },
           "required": ["desktop", "mobile"]
@@ -717,12 +715,10 @@
           "type": "object",
           "properties": {
             "desktop": {
-              "type": "number",
-              "enum": [20, 24, 28, 32, 40, 48, 56, 64, 72, 22, 26, 38]
+              "type": "number"
             },
             "mobile": {
-              "type": "number",
-              "enum": [16, 20, 24, 32, 40, 48, 56, 22, 26, 28, 38]
+              "type": "number"
             }
           },
           "required": ["desktop", "mobile"]
