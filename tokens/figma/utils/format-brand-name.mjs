@@ -14,7 +14,7 @@ function formatBrandName(brand) {
   }
 
   if (brand === "movistar-new") {
-    return "Movistar New (Alpha)";
+    return "Movistar New";
   }
 
   // For other brands, remove the hyphen and convert to sentence case
