@@ -9,7 +9,7 @@ import formatBrandName from "./utils/format-brand-name.mjs";
 
 export const FONT_FAMILIES = {
   [BRANDS.MOVISTAR]: "On Air",
-  [BRANDS.MOVISTAR_NEW]: "Rebond Grotesque",
+  [BRANDS.MOVISTAR_NEW]: "Movistar Sans",
   [BRANDS.VIVO_NEW]: "Vivo Type",
   [BRANDS.O2_NEW]: "On Air",
   [BRANDS.TELEFONICA]: "Telefonica Sans",
