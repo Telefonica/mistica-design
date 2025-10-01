@@ -5,7 +5,9 @@ function transformToJSON(rawCode) {
   // Adjusting the regex to handle multi-line colors and avoid breaking inside gradients
   const lightColorsRegex = /colors\s*:\s*{\s*([\s\S]+?)\s*}\s*,/;
   const darkColorsRegex = /darkModeColors\s*:\s*{\s*([\s\S]+?)\s*}\s*,/;
-  const radiusRegex = /borderRadii\s*:\s*{\s*([^}]+)\s*}/s;
+  const radiusRegex = /borderRadii\s*:\s*{\s*([\s\S]+?)\s*},?/;
+  const textRegex = /textPresets\s*:\s*{([\s\S]*?)}\s*,/;
+  const themeVariantRegex = /themeVariants\s*:\s*{\s*([\s\S]+?)\s*},?/;
 
   // Function to extract the palette
   const extractPalette = (code, regex) => {
@@ -155,33 +157,89 @@ function transformToJSON(rawCode) {
   // Function to extract border radius values
   const extractRadius = (code, regex) => {
     const match = code.match(regex);
-    if (match) {
-      const radiusBlock = match[0];
-      console.log(radiusBlock);
-      const radiusArray = radiusBlock.match(/\s*(\w+):\s*'(\d+px)'/g);
+    if (!match) return null;
 
-      if (radiusArray) {
-        // Create a formatted JSON structure for each radius with additional information
-        const formattedRadius = radiusArray.reduce((acc, radius) => {
-          const [key, value] = radius.split(":");
-          const trimmedKey = key.trim();
-          const numericValueMatch = value.trim().match(/(\d+)px/);
-          const numericValue = numericValueMatch ? numericValueMatch[1] : null;
+    const block = match[1];
+    const lines = block.split("\n").filter((line) => line.includes(":"));
 
-          if (numericValue !== null) {
-            acc[trimmedKey] = {
-              value: numericValue,
-              type: "borderRadius",
-            };
-          }
+    return lines.reduce((acc, line) => {
+      const [key, value] = line.split(":");
+      if (!value) return acc;
 
-          return acc;
-        }, {});
+      const name = key.trim();
+      let raw = value.replace(/['",]/g, "").trim();
 
-        return formattedRadius;
-      }
+      // remove px if present (e.g., "999px" → "999")
+      if (raw.endsWith("px")) raw = raw.slice(0, -2);
+
+      acc[name] = { value: raw, type: "borderRadius" };
+      return acc;
+    }, {});
+  };
+
+  function extractTypography(code) {
+    const typography = { weight: {}, size: {}, lineHeight: {} };
+
+    // 1️⃣ Find where textPresets starts
+    const startMatch = code.match(/textPresets\s*:\s*{/);
+    if (!startMatch) return typography;
+
+    let startIndex = startMatch.index + startMatch[0].length - 1;
+
+    // 2️⃣ Walk to find the matching closing brace
+    let depth = 1;
+    let endIndex = startIndex + 1;
+
+    while (depth > 0 && endIndex < code.length) {
+      const char = code[endIndex];
+      if (char === "{") depth++;
+      else if (char === "}") depth--;
+      endIndex++;
     }
-    return null;
+
+    // 3️⃣ Extract the object literal as string
+    const objLiteral = code.slice(startIndex, endIndex);
+
+    try {
+      // 4️⃣ Evaluate the object literal
+      const presets = Function(`"use strict"; return (${objLiteral})`)();
+
+      // 5️⃣ Transform into the expected token format
+      for (const [name, def] of Object.entries(presets)) {
+        if (def.weight)
+          typography.weight[name] = { value: def.weight, type: "typography" };
+        if (def.size)
+          typography.size[name] = { value: def.size, type: "typography" };
+        if (def.lineHeight)
+          typography.lineHeight[name] = {
+            value: def.lineHeight,
+            type: "typography",
+          };
+      }
+    } catch (err) {
+      console.error("Failed to parse textPresets:", err);
+    }
+
+    return typography;
+  }
+
+  const extractThemeVariant = (code, regex) => {
+    const match = code.match(regex);
+    if (!match) return null;
+
+    const block = match[1];
+    const lines = block.split("\n").filter((line) => line.includes(":"));
+
+    return lines.reduce((acc, line) => {
+      const [key, value] = line.split(":");
+      if (!value) return acc;
+
+      acc[key.trim()] = {
+        value: value.replace(/['",]/g, "").trim(),
+        type: "themeVariant",
+      };
+      return acc;
+    }, {});
   };
 
   // Extract information
@@ -189,14 +247,16 @@ function transformToJSON(rawCode) {
   const lightColors = extractColors(rawCode, lightColorsRegex);
   const darkColors = extractColors(rawCode, darkColorsRegex);
   const radiusValues = extractRadius(rawCode, radiusRegex);
+  const themeVariant = extractThemeVariant(rawCode, themeVariantRegex);
+  const text = extractTypography(rawCode);
 
   // Convert the extracted information to JSON
   const result = {
     light: lightColors,
     dark: darkColors,
     radius: radiusValues,
-    text: { weight: {}, size: {}, lineHeight: {} },
-
+    themeVariant,
+    text,
     global: { palette: paletteCode },
   };
 
