@@ -33,7 +33,7 @@ File: `tokens/figma/config.mjs`
 
 ## 3. Map font, icons, and display name
 
-File: tokens/figma/variables.mjs
+File: `tokens/figma/variables.mjs`
 
 Add the new brand in three places:
 
