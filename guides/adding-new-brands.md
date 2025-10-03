@@ -12,18 +12,6 @@ File: `tokens/<brand>.json`
 - Define all required design tokens: colors, radii, spacings, typography, etc.
 - Follow the structure of existing brand token files for consistency.
 
-Example:
-
-```
-{
-"color": {
-"background": {
-"default": { "value": "{palette.myBrandWhite}", "description": "myBrandWhite" }
-}
-}
-}
-```
-
 ## 2. Register the brand in Figma config
 
 File: `tokens/figma/config.mjs`
