@@ -649,24 +649,15 @@ export const extractMiddlewareJsonData = (
             const baseColorName =
               getPaletteName(value);
 
-            return alpha === "1"
-              ? {
-                  name: `${key}`,
-                  value: baseColorName,
-                  hasAlias: true,
-                  description: baseColorName,
-                }
-              : {
-                  name: `${key}`,
-                  value: hexToRgba(
-                    getPaletteValue(
-                      baseColorName
-                    ),
-                    parseFloat(alpha)
-                  ),
-                  hasAlias: false,
-                  description: baseColorName,
-                };
+            return {
+              name: `${key}`,
+              value: hexToRgba(
+                getPaletteValue(baseColorName),
+                parseFloat(alpha)
+              ),
+              hasAlias: false,
+              description: baseColorName,
+            };
           }
 
           throw new Error(

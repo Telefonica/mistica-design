@@ -88,22 +88,33 @@
         "buttonDangerBackgroundHover",
         "buttonLinkDangerBackgroundPressed",
         "buttonLinkDangerBackgroundInverse",
+        "buttonLinkDangerBackgroundMedia",
         "buttonLinkDangerBackgroundInversePressed",
+        "buttonLinkDangerBackgroundMediaPressed",
         "buttonLinkBackgroundPressed",
         "buttonLinkBackgroundInversePressed",
+        "buttonLinkBackgroundMediaPressed",
         "buttonPrimaryBackground",
         "buttonPrimaryBackgroundInverse",
+        "buttonPrimaryBackgroundMedia",
+        "buttonPrimaryBackgroundHover",
+        "buttonPrimaryBackgroundInverseHover",
+        "buttonPrimaryBackgroundMediaHover",
         "buttonPrimaryBackgroundPressed",
         "buttonPrimaryBackgroundInversePressed",
-        "buttonPrimaryBackgroundHover",
+        "buttonPrimaryBackgroundMediaPressed",
         "buttonSecondaryBorder",
-        "buttonSecondaryBackgroundPressed",
         "buttonSecondaryBorderInverse",
-        "buttonSecondaryBorderInversePressed",
+        "buttonSecondaryBorderMedia",
         "buttonSecondaryBorderPressed",
+        "buttonSecondaryBorderInversePressed",
+        "buttonSecondaryBorderMediaPressed",
         "buttonSecondaryBackgroundHover",
-        "buttonSecondaryBackgroundInversePressed",
         "buttonSecondaryBackgroundInverseHover",
+        "buttonSecondaryBackgroundMediaHover",
+        "buttonSecondaryBackgroundPressed",
+        "buttonSecondaryBackgroundInversePressed",
+        "buttonSecondaryBackgroundMediaPressed",
         "completedStep",
         "completedStepInverse",
         "control",
@@ -141,18 +152,26 @@
         "warning",
         "textPrimary",
         "textPrimaryInverse",
+        "textPrimaryMedia",
         "textSecondary",
         "textSecondaryInverse",
+        "textSecondaryMedia",
         "textButtonPrimary",
         "textButtonPrimaryInverse",
+        "textButtonPrimaryMedia",
         "textButtonPrimaryInversePressed",
+        "textButtonPrimaryMediaPressed",
         "textButtonSecondary",
-        "textButtonSecondaryPressed",
         "textButtonSecondaryInverse",
+        "textButtonSecondaryMedia",
+        "textButtonSecondaryPressed",
         "textButtonSecondaryInversePressed",
+        "textButtonSecondaryMediaPressed",
         "textLink",
         "textLinkInverse",
+        "textLinkMedia",
         "textLinkDanger",
+        "textLinkDangerMedia",
         "textLinkSnackbar",
         "textNavigationBarPrimary",
         "textNavigationBarSecondary",
@@ -206,7 +225,9 @@
         "tagBackgroundWarningInverse",
         "tagBackgroundErrorInverse",
         "cardContentOverlay",
-        "inputBorder"
+        "cardFooterOverlay",
+        "inputBorder",
+        "inputBorderInverse"
       ],
       "properties": {
         "appBarBackground": { "$ref": "#/definitions/constantProperties" },
@@ -241,22 +262,33 @@
         "buttonDangerBackgroundHover": { "$ref": "#/definitions/constantProperties" },
         "buttonLinkDangerBackgroundPressed": { "$ref": "#/definitions/constantProperties" },
         "buttonLinkDangerBackgroundInverse": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkDangerBackgroundMedia": { "$ref": "#/definitions/constantProperties" },
         "buttonLinkDangerBackgroundInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkDangerBackgroundMediaPressed": { "$ref": "#/definitions/constantProperties" },
         "buttonLinkBackgroundPressed": { "$ref": "#/definitions/constantProperties" },
         "buttonLinkBackgroundInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkBackgroundMediaPressed": { "$ref": "#/definitions/constantProperties" },
         "buttonPrimaryBackground": { "$ref": "#/definitions/constantProperties" },
         "buttonPrimaryBackgroundInverse": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundMedia": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundInverseHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundMediaHover": { "$ref": "#/definitions/constantProperties" },
         "buttonPrimaryBackgroundPressed": { "$ref": "#/definitions/constantProperties" },
         "buttonPrimaryBackgroundInversePressed": { "$ref": "#/definitions/constantProperties" },
-        "buttonPrimaryBackgroundHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundMediaPressed": { "$ref": "#/definitions/constantProperties" },
         "buttonSecondaryBorder": { "$ref": "#/definitions/constantProperties" },
-        "buttonSecondaryBackgroundPressed": { "$ref": "#/definitions/constantProperties" },
         "buttonSecondaryBorderInverse": { "$ref": "#/definitions/constantProperties" },
-        "buttonSecondaryBorderInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBorderMedia": { "$ref": "#/definitions/constantProperties" },
         "buttonSecondaryBorderPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBorderInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBorderMediaPressed": { "$ref": "#/definitions/constantProperties" },
         "buttonSecondaryBackgroundHover": { "$ref": "#/definitions/constantProperties" },
-        "buttonSecondaryBackgroundInversePressed": { "$ref": "#/definitions/constantProperties" },
         "buttonSecondaryBackgroundInverseHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundMediaHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundMediaPressed": { "$ref": "#/definitions/constantProperties" },
         "completedStep": { "$ref": "#/definitions/constantProperties" },
         "completedStepInverse": { "$ref": "#/definitions/constantProperties" },
         "control": { "$ref": "#/definitions/constantProperties" },
@@ -294,18 +326,26 @@
         "warning": { "$ref": "#/definitions/constantProperties" },
         "textPrimary": { "$ref": "#/definitions/constantProperties" },
         "textPrimaryInverse": { "$ref": "#/definitions/constantProperties" },
+        "textPrimaryMedia": { "$ref": "#/definitions/constantProperties" },
         "textSecondary": { "$ref": "#/definitions/constantProperties" },
         "textSecondaryInverse": { "$ref": "#/definitions/constantProperties" },
+        "textSecondaryMedia": { "$ref": "#/definitions/constantProperties" },
         "textButtonPrimary": { "$ref": "#/definitions/constantProperties" },
         "textButtonPrimaryInverse": { "$ref": "#/definitions/constantProperties" },
+        "textButtonPrimaryMedia": { "$ref": "#/definitions/constantProperties" },
         "textButtonPrimaryInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "textButtonPrimaryMediaPressed": { "$ref": "#/definitions/constantProperties" },
         "textButtonSecondary": { "$ref": "#/definitions/constantProperties" },
-        "textButtonSecondaryPressed": { "$ref": "#/definitions/constantProperties" },
         "textButtonSecondaryInverse": { "$ref": "#/definitions/constantProperties" },
+        "textButtonSecondaryMedia": { "$ref": "#/definitions/constantProperties" },
+        "textButtonSecondaryPressed": { "$ref": "#/definitions/constantProperties" },
         "textButtonSecondaryInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "textButtonSecondaryMediaPressed": { "$ref": "#/definitions/constantProperties" },
         "textLink": { "$ref": "#/definitions/constantProperties" },
         "textLinkInverse": { "$ref": "#/definitions/constantProperties" },
+        "textLinkMedia": { "$ref": "#/definitions/constantProperties" },
         "textLinkDanger": { "$ref": "#/definitions/constantProperties" },
+        "textLinkDangerMedia": { "$ref": "#/definitions/constantProperties" },
         "textLinkSnackbar": { "$ref": "#/definitions/constantProperties" },
         "textNavigationBarPrimary": { "$ref": "#/definitions/constantProperties" },
         "textNavigationBarSecondary": { "$ref": "#/definitions/constantProperties" },
@@ -359,7 +399,9 @@
         "tagBackgroundWarningInverse": { "$ref": "#/definitions/constantProperties" },
         "tagBackgroundErrorInverse": { "$ref": "#/definitions/constantProperties" },
         "cardContentOverlay": { "$ref": "#/definitions/constantProperties" },
+        "cardFooterOverlay": { "$ref": "#/definitions/constantProperties" },
         "inputBorder": { "$ref": "#/definitions/constantProperties" },
+        "inputBorderInverse": { "$ref": "#/definitions/constantProperties" },
         "extended": {
           "type": "object",
           "patternProperties": {
@@ -374,7 +416,7 @@
     },
     "radius": {
       "additionalProperties": false,
-      "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "input", "legacyDisplay", "popup", "sheet"],
+      "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "chip", "input", "legacyDisplay", "popup", "sheet"],
       "properties": {
         "avatar": { "$ref": "#/definitions/radiusProperties" },
         "bar": { "$ref": "#/definitions/radiusProperties" },
@@ -382,6 +424,8 @@
         "checkbox": { "$ref": "#/definitions/radiusProperties" },
         "container": { "$ref": "#/definitions/radiusProperties" },
         "indicator": { "$ref": "#/definitions/radiusProperties" },
+        "chip": { "$ref": "#/definitions/radiusProperties" },
+        "tag": { "$ref": "#/definitions/radiusProperties" },
         "input": { "$ref": "#/definitions/radiusProperties" },
         "legacyDisplay": { "$ref": "#/definitions/radiusProperties" },
         "popup": { "$ref": "#/definitions/radiusProperties" },
@@ -393,6 +437,7 @@
       "additionalProperties": false,
       "properties": {
         "cardTitle": { "$ref": "#/definitions/weightProperties" },
+        "rowTitle": { "$ref": "#/definitions/weightProperties" },
         "button": { "$ref": "#/definitions/weightProperties" },
         "tabsLabel": { "$ref": "#/definitions/weightProperties" },
         "link": { "$ref": "#/definitions/weightProperties" },
@@ -473,7 +518,11 @@
           "anyOf": [
             {
               "comment": "Movistar",
-              "pattern": "(.*?rgba.*?)+([({])+(palette.(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
+              "pattern": "(.*?rgba.*?)+([({])+(palette.(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlue70|movistarBlue80|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlue70|movistarBlue80|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
+            },
+            {
+              "comment": "Movistar-new",
+              "pattern": "(.*?rgba.*?)+([({])+(palette.(movistarBlue|movistarWhite|movistarBlack|blue100|blue200|blue300|blue600|blue800|blueLight|blueHigh|blueDark|red|red350|redHigh|salmon100|salmon200|salmonLight|salmonDark|yellow|yellow200|yellow400|yellow500|yellow600|yellowLight|yellowHigh|yellowDark|emerald|emeraldHigh|green200|green400|green700|greenLight|greenHigh|greenDark|pink45|pink55|grey100|grey200|grey300|grey400|grey500|grey600|grey700|white|white100|black|darkModeBlack|darkModeGrey|darkModeMovistarBlue)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(movistarBlue|movistarWhite|movistarBlack|blue100|blue200|blue300|blue600|blue800|blueLight|blueHigh|blueDark|red|red350|redHigh|salmon100|salmon200|salmonLight|salmonDark|yellow|yellow200|yellow400|yellow500|yellow600|yellowLight|yellowHigh|yellowDark|emerald|emeraldHigh|green200|green400|green700|greenLight|greenHigh|greenDark|pink45|pink55|grey100|grey200|grey300|grey400|grey500|grey600|grey700|white|white100|black|darkModeBlack|darkModeGrey|darkModeMovistarBlue)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
             },
             {
               "comment": "O2",
@@ -489,7 +538,7 @@
             },
             {
               "comment": "Telefónica",
-              "pattern": "(.*?rgba.*?)+([({])+(palette.(telefonicaBlue|telefonicaBlue10|telefonicaBlue20|telefonicaBlue30|telefonicaBlue70|ambar|ambar10|ambar40|ambar70|coral|coral10|coral40|coral70|coral80|orchid|orchid10|orchid40|orchid70|turquoise|turquoise10|turquoise40|turquoise70|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeBlack|darkModeGrey|darkModeGrey6)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(telefonicaBlue|telefonicaBlue10|telefonicaBlue20|telefonicaBlue30|telefonicaBlue70|ambar|ambar10|ambar40|ambar70|coral|coral10|coral40|coral70|coral80|orchid|orchid10|orchid40|orchid70|turquoise|turquoise10|turquoise40|turquoise70|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeBlack|darkModeGrey|darkModeGrey6)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
+              "pattern": "(.*?rgba.*?)+([({])+(palette.(telefonicaBlue|telefonicaBlue10|telefonicaBlue20|telefonicaBlue30|telefonicaBlue70|telefonicaBlue80|yellow|yellow15|yellow40|yellow70|yellow80|ambar|ambar10|ambar40|ambar70|coral|coral10|coral30|coral40|coral60|coral65|coral70|coral80|coral90|orchid|orchid10|orchid40|orchid70|orchid80|turquoise|turquoise10|turquoise40|turquoise70|turquoise80|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeTelefonicaBlue|darkModeBlack|darkModeGrey|darkModeGrey6)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(telefonicaBlue|telefonicaBlue10|telefonicaBlue20|telefonicaBlue30|telefonicaBlue70|telefonicaBlue80|yellow|yellow15|yellow40|yellow70|yellow80|ambar|ambar10|ambar40|ambar70|coral|coral10|coral30|coral40|coral60|coral65|coral70|coral80|coral90|orchid|orchid10|orchid40|orchid70|orchid80|turquoise|turquoise10|turquoise40|turquoise70|turquoise80|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeTelefonicaBlue|darkModeBlack|darkModeGrey|darkModeGrey6)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
             },
             {
               "comment": "Blau",
@@ -518,7 +567,11 @@
                     "anyOf": [
                       {
                         "comment": "Movistar",
-                        "pattern": "(.*?rgba.*?)+([({])+(palette.(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
+                        "pattern": "(.*?rgba.*?)+([({])+(palette.(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlue70|movistarBlue80|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlue70|movistarBlue80|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
+                      },
+                      {
+                        "comment": "Movistar-new",
+                        "pattern": "(.*?rgba.*?)+([({])+(palette.(movistarBlue|movistarWhite|movistarBlack|blue100|blue200|blue300|blue600|blue800|blueLight|blueHigh|blueDark|red|red350|redHigh|salmon100|salmon200|salmonLight|salmonDark|yellow|yellow200|yellow400|yellow500|yellow600|yellowLight|yellowHigh|yellowDark|emerald|emeraldHigh|green200|green400|green700|greenLight|greenHigh|greenDark|pink45|pink55|grey100|grey200|grey300|grey400|grey500|grey600|grey700|white|white100|black|darkModeBlack|darkModeGrey|darkModeMovistarBlue)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(movistarBlue|movistarWhite|movistarBlack|blue100|blue200|blue300|blue600|blue800|blueLight|blueHigh|blueDark|red|red350|redHigh|salmon100|salmon200|salmonLight|salmonDark|yellow|yellow200|yellow400|yellow500|yellow600|yellowLight|yellowHigh|yellowDark|emerald|emeraldHigh|green200|green400|green700|greenLight|greenHigh|greenDark|pink45|pink55|grey100|grey200|grey300|grey400|grey500|grey600|grey700|white|white100|black|darkModeBlack|darkModeGrey|darkModeMovistarBlue)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
                       },
                       {
                         "comment": "O2",
@@ -534,7 +587,7 @@
                       },
                       {
                         "comment": "Telefónica",
-                        "pattern": "(.*?rgba.*?)+([({])+(palette.(telefonicaBlue|telefonicaBlue10|telefonicaBlue20|telefonicaBlue30|telefonicaBlue70|ambar|ambar10|ambar40|ambar70|coral|coral10|coral40|coral70|coral80|orchid|orchid10|orchid40|orchid70|turquoise|turquoise10|turquoise40|turquoise70|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeBlack|darkModeGrey|darkModeGrey6)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(telefonicaBlue|telefonicaBlue10|telefonicaBlue20|telefonicaBlue30|telefonicaBlue70|ambar|ambar10|ambar40|ambar70|coral|coral10|coral40|coral70|coral80|orchid|orchid10|orchid40|orchid70|turquoise|turquoise10|turquoise40|turquoise70|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeBlack|darkModeGrey|darkModeGrey6)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
+                        "pattern": "(.*?rgba.*?)+([({])+(palette.(telefonicaBlue|telefonicaBlue10|telefonicaBlue20|telefonicaBlue30|telefonicaBlue70|telefonicaBlue80|yellow|yellow15|yellow40|yellow70|yellow80|ambar|ambar10|ambar40|ambar70|coral|coral10|coral30|coral40|coral60|coral65|coral70|coral80|coral90|orchid|orchid10|orchid40|orchid70|orchid80|turquoise|turquoise10|turquoise40|turquoise70|turquoise80|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeTelefonicaBlue|darkModeBlack|darkModeGrey|darkModeGrey6)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(telefonicaBlue|telefonicaBlue10|telefonicaBlue20|telefonicaBlue30|telefonicaBlue70|telefonicaBlue80|yellow|yellow15|yellow40|yellow70|yellow80|ambar|ambar10|ambar40|ambar70|coral|coral10|coral30|coral40|coral60|coral65|coral70|coral80|coral90|orchid|orchid10|orchid40|orchid70|orchid80|turquoise|turquoise10|turquoise40|turquoise70|turquoise80|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeTelefonicaBlue|darkModeBlack|darkModeGrey|darkModeGrey6)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
                       },
                       {
                         "comment": "Blau",
@@ -571,7 +624,11 @@
           "anyOf": [
             {
               "comment": "Movistar",
-              "pattern": "^(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)+$"
+              "pattern": "^(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlue70|movistarBlue80|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)+$"
+            },
+            {
+              "comment": "Movistar-new",
+              "pattern": "^(movistarBlue|movistarWhite|movistarBlack|blue100|blue200|blue300|blue600|blue800|blueLight|blueHigh|blueDark|red|red350|redHigh|salmon100|salmon200|salmonLight|salmonDark|yellow|yellow200|yellow400|yellow500|yellow600|yellowLight|yellowHigh|yellowDark|emerald|emeraldHigh|green200|green400|green700|greenLight|greenHigh|greenDark|pink45|pink55|grey100|grey200|grey300|grey400|grey500|grey600|grey700|white|white100|black|darkModeBlack|darkModeGrey|darkModeMovistarBlue)+$"
             },
             {
               "comment": "O2",
@@ -587,7 +644,7 @@
             },
             {
               "comment": "Telefónica",
-              "pattern": "^(telefonicaBlue|telefonicaBlue10|telefonicaBlue20|telefonicaBlue30|telefonicaBlue70|ambar|ambar10|ambar40|ambar70|coral|coral10|coral40|coral70|coral80|orchid|orchid10|orchid40|orchid70|turquoise|turquoise10|turquoise40|turquoise70|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeBlack|darkModeGrey|darkModeGrey6)+$"
+              "pattern": "^(telefonicaBlue|telefonicaBlue10|telefonicaBlue20|telefonicaBlue30|telefonicaBlue70|telefonicaBlue80|yellow|yellow15|yellow40|yellow70|yellow80|ambar|ambar10|ambar40|ambar70|coral|coral10|coral30|coral40|coral60|coral65|coral70|coral80|coral90|orchid|orchid10|orchid40|orchid70|orchid80|turquoise|turquoise10|turquoise40|turquoise70|turquoise80|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeTelefonicaBlue|darkModeBlack|darkModeGrey|darkModeGrey6)+$"
             },
             {
               "comment": "Blau",
@@ -611,7 +668,7 @@
       "patternProperties": {
         "value": {
           "type": "string",
-          "pattern": "^(0|2|4|8|12|16|20|circle|999|(0|4|8|12|16|20) (0|4|8|12|16|20) (0|4|8|12|16|20) (0|4|8|12|16|20))$"
+          "pattern": "^(0|2|4|8|12|16|20|24|32|circle|999|(0|4|8|12|16|20|24|32) (0|4|8|12|16|20|24|32) (0|4|8|12|16|20|24|32) (0|4|8|12|16|20|24|32))$"
         },
         "type": {
           "const": "borderRadius"
@@ -639,12 +696,10 @@
           "type": "object",
           "properties": {
             "desktop": {
-              "type": "number",
-              "enum": [14, 16, 18, 20, 24, 28, 32, 40, 48, 56, 64]
+              "type": "number"
             },
             "mobile": {
-              "type": "number",
-              "enum": [12, 14, 16, 18, 20, 24, 28, 32, 40, 48]
+              "type": "number"
             }
           },
           "required": ["desktop", "mobile"]
@@ -662,12 +717,10 @@
           "type": "object",
           "properties": {
             "desktop": {
-              "type": "number",
-              "enum": [20, 24, 28, 32, 40, 48, 56, 64, 72]
+              "type": "number"
             },
             "mobile": {
-              "type": "number",
-              "enum": [16, 20, 24, 32, 40, 48, 56]
+              "type": "number"
             }
           },
           "required": ["desktop", "mobile"]

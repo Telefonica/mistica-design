@@ -150,17 +150,27 @@
       "type": "color",
       "description": "pepperDark"
     },
-    "buttonLinkDangerBackgroundPressed": {
-      "value": "{palette.pepperLight10}",
-      "type": "color",
-      "description": "pepperLight10"
-    },
     "buttonLinkDangerBackgroundInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+    "buttonLinkDangerBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkDangerBackgroundPressed": {
+      "value": "{palette.pepperLight10}",
+      "type": "color",
+      "description": "pepperLight10"
+    },
     "buttonLinkDangerBackgroundInversePressed": {
+      "value": "{palette.pepperLight10}",
+      "type": "color",
+      "description": "pepperLight10"
+    },
+    "buttonLinkDangerBackgroundMediaPressed": {
       "value": "{palette.pepperLight10}",
       "type": "color",
       "description": "pepperLight10"
@@ -175,6 +185,11 @@
       "type": "color",
       "description": "white"
     },
+    "buttonLinkBackgroundMediaPressed": {
+      "value": "rgba({palette.white}, 0.1)",
+      "type": "color",
+      "description": "white"
+    },
     "buttonPrimaryBackground": {
       "value": "{palette.vivoPurple}",
       "type": "color",
@@ -185,12 +200,27 @@
       "type": "color",
       "description": "white"
     },
-    "buttonPrimaryBackgroundPressed": {
+    "buttonPrimaryBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonPrimaryBackgroundHover": {
       "value": "{palette.vivoPurpleDark}",
       "type": "color",
       "description": "vivoPurpleDark"
     },
-    "buttonPrimaryBackgroundHover": {
+    "buttonPrimaryBackgroundInverseHover": {
+      "value": "{palette.vivoPurpleLight50}",
+      "type": "color",
+      "description": "vivoPurpleLight50"
+    },
+    "buttonPrimaryBackgroundMediaHover": {
+      "value": "{palette.vivoPurpleLight50}",
+      "type": "color",
+      "description": "vivoPurpleLight50"
+    },
+    "buttonPrimaryBackgroundPressed": {
       "value": "{palette.vivoPurpleDark}",
       "type": "color",
       "description": "vivoPurpleDark"
@@ -200,42 +230,67 @@
       "type": "color",
       "description": "vivoPurpleLight50"
     },
+    "buttonPrimaryBackgroundMediaPressed": {
+      "value": "{palette.vivoPurpleLight50}",
+      "type": "color",
+      "description": "vivoPurpleLight50"
+    },
     "buttonSecondaryBorder": {
       "value": "{palette.vivoPurple}",
       "type": "color",
       "description": "vivoPurple"
-    },
-    "buttonSecondaryBorderPressed": {
-      "value": "{palette.vivoPurpleDark}",
-      "type": "color",
-      "description": "vivoPurpleDark"
-    },
-    "buttonSecondaryBackgroundHover": {
-      "value": "{palette.vivoPurpleLight10}",
-      "type": "color",
-      "description": "vivoPurpleLight10"
-    },
-    "buttonSecondaryBackgroundPressed": {
-      "value": "{palette.vivoPurpleLight10}",
-      "type": "color",
-      "description": "vivoPurpleLight10"
     },
     "buttonSecondaryBorderInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBorderMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderPressed": {
+      "value": "{palette.vivoPurpleDark}",
+      "type": "color",
+      "description": "vivoPurpleDark"
+    },
     "buttonSecondaryBorderInversePressed": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
+    },
+    "buttonSecondaryBorderMediaPressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundHover": {
+      "value": "{palette.vivoPurpleLight10}",
+      "type": "color",
+      "description": "vivoPurpleLight10"
     },
     "buttonSecondaryBackgroundInverseHover": {
       "value": "rgba({palette.white}, 0.15)",
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBackgroundMediaHover": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundPressed": {
+      "value": "{palette.vivoPurpleLight10}",
+      "type": "color",
+      "description": "vivoPurpleLight10"
+    },
     "buttonSecondaryBackgroundInversePressed": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundMediaPressed": {
       "value": "rgba({palette.white}, 0.15)",
       "type": "color",
       "description": "white"
@@ -250,7 +305,17 @@
       "type": "color",
       "description": "vivoPurple"
     },
+    "textButtonPrimaryMedia": {
+      "value": "{palette.vivoPurple}",
+      "type": "color",
+      "description": "vivoPurple"
+    },
     "textButtonPrimaryInversePressed": {
+      "value": "{palette.vivoPurple}",
+      "type": "color",
+      "description": "vivoPurple"
+    },
+    "textButtonPrimaryMediaPressed": {
       "value": "{palette.vivoPurple}",
       "type": "color",
       "description": "vivoPurple"
@@ -260,17 +325,27 @@
       "type": "color",
       "description": "vivoPurple"
     },
-    "textButtonSecondaryPressed": {
-      "value": "{palette.vivoPurpleDark}",
-      "type": "color",
-      "description": "vivoPurpleDark"
-    },
     "textButtonSecondaryInverse": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
+    "textButtonSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textButtonSecondaryPressed": {
+      "value": "{palette.vivoPurpleDark}",
+      "type": "color",
+      "description": "vivoPurpleDark"
+    },
     "textButtonSecondaryInversePressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textButtonSecondaryMediaPressed": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
@@ -285,7 +360,17 @@
       "type": "color",
       "description": "white"
     },
+    "textLinkMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "textLinkDanger": {
+      "value": "{palette.pepper}",
+      "type": "color",
+      "description": "pepper"
+    },
+    "textLinkDangerMedia": {
       "value": "{palette.pepper}",
       "type": "color",
       "description": "pepper"
@@ -309,6 +394,11 @@
       "value": "{palette.grey3}",
       "type": "color",
       "description": "grey3"
+    },
+    "inputBorderInverse": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "completedStep": {
       "value": "{palette.vivoPurple}",
@@ -465,6 +555,11 @@
       "type": "color",
       "description": "white"
     },
+    "textPrimaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "textSecondary": {
       "value": "{palette.grey5}",
       "type": "color",
@@ -474,6 +569,11 @@
       "value": "{palette.vivoPurpleLight20}",
       "type": "color",
       "description": "vivoPurpleLight20"
+    },
+    "textSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "success": {
       "value": "{palette.vivoGreen}",
@@ -770,6 +870,11 @@
         ]
       },
       "description": "grey6"
+    },
+    "cardFooterOverlay": {
+      "value": "rgba({palette.grey6}, 0.7)",
+      "type": "color",
+      "description": "grey6"
     }
   },
   "dark": {
@@ -923,13 +1028,18 @@
       "type": "color",
       "description": "pepperDark"
     },
-    "buttonLinkDangerBackgroundPressed": {
-      "value": "rgba({palette.white}, 0.08)",
+    "buttonLinkDangerBackgroundInverse": {
+      "value": "rgba({palette.white}, 0)",
       "type": "color",
       "description": "white"
     },
-    "buttonLinkDangerBackgroundInverse": {
-      "value": "rgba({palette.white}, 0)",
+    "buttonLinkDangerBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkDangerBackgroundPressed": {
+      "value": "rgba({palette.white}, 0.08)",
       "type": "color",
       "description": "white"
     },
@@ -938,6 +1048,11 @@
       "type": "color",
       "description": "white"
     },
+    "buttonLinkDangerBackgroundMediaPressed": {
+      "value": "{palette.pepperLight10}",
+      "type": "color",
+      "description": "pepperLight10"
+    },
     "buttonLinkBackgroundPressed": {
       "value": "rgba({palette.white}, 0.08)",
       "type": "color",
@@ -945,6 +1060,11 @@
     },
     "buttonLinkBackgroundInversePressed": {
       "value": "rgba({palette.white}, 0.08)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkBackgroundMediaPressed": {
+      "value": "rgba({palette.white}, 0.1)",
       "type": "color",
       "description": "white"
     },
@@ -958,12 +1078,27 @@
       "type": "color",
       "description": "vivoPurpleLight80"
     },
-    "buttonPrimaryBackgroundPressed": {
+    "buttonPrimaryBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonPrimaryBackgroundHover": {
       "value": "{palette.vivoPurpleDark}",
       "type": "color",
       "description": "vivoPurpleDark"
     },
-    "buttonPrimaryBackgroundHover": {
+    "buttonPrimaryBackgroundInverseHover": {
+      "value": "{palette.vivoPurpleDark}",
+      "type": "color",
+      "description": "vivoPurpleDark"
+    },
+    "buttonPrimaryBackgroundMediaHover": {
+      "value": "{palette.vivoPurpleLight50}",
+      "type": "color",
+      "description": "vivoPurpleLight50"
+    },
+    "buttonPrimaryBackgroundPressed": {
       "value": "{palette.vivoPurpleDark}",
       "type": "color",
       "description": "vivoPurpleDark"
@@ -973,22 +1108,12 @@
       "type": "color",
       "description": "vivoPurpleDark"
     },
-    "buttonSecondaryBackgroundHover": {
-      "value": "rgba({palette.white}, 0.15)",
+    "buttonPrimaryBackgroundMediaPressed": {
+      "value": "{palette.vivoPurpleLight50}",
       "type": "color",
-      "description": "white"
-    },
-    "buttonSecondaryBackgroundPressed": {
-      "value": "rgba({palette.white}, 0.15)",
-      "type": "color",
-      "description": "white"
+      "description": "vivoPurpleLight50"
     },
     "buttonSecondaryBorder": {
-      "value": "{palette.white}",
-      "type": "color",
-      "description": "white"
-    },
-    "buttonSecondaryBorderPressed": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
@@ -998,8 +1123,28 @@
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBorderMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderPressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "buttonSecondaryBorderInversePressed": {
       "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBorderMediaPressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundHover": {
+      "value": "rgba({palette.white}, 0.15)",
       "type": "color",
       "description": "white"
     },
@@ -1008,7 +1153,22 @@
       "type": "color",
       "description": "white"
     },
+    "buttonSecondaryBackgroundMediaHover": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundPressed": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
     "buttonSecondaryBackgroundInversePressed": {
+      "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonSecondaryBackgroundMediaPressed": {
       "value": "rgba({palette.white}, 0.15)",
       "type": "color",
       "description": "white"
@@ -1023,17 +1183,22 @@
       "type": "color",
       "description": "grey2"
     },
+    "textButtonPrimaryMedia": {
+      "value": "{palette.vivoPurple}",
+      "type": "color",
+      "description": "vivoPurple"
+    },
     "textButtonPrimaryInversePressed": {
       "value": "{palette.grey2}",
       "type": "color",
       "description": "grey2"
     },
-    "textButtonSecondary": {
-      "value": "{palette.grey2}",
+    "textButtonPrimaryMediaPressed": {
+      "value": "{palette.vivoPurple}",
       "type": "color",
-      "description": "grey2"
+      "description": "vivoPurple"
     },
-    "textButtonSecondaryPressed": {
+    "textButtonSecondary": {
       "value": "{palette.grey2}",
       "type": "color",
       "description": "grey2"
@@ -1043,10 +1208,25 @@
       "type": "color",
       "description": "grey2"
     },
+    "textButtonSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textButtonSecondaryPressed": {
+      "value": "{palette.grey2}",
+      "type": "color",
+      "description": "grey2"
+    },
     "textButtonSecondaryInversePressed": {
       "value": "{palette.grey2}",
       "type": "color",
       "description": "grey2"
+    },
+    "textButtonSecondaryMediaPressed": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "textLink": {
       "value": "{palette.vivoPurpleLight50}",
@@ -1058,7 +1238,17 @@
       "type": "color",
       "description": "vivoPurpleLight50"
     },
+    "textLinkMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "textLinkDanger": {
+      "value": "{palette.pepper}",
+      "type": "color",
+      "description": "pepper"
+    },
+    "textLinkDangerMedia": {
       "value": "{palette.pepper}",
       "type": "color",
       "description": "pepper"
@@ -1079,6 +1269,11 @@
       "description": "vivoPurpleLight80"
     },
     "inputBorder": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "inputBorderInverse": {
       "value": "{palette.darkModeGrey6}",
       "type": "color",
       "description": "darkModeGrey6"
@@ -1238,6 +1433,11 @@
       "type": "color",
       "description": "grey2"
     },
+    "textPrimaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "textSecondary": {
       "value": "{palette.grey4}",
       "type": "color",
@@ -1247,6 +1447,11 @@
       "value": "{palette.grey4}",
       "type": "color",
       "description": "grey4"
+    },
+    "textSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "success": {
       "value": "{palette.vivoGreen}",
@@ -1543,6 +1748,11 @@
         ]
       },
       "description": "grey6"
+    },
+    "cardFooterOverlay": {
+      "value": "rgba({palette.grey6}, 0.7)",
+      "type": "color",
+      "description": "grey6"
     }
   },
   "radius": {
@@ -1567,7 +1777,15 @@
       "type": "borderRadius"
     },
     "indicator": {
-      "value": "999",
+      "value": "24",
+      "type": "borderRadius"
+    },
+    "chip": {
+      "value": "24",
+      "type": "borderRadius"
+    },
+    "tag": {
+      "value": "24",
       "type": "borderRadius"
     },
     "input": {
@@ -1594,6 +1812,10 @@
   "text": {
     "weight": {
       "cardTitle": {
+        "value": "regular",
+        "type": "typography"
+      },
+      "rowTitle": {
         "value": "regular",
         "type": "typography"
       },

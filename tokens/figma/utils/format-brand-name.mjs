@@ -13,6 +13,10 @@ function formatBrandName(brand) {
     return "eSimFLAG";
   }
 
+  if (brand === "movistar-new") {
+    return "Movistar New";
+  }
+
   // For other brands, remove the hyphen and convert to sentence case
   return brand
     .replace(/-/g, " ") // Remove hyphens and replace with spaces
