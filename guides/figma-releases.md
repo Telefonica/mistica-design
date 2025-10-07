@@ -38,7 +38,7 @@ Once all related issues are tagged:
 2. Double-check that the name follows the x.x.x pattern.
 3. Close the milestone.
 
-Closing the milestone automatically triggers the changelog generation workflow.
+Closing the milestone automatically triggers the changelog generation workflow and creates a new file under `/changelog-versions`
 
 > [!WARNING] 
 > If a milestone name doesn’t follow this pattern (e.g., “Experimental update” or “Q3 Release”), the changelog generation action will fail.
@@ -80,7 +80,9 @@ Publish libraries in the following order to avoid dependency issues:
 
 Ensure that all libraries use the same release version (x.x.x) and that Figma components link correctly after publishing.
 
-In each library you should create a branch updates from x.x.x that includes the updated changes from the previous updated library (fo example in Mobile a branch updates from 19.0.0 will be created to update skins)
+In each library you should create a branch named "updates from x.x.x" that includes the updated changes from the previous updated library (for example in Mobile a branch updates from 19.0.0 will be created to update skins). This branches help to identify that all changes coming from previous updated libraries are ok and not breaking anything.
+
+If there are not tasks affecting any component in a library the library doesn't need to be published.
 
 ### 4.3 Publish data
 
