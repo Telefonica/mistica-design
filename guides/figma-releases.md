@@ -56,11 +56,11 @@ If you need to make more changes after the milestone was closed you can do it ma
 
 ## 4. Publish Figma Libraries
 
-## 4.1 Figma branch pruning
+### 4.1 Figma branch pruning
 
 Before make a release double check all branches in Figma that are included in the release are merged
 
-## 4.2 Libraries publishing
+### 4.2 Libraries publishing
 
 Publish libraries in the following order to avoid dependency issues:
 
