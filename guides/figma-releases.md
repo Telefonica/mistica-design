@@ -16,14 +16,19 @@ This document describes the steps required to perform a Figma release for Mistic
 
 ## 1. Add Milestone Tags
 
-Before closing a milestone, ensure that:
+Before closing a milestone, ensure that all issues in the milestone have a tag that will include them in the changelog.
 
-Each issue or pull request included in the release has the correct milestone assigned.
+There are three tags used exclusively for listing items in the changelog:
 
-The milestone name follows the semantic versioning pattern (x.x.x), e.g., 3.2.1.
+* `changelog: added`
+* `changelog: changed`
+* `changelog: removed`
 
-> [!WARNING] 
-> If a milestone name doesn’t follow this pattern (e.g., “Experimental update” or “Q3 Release”), the changelog generation action will fail.
+The list of tags recognized by the workflow can be found here:
+[https://github.com/Telefonica/mistica-design/blob/production/.github/release-notes.yml](https://github.com/Telefonica/mistica-design/blob/production/.github/release-notes.yml)
+
+> [!NOTE]
+> If an issue has more than one of the tags listed in this file, it will appear duplicated in multiple categories.
 
 ## 2. Close the Milestone
 
@@ -34,6 +39,10 @@ Once all related issues are tagged:
 3. Close the milestone.
 
 Closing the milestone automatically triggers the changelog generation workflow.
+
+> [!WARNING] 
+> If a milestone name doesn’t follow this pattern (e.g., “Experimental update” or “Q3 Release”), the changelog generation action will fail.
+
 
 ## 3. Update the Changelog Entry
 
