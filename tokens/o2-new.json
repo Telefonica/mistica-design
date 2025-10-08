@@ -717,6 +717,11 @@
       "type": "color",
       "description": "white"
     },
+    "textPrimaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "textSecondary": {
       "value": "{palette.grey60}",
       "type": "color",
@@ -731,6 +736,11 @@
       "value": "{palette.beyondBlue10}",
       "type": "color",
       "description": "beyondBlue10"
+     },
+    "textSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "success": {
       "value": "{palette.o2Green}",
@@ -1124,7 +1134,7 @@
       "description": "black"
     },
     "cardFooterOverlay": {
-      "value": "rgba({palette.black}, 1)",
+      "value": "rgba({palette.black}, 0.7)",
       "type": "color",
       "description": "black"
     }
@@ -1814,6 +1824,11 @@
       "value": "{palette.grey30}",
       "type": "color",
       "description": "grey30"
+     },
+    "textPrimaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "textSecondary": {
       "value": "{palette.grey45}",
@@ -1829,6 +1844,11 @@
       "value": "{palette.grey45}",
       "type": "color",
       "description": "grey45"
+     },
+    "textSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "success": {
       "value": "{palette.o2Green}",
@@ -2237,7 +2257,7 @@
       "type": "borderRadius"
     },
     "button": {
-      "value": "999",
+      "value": "32",
       "type": "borderRadius"
     },
     "checkbox": {
@@ -2249,7 +2269,15 @@
       "type": "borderRadius"
     },
     "indicator": {
-      "value": "999",
+      "value": "24",
+      "type": "borderRadius"
+    },
+    "chip": {
+      "value": "24",
+      "type": "borderRadius"
+    },
+    "tag": {
+      "value": "24",
       "type": "borderRadius"
     },
     "input": {
@@ -2277,6 +2305,10 @@
     "weight": {
       "cardTitle": {
         "value": "medium",
+        "type": "typography"
+      },
+      "rowTitle": {
+        "value": "regular",
         "type": "typography"
       },
       "button": {

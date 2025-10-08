@@ -103,7 +103,7 @@ function suggestForegroundAlternatives(
   const family = match[1];
   const baseIndex = parseInt(match[2], 10);
 
-  // Collect all tokens in the same family with numeric suffixes
+  // Collect all tokens in the same family
   const sameFamily = Object.entries(palette)
     .map(([key, token]) => {
       const m = key.match(/^([a-zA-Z]+)(\d+)$/);
@@ -117,25 +117,14 @@ function suggestForegroundAlternatives(
     .filter(Boolean)
     .sort((a, b) => a.index - b.index);
 
-  // Generate ordered list of adjacent indices: +1, -1, +2, -2, ...
-  const ordered = [];
-  const seen = new Set();
-  for (
-    let offset = 1;
-    offset < sameFamily.length;
-    offset++
-  ) {
-    for (const direction of [1, -1]) {
-      const idx = baseIndex + direction * offset;
-      const candidate = sameFamily.find(
-        (t) => t.index === idx
-      );
-      if (candidate && !seen.has(candidate.key)) {
-        ordered.push(candidate);
-        seen.add(candidate.key);
-      }
-    }
-  }
+  // Generate candidates sorted by absolute distance from baseIndex
+  const ordered = sameFamily
+    .filter((t) => t.index !== baseIndex)
+    .sort(
+      (a, b) =>
+        Math.abs(a.index - baseIndex) -
+        Math.abs(b.index - baseIndex)
+    );
 
   // Return the first valid alternative with enough contrast
   for (const candidate of ordered) {

@@ -685,6 +685,11 @@
       "type": "color",
       "description": "white"
     },
+    "textPrimaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "textSecondary": {
       "value": "{palette.grey6}",
       "type": "color",
@@ -696,6 +701,11 @@
       "description": "white"
     },
     "textSecondaryBrand": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textSecondaryMedia": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
@@ -1782,6 +1792,11 @@
       "value": "{palette.grey1}",
       "type": "color",
       "description": "grey1"
+    },  
+    "textPrimaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "textSecondary": {
       "value": "{palette.grey3}",
@@ -1797,6 +1812,11 @@
       "value": "{palette.grey3}",
       "type": "color",
       "description": "grey3"
+    },
+    "textSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "error": {
       "value": "{palette.coral}",
@@ -2205,7 +2225,7 @@
       "type": "borderRadius"
     },
     "button": {
-      "value": "999",
+      "value": "32",
       "type": "borderRadius"
     },
     "checkbox": {
@@ -2217,7 +2237,15 @@
       "type": "borderRadius"
     },
     "indicator": {
-      "value": "999",
+      "value": "24",
+      "type": "borderRadius"
+    },
+    "chip": {
+      "value": "24",
+      "type": "borderRadius"
+    },
+    "tag": {
+      "value": "24",
       "type": "borderRadius"
     },
     "input": {
@@ -2244,6 +2272,10 @@
   "text": {
     "weight": {
       "cardTitle": {
+        "value": "regular",
+        "type": "typography"
+      },
+      "rowTitle": {
         "value": "regular",
         "type": "typography"
       },

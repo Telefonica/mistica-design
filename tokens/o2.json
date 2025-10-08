@@ -685,6 +685,11 @@
       "type": "color",
       "description": "white"
     },
+    "textPrimaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "textSecondary": {
       "value": "{palette.grey5}",
       "type": "color",
@@ -699,6 +704,11 @@
       "value": "{palette.o2BluePrimary15}",
       "type": "color",
       "description": "o2BluePrimary15"
+    },
+    "textSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "success": {
       "value": "{palette.o2Green}",
@@ -1782,6 +1792,11 @@
       "value": "{palette.grey2}",
       "type": "color",
       "description": "grey2"
+     },
+    "textPrimaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "textSecondary": {
       "value": "{palette.grey4}",
@@ -1797,6 +1812,11 @@
       "value": "{palette.grey4}",
       "type": "color",
       "description": "grey4"
+      },
+    "textSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "success": {
       "value": "{palette.o2Green}",
@@ -2217,7 +2237,15 @@
       "type": "borderRadius"
     },
     "indicator": {
-      "value": "999",
+      "value": "24",
+      "type": "borderRadius"
+    },
+    "chip": {
+      "value": "24",
+      "type": "borderRadius"
+    },
+    "tag": {
+      "value": "24",
       "type": "borderRadius"
     },
     "input": {
@@ -2244,6 +2272,10 @@
   "text": {
     "weight": {
       "cardTitle": {
+        "value": "regular",
+        "type": "typography"
+      },
+      "rowTitle": {
         "value": "regular",
         "type": "typography"
       },

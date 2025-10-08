@@ -717,6 +717,11 @@
       "type": "color",
       "description": "white"
     },
+    "textPrimaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "textSecondary": {
       "value": "{palette.grey5}",
       "type": "color",
@@ -730,7 +735,11 @@
     "textSecondaryBrand": {
       "value": "{palette.blue10}",
       "type": "color",
-      "description": "blue10"
+      "description": "blue10"  },
+    "textSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "success": {
       "value": "{palette.grass}",
@@ -1813,7 +1822,12 @@
     "textPrimaryBrand": {
       "value": "{palette.grey3}",
       "type": "color",
-      "description": "grey3"
+      "description": "grey3"  
+    },
+    "textPrimaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "textSecondary": {
       "value": "{palette.grey4}",
@@ -1829,6 +1843,11 @@
       "value": "{palette.grey4}",
       "type": "color",
       "description": "grey4"
+     },
+    "textSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "success": {
       "value": "{palette.grass}",
@@ -2237,7 +2256,7 @@
       "type": "borderRadius"
     },
     "button": {
-      "value": "999",
+      "value": "32",
       "type": "borderRadius"
     },
     "checkbox": {
@@ -2249,6 +2268,14 @@
       "type": "borderRadius"
     },
     "indicator": {
+      "value": "8",
+      "type": "borderRadius"
+    },
+    "chip": {
+      "value": "8",
+      "type": "borderRadius"
+    },
+    "tag": {
       "value": "8",
       "type": "borderRadius"
     },
@@ -2277,6 +2304,10 @@
     "weight": {
       "cardTitle": {
         "value": "medium",
+        "type": "typography"
+      },
+      "rowTitle": {
+        "value": "regular",
         "type": "typography"
       },
       "button": {

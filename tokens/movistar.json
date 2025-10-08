@@ -681,6 +681,11 @@
       "description": "white"
     },
     "textPrimaryBrand": {
+       "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "textPrimaryMedia": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
@@ -699,6 +704,11 @@
       "value": "{palette.movistarBlue10}",
       "type": "color",
       "description": "movistarBlue10"
+    },
+    "textSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "success": {
       "value": "{palette.movistarGreen55}",
@@ -1782,6 +1792,11 @@
       "value": "{palette.darkModeGrey2}",
       "type": "color",
       "description": "darkModeGrey2"
+    },  
+    "textPrimaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "textSecondary": {
       "value": "{palette.darkModeGrey4}",
@@ -1797,6 +1812,11 @@
       "value": "{palette.darkModeGrey4}",
       "type": "color",
       "description": "darkModeGrey4"
+    },
+    "textSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "success": {
       "value": "{palette.movistarGreen}",
@@ -2217,7 +2237,15 @@
       "type": "borderRadius"
     },
     "indicator": {
-      "value": "999",
+      "value": "24",
+      "type": "borderRadius"
+    },
+    "chip": {
+      "value": "24",
+      "type": "borderRadius"
+    },
+    "tag": {
+      "value": "24",
       "type": "borderRadius"
     },
     "input": {
@@ -2245,6 +2273,10 @@
     "weight": {
       "cardTitle": {
         "value": "bold",
+        "type": "typography"
+      },
+      "rowTitle": {
+        "value": "regular",
         "type": "typography"
       },
       "button": {

@@ -681,6 +681,11 @@
       "description": "white"
     },
     "textPrimaryBrand": {
+       "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    }
+    "textPrimaryMedia": {
       "value": "{palette.white}",
       "type": "color",
       "description": "white"
@@ -699,6 +704,11 @@
       "value": "{palette.blauBluePrimary20}",
       "type": "color",
       "description": "blauBluePrimary20"
+      },
+    "textSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "error": {
       "value": "{palette.blauRed}",
@@ -1781,7 +1791,11 @@
     "textPrimaryBrand": {
       "value": "{palette.grey2}",
       "type": "color",
-      "description": "grey2"
+      "description": "grey2"  },
+    "textPrimaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "textSecondary": {
       "value": "{palette.grey4}",
@@ -1796,7 +1810,11 @@
     "textSecondaryBrand": {
       "value": "{palette.grey4}",
       "type": "color",
-      "description": "grey4"
+      "description": "grey4"  },
+    "textSecondaryMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "error": {
       "value": "{palette.blauRed}",
@@ -2217,7 +2235,15 @@
       "type": "borderRadius"
     },
     "indicator": {
-      "value": "999",
+      "value": "24",
+      "type": "borderRadius"
+    },
+    "chip": {
+      "value": "24",
+      "type": "borderRadius"
+    },
+    "tag": {
+      "value": "24",
       "type": "borderRadius"
     },
     "input": {
@@ -2254,6 +2280,10 @@
   "text": {
     "weight": {
       "cardTitle": {
+        "value": "regular",
+        "type": "typography"
+      },
+      "rowTitle": {
         "value": "regular",
         "type": "typography"
       },
