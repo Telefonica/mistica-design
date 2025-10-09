@@ -20,22 +20,6 @@ export const contrastPairs = [
     minRatio: 4.5,
   },
   {
-    fg: [
-      "textPrimaryBrand",
-      "textSecondaryBrand",
-      "textErrorBrand",
-      "textLinkBrand",
-    ],
-    bg: [
-      "backgroundContainerBrand",
-      "backgroundContainerBrandOverBrand",
-      "backgroundBrand",
-      "backgroundBrandSecondary",
-    ],
-    minRatio: 4.5,
-  },
-
-  {
     fg: ["textPrimaryInverse"],
     bg: [
       "brandHigh",
@@ -51,6 +35,21 @@ export const contrastPairs = [
       "backgroundContainerBrand",
       "backgroundContainerBrandOverInverse",
       "backgroundBrand",
+    ],
+    minRatio: 4.5,
+  },
+  {
+    fg: [
+      "textPrimaryBrand",
+      "textSecondaryBrand",
+      "textErrorBrand",
+      "textLinkBrand",
+    ],
+    bg: [
+      "backgroundContainerBrand",
+      "backgroundContainerBrandOverBrand",
+      "backgroundBrand",
+      "backgroundBrandSecondary",
     ],
     minRatio: 4.5,
   },
@@ -82,6 +81,11 @@ export const contrastPairs = [
     minRatio: 4.5,
   },
   {
+    fg: ["textButtonPrimaryBrand"],
+    bg: ["buttonPrimaryBackgroundBrand"],
+    minRatio: 4.5,
+  },
+  {
     fg: ["textButtonPrimaryMedia"],
     bg: ["buttonPrimaryBackgroundMedia"],
     minRatio: 4.5,
@@ -91,6 +95,14 @@ export const contrastPairs = [
     bg: [
       "buttonPrimaryBackgroundInverseHover",
       "buttonPrimaryBackgroundInversePressed",
+    ],
+    minRatio: 4.5,
+  },
+  {
+    fg: ["textButtonPrimaryBrandPressed"],
+    bg: [
+      "buttonPrimaryBackgroundBrandHover",
+      "buttonPrimaryBackgroundBrandPressed",
     ],
     minRatio: 4.5,
   },
@@ -157,6 +169,22 @@ export const contrastPairs = [
       "backgroundAlternative",
       "backgroundContainer",
       "buttonLinkDangerBackgroundPressed",
+    ],
+    minRatio: 4.5,
+  },
+  {
+    fg: ["textLinkDangerInverse"],
+    bg: [
+      "buttonLinkDangerBackgroundInverse",
+      "buttonLinkDangerBackgroundInversePressed",
+    ],
+    minRatio: 4.5,
+  },
+  {
+    fg: ["textLinkDangerBrand"],
+    bg: [
+      "buttonLinkDangerBackgroundBrand",
+      "buttonLinkDangerBackgroundBrandPressed",
     ],
     minRatio: 4.5,
   },
