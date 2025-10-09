@@ -41,17 +41,17 @@
       "description": "blauBlueSecondary"
     },
     "backgroundContainerBrand": {
-      "value": "{palette.blauBlueSecondary}",
+      "value": "{palette.blauBluePrimary}",
       "type": "color",
-      "description": "blauBlueSecondary"
+      "description": "blauBluePrimary"
     },
     "backgroundContainerBrandHover": {
-      "value": "rgba({palette.darkModeBlack}, 0.2)",
+      "value": "rgba({palette.darkModeBlack}, 0.05)",
       "type": "color",
       "description": "darkModeBlack"
     },
     "backgroundContainerBrandPressed": {
-      "value": "rgba({palette.darkModeBlack}, 0.4)",
+      "value": "rgba({palette.darkModeBlack}, 0.08)",
       "type": "color",
       "description": "darkModeBlack"
     },
@@ -61,9 +61,9 @@
       "description": "blauBlueSecondary60"
     },
     "backgroundContainerBrandOverBrand": {
-      "value": "{palette.blauBlueSecondary60}",
+      "value": "{palette.blauBluePrimary30}",
       "type": "color",
-      "description": "blauBlueSecondary60"
+      "description": "blauBluePrimary30"
     },
     "backgroundContainerAlternative": {
       "value": "{palette.blauBluePrimary20}",
@@ -241,9 +241,9 @@
       "description": "white"
     },
     "buttonPrimaryBackgroundBrand": {
-      "value": "{palette.white}",
+      "value": "{palette.blauBlueSecondary}",
       "type": "color",
-      "description": "white"
+      "description": "blauBlueSecondary"
     },
     "buttonPrimaryBackgroundMedia": {
       "value": "{palette.white}",
@@ -261,9 +261,9 @@
       "description": "blauBluePrimary20"
     },
     "buttonPrimaryBackgroundBrandHover": {
-      "value": "{palette.blauBluePrimary20}",
+      "value": "{palette.blauBlueSecondary60}",
       "type": "color",
-      "description": "blauBluePrimary20"
+      "description": "blauBlueSecondary60"
     },
     "buttonPrimaryBackgroundMediaHover": {
       "value": "{palette.blauBluePrimary20}",
@@ -281,9 +281,9 @@
       "description": "blauBluePrimary30"
     },
     "buttonPrimaryBackgroundBrandPressed": {
-      "value": "{palette.blauBluePrimary30}",
+      "value": "{palette.blauBlueSecondary60}",
       "type": "color",
-      "description": "blauBluePrimary30"
+      "description": "blauBlueSecondary60"
     },
     "buttonPrimaryBackgroundMediaPressed": {
       "value": "{palette.blauBluePrimary30}",
@@ -301,7 +301,7 @@
       "description": "white"
     },
     "buttonSecondaryBorderBrand": {
-      "value": "{palette.white}",
+      "value": "rgba({palette.white}, 0)",
       "type": "color",
       "description": "white"
     },
@@ -321,7 +321,7 @@
       "description": "white"
     },
     "buttonSecondaryBorderBrandPressed": {
-      "value": "{palette.white}",
+      "value": "rgba({palette.white}, 0)",
       "type": "color",
       "description": "white"
     },
@@ -341,9 +341,9 @@
       "description": "white"
     },
     "buttonSecondaryBackgroundBrandHover": {
-      "value": "rgba({palette.white}, 0.2)",
+      "value": "{palette.blauBlueSecondary10}",
       "type": "color",
-      "description": "white"
+      "description": "blauBlueSecondary10"
     },
     "buttonSecondaryBackgroundMediaHover": {
       "value": "rgba({palette.white}, 0.2)",
@@ -361,9 +361,9 @@
       "description": "white"
     },
     "buttonSecondaryBackgroundBrandPressed": {
-      "value": "rgba({palette.white}, 0.2)",
+      "value": "{palette.blauBlueSecondary10}",
       "type": "color",
-      "description": "white"
+      "description": "blauBlueSecondary10"
     },
     "buttonSecondaryBackgroundMediaPressed": {
       "value": "rgba({palette.white}, 0.2)",
@@ -381,9 +381,9 @@
       "description": "blauBlueSecondary"
     },
     "textButtonPrimaryBrand": {
-      "value": "{palette.blauBlueSecondary}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "blauBlueSecondary"
+      "description": "white"
     },
     "textButtonPrimaryMedia": {
       "value": "{palette.blauBlueSecondary}",
@@ -396,9 +396,9 @@
       "description": "blauBlueSecondary60"
     },
     "textButtonPrimaryBrandPressed": {
-      "value": "{palette.blauBlueSecondary60}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "blauBlueSecondary60"
+      "description": "white"
     },
     "textButtonPrimaryMediaPressed": {
       "value": "{palette.blauBlueSecondary60}",
@@ -416,9 +416,9 @@
       "description": "white"
     },
     "textButtonSecondaryBrand": {
-      "value": "{palette.white}",
+      "value": "{palette.blauBlueSecondary}",
       "type": "color",
-      "description": "white"
+      "description": "blauBlueSecondary"
     },
     "textButtonSecondaryMedia": {
       "value": "{palette.white}",
@@ -436,9 +436,9 @@
       "description": "white"
     },
     "textButtonSecondaryBrandPressed": {
-      "value": "{palette.white}",
+      "value": "{palette.blauBlueSecondary60}",
       "type": "color",
-      "description": "white"
+      "description": "blauBlueSecondary60"
     },
     "textButtonSecondaryMediaPressed": {
       "value": "{palette.white}",
@@ -456,7 +456,7 @@
       "description": "white"
     },
     "textLinkBrand": {
-      "value": "{palette.white}",
+      "value": "{palette.grey6}",
       "type": "color",
       "description": "white"
     },
@@ -521,7 +521,7 @@
       "description": "blauBluePrimary30"
     },
     "controlBrand": {
-      "value": "{palette.blauBluePrimary30}",
+      "value": "{palette.blauBlueSecondary60}",
       "type": "color",
       "description": "blauBluePrimary30"
     },
@@ -531,9 +531,9 @@
       "description": "white"
     },
     "controlActivatedBrand": {
-      "value": "{palette.white}",
+      "value": "{palette.blauBlueSecondary60}",
       "type": "color",
-      "description": "white"
+      "description": "blauBlueSecondary60"
     },
     "controlError": {
       "value": "{palette.blauRed}",
@@ -601,9 +601,9 @@
       "description": "white"
     },
     "dividerBrand": {
-      "value": "rgba({palette.white}, 0.2)",
+      "value": "rgba({palette.grey6}, 0.2)",
       "type": "color",
-      "description": "white"
+      "description": "grey6"
     },
     "navigationBarDivider": {
       "value": "{palette.blauBluePrimary}",
@@ -704,7 +704,7 @@
       "value": "{palette.blauBluePrimary20}",
       "type": "color",
       "description": "blauBluePrimary20"
-      },
+    },
     "textSecondaryMedia": {
       "value": "{palette.white}",
       "type": "color",
@@ -1791,7 +1791,8 @@
     "textPrimaryBrand": {
       "value": "{palette.grey2}",
       "type": "color",
-      "description": "grey2"  },
+      "description": "grey2"
+    },
     "textPrimaryMedia": {
       "value": "{palette.white}",
       "type": "color",
@@ -1810,7 +1811,8 @@
     "textSecondaryBrand": {
       "value": "{palette.grey4}",
       "type": "color",
-      "description": "grey4"  },
+      "description": "grey4"
+    },
     "textSecondaryMedia": {
       "value": "{palette.white}",
       "type": "color",
