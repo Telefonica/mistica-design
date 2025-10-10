@@ -20,6 +20,15 @@ export const contrastPairs = [
     minRatio: 4.5,
   },
   {
+    fg: [
+      "textPrimary",
+      "textSecondary",
+      "textError",
+    ],
+    bg: ["backgroundContainerError"],
+    minRatio: 4.5,
+  },
+  {
     fg: ["textPrimaryInverse"],
     bg: [
       "brandHigh",
@@ -51,15 +60,6 @@ export const contrastPairs = [
       "backgroundBrand",
       "backgroundBrandSecondary",
     ],
-    minRatio: 4.5,
-  },
-  {
-    fg: [
-      "textPrimary",
-      "textSecondary",
-      "textError",
-    ],
-    bg: ["backgroundContainerError"],
     minRatio: 4.5,
   },
   // Buttons
