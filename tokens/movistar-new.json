@@ -36,7 +36,7 @@
       "description": "movistarBlack"
     },
     "backgroundContainerPressed": {
-      "value": "rgba({palette.movistarBlack}, 0.02)",
+      "value": "rgba({palette.movistarBlack}, 0.08)",
       "type": "color",
       "description": "movistarBlack"
     },
@@ -601,9 +601,9 @@
       "description": "white"
     },
     "promo": {
-      "value": "{palette.red}",
+      "value": "{palette.redHigh}",
       "type": "color",
-      "description": "red"
+      "description": "redHigh"
     },
     "highlight": {
       "value": "{palette.pink55}",
@@ -909,7 +909,7 @@
       "description": "darkModeGrey"
     },
     "backgroundContainerHover": {
-      "value": "rgba({palette.white}, 0.08)",
+      "value": "rgba({palette.white}, 0.05)",
       "type": "color",
       "description": "white"
     },
@@ -1369,9 +1369,9 @@
       "description": "darkModeBlack"
     },
     "badge": {
-      "value": "{palette.red350}",
+      "value": "{palette.red600}",
       "type": "color",
-      "description": "red350"
+      "description": "red600"
     },
     "feedbackErrorBackground": {
       "value": "{palette.red}",
@@ -2111,6 +2111,10 @@
       },
       "red350": {
         "value": "#FF8A8A",
+        "type": "color"
+      },
+      "red600": {
+        "value": "#CF381F",
         "type": "color"
       },
       "redHigh": {
