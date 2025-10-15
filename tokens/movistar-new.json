@@ -31,12 +31,12 @@
       "description": "salmon100"
     },
     "backgroundContainerHover": {
-      "value": "rgba({palette.movistarBlack}, 0.02)",
+      "value": "rgba({palette.movistarBlack}, 0.05)",
       "type": "color",
       "description": "movistarBlack"
     },
     "backgroundContainerPressed": {
-      "value": "rgba({palette.movistarBlack}, 0.02)",
+      "value": "rgba({palette.movistarBlack}, 0.08)",
       "type": "color",
       "description": "movistarBlack"
     },
@@ -46,12 +46,12 @@
       "description": "movistarBlue"
     },
     "backgroundContainerBrandHover": {
-      "value": "rgba({palette.movistarBlack}, 0.1)",
+      "value": "rgba({palette.movistarBlack}, 0.2)",
       "type": "color",
       "description": "movistarBlack"
     },
     "backgroundContainerBrandPressed": {
-      "value": "rgba({palette.movistarBlack}, 0.2)",
+      "value": "rgba({palette.movistarBlack}, 0.4)",
       "type": "color",
       "description": "movistarBlack"
     },
@@ -406,9 +406,9 @@
       "description": "movistarBlue"
     },
     "completedStepInverse": {
-      "value": "{palette.blue200}",
+      "value": "{palette.blue100}",
       "type": "color",
-      "description": "blue200"
+      "description": "blue100"
     },
     "control": {
       "value": "{palette.grey500}",
@@ -511,9 +511,9 @@
       "description": "movistarBlue"
     },
     "brandHigh": {
-      "value": "{palette.blue800}",
+      "value": "{palette.blueHigh}",
       "type": "color",
-      "description": "blue800"
+      "description": "blueHigh"
     },
     "inverse": {
       "value": "{palette.white}",
@@ -631,9 +631,9 @@
       "description": "salmon100"
     },
     "brandLow": {
-      "value": "{palette.blue100}",
+      "value": "{palette.blueLight}",
       "type": "color",
-      "description": "blue100"
+      "description": "blueLight"
     },
     "successHigh": {
       "value": "{palette.green700}",
@@ -909,7 +909,7 @@
       "description": "darkModeGrey"
     },
     "backgroundContainerHover": {
-      "value": "rgba({palette.white}, 0.08)",
+      "value": "rgba({palette.white}, 0.05)",
       "type": "color",
       "description": "white"
     },
@@ -1284,9 +1284,9 @@
       "description": "blue800"
     },
     "completedStepInverse": {
-      "value": "{palette.blue200}",
+      "value": "{palette.blue100}",
       "type": "color",
-      "description": "blue200"
+      "description": "blue100"
     },
     "control": {
       "value": "{palette.grey400}",
@@ -1369,9 +1369,9 @@
       "description": "darkModeBlack"
     },
     "badge": {
-      "value": "{palette.red}",
+      "value": "{palette.red600}",
       "type": "color",
-      "description": "red"
+      "description": "red600"
     },
     "feedbackErrorBackground": {
       "value": "{palette.red}",
@@ -1479,9 +1479,9 @@
       "description": "red350"
     },
     "promo": {
-      "value": "{palette.redHigh}",
+      "value": "{palette.red350}",
       "type": "color",
-      "description": "redHigh"
+      "description": "red350"
     },
     "highlight": {
       "value": "{palette.pink45}",
@@ -1524,14 +1524,14 @@
       "description": "yellow400"
     },
     "errorHigh": {
-      "value": "{palette.redHigh}",
+      "value": "{palette.red}",
       "type": "color",
-      "description": "redHigh"
+      "description": "red"
     },
     "promoHigh": {
-      "value": "{palette.redHigh}",
+      "value": "{palette.red}",
       "type": "color",
-      "description": "redHigh"
+      "description": "red"
     },
     "successHighInverse": {
       "value": "{palette.green700}",
@@ -1544,14 +1544,14 @@
       "description": "yellowHigh"
     },
     "errorHighInverse": {
-      "value": "{palette.redHigh}",
+      "value": "{palette.red}",
       "type": "color",
-      "description": "redHigh"
+      "description": "red"
     },
     "promoHighInverse": {
-      "value": "{palette.redHigh}",
+      "value": "{palette.red}",
       "type": "color",
-      "description": "redHigh"
+      "description": "red"
     },
     "textNavigationBarPrimary": {
       "value": "{palette.grey200}",
@@ -2074,7 +2074,7 @@
         "type": "color"
       },
       "blue100": {
-        "value": "#E5F0FF",
+        "value": "#f4f7f8",
         "type": "color"
       },
       "blue200": {
@@ -2086,7 +2086,7 @@
         "type": "color"
       },
       "blue600": {
-        "value": "#4DBAF7",
+        "value": "#2F7DFF",
         "type": "color"
       },
       "blue800": {
@@ -2111,6 +2111,10 @@
       },
       "red350": {
         "value": "#FF8A8A",
+        "type": "color"
+      },
+      "red600": {
+        "value": "#CF381F",
         "type": "color"
       },
       "redHigh": {
