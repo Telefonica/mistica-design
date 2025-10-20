@@ -19,7 +19,7 @@ export const FONT_FAMILIES = {
 };
 
 export const ICON_SETS = {
-  [BRANDS.MOVISTAR]: "Vivo",
+  [BRANDS.MOVISTAR]: "Movistar",
   [BRANDS.MOVISTAR_NEW]: "Default",
   [BRANDS.VIVO_NEW]: "Vivo",
   [BRANDS.O2_NEW]: "O2",
