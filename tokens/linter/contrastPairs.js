@@ -20,13 +20,19 @@ export const contrastPairs = [
     minRatio: 4.5,
   },
   {
+    fg: [
+      "textPrimary",
+      "textSecondary",
+      "textError",
+    ],
+    bg: ["backgroundContainerError"],
+    minRatio: 4.5,
+  },
+  {
     fg: ["textPrimaryInverse"],
     bg: [
       "brandHigh",
-      "backgroundContainerBrand",
       "backgroundContainerBrandOverInverse",
-      "backgroundBrand",
-      "backgroundBrandSecondary",
       "badge",
       "completedStep",
     ],
@@ -43,11 +49,17 @@ export const contrastPairs = [
   },
   {
     fg: [
-      "textPrimary",
-      "textSecondary",
-      "textError",
+      "textPrimaryBrand",
+      "textSecondaryBrand",
+      "textErrorBrand",
+      "textLinkBrand",
     ],
-    bg: ["backgroundContainerError"],
+    bg: [
+      "backgroundContainerBrand",
+      "backgroundContainerBrandOverBrand",
+      "backgroundBrand",
+      "backgroundBrandSecondary",
+    ],
     minRatio: 4.5,
   },
   // Buttons
@@ -69,6 +81,11 @@ export const contrastPairs = [
     minRatio: 4.5,
   },
   {
+    fg: ["textButtonPrimaryBrand"],
+    bg: ["buttonPrimaryBackgroundBrand"],
+    minRatio: 4.5,
+  },
+  {
     fg: ["textButtonPrimaryMedia"],
     bg: ["buttonPrimaryBackgroundMedia"],
     minRatio: 4.5,
@@ -82,6 +99,14 @@ export const contrastPairs = [
     minRatio: 4.5,
   },
   {
+    fg: ["textButtonPrimaryBrandPressed"],
+    bg: [
+      "buttonPrimaryBackgroundBrandHover",
+      "buttonPrimaryBackgroundBrandPressed",
+    ],
+    minRatio: 4.5,
+  },
+  {
     fg: ["textButtonPrimaryMediaPressed"],
     bg: [
       "buttonPrimaryBackgroundMediaHover",
@@ -89,7 +114,6 @@ export const contrastPairs = [
     ],
     minRatio: 4.5,
   },
-
   {
     fg: ["textButtonSecondary"],
     bg: [
@@ -126,12 +150,41 @@ export const contrastPairs = [
     minRatio: 4.5,
   },
   {
+    fg: ["textButtonSecondaryBrand"],
+    bg: ["buttonSecondaryBackgroundBrand"],
+    minRatio: 4.5,
+  },
+  {
+    fg: ["textButtonSecondaryBrandPressed"],
+    bg: [
+      "buttonSecondaryBackgroundBrandHover",
+      "buttonSecondaryBackgroundBrandPressed",
+    ],
+    minRatio: 4.5,
+  },
+  {
     fg: ["textLinkDanger"],
     bg: [
       "background",
       "backgroundAlternative",
       "backgroundContainer",
       "buttonLinkDangerBackgroundPressed",
+    ],
+    minRatio: 4.5,
+  },
+  {
+    fg: ["textLinkDangerInverse"],
+    bg: [
+      "buttonLinkDangerBackgroundInverse",
+      "buttonLinkDangerBackgroundInversePressed",
+    ],
+    minRatio: 4.5,
+  },
+  {
+    fg: ["textLinkDangerBrand"],
+    bg: [
+      "buttonLinkDangerBackgroundBrand",
+      "buttonLinkDangerBackgroundBrandPressed",
     ],
     minRatio: 4.5,
   },
@@ -166,6 +219,18 @@ export const contrastPairs = [
     bg: [
       "backgroundBrand",
       "backgroundContainerBrand",
+    ],
+    minRatio: 3,
+  },
+  {
+    fg: [
+      "controlBrand",
+      "controlActivatedBrand",
+      "inputBorderBrand",
+    ],
+    bg: [
+      "backgroundContainerBrand",
+      "backgroundContainerBrandOverBrand",
     ],
     minRatio: 3,
   },
@@ -238,6 +303,41 @@ export const contrastPairs = [
   {
     fg: "tagTextInfoInverse",
     bg: "tagBackgroundInfoInverse",
+    minRatio: 4.5,
+  },
+  {
+    fg: "tagTextPromoBrand",
+    bg: "tagBackgroundPromoBrand",
+    minRatio: 4.5,
+  },
+  {
+    fg: "tagTextActiveBrand",
+    bg: "tagBackgroundActiveBrand",
+    minRatio: 4.5,
+  },
+  {
+    fg: "tagTextInactiveBrand",
+    bg: "tagBackgroundInactiveBrand",
+    minRatio: 4.5,
+  },
+  {
+    fg: "tagTextSuccessBrand",
+    bg: "tagBackgroundSuccessBrand",
+    minRatio: 4.5,
+  },
+  {
+    fg: "tagTextErrorBrand",
+    bg: "tagBackgroundErrorBrand",
+    minRatio: 4.5,
+  },
+  {
+    fg: "tagTextWarningBrand",
+    bg: "tagBackgroundWarningBrand",
+    minRatio: 4.5,
+  },
+  {
+    fg: "tagTextInfoBrand",
+    bg: "tagBackgroundInfoBrand",
     minRatio: 4.5,
   },
 ];
