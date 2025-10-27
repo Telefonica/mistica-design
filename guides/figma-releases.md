@@ -8,10 +8,11 @@ This document describes the steps required to perform a Figma release for Mistic
 2. Close the milestone
 3. Generate and update the changelog
 4. Publish Figma libraries (in order)
-   - Skins
-   - Icons
-   - Mistica Mobile
-   - Mistica Desktop
+   - [Skins](https://www.figma.com/design/w7fBxCsEb8WrMVVuxDnCQd/M%C3%ADstica-Skins?m=auto&node-id=0-1&t=WEveok6RdxnHgOdC-1)
+   - [Skin libraries](https://www.figma.com/files/1125734703130062955/project/266390224/M%C3%ADstica-Skins-Libraries?fuid=1111936175780412673)
+   - [Icons](https://www.figma.com/design/JHuzksh01yxExMeMQBvymq/M%C3%ADstica-Icons?m=auto&node-id=7809-530&t=B88sx8FBuE4iOh0a-1)
+   - [Mistica Mobile](https://www.figma.com/design/WCkDDzlXE16R6yXaljxddj/M%C3%ADstica-Mobile?m=auto&node-id=713-0&t=SBiymytQhQWq39RK-1)
+   - [Mistica Desktop](https://www.figma.com/design/DSWhPLyJzbliP1fBrLxDUR/M%C3%ADstica-Desktop?m=auto&node-id=713-0&t=oq0JNEYVLywmhih1-1)
 5. Post communication in the general thread
 
 ## 1. Add Milestone Tags
@@ -20,9 +21,9 @@ Before closing a milestone, ensure that all issues in the milestone have a tag t
 
 There are three tags used exclusively for listing items in the changelog:
 
-* `changelog: added`
-* `changelog: changed`
-* `changelog: removed`
+- `changelog: added`
+- `changelog: changed`
+- `changelog: removed`
 
 The list of tags recognized by the workflow can be found here:
 [https://github.com/Telefonica/mistica-design/blob/production/.github/release-notes.yml](https://github.com/Telefonica/mistica-design/blob/production/.github/release-notes.yml)
@@ -40,9 +41,8 @@ Once all related issues are tagged:
 
 Closing the milestone automatically triggers the changelog generation workflow and creates a new file under `/changelog-versions`
 
-> [!WARNING] 
+> [!WARNING]
 > If a milestone name doesn’t follow this pattern (e.g., “Experimental update” or “Q3 Release”), the changelog generation action will fail.
-
 
 ## 3. Update the Changelog Entry
 
@@ -58,7 +58,7 @@ If you need to make more changes after the milestone was closed you can do it ma
 
 <img width="1433" height="323" alt="Screenshot 2025-10-07 at 09 28 57" src="https://github.com/user-attachments/assets/aa67d0a3-36f2-42b7-b612-030d840fb22e" />
 
-> [!WARNING] 
+> [!WARNING]
 > If a milestone without a semantic version name was closed:
 > The changelog action will fail. You’ll need to manually remove its folder from the changelog-versions
 > directory before retrying.
@@ -74,9 +74,10 @@ Before make a release double check all branches in Figma that are included in th
 Publish libraries in the following order to avoid dependency issues:
 
 1. Skins
-2. Icons
-3. Mistica Mobile
-4. Mistica Desktop
+2. Skin libraries
+3. Icons
+4. Mistica Mobile
+5. Mistica Desktop
 
 Ensure that all libraries use the same release version (x.x.x) and that Figma components link correctly after publishing.
 
