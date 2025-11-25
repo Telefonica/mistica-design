@@ -1,6 +1,6 @@
 {
   "additionalProperties": false,
-  "required": ["light", "dark", "radius", "text", "global", "themeVariant"],
+  "required": ["light", "dark", "radius", "text", "global", "themeVariant", "componentProperties"],
   "properties": {
     "global": {
       "additionalProperties": false,
@@ -41,6 +41,10 @@
     "themeVariant": {
       "comment": "Aquí se definen las variantes de tema",
       "allOf": [{ "$ref": "#/global/themeVariant" }]
+    },
+    "componentProperties": {
+      "comment": "Aquí se definen las propiedades específicas de los componentes",
+      "allOf": [{ "$ref": "#/global/componentProperties" }]
     }
   },
   "global": {
@@ -693,6 +697,13 @@
         "successFeedback": { "$ref": "#/definitions/themeVariantProperties" },
         "brandLoadingScreen": { "$ref": "#/definitions/themeVariantProperties" }
       }
+    },
+    "componentProperties": {
+      "additionalProperties": false,
+      "required": ["dismissActionType"],
+      "properties": {
+        "dismissActionType": { "$ref": "#/definitions/componentProperties" }
+      }
     }
   },
   "definitions": {
@@ -938,6 +949,18 @@
         },
         "type": {
           "const": "themeVariant"
+        }
+      },
+      "required": ["value", "type"]
+    },
+    "componentProperties": {
+      "type": "object",
+      "patternProperties": {
+        "value": {
+          "type": "string"
+        },
+        "type": {
+          "const": "property"
         }
       },
       "required": ["value", "type"]
