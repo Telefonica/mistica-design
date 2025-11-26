@@ -126,6 +126,14 @@ export const getNonColorVariables = (
     hasAlias: false,
   },
   {
+    variables:
+      jsonData[brand]?.componentProperties || [],
+    collectionName: COLLECTION_NAMES.SKIN,
+    resolvedType: VARIABLE_TYPES.STRING,
+    variableScopes: [VARIABLE_SCOPES.ALL_SCOPES],
+    hasAlias: false,
+  },
+  {
     variables: [
       {
         name: "fontFamily/fontFamily",

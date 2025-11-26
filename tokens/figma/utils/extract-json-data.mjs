@@ -768,6 +768,14 @@ export const extractMiddlewareJsonData = (
         parsedContent.themeVariant[key].value,
     }));
 
+    const componentPropertiesArray = Object.keys(
+      parsedContent.componentProperties || {}
+    ).map((key) => ({
+      name: `componentProperties/${key}`,
+      value:
+        parsedContent.componentProperties[key].value,
+    }));
+
     // Accumulate results
     accumulator[fileName] = {
       light: processColors(
@@ -786,6 +794,7 @@ export const extractMiddlewareJsonData = (
       fontSize: fontSizeArray,
       lineHeight: lineHeightArray,
       themeVariant: themeVariantArray,
+      componentProperties: componentPropertiesArray,
     };
 
     return accumulator;
