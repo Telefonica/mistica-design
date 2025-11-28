@@ -114,6 +114,7 @@ export const getNonColorVariables = (
     variableScopes: [
       VARIABLE_SCOPES.LINE_HEIGHT,
       VARIABLE_SCOPES.TEXT_CONTENT,
+      VARIABLE_SCOPES.WIDTH_HEIGHT,
     ],
     hasAlias: false,
   },
