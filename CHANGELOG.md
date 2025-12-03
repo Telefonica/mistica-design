@@ -1,5 +1,7 @@
 # Figma Changelog
 
+[20.3.0](changelog-versions/20.3.0.md)
+
 [20.2.0](changelog-versions/20.2.0.md)
 
 [20.1.2](changelog-versions/20.1.2.md)
