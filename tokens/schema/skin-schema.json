@@ -669,6 +669,14 @@
     "size": {
       "additionalProperties": false,
       "properties": {
+        "cardPretitleDefault": { "$ref": "#/definitions/sizeProperties" },
+        "cardTitleDefault": { "$ref": "#/definitions/sizeProperties" },
+        "cardSubtitleDefault": { "$ref": "#/definitions/sizeProperties" },
+        "cardDescriptionDefault": { "$ref": "#/definitions/sizeProperties" },
+        "cardPretitleSnap": { "$ref": "#/definitions/sizeProperties" },
+        "cardTitleSnap": { "$ref": "#/definitions/sizeProperties" },
+        "cardSubtitleSnap": { "$ref": "#/definitions/sizeProperties" },
+        "cardDescriptionSnap": { "$ref": "#/definitions/sizeProperties" },
         "tabsLabel": { "$ref": "#/definitions/sizeProperties" },
         "title1": { "$ref": "#/definitions/sizeProperties" },
         "title2": { "$ref": "#/definitions/sizeProperties" },
@@ -695,6 +703,14 @@
     "lineHeight": {
       "additionalProperties": false,
       "properties": {
+        "cardPretitleDefault": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardTitleDefault": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardSubtitleDefault": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardDescriptionDefault": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardPretitleSnap": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardTitleSnap": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardSubtitleSnap": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardDescriptionSnap": { "$ref": "#/definitions/lineHeightProperties" },
         "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" },
         "title1": { "$ref": "#/definitions/lineHeightProperties" },
         "title2": { "$ref": "#/definitions/lineHeightProperties" },
