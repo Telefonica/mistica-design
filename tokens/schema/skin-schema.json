@@ -669,6 +669,10 @@
     "size": {
       "additionalProperties": false,
       "properties": {
+        "rowHeadline": { "$ref": "#/definitions/sizeProperties" },
+        "rowTitle": { "$ref": "#/definitions/sizeProperties" },
+        "rowSubtitle": { "$ref": "#/definitions/sizeProperties" },
+        "rowDescription": { "$ref": "#/definitions/sizeProperties" },
         "tabsLabel": { "$ref": "#/definitions/sizeProperties" },
         "title1": { "$ref": "#/definitions/sizeProperties" },
         "title2": { "$ref": "#/definitions/sizeProperties" },
@@ -695,6 +699,10 @@
     "lineHeight": {
       "additionalProperties": false,
       "properties": {
+        "rowHeadline": { "$ref": "#/definitions/lineHeightProperties" },
+        "rowTitle": { "$ref": "#/definitions/lineHeightProperties" },
+        "rowSubtitle": { "$ref": "#/definitions/lineHeightProperties" },
+        "rowDescription": { "$ref": "#/definitions/lineHeightProperties" },
         "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" },
         "title1": { "$ref": "#/definitions/lineHeightProperties" },
         "title2": { "$ref": "#/definitions/lineHeightProperties" },
