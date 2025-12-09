@@ -669,6 +669,7 @@
     "size": {
       "additionalProperties": false,
       "properties": {
+        "drawerTitle": { "$ref": "#/definitions/sizeProperties" },
         "tabsLabel": { "$ref": "#/definitions/sizeProperties" },
         "title1": { "$ref": "#/definitions/sizeProperties" },
         "title2": { "$ref": "#/definitions/sizeProperties" },
@@ -695,6 +696,7 @@
     "lineHeight": {
       "additionalProperties": false,
       "properties": {
+        "drawerTitle": { "$ref": "#/definitions/lineHeightProperties" },
         "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" },
         "title1": { "$ref": "#/definitions/lineHeightProperties" },
         "title2": { "$ref": "#/definitions/lineHeightProperties" },
