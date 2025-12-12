@@ -646,6 +646,7 @@
     "weight": {
       "additionalProperties": false,
       "properties": {
+        "drawerTitle": { "$ref": "#/definitions/weightProperties" },
         "cardTitle": { "$ref": "#/definitions/weightProperties" },
         "rowTitle": { "$ref": "#/definitions/weightProperties" },
         "button": { "$ref": "#/definitions/weightProperties" },
