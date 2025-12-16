@@ -646,6 +646,7 @@
     "weight": {
       "additionalProperties": false,
       "properties": {
+        "drawerTitle": { "$ref": "#/definitions/weightProperties" },
         "cardTitle": { "$ref": "#/definitions/weightProperties" },
         "rowTitle": { "$ref": "#/definitions/weightProperties" },
         "button": { "$ref": "#/definitions/weightProperties" },
@@ -669,6 +670,7 @@
     "size": {
       "additionalProperties": false,
       "properties": {
+        "drawerTitle": { "$ref": "#/definitions/sizeProperties" },
         "cardPretitleDefault": { "$ref": "#/definitions/sizeProperties" },
         "cardTitleDefault": { "$ref": "#/definitions/sizeProperties" },
         "cardSubtitleDefault": { "$ref": "#/definitions/sizeProperties" },
@@ -703,6 +705,7 @@
     "lineHeight": {
       "additionalProperties": false,
       "properties": {
+        "drawerTitle": { "$ref": "#/definitions/lineHeightProperties" },
         "cardPretitleDefault": { "$ref": "#/definitions/lineHeightProperties" },
         "cardTitleDefault": { "$ref": "#/definitions/lineHeightProperties" },
         "cardSubtitleDefault": { "$ref": "#/definitions/lineHeightProperties" },
