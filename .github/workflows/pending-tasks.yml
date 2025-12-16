@@ -74,7 +74,7 @@ jobs:
               print(f"Issue #{issue.number}: {issue.title} ({issue_url})")
 
           # Crear tabla en formato markdown
-          table_header = "| Issue | Name | Last Modification |\n"
+          table_header = "| Issue ({len(issues_con_checkboxes_desactivados)}) | Name | Last Modification |\n"
           table_separator = "|-------------|-----------|------------------|\n"
           table_rows = ""
 
@@ -93,7 +93,6 @@ jobs:
 
           ---
           *This report shows closed issues that still contain unchecked checkboxes (- [ ]) in their description or comments.*
-          *Total issues found: {len(issues_con_checkboxes_desactivados)}*
           """
 
           # Actualizar la issue #2490
