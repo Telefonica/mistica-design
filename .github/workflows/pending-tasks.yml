@@ -74,25 +74,20 @@ jobs:
               print(f"Issue #{issue.number}: {issue.title} ({issue_url})")
 
           # Crear tabla en formato markdown
-          table_header = "| IssueNumber | IssueName | Status | Last Modification |\n"
-          table_separator = "|-------------|-----------|--------|------------------|\n"
+          table_header = "| Issue | Name | Last Modification |\n"
+          table_separator = "|-------------|-----------|------------------|\n"
           table_rows = ""
 
           for issue in issues_con_checkboxes_desactivados:
               issue_link = f"[#{issue.number}]({REPO_URL}/issues/{issue.number})"
               issue_name = issue.title.replace("|", "\\|")  # Escapar pipes en el título
-              status = "Closed" if issue.state == "closed" else "Open"
               last_modified = issue.updated_at.strftime("%Y-%m-%d %H:%M")
               
-              table_rows += f"| {issue_link} | {issue_name} | {status} | {last_modified} |\n"
+              table_rows += f"| {issue_link} | {issue_name} | {last_modified} |\n"
 
           # Crear el nuevo body de la issue
           current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
-          new_body = f"""# Pending Tasks Report
-
-          **Last Updated:** {current_time}
-
-          ## Issues with Unchecked Checkboxes
+          new_body = f"""
 
           {table_header}{table_separator}{table_rows}
 
