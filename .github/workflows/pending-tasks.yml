@@ -2,6 +2,8 @@ name: Pending tasks in issues
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: 0 8 * * *
 
 jobs:
   pending-tasks:
