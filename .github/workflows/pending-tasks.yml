@@ -51,21 +51,33 @@ jobs:
           # Lista para almacenar las issues con checkboxes desactivados
           issues_con_checkboxes_desactivados = []
 
+          def count_checkboxes(text):
+              """Cuenta checkboxes marcados y desmarcados en un texto"""
+              if text is None:
+                  return 0, 0
+              
+              checked = text.count('- [x]') + text.count('- [X]')
+              unchecked = text.count('- [ ]')
+              return checked, unchecked
+
           # Itera sobre las issues cerradas
           for issue in closed_issues:
+              has_unchecked = False
+              
               # Verifica que el cuerpo de la issue no sea None
               if issue.body is not None and '- [ ]' in issue.body:
+                  has_unchecked = True
+
+              # Si no se encontraron en el body, busca en los comentarios
+              if not has_unchecked:
+                  comments = issue.get_comments()
+                  for comment in comments:
+                      if '- [ ]' in comment.body:
+                          has_unchecked = True
+                          break
+
+              if has_unchecked:
                   issues_con_checkboxes_desactivados.append(issue)
-                  continue
-
-              # Obtiene los comentarios de la issue
-              comments = issue.get_comments()
-
-              # Busca checkboxes desactivados en los comentarios
-              for comment in comments:
-                  if '- [ ]' in comment.body:
-                      issues_con_checkboxes_desactivados.append(issue)
-                      break
 
           # Imprime el listado de issues con checkboxes desactivados
           print("Issues con checkboxes desactivados:")
@@ -74,8 +86,8 @@ jobs:
               print(f"Issue #{issue.number}: {issue.title} ({issue_url})")
 
           # Crear tabla en formato markdown
-          table_header = "| Issue ({len(issues_con_checkboxes_desactivados)}) | Name | Last Modification |\n"
-          table_separator = "|-------------|-----------|------------------|\n"
+          table_header = "| Issue | Name | Progress | Last Modification |\n"
+          table_separator = "|-------|------|----------|------------------|\n"
           table_rows = ""
 
           for issue in issues_con_checkboxes_desactivados:
@@ -83,16 +95,41 @@ jobs:
               issue_name = issue.title.replace("|", "\\|")  # Escapar pipes en el título
               last_modified = issue.updated_at.strftime("%Y-%m-%d %H:%M")
               
-              table_rows += f"| {issue_link} | {issue_name} | {last_modified} |\n"
+              # Contar checkboxes en el body de la issue
+              checked_body, unchecked_body = count_checkboxes(issue.body)
+              
+              # Contar checkboxes en los comentarios
+              checked_comments = 0
+              unchecked_comments = 0
+              comments = issue.get_comments()
+              for comment in comments:
+                  c_checked, c_unchecked = count_checkboxes(comment.body)
+                  checked_comments += c_checked
+                  unchecked_comments += c_unchecked
+              
+              # Total de checkboxes
+              total_checked = checked_body + checked_comments
+              total_unchecked = unchecked_body + unchecked_comments
+              total_checkboxes = total_checked + total_unchecked
+              
+              progress = f"{total_checked} / {total_checkboxes}"
+              
+              table_rows += f"| {issue_link} | {issue_name} | {progress} | {last_modified} |\n"
 
           # Crear el nuevo body de la issue
           current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
-          new_body = f"""
+          new_body = f"""# Pending Tasks Report
+
+          **Last Updated:** {current_time}
+          **Total Issues Found:** {len(issues_con_checkboxes_desactivados)}
+
+          ## Issues with Unchecked Checkboxes
 
           {table_header}{table_separator}{table_rows}
 
           ---
           *This report shows closed issues that still contain unchecked checkboxes (- [ ]) in their description or comments.*
+          *Progress column shows: completed tasks / total tasks*
           """
 
           # Actualizar la issue #2490
