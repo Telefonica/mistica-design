@@ -29,5 +29,5 @@ jobs:
         env:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
-        working-directory: .github/branch-table
+        working-directory: .github/issue-scripts
         run: python3 branch-table.py
