@@ -55,6 +55,10 @@ def analyze_issues_with_pending_tasks(token, owner, repo, target_issue_number):
         if issue.number == target_issue_number:
             continue
             
+        # Only include issues closed as completed (exclude duplicates and not planned)
+        if hasattr(issue, 'state_reason') and issue.state_reason != 'completed':
+            continue
+            
         has_unchecked = False
         
         # Verify that the issue body is not None
@@ -125,6 +129,10 @@ def analyze_issues_with_pending_tasks(token, owner, repo, target_issue_number):
 **Last Updated:** {current_time}
 **Total Issues Found:** {len(issues_con_checkboxes_desactivados)}
 
+---
+*This report shows closed issues (completed only) that still contain unchecked checkboxes in their description or comments.*
+*Progress column shows: completed tasks / total tasks*
+*Note: Issues closed as duplicate or not planned are excluded from this report.*
 """
 
     # Update the report issue
