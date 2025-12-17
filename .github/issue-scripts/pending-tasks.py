@@ -82,8 +82,8 @@ def analyze_issues_with_pending_tasks(token, owner, repo, target_issue_number):
         print(f"Issue #{issue.number}: {issue.title} ({issue_url})")
 
     # Create markdown table
-    table_header = "| Issue | Name | Progress | Last Modification |\n"
-    table_separator = "|-------|------|----------|:------------------|\n"
+    table_header = "| Issue | Issue name | Progress | Last Modification |\n"
+    table_separator = "|-------|:------|:----------|:------------------|\n"
     table_rows = ""
 
     for issue in issues_con_checkboxes_desactivados:
