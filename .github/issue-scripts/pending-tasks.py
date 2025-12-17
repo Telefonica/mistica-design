@@ -118,14 +118,12 @@ def analyze_issues_with_pending_tasks(token, owner, repo, target_issue_number):
 
     # Create the new issue body
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
-    new_body = f"""# Pending Tasks Report
+    new_body = f"""
+
+{table_header}{table_separator}{table_rows}
 
 **Last Updated:** {current_time}
 **Total Issues Found:** {len(issues_con_checkboxes_desactivados)}
-
-## Issues with Unchecked Checkboxes
-
-{table_header}{table_separator}{table_rows}
 
 ---
 *This report shows closed issues that still contain unchecked checkboxes in their description or comments.*
