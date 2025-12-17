@@ -125,9 +125,6 @@ def analyze_issues_with_pending_tasks(token, owner, repo, target_issue_number):
 **Last Updated:** {current_time}
 **Total Issues Found:** {len(issues_con_checkboxes_desactivados)}
 
----
-*This report shows closed issues that still contain unchecked checkboxes in their description or comments.*
-*Progress column shows: completed tasks / total tasks*
 """
 
     # Update the report issue
