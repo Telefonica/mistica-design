@@ -21,11 +21,11 @@ def format_time_difference(days):
     # Build the formatted string based on the components
     formatted_time = []
     if years > 0:
-        formatted_time.append(f"{years} yr{'s' if years > 1 else ''}")
+        formatted_time.append(f"{years}yr{'s' if years > 1 else ''}")
     if months > 0:
-        formatted_time.append(f"{months} mo")
+        formatted_time.append(f"{months}mo")
     if remaining_days > 0 or (years == 0 and months == 0):
-        formatted_time.append(f"{remaining_days} d")
+        formatted_time.append(f"{remaining_days}d")
     if remaining_days == 0 and years == 0 and months == 0:
         return "Today"
     
