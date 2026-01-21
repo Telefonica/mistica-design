@@ -363,6 +363,72 @@ export const extractSkinJsonData = (
       };
     });
 
+    const spacingArray = Object.keys(
+      parsedContent.spacing
+    ).flatMap((key) => {
+      const value =
+        parsedContent.spacing[key].value;
+      const result = [];
+
+      // Helper to capitalize axis/side and append to token name
+      const capitalize = (str) =>
+        str.charAt(0).toUpperCase() +
+        str.slice(1);
+
+      // Push all breakpoints for a given axis or side
+      const pushBreakpoints = (
+        axisOrSide,
+        breakpoints
+      ) => {
+        Object.keys(breakpoints).forEach(
+          (breakpoint) => {
+            // Build Figma-friendly name
+            const figmaName = axisOrSide
+              ? `${key}${capitalize(axisOrSide)}`
+              : key;
+
+            result.push({
+              name: `spacing/${breakpoint}/${figmaName}`,
+              value: Number(
+                breakpoints[breakpoint]
+              ),
+            });
+          }
+        );
+      };
+
+      // CASE 1 — scalar (all sides or gap)
+      if (
+        typeof value === "object" &&
+        value !== null &&
+        !("x" in value) &&
+        !("y" in value) &&
+        !("top" in value)
+      ) {
+        pushBreakpoints(null, value);
+        return result;
+      }
+
+      // CASE 2 — axis-based (x / y)
+      if ("x" in value || "y" in value) {
+        if (value.x)
+          pushBreakpoints("x", value.x);
+        if (value.y)
+          pushBreakpoints("y", value.y);
+        return result;
+      }
+
+      // CASE 3 — side-based (top / right / bottom / left)
+      ["top", "right", "bottom", "left"].forEach(
+        (side) => {
+          if (value[side])
+            pushBreakpoints(side, value[side]);
+        }
+      );
+
+      return result;
+    });
+
     // Accumulate results
     accumulator[fileName] = {
       light: processColors(
@@ -380,6 +446,7 @@ export const extractSkinJsonData = (
       fontWeight: fontWeightArray,
       fontSize: fontSizeArray,
       lineHeight: lineHeightArray,
+      spacing: spacingArray,
     };
 
     return accumulator;
@@ -760,6 +827,72 @@ export const extractMiddlewareJsonData = (
       };
     });
 
+    const spacingArray = Object.keys(
+      parsedContent.spacing
+    ).flatMap((key) => {
+      const value =
+        parsedContent.spacing[key].value;
+      const result = [];
+
+      // Helper to capitalize axis/side and append to token name
+      const capitalize = (str) =>
+        str.charAt(0).toUpperCase() +
+        str.slice(1);
+
+      // Push all breakpoints for a given axis or side
+      const pushBreakpoints = (
+        axisOrSide,
+        breakpoints
+      ) => {
+        Object.keys(breakpoints).forEach(
+          (breakpoint) => {
+            // Figma-friendly name: append axis/side
+            const figmaName = axisOrSide
+              ? `${key}${capitalize(axisOrSide)}`
+              : key;
+
+            result.push({
+              name: `spacing/${breakpoint}/${figmaName}`,
+              value: Number(
+                breakpoints[breakpoint]
+              ),
+            });
+          }
+        );
+      };
+
+      // CASE 1 — scalar (all sides / gap)
+      if (
+        typeof value === "object" &&
+        value !== null &&
+        !("x" in value) &&
+        !("y" in value) &&
+        !("top" in value)
+      ) {
+        pushBreakpoints(null, value);
+        return result;
+      }
+
+      // CASE 2 — axis-based (x / y)
+      if ("x" in value || "y" in value) {
+        if (value.x)
+          pushBreakpoints("x", value.x);
+        if (value.y)
+          pushBreakpoints("y", value.y);
+        return result;
+      }
+
+      // CASE 3 — side-based (top / right / bottom / left)
+      ["top", "right", "bottom", "left"].forEach(
+        (side) => {
+          if (value[side])
+            pushBreakpoints(side, value[side]);
+        }
+      );
+
+      return result;
+    });
+
     const themeVariantArray = Object.keys(
       parsedContent.themeVariant
     ).map((key) => ({
@@ -773,7 +906,8 @@ export const extractMiddlewareJsonData = (
     ).map((key) => ({
       name: `componentProperties/${key}`,
       value:
-        parsedContent.componentProperties[key].value,
+        parsedContent.componentProperties[key]
+          .value,
     }));
 
     // Accumulate results
@@ -793,8 +927,10 @@ export const extractMiddlewareJsonData = (
       fontWeight: fontWeightArray,
       fontSize: fontSizeArray,
       lineHeight: lineHeightArray,
+      spacing: spacingArray,
       themeVariant: themeVariantArray,
-      componentProperties: componentPropertiesArray,
+      componentProperties:
+        componentPropertiesArray,
     };
 
     return accumulator;

@@ -119,6 +119,16 @@ export const getNonColorVariables = (
     hasAlias: false,
   },
   {
+    variables: jsonData[brand]?.spacing || [],
+    collectionName: COLLECTION_NAMES.SKIN,
+    resolvedType: VARIABLE_TYPES.FLOAT,
+    variableScopes: [
+      VARIABLE_SCOPES.WIDTH_HEIGHT,
+      VARIABLE_SCOPES.GAP,
+    ],
+    hasAlias: false,
+  },
+  {
     variables:
       jsonData[brand]?.themeVariant || [],
     collectionName: COLLECTION_NAMES.SKIN,

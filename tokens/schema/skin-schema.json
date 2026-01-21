@@ -1,6 +1,7 @@
 {
   "additionalProperties": false,
-  "required": ["light", "dark", "radius", "text", "global", "themeVariant", "componentProperties"],
+  "required": ["light", "dark", "radius", "text", "spacing", "global", "themeVariant", "componentProperties"],
+
   "properties": {
     "global": {
       "additionalProperties": false,
@@ -37,6 +38,10 @@
           "allOf": [{ "$ref": "#/global/lineHeight" }]
         }
       }
+    },
+    "spacing": {
+      "comment": "Aquí se obliga a usar los spacing definidos",
+      "allOf": [{ "$ref": "#/global/spacing" }]
     },
     "themeVariant": {
       "comment": "Aquí se definen las variantes de tema",
@@ -645,6 +650,7 @@
     },
     "weight": {
       "additionalProperties": false,
+      "required": ["drawerTitle", "cardTitle", "rowTitle", "button", "tabsLabel", "link", "indicator", "navigationBar", "title1", "title2", "title3", "title4", "text5", "text6", "text7", "text8", "text9", "text10", "chipLabel"],
       "properties": {
         "drawerTitle": { "$ref": "#/definitions/weightProperties" },
         "cardTitle": { "$ref": "#/definitions/weightProperties" },
@@ -669,6 +675,38 @@
     },
     "size": {
       "additionalProperties": false,
+      "required": [
+        "drawerTitle",
+        "cardPretitleDefault",
+        "cardTitleDefault",
+        "cardSubtitleDefault",
+        "cardDescriptionDefault",
+        "cardPretitleSnap",
+        "cardTitleSnap",
+        "cardSubtitleSnap",
+        "cardDescriptionSnap",
+        "tabsLabel",
+        "title1",
+        "title2",
+        "title3",
+        "title4",
+        "text1",
+        "text2",
+        "text3",
+        "text4",
+        "text5",
+        "text6",
+        "text7",
+        "text8",
+        "text9",
+        "text10",
+        "chipLabel",
+        "inputLabel",
+        "inputValue",
+        "inputHelperText",
+        "stepperStepLabel",
+        "loadingScreenTitle"
+      ],
       "properties": {
         "drawerTitle": { "$ref": "#/definitions/sizeProperties" },
         "cardPretitleDefault": { "$ref": "#/definitions/sizeProperties" },
@@ -704,6 +742,38 @@
     },
     "lineHeight": {
       "additionalProperties": false,
+      "required": [
+        "drawerTitle",
+        "cardPretitleDefault",
+        "cardTitleDefault",
+        "cardSubtitleDefault",
+        "cardDescriptionDefault",
+        "cardPretitleSnap",
+        "cardTitleSnap",
+        "cardSubtitleSnap",
+        "cardDescriptionSnap",
+        "tabsLabel",
+        "title1",
+        "title2",
+        "title3",
+        "title4",
+        "text1",
+        "text2",
+        "text3",
+        "text4",
+        "text5",
+        "text6",
+        "text7",
+        "text8",
+        "text9",
+        "text10",
+        "chipLabel",
+        "inputLabel",
+        "inputValue",
+        "inputHelperText",
+        "stepperStepLabel",
+        "loadingScreenTitle"
+      ],
       "properties": {
         "drawerTitle": { "$ref": "#/definitions/lineHeightProperties" },
         "cardPretitleDefault": { "$ref": "#/definitions/lineHeightProperties" },
@@ -735,6 +805,21 @@
         "inputHelperText": { "$ref": "#/definitions/lineHeightProperties" },
         "stepperStepLabel": { "$ref": "#/definitions/lineHeightProperties" },
         "loadingScreenTitle": { "$ref": "#/definitions/lineHeightProperties" }
+      }
+    },
+    "spacing": {
+      "additionalProperties": false,
+      "required": ["buttonDefaultPadding", "buttonSmallPadding", "cardDefaultPadding", "tagPadding", "feedbackScreenPadding", "inputPadding", "heroPadding", "headerPadding", "drawerPadding"],
+      "properties": {
+        "buttonDefaultPadding": { "$ref": "#/definitions/spacingProperties" },
+        "buttonSmallPadding": { "$ref": "#/definitions/spacingProperties" },
+        "cardDefaultPadding": { "$ref": "#/definitions/spacingProperties" },
+        "tagPadding": { "$ref": "#/definitions/spacingProperties" },
+        "feedbackScreenPadding": { "$ref": "#/definitions/spacingProperties" },
+        "inputPadding": { "$ref": "#/definitions/spacingProperties" },
+        "heroPadding": { "$ref": "#/definitions/spacingProperties" },
+        "headerPadding": { "$ref": "#/definitions/spacingProperties" },
+        "drawerPadding": { "$ref": "#/definitions/spacingProperties" }
       }
     },
     "themeVariant": {
@@ -949,16 +1034,12 @@
       "type": "object",
       "patternProperties": {
         "value": {
-          "type": "object",
-          "properties": {
-            "desktop": {
-              "type": "number"
-            },
-            "mobile": {
-              "type": "number"
+          "allOf": [
+            { "$ref": "#/definitions/breakpoints" },
+            {
+              "required": ["mobile", "desktop"]
             }
-          },
-          "required": ["desktop", "mobile"]
+          ]
         },
         "type": {
           "const": "typography"
@@ -970,16 +1051,12 @@
       "type": "object",
       "patternProperties": {
         "value": {
-          "type": "object",
-          "properties": {
-            "desktop": {
-              "type": "number"
-            },
-            "mobile": {
-              "type": "number"
+          "allOf": [
+            { "$ref": "#/definitions/breakpoints" },
+            {
+              "required": ["mobile", "desktop"]
             }
-          },
-          "required": ["desktop", "mobile"]
+          ]
         },
         "type": {
           "const": "typography"
@@ -987,6 +1064,32 @@
       },
       "required": ["value", "type"]
     },
+    "spacingProperties": {
+      "type": "object",
+      "required": ["value", "type"],
+      "properties": {
+        "type": { "const": "spacing" },
+        "value": {
+          "anyOf": [
+            { "$ref": "#/definitions/breakpoints" },
+            {
+              "type": "object",
+              "properties": {
+                "x": { "$ref": "#/definitions/breakpoints" },
+                "y": { "$ref": "#/definitions/breakpoints" },
+                "top": { "$ref": "#/definitions/breakpoints" },
+                "right": { "$ref": "#/definitions/breakpoints" },
+                "bottom": { "$ref": "#/definitions/breakpoints" },
+                "left": { "$ref": "#/definitions/breakpoints" }
+              },
+              "additionalProperties": false,
+              "minProperties": 1
+            }
+          ]
+        }
+      }
+    },
+
     "themeVariantProperties": {
       "type": "object",
       "patternProperties": {
@@ -1011,6 +1114,16 @@
         }
       },
       "required": ["value", "type"]
+    },
+    "breakpoints": {
+      "type": "object",
+      "properties": {
+        "mobile": { "type": "number" },
+        "tablet": { "type": "number" },
+        "desktop": { "type": "number" }
+      },
+      "minProperties": 1,
+      "additionalProperties": false
     }
   }
 }
