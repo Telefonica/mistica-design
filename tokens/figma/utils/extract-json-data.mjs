@@ -380,51 +380,53 @@ export const extractSkinJsonData = (
         axisOrSide,
         breakpoints
       ) => {
-        Object.keys(breakpoints).forEach(
-          (breakpoint) => {
-            // Build Figma-friendly name
+        Object.entries(breakpoints).forEach(
+          ([breakpoint, bpValue]) => {
             const figmaName = axisOrSide
               ? `${key}${capitalize(axisOrSide)}`
               : key;
-
             result.push({
               name: `spacing/${breakpoint}/${figmaName}`,
-              value: Number(
-                breakpoints[breakpoint]
-              ),
+              value: Number(bpValue),
             });
           }
         );
       };
 
-      // CASE 1 — scalar (all sides or gap)
+      // Detect scalar tokens (all breakpoints, no axes/sides)
       if (
         typeof value === "object" &&
         value !== null &&
-        !("x" in value) &&
-        !("y" in value) &&
-        !("top" in value)
+        !Object.keys(value).some((k) =>
+          [
+            "x",
+            "y",
+            "top",
+            "right",
+            "bottom",
+            "left",
+          ].includes(k)
+        )
       ) {
         pushBreakpoints(null, value);
-        return result;
+      } else {
+        // Handle any combination of axes and sides
+        [
+          "x",
+          "y",
+          "top",
+          "right",
+          "bottom",
+          "left",
+        ].forEach((axisOrSide) => {
+          if (value[axisOrSide]) {
+            pushBreakpoints(
+              axisOrSide,
+              value[axisOrSide]
+            );
+          }
+        });
       }
-
-      // CASE 2 — axis-based (x / y)
-      if ("x" in value || "y" in value) {
-        if (value.x)
-          pushBreakpoints("x", value.x);
-        if (value.y)
-          pushBreakpoints("y", value.y);
-        return result;
-      }
-
-      // CASE 3 — side-based (top / right / bottom / left)
-      ["top", "right", "bottom", "left"].forEach(
-        (side) => {
-          if (value[side])
-            pushBreakpoints(side, value[side]);
-        }
-      );
 
       return result;
     });
@@ -834,61 +836,61 @@ export const extractMiddlewareJsonData = (
         parsedContent.spacing[key].value;
       const result = [];
 
-      // Helper to capitalize axis/side and append to token name
       const capitalize = (str) =>
         str.charAt(0).toUpperCase() +
         str.slice(1);
 
-      // Push all breakpoints for a given axis or side
       const pushBreakpoints = (
-        axisOrSide,
+        nameSuffix,
         breakpoints
       ) => {
-        Object.keys(breakpoints).forEach(
-          (breakpoint) => {
-            // Figma-friendly name: append axis/side
-            const figmaName = axisOrSide
-              ? `${key}${capitalize(axisOrSide)}`
+        Object.entries(breakpoints).forEach(
+          ([bp, bpValue]) => {
+            const figmaName = nameSuffix
+              ? `${key}${capitalize(nameSuffix)}`
               : key;
-
             result.push({
-              name: `spacing/${breakpoint}/${figmaName}`,
-              value: Number(
-                breakpoints[breakpoint]
-              ),
+              name: `spacing/${bp}/${figmaName}`,
+              value: Number(bpValue),
             });
           }
         );
       };
 
-      // CASE 1 — scalar (all sides / gap)
+      // If value is a simple scalar object (all breakpoints)
       if (
         typeof value === "object" &&
         value !== null &&
-        !("x" in value) &&
-        !("y" in value) &&
-        !("top" in value)
+        !Object.keys(value).some((k) =>
+          [
+            "x",
+            "y",
+            "top",
+            "right",
+            "bottom",
+            "left",
+          ].includes(k)
+        )
       ) {
         pushBreakpoints(null, value);
-        return result;
+      } else {
+        // Loop through all possible axes and sides
+        [
+          "x",
+          "y",
+          "top",
+          "right",
+          "bottom",
+          "left",
+        ].forEach((axisOrSide) => {
+          if (value[axisOrSide]) {
+            pushBreakpoints(
+              axisOrSide,
+              value[axisOrSide]
+            );
+          }
+        });
       }
-
-      // CASE 2 — axis-based (x / y)
-      if ("x" in value || "y" in value) {
-        if (value.x)
-          pushBreakpoints("x", value.x);
-        if (value.y)
-          pushBreakpoints("y", value.y);
-        return result;
-      }
-
-      // CASE 3 — side-based (top / right / bottom / left)
-      ["top", "right", "bottom", "left"].forEach(
-        (side) => {
-          if (value[side])
-            pushBreakpoints(side, value[side]);
-        }
-      );
 
       return result;
     });
