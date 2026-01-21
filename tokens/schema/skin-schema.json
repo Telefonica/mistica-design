@@ -1072,11 +1072,10 @@
         "value": {
           "anyOf": [
             { "$ref": "#/definitions/breakpoints" },
+
             {
               "type": "object",
               "properties": {
-                "x": { "$ref": "#/definitions/breakpoints" },
-                "y": { "$ref": "#/definitions/breakpoints" },
                 "top": { "$ref": "#/definitions/breakpoints" },
                 "right": { "$ref": "#/definitions/breakpoints" },
                 "bottom": { "$ref": "#/definitions/breakpoints" },

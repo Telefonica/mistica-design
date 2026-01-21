@@ -3346,7 +3346,11 @@
   "spacing": {
     "buttonDefaultPadding": {
       "value": {
-        "x": {
+        "left": {
+          "mobile": 16,
+          "desktop": 16
+        },
+        "right": {
           "mobile": 16,
           "desktop": 16
         }
@@ -3355,7 +3359,11 @@
     },
     "buttonSmallPadding": {
       "value": {
-        "x": {
+        "left": {
+          "mobile": 12,
+          "desktop": 12
+        },
+        "right": {
           "mobile": 12,
           "desktop": 12
         }
@@ -3371,7 +3379,10 @@
     },
     "inputPadding": {
       "value": {
-        "y": {
+        "top": {
+          "desktop": 8
+        },
+        "bottom": {
           "desktop": 8
         }
       },
@@ -3379,7 +3390,11 @@
     },
     "tagPadding": {
       "value": {
-        "y": {
+        "top": {
+          "mobile": 4,
+          "desktop": 4
+        },
+        "bottom": {
           "mobile": 4,
           "desktop": 4
         }
@@ -3394,7 +3409,10 @@
     },
     "heroPadding": {
       "value": {
-        "y": {
+        "top": {
+          "mobile": 24
+        },
+        "bottom": {
           "mobile": 24
         }
       },
@@ -3402,7 +3420,10 @@
     },
     "headerPadding": {
       "value": {
-        "y": {
+        "top": {
+          "mobile": 24
+        },
+        "bottom": {
           "mobile": 24
         }
       },
@@ -3413,7 +3434,13 @@
         "top": {
           "desktop": 40
         },
-        "x": {
+        "bottom": {
+          "desktop": 24
+        },
+        "left": {
+          "desktop": 40
+        },
+        "right": {
           "desktop": 40
         }
       },
