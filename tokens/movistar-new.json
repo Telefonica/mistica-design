@@ -3380,9 +3380,11 @@
     "inputPadding": {
       "value": {
         "top": {
+          "mobile": 18,
           "desktop": 2
         },
         "bottom": {
+          "mobile": 18,
           "desktop": 2
         }
       },
@@ -3403,6 +3405,7 @@
     },
     "feedbackScreenPadding": {
       "value": {
+        "mobile": 64,
         "desktop": 40
       },
       "type": "spacing"
@@ -3410,10 +3413,12 @@
     "heroPadding": {
       "value": {
         "top": {
-          "mobile": 16
+          "mobile": 16,
+          "desktop": 56
         },
         "bottom": {
-          "mobile": 16
+          "mobile": 16,
+          "desktop": 56
         }
       },
       "type": "spacing"
@@ -3421,10 +3426,12 @@
     "headerPadding": {
       "value": {
         "top": {
-          "mobile": 16
+          "mobile": 16,
+          "desktop": 48
         },
         "bottom": {
-          "mobile": 16
+          "mobile": 16,
+          "desktop": 48
         }
       },
       "type": "spacing"
@@ -3432,15 +3439,19 @@
     "drawerPadding": {
       "value": {
         "top": {
+          "mobile": 40,
           "desktop": 32
         },
         "bottom": {
+          "mobile": 16,
           "desktop": 32
         },
         "left": {
+          "mobile": 16,
           "desktop": 24
         },
         "right": {
+          "mobile": 16,
           "desktop": 24
         }
       },
