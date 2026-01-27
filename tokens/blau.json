@@ -3415,8 +3415,22 @@
     },
     "feedbackScreenPadding": {
       "value": {
-        "mobile": 64,
-        "desktop": 64
+        "top": {
+          "mobile": 64,
+          "desktop": 64
+        },
+        "bottom": {
+          "mobile": 16,
+          "desktop": 64
+        },
+        "left": {
+          "mobile": 16,
+          "desktop": 64
+        },
+        "right": {
+          "mobile": 16,
+          "desktop": 64
+        }
       },
       "type": "spacing"
     },
