@@ -5,6 +5,7 @@ import skinPreview from "../pages/mistica-tokens/skin-preview";
 import GlobalPalette from "../components/globalPalette";
 import RadiiTable from "../components/borderRadii";
 import TextTable from "../components/typography";
+import SpacingTable from "../components/spacingTable";
 import {
   Box,
   ButtonLink,
@@ -83,10 +84,32 @@ const TokensMap = () => {
 
   let skin = skinData[selectedSkin] || skinData.movistar;
 
+  const tokenExists = (skin, tokenType) => {
+    if (!skin) return false;
+
+    switch (tokenType) {
+      case "color":
+        // color exists if either light or dark has keys
+        return (
+          (skin.light && Object.keys(skin.light).length > 0) ||
+          (skin.dark && Object.keys(skin.dark).length > 0)
+        );
+      case "radius":
+        return !!skin.radius && Object.keys(skin.radius).length > 0;
+      case "text":
+        return !!skin.text && Object.keys(skin.text).length > 0;
+      case "spacing":
+        return !!skin.spacing && Object.keys(skin.spacing).length > 0;
+      default:
+        return false;
+    }
+  };
+
   const TOKEN_FILTERS = {
     color: "Color",
     radius: "Border Radii",
     text: "Typography",
+    spacing: "Spacing",
   };
 
   const COLOR_FILTERS = {
@@ -105,6 +128,7 @@ const TokensMap = () => {
     },
     radius: RadiiTable,
     text: TextTable,
+    spacing: SpacingTable,
   };
   // Modify the view depending on the selected chip
 
@@ -168,19 +192,19 @@ const TokensMap = () => {
                   value={activeTokenType}
                 >
                   <Inline space={8}>
-                    {Array.from(
-                      { length: Object.keys(TOKEN_FILTERS).length },
-                      (_, idx) => (
+                    {Object.keys(TOKEN_FILTERS)
+                      .filter((tokenType) => tokenExists(skin, tokenType)) // only show existing categories
+                      .map((tokenType) => (
                         <RadioButton
-                          value={Object.keys(TOKEN_FILTERS)[idx]}
+                          key={tokenType}
+                          value={tokenType}
                           render={({ checked, labelId }) => (
                             <Chip active={checked} id={labelId}>
-                              {Object.values(TOKEN_FILTERS)[idx]}
+                              {TOKEN_FILTERS[tokenType]}
                             </Chip>
                           )}
                         />
-                      )
-                    )}
+                      ))}
                   </Inline>
                 </RadioGroup>
 
