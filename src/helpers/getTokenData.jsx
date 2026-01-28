@@ -131,6 +131,43 @@ export const getLineHeightData = (skinData, currentToken) => {
   return tokenData;
 };
 
+export const getSpacingData = (skinData, currentToken) => {
+  const tokenData = [];
+
+  for (const skinName in skinData) {
+    if (!skinData.hasOwnProperty(skinName)) continue;
+
+    const skin = skinData[skinName];
+
+    if (!skin.spacing) continue; // skip skins without spacing
+
+    const spacingTokens = skin.spacing;
+
+    for (const tokenName in spacingTokens) {
+      if (!spacingTokens.hasOwnProperty(tokenName)) continue;
+      if (currentToken && tokenName !== currentToken) continue;
+
+      const tokenValue = spacingTokens[tokenName].value;
+
+      // Make sure all sides exist
+      const normalizedValue = {
+        top: tokenValue.top || { mobile: 0, desktop: 0 },
+        bottom: tokenValue.bottom || { mobile: 0, desktop: 0 },
+        left: tokenValue.left || { mobile: 0, desktop: 0 },
+        right: tokenValue.right || { mobile: 0, desktop: 0 },
+      };
+
+      tokenData.push({
+        skinName,
+        tokenName,
+        tokenValue: normalizedValue,
+      });
+    }
+  }
+
+  return tokenData;
+};
+
 export const getColorData = (skinData, currentColor, colorScheme) => {
   const tokenData = [];
 

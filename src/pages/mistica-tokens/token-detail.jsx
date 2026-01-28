@@ -19,6 +19,7 @@ import {
   getSizeData,
   getWeightData,
   getLineHeightData,
+  getSpacingData,
 } from "../../helpers/getTokenData";
 import AppLayout from "../../components/app-layout";
 import SubHeader from "../../components/sub-header";
@@ -178,6 +179,122 @@ const TokenDetail = () => {
     );
   };
 
+  const renderSpacingTable = () => {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>Skin</th>
+            <th>
+              Top
+              <table>
+                <thead>
+                  <tr>
+                    <th>Mobile</th>
+                    <th>Desktop</th>
+                  </tr>
+                </thead>
+              </table>
+            </th>
+            <th>
+              Bottom
+              <table>
+                <thead>
+                  <tr>
+                    <th>Mobile</th>
+                    <th>Desktop</th>
+                  </tr>
+                </thead>
+              </table>
+            </th>
+            <th>
+              Left
+              <table>
+                <thead>
+                  <tr>
+                    <th>Mobile</th>
+                    <th>Desktop</th>
+                  </tr>
+                </thead>
+              </table>
+            </th>
+            <th>
+              Right
+              <table>
+                <thead>
+                  <tr>
+                    <th>Mobile</th>
+                    <th>Desktop</th>
+                  </tr>
+                </thead>
+              </table>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.keys(skinData).length > 0 &&
+            getSpacingData(skinData, id).map((skin, index) => {
+              const { top, bottom, left, right } = skin.tokenValue;
+
+              return (
+                <tr key={index}>
+                  <td>{skin.skinName}</td>
+
+                  {/* Top */}
+                  <td>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>{top.mobile}px</td>
+                          <td>{top.desktop}px</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+
+                  {/* Bottom */}
+                  <td>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>{bottom.mobile}px</td>
+                          <td>{bottom.desktop}px</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+
+                  {/* Left */}
+                  <td>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>{left.mobile}px</td>
+                          <td>{left.desktop}px</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+
+                  {/* Right */}
+                  <td>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>{right.mobile}px</td>
+                          <td>{right.desktop}px</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              );
+            })}
+        </tbody>
+      </table>
+    );
+  };
+
   return (
     <AppLayout>
       <ResponsiveLayout>
@@ -192,6 +309,7 @@ const TokenDetail = () => {
             <Title2>{id}</Title2>
             <Stack space={24}>
               {tokenType === "radius" && <>{renderRadiusTable()}</>}
+              {tokenType === "spacing" && <>{renderSpacingTable()}</>}
               {tokenTextType === "size" && <>{renderSizeTable(skinData, id)}</>}
               {tokenTextType === "weight" && <>{renderWeightTable()}</>}
               {tokenTextType === "lineHeight" &&
