@@ -363,6 +363,62 @@ export const extractSkinJsonData = (
       };
     });
 
+    const spacingArray = Object.keys(
+      parsedContent.spacing
+    ).flatMap((key) => {
+      const value =
+        parsedContent.spacing[key].value;
+      const result = [];
+
+      // Helper to capitalize side and append to token name
+      const capitalize = (str) =>
+        str.charAt(0).toUpperCase() +
+        str.slice(1);
+
+      // Sides we care about
+      const sides = [
+        "top",
+        "right",
+        "bottom",
+        "left",
+      ];
+
+      // Push all breakpoints for a given side
+      const pushBreakpoints = (
+        side,
+        breakpoints
+      ) => {
+        Object.entries(breakpoints).forEach(
+          ([breakpoint, bpValue]) => {
+            const figmaName = side
+              ? `${key}${capitalize(side)}`
+              : key;
+            result.push({
+              name: `spacing/${breakpoint}/${figmaName}`,
+              value: Number(bpValue),
+            });
+          }
+        );
+      };
+
+      // CASE 1 — scalar (all sides, no sides explicitly defined)
+      if (
+        typeof value === "object" &&
+        value !== null &&
+        !sides.some((side) => side in value)
+      ) {
+        pushBreakpoints(null, value); // Only master variable
+      } else {
+        // CASE 2 — side-specific values
+        sides.forEach((side) => {
+          if (value[side])
+            pushBreakpoints(side, value[side]);
+        });
+      }
+
+      return result;
+    });
+
     // Accumulate results
     accumulator[fileName] = {
       light: processColors(
@@ -380,6 +436,7 @@ export const extractSkinJsonData = (
       fontWeight: fontWeightArray,
       fontSize: fontSizeArray,
       lineHeight: lineHeightArray,
+      spacing: spacingArray,
     };
 
     return accumulator;
@@ -760,6 +817,60 @@ export const extractMiddlewareJsonData = (
       };
     });
 
+    const spacingArray = Object.keys(
+      parsedContent.spacing
+    ).flatMap((key) => {
+      const value =
+        parsedContent.spacing[key].value;
+      const result = [];
+
+      const capitalize = (str) =>
+        str.charAt(0).toUpperCase() +
+        str.slice(1);
+
+      const sides = [
+        "top",
+        "right",
+        "bottom",
+        "left",
+      ];
+
+      const pushBreakpoints = (
+        nameSuffix,
+        breakpoints
+      ) => {
+        Object.entries(breakpoints).forEach(
+          ([bp, bpValue]) => {
+            const figmaName = nameSuffix
+              ? `${key}${capitalize(nameSuffix)}`
+              : key;
+            result.push({
+              name: `spacing/${bp}/${figmaName}`,
+              value: Number(bpValue),
+            });
+          }
+        );
+      };
+
+      // CASE 1 — scalar (all breakpoints, no sides explicitly defined)
+      if (
+        typeof value === "object" &&
+        value !== null &&
+        !sides.some((side) => side in value)
+      ) {
+        pushBreakpoints(null, value); // master variable only
+      } else {
+        // CASE 2 — side-specific values
+        sides.forEach((side) => {
+          if (value[side]) {
+            pushBreakpoints(side, value[side]);
+          }
+        });
+      }
+
+      return result;
+    });
+
     const themeVariantArray = Object.keys(
       parsedContent.themeVariant
     ).map((key) => ({
@@ -773,7 +884,8 @@ export const extractMiddlewareJsonData = (
     ).map((key) => ({
       name: `componentProperties/${key}`,
       value:
-        parsedContent.componentProperties[key].value,
+        parsedContent.componentProperties[key]
+          .value,
     }));
 
     // Accumulate results
@@ -793,8 +905,10 @@ export const extractMiddlewareJsonData = (
       fontWeight: fontWeightArray,
       fontSize: fontSizeArray,
       lineHeight: lineHeightArray,
+      spacing: spacingArray,
       themeVariant: themeVariantArray,
-      componentProperties: componentPropertiesArray,
+      componentProperties:
+        componentPropertiesArray,
     };
 
     return accumulator;

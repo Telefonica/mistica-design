@@ -29,6 +29,7 @@ export const VARIABLE_SCOPES = {
   FONT_FAMILY: "FONT_FAMILY",
   TEXT_CONTENT: "TEXT_CONTENT",
   WIDTH_HEIGHT: "WIDTH_HEIGHT",
+  GAP: "GAP",
 };
 
 export const BRANDS = {
