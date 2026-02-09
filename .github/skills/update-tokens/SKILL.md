@@ -76,7 +76,7 @@ Token **keys and structure must always match across brands**.
 - Keep JSON formatting consistent with existing files
 - Apply **minimal diffs**: change only what is required
 - Do not reorder unrelated tokens
-- All token values should follow the structure enforced in `tokens/schema/skin-schema.json`
+- All brand failes should follow the structure enforced in `tokens/schema/skin-schema.json`
 
 ---
 
@@ -95,26 +95,6 @@ Token **keys and structure must always match across brands**.
 ### Text tokens
 
 - A new `text.size` token **must** also define `text.lineHeight`
-- All `text.size` and `text.lineHeight` values must include:
-  - `mobile`
-  - `desktop`
-- `text.weight` values are restricted to:
-  - `light`
-  - `regular`
-  - `medium`
-  - `bold`
-
----
-
-### Spacing tokens
-
-- All `spacing` tokens must define values for:
-  - `top`
-  - `right`
-  - `bottom`
-  - `left`
-
----
 
 ## Schema updates
 
