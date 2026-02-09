@@ -71,6 +71,7 @@ Token **keys and structure must always match across brands**.
 ### General
 
 - Never invent tokens not requested by the user
+- Do not create new token types unless explicitly specified by the user
 - Never remove existing tokens unless explicitly requested
 - Keep JSON formatting consistent with existing files
 - Apply **minimal diffs**: change only what is required
@@ -102,8 +103,6 @@ Token **keys and structure must always match across brands**.
   - `regular`
   - `medium`
   - `bold`
-
-Do not introduce new text properties.
 
 ---
 
