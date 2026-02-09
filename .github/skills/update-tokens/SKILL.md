@@ -1,11 +1,11 @@
 ---
 name: update-tokens
-description: Safely edit Mistica token JSON files when the user requests new tokens, changes, or new brands.
+description: Edit Mistica token JSON files when the user requests new tokens, color, spacing, text, radius, changes in skin, or new brand tokens or skins.
 ---
 
 # Token Editor
 
-This skill is used to modify Mistica design token JSON files in a controlled and consistent way.
+This skill is used to modify Mistica design tokens JSON files in a controlled and consistent way.
 
 ---
 
@@ -31,12 +31,13 @@ When this skill is invoked, follow this order strictly:
 1. Identify the exact user request (token name, type, brand)
 2. Locate the affected files:
    - Brand file(s)
-   - Schema file (if adding tokens)
+   - Schema file (if adding or removing tokens)
    - contrastPairs.js (if color tokens affect contrast)
 3. Apply the minimal required change
 4. Validate structure consistency across brands
-5. Update schema and linter only if impacted
-6. Summarize the changes made
+5. Update schema file
+6. Update linter if impacted
+7. Summarize the changes made
 
 ---
 
