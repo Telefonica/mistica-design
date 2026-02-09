@@ -33,7 +33,6 @@ export const contrastPairs = [
     bg: [
       "brandHigh",
       "backgroundContainerBrandOverInverse",
-      "badge",
       "completedStep",
     ],
     minRatio: 4.5,
@@ -338,6 +337,12 @@ export const contrastPairs = [
   {
     fg: "tagTextInfoBrand",
     bg: "tagBackgroundInfoBrand",
+    minRatio: 4.5,
+  },
+  //Badge
+  {
+    fg: "textPrimaryNegative",
+    bg: "badge",
     minRatio: 4.5,
   },
 ];
