@@ -91,6 +91,11 @@ export const contrastPairs = [
     minRatio: 4.5,
   },
   {
+    fg: ["textButtonPrimaryNegative"],
+    bg: ["buttonPrimaryBackgroundNegative"],
+    minRatio: 4.5,
+  },
+  {
     fg: ["textButtonPrimaryInversePressed"],
     bg: [
       "buttonPrimaryBackgroundInverseHover",
@@ -111,6 +116,14 @@ export const contrastPairs = [
     bg: [
       "buttonPrimaryBackgroundMediaHover",
       "buttonPrimaryBackgroundMediaPressed",
+    ],
+    minRatio: 4.5,
+  },
+  {
+    fg: ["textButtonPrimaryNegativePressed"],
+    bg: [
+      "buttonPrimaryBackgroundNegativeHover",
+      "buttonPrimaryBackgroundNegativePressed",
     ],
     minRatio: 4.5,
   },
