@@ -307,20 +307,31 @@ async function run() {
   try {
     const args = process.argv.slice(2);
 
+    const isCI =
+      process.env.CI === "true" ||
+      process.env.GITHUB_ACTIONS === "true";
+
     const fileArg =
       args.find((a) => a.endsWith(".json")) ||
       null;
+
     const modeArg = args.find((a) =>
       VALID_MODES.includes(a),
     );
 
-    const mode =
-      modeArg || (await promptForMode());
-    const file =
-      fileArg ?? (await promptForFile());
+    // ✅ In CI default to format (no prompts allowed)
+    const mode = isCI
+      ? modeArg || "format"
+      : modeArg || (await promptForMode());
+
+    const file = isCI
+      ? fileArg || null
+      : (fileArg ?? (await promptForFile()));
 
     const tokensData = await loadTokens(file);
     const report = validate(tokensData, mode);
+
+    let totalErrors = 0;
 
     for (const [fileName, data] of Object.entries(
       tokensData,
@@ -337,11 +348,22 @@ async function run() {
         continue;
       }
 
+      totalErrors += errors.length;
+
       errors.forEach((e) => {
+        const location = e.token || e.pair;
+        const message =
+          e.message ||
+          `Contrast ${e.ratio} < ${e.minRatio}`;
+
+        if (isCI) {
+          console.log(
+            `::error file=${fileName}::[${e.type}] ${location} - ${message}`,
+          );
+        }
+
         console.log(
-          chalk.red(
-            `  [${e.type}] ${e.token || e.pair}`,
-          ),
+          chalk.red(`  [${e.type}] ${location}`),
         );
 
         if (
@@ -355,6 +377,7 @@ async function run() {
               e.bg,
               e.minRatio,
             );
+
           if (suggestions.length) {
             console.log(
               chalk.yellow(
@@ -369,6 +392,19 @@ async function run() {
           }
         }
       });
+    }
+
+    if (totalErrors > 0) {
+      console.log(
+        chalk.red(
+          `\n❌ Validation failed with ${totalErrors} errors`,
+        ),
+      );
+      process.exit(1);
+    } else {
+      console.log(
+        chalk.green("\n✅ Validation passed"),
+      );
     }
   } catch (err) {
     console.error("Linter error:", err);
