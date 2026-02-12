@@ -3,11 +3,16 @@ name: Link checker
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   link-checker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
 
       - name: Link Checker
         id: lychee

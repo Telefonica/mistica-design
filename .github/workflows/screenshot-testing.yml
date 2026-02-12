@@ -11,6 +11,10 @@ on:
         description: "Put Figma BranchID to generate screenshot testing"
         required: true
 
+permissions:
+  contents: write
+  pull-requests: write
+
 env:
   FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN}}
 
@@ -19,7 +23,7 @@ jobs:
     name: Acceptance tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: Checkout branch or create new one
         run: |
