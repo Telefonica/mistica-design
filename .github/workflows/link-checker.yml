@@ -18,4 +18,4 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@v1.5.1
         env:
-          GITHUB_TOKEN: ${{secrets.NOVUM_PRIVATE_REPOS_READONLY}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
