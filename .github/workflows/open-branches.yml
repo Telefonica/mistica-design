@@ -33,6 +33,6 @@ jobs:
       - name: Run sync for the brand(s)
         env:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         working-directory: .github/issue-scripts
         run: python3 branch-table.py

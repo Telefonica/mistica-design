@@ -30,6 +30,6 @@ jobs:
 
       - name: Ejecutar script de búsqueda y actualizar issue
         env:
-          TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
         working-directory: .github/issue-scripts
         run: python3 pending-tasks.py
