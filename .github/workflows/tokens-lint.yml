@@ -2,11 +2,11 @@ name: Token Format Validation
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - production
+  pull_request:
     paths:
       - "tokens/*.json"
+    branches:
+      - production
 
 jobs:
   lint-tokens:
