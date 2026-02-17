@@ -25,10 +25,12 @@ You'll be prompted to select which JSON file to validate.
 #### Option B: Pass a filename
 
 ```
-npm run linter my-tokens.json
+npm run linter my-tokens.json format
+npm run linter my-tokens.json contrast
 ```
 
-This runs the validation directly on a specific file inside tokens/.
+- format mode: checks description ↔ palette reference matches and invalid palette references, without skipping colors with alpha (rgba).
+- contrast mode: checks foreground/background pairs for WCAG contrast compliance, skipping gradients and alpha colors. Description mismatches are not shown.
 
 #### Option C: Validate contrast for a specific token
 
