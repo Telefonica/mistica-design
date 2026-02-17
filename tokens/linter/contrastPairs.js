@@ -64,6 +64,17 @@ export const contrastPairs = [
     ],
     minRatio: normalTextMinRatio,
   },
+  {
+    fg: [
+      "textPrimaryNegative",
+      "textSecondaryNegative",
+    ],
+    bg: [
+      "backgroundNegative",
+      "backgroundContainerNegative",
+    ],
+    minRatio: normalTextMinRatio,
+  },
   // Buttons
   {
     fg: ["textButtonPrimary"],
