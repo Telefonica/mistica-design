@@ -44,7 +44,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git commit -am "update changelog"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN_MISTICA }}@github.com/${{ github.repository }}.git ${{ env.GITHUB_REF_SLUG_URL }}
+          git push https://x-access-token:${{ secrets.GH_TOKEN_MISTICA }}@github.com/${{ github.repository }}.git ${{ env.GITHUB_REF_SLUG_URL }}
 
       # - name: Upload Release Notes to Wiki
       #   uses: docker://decathlon/wiki-page-creator-action:latest
