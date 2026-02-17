@@ -8,6 +8,8 @@
     "wcag-contrast": "^2.0.1"
   },
   "scripts": {
-    "linter": "node index.js"
+    "lint:tokens": "node index.js",
+    "lint:tokens:format": "node index.js format",
+    "lint:tokens:contrast": "node index.js contrast"
   }
 }
