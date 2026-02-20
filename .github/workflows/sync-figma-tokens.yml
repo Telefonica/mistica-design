@@ -15,16 +15,20 @@ on:
       - "tokens/tu.json"
       - "tokens/esimflag.json"
 
+permissions:
+  contents: read
+
+env:
+  FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+
 jobs:
   sync-figma-brand:
     runs-on: ubuntu-latest
-
-    env:
-      FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
 
       - name: Install dependencies
         run: npm install
