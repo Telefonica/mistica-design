@@ -8,11 +8,11 @@ import {
   Box,
   Touchable,
   Text,
-  Circle,
   Inline,
   Stack,
   IconWarningFilled,
   Tooltip,
+  Table,
 } from "@telefonica/mistica";
 import getColorValue from "../helpers/getColorValue";
 import getPaletteKey from "../helpers/get-palette-key";
@@ -24,7 +24,7 @@ const Palette = ({ skin, filter, branch, selectedSkin, tokenType }) => {
   const palette = skin?.global?.palette || {};
 
   const colorKeys = Object.keys(colors).filter((key) =>
-    key.toLowerCase().includes(filter?.toLowerCase())
+    key.toLowerCase().includes(filter?.toLowerCase()),
   );
 
   // Check if the palette reference matches the description
@@ -73,7 +73,7 @@ const Palette = ({ skin, filter, branch, selectedSkin, tokenType }) => {
   const totalUnreferencedCount = countUnreferencedColors(
     colors,
     darkColors,
-    palette
+    palette,
   );
 
   // Obtain the number of unmatched descriptions
@@ -144,86 +144,65 @@ const Palette = ({ skin, filter, branch, selectedSkin, tokenType }) => {
           </Inline>
         </Inline>
 
-        <Boxed width={"100%"}>
-          <Box paddingX={24} paddingBottom={24}>
-            <div className={styles.palette}>
-              {colorKeys.length > 0 ? (
-                <table>
-                  <thead
-                    style={{
-                      borderBottom: `1px solid ${skinVars.colors.divider}`,
-                    }}
-                  >
-                    <tr>
-                      <th>
-                        <Text weight="medium">Token</Text>
-                      </th>
-                      <th>
-                        <Text weight="medium">Light value</Text>
-                      </th>
-                      <th>
-                        <Text weight="medium">Dark value</Text>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {colorKeys.map((key) => {
-                      const lightInfo = getAllColorInfo(colors[key], "light");
-                      const darkInfo = getAllColorInfo(darkColors[key], "dark");
+        {colorKeys.length > 0 ? (
+          <Table
+            responsive="collapse-rows"
+            heading={["Token", "Light value", "Dark value"]}
+            content={colorKeys.map((key) => {
+              const lightInfo = getAllColorInfo(colors[key], "light");
+              const darkInfo = getAllColorInfo(darkColors[key], "dark");
 
-                      return (
-                        <tr
-                          key={key}
-                          style={{
-                            background:
-                              lightInfo.value === undefined ||
-                              darkInfo.value === undefined
-                                ? skinVars.colors.errorLow
-                                : lightInfo.descriptionMatch &&
-                                  darkInfo.descriptionMatch
-                                ? undefined
-                                : skinVars.colors.warningLow,
-                          }}
-                        >
-                          {/* Column 1: Key */}
-                          <td>
-                            <Touchable
-                              to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${key}/`}
-                            >
-                              <Tag type="active">{key}</Tag>
-                            </Touchable>
-                          </td>
-                          {/* Column 2: Light */}
-                          <td>
-                            <ColorCell
-                              value={lightInfo.value}
-                              reference={lightInfo.reference}
-                              descriptionMatch={lightInfo.descriptionMatch}
-                              description={lightInfo.description}
-                            />
-                          </td>
-                          {/* Column 4: Dark */}
-                          <td>
-                            <ColorCell
-                              value={darkInfo.value}
-                              reference={darkInfo.reference}
-                              descriptionMatch={darkInfo.descriptionMatch}
-                              description={darkInfo.description}
-                            />
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              ) : (
-                <Box paddingTop={24}>
-                  <Text size={16}>No matching color tokens found.</Text>
-                </Box>
-              )}
-            </div>
-          </Box>
-        </Boxed>
+              const rowBackground =
+                lightInfo.value === undefined || darkInfo.value === undefined
+                  ? skinVars.colors.errorLow
+                  : lightInfo.descriptionMatch && darkInfo.descriptionMatch
+                    ? undefined
+                    : skinVars.colors.warningLow;
+
+              const withStateBackground = (content) =>
+                rowBackground ? (
+                  <div style={{ backgroundColor: rowBackground, padding: 8 }}>
+                    {content}
+                  </div>
+                ) : (
+                  content
+                );
+
+              return [
+                withStateBackground(
+                  <Touchable
+                    to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${key}/`}
+                  >
+                    <Tag type="active">{key}</Tag>
+                  </Touchable>,
+                ),
+                withStateBackground(
+                  <ColorCell
+                    value={lightInfo.value}
+                    reference={lightInfo.reference}
+                    descriptionMatch={lightInfo.descriptionMatch}
+                    description={lightInfo.description}
+                  />,
+                ),
+                withStateBackground(
+                  <ColorCell
+                    value={darkInfo.value}
+                    reference={darkInfo.reference}
+                    descriptionMatch={darkInfo.descriptionMatch}
+                    description={darkInfo.description}
+                  />,
+                ),
+              ];
+            })}
+            boxed
+          />
+        ) : (
+          <Boxed width={"100%"}>
+            <Box padding={24}>
+              <Text size={16}>No matching color tokens found.</Text>
+            </Box>
+          </Boxed>
+        )}
       </Stack>
     </ResponsiveLayout>
   );

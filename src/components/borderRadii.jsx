@@ -10,13 +10,14 @@ import {
   Text,
   Inline,
   Stack,
+  Table,
 } from "@telefonica/mistica";
 
 const RadiiTable = ({ skin, filter, branch, selectedSkin, tokenType }) => {
   const radius = skin?.radius || {};
 
   const radiusKeys = Object.keys(radius).filter((key) =>
-    key.toLowerCase().includes(filter?.toLowerCase())
+    key.toLowerCase().includes(filter?.toLowerCase()),
   );
 
   const radiusValue = (value) => {
@@ -39,68 +40,41 @@ const RadiiTable = ({ skin, filter, branch, selectedSkin, tokenType }) => {
             })`}</Tag>
           </Inline>
         </div>
-        <Boxed>
-          <Box paddingX={24} paddingBottom={24} className={styles.palette}>
-            {radiusKeys.length > 0 ? (
-              <table>
-                <thead
-                  style={{
-                    borderBottom: `1px solid ${skinVars.colors.divider}`,
-                  }}
-                >
-                  <tr>
-                    <th>
-                      <Text weight="medium">Example</Text>
-                    </th>
-                    <th>
-                      <Text weight="medium">Token</Text>
-                    </th>
-                    <th>
-                      <Text weight="medium">Value</Text>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {radiusKeys.map((key) => {
-                    const value = radius[key]?.value;
 
-                    return (
-                      <tr key={key}>
-                        <td>
-                          <div
-                            style={{
-                              borderRadius: radiusValue(value),
-                              width: 48,
-                              height: 48,
-                              borderColor: skinVars.colors.brand,
-                              borderWidth: 2,
-                              borderStyle: "solid",
-                              backgroundColor: skinVars.colors.brandLow,
-                            }}
-                          ></div>
-                        </td>
-                        <td>
-                          <Touchable
-                            to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${undefined}/${key}`}
-                          >
-                            <Tag type="active">{key}</Tag>
-                          </Touchable>
-                        </td>
-                        <td>
-                          <Text>{radiusValue(value)}</Text>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            ) : (
-              <Box paddingTop={24}>
-                <Text size={16}>Not matching radius tokens found.</Text>
-              </Box>
-            )}
+        {radiusKeys.length > 0 ? (
+          <Table
+            heading={["Example", "Token", "Value"]}
+            content={radiusKeys.map((key) => {
+              const value = radius[key]?.value;
+
+              return [
+                <div
+                  style={{
+                    borderRadius: radiusValue(value),
+                    width: 48,
+                    height: 48,
+                    borderColor: skinVars.colors.brand,
+                    borderWidth: 2,
+                    borderStyle: "solid",
+                    backgroundColor: skinVars.colors.brandLow,
+                  }}
+                ></div>,
+                <Touchable
+                  to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${undefined}/${key}`}
+                >
+                  <Tag type="active">{key}</Tag>
+                </Touchable>,
+                <Text>{radiusValue(value)}</Text>,
+              ];
+            })}
+            boxed
+            responsive="collapse-rows"
+          />
+        ) : (
+          <Box paddingTop={24}>
+            <Text size={16}>Not matching radius tokens found.</Text>
           </Box>
-        </Boxed>
+        )}
       </Stack>
     </ResponsiveLayout>
   );

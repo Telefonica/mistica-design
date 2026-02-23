@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import getContrastRatio from "../../helpers/contrastRatio";
 import ContrastChecker from "../../helpers/contrastChecker";
 import { useParams } from "react-router-dom";
 import {
-  ButtonLink,
   ResponsiveLayout,
   Stack,
   Title2,
+  Table,
   Tag,
   Title1,
-  skinVars,
   Inline,
   Box,
   Text,
-  IconChevronLeftRegular,
   Circle,
   Select,
 } from "@telefonica/mistica";
@@ -40,16 +38,16 @@ const ColorDetail = () => {
     const alignItems = "center";
     const borderColor = getColorValue(
       skinData?.[skinName]?.[colorScheme]?.border?.value,
-      palette
+      palette,
     );
     const textColor = getColorValue(
       skinData?.[skinName]?.[colorScheme]?.[foregroundColor],
-      palette
+      palette,
     );
 
     const backgroundColor = getColorValue(
       skinData?.[skinName]?.[colorScheme]?.[id],
-      palette
+      palette,
     );
 
     return (
@@ -71,36 +69,37 @@ const ColorDetail = () => {
     );
   };
 
-  const Row = ({ skinName, tokenValue, paletteValue, colorScheme }) => (
-    <tr>
-      <td>{skinName}</td>
-      <td>
-        <Tag type="success">{paletteValue}</Tag>
-      </td>
-      <td>
-        <ColorSample color={tokenValue} palette={paletteValue}></ColorSample>
-      </td>
-      <td>
-        <Inline key={foregroundColor} space={8}>
-          {getColorBox({
-            skinName,
-            colorScheme,
-          })}
-          <ContrastChecker
-            contrastRatio={getContrastRatio(
-              tokenValue,
-              getColorValue(
-                skinData?.[skinName]?.[colorScheme]?.[foregroundColor].value,
-                skinData?.[skinName]?.global?.palette
-              )
-            )}
-          ></ContrastChecker>{" "}
-        </Inline>
-      </td>
-    </tr>
-  );
+  const getTableContent = (colorScheme) => {
+    if (Object.keys(skinData).length === 0) {
+      return [];
+    }
 
-  const renderColorTable = (skinData, id) => {
+    return getColorData(skinData, id, colorScheme).map((tokens) => [
+      tokens.skinName,
+      <Tag type="success">{tokens.paletteValue}</Tag>,
+      <ColorSample color={tokens.tokenValue} palette={tokens.paletteValue} />,
+      <Inline space={8}>
+        {getColorBox({
+          skinName: tokens.skinName,
+          colorScheme,
+        })}
+        <ContrastChecker
+          contrastRatio={getContrastRatio(
+            tokens.tokenValue,
+            getColorValue(
+              skinData?.[tokens.skinName]?.[colorScheme]?.[foregroundColor]
+                .value,
+              skinData?.[tokens.skinName]?.global?.palette,
+            ),
+          )}
+        />
+      </Inline>,
+    ]);
+  };
+
+  const renderColorTable = () => {
+    const heading = ["Skin", "Palette Token", "Value", "Contrast"];
+
     return (
       <Stack space={32}>
         <Inline fullWidth space="between">
@@ -117,51 +116,19 @@ const ColorDetail = () => {
           ></Select>
         </Inline>
         <Title1>Light colors</Title1>
-        <table>
-          <thead>
-            <tr>
-              <th>Skin</th>
-              <th>Palette Token</th>
-              <th>Value</th>
-              <th>Contrast</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.keys(skinData).length > 0 &&
-              getColorData(skinData, id, "light").map((tokens, index) => (
-                <Row
-                  key={index}
-                  skinName={tokens.skinName}
-                  paletteValue={tokens.paletteValue}
-                  colorScheme="light"
-                  tokenValue={tokens.tokenValue}
-                />
-              ))}
-          </tbody>
-        </table>
+        <Table
+          heading={heading}
+          content={getTableContent("light")}
+          boxed
+          responsive="collapse-rows"
+        />
         <Title1>Dark colors</Title1>
-        <table>
-          <thead>
-            <tr>
-              <th>Skin</th>
-              <th>Palette Token</th>
-              <th>Value</th>
-              <th>Contrast</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.keys(skinData).length > 0 &&
-              getColorData(skinData, id, "dark").map((tokens, index) => (
-                <Row
-                  key={index} // Make sure to specify a unique key for each mapped element
-                  skinName={tokens.skinName}
-                  paletteValue={tokens.paletteValue}
-                  colorScheme="dark"
-                  tokenValue={tokens.tokenValue}
-                />
-              ))}
-          </tbody>
-        </table>
+        <Table
+          heading={heading}
+          content={getTableContent("dark")}
+          boxed
+          responsive="collapse-rows"
+        />
       </Stack>
     );
   };
@@ -176,7 +143,7 @@ const ColorDetail = () => {
           <div className={styles.tokenDetail}>
             <Stack space={40}>
               <Title2>{id}</Title2>
-              <Stack space={24}>{<>{renderColorTable(skinData, id)}</>}</Stack>
+              <Stack space={24}>{<>{renderColorTable()}</>}</Stack>
             </Stack>
           </div>
         </ResponsiveLayout>

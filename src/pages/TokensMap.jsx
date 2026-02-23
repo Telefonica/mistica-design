@@ -46,13 +46,13 @@ const TokensMap = () => {
   const [filter, setFilter] = useState("");
   const [selectedSkin, setSelectedSkin] = useState(skinFromUrl || "movistar");
   const [activeTokenType, setActiveTokenType] = useState(
-    tokenTypeFromUrl || "color"
+    tokenTypeFromUrl || "color",
   );
   const [selectedBranch, setSelectedBranch] = useState(
-    branchFromUrl || "production"
+    branchFromUrl || "production",
   );
   const [selectedColor, setSelectedColor] = useState(
-    colorFromUrl || "undefined"
+    colorFromUrl || "undefined",
   );
   const { skinData, skinNames, skinError } = GetSkin({
     branch: selectedBranch,
@@ -116,7 +116,6 @@ const TokensMap = () => {
     constants: "Constants",
     variables: "Variables",
     match: "Match",
-    preview: "Preview",
   };
 
   const VIEWS = {
@@ -124,7 +123,6 @@ const TokensMap = () => {
       constants: Palette,
       variables: GlobalPalette,
       match: ReferencePalette,
-      preview: SkinPreview,
     },
     radius: RadiiTable,
     text: TextTable,

@@ -1,8 +1,6 @@
 import React from "react";
-import { useEffect } from "react";
 import styles from "./borderRadii.module.css";
 import {
-  skinVars,
   ResponsiveLayout,
   Tag,
   Boxed,
@@ -14,6 +12,7 @@ import {
   RadioGroup,
   RadioButton,
   Chip,
+  Table,
 } from "@telefonica/mistica";
 
 const TextTable = ({
@@ -32,15 +31,15 @@ const TextTable = ({
   const [active, setActive] = React.useState("size");
 
   const weightKeys = Object.keys(weight).filter((key) =>
-    key.toLowerCase().includes(filter?.toLowerCase())
+    key.toLowerCase().includes(filter?.toLowerCase()),
   );
 
   const sizeKeys = Object.keys(size).filter((key) =>
-    key.toLowerCase().includes(filter?.toLowerCase())
+    key.toLowerCase().includes(filter?.toLowerCase()),
   );
 
   const lineHeightKeys = Object.keys(lineHeight).filter((key) =>
-    key.toLowerCase().includes(filter?.toLowerCase())
+    key.toLowerCase().includes(filter?.toLowerCase()),
   );
 
   // Filter tokens
@@ -87,149 +86,97 @@ const TextTable = ({
             })`}</Tag>
           </Inline>
         </div>
-        <Boxed>
-          <Box paddingX={24} paddingBottom={24} className={styles.palette}>
-            <table>
-              <thead
-                style={{
-                  borderBottom: `1px solid ${skinVars.colors.divider}`,
-                }}
-              >
-                <tr>
-                  <th>
-                    <Text weight="medium">Example</Text>
-                  </th>
-                  <th>
-                    <Text weight="medium">Token</Text>
-                  </th>
-                  {active === "size" || active === "lineHeight" ? (
-                    <>
-                      <th>
-                        <Text weight="medium">Mobile value</Text>
-                      </th>
-                      <th>
-                        <Text weight="medium">Desktop value</Text>
-                      </th>
-                    </>
-                  ) : (
-                    <th>
-                      <Text weight="medium">Value</Text>
-                    </th>
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {active === "size" &&
-                  sizeKeys.map((key) => {
-                    const mobileValue = size[key]?.value?.mobile;
-                    const desktopValue = size[key]?.value?.desktop;
-                    const mobileLineHeight = lineHeight[key]?.value?.mobile;
-                    const desktopLineHeight = lineHeight[key]?.value?.desktop;
-                    return (
-                      <tr key={key}>
-                        <td>
-                          <Stack space={8}>
-                            <Text
-                              size={mobileValue}
-                              weight="regular"
-                              lineHeight={mobileLineHeight}
-                            >
-                              The quick brown fox jumps over the lazy dog
-                            </Text>
-                            <Text
-                              size={desktopValue}
-                              weight="regular"
-                              lineHeight={desktopLineHeight}
-                            >
-                              The quick brown fox jumps over the lazy dog
-                            </Text>
-                          </Stack>
-                        </td>
-                        <td>
-                          <Touchable
-                            to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${active}/${key}`}
-                          >
-                            <Tag type="active">{key}</Tag>
-                          </Touchable>
-                        </td>
-                        <td>
-                          <Text>{mobileValue}px</Text>
-                        </td>
-                        <td>
-                          <Text>{desktopValue}px</Text>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                {active === "weight" &&
-                  weightKeys.map((key) => {
+
+        <Table
+          heading={
+            active === "size" || active === "lineHeight"
+              ? ["Example", "Token", "Mobile value", "Desktop value"]
+              : ["Example", "Token", "Value"]
+          }
+          content={
+            active === "size"
+              ? sizeKeys.map((key) => {
+                  const mobileValue = size[key]?.value?.mobile;
+                  const desktopValue = size[key]?.value?.desktop;
+                  const mobileLineHeight = lineHeight[key]?.value?.mobile;
+                  const desktopLineHeight = lineHeight[key]?.value?.desktop;
+
+                  return [
+                    <Stack space={8}>
+                      <Text
+                        size={mobileValue}
+                        weight="regular"
+                        lineHeight={mobileLineHeight}
+                      >
+                        The quick brown fox jumps over the lazy dog
+                      </Text>
+                      <Text
+                        size={desktopValue}
+                        weight="regular"
+                        lineHeight={desktopLineHeight}
+                      >
+                        The quick brown fox jumps over the lazy dog
+                      </Text>
+                    </Stack>,
+                    <Touchable
+                      to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${active}/${key}`}
+                    >
+                      <Tag type="active">{key}</Tag>
+                    </Touchable>,
+                    <Text>{mobileValue}px</Text>,
+                    <Text>{desktopValue}px</Text>,
+                  ];
+                })
+              : active === "weight"
+                ? weightKeys.map((key) => {
                     const value = weight[key]?.value;
-                    return (
-                      <tr key={key}>
-                        <td>
-                          <Text size={24} weight={value}>
-                            The quick brown fox jumps over the lazy dog
-                          </Text>
-                        </td>
-                        <td>
-                          <Touchable
-                            to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${active}/${key}`}
-                          >
-                            <Tag type="active">{key}</Tag>
-                          </Touchable>
-                        </td>
-                        <td>
-                          <Text>{value}</Text>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                {active === "lineHeight" &&
-                  lineHeightKeys.map((key) => {
+
+                    return [
+                      <Text size={24} weight={value}>
+                        The quick brown fox jumps over the lazy dog
+                      </Text>,
+                      <Touchable
+                        to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${active}/${key}`}
+                      >
+                        <Tag type="active">{key}</Tag>
+                      </Touchable>,
+                      <Text>{value}</Text>,
+                    ];
+                  })
+                : lineHeightKeys.map((key) => {
                     const mobileValue = lineHeight[key]?.value?.mobile;
                     const desktopValue = lineHeight[key]?.value?.desktop;
 
-                    console.log();
-                    return (
-                      <tr key={key}>
-                        <td>
-                          <Stack space={8}>
-                            <Text
-                              size={16}
-                              weight="regular"
-                              lineHeight={mobileValue}
-                            >
-                              The quick brown fox jumps over the lazy dog
-                            </Text>
-                            <Text
-                              size={16}
-                              weight="regular"
-                              lineHeight={desktopValue}
-                            >
-                              The quick brown fox jumps over the lazy dog
-                            </Text>
-                          </Stack>
-                        </td>
-                        <td>
-                          <Touchable
-                            to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${active}/${key}`}
-                          >
-                            <Tag type="active">{key}</Tag>
-                          </Touchable>
-                        </td>
-                        <td>
-                          <Text>{mobileValue}px</Text>
-                        </td>
-                        <td>
-                          <Text>{desktopValue}px</Text>
-                        </td>
-                      </tr>
-                    );
-                  })}
-              </tbody>
-            </table>
-          </Box>
-        </Boxed>
+                    return [
+                      <Stack space={8}>
+                        <Text
+                          size={16}
+                          weight="regular"
+                          lineHeight={mobileValue}
+                        >
+                          The quick brown fox jumps over the lazy dog
+                        </Text>
+                        <Text
+                          size={16}
+                          weight="regular"
+                          lineHeight={desktopValue}
+                        >
+                          The quick brown fox jumps over the lazy dog
+                        </Text>
+                      </Stack>,
+                      <Touchable
+                        to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${active}/${key}`}
+                      >
+                        <Tag type="active">{key}</Tag>
+                      </Touchable>,
+                      <Text>{mobileValue}px</Text>,
+                      <Text>{desktopValue}px</Text>,
+                    ];
+                  })
+          }
+          boxed
+          responsive="collapse-rows"
+        />
       </Stack>
     </ResponsiveLayout>
   );

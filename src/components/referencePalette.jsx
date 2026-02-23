@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./palette.module.css";
 import {
   Boxed,
@@ -12,6 +12,7 @@ import {
   Inline,
   Stack,
   ResponsiveLayout,
+  Table,
 } from "@telefonica/mistica";
 
 function ReferencePalette({
@@ -76,7 +77,7 @@ function ReferencePalette({
   };
 
   const filteredPaletteKeys = Object.keys(palette).filter((key) =>
-    key.toLowerCase().includes(filter.toLowerCase())
+    key.toLowerCase().includes(filter.toLowerCase()),
   );
 
   // Obtain the number of unused variables
@@ -106,183 +107,111 @@ function ReferencePalette({
           </Inline>
         </div>
         <div className={styles.palette}>
-          <Boxed width="100%">
-            <Box padding={24}>
-              <div className={styles.tableContainer}>
-                <Title1>Palette</Title1>
+          <div className={styles.tableContainer}>
+            <Title1>Palette</Title1>
+            <Table
+              heading={["", "Token", "Usage"]}
+              content={filteredPaletteKeys
+                .map((key) => {
+                  const color = palette[key];
+                  if (color.type !== "color") return null;
 
-                <table>
-                  <thead
-                    style={{
-                      borderBottom: `1px solid ${skinVars.colors.divider}`,
-                    }}
-                  >
-                    <tr>
-                      <th></th>
-                      <th>
-                        <Text weight="medium">Token</Text>
-                      </th>
-                      <th>
-                        <Text weight="medium">Usage</Text>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filteredPaletteKeys.map((key) => {
-                      const color = palette[key];
-                      if (color.type !== "color") return null;
+                  const value = color.value;
+                  const isSelected =
+                    value === selected || key === selectedColor;
+                  const matchingCount = getMatchingCount(value);
 
-                      const value = color.value;
-                      const isSelected =
-                        value === selected || key === selectedColor;
-                      const matchingCount = getMatchingCount(value);
+                  return [
+                    <Touchable onPress={() => handleClick(value, key)}>
+                      <div
+                        style={{
+                          outline: `1px solid ${
+                            key === "white"
+                              ? skinVars.colors.neutralMedium
+                              : "transparent"
+                          }`,
+                          width: "fit-content",
+                          borderRadius: "50%",
+                        }}
+                      >
+                        <Circle size={16} backgroundColor={value}></Circle>
+                      </div>
+                    </Touchable>,
+                    <Touchable onPress={() => handleClick(value, key)}>
+                      <div
+                        style={{
+                          outline: isSelected
+                            ? `2px solid ${skinVars.colors.brand}`
+                            : "none",
+                          borderRadius: 4,
+                          width: "fit-content",
+                          padding: isSelected ? 2 : 0,
+                        }}
+                      >
+                        <Tag type="success">{key}</Tag>
+                      </div>
+                    </Touchable>,
+                    <Circle
+                      size={24}
+                      backgroundColor={
+                        matchingCount != 0
+                          ? "transparent"
+                          : skinVars.colors.warningLow
+                      }
+                    >
+                      <Text
+                        size={14}
+                        weight="medium"
+                        color={
+                          matchingCount != 0
+                            ? skinVars.colors.textPrimary
+                            : skinVars.colors.warningHigh
+                        }
+                      >
+                        {matchingCount}
+                      </Text>
+                    </Circle>,
+                  ];
+                })
+                .filter(Boolean)}
+              boxed
+              responsive="scroll"
+            />
+          </div>
 
-                      return (
-                        <tr
-                          style={{
-                            outline: isSelected ? "2px solid" : undefined,
-                            outlineColor: isSelected
-                              ? skinVars.colors.brand
-                              : undefined,
-                            borderRadius: "4px",
-                            cursor: "pointer",
-                          }}
-                          key={key}
-                          onClick={() => handleClick(value, key)}
-                        >
-                          <td>
-                            <div
-                              style={{
-                                outline: `1px solid ${
-                                  key === "white"
-                                    ? skinVars.colors.neutralMedium
-                                    : undefined
-                                }`,
-                                width: "fit-content",
-                                borderRadius: "50%",
-                              }}
-                            >
-                              <Circle
-                                size={16}
-                                backgroundColor={value}
-                              ></Circle>
-                            </div>
-                          </td>
-                          <td>
-                            <Tag type="success">{key}</Tag>
-                          </td>
-                          <td>
-                            <Circle
-                              size={24}
-                              backgroundColor={
-                                matchingCount != 0
-                                  ? "transparent"
-                                  : skinVars.colors.warningLow
-                              }
-                            >
-                              <Text
-                                size={14}
-                                weight="medium"
-                                color={
-                                  matchingCount != 0
-                                    ? skinVars.colors.textPrimary
-                                    : skinVars.colors.warningHigh
-                                }
-                              >
-                                {matchingCount}
-                              </Text>
-                            </Circle>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </Box>
-          </Boxed>
-          <Boxed width="100%">
-            <Box padding={24}>
-              <div className={styles.tableContainer}>
-                <Title1>Light Colors</Title1>
-                <table>
-                  <thead
-                    style={{
-                      borderBottom: `1px solid ${skinVars.colors.divider}`,
-                    }}
-                  >
-                    <tr>
-                      <th>
-                        <Text weight="medium">Token</Text>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {matchingLightColors.length === 0 ? (
-                      <tr>
-                        <td colSpan={2}>No matching light colors</td>
-                      </tr>
-                    ) : (
-                      matchingLightColors.map((key) => {
-                        return (
-                          <tr key={key}>
-                            <td>
-                              <Touchable
-                                to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${key}/`}
-                              >
-                                <Tag type="active">{key}</Tag>
-                              </Touchable>
-                            </td>
-                          </tr>
-                        );
-                      })
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </Box>
-          </Boxed>
-          <Boxed width="100%">
-            <Box padding={24}>
-              <div className={styles.tableContainer}>
-                <Title1>Dark Colors</Title1>
-                <table>
-                  <thead
-                    style={{
-                      borderBottom: `1px solid ${skinVars.colors.divider}`,
-                    }}
-                  >
-                    <tr>
-                      <th>
-                        <Text weight="medium">Token</Text>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {matchingDarkColors.length === 0 ? (
-                      <tr>
-                        <td colSpan={2}>No matching dark colors</td>
-                      </tr>
-                    ) : (
-                      matchingDarkColors.map((key) => {
-                        return (
-                          <tr key={key}>
-                            <td>
-                              <Touchable
-                                to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${key}`}
-                              >
-                                <Tag type="active">{key}</Tag>
-                              </Touchable>
-                            </td>
-                          </tr>
-                        );
-                      })
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </Box>
-          </Boxed>
+          <div className={styles.tableContainer}>
+            <Title1>Light Colors</Title1>
+            <Table
+              heading={["Token"]}
+              content={matchingLightColors.map((key) => [
+                <Touchable
+                  to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${key}/`}
+                >
+                  <Tag type="active">{key}</Tag>
+                </Touchable>,
+              ])}
+              emptyCase="No matching light colors"
+              boxed
+              responsive="scroll"
+            />
+          </div>
+
+          <div className={styles.tableContainer}>
+            <Title1>Dark Colors</Title1>
+            <Table
+              heading={["Token"]}
+              content={matchingDarkColors.map((key) => [
+                <Touchable
+                  to={`/tokens-map/${branch}/${selectedSkin}/${tokenType}/${key}`}
+                >
+                  <Tag type="active">{key}</Tag>
+                </Touchable>,
+              ])}
+              emptyCase="No matching dark colors"
+              boxed
+              responsive="scroll"
+            />
+          </div>
         </div>
       </Stack>
     </ResponsiveLayout>
