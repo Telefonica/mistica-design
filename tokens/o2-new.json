@@ -161,20 +161,15 @@
       "type": "color",
       "description": "darkBlue"
     },
-    "skeletonWave": {
-      "value": "{palette.grey30}",
-      "type": "color",
-      "description": "grey30"
-    },
     "backgroundDropZoneHover": {
-      "value": "rgba({palette.beyondBlue90}, 0.05)",
+      "value": "rgba({palette.beyondBlue}, 0.05)",
       "type": "color",
-      "description": "beyondBlue90"
+      "description": "beyondBlue"
     },
     "backgroundDropZoneDragover": {
-      "value": "rgba({palette.beyondBlue90}, 0.08)",
+      "value": "rgba({palette.beyondBlue}, 0.08)",
       "type": "color",
-      "description": "beyondBlue90"
+      "description": "beyondBlue"
     },
     "backgroundDropZoneBrandHover": {
       "value": "rgba({palette.beyondBlue90}, 0.2)",
@@ -185,6 +180,31 @@
       "value": "rgba({palette.beyondBlue90}, 0.4)",
       "type": "color",
       "description": "beyondBlue90"
+    },
+    "backgroundDropZoneNegativeHover": {
+      "value": "rgba({palette.white}, 0.10)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneNegativeDragover": {
+      "value": "rgba({palette.white}, 0.17)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneMediaHover": {
+      "value": "rgba({palette.beyondBlue90}, 0.2)",
+      "type": "color",
+      "description": "beyondBlue90"
+    },
+    "backgroundDropZoneMediaDragover": {
+      "value": "rgba({palette.beyondBlue90}, 0.4)",
+      "type": "color",
+      "description": "beyondBlue90"
+    },
+    "skeletonWave": {
+      "value": "{palette.grey30}",
+      "type": "color",
+      "description": "grey30"
     },
     "borderLow": {
       "value": "{palette.grey20}",
@@ -1661,16 +1681,6 @@
       "type": "color",
       "description": "darkModeGrey"
     },
-    "navigationBarBackground": {
-      "value": "{palette.darkModeBlack}",
-      "type": "color",
-      "description": "darkModeBlack"
-    },
-    "skeletonWave": {
-      "value": "{palette.grey80}",
-      "type": "color",
-      "description": "grey80"
-    },
     "backgroundDropZoneHover": {
       "value": "rgba({palette.white}, 0.05)",
       "type": "color",
@@ -1690,6 +1700,36 @@
       "value": "rgba({palette.white}, 0.05)",
       "type": "color",
       "description": "white"
+    },
+    "backgroundDropZoneNegativeHover": {
+      "value": "rgba({palette.white}, 0.03)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneNegativeDragover": {
+      "value": "rgba({palette.white}, 0.05)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneMediaHover": {
+      "value": "rgba({palette.white}, 0.03)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneMediaDragover": {
+      "value": "rgba({palette.white}, 0.05)",
+      "type": "color",
+      "description": "white"
+    },
+    "navigationBarBackground": {
+      "value": "{palette.darkModeBlack}",
+      "type": "color",
+      "description": "darkModeBlack"
+    },
+    "skeletonWave": {
+      "value": "{palette.grey80}",
+      "type": "color",
+      "description": "grey80"
     },
     "borderLow": {
       "value": "{palette.darkModeBlack}",

@@ -130,21 +130,41 @@
       "description": "movistarBlue"
     },
     "backgroundDropZoneHover": {
-      "value": "{palette.blue100}",
+      "value": "rgba({palette.movistarBlue}, 0.05)",
       "type": "color",
-      "description": "blue100"
+      "description": "movistarBlue"
     },
     "backgroundDropZoneDragover": {
-      "value": "{palette.blue200}",
+      "value": "rgba({palette.movistarBlue}, 0.08)",
       "type": "color",
-      "description": "blue200"
+      "description": "movistarBlue"
     },
     "backgroundDropZoneBrandHover": {
-      "value": "rgba({palette.movistarBlack}, 0.2)",
+      "value": "rgba({palette.movistarBlack}, 0.08)",
       "type": "color",
       "description": "movistarBlack"
     },
     "backgroundDropZoneBrandDragover": {
+      "value": "rgba({palette.movistarBlack}, 0.1)",
+      "type": "color",
+      "description": "movistarBlack"
+    },
+    "backgroundDropZoneNegativeHover": {
+      "value": "rgba({palette.white}, 0.10)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneNegativeDragover": {
+      "value": "rgba({palette.white}, 0.17)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneMediaHover": {
+      "value": "rgba({palette.movistarBlack}, 0.2)",
+      "type": "color",
+      "description": "movistarBlack"
+    },
+    "backgroundDropZoneMediaDragover": {
       "value": "rgba({palette.movistarBlack}, 0.4)",
       "type": "color",
       "description": "movistarBlack"
@@ -1650,6 +1670,26 @@
       "description": "white"
     },
     "backgroundDropZoneBrandDragover": {
+      "value": "rgba({palette.white}, 0.05)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneNegativeHover": {
+      "value": "rgba({palette.white}, 0.03)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneNegativeDragover": {
+      "value": "rgba({palette.white}, 0.05)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneMediaHover": {
+      "value": "rgba({palette.white}, 0.03)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneMediaDragover": {
       "value": "rgba({palette.white}, 0.05)",
       "type": "color",
       "description": "white"

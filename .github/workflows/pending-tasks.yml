@@ -5,12 +5,18 @@ on:
   schedule:
     - cron: 0 8 * * *
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   pending-tasks:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout del repositorio
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
 
       - name: Configurar Python
         uses: actions/setup-python@v2
@@ -24,6 +30,6 @@ jobs:
 
       - name: Ejecutar script de búsqueda y actualizar issue
         env:
-          TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
         working-directory: .github/issue-scripts
         run: python3 pending-tasks.py

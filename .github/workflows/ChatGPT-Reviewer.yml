@@ -6,6 +6,10 @@ permissions:
 
 on:
   pull_request:
+    types: [opened, edited]
+    branches:
+      - production
+      - pre-production
 
 concurrency:
   group: ${{ github.repository }}-${{ github.event.number || github.head_ref || github.sha }}-${{ github.workflow }}
@@ -18,7 +22,7 @@ jobs:
     steps:
       - uses: platisd/openai-pr-description@master
         with:
-          github_token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
           sample_prompt: |
             You are a design system designer and your function is create a table with all the changes for a GitHub Pull Request in Markdown format.

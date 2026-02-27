@@ -1,0 +1,32 @@
+name: Token Format Validation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "tokens/*.json"
+    branches:
+      - production
+
+jobs:
+  lint-tokens:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: tokens/linter
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run token format validation
+        run: npm run lint:tokens:format
