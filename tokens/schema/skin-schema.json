@@ -866,7 +866,11 @@
           "const": "color"
         }
       },
-      "required": ["value", "type"]
+      "required": ["value", "type"],
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
+      }
     },
     "constantProperties": {
       "patternProperties": {
@@ -1018,6 +1022,14 @@
           ]
         }
       },
+      "properties": {
+        "deprecated": {
+          "type": "boolean"
+        },
+        "deprecatedBy": {
+          "type": "string"
+        }
+      },
       "required": ["value", "type", "description"],
       "additionalProperties": false
     },
@@ -1032,6 +1044,10 @@
         }
       },
       "required": ["value", "type"],
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
+      },
       "additionalProperties": false
     },
     "weightProperties": {
@@ -1044,7 +1060,11 @@
           "const": "typography"
         }
       },
-      "required": ["value", "type"]
+      "required": ["value", "type"],
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
+      }
     },
     "sizeProperties": {
       "type": "object",
@@ -1060,6 +1080,10 @@
         "type": {
           "const": "typography"
         }
+      },
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
       },
       "required": ["value", "type"]
     },
@@ -1078,6 +1102,10 @@
           "const": "typography"
         }
       },
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
+      },
       "required": ["value", "type"]
     },
     "spacingProperties": {
@@ -1085,6 +1113,8 @@
       "required": ["value", "type"],
       "properties": {
         "type": { "const": "spacing" },
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" },
         "value": {
           "anyOf": [
             { "$ref": "#/definitions/breakpoints" },
@@ -1116,6 +1146,10 @@
           "const": "themeVariant"
         }
       },
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
+      },
       "required": ["value", "type"]
     },
     "componentProperties": {
@@ -1127,6 +1161,10 @@
         "type": {
           "const": "property"
         }
+      },
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
       },
       "required": ["value", "type"]
     },
