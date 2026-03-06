@@ -204,6 +204,44 @@ The value of a constant can be modified. It's important to note that if you want
 >
 > When modifying a `value`, the `description` field must also be updated with the same value. For example, if the change is from "movistarBlue" to "movistarBlue55," the value should be: "{palette.movistarBlue55}" and the description: "movistarBlue55".
 
+### Deprecating tokens
+
+When a token is superseded by another one, you can mark it as deprecated so consumers know which token to use instead. Add the optional fields `deprecated` and `deprecatedBy` to the token object. Do not change the token name — prefer creating the replacement token and deprecating the old one.
+
+Examples:
+
+- Constant token (under `light` / `dark`):
+
+```json
+"buttonPrimaryBackground": {
+  "value": "{palette.blue100}",
+  "type": "color",
+  "description": "buttonPrimaryBackground",
+  "deprecated": true,
+  "deprecatedBy": "buttonPrimaryBackgroundBrand"
+}
+```
+
+- Palette token (under `global` / `palette`):
+
+```json
+"blue100": {
+  "value": "#0A64FF",
+  "type": "color",
+  "deprecated": true,
+  "deprecatedBy": "blue200"
+}
+```
+
+- Radius / spacing / text tokens follow the same pattern (fields added to the token object):
+
+```json
+"container": { "value": "8", "type": "borderRadius", "deprecated": true, "deprecatedBy": "containerLarge" }
+```
+
+> [!NOTE]
+> The `deprecated` property must be a boolean and `deprecatedBy` should be the token name that replaces it. Both fields are optional — only add them to tokens you intend to deprecate.
+
 ### Border radius
 
 The border-radius tokens are located within the `radius` category. In this category, the following modifications can be made:

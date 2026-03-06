@@ -1,4 +1,5 @@
 name: Sync design tokens
+
 on:
   workflow_dispatch:
     inputs:
@@ -12,37 +13,66 @@ on:
         required: false
         default: false
 
+permissions:
+  contents: read
+
 jobs:
   sync-design-tokens:
     runs-on: ubuntu-latest
+    env:
+      REF_INPUT: ${{ github.event.inputs.ref }}
+      DRAFT_INPUT: ${{ github.event.inputs.draft }}
     steps:
+      - name: Validate ref format
+        run: |
+          if [[ ! "$REF_INPUT" =~ ^[a-zA-Z0-9/_.-]+$ ]]; then
+            echo "Invalid ref format. Only alphanumeric, slash, dash, dot and underscore allowed."
+            exit 1
+          fi
+
       # https://docs.github.com/en/rest/actions/workflows?apiVersion=2022-11-28#create-a-workflow-dispatch-event
       - name: Trigger mistica-web repo workflow
         run: |
+          PAYLOAD=$(jq -n \
+            --arg ref "master" \
+            --argjson draft "$DRAFT_INPUT" \
+            --arg input_ref "$REF_INPUT" \
+            '{"ref": $ref, "inputs": {"draft": $draft, "ref": $input_ref}}')
+
           curl -L -f \
               -X POST \
-              -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
+              -H "Authorization: Bearer ${{ secrets.GH_TOKEN_MISTICA }}" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
               -H "Accept: application/vnd.github+json" \
               https://api.github.com/repos/telefonica/mistica-web/actions/workflows/import-design-tokens.yml/dispatches \
-              --data '{"ref": "master", "inputs": {"draft": ${{github.event.inputs.draft}}, "ref": "${{github.event.inputs.ref}}"}}'
+              --data "$PAYLOAD"
 
       - name: Trigger mistica-ios repo workflow
         run: |
+          PAYLOAD=$(jq -n \
+            --arg ref "main" \
+            --arg input_ref "$REF_INPUT" \
+            '{"ref": $ref, "inputs": {"ref": $input_ref}}')
+
           curl -L -f \
               -X POST \
-              -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
+              -H "Authorization: Bearer ${{ secrets.GH_TOKEN_MISTICA }}" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
               -H "Accept: application/vnd.github+json" \
               https://api.github.com/repos/telefonica/mistica-ios/actions/workflows/generate-mistica-tokens.yml/dispatches \
-              --data '{"ref": "main", "inputs": {"ref": "${{github.event.inputs.ref}}"}}'
+              --data "$PAYLOAD"
 
       - name: Trigger mistica-android repo workflow
         run: |
+          PAYLOAD=$(jq -n \
+            --arg ref "main" \
+            --arg input_ref "$REF_INPUT" \
+            '{"ref": $ref, "inputs": {"ref": $input_ref}}')
+
           curl -L -f \
               -X POST \
-              -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
+              -H "Authorization: Bearer ${{ secrets.GH_TOKEN_MISTICA }}" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
               -H "Accept: application/vnd.github+json" \
               https://api.github.com/repos/telefonica/mistica-android/actions/workflows/import-design-tokens.yml/dispatches \
-              --data '{"ref": "main", "inputs": {"ref": "${{github.event.inputs.ref}}"}}'
+              --data "$PAYLOAD"

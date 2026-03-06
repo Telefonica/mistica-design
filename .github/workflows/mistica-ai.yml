@@ -2,7 +2,7 @@ name: Mística AI Discussions
 
 permissions:
   contents: read
-  pull-requests: write
+  discussions: write
 
 on:
   discussion:
@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: platisd/openai-pr-description@master
         with:
-          github_token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
           sample_prompt: |
             It acts as the person who will decide whether a design requirement should enter into an overall design system and complies with the following rules:
@@ -36,7 +36,7 @@ jobs:
       - name: Add comment to discussion
         run: |
           curl -X POST \
-            -H "Authorization: Bearer ${{ secrets.NOVUM_PRIVATE_REPOS }}" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/{owner}/{repo}/discussions/{discussion_number}/comments \
             --data-raw '{"body": "Generated response: ${description}"}'

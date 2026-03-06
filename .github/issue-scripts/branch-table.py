@@ -112,7 +112,8 @@ def format_time_difference(days):
 # Function to process files and generate a table with the desired information
 def analyze_files(file_keys, figma_token, repo_owner, repo_name, github_token):
     table_data = []
-    
+    branches_by_issue = {}
+
     for file in file_keys:
         file_key = file["key"]
         file_name = file["name"]
@@ -133,17 +134,27 @@ def analyze_files(file_keys, figma_token, repo_owner, repo_name, github_token):
                     issue_number = issue_match.group(1) if issue_match else None
                     issue_display = f"#{issue_number}" if issue_number else ""
 
-                    # Get the issue status from GitHub
-                    issue_status = get_issue_status(repo_owner, repo_name, issue_number, github_token) if issue_number else ""
-
                     # Calculate the days since the last modification using timezone-aware datetime
                     last_modified_str = branch["last_modified"]
                     last_modified_dt = datetime.strptime(last_modified_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
                     current_time = datetime.now(timezone.utc)
                     days_since_modification = (current_time - last_modified_dt).days
-                    
+
                     # Format the time difference
                     formatted_time = format_time_difference(days_since_modification)
+
+                    # Collect branch info for commenting on the issue
+                    if issue_number:
+                        figma_url = f"https://www.figma.com/file/{file_key}/branch/{branch['key']}"
+                        branches_by_issue.setdefault(issue_number, []).append({
+                            "file_name": file_name,
+                            "name": branch_name,
+                            "url": figma_url,
+                            "last_modification": formatted_time
+                        })
+
+                    # Get the issue status from GitHub
+                    issue_status = get_issue_status(repo_owner, repo_name, issue_number, github_token) if issue_number else ""
                     
                     table_data.append({
                         "File Name": file_name if first_branch else "",
@@ -156,7 +167,7 @@ def analyze_files(file_keys, figma_token, repo_owner, repo_name, github_token):
                     first_branch = False
     
     df = pd.DataFrame(table_data)
-    return df
+    return df, branches_by_issue
 
 # Function to update the issue on GitHub
 def update_github_issue(issue_number, repo_owner, repo_name, markdown_content, github_token):
@@ -175,6 +186,69 @@ def update_github_issue(issue_number, repo_owner, repo_name, markdown_content, g
         print("Issue updated successfully")
     else:
         print(f"Failed to update issue: {response.status_code} - {response.text}")
+
+FIGMA_COMMENT_MARKER = "<!-- figma-branches -->"
+
+# Function to find an existing Figma branches comment on an issue
+def find_existing_figma_comment(repo_owner, repo_name, issue_number, github_token):
+    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/issues/{issue_number}/comments"
+    headers = {
+        "Authorization": f"token {github_token}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+    page = 1
+    while True:
+        response = requests.get(url, headers=headers, params={"page": page, "per_page": 100})
+        if response.status_code != 200:
+            break
+        comments = response.json()
+        if not comments:
+            break
+        for comment in comments:
+            if FIGMA_COMMENT_MARKER in comment.get("body", ""):
+                return comment["id"]
+        page += 1
+    return None
+
+# Function to create a comment on a GitHub issue
+def create_issue_comment(repo_owner, repo_name, issue_number, body, github_token):
+    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/issues/{issue_number}/comments"
+    headers = {
+        "Authorization": f"token {github_token}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+    response = requests.post(url, json={"body": body}, headers=headers)
+    if response.status_code == 201:
+        print(f"Comment created on issue #{issue_number}")
+    else:
+        print(f"Failed to comment on issue #{issue_number}: {response.status_code}")
+
+# Function to update an existing comment on a GitHub issue
+def update_issue_comment(repo_owner, repo_name, comment_id, body, github_token):
+    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/issues/comments/{comment_id}"
+    headers = {
+        "Authorization": f"token {github_token}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+    response = requests.patch(url, json={"body": body}, headers=headers)
+    if response.status_code == 200:
+        print(f"Comment updated (ID: {comment_id})")
+    else:
+        print(f"Failed to update comment {comment_id}: {response.status_code}")
+
+# Function to comment Figma branch links on individual issues
+def comment_figma_branches_on_issues(branches_by_issue, repo_owner, repo_name, github_token):
+    for issue_number, branches in branches_by_issue.items():
+        rows = "\n".join(f"| {b['file_name']} | [{b['name']}]({b['url']}) | {b['last_modification']} |" for b in branches)
+        table = f"| File | Branch | Last Modification |\n| --- | --- | --- |\n{rows}"
+        body = f"{FIGMA_COMMENT_MARKER}\nFigma branches linked to this issue\n\n{table}"
+
+        existing_comment_id = find_existing_figma_comment(repo_owner, repo_name, issue_number, github_token)
+
+        if existing_comment_id:
+            update_issue_comment(repo_owner, repo_name, existing_comment_id, body, github_token)
+        else:
+            create_issue_comment(repo_owner, repo_name, issue_number, body, github_token)
 
 # Personal access token for Figma and GitHub APIs
 figma_token = os.getenv("FIGMA_TOKEN")
@@ -197,7 +271,10 @@ project_ids = [
 file_keys = get_figma_project_files(project_ids, figma_token)
 
 # Analyze the files and generate the table
-df = analyze_files(file_keys, figma_token, repo_owner, repo_name, github_token)
+df, branches_by_issue = analyze_files(file_keys, figma_token, repo_owner, repo_name, github_token)
+
+# Comment on individual issues with Figma branch links
+comment_figma_branches_on_issues(branches_by_issue, repo_owner, repo_name, github_token)
 
 # Convert the table to markdown format
 markdown_table = df.to_markdown(index=False)

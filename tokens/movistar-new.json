@@ -63,7 +63,9 @@
     "backgroundContainerBrandOverInverse": {
       "value": "{palette.blue800}",
       "type": "color",
-      "description": "blue800"
+      "description": "blue800",
+      "deprecated": true,
+      "deprecatedBy": "backgroundContainerBrandOverBrand"
     },
     "backgroundContainerNegative": {
       "value": "rgba({palette.movistarBlack}, 0.2)",
@@ -93,7 +95,9 @@
     "backgroundSkeletonInverse": {
       "value": "{palette.blue800}",
       "type": "color",
-      "description": "blue800"
+      "description": "blue800",
+      "deprecated": true,
+      "deprecatedBy": "backgroundSkeletonBrand"
     },
     "backgroundSkeletonNegative": {
       "value": "rgba({palette.black}, 0.2)",
@@ -124,6 +128,46 @@
       "value": "{palette.movistarBlue}",
       "type": "color",
       "description": "movistarBlue"
+    },
+    "backgroundDropZoneHover": {
+      "value": "rgba({palette.movistarBlue}, 0.05)",
+      "type": "color",
+      "description": "movistarBlue"
+    },
+    "backgroundDropZoneDragover": {
+      "value": "rgba({palette.movistarBlue}, 0.08)",
+      "type": "color",
+      "description": "movistarBlue"
+    },
+    "backgroundDropZoneBrandHover": {
+      "value": "rgba({palette.movistarBlack}, 0.08)",
+      "type": "color",
+      "description": "movistarBlack"
+    },
+    "backgroundDropZoneBrandDragover": {
+      "value": "rgba({palette.movistarBlack}, 0.1)",
+      "type": "color",
+      "description": "movistarBlack"
+    },
+    "backgroundDropZoneNegativeHover": {
+      "value": "rgba({palette.white}, 0.10)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneNegativeDragover": {
+      "value": "rgba({palette.white}, 0.17)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneMediaHover": {
+      "value": "rgba({palette.movistarBlack}, 0.2)",
+      "type": "color",
+      "description": "movistarBlack"
+    },
+    "backgroundDropZoneMediaDragover": {
+      "value": "rgba({palette.movistarBlack}, 0.4)",
+      "type": "color",
+      "description": "movistarBlack"
     },
     "skeletonWave": {
       "value": "{palette.grey200}",
@@ -178,7 +222,9 @@
     "buttonLinkDangerBackgroundInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "buttonLinkDangerBackgroundBrand"
     },
     "buttonLinkDangerBackgroundNegative": {
       "value": "{palette.white}",
@@ -203,7 +249,9 @@
     "buttonLinkDangerBackgroundInversePressed": {
       "value": "{palette.salmon100}",
       "type": "color",
-      "description": "salmon100"
+      "description": "salmon100",
+      "deprecated": true,
+      "deprecatedBy": "buttonLinkDangerBackgroundBrandPressed"
     },
     "buttonLinkDangerBackgroundNegativePressed": {
       "value": "{palette.salmon100}",
@@ -228,7 +276,9 @@
     "buttonLinkBackgroundInversePressed": {
       "value": "rgba({palette.white}, 0.3)",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "buttonLinkBackgroundBrandPressed"
     },
     "buttonLinkBackgroundNegativePressed": {
       "value": "rgba({palette.white}, 0.3)",
@@ -253,7 +303,9 @@
     "buttonPrimaryBackgroundInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "buttonPrimaryBackgroundBrand"
     },
     "buttonPrimaryBackgroundNegative": {
       "value": "{palette.white}",
@@ -278,7 +330,9 @@
     "buttonPrimaryBackgroundInverseHover": {
       "value": "{palette.blue200}",
       "type": "color",
-      "description": "blue200"
+      "description": "blue200",
+      "deprecated": true,
+      "deprecatedBy": "buttonPrimaryBackgroundBrandHover"
     },
     "buttonPrimaryBackgroundNegativeHover": {
       "value": "{palette.blue100}",
@@ -303,7 +357,9 @@
     "buttonPrimaryBackgroundInversePressed": {
       "value": "{palette.blue200}",
       "type": "color",
-      "description": "blue200"
+      "description": "blue200",
+      "deprecated": true,
+      "deprecatedBy": "buttonPrimaryBackgroundBrandPressed"
     },
     "buttonPrimaryBackgroundNegativePressed": {
       "value": "{palette.blue100}",
@@ -333,7 +389,9 @@
     "buttonSecondaryBorderInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "buttonSecondaryBorderBrand"
     },
     "buttonSecondaryBorderNegative": {
       "value": "{palette.white}",
@@ -358,7 +416,9 @@
     "buttonSecondaryBorderInversePressed": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "buttonSecondaryBorderBrandPressed"
     },
     "buttonSecondaryBorderNegativePressed": {
       "value": "{palette.white}",
@@ -383,7 +443,9 @@
     "buttonSecondaryBackgroundInverseHover": {
       "value": "rgba({palette.white}, 0.2)",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "buttonSecondaryBackgroundBrandHover"
     },
     "buttonSecondaryBackgroundNegativeHover": {
       "value": "rgba({palette.white}, 0.2)",
@@ -408,7 +470,9 @@
     "buttonSecondaryBackgroundInversePressed": {
       "value": "rgba({palette.white}, 0.3)",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "buttonSecondaryBackgroundBrandPressed"
     },
     "buttonSecondaryBackgroundNegativePressed": {
       "value": "rgba({palette.white}, 0.3)",
@@ -433,7 +497,9 @@
     "textButtonPrimaryInverse": {
       "value": "{palette.movistarBlue}",
       "type": "color",
-      "description": "movistarBlue"
+      "description": "movistarBlue",
+      "deprecated": true,
+      "deprecatedBy": "textButtonPrimaryBrand"
     },
     "textButtonPrimaryNegative": {
       "value": "{palette.movistarBlue}",
@@ -453,7 +519,9 @@
     "textButtonPrimaryInversePressed": {
       "value": "{palette.blue800}",
       "type": "color",
-      "description": "blue800"
+      "description": "blue800",
+      "deprecated": true,
+      "deprecatedBy": "textButtonPrimaryBrandPressed"
     },
     "textButtonPrimaryNegativePressed": {
       "value": "{palette.blue800}",
@@ -478,7 +546,9 @@
     "textButtonSecondaryInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "textButtonSecondaryBrand"
     },
     "textButtonSecondaryNegative": {
       "value": "{palette.white}",
@@ -503,7 +573,9 @@
     "textButtonSecondaryInversePressed": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "textButtonSecondaryBrandPressed"
     },
     "textButtonSecondaryNegativePressed": {
       "value": "{palette.white}",
@@ -528,7 +600,9 @@
     "textLinkInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "textLinkBrand"
     },
     "textLinkNegative": {
       "value": "{palette.white}",
@@ -578,7 +652,9 @@
     "inputBorderInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "inputBorderBrand"
     },
     "inputBorderNegative": {
       "value": "{palette.white}",
@@ -598,7 +674,9 @@
     "completedStepInverse": {
       "value": "{palette.blue100}",
       "type": "color",
-      "description": "blue100"
+      "description": "blue100",
+      "deprecated": true,
+      "deprecatedBy": "completedStepBrand"
     },
     "completedStepNegative": {
       "value": "{palette.blue100}",
@@ -623,7 +701,9 @@
     "controlInverse": {
       "value": "{palette.blueLight}",
       "type": "color",
-      "description": "blueLight"
+      "description": "blueLight",
+      "deprecated": true,
+      "deprecatedBy": "controlBrand"
     },
     "controlNegative": {
       "value": "{palette.blueLight}",
@@ -638,7 +718,9 @@
     "controlActivatedInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "controlActivatedBrand"
     },
     "controlActivatedNegative": {
       "value": "{palette.white}",
@@ -668,7 +750,9 @@
     "barTrackInverse": {
       "value": "rgba({palette.movistarBlack}, 0.14)",
       "type": "color",
-      "description": "movistarBlack"
+      "description": "movistarBlack",
+      "deprecated": true,
+      "deprecatedBy": "barTrackBrand"
     },
     "barTrackNegative": {
       "value": "rgba({palette.movistarBlack}, 0.14)",
@@ -728,7 +812,9 @@
     "controlKnobInverse": {
       "value": "{palette.movistarBlue}",
       "type": "color",
-      "description": "movistarBlue"
+      "description": "movistarBlue",
+      "deprecated": true,
+      "deprecatedBy": "controlKnobBrand"
     },
     "controlKnobNegative": {
       "value": "{palette.movistarBlue}",
@@ -748,7 +834,9 @@
     "dividerInverse": {
       "value": "rgba({palette.white}, 0.2)",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "dividerBrand"
     },
     "dividerNegative": {
       "value": "rgba({palette.white}, 0.2)",
@@ -823,7 +911,9 @@
     "neutralMediumInverse": {
       "value": "{palette.grey600}",
       "type": "color",
-      "description": "grey600"
+      "description": "grey600",
+      "deprecated": true,
+      "deprecatedBy": "neutralMediumBrand"
     },
     "neutralMediumNegative": {
       "value": "{palette.grey600}",
@@ -853,7 +943,9 @@
     "textPrimaryInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "textPrimaryBrand"
     },
     "textPrimaryNegative": {
       "value": "{palette.white}",
@@ -878,7 +970,9 @@
     "textSecondaryInverse": {
       "value": "{palette.movistarWhite}",
       "type": "color",
-      "description": "movistarWhite"
+      "description": "movistarWhite",
+      "deprecated": true,
+      "deprecatedBy": "textSecondaryBrand"
     },
     "textSecondaryNegative": {
       "value": "{palette.movistarWhite}",
@@ -918,7 +1012,9 @@
     "textErrorInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "textErrorBrand"
     },
     "textErrorNegative": {
       "value": "{palette.white}",
@@ -988,7 +1084,9 @@
     "successHighInverse": {
       "value": "{palette.emeraldHigh}",
       "type": "color",
-      "description": "emeraldHigh"
+      "description": "emeraldHigh",
+      "deprecated": true,
+      "deprecatedBy": "successHighBrand"
     },
     "successHighNegative": {
       "value": "{palette.emeraldHigh}",
@@ -1003,7 +1101,9 @@
     "warningHighInverse": {
       "value": "{palette.yellowHigh}",
       "type": "color",
-      "description": "yellowHigh"
+      "description": "yellowHigh",
+      "deprecated": true,
+      "deprecatedBy": "warningHighBrand"
     },
     "warningHighNegative": {
       "value": "{palette.yellowHigh}",
@@ -1018,7 +1118,9 @@
     "errorHighInverse": {
       "value": "{palette.redHigh}",
       "type": "color",
-      "description": "redHigh"
+      "description": "redHigh",
+      "deprecated": true,
+      "deprecatedBy": "errorHighBrand"
     },
     "errorHighNegative": {
       "value": "{palette.redHigh}",
@@ -1033,7 +1135,9 @@
     "promoHighInverse": {
       "value": "{palette.redHigh}",
       "type": "color",
-      "description": "redHigh"
+      "description": "redHigh",
+      "deprecated": true,
+      "deprecatedBy": "promoHighBrand"
     },
     "promoHighNegative": {
       "value": "{palette.redHigh}",
@@ -1074,6 +1178,11 @@
       "value": "{palette.blue800}",
       "type": "color",
       "description": "blue800"
+    },
+    "iosGlassAppBar": {
+      "value": "{palette.movistarBlack}",
+      "type": "color",
+      "description": "movistarBlack"
     },
     "iosGlassAppBarSelected": {
       "value": "{palette.blue800}",
@@ -1158,7 +1267,9 @@
     "tagTextPromoInverse": {
       "value": "{palette.redHigh}",
       "type": "color",
-      "description": "redHigh"
+      "description": "redHigh",
+      "deprecated": true,
+      "deprecatedBy": "tagTextPromoBrand"
     },
     "tagTextPromoNegative": {
       "value": "{palette.redHigh}",
@@ -1173,7 +1284,9 @@
     "tagTextActiveInverse": {
       "value": "{palette.blueHigh}",
       "type": "color",
-      "description": "blueHigh"
+      "description": "blueHigh",
+      "deprecated": true,
+      "deprecatedBy": "tagTextActiveBrand"
     },
     "tagTextActiveNegative": {
       "value": "{palette.blueHigh}",
@@ -1188,7 +1301,9 @@
     "tagTextInactiveInverse": {
       "value": "{palette.grey600}",
       "type": "color",
-      "description": "grey600"
+      "description": "grey600",
+      "deprecated": true,
+      "deprecatedBy": "tagTextInactiveBrand"
     },
     "tagTextInactiveNegative": {
       "value": "{palette.grey600}",
@@ -1203,7 +1318,9 @@
     "tagTextInfoInverse": {
       "value": "{palette.blueHigh}",
       "type": "color",
-      "description": "blueHigh"
+      "description": "blueHigh",
+      "deprecated": true,
+      "deprecatedBy": "tagTextInfoBrand"
     },
     "tagTextInfoNegative": {
       "value": "{palette.blueHigh}",
@@ -1218,7 +1335,9 @@
     "tagTextSuccessInverse": {
       "value": "{palette.green700}",
       "type": "color",
-      "description": "green700"
+      "description": "green700",
+      "deprecated": true,
+      "deprecatedBy": "tagTextSuccessBrand"
     },
     "tagTextSuccessNegative": {
       "value": "{palette.green700}",
@@ -1233,7 +1352,9 @@
     "tagTextWarningInverse": {
       "value": "{palette.yellowHigh}",
       "type": "color",
-      "description": "yellowHigh"
+      "description": "yellowHigh",
+      "deprecated": true,
+      "deprecatedBy": "tagTextWarningBrand"
     },
     "tagTextWarningNegative": {
       "value": "{palette.yellowHigh}",
@@ -1248,7 +1369,9 @@
     "tagTextErrorInverse": {
       "value": "{palette.redHigh}",
       "type": "color",
-      "description": "redHigh"
+      "description": "redHigh",
+      "deprecated": true,
+      "deprecatedBy": "tagTextErrorBrand"
     },
     "tagTextErrorNegative": {
       "value": "{palette.redHigh}",
@@ -1263,7 +1386,9 @@
     "tagBackgroundPromoInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundPromoBrand"
     },
     "tagBackgroundPromoNegative": {
       "value": "{palette.white}",
@@ -1278,7 +1403,9 @@
     "tagBackgroundActiveInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundActiveBrand"
     },
     "tagBackgroundActiveNegative": {
       "value": "{palette.white}",
@@ -1293,7 +1420,9 @@
     "tagBackgroundInactiveInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundInactiveBrand"
     },
     "tagBackgroundInactiveNegative": {
       "value": "{palette.white}",
@@ -1308,7 +1437,9 @@
     "tagBackgroundInfoInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundInfoBrand"
     },
     "tagBackgroundInfoNegative": {
       "value": "{palette.white}",
@@ -1323,7 +1454,9 @@
     "tagBackgroundSuccessInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundSuccessBrand"
     },
     "tagBackgroundSuccessNegative": {
       "value": "{palette.white}",
@@ -1338,7 +1471,9 @@
     "tagBackgroundWarningInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundWarningBrand"
     },
     "tagBackgroundWarningNegative": {
       "value": "{palette.white}",
@@ -1353,7 +1488,9 @@
     "tagBackgroundErrorInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundErrorBrand"
     },
     "tagBackgroundErrorNegative": {
       "value": "{palette.white}",
@@ -1456,7 +1593,9 @@
     "backgroundContainerBrandOverInverse": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
-      "description": "darkModeGrey"
+      "description": "darkModeGrey",
+      "deprecated": true,
+      "deprecatedBy": "backgroundContainerBrandOverBrand"
     },
     "backgroundContainerNegative": {
       "value": "{palette.darkModeGrey}",
@@ -1486,7 +1625,9 @@
     "backgroundSkeletonInverse": {
       "value": "{palette.grey600}",
       "type": "color",
-      "description": "grey600"
+      "description": "grey600",
+      "deprecated": true,
+      "deprecatedBy": "backgroundSkeletonBrand"
     },
     "backgroundSkeletonNegative": {
       "value": "{palette.grey600}",
@@ -1517,6 +1658,46 @@
       "value": "{palette.darkModeBlack}",
       "type": "color",
       "description": "darkModeBlack"
+    },
+    "backgroundDropZoneHover": {
+      "value": "rgba({palette.white}, 0.05)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneDragover": {
+      "value": "rgba({palette.white}, 0.08)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneBrandHover": {
+      "value": "rgba({palette.white}, 0.03)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneBrandDragover": {
+      "value": "rgba({palette.white}, 0.05)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneNegativeHover": {
+      "value": "rgba({palette.white}, 0.03)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneNegativeDragover": {
+      "value": "rgba({palette.white}, 0.05)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneMediaHover": {
+      "value": "rgba({palette.white}, 0.03)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundDropZoneMediaDragover": {
+      "value": "rgba({palette.white}, 0.05)",
+      "type": "color",
+      "description": "white"
     },
     "skeletonWave": {
       "value": "{palette.grey600}",
@@ -1571,7 +1752,9 @@
     "buttonLinkDangerBackgroundInverse": {
       "value": "rgba({palette.white}, 0)",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "buttonLinkDangerBackgroundBrand"
     },
     "buttonLinkDangerBackgroundNegative": {
       "value": "rgba({palette.white}, 0)",
@@ -1596,7 +1779,9 @@
     "buttonLinkDangerBackgroundInversePressed": {
       "value": "rgba({palette.white}, 0.08)",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "buttonLinkDangerBackgroundBrandPressed"
     },
     "buttonLinkDangerBackgroundNegativePressed": {
       "value": "rgba({palette.white}, 0.08)",
@@ -1621,7 +1806,9 @@
     "buttonLinkBackgroundInversePressed": {
       "value": "rgba({palette.white}, 0.08)",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "buttonLinkBackgroundBrandPressed"
     },
     "buttonLinkBackgroundNegativePressed": {
       "value": "rgba({palette.white}, 0.08)",
@@ -1646,7 +1833,9 @@
     "buttonPrimaryBackgroundInverse": {
       "value": "{palette.movistarBlue}",
       "type": "color",
-      "description": "movistarBlue"
+      "description": "movistarBlue",
+      "deprecated": true,
+      "deprecatedBy": "buttonPrimaryBackgroundBrand"
     },
     "buttonPrimaryBackgroundNegative": {
       "value": "{palette.movistarBlue}",
@@ -1671,7 +1860,9 @@
     "buttonPrimaryBackgroundInverseHover": {
       "value": "{palette.blue800}",
       "type": "color",
-      "description": "blue800"
+      "description": "blue800",
+      "deprecated": true,
+      "deprecatedBy": "buttonPrimaryBackgroundBrandHover"
     },
     "buttonPrimaryBackgroundNegativeHover": {
       "value": "{palette.blue800}",
@@ -1696,7 +1887,9 @@
     "buttonPrimaryBackgroundInversePressed": {
       "value": "{palette.blue800}",
       "type": "color",
-      "description": "blue800"
+      "description": "blue800",
+      "deprecated": true,
+      "deprecatedBy": "buttonPrimaryBackgroundBrandPressed"
     },
     "buttonPrimaryBackgroundNegativePressed": {
       "value": "{palette.blue800}",
@@ -1726,7 +1919,9 @@
     "buttonSecondaryBorderInverse": {
       "value": "{palette.grey200}",
       "type": "color",
-      "description": "grey200"
+      "description": "grey200",
+      "deprecated": true,
+      "deprecatedBy": "buttonSecondaryBorderBrand"
     },
     "buttonSecondaryBorderNegative": {
       "value": "{palette.grey200}",
@@ -1751,7 +1946,9 @@
     "buttonSecondaryBorderInversePressed": {
       "value": "{palette.grey200}",
       "type": "color",
-      "description": "grey200"
+      "description": "grey200",
+      "deprecated": true,
+      "deprecatedBy": "buttonSecondaryBorderBrandPressed"
     },
     "buttonSecondaryBorderNegativePressed": {
       "value": "{palette.grey200}",
@@ -1776,7 +1973,9 @@
     "buttonSecondaryBackgroundInverseHover": {
       "value": "rgba({palette.white}, 0.15)",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "buttonSecondaryBackgroundBrandHover"
     },
     "buttonSecondaryBackgroundNegativeHover": {
       "value": "rgba({palette.white}, 0.15)",
@@ -1801,7 +2000,9 @@
     "buttonSecondaryBackgroundInversePressed": {
       "value": "rgba({palette.white}, 0.25)",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "buttonSecondaryBackgroundBrandPressed"
     },
     "buttonSecondaryBackgroundNegativePressed": {
       "value": "rgba({palette.white}, 0.25)",
@@ -1826,7 +2027,9 @@
     "textButtonPrimaryInverse": {
       "value": "{palette.white}",
       "type": "color",
-      "description": "white"
+      "description": "white",
+      "deprecated": true,
+      "deprecatedBy": "textButtonPrimaryBrand"
     },
     "textButtonPrimaryNegative": {
       "value": "{palette.white}",
@@ -1846,7 +2049,9 @@
     "textButtonPrimaryInversePressed": {
       "value": "{palette.blueLight}",
       "type": "color",
-      "description": "blueLight"
+      "description": "blueLight",
+      "deprecated": true,
+      "deprecatedBy": "textButtonPrimaryBrandPressed"
     },
     "textButtonPrimaryNegativePressed": {
       "value": "{palette.blueLight}",
@@ -1871,7 +2076,9 @@
     "textButtonSecondaryInverse": {
       "value": "{palette.grey200}",
       "type": "color",
-      "description": "grey200"
+      "description": "grey200",
+      "deprecated": true,
+      "deprecatedBy": "textButtonSecondaryBrand"
     },
     "textButtonSecondaryNegative": {
       "value": "{palette.grey200}",
@@ -1896,7 +2103,9 @@
     "textButtonSecondaryInversePressed": {
       "value": "{palette.grey200}",
       "type": "color",
-      "description": "grey200"
+      "description": "grey200",
+      "deprecated": true,
+      "deprecatedBy": "textButtonSecondaryBrandPressed"
     },
     "textButtonSecondaryNegativePressed": {
       "value": "{palette.grey200}",
@@ -1921,7 +2130,9 @@
     "textLinkInverse": {
       "value": "{palette.darkModeMovistarBlue}",
       "type": "color",
-      "description": "darkModeMovistarBlue"
+      "description": "darkModeMovistarBlue",
+      "deprecated": true,
+      "deprecatedBy": "textLinkBrand"
     },
     "textLinkNegative": {
       "value": "{palette.darkModeMovistarBlue}",
@@ -1971,7 +2182,9 @@
     "inputBorderInverse": {
       "value": "{palette.grey400}",
       "type": "color",
-      "description": "grey400"
+      "description": "grey400",
+      "deprecated": true,
+      "deprecatedBy": "inputBorderBrand"
     },
     "inputBorderNegative": {
       "value": "{palette.grey400}",
@@ -1991,7 +2204,9 @@
     "completedStepInverse": {
       "value": "{palette.blue100}",
       "type": "color",
-      "description": "blue100"
+      "description": "blue100",
+      "deprecated": true,
+      "deprecatedBy": "completedStepBrand"
     },
     "completedStepNegative": {
       "value": "{palette.blue100}",
@@ -2016,7 +2231,9 @@
     "controlInverse": {
       "value": "{palette.grey400}",
       "type": "color",
-      "description": "grey400"
+      "description": "grey400",
+      "deprecated": true,
+      "deprecatedBy": "controlBrand"
     },
     "controlNegative": {
       "value": "{palette.grey400}",
@@ -2031,7 +2248,9 @@
     "controlActivatedInverse": {
       "value": "{palette.darkModeMovistarBlue}",
       "type": "color",
-      "description": "darkModeMovistarBlue"
+      "description": "darkModeMovistarBlue",
+      "deprecated": true,
+      "deprecatedBy": "controlActivatedBrand"
     },
     "controlActivatedNegative": {
       "value": "{palette.darkModeMovistarBlue}",
@@ -2061,7 +2280,9 @@
     "barTrackInverse": {
       "value": "{palette.grey600}",
       "type": "color",
-      "description": "grey600"
+      "description": "grey600",
+      "deprecated": true,
+      "deprecatedBy": "barTrackBrand"
     },
     "barTrackNegative": {
       "value": "{palette.grey600}",
@@ -2121,7 +2342,9 @@
     "controlKnobInverse": {
       "value": "{palette.grey200}",
       "type": "color",
-      "description": "grey200"
+      "description": "grey200",
+      "deprecated": true,
+      "deprecatedBy": "controlKnobBrand"
     },
     "controlKnobNegative": {
       "value": "{palette.grey200}",
@@ -2141,7 +2364,9 @@
     "dividerInverse": {
       "value": "rgba({palette.movistarWhite}, 0.1)",
       "type": "color",
-      "description": "movistarWhite"
+      "description": "movistarWhite",
+      "deprecated": true,
+      "deprecatedBy": "dividerBrand"
     },
     "dividerNegative": {
       "value": "rgba({palette.movistarWhite}, 0.1)",
@@ -2216,7 +2441,9 @@
     "neutralMediumInverse": {
       "value": "{palette.grey500}",
       "type": "color",
-      "description": "grey500"
+      "description": "grey500",
+      "deprecated": true,
+      "deprecatedBy": "neutralMediumBrand"
     },
     "neutralMediumNegative": {
       "value": "{palette.grey500}",
@@ -2246,7 +2473,9 @@
     "textPrimaryInverse": {
       "value": "{palette.movistarWhite}",
       "type": "color",
-      "description": "movistarWhite"
+      "description": "movistarWhite",
+      "deprecated": true,
+      "deprecatedBy": "textPrimaryBrand"
     },
     "textPrimaryNegative": {
       "value": "{palette.movistarWhite}",
@@ -2271,7 +2500,9 @@
     "textSecondaryInverse": {
       "value": "{palette.grey400}",
       "type": "color",
-      "description": "grey400"
+      "description": "grey400",
+      "deprecated": true,
+      "deprecatedBy": "textSecondaryBrand"
     },
     "textSecondaryNegative": {
       "value": "{palette.grey400}",
@@ -2311,7 +2542,9 @@
     "textErrorInverse": {
       "value": "{palette.red350}",
       "type": "color",
-      "description": "red350"
+      "description": "red350",
+      "deprecated": true,
+      "deprecatedBy": "textErrorBrand"
     },
     "textErrorNegative": {
       "value": "{palette.red350}",
@@ -2381,7 +2614,9 @@
     "successHighInverse": {
       "value": "{palette.green700}",
       "type": "color",
-      "description": "green700"
+      "description": "green700",
+      "deprecated": true,
+      "deprecatedBy": "successHighBrand"
     },
     "successHighNegative": {
       "value": "{palette.green700}",
@@ -2396,7 +2631,9 @@
     "warningHighInverse": {
       "value": "{palette.yellowHigh}",
       "type": "color",
-      "description": "yellowHigh"
+      "description": "yellowHigh",
+      "deprecated": true,
+      "deprecatedBy": "warningHighBrand"
     },
     "warningHighNegative": {
       "value": "{palette.yellowHigh}",
@@ -2411,7 +2648,9 @@
     "errorHighInverse": {
       "value": "{palette.red}",
       "type": "color",
-      "description": "red"
+      "description": "red",
+      "deprecated": true,
+      "deprecatedBy": "errorHighBrand"
     },
     "errorHighNegative": {
       "value": "{palette.red}",
@@ -2426,7 +2665,9 @@
     "promoHighInverse": {
       "value": "{palette.red}",
       "type": "color",
-      "description": "red"
+      "description": "red",
+      "deprecated": true,
+      "deprecatedBy": "promoHighBrand"
     },
     "promoHighNegative": {
       "value": "{palette.red}",
@@ -2467,6 +2708,11 @@
       "value": "{palette.movistarBlue}",
       "type": "color",
       "description": "movistarBlue"
+    },
+    "iosGlassAppBar": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "iosGlassAppBarSelected": {
       "value": "{palette.blue200}",
@@ -2551,7 +2797,9 @@
     "tagTextPromoInverse": {
       "value": "{palette.movistarWhite}",
       "type": "color",
-      "description": "movistarWhite"
+      "description": "movistarWhite",
+      "deprecated": true,
+      "deprecatedBy": "tagTextPromoBrand"
     },
     "tagTextPromoNegative": {
       "value": "{palette.movistarWhite}",
@@ -2566,7 +2814,9 @@
     "tagTextActiveInverse": {
       "value": "{palette.blue300}",
       "type": "color",
-      "description": "blue300"
+      "description": "blue300",
+      "deprecated": true,
+      "deprecatedBy": "tagTextActiveBrand"
     },
     "tagTextActiveNegative": {
       "value": "{palette.blue300}",
@@ -2581,7 +2831,9 @@
     "tagTextInactiveInverse": {
       "value": "{palette.grey300}",
       "type": "color",
-      "description": "grey300"
+      "description": "grey300",
+      "deprecated": true,
+      "deprecatedBy": "tagTextInactiveBrand"
     },
     "tagTextInactiveNegative": {
       "value": "{palette.grey300}",
@@ -2596,7 +2848,9 @@
     "tagTextInfoInverse": {
       "value": "{palette.blue300}",
       "type": "color",
-      "description": "blue300"
+      "description": "blue300",
+      "deprecated": true,
+      "deprecatedBy": "tagTextInfoBrand"
     },
     "tagTextInfoNegative": {
       "value": "{palette.blue300}",
@@ -2611,7 +2865,9 @@
     "tagTextSuccessInverse": {
       "value": "{palette.green400}",
       "type": "color",
-      "description": "green400"
+      "description": "green400",
+      "deprecated": true,
+      "deprecatedBy": "tagTextSuccessBrand"
     },
     "tagTextSuccessNegative": {
       "value": "{palette.green400}",
@@ -2626,7 +2882,9 @@
     "tagTextWarningInverse": {
       "value": "{palette.yellow400}",
       "type": "color",
-      "description": "yellow400"
+      "description": "yellow400",
+      "deprecated": true,
+      "deprecatedBy": "tagTextWarningBrand"
     },
     "tagTextWarningNegative": {
       "value": "{palette.yellow400}",
@@ -2641,7 +2899,9 @@
     "tagTextErrorInverse": {
       "value": "{palette.red350}",
       "type": "color",
-      "description": "red350"
+      "description": "red350",
+      "deprecated": true,
+      "deprecatedBy": "tagTextErrorBrand"
     },
     "tagTextErrorNegative": {
       "value": "{palette.red350}",
@@ -2656,7 +2916,9 @@
     "tagBackgroundPromoInverse": {
       "value": "{palette.redHigh}",
       "type": "color",
-      "description": "redHigh"
+      "description": "redHigh",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundPromoBrand"
     },
     "tagBackgroundPromoNegative": {
       "value": "{palette.redHigh}",
@@ -2671,7 +2933,9 @@
     "tagBackgroundActiveInverse": {
       "value": "{palette.grey700}",
       "type": "color",
-      "description": "grey700"
+      "description": "grey700",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundActiveBrand"
     },
     "tagBackgroundActiveNegative": {
       "value": "{palette.grey700}",
@@ -2686,7 +2950,9 @@
     "tagBackgroundInactiveInverse": {
       "value": "{palette.grey700}",
       "type": "color",
-      "description": "grey700"
+      "description": "grey700",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundInactiveBrand"
     },
     "tagBackgroundInactiveNegative": {
       "value": "{palette.grey700}",
@@ -2701,7 +2967,9 @@
     "tagBackgroundInfoInverse": {
       "value": "{palette.grey700}",
       "type": "color",
-      "description": "grey700"
+      "description": "grey700",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundInfoBrand"
     },
     "tagBackgroundInfoNegative": {
       "value": "{palette.grey700}",
@@ -2716,7 +2984,9 @@
     "tagBackgroundSuccessInverse": {
       "value": "{palette.grey700}",
       "type": "color",
-      "description": "grey700"
+      "description": "grey700",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundSuccessBrand"
     },
     "tagBackgroundSuccessNegative": {
       "value": "{palette.grey700}",
@@ -2731,7 +3001,9 @@
     "tagBackgroundWarningInverse": {
       "value": "{palette.grey700}",
       "type": "color",
-      "description": "grey700"
+      "description": "grey700",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundWarningBrand"
     },
     "tagBackgroundWarningNegative": {
       "value": "{palette.grey700}",
@@ -2746,7 +3018,9 @@
     "tagBackgroundErrorInverse": {
       "value": "{palette.grey700}",
       "type": "color",
-      "description": "grey700"
+      "description": "grey700",
+      "deprecated": true,
+      "deprecatedBy": "tagBackgroundErrorBrand"
     },
     "tagBackgroundErrorNegative": {
       "value": "{palette.grey700}",
@@ -3394,11 +3668,11 @@
     "inputPadding": {
       "value": {
         "top": {
-          "mobile": 8,
+          "mobile": 9,
           "desktop": 3
         },
         "bottom": {
-          "mobile": 8,
+          "mobile": 9,
           "desktop": 3
         }
       },

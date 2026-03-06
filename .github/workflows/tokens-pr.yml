@@ -6,12 +6,17 @@ on:
     paths:
       - "tokens/*"
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   tokens-preview:
     runs-on: ubuntu-latest
     steps:
       - name: Get branch name
         uses: rlespinasse/github-slug-action@v3.x
+
       - name: Update description
         uses: actions/github-script@v4
         with:

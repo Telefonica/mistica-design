@@ -18,10 +18,21 @@ on:
 jobs:
   release-notes:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      RELEASE_VERSION: ${{ github.event.inputs.releaseVersion }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
         with:
-          token: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          persist-credentials: false
+
+      - name: Validate release version format
+        run: |
+          if [[ ! "$RELEASE_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9]+)?$ ]]; then
+            echo "Invalid version format. Expected: X.Y.Z or X.Y.Z-suffix"
+            exit 1
+          fi
 
       - name: Get branch name
         uses: rlespinasse/github-slug-action@v3.x
@@ -29,10 +40,10 @@ jobs:
       - name: Create Release Notes
         uses: docker://decathlon/release-notes-generator-action:3.1.5
         env:
-          GITHUB_TOKEN: ${{ secrets.NOVUM_PRIVATE_REPOS }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OUTPUT_FOLDER: changelog-versions
           USE_MILESTONE_TITLE: "true"
-          FILENAME_PREFIX: ${{ github.event.inputs.releaseVersion }}
+          FILENAME_PREFIX: ${{ env.RELEASE_VERSION }}
 
       # - run: sudo python3 .github/resources/changelog-index-generator.py changelog-versions
 
@@ -42,7 +53,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git commit -am "update changelog"
-          git push origin ${{ env.GITHUB_REF_SLUG_URL }}
+          git push https://x-access-token:${{ secrets.GH_TOKEN_MISTICA }}@github.com/${{ github.repository }}.git ${{ env.GITHUB_REF_SLUG_URL }}
 
       # - name: Upload Release Notes to Wiki
       #   uses: docker://decathlon/wiki-page-creator-action:latest

@@ -10,6 +10,9 @@ on:
       - pre-production
       - production
 
+permissions:
+  contents: read
+
 jobs:
   validate-skins:
     runs-on: ubuntu-latest
@@ -32,6 +35,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
       - name: Validate ${{ matrix.skin }} skin
         id: validation

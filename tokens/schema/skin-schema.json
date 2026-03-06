@@ -88,6 +88,14 @@
         "backgroundBrandTop",
         "backgroundBrandBottom",
         "navigationBarBackground",
+        "backgroundDropZoneHover",
+        "backgroundDropZoneDragover",
+        "backgroundDropZoneBrandHover",
+        "backgroundDropZoneBrandDragover",
+        "backgroundDropZoneNegativeHover",
+        "backgroundDropZoneNegativeDragover",
+        "backgroundDropZoneMediaHover",
+        "backgroundDropZoneMediaDragover",
         "skeletonWave",
         "border",
         "borderLow",
@@ -222,6 +230,7 @@
         "textNavigationSearchBarText",
         "textAppBar",
         "textAppBarSelected",
+        "iosGlassAppBar",
         "iosGlassAppBarSelected",
         "textActivated",
         "textBrand",
@@ -365,6 +374,14 @@
         "backgroundBrandTop": { "$ref": "#/definitions/constantProperties" },
         "backgroundBrandBottom": { "$ref": "#/definitions/constantProperties" },
         "navigationBarBackground": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneHover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneDragover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneBrandHover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneBrandDragover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneNegativeHover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneNegativeDragover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneMediaHover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneMediaDragover": { "$ref": "#/definitions/constantProperties" },
         "skeletonWave": { "$ref": "#/definitions/constantProperties" },
         "border": { "$ref": "#/definitions/constantProperties" },
         "borderLow": { "$ref": "#/definitions/constantProperties" },
@@ -498,6 +515,7 @@
         "textNavigationSearchBarText": { "$ref": "#/definitions/constantProperties" },
         "textAppBar": { "$ref": "#/definitions/constantProperties" },
         "textAppBarSelected": { "$ref": "#/definitions/constantProperties" },
+        "iosGlassAppBar": { "$ref": "#/definitions/constantProperties" },
         "iosGlassAppBarSelected": { "$ref": "#/definitions/constantProperties" },
         "textActivated": { "$ref": "#/definitions/constantProperties" },
         "textBrand": { "$ref": "#/definitions/constantProperties" },
@@ -850,7 +868,11 @@
           "const": "color"
         }
       },
-      "required": ["value", "type"]
+      "required": ["value", "type"],
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
+      }
     },
     "constantProperties": {
       "patternProperties": {
@@ -1002,6 +1024,14 @@
           ]
         }
       },
+      "properties": {
+        "deprecated": {
+          "type": "boolean"
+        },
+        "deprecatedBy": {
+          "type": "string"
+        }
+      },
       "required": ["value", "type", "description"],
       "additionalProperties": false
     },
@@ -1016,6 +1046,10 @@
         }
       },
       "required": ["value", "type"],
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
+      },
       "additionalProperties": false
     },
     "weightProperties": {
@@ -1028,7 +1062,11 @@
           "const": "typography"
         }
       },
-      "required": ["value", "type"]
+      "required": ["value", "type"],
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
+      }
     },
     "sizeProperties": {
       "type": "object",
@@ -1044,6 +1082,10 @@
         "type": {
           "const": "typography"
         }
+      },
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
       },
       "required": ["value", "type"]
     },
@@ -1062,6 +1104,10 @@
           "const": "typography"
         }
       },
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
+      },
       "required": ["value", "type"]
     },
     "spacingProperties": {
@@ -1069,6 +1115,8 @@
       "required": ["value", "type"],
       "properties": {
         "type": { "const": "spacing" },
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" },
         "value": {
           "anyOf": [
             { "$ref": "#/definitions/breakpoints" },
@@ -1100,6 +1148,10 @@
           "const": "themeVariant"
         }
       },
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
+      },
       "required": ["value", "type"]
     },
     "componentProperties": {
@@ -1111,6 +1163,10 @@
         "type": {
           "const": "property"
         }
+      },
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
       },
       "required": ["value", "type"]
     },
