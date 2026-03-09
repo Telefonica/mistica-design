@@ -149,9 +149,9 @@ def analyze_issues_with_pending_tasks(token, owner, repo, target_issue_number):
 def main():
     """Main function"""
     # Get environment variables
-    token = os.environ.get('TOKEN')
+    token = os.environ.get('NOVUM_PRIVATE_REPOS_READONLY')
     if not token:
-        print("❌ Error: TOKEN environment variable not found")
+        print("❌ Error: NOVUM_PRIVATE_REPOS_READONLY environment variable not found")
         return False
 
     # Repository configuration

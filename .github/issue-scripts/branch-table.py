@@ -46,8 +46,12 @@ def get_issue_status(repo_owner, repo_name, issue_number, github_token):
     if response.status_code == 200:
         data = response.json()
         try:
-            status = data["data"]["repository"]["issue"]["projectItems"]["nodes"][0]["fieldValueByName"]["name"]
-            return status if status else "No Status"
+            nodes = data["data"]["repository"]["issue"]["projectItems"]["nodes"]
+            for node in nodes:
+                field_value = node.get("fieldValueByName")
+                if field_value and "name" in field_value:
+                    return field_value["name"]
+            return "No Status"
         except (IndexError, TypeError, KeyError):
             return "Unknown"
     else:
@@ -252,7 +256,7 @@ def comment_figma_branches_on_issues(branches_by_issue, repo_owner, repo_name, g
 
 # Personal access token for Figma and GitHub APIs
 figma_token = os.getenv("FIGMA_TOKEN")
-github_token = os.getenv("GITHUB_TOKEN")
+github_token = os.getenv("NOVUM_PRIVATE_REPOS_READONLY")
 
 # GitHub repo details
 repo_owner = "Telefonica"
