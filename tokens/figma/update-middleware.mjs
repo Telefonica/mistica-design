@@ -31,14 +31,87 @@ import {
 } from "./config.mjs";
 
 const brandNames = Object.keys(BRAND_KEY);
+const DEPRECATED_PREFIX = "DEPRECATED_";
+
+function stripDeprecatedPrefix(name = "") {
+  return name.startsWith(DEPRECATED_PREFIX)
+    ? name.slice(DEPRECATED_PREFIX.length)
+    : name;
+}
+
+function normalizeTokenDescriptor(variable) {
+  const canonicalName = stripDeprecatedPrefix(
+    variable.name,
+  );
+  const isDeprecated =
+    variable.deprecated === true;
+  const name = isDeprecated
+    ? `${DEPRECATED_PREFIX}${canonicalName}`
+    : canonicalName;
+
+  const deprecatedMessage = isDeprecated
+    ? variable.deprecatedBy
+      ? `Deprecated. Use ${variable.deprecatedBy}`
+      : "Deprecated."
+    : "";
+
+  const descriptionParts = [
+    variable.description,
+    deprecatedMessage,
+  ].filter(Boolean);
+
+  const legacyNames = [
+    isDeprecated
+      ? canonicalName
+      : `${DEPRECATED_PREFIX}${canonicalName}`,
+  ];
+
+  return {
+    canonicalName,
+    name,
+    legacyNames,
+    description:
+      descriptionParts.length > 0
+        ? descriptionParts.join(" — ")
+        : undefined,
+  };
+}
+
+function toScopedDescriptor(
+  variable,
+  scopePrefix,
+) {
+  const descriptor =
+    normalizeTokenDescriptor(variable);
+
+  return {
+    ...descriptor,
+    name: `${scopePrefix}/${descriptor.name}`,
+    legacyNames: descriptor.legacyNames.map(
+      (legacyName) =>
+        `${scopePrefix}/${legacyName}`,
+    ),
+  };
+}
+
+function getTokenByCanonicalName(
+  tokens,
+  canonicalName,
+) {
+  return tokens.find(
+    (token) =>
+      stripDeprecatedPrefix(token.name) ===
+      canonicalName,
+  );
+}
 
 async function updateModeCollection(
   jsonData,
-  brand
+  brand,
 ) {
   try {
     const figmaData = await getFigmaData(
-      MIDDLEWARE_KEY
+      MIDDLEWARE_KEY,
     );
     const existingVariables =
       figmaData.meta.variables;
@@ -79,21 +152,25 @@ async function updateModeCollection(
           existingCollections:
             existingCollections,
         });
-      })
+      }),
     );
     newData.variableModes.push(...modeResults);
 
     // Get color variables using the imported function
     const colorVariables = getConstantVariables(
       jsonData,
-      brand
+      brand,
     );
 
     const processedVariables = new Map();
 
     for (const variableGroup of colorVariables) {
       for (const variable of variableGroup.variables) {
-        const prefixedName = `${brand}/${variable.name}`;
+        const scopedVariable = toScopedDescriptor(
+          variable,
+          brand,
+        );
+        const prefixedName = scopedVariable.name;
 
         // Only process if the variable hasn't been created yet
         if (
@@ -104,6 +181,10 @@ async function updateModeCollection(
             await updateOrCreateVariables({
               variable: {
                 name: prefixedName,
+                legacyNames:
+                  scopedVariable.legacyNames,
+                description:
+                  scopedVariable.description,
                 resolvedType:
                   VARIABLE_TYPES.COLOR,
                 scopes: [],
@@ -119,20 +200,22 @@ async function updateModeCollection(
           newData.variables.push(variableData);
           processedVariables.set(
             prefixedName,
-            variableData
+            variableData,
           );
 
           // Find values for light and dark modes
-          const lightValue = (
-            jsonData[brand]?.light || []
-          ).find(
-            (v) => v.name === variable.name
-          )?.value;
-          const darkValue = (
-            jsonData[brand]?.dark || []
-          ).find(
-            (v) => v.name === variable.name
-          )?.value;
+          const lightToken =
+            getTokenByCanonicalName(
+              jsonData[brand]?.light || [],
+              scopedVariable.canonicalName,
+            );
+          const darkToken =
+            getTokenByCanonicalName(
+              jsonData[brand]?.dark || [],
+              scopedVariable.canonicalName,
+            );
+          const lightValue = lightToken?.value;
+          const darkValue = darkToken?.value;
 
           // Handle light mode value
           if (lightValue) {
@@ -141,12 +224,14 @@ async function updateModeCollection(
                 {
                   variable: {
                     name: prefixedName,
+                    legacyNames:
+                      scopedVariable.legacyNames,
                     value: lightValue,
                     hasAlias: false,
                   },
                   targetModeName: hasDefaultMode(
                     COLLECTION_NAMES.COLOR_SCHEME,
-                    existingCollections
+                    existingCollections,
                   )
                     ? MODE_NAMES.DEFAULT
                     : MODE_NAMES.LIGHT,
@@ -156,12 +241,12 @@ async function updateModeCollection(
                     existingCollections,
                   existingVariables:
                     existingVariables,
-                }
+                },
               );
 
             if (lightModeValueData) {
               newData.variableModeValues.push(
-                lightModeValueData
+                lightModeValueData,
               );
             }
           }
@@ -173,6 +258,8 @@ async function updateModeCollection(
                 {
                   variable: {
                     name: prefixedName,
+                    legacyNames:
+                      scopedVariable.legacyNames,
                     value: darkValue,
                     hasAlias: false,
                   },
@@ -183,12 +270,12 @@ async function updateModeCollection(
                     existingCollections,
                   existingVariables:
                     existingVariables,
-                }
+                },
               );
 
             if (darkModeValueData) {
               newData.variableModeValues.push(
-                darkModeValueData
+                darkModeValueData,
               );
             }
           }
@@ -199,7 +286,7 @@ async function updateModeCollection(
     // Update the variables and modes in Figma
     await postFigmaVariables(
       MIDDLEWARE_KEY,
-      newData
+      newData,
     );
 
     return newData;
@@ -214,7 +301,7 @@ async function updateBrandCollection(jsonData) {
     // Step 1: Fetch the existing data from Figma
 
     const figmaData = await getFigmaData(
-      MIDDLEWARE_KEY
+      MIDDLEWARE_KEY,
     );
     const existingCollections =
       figmaData.meta.variableCollections;
@@ -225,36 +312,36 @@ async function updateBrandCollection(jsonData) {
     // Step 2: Find the Theme and Brand collections
 
     const themeCollection = Object.values(
-      existingCollections
+      existingCollections,
     ).find(
       (collection) =>
         collection.name ===
-        COLLECTION_NAMES.COLOR_SCHEME
+        COLLECTION_NAMES.COLOR_SCHEME,
     );
 
     const brandCollection = Object.values(
-      existingCollections
+      existingCollections,
     ).find(
       (collection) =>
-        collection.name === COLLECTION_NAMES.SKIN
+        collection.name === COLLECTION_NAMES.SKIN,
     );
 
     // Step 3: Filter variables to only include those from the "Mode" collection
 
     const existingModeVariables = Object.values(
-      existingVariables
+      existingVariables,
     ).filter(
       (variable) =>
         variable.variableCollectionId ===
-        themeCollection.id
+        themeCollection.id,
     );
 
     const existingBrandVariables = Object.values(
-      existingVariables
+      existingVariables,
     ).filter(
       (variable) =>
         variable.variableCollectionId ===
-        brandCollection.id
+        brandCollection.id,
     );
 
     // Step 4: Prepare new variables data for the Brand collection
@@ -302,6 +389,42 @@ async function updateBrandCollection(jsonData) {
 
     const variableToBrandMap = new Map();
 
+    const colorMetadataByCanonicalName =
+      new Map();
+
+    for (const brand of brandNames) {
+      const brandTokens = [
+        ...(jsonData[brand]?.light || []),
+        ...(jsonData[brand]?.dark || []),
+      ];
+
+      for (const token of brandTokens) {
+        const descriptor =
+          normalizeTokenDescriptor(token);
+        const existingMetadata =
+          colorMetadataByCanonicalName.get(
+            descriptor.canonicalName,
+          ) || {
+            deprecated: false,
+          };
+
+        colorMetadataByCanonicalName.set(
+          descriptor.canonicalName,
+          {
+            deprecated:
+              existingMetadata.deprecated ||
+              token.deprecated === true,
+            description:
+              existingMetadata.description ||
+              token.description,
+            deprecatedBy:
+              existingMetadata.deprecatedBy ||
+              token.deprecatedBy,
+          },
+        );
+      }
+    }
+
     existingModeVariables.forEach((variable) => {
       if (
         variable.resolvedType ===
@@ -310,25 +433,53 @@ async function updateBrandCollection(jsonData) {
         const variableName = variable.name
           .split("/")
           .pop();
+        const canonicalName =
+          stripDeprecatedPrefix(variableName);
         if (
-          !variableToBrandMap.has(variableName)
+          !variableToBrandMap.has(canonicalName)
         ) {
-          variableToBrandMap.set(
-            variableName,
-            {}
-          );
+          variableToBrandMap.set(canonicalName, {
+            brandMap: {},
+            deprecated: false,
+          });
         }
         const brand = variable.name.split("/")[0];
-        variableToBrandMap.get(variableName)[
-          brand
-        ] = variable.id;
+        const modeVariableData =
+          variableToBrandMap.get(canonicalName);
+        modeVariableData.brandMap[brand] =
+          variable.id;
+        modeVariableData.deprecated =
+          modeVariableData.deprecated ||
+          variableName.startsWith(
+            DEPRECATED_PREFIX,
+          );
       }
     });
 
     for (let [
-      variableName,
-      brandMap,
+      canonicalName,
+      modeVariableData,
     ] of variableToBrandMap) {
+      const colorMetadata =
+        colorMetadataByCanonicalName.get(
+          canonicalName,
+        ) || {};
+
+      const descriptor = normalizeTokenDescriptor(
+        {
+          name: canonicalName,
+          deprecated:
+            modeVariableData.deprecated ||
+            colorMetadata.deprecated,
+          deprecatedBy:
+            colorMetadata.deprecatedBy,
+          description: colorMetadata.description,
+        },
+      );
+
+      const variableName = descriptor.name;
+      const brandMap = modeVariableData.brandMap;
+
       // Return empty scopes in gradient variables, since they already have a style
       let scopes = [VARIABLE_SCOPES.ALL_SCOPES];
 
@@ -340,6 +491,8 @@ async function updateBrandCollection(jsonData) {
 
       const variable = {
         name: variableName,
+        legacyNames: descriptor.legacyNames,
+        description: descriptor.description,
         resolvedType: VARIABLE_TYPES.COLOR,
         scopes: scopes,
         targetCollectionName:
@@ -369,6 +522,7 @@ async function updateBrandCollection(jsonData) {
           await updateOrCreateVariableModeValues({
             variable: {
               name: variableName,
+              legacyNames: descriptor.legacyNames,
               hasAlias: true,
               value: brandMap[brand], // Alias to the Theme variable ID for the brand
             },
@@ -376,7 +530,7 @@ async function updateBrandCollection(jsonData) {
             targetModeName:
               hasDefaultMode(
                 COLLECTION_NAMES.SKIN,
-                existingCollections
+                existingCollections,
               ) && brand === brandNames[0]
                 ? MODE_NAMES.DEFAULT
                 : formattedBrand,
@@ -390,7 +544,7 @@ async function updateBrandCollection(jsonData) {
 
         if (variableModeValuesData) {
           newData.variableModeValues.push(
-            variableModeValuesData
+            variableModeValuesData,
           );
         }
       }
@@ -411,11 +565,19 @@ async function updateBrandCollection(jsonData) {
         } = group;
 
         for (const variable of variables) {
+          const descriptor =
+            normalizeTokenDescriptor(variable);
+
           // Update or create the variable in the collection
           const variableUpdateResult =
             await updateOrCreateVariables({
               variable: {
                 ...variable,
+                name: descriptor.name,
+                legacyNames:
+                  descriptor.legacyNames,
+                description:
+                  descriptor.description,
                 resolvedType: resolvedType,
                 scopes: variableScopes,
                 hasAlias: hasAlias,
@@ -432,7 +594,7 @@ async function updateBrandCollection(jsonData) {
             newData.variables = [];
           }
           newData.variables.push(
-            variableUpdateResult
+            variableUpdateResult,
           );
 
           // Find the mode for the current brand and set the mode values correctly
@@ -441,6 +603,9 @@ async function updateBrandCollection(jsonData) {
               {
                 variable: {
                   ...variable,
+                  name: descriptor.name,
+                  legacyNames:
+                    descriptor.legacyNames,
                   resolvedType: resolvedType,
                   scopes: variableScopes,
                   hasAlias: hasAlias,
@@ -448,7 +613,7 @@ async function updateBrandCollection(jsonData) {
                 targetModeName:
                   hasDefaultMode(
                     collectionName,
-                    existingCollections
+                    existingCollections,
                   ) && brand === brandNames[0]
                     ? MODE_NAMES.DEFAULT
                     : formatBrandName(brand),
@@ -458,11 +623,11 @@ async function updateBrandCollection(jsonData) {
                   existingCollections,
                 existingVariables:
                   existingVariables,
-              }
+              },
             );
 
           newData.variableModeValues.push(
-            variableModeValuesUpdatedResult
+            variableModeValuesUpdatedResult,
           );
         }
       }
@@ -472,7 +637,7 @@ async function updateBrandCollection(jsonData) {
 
     await postFigmaVariables(
       MIDDLEWARE_KEY,
-      newData
+      newData,
     );
 
     return newData; // Returning newData for debugging
@@ -491,17 +656,17 @@ async function postCollections(brand) {
   try {
     const newData = await updateCollections(
       collectionNames,
-      MIDDLEWARE_KEY
+      MIDDLEWARE_KEY,
     );
 
     await postFigmaVariables(
       MIDDLEWARE_KEY,
-      newData
+      newData,
     );
   } catch (error) {
     console.error(
       `Error creating collections for brand ${brand}:`,
-      error
+      error,
     );
   }
 }

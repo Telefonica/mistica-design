@@ -31,6 +31,7 @@ jobs:
           persist-credentials: false
 
       - name: Install dependencies
+        working-directory: tokens/figma
         run: npm install
 
       - name: Run sync for the brand(s)

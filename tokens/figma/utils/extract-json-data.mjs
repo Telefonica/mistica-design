@@ -4,7 +4,7 @@ import hexToRgba from "./hex-to-rgba.mjs";
 
 export const extractSkinJsonData = (
   jsonFiles,
-  directoryPath
+  directoryPath,
 ) => {
   const allParsedContent = {}; // Initialize once to store all parsed content
 
@@ -12,11 +12,11 @@ export const extractSkinJsonData = (
   jsonFiles.forEach((file) => {
     const filePath = path.resolve(
       directoryPath,
-      file
+      file,
     );
     const fileContent = fs.readFileSync(
       filePath,
-      "utf8"
+      "utf8",
     );
     const parsedContent = JSON.parse(fileContent);
 
@@ -31,25 +31,49 @@ export const extractSkinJsonData = (
   return jsonFiles.reduce((accumulator, file) => {
     const filePath = path.resolve(
       directoryPath,
-      file
+      file,
     );
     const fileContent = fs.readFileSync(
       filePath,
-      "utf8"
+      "utf8",
     );
     const parsedContent = JSON.parse(fileContent);
 
     // Extract file name without extension
     const fileName = file.split(".")[0];
 
+    function getTokenMeta(token = {}) {
+      return {
+        description: token.description,
+        deprecated: token.deprecated === true,
+        deprecatedBy: token.deprecatedBy,
+      };
+    }
+
+    function attachTokenMeta(token, payload) {
+      const meta = getTokenMeta(token);
+      return {
+        ...payload,
+        ...(meta.description
+          ? { description: meta.description }
+          : {}),
+        ...(meta.deprecated
+          ? { deprecated: true }
+          : {}),
+        ...(meta.deprecatedBy
+          ? { deprecatedBy: meta.deprecatedBy }
+          : {}),
+      };
+    }
+
     function processColors(
       parsedContent,
       theme,
-      allParsedContent
+      allParsedContent,
     ) {
       if (!["light", "dark"].includes(theme)) {
         throw new Error(
-          `Invalid theme: ${theme}. Expected 'light' or 'dark'.`
+          `Invalid theme: ${theme}. Expected 'light' or 'dark'.`,
         );
       }
 
@@ -57,19 +81,19 @@ export const extractSkinJsonData = (
 
       function getPaletteName(value) {
         const regexMatch = value.match(
-          /{palette\.(.*?)}/
+          /{palette\.(.*?)}/,
         );
         if (regexMatch) {
           return regexMatch[1];
         }
         const rgbaMatch = value.match(
-          /rgba\(\{palette\.(.*?)\},\s*\d*\.?\d*\)/
+          /rgba\(\{palette\.(.*?)\},\s*\d*\.?\d*\)/,
         );
         if (rgbaMatch) {
           return rgbaMatch[1];
         }
         throw new Error(
-          `Unexpected color format: ${value}`
+          `Unexpected color format: ${value}`,
         );
       }
 
@@ -79,7 +103,7 @@ export const extractSkinJsonData = (
             ?.value;
         if (!paletteValue) {
           throw new Error(
-            `Color ${colorName} not found in palette`
+            `Color ${colorName} not found in palette`,
           );
         }
         return paletteValue;
@@ -88,7 +112,7 @@ export const extractSkinJsonData = (
       function getMaxStopsAcrossBrands(
         allParsedContent,
         key,
-        theme
+        theme,
       ) {
         let maxStops = 0;
         let isGradientInAnyBrand = false;
@@ -103,10 +127,10 @@ export const extractSkinJsonData = (
               isGradientInAnyBrand = true;
               maxStops = Math.max(
                 maxStops,
-                colors.value.colors.length
+                colors.value.colors.length,
               );
             }
-          }
+          },
         );
 
         return { maxStops, isGradientInAnyBrand };
@@ -123,7 +147,7 @@ export const extractSkinJsonData = (
           } = getMaxStopsAcrossBrands(
             allParsedContent,
             key,
-            theme
+            theme,
           );
 
           // Handle gradients first
@@ -141,7 +165,7 @@ export const extractSkinJsonData = (
                     value.colors[index];
                   const alphaMatch =
                     color.value.match(
-                      /rgba\([^)]+,\s*([^)]+)\)/
+                      /rgba\([^)]+,\s*([^)]+)\)/,
                     );
                   const alpha = alphaMatch
                     ? alphaMatch[1]
@@ -163,9 +187,9 @@ export const extractSkinJsonData = (
                         }`,
                         value: hexToRgba(
                           getPaletteValue(
-                            baseColorName
+                            baseColorName,
                           ),
-                          parseFloat(alpha)
+                          parseFloat(alpha),
                         ),
                         hasAlias: false,
                       };
@@ -173,7 +197,7 @@ export const extractSkinJsonData = (
                   // If this brand does not have a gradient, repeat the base color to match stops
                   const baseColorName =
                     getPaletteName(
-                      value.colors[0].value
+                      value.colors[0].value,
                     );
                   return {
                     name: `${theme}/${key}-stop-${
@@ -181,13 +205,13 @@ export const extractSkinJsonData = (
                     }`,
                     value: hexToRgba(
                       getPaletteValue(
-                        baseColorName
-                      )
+                        baseColorName,
+                      ),
                     ),
                     hasAlias: false,
                   };
                 }
-              }
+              },
             ).filter(Boolean);
           }
 
@@ -206,10 +230,10 @@ export const extractSkinJsonData = (
                   index + 1
                 }`,
                 value: hexToRgba(
-                  getPaletteValue(baseColorName)
+                  getPaletteValue(baseColorName),
                 ),
                 hasAlias: false,
-              })
+              }),
             );
           }
 
@@ -224,7 +248,7 @@ export const extractSkinJsonData = (
             return {
               name: `${theme}/${key}`,
               value: hexToRgba(
-                getPaletteValue(baseColorName)
+                getPaletteValue(baseColorName),
               ),
 
               hasAlias: true,
@@ -237,7 +261,7 @@ export const extractSkinJsonData = (
             value.startsWith("rgba")
           ) {
             const alphaMatch = value.match(
-              /rgba\([^)]+,\s*([^)]+)\)/
+              /rgba\([^)]+,\s*([^)]+)\)/,
             );
             const alpha = alphaMatch
               ? alphaMatch[1]
@@ -255,33 +279,33 @@ export const extractSkinJsonData = (
                   name: `${theme}/${key}`,
                   value: hexToRgba(
                     getPaletteValue(
-                      baseColorName
+                      baseColorName,
                     ),
-                    parseFloat(alpha)
+                    parseFloat(alpha),
                   ),
                   hasAlias: false,
                 };
           }
 
           throw new Error(
-            `Unexpected color format for key: ${key}`
+            `Unexpected color format for key: ${key}`,
           );
-        }
+        },
       );
     }
 
     // Other token processing logic
     const paletteArray = Object.keys(
-      parsedContent.global.palette
+      parsedContent.global.palette,
     ).map((key) => ({
       name: key,
       value: hexToRgba(
-        parsedContent.global.palette[key].value
+        parsedContent.global.palette[key].value,
       ),
     }));
 
     const radiusArray = Object.keys(
-      parsedContent.radius
+      parsedContent.radius,
     ).map((key) => ({
       name: key,
       value:
@@ -291,20 +315,20 @@ export const extractSkinJsonData = (
             "circle"
             ? 999 // If the value is "circle", set it to 999
             : parseFloat(
-                parsedContent.radius[key].value
+                parsedContent.radius[key].value,
               ) // Otherwise, convert it to a float
           : parsedContent.radius[key].value, // If it's not a string, use the original value
     }));
 
     const fontWeightArray = Object.keys(
-      parsedContent.text.weight
+      parsedContent.text.weight,
     ).map((key) => ({
       name: key,
       value: parsedContent.text.weight[key].value,
     }));
 
     const fontSizeArray = Object.keys(
-      parsedContent.text.size
+      parsedContent.text.size,
     ).flatMap((key) => {
       const value =
         parsedContent.text.size[key].value;
@@ -334,7 +358,7 @@ export const extractSkinJsonData = (
     });
 
     const lineHeightArray = Object.keys(
-      parsedContent.text.lineHeight
+      parsedContent.text.lineHeight,
     ).flatMap((key) => {
       const value =
         parsedContent.text.lineHeight[key].value;
@@ -364,7 +388,7 @@ export const extractSkinJsonData = (
     });
 
     const spacingArray = Object.keys(
-      parsedContent.spacing
+      parsedContent.spacing,
     ).flatMap((key) => {
       const value =
         parsedContent.spacing[key].value;
@@ -386,7 +410,7 @@ export const extractSkinJsonData = (
       // Push all breakpoints for a given side
       const pushBreakpoints = (
         side,
-        breakpoints
+        breakpoints,
       ) => {
         Object.entries(breakpoints).forEach(
           ([breakpoint, bpValue]) => {
@@ -397,7 +421,7 @@ export const extractSkinJsonData = (
               name: `spacing/${breakpoint}/${figmaName}`,
               value: Number(bpValue),
             });
-          }
+          },
         );
       };
 
@@ -424,12 +448,12 @@ export const extractSkinJsonData = (
       light: processColors(
         parsedContent,
         "light",
-        allParsedContent
+        allParsedContent,
       ),
       dark: processColors(
         parsedContent,
         "dark",
-        allParsedContent
+        allParsedContent,
       ),
       palette: paletteArray,
       radius: radiusArray,
@@ -445,7 +469,7 @@ export const extractSkinJsonData = (
 
 export const extractMiddlewareJsonData = (
   jsonFiles,
-  directoryPath
+  directoryPath,
 ) => {
   const allParsedContent = {}; // Initialize once to store all parsed content
 
@@ -453,11 +477,11 @@ export const extractMiddlewareJsonData = (
   jsonFiles.forEach((file) => {
     const filePath = path.resolve(
       directoryPath,
-      file
+      file,
     );
     const fileContent = fs.readFileSync(
       filePath,
-      "utf8"
+      "utf8",
     );
     const parsedContent = JSON.parse(fileContent);
 
@@ -472,25 +496,49 @@ export const extractMiddlewareJsonData = (
   return jsonFiles.reduce((accumulator, file) => {
     const filePath = path.resolve(
       directoryPath,
-      file
+      file,
     );
     const fileContent = fs.readFileSync(
       filePath,
-      "utf8"
+      "utf8",
     );
     const parsedContent = JSON.parse(fileContent);
 
     // Extract file name without extension
     const fileName = file.split(".")[0];
 
+    function getTokenMeta(token = {}) {
+      return {
+        description: token.description,
+        deprecated: token.deprecated === true,
+        deprecatedBy: token.deprecatedBy,
+      };
+    }
+
+    function attachTokenMeta(token, payload) {
+      const meta = getTokenMeta(token);
+      return {
+        ...payload,
+        ...(meta.description
+          ? { description: meta.description }
+          : {}),
+        ...(meta.deprecated
+          ? { deprecated: true }
+          : {}),
+        ...(meta.deprecatedBy
+          ? { deprecatedBy: meta.deprecatedBy }
+          : {}),
+      };
+    }
+
     function processColors(
       parsedContent,
       theme,
-      allParsedContent
+      allParsedContent,
     ) {
       if (!["light", "dark"].includes(theme)) {
         throw new Error(
-          `Invalid theme: ${theme}. Expected 'light' or 'dark'.`
+          `Invalid theme: ${theme}. Expected 'light' or 'dark'.`,
         );
       }
 
@@ -498,19 +546,19 @@ export const extractMiddlewareJsonData = (
 
       function getPaletteName(value) {
         const regexMatch = value.match(
-          /{palette\.(.*?)}/
+          /{palette\.(.*?)}/,
         );
         if (regexMatch) {
           return regexMatch[1];
         }
         const rgbaMatch = value.match(
-          /rgba\(\{palette\.(.*?)\},\s*\d*\.?\d*\)/
+          /rgba\(\{palette\.(.*?)\},\s*\d*\.?\d*\)/,
         );
         if (rgbaMatch) {
           return rgbaMatch[1];
         }
         throw new Error(
-          `Unexpected color format: ${value}`
+          `Unexpected color format: ${value}`,
         );
       }
 
@@ -520,7 +568,7 @@ export const extractMiddlewareJsonData = (
             ?.value;
         if (!paletteValue) {
           throw new Error(
-            `Color ${colorName} not found in palette`
+            `Color ${colorName} not found in palette`,
           );
         }
         return paletteValue;
@@ -528,7 +576,7 @@ export const extractMiddlewareJsonData = (
 
       function getMaxStopsAcrossBrands(
         allParsedContent,
-        key
+        key,
       ) {
         let maxStops = 0;
         let isGradientInAnyBrand = false;
@@ -547,11 +595,11 @@ export const extractMiddlewareJsonData = (
                 isGradientInAnyBrand = true;
                 maxStops = Math.max(
                   maxStops,
-                  colors.value.colors.length
+                  colors.value.colors.length,
                 );
               }
             });
-          }
+          },
         );
 
         return { maxStops, isGradientInAnyBrand };
@@ -568,7 +616,7 @@ export const extractMiddlewareJsonData = (
           } = getMaxStopsAcrossBrands(
             allParsedContent,
             key,
-            theme
+            theme,
           );
 
           // Handle gradients first
@@ -586,7 +634,7 @@ export const extractMiddlewareJsonData = (
                     value.colors[index];
                   const alphaMatch =
                     color.value.match(
-                      /rgba\([^)]+,\s*([^)]+)\)/
+                      /rgba\([^)]+,\s*([^)]+)\)/,
                     );
                   const alpha = alphaMatch
                     ? alphaMatch[1]
@@ -595,57 +643,60 @@ export const extractMiddlewareJsonData = (
                     getPaletteName(color.value);
 
                   return alpha === "1"
-                    ? {
+                    ? attachTokenMeta(colorData, {
                         name: `${key}-stop-${
                           index + 1
                         }`,
                         value: hexToRgba(
                           getPaletteValue(
-                            baseColorName
+                            baseColorName,
                           ),
-                          parseFloat(alpha)
+                          parseFloat(alpha),
                         ),
                         hasAlias: true,
                         description:
                           baseColorName,
-                      }
-                    : {
+                      })
+                    : attachTokenMeta(colorData, {
                         name: `${key}-stop-${
                           index + 1
                         }`,
                         value: hexToRgba(
                           getPaletteValue(
-                            baseColorName
+                            baseColorName,
                           ),
-                          parseFloat(alpha)
+                          parseFloat(alpha),
                         ),
                         hasAlias: false,
                         description:
                           baseColorName,
-                      };
+                      });
                 } else if (isGradientInAnyBrand) {
                   // If this brand does not have a gradient, repeat the base color to match stops
                   const baseColorName =
                     getPaletteName(
-                      value.colors[0].value
+                      value.colors[0].value,
                     );
                   const alpha = 1;
-                  return {
-                    name: `${key}-stop-${
-                      index + 1
-                    }`,
-                    value: hexToRgba(
-                      getPaletteValue(
-                        baseColorName
+                  return attachTokenMeta(
+                    colorData,
+                    {
+                      name: `${key}-stop-${
+                        index + 1
+                      }`,
+                      value: hexToRgba(
+                        getPaletteValue(
+                          baseColorName,
+                        ),
+                        parseFloat(alpha),
                       ),
-                      parseFloat(alpha)
-                    ),
 
-                    hasAlias: false,
-                    description: baseColorName,
-                  };
+                      hasAlias: false,
+                      description: baseColorName,
+                    },
+                  );
                 }
-              }
+              },
             ).filter(Boolean);
           }
 
@@ -660,15 +711,18 @@ export const extractMiddlewareJsonData = (
             // Repeat the solid color to match the gradient stops
             return Array.from(
               { length: maxStops },
-              (_, index) => ({
-                name: `${key}-stop-${index + 1}`,
-                value: hexToRgba(
-                  getPaletteValue(baseColorName),
-                  parseFloat(alpha)
-                ),
-                hasAlias: false,
-                description: baseColorName,
-              })
+              (_, index) =>
+                attachTokenMeta(colorData, {
+                  name: `${key}-stop-${index + 1}`,
+                  value: hexToRgba(
+                    getPaletteValue(
+                      baseColorName,
+                    ),
+                    parseFloat(alpha),
+                  ),
+                  hasAlias: false,
+                  description: baseColorName,
+                }),
             );
           }
 
@@ -680,16 +734,16 @@ export const extractMiddlewareJsonData = (
             const baseColorName =
               getPaletteName(value);
             const alpha = 1;
-            return {
+            return attachTokenMeta(colorData, {
               name: `${key}`,
               value: hexToRgba(
                 getPaletteValue(baseColorName),
-                parseFloat(alpha)
+                parseFloat(alpha),
               ),
 
               hasAlias: true,
               description: baseColorName,
-            };
+            });
           }
 
           // Handle rgba colors
@@ -698,7 +752,7 @@ export const extractMiddlewareJsonData = (
             value.startsWith("rgba")
           ) {
             const alphaMatch = value.match(
-              /rgba\([^)]+,\s*([^)]+)\)/
+              /rgba\([^)]+,\s*([^)]+)\)/,
             );
             const alpha = alphaMatch
               ? alphaMatch[1]
@@ -706,62 +760,70 @@ export const extractMiddlewareJsonData = (
             const baseColorName =
               getPaletteName(value);
 
-            return {
+            return attachTokenMeta(colorData, {
               name: `${key}`,
               value: hexToRgba(
                 getPaletteValue(baseColorName),
-                parseFloat(alpha)
+                parseFloat(alpha),
               ),
               hasAlias: false,
               description: baseColorName,
-            };
+            });
           }
 
           throw new Error(
-            `Unexpected color format for key: ${key}`
+            `Unexpected color format for key: ${key}`,
           );
-        }
+        },
       );
     }
 
     // Other token processing logic
     const paletteArray = Object.keys(
-      parsedContent.global.palette
+      parsedContent.global.palette,
     ).map((key) => ({
       name: key,
       value: hexToRgba(
-        parsedContent.global.palette[key].value
+        parsedContent.global.palette[key].value,
       ),
     }));
 
     const radiusArray = Object.keys(
-      parsedContent.radius
-    ).map((key) => ({
-      name: `radii/${key}`,
-      value:
-        typeof parsedContent.radius[key].value ===
-        "string"
-          ? parsedContent.radius[key].value ===
-            "circle"
-            ? 999 // If the value is "circle", set it to 999
-            : parseFloat(
-                parsedContent.radius[key].value
-              ) // Otherwise, convert it to a float
-          : parsedContent.radius[key].value, // If it's not a string, use the original value
-    }));
+      parsedContent.radius,
+    ).map((key) =>
+      attachTokenMeta(parsedContent.radius[key], {
+        name: `radii/${key}`,
+        value:
+          typeof parsedContent.radius[key]
+            .value === "string"
+            ? parsedContent.radius[key].value ===
+              "circle"
+              ? 999 // If the value is "circle", set it to 999
+              : parseFloat(
+                  parsedContent.radius[key].value,
+                ) // Otherwise, convert it to a float
+            : parsedContent.radius[key].value, // If it's not a string, use the original value
+      }),
+    );
 
     const fontWeightArray = Object.keys(
-      parsedContent.text.weight
-    ).map((key) => ({
-      name: `fontWeight/${key}`,
-      value: parsedContent.text.weight[key].value,
-    }));
+      parsedContent.text.weight,
+    ).map((key) =>
+      attachTokenMeta(
+        parsedContent.text.weight[key],
+        {
+          name: `fontWeight/${key}`,
+          value:
+            parsedContent.text.weight[key].value,
+        },
+      ),
+    );
 
     const fontSizeArray = Object.keys(
-      parsedContent.text.size
+      parsedContent.text.size,
     ).flatMap((key) => {
-      const value =
-        parsedContent.text.size[key].value;
+      const token = parsedContent.text.size[key];
+      const value = token.value;
 
       // Check if the value is an object with mobile and desktop properties
       if (
@@ -769,29 +831,30 @@ export const extractMiddlewareJsonData = (
         value !== null
       ) {
         return [
-          {
+          attachTokenMeta(token, {
             name: `fontSize/mobile/${key}`,
             value: parseFloat(value.mobile),
-          },
-          {
+          }),
+          attachTokenMeta(token, {
             name: `fontSize/desktop/${key}`,
             value: parseFloat(value.desktop),
-          },
+          }),
         ];
       }
 
       // If value is not an object, return a single entry
-      return {
+      return attachTokenMeta(token, {
         name: key,
         value: parseFloat(value),
-      };
+      });
     });
 
     const lineHeightArray = Object.keys(
-      parsedContent.text.lineHeight
+      parsedContent.text.lineHeight,
     ).flatMap((key) => {
-      const value =
-        parsedContent.text.lineHeight[key].value;
+      const token =
+        parsedContent.text.lineHeight[key];
+      const value = token.value;
 
       // Check if the value is an object with mobile and desktop properties
       if (
@@ -799,29 +862,29 @@ export const extractMiddlewareJsonData = (
         value !== null
       ) {
         return [
-          {
+          attachTokenMeta(token, {
             name: `lineHeight/mobile/${key}`,
             value: parseFloat(value.mobile),
-          },
-          {
+          }),
+          attachTokenMeta(token, {
             name: `lineHeight/desktop/${key}`,
             value: parseFloat(value.desktop),
-          },
+          }),
         ];
       }
 
       // If value is not an object, return a single entry
-      return {
+      return attachTokenMeta(token, {
         name: key,
         value: parseFloat(value),
-      };
+      });
     });
 
     const spacingArray = Object.keys(
-      parsedContent.spacing
+      parsedContent.spacing,
     ).flatMap((key) => {
-      const value =
-        parsedContent.spacing[key].value;
+      const token = parsedContent.spacing[key];
+      const value = token.value;
       const result = [];
 
       const capitalize = (str) =>
@@ -837,7 +900,7 @@ export const extractMiddlewareJsonData = (
 
       const pushBreakpoints = (
         nameSuffix,
-        breakpoints
+        breakpoints,
       ) => {
         Object.entries(breakpoints).forEach(
           ([bp, bpValue]) => {
@@ -845,10 +908,12 @@ export const extractMiddlewareJsonData = (
               ? `${key}${capitalize(nameSuffix)}`
               : key;
             result.push({
-              name: `spacing/${bp}/${figmaName}`,
-              value: Number(bpValue),
+              ...attachTokenMeta(token, {
+                name: `spacing/${bp}/${figmaName}`,
+                value: Number(bpValue),
+              }),
             });
-          }
+          },
         );
       };
 
@@ -872,33 +937,43 @@ export const extractMiddlewareJsonData = (
     });
 
     const themeVariantArray = Object.keys(
-      parsedContent.themeVariant
-    ).map((key) => ({
-      name: `themeVariant/${key}`,
-      value:
-        parsedContent.themeVariant[key].value,
-    }));
+      parsedContent.themeVariant,
+    ).map((key) =>
+      attachTokenMeta(
+        parsedContent.themeVariant[key],
+        {
+          name: `themeVariant/${key}`,
+          value:
+            parsedContent.themeVariant[key].value,
+        },
+      ),
+    );
 
     const componentPropertiesArray = Object.keys(
-      parsedContent.componentProperties || {}
-    ).map((key) => ({
-      name: `componentProperties/${key}`,
-      value:
-        parsedContent.componentProperties[key]
-          .value,
-    }));
+      parsedContent.componentProperties || {},
+    ).map((key) =>
+      attachTokenMeta(
+        parsedContent.componentProperties[key],
+        {
+          name: `componentProperties/${key}`,
+          value:
+            parsedContent.componentProperties[key]
+              .value,
+        },
+      ),
+    );
 
     // Accumulate results
     accumulator[fileName] = {
       light: processColors(
         parsedContent,
         "light",
-        allParsedContent
+        allParsedContent,
       ),
       dark: processColors(
         parsedContent,
         "dark",
-        allParsedContent
+        allParsedContent,
       ),
       palette: paletteArray,
       radius: radiusArray,
