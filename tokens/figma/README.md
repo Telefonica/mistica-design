@@ -10,6 +10,26 @@ This project is designed to update Figma variables based on a JSON input, primar
 - **Handle variable modes**: Ensures each brand's mode (e.g., "Light", "Dark") is updated or created in the Figma "Brand" collection.
 - **Support for multiple brands**: Processes multiple brands, mapping each brand's unique variables into Figma's collections.
 
+## Deprecated token behavior (middleware flow)
+
+When running the middleware update flow, deprecated token metadata from skin JSON is propagated to Figma variables.
+
+- **Name format**: deprecated variables are prefixed with `DEPRECATED_`.
+- **Description format**: a concise deprecation note is appended.
+  - If `deprecatedBy` exists: `Deprecated. Use <tokenName>`
+  - If `deprecatedBy` is missing: `Deprecated.`
+- **Scope**: any token can be deprecated **except** tokens under `global.palette`.
+
+### Migration safety for renamed variables
+
+Renaming variables in Figma can be breaking if it creates new variables with new IDs. To avoid this, middleware updates perform a rename-safe lookup:
+
+- First try exact name match.
+- Then try legacy names (for example, non-prefixed vs prefixed).
+- If a legacy match exists, the script updates the existing variable by ID (rename-in-place) instead of creating duplicates.
+
+This keeps existing variable bindings and aliases stable during deprecation rollouts.
+
 ## Setup
 
 ### Environment variables:
@@ -48,7 +68,22 @@ This function focuses on updating color variables in the "Brand" collection. It:
 
    ```
 
-2. Run the script
+2. Install dependencies:
+
+   ```bash
+   npm install
+
+   ```
+
+3. Run the script
    ```bash
    node index.mjs
    ```
+
+### Validation tip
+
+After introducing deprecated metadata in tokens, run `node index.mjs` and verify in Figma:
+
+- Deprecated variables use `DEPRECATED_` names.
+- Variable descriptions include deprecation notes.
+- No duplicated old/new variables are created for the same token.

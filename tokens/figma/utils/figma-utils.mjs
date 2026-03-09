@@ -3,25 +3,25 @@ import { getFigmaData } from "./api-request.mjs";
 
 export function generateTempModeId(
   targetMode,
-  targetCollection
+  targetCollection,
 ) {
   return `tempId_${targetCollection}_${targetMode}`;
 }
 
 export function hasDefaultMode(
   targetCollectionName,
-  existingCollections
+  existingCollections,
 ) {
   const collection = Object.values(
-    existingCollections
+    existingCollections,
   ).find(
     (collection) =>
-      collection.name === targetCollectionName
+      collection.name === targetCollectionName,
   );
 
   if (!collection) {
     console.warn(
-      `Collection ${targetCollectionName} not found.`
+      `Collection ${targetCollectionName} not found.`,
     );
     return false;
   }
@@ -30,18 +30,17 @@ export function hasDefaultMode(
 
   // Return true if a mode named "Default" exists, otherwise false
   return existingModes.some(
-    (m) => m.name === MODE_NAMES.DEFAULT
+    (m) => m.name === MODE_NAMES.DEFAULT,
   );
 }
 
 export async function updateCollections(
   collections,
-  FILE_KEY
+  FILE_KEY,
 ) {
   try {
-    const figmaData = await getFigmaData(
-      FILE_KEY
-    );
+    const figmaData =
+      await getFigmaData(FILE_KEY);
 
     const newData = {
       variableCollections: [],
@@ -56,14 +55,14 @@ export async function updateCollections(
 
     function updateCollection(
       collectionName,
-      existingCollections
+      existingCollections,
     ) {
       // Find the existing collection by name
       const existingCollection = Object.values(
-        existingCollections
+        existingCollections,
       ).find(
         (collection) =>
-          collection.name === collectionName
+          collection.name === collectionName,
       );
 
       if (existingCollection) {
@@ -76,7 +75,7 @@ export async function updateCollections(
       } else {
         // If the collection doesn't exist, create it
         const tempId = generateTempId(
-          collectionName
+          collectionName,
         );
         newData.variableCollections.push({
           action: "CREATE",
@@ -90,7 +89,7 @@ export async function updateCollections(
     collections.forEach((collection) => {
       updateCollection(
         collection,
-        existingCollections
+        existingCollections,
       );
     });
 
@@ -109,16 +108,16 @@ export async function updateOrCreateModes({
   existingCollections,
 }) {
   const collection = Object.values(
-    existingCollections
+    existingCollections,
   ).find(
     (collection) =>
-      collection.name === targetCollectionName
+      collection.name === targetCollectionName,
   );
 
   // Handle the case when the collection is not found
   if (!collection) {
     console.warn(
-      `Collection ${targetCollectionName} not found.`
+      `Collection ${targetCollectionName} not found.`,
     );
     return null;
   }
@@ -128,10 +127,10 @@ export async function updateOrCreateModes({
 
   // Look for the existing mode by name and the default mode
   const existingMode = existingModes.find(
-    (m) => m.name === mode.name
+    (m) => m.name === mode.name,
   );
   const defaultMode = existingModes.find(
-    (m) => m.name === MODE_NAMES.DEFAULT
+    (m) => m.name === MODE_NAMES.DEFAULT,
   );
 
   // If it's the default mode, update or rename it
@@ -150,7 +149,7 @@ export async function updateOrCreateModes({
       action: "CREATE",
       id: generateTempModeId(
         mode.name,
-        targetCollectionName
+        targetCollectionName,
       ),
       name: mode.name, // Create the mode with the target name
       variableCollectionId: collectionId,
@@ -173,19 +172,24 @@ export async function updateOrCreateVariables({
   existingCollections,
 }) {
   const collectionId = Object.values(
-    existingCollections
+    existingCollections,
   ).find(
     (collection) =>
-      collection.name === targetCollectionName
+      collection.name === targetCollectionName,
   ).id;
 
   //If exists retrieve the variable id
+  const namesToMatch = [
+    variable.name,
+    ...(variable.legacyNames || []),
+  ];
+
   const existingVariable = Object.values(
-    existingVariables
+    existingVariables,
   ).find(
     (v) =>
-      v.name === variable.name &&
-      v.variableCollectionId === collectionId
+      namesToMatch.includes(v.name) &&
+      v.variableCollectionId === collectionId,
   );
 
   const tempId = `tempId_${targetCollectionName}_${variable.name}`;
@@ -201,6 +205,9 @@ export async function updateOrCreateVariables({
       variableCollectionId: collectionId,
       resolvedType: variable.resolvedType,
       scopes: variable.scopes,
+      ...(variable.description !== undefined
+        ? { description: variable.description }
+        : {}),
     };
   } else {
     // Update existing variable
@@ -211,6 +218,9 @@ export async function updateOrCreateVariables({
       variableCollectionId: collectionId,
       resolvedType: variable.resolvedType,
       scopes: variable.scopes,
+      ...(variable.description !== undefined
+        ? { description: variable.description }
+        : {}),
     };
   }
 }
@@ -225,15 +235,15 @@ export async function updateOrCreateVariableModeValues({
   // Find the mode for the given modeName, or use tempId if mode is being created
 
   const targetCollection = Object.values(
-    existingCollections
+    existingCollections,
   ).find(
     (collection) =>
-      collection.name === targetCollectionName
+      collection.name === targetCollectionName,
   );
 
   if (!targetCollection) {
     console.warn(
-      `Collection ${targetCollectionName} not found.`
+      `Collection ${targetCollectionName} not found.`,
     );
     return;
   }
@@ -241,37 +251,42 @@ export async function updateOrCreateVariableModeValues({
   // Now access the modes from the found collection
   const existingModes =
     targetCollection.modes.find(
-      (m) => m.name === targetModeName
+      (m) => m.name === targetModeName,
     );
 
   const modeId = existingModes
     ? existingModes.modeId
     : generateTempModeId(
         targetModeName,
-        targetCollectionName
+        targetCollectionName,
       );
 
   if (!modeId) {
     console.warn(
-      `Mode ${targetModeName} not found and no tempId provided.`
+      `Mode ${targetModeName} not found and no tempId provided.`,
     );
     return;
   }
 
   const collectionId = Object.values(
-    existingCollections
+    existingCollections,
   ).find(
     (collection) =>
-      collection.name === targetCollectionName
+      collection.name === targetCollectionName,
   )?.id;
 
   // Retrieve the variable id if exists
+  const namesToMatch = [
+    variable.name,
+    ...(variable.legacyNames || []),
+  ];
+
   const existingVariable = Object.values(
-    existingVariables
+    existingVariables,
   ).find(
     (v) =>
-      v.name === variable.name &&
-      v.variableCollectionId === collectionId
+      namesToMatch.includes(v.name) &&
+      v.variableCollectionId === collectionId,
   );
 
   const tempId = `tempId_${targetCollectionName}_${variable.name}`;
