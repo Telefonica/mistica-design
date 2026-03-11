@@ -49,6 +49,7 @@ De todas formas, repasaremos conceptos básicos intentando no caer en explicacio
 - [Manejando estados](#estado)
 - [Iterando con arrays](#iterando-con-arrays)
 - [Crear nuevos componentes](#crear-nuevos-componentes)
+- [Loader](#loader)
 
 ---
 
@@ -566,3 +567,54 @@ En el caso de que necesitemos modificar las propiedades de cada uno de los eleme
 ## Crear nuevos componentes
 
 https://rebrand.ly/5cjmmfw
+
+## Loader
+
+El componente `Loader` permite cargar datos de forma asíncrona desde una URL externa y renderizar contenido basado en esos datos. Este componente es útil para obtener información dinámicamente (como configuraciones, tokens, o datos de APIs) y mostrarla en tu prototipo.
+
+El `Loader` requiere tres props:
+
+- `load`: Una URL o función que retorna una URL de donde obtener los datos
+- `render`: Una función que recibe los datos cargados y retorna el contenido a mostrar
+- `renderLoading`: Una función que retorna el contenido a mostrar mientras se cargan los datos
+- `renderError`: Una función que retorna el contenido a mostrar si hay un error en la carga
+
+Ejemplo básico:
+
+```
+<Loader
+  load="https://api.example.com/data"
+  render={(data) => (
+    <Text>{data.title}</Text>
+  )}
+  renderLoading={() => <Spinner />}
+  renderError={() => <Text>Error loading data</Text>}
+/>
+```
+
+### Ejemplo avanzado
+
+Puedes usar funciones dinámicas para cargar diferentes URLs según propiedades del tema:
+
+```
+<Loader
+  load={(() => {
+    const skinName = theme.skinName;
+    if (skinName === "Movistar") {
+      return "https://api.example.com/movistar-data";
+    }
+    return "https://api.example.com/default-data";
+  })()}
+  render={(data) => (
+    <Stack space={16}>
+      {data.items.map((item) => (
+        <Text>{item.name}</Text>
+      ))}
+    </Stack>
+  )}
+  renderLoading={() => <Spinner />}
+  renderError={() => <Snackbar message="Error al cargar datos" type="CRITICAL" />}
+/>
+```
+
+[Ver ejemplo en Playroom →](https://rebrand.ly/5cjmmfw)
