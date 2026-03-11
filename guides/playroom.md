@@ -594,27 +594,39 @@ Ejemplo básico:
 
 ### Ejemplo avanzado
 
-Puedes usar funciones dinámicas para cargar diferentes URLs según propiedades del tema:
+Aquí puedes ver cómo cargar dinámicamente la paleta de colores global según la marca seleccionada:
 
 ```
 <Loader
   load={(() => {
-    const skinName = theme.skinName;
-    if (skinName === "Movistar") {
-      return "https://api.example.com/movistar-data";
-    }
-    return "https://api.example.com/default-data";
+    const name = theme.skinName === "Movistar" ? "movistar-new" : theme.skinName.toLowerCase();
+    return `https://raw.githubusercontent.com/Telefonica/mistica-design/refs/heads/production/tokens/${name}.json`;
   })()}
-  render={(data) => (
-    <Stack space={16}>
-      {data.items.map((item) => (
-        <Text>{item.name}</Text>
-      ))}
-    </Stack>
-  )}
+  render={(data) => {
+    const paletteColors = Object.entries(data.global?.palette || {})
+      .slice(0, 12);
+
+    return (
+      <Box padding={32}>
+        <Stack space={16}>
+          <Text1>{theme.skinName} - Palette</Text1>
+          <Grid columns={{ minSize: 120 }} gap={12}>
+            {paletteColors.map(([name, color]) => (
+              <div key={name} style={{ borderRadius: 8, overflow: "hidden", border: `1px solid ${colors.divider}` }}>
+                <div style={{ background: color.value, height: 60 }} />
+                <Box padding={8} backgroundColor={colors.backgroundContainer}>
+                  <Text3 size="small" numberOfLines={1}>{name}</Text3>
+                </Box>
+              </div>
+            ))}
+          </Grid>
+        </Stack>
+      </Box>
+    );
+  }}
   renderLoading={() => <Spinner />}
-  renderError={() => <Snackbar message="Error al cargar datos" type="CRITICAL" />}
+  renderError={() => <Text3 color={colors.textSecondary}>Error loading palette</Text3>}
 />
 ```
 
-[Ver ejemplo en Playroom →](https://rebrand.ly/5cjmmfw)
+[Ver ejemplo en Playroom →](https://mistica-web.vercel.app/playroom/#?code=N4Igxg9gJgpiBcIA8AFATjAbgSxgdwBUIIAbAZwD4kB6dLXQ48igHQDskAZCAQ1jXYACQSV5QAvMAAUUgJSDxFQcCHDBkNmQAugtjwC2MBYK0ALGIYB0ZANbY2AOQNHxrwSxABZCDm08BIIIA-O4g%2Bj7YfmgAtGz4HoLwJuZWtvZOVloQ3HgwaADCPGQwcgDcqsIYWgCuaGyCAAamWloADmTw1NRoPHiWAObYZtUARtXFaBpaMGxalpD61AQwJDAAZhBs2GA81PqRWts80bBk2P1s3etk1OZ8N61o0NVgh5vUWTYzNwAkwHqGAC%2BlgAVmRNg1yvVBIDZHJAaoMGx%2BJIpFAeFoePJFMoKupNtpBK0eKsWjB8qQIGgyMYAPIjEEwV6WGZaNC4MhojE8AaiEYkoKWYmk6aCAA%2BYuUsLxwmsJG2JQADAAaQQARgATLIoXiqrV6lIZYIkAAhCAADyJfCg9n6kgAzBrAaxoWo1EgAMqYsA2QRkYlgGCSNUANmdRrdSGW5q0aoowDMFhg1jsjmcgME0UEKBJMDJNGjsZdbpLxoA4uyoPiSNV9JpJMBBPs2B7sAAvGBJTWKmEZ-o8VrBp3F0sl4DCvPTCmiamWfQDmQAbQBMFVkBnAF1sUpDa7R5GbZhBF8AJ6SFcZ7Qn1YNwQjKn8ABKfGw4ySAA5VT48mtRHgkh4pjYFAsBsB4qr3mg-BJA0aqtJa4LylWfzrlSZCWIewF5ICDS9iO%2B6lkgh5%2Blo15BsAjb8j6-RPNUyJJKhaCWJgJLVKugjmOczRJCGPaAhm1D4QRkZmpaxIgbakjvhmVE2DREB0VA05UpIjHobJ8mKRSsw8PY2FCcJkaFvafrtkGHhkPOJAkAkbC1iMeS0msnB6WQwbOv86YFjAMb2gZhk0KJ-n7jQh7BSWsiyAie6EdQFbAeFNBejwPr%2BYFFpCdqqj8YiMz8NwL5sHa0jbsaHqtPYcRoIIgnRZUeV5AAomgTxoKipVRj5WgmYxqmUrO0wxh6TKbOiaAns6zWtSIYi2laIowN5vkUNFgkgMqICJoYZAIIuIAmiQPDVOtXgRFEAD6Dj4CAG4bXgwFmDt8CLo6KoAOwhu%2BG6AkAA)
