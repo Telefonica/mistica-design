@@ -256,7 +256,7 @@ def comment_figma_branches_on_issues(branches_by_issue, repo_owner, repo_name, g
 
 # Personal access token for Figma and GitHub APIs
 figma_token = os.getenv("FIGMA_TOKEN")
-github_token = os.getenv("NOVUM_PRIVATE_REPOS_READONLY")
+github_token = os.getenv("GH_TOKEN_MISTICA")
 
 # GitHub repo details
 repo_owner = "Telefonica"
