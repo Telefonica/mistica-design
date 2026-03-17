@@ -28,6 +28,8 @@ There are three tags used exclusively for listing items in the changelog:
 The list of tags recognized by the workflow can be found here:
 [https://github.com/Telefonica/mistica-design/blob/production/.github/release-notes.yml](https://github.com/Telefonica/mistica-design/blob/production/.github/release-notes.yml)
 
+These categories define which tags, when included in milestone issues, automatically create a section in the generated changelog and include those issues under the corresponding category.
+
 > [!NOTE]
 > If an issue has more than one of the tags listed in this file, it will appear duplicated in multiple categories.
 
@@ -48,10 +50,12 @@ Closing the milestone automatically triggers the changelog generation workflow a
 
 After the milestone is closed, a changelog entry will be created automatically.
 
-If you need to make more changes after the milestone was closed you can do it manually:
+If you need to make more changes after the milestone has been closed, you can do it manually:
 
-1. Obtain the milestone ID from the milestone’s URL (for https://github.com/Telefonica/mistica-design/milestone/91, 91 is the ID of the milestone).
-2. Manually update the changelog entry:
+1. Go to the Actions tab in the repository. In the left sidebar, find the "Changelog generator" workflow.
+2. In the blue notice that says "This workflow has a workflow_dispatch event trigger.", click "Run workflow".
+3. Obtain the milestone ID from the milestone’s URL (for https://github.com/Telefonica/mistica-design/milestone/91, 91 is the ID of the milestone).
+4. Manually update the changelog entry:
    - Include the milestone ID
    - Add the release number (x.x.x)
    - Review and adjust descriptions if needed
