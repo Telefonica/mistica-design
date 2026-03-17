@@ -20,12 +20,18 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    env:
-      RELEASE_VERSION: ${{ github.event.inputs.releaseVersion }}
     steps:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
+
+      - name: Set release version
+        run: |
+          if [ "${{ github.event_name }}" = "milestone" ]; then
+            echo "RELEASE_VERSION=${{ github.event.milestone.title }}" >> $GITHUB_ENV
+          else
+            echo "RELEASE_VERSION=${{ github.event.inputs.releaseVersion }}" >> $GITHUB_ENV
+          fi
 
       - name: Validate release version format
         run: |
@@ -44,6 +50,7 @@ jobs:
           OUTPUT_FOLDER: changelog-versions
           USE_MILESTONE_TITLE: "true"
           FILENAME_PREFIX: ${{ env.RELEASE_VERSION }}
+          MILESTONE_TITLE: ${{ github.event.milestone.title }}
 
       # - run: sudo python3 .github/resources/changelog-index-generator.py changelog-versions
 
