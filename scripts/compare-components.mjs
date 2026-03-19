@@ -125,8 +125,7 @@ function extractComponents(document) {
 
     // Don't recurse into COMPONENT children (variants are counted above)
     if (node.type !== "COMPONENT") {
-      const nextParentId =
-        node.type === "COMPONENT_SET" ? node.id : parentId;
+      const nextParentId = node.type === "COMPONENT_SET" ? node.id : parentId;
       for (const child of node.children || []) {
         walk(child, currentPath, nextParentId);
       }
@@ -280,7 +279,9 @@ function compareComponents(mainComponents, branchComponents) {
 
     // Properties only in main → renamed from; only in branch → renamed to
     const onlyInMain = [...allMainProps].filter((p) => !allBranchProps.has(p));
-    const onlyInBranch = [...allBranchProps].filter((p) => !allMainProps.has(p));
+    const onlyInBranch = [...allBranchProps].filter(
+      (p) => !allMainProps.has(p),
+    );
 
     const changes = [];
 
@@ -288,14 +289,26 @@ function compareComponents(mainComponents, branchComponents) {
       // Match renames: pair up by order of appearance
       const pairs = Math.min(onlyInMain.length, onlyInBranch.length);
       for (let i = 0; i < pairs; i++) {
-        changes.push({ field: "property renamed", from: onlyInMain[i], to: onlyInBranch[i] });
+        changes.push({
+          field: "property renamed",
+          from: onlyInMain[i],
+          to: onlyInBranch[i],
+        });
       }
       // Any remaining unmatched
       for (let i = pairs; i < onlyInMain.length; i++) {
-        changes.push({ field: "property removed", from: onlyInMain[i], to: "" });
+        changes.push({
+          field: "property removed",
+          from: onlyInMain[i],
+          to: "",
+        });
       }
       for (let i = pairs; i < onlyInBranch.length; i++) {
-        changes.push({ field: "property added", from: "", to: onlyInBranch[i] });
+        changes.push({
+          field: "property added",
+          from: "",
+          to: onlyInBranch[i],
+        });
       }
     } else if (onlyInMain.length > 0) {
       for (const p of onlyInMain) {
@@ -376,7 +389,10 @@ function compareComponents(mainComponents, branchComponents) {
       branchComponents.has(mainComp.parentId)
     ) {
       if (!variantChanges.has(mainComp.parentId)) {
-        variantChanges.set(mainComp.parentId, { addedVariants: [], removedVariants: [] });
+        variantChanges.set(mainComp.parentId, {
+          addedVariants: [],
+          removedVariants: [],
+        });
       }
       variantChanges.get(mainComp.parentId).removedVariants.push(mainComp);
     } else {
@@ -392,7 +408,10 @@ function compareComponents(mainComponents, branchComponents) {
       mainComponents.has(branchComp.parentId)
     ) {
       if (!variantChanges.has(branchComp.parentId)) {
-        variantChanges.set(branchComp.parentId, { addedVariants: [], removedVariants: [] });
+        variantChanges.set(branchComp.parentId, {
+          addedVariants: [],
+          removedVariants: [],
+        });
       }
       variantChanges.get(branchComp.parentId).addedVariants.push(branchComp);
     } else {
@@ -541,7 +560,11 @@ function generateReport(comparison, mainName, branchName) {
     lines.push(``);
 
     const renamedGrouped = groupByPageAndComponent(
-      renamed.map((r) => ({ ...r.main, changes: r.changes, branchPath: r.branch.path })),
+      renamed.map((r) => ({
+        ...r.main,
+        changes: r.changes,
+        branchPath: r.branch.path,
+      })),
     );
 
     for (const [page, components] of renamedGrouped) {
@@ -589,8 +612,12 @@ function generateReport(comparison, mainName, branchName) {
           const propChanges = item.changes.filter(
             (c) => c.field !== "addedVariants" && c.field !== "removedVariants",
           );
-          const addedVars = item.changes.find((c) => c.field === "addedVariants");
-          const removedVars = item.changes.find((c) => c.field === "removedVariants");
+          const addedVars = item.changes.find(
+            (c) => c.field === "addedVariants",
+          );
+          const removedVars = item.changes.find(
+            (c) => c.field === "removedVariants",
+          );
 
           for (const change of propChanges) {
             const from = Array.isArray(change.from)
@@ -604,12 +631,16 @@ function generateReport(comparison, mainName, branchName) {
 
           if (addedVars) {
             const diffSummary = summarizeVariantDiffs(addedVars.to);
-            lines.push(`| ${item.name} | +${addedVars.to.length} new variants | ${diffSummary} |`);
+            lines.push(
+              `| ${item.name} | +${addedVars.to.length} new variants | ${diffSummary} |`,
+            );
           }
 
           if (removedVars) {
             const diffSummary = summarizeVariantDiffs(removedVars.from);
-            lines.push(`| ${item.name} | -${removedVars.from.length} removed variants | ${diffSummary} |`);
+            lines.push(
+              `| ${item.name} | -${removedVars.from.length} removed variants | ${diffSummary} |`,
+            );
           }
         }
       }
@@ -712,17 +743,28 @@ async function main() {
     libraryKeys.forEach((key, i) => {
       console.log(`  ${i + 1}. ${LIBRARIES[key].name} (${key})`);
     });
+    console.log(`  ${libraryKeys.length + 1}. Custom library`);
     console.log("");
 
     const choice = await prompt.ask("Enter number: ");
     const choiceIndex = parseInt(choice, 10) - 1;
 
-    if (choiceIndex < 0 || choiceIndex >= libraryKeys.length) {
+    if (choiceIndex < 0 || choiceIndex > libraryKeys.length) {
       console.error("Invalid choice.");
       process.exit(1);
     }
 
-    const library = LIBRARIES[libraryKeys[choiceIndex]];
+    let library;
+    if (choiceIndex === libraryKeys.length) {
+      // Custom library
+      const customInput = await prompt.ask(
+        "Enter main library file key or Figma URL: ",
+      );
+      const customKey = extractFileKey(customInput);
+      library = { name: "Custom", fileKey: customKey };
+    } else {
+      library = LIBRARIES[libraryKeys[choiceIndex]];
+    }
     console.log(`\nSelected: ${library.name}\n`);
 
     // Step 2: Get branch file key or URL
