@@ -46,12 +46,12 @@ Reports are saved to `.figma-reports/` (gitignored):
 
 ### What the report covers
 
-| Section | Description |
-| --- | --- |
-| **Renamed / Moved** | Components with the same node ID but different name. Variant renames are consolidated at the component set level showing the property that changed |
-| **Modified** | Components with changes to description, variant count, child count, or properties. New/removed variants in an existing component set appear here (not as added/removed) |
-| **Added** | Truly new components that don't exist in the main file |
-| **Removed** | Components that exist in main but are missing from the branch |
+| Section             | Description                                                                                                                                                             |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Renamed / Moved** | Components with the same node ID but different name. Variant renames are consolidated at the component set level showing the property that changed                      |
+| **Modified**        | Components with changes to description, variant count, child count, or properties. New/removed variants in an existing component set appear here (not as added/removed) |
+| **Added**           | Truly new components that don't exist in the main file                                                                                                                  |
+| **Removed**         | Components that exist in main but are missing from the branch                                                                                                           |
 
 ### How comparison works
 
@@ -62,7 +62,7 @@ Reports are saved to `.figma-reports/` (gitignored):
 
 ### Preconfigured libraries
 
-| Name | File key |
-| --- | --- |
+| Name            | File key                 |
+| --------------- | ------------------------ |
 | Mistica Desktop | `DSWhPLyJzbliP1fBrLxDUR` |
-| Mistica Mobile | `WCkDDzlXE16R6yXaljxddj` |
+| Mistica Mobile  | `WCkDDzlXE16R6yXaljxddj` |
