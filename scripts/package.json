@@ -2,6 +2,9 @@
   "name": "mistica-scripts",
   "private": true,
   "type": "module",
+  "scripts": {
+    "compare": "node compare-components.mjs"
+  },
   "dependencies": {
     "dotenv": "^16.4.5",
     "node-fetch": "^3.3.2"
