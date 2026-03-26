@@ -4,12 +4,10 @@
 
 &nbsp;
 
-| Other Mística Repos                                              | Description                                           |
-| :--------------------------------------------------------------- | :---------------------------------------------------- |
-| [mistica-web](https://github.com/Telefonica/mistica-web)         | Repository with code libraries for Mística in web     |
-| [mistica-ios](https://github.com/Telefonica/mistica-ios)         | Repository with code libraries for Mística in iOS     |
-| [mistica-android](https://github.com/Telefonica/mistica-android) | Repository with code libraries for Mística in Android |
-| [mistica-icons](https://github.com/Telefonica/mistica-icons)     | The source of truth for icons in our digital products |
+| Other Mística Repos                                          | Description                                           |
+| :----------------------------------------------------------- | :---------------------------------------------------- |
+| [mistica-web](https://github.com/Telefonica/mistica-web)     | Repository with code libraries for Mística in web     |
+| [mistica-icons](https://github.com/Telefonica/mistica-icons) | The source of truth for icons in our digital products |
 
 ---
 
@@ -23,7 +21,6 @@
 - [Current components status](https://brandfactory.telefonica.com/d/iSp7b1DkYygv/n-a#/components/overview)
 - [Prototype with real Mística components in Playroom](https://mistica-web.vercel.app/playroom)
 - [Mística Storybook](https://mistica-web.vercel.app/)
-- [Mística Catalog | Interactive components in iOS & Android](https://brandfactory.telefonica.com/d/iSp7b1DkYygv/n-a#/get-started/start-to-design/mistica-catalog-native)
 
 ---
 

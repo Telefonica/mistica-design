@@ -24,10 +24,10 @@ We encourage you to read this guide carefully and get in touch with us if you ha
 
 Before submitting a proposal, we encourage you to review:
 
-* Our existing components and guidelines to ensure that your proposal aligns with our design principles and 
-* There's no other discussion already covering the same topic. You can find all of our design guidelines and documentation on [Telefónica's brand factory](https://brandfactory.telefonica.com/d/iSp7b1DkYygv/n-a#/get-started/what-is-mistica).
-* It's not covered by the existing [Component specs](https://www.figma.com/files/1125734703130062955/project/27955986/Component-Specs?fuid=1111936175780412673) 
-* The technical viability to include the proposal in your product (A validated PRD, or confirmation that backend can serve this information)
+- Our existing components and guidelines to ensure that your proposal aligns with our design principles and
+- There's no other discussion already covering the same topic. You can find all of our design guidelines and documentation on [Telefónica's brand factory](https://brandfactory.telefonica.com/d/iSp7b1DkYygv/n-a#/get-started/what-is-mistica).
+- It's not covered by the existing [Component specs](https://www.figma.com/files/1125734703130062955/project/27955986/Component-Specs?fuid=1111936175780412673)
+- The technical viability to include the proposal in your product (A validated PRD, or confirmation that backend can serve this information)
 
 To submit a proposal, create a [new discussion in the Mística Design GitHub repository](https://github.com/Telefonica/mistica-design/discussions).
 
@@ -59,7 +59,6 @@ If design core has been defined as the asignee for updating the specs based on t
 - [Our milestones](https://github.com/Telefonica/mistica-design/milestones)
 - [Our releases project view](https://github.com/orgs/Telefonica/projects/20/views/2)
 
-
 ### Issues assigned to an external team
 
 If your team has been defined as the asignee for updating the specs based in your proposal:
@@ -67,7 +66,8 @@ If your team has been defined as the asignee for updating the specs based in you
 1. A new branch will be created to allow your team to work on and the link will be shared in the issue.
 2. The team can proceed to update the specifications.
 
-------------------------------
+---
+
 For any other teams expecting a feature you can check the design and development status from [our project view](https://github.com/orgs/Telefonica/projects/20/views/5).
 
 ## Specifications
@@ -109,12 +109,9 @@ If our team will be the responsible of the development, the design core team wil
 If an external team is the responsible os the task, some rules should be followed to ensure the best workflow possible:
 
 1. Read the CONTRIBUTING files in the repository the PR will be created.
-   * [Web](https://github.com/Telefonica/mistica-web/blob/master/CONTRIBUTING.md)
-   * [Android](https://github.com/Telefonica/mistica-android/blob/main/CONTRIBUTING.md)
-   * [iOS](https://github.com/Telefonica/mistica-ios/blob/main/CONTRIBUTING.md)
-3. Include reviewers from the Mística development team and design core team.
-4. Include the link of the approved specs in the PR description.
-
+   - [Web](https://github.com/Telefonica/mistica-web/blob/master/CONTRIBUTING.md)
+2. Include reviewers from the Mística development team and design core team.
+3. Include the link of the approved specs in the PR description.
 
 Thank you for your interest in contributing to the Mística Design System.
 We appreciate your efforts to help us improve our system and create better user experiences for everyone.
