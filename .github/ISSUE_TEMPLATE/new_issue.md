@@ -13,6 +13,4 @@ about: Create a new empty issue
 - [ ] Add to mobile library
 - [ ] Add to desktop library
 - [ ] Add to UI Kit
-- [ ] Android ticket
-- [ ] iOS ticket
 - [ ] Web ticket
