@@ -6,7 +6,7 @@ import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-dotenv.config({ path: resolve(__dirname, "../.env") });
+dotenv.config({ path: resolve(__dirname, "../../.env") });
 
 const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
 const API_BASE = "https://api.figma.com/v1";
@@ -843,7 +843,7 @@ async function main() {
     };
 
     // Write outputs
-    const outputDir = resolve(__dirname, "../.figma-reports");
+    const outputDir = resolve(__dirname, "./reports");
     mkdirSync(outputDir, { recursive: true });
 
     const timestamp = new Date().toISOString().replace(/[:.]/g, "-");

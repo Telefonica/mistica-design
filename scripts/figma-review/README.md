@@ -7,7 +7,7 @@ Compares the components in a Figma library (main file) against a Figma branch, g
 ### Setup
 
 ```bash
-cd scripts
+cd scripts/figma-review
 npm install
 ```
 
