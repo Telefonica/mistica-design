@@ -48,8 +48,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OUTPUT_FOLDER: changelog-versions
-          USE_MILESTONE_TITLE: "true"
-          FILENAME_PREFIX: ${{ env.RELEASE_VERSION }}
+          FILENAME: ${{ env.RELEASE_VERSION }}.md
           MILESTONE_TITLE: ${{ github.event.milestone.title }}
 
       # - run: sudo python3 .github/resources/changelog-index-generator.py changelog-versions
