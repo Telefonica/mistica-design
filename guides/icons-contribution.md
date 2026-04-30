@@ -54,7 +54,7 @@ Each brand has its own Figma library where icons are designed and validated befo
 Once the branch is merged, publish the brand library so the new icon is available for the next step.
 
 > [!IMPORTANT]
-> The brand library must be published **before** updating the Mística Icons library. The export action picks up icons from the published versions, not from unpublished branches.
+> The brand library must be published **before** updating the Mística Icons library. Also important, the export action picks up icons from the main branch, not from branches.
 
 ## 4. Add the icon to the Mística Icons library in Figma
 
