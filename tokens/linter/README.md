@@ -14,69 +14,81 @@ npm install
 
 ### 2. Run the linter
 
-#### Option A: Choose file interactively
+#### Option A: Interactive mode
 
 ```
-npm run linter
+npm run lint:tokens
 ```
 
-You'll be prompted to select which JSON file to validate.
+You'll be prompted to pick a token file (or "All files") and a mode (format or contrast).
 
-#### Option B: Pass a filename
-
-```
-npm run linter my-tokens.json format
-npm run linter my-tokens.json contrast
-```
-
-- format mode: checks description ↔ palette reference matches and invalid palette references, without skipping colors with alpha (rgba).
-- contrast mode: checks foreground/background pairs for WCAG contrast compliance, skipping gradients and alpha colors. Description mismatches are not shown.
-
-#### Option C: Validate contrast for a specific token
+#### Option B: Run a specific mode
 
 ```
-npm run linter my-tokens.json textPrimary
+npm run lint:tokens:format
+npm run lint:tokens:contrast
 ```
 
-This restricts contrast validation to pairs where textPrimary is either the foreground or background token, across all themes (e.g. light.textPrimary and dark.textPrimary).
+- `format` mode: checks `description` ↔ `{palette.*}` reference matches and detects references to palette colors that don't exist. Skips gradient tokens.
+- `contrast` mode: checks foreground/background pairs from `contrastPairs.js` for WCAG ratio compliance. Skips gradients and `rgba()` colors.
+
+When run in CI (`CI=true` or `GITHUB_ACTIONS=true`), prompts are disabled and the linter defaults to `format` mode across all token files. Errors are emitted as GitHub Actions annotations.
+
+#### Option C: Run against a single file or with a specific mode
+
+The CLI accepts a `.json` filename and/or a mode as positional arguments. To forward args through `npm run`, use `--`:
+
+```
+npm run lint:tokens -- my-tokens.json format
+npm run lint:tokens -- my-tokens.json contrast
+```
+
+Or invoke node directly:
+
+```
+node index.js my-tokens.json contrast
+```
+
+Token files are resolved relative to the parent `tokens/` directory.
 
 ## ✅ What It Checks
 
-🔹 Contrast Validation (WCAG AA/AAA)
-Checks defined foreground/background pairs against accessibility contrast ratios.
+🔹 **Contrast Validation (WCAG AA / UI elements)**
+Checks defined foreground/background pairs against accessibility contrast ratios for both `light` and `dark` themes. When a contrast failure is found, the linter suggests an alternative color from the same palette family that meets the minimum ratio.
 
-🔹 Description/Reference Match
-Ensures tokens referencing {palette.color} match their description field.
+🔹 **Description / Reference Match**
+Ensures tokens whose value is `{palette.color}` have a `description` field equal to `color`.
 
-🔹 Invalid Palette References
-Detects references to {palette.xxx} that do not exist in global.palette.
+🔹 **Invalid Palette References**
+Detects references to `{palette.xxx}` tokens that do not exist in `global.palette`.
 
 ## 🛠 Customizing Pairs
 
-You can edit contrast rules in linter/contrastPairs.js:
+Contrast rules are defined in `contrastPairs.js`. Each entry pairs one or more `fg` token names with one or more `bg` token names, plus a `minRatio`. Token names are flat (single-segment) and resolved against each theme (`light.<name>`, `dark.<name>`):
 
-```
+```js
 export const contrastPairs = [
-{ fg: "text.primary", bg: "background.default", minRatio: 4.5 },
-...
+  {
+    fg: ["textPrimary", "textSecondary"],
+    bg: ["background", "backgroundContainer"],
+    minRatio: 4.5,
+  },
+  // ...
 ];
 ```
 
 ## 📤 Output Example
 
 ```
-🔍 Revisando my-tokens.json
-✔ Todas las descripciones coinciden con la referencia en palette
-[contrast-fail] light.text.primary vs light.background.default
-  Foreground: #767676 (gray700)
-  Background: #f5f5f5 (gray100)
-  Ratio: 3.55 < mínimo: 4.5
-  ✦ Suggestion: gray800 (#4A4A4A, 6.12)
+🔍 mistica.json
+  [contrast-fail] light.textPrimary vs light.background
+    Suggestion: gray800 (#4A4A4A, 6.12)
 
-Resumen:
+❌ Validation failed with 1 errors
+```
 
-- Archivos revisados: 1
-- Archivos con errores: 1
-- Total errores: 1
+When run in CI, each error is also printed as a GitHub Actions annotation:
 
+```
+::error file=mistica.json::[contrast-fail] light.textPrimary vs light.background - Contrast 3.55 < 4.5
 ```
