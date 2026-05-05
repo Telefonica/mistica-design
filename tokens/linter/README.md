@@ -20,7 +20,7 @@ npm install
 npm run lint:tokens
 ```
 
-You'll be prompted to pick a token file (or "All files") and a mode (format or contrast).
+You'll be prompted to pick a mode (format or contrast) and then a token file (or "All files").
 
 #### Option B: Run a specific mode
 
