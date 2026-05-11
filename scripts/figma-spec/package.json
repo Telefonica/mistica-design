@@ -1,0 +1,26 @@
+{
+  "name": "figma-spec",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Generate Markdown specs from Figma component documentation pages.",
+  "scripts": {
+    "spec": "tsx src/cli.ts generate",
+    "spec:validate": "tsx src/cli.ts validate",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/genai": "^0.7.0",
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
