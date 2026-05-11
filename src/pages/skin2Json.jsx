@@ -49,6 +49,7 @@ const Skin2Json = () => {
     padding: 48,
     resize: "none",
     margin: 0,
+    outline: "none",
   };
 
   const output = (() => {
@@ -73,6 +74,7 @@ const Skin2Json = () => {
     padding: 48,
     resize: "none",
     margin: 0,
+    outlineOffset: -1,
   };
 
   return (
