@@ -1,263 +1,294 @@
-function transformToJSON(rawCode) {
-  // Regular expressions to match relevant patterns
-  const paletteRegex = /export\s+const\s+palette\s*=\s*{\s*([^}]+)\s*};/s;
+// Extracts a top-level section block by name, balancing braces so we can
+// keep nested objects (responsive textPresets, spacing, gradients in template
+// literals, etc.) intact. Matches both `name: {` (object property) and
+// `name = {` (top-level assignment, used by `palette`).
+function extractBlock(code, sectionName) {
+  const re = new RegExp(`\\b${sectionName}\\s*[:=]\\s*{`);
+  const start = code.search(re);
+  if (start === -1) return null;
 
-  // Adjusting the regex to handle multi-line colors and avoid breaking inside gradients
-  const lightColorsRegex = /colors\s*:\s*{\s*([\s\S]+?)\s*}\s*,/;
-  const darkColorsRegex = /darkModeColors\s*:\s*{\s*([\s\S]+?)\s*}\s*,/;
-  const radiusRegex = /borderRadii\s*:\s*{\s*([\s\S]+?)\s*},?/;
-  const textRegex = /textPresets\s*:\s*{([\s\S]*?)}\s*,/;
-  const themeVariantRegex = /themeVariants\s*:\s*{\s*([\s\S]+?)\s*},?/;
+  const open = code.indexOf("{", start);
+  if (open === -1) return null;
 
-  // Function to extract the palette
-  const extractPalette = (code, regex) => {
-    const match = code.match(regex);
-    if (match) {
-      const colorsBlock = match[1];
-      const colorsArray = colorsBlock.match(/\s*(\w+):\s*'#[a-fA-F0-9]+'/g);
+  let depth = 0;
+  let inSingle = false;
+  let inDouble = false;
+  let inBacktick = false;
+  let i = open;
 
-      if (colorsArray) {
-        const formattedColors = colorsArray.reduce((acc, color) => {
-          const [key, value] = color.split(":");
-          const trimmedKey = key.trim();
-          const hexMatch = value.match(/'(#([a-fA-F0-9]){3,6})'/);
+  while (i < code.length) {
+    const ch = code[i];
+    const prev = i > 0 ? code[i - 1] : "";
 
-          if (hexMatch) {
-            const [, hexColor] = hexMatch;
-            acc[trimmedKey] = {
-              value: hexColor,
-              type: "color",
-            };
-          }
-
-          return acc;
-        }, {});
-
-        return formattedColors;
+    if (!inSingle && !inDouble && !inBacktick) {
+      if (ch === "'") inSingle = true;
+      else if (ch === '"') inDouble = true;
+      else if (ch === "`") inBacktick = true;
+      else if (ch === "{") depth++;
+      else if (ch === "}") {
+        depth--;
+        if (depth === 0) return code.slice(open + 1, i);
       }
+    } else if (inSingle && ch === "'" && prev !== "\\") {
+      inSingle = false;
+    } else if (inDouble && ch === '"' && prev !== "\\") {
+      inDouble = false;
+    } else if (inBacktick && ch === "`" && prev !== "\\") {
+      inBacktick = false;
     }
-    return null;
-  };
+    i++;
+  }
+  return null;
+}
 
-  // Function to extract light/dark colors
-  const extractColors = (code, regex) => {
-    const match = code.match(regex);
-    if (!match) return null;
+// Splits a block "key: value, key: value" honouring nested braces, parens,
+// brackets and string/template literals.
+function splitTopLevelEntries(block) {
+  const out = [];
+  let buf = "";
+  let depth = 0;
+  let inSingle = false;
+  let inDouble = false;
+  let inBacktick = false;
 
-    const colorsBlock = match[1];
-    const colorsArray = colorsBlock
-      .split("\n")
-      .filter((line) => line.includes(":"));
+  for (let i = 0; i < block.length; i++) {
+    const ch = block[i];
+    const prev = i > 0 ? block[i - 1] : "";
 
-    if (!colorsArray.length) return null;
-
-    return colorsArray.reduce((acc, line) => {
-      const [key, value] = line.split(":");
-      if (!value) return acc;
-
-      const trimmedKey = key.trim();
-      let trimmedValue = value.trim();
-
-      console.log(trimmedValue);
-
-      // Handle linear-gradient values (multi-line gradients and template literals)
-      if (trimmedValue.startsWith("`linear-gradient")) {
-        // Remove backticks at the beginning and end
-        trimmedValue = trimmedValue.slice(1, -1);
-
-        // Now process the gradient, splitting the angle and stops
-        const gradientMatch = trimmedValue.match(
-          /linear-gradient\((\d+)deg,\s*(.+)\)/
-        );
-
-        console.log(gradientMatch);
-
-        if (gradientMatch) {
-          const angle = parseInt(gradientMatch[1], 10);
-          const stopsRaw = gradientMatch[2].split(/,\s*(?![^()]*\))/); // Split stops correctly
-
-          const stops = stopsRaw
-            .map((stop) => {
-              stop = stop.trim();
-
-              // Handle `applyAlpha(palette.color, alpha) X%`
-              let stopMatch = stop.match(
-                /applyAlpha\((palette\.(\w+)),\s*([\d.]+)\)\s*(\d+)%?/
-              );
-
-              if (stopMatch) {
-                const [, , color, alpha, stopValue] = stopMatch;
-                return {
-                  value: `rgba({palette.${color}}, ${alpha})`,
-                  stop: parseFloat(stopValue) / 100,
-                };
-              }
-
-              // Handle `palette.color X%`
-              stopMatch = stop.match(/palette\.(\w+)\s*(\d+)%?/);
-              if (stopMatch) {
-                const [, color, stopValue] = stopMatch;
-                return {
-                  value: `{palette.${color}}`,
-                  stop: parseFloat(stopValue) / 100,
-                };
-              }
-
-              // For solid colors, return as palette reference
-              // Remove `${}` from template literals in the gradient
-              stop = stop.replace(/\${(palette\.[^}]+)}/g, "{$1}"); // Remove $ and curly braces
-              return {
-                value: stop,
-                stop: 0, // Default stop if no percentage is provided
-              };
-            })
-            .filter(Boolean);
-
-          if (stops.length > 0) {
-            acc[trimmedKey] = {
-              type: "linear-gradient",
-              value: {
-                angle,
-                colors: stops,
-              },
-              description: trimmedKey,
-            };
-          }
-
-          return acc;
-        }
+    if (!inSingle && !inDouble && !inBacktick) {
+      if (ch === "'") inSingle = true;
+      else if (ch === '"') inDouble = true;
+      else if (ch === "`") inBacktick = true;
+      else if (ch === "{" || ch === "(" || ch === "[") depth++;
+      else if (ch === "}" || ch === ")" || ch === "]") depth--;
+      else if (ch === "," && depth === 0) {
+        const trimmed = buf.trim();
+        if (trimmed) out.push(trimmed);
+        buf = "";
+        continue;
       }
+    } else if (inSingle && ch === "'" && prev !== "\\") inSingle = false;
+    else if (inDouble && ch === '"' && prev !== "\\") inDouble = false;
+    else if (inBacktick && ch === "`" && prev !== "\\") inBacktick = false;
 
-      // Handle non-gradient values (solid colors)
-      trimmedValue = trimmedValue.replace(/\${(palette\.[^}]+)}/g, "{$1}");
-      trimmedValue = trimmedValue.replace(
-        /\${applyAlpha\((palette\.[^,]+),\s*([\d.]+)\)}/g,
-        (match, color, alpha) => `rgba({${color}}, ${alpha})`
+    buf += ch;
+  }
+  const tail = buf.trim();
+  if (tail) out.push(tail);
+  return out;
+}
+
+// Split a single entry "key: value" into [key, value] keeping any colons inside
+// the value (none in current skins, but cheap to be safe).
+function splitKeyValue(entry) {
+  const idx = entry.indexOf(":");
+  if (idx === -1) return null;
+  const key = entry.slice(0, idx).trim().replace(/^['"]|['"]$/g, "");
+  const value = entry.slice(idx + 1).trim();
+  return [key, value];
+}
+
+function extractPalette(code) {
+  const block = extractBlock(code, "palette");
+  if (!block) return null;
+
+  const result = {};
+  for (const entry of splitTopLevelEntries(block)) {
+    const kv = splitKeyValue(entry);
+    if (!kv) continue;
+    const [name, rawValue] = kv;
+    const hexMatch = rawValue.match(/['"`]?(#[a-fA-F0-9]{3,8})['"`]?/);
+    if (!hexMatch) continue;
+    result[name] = { value: hexMatch[1], type: "color" };
+  }
+  return result;
+}
+
+function parseColorValue(raw) {
+  const value = raw.replace(/,\s*$/, "").trim();
+
+  // Multi-stop linear-gradient inside a template literal.
+  if (value.startsWith("`") && value.includes("linear-gradient")) {
+    const inner = value.slice(1, -1);
+    const grad = inner.match(/linear-gradient\(\s*(-?\d+)deg\s*,\s*([\s\S]+)\)\s*$/);
+    if (!grad) return null;
+
+    const angle = parseInt(grad[1], 10);
+    const stops = [];
+
+    // Split stops at top-level commas (respect nested parens / template refs).
+    let depth = 0;
+    let buf = "";
+    const pieces = [];
+    for (let i = 0; i < grad[2].length; i++) {
+      const ch = grad[2][i];
+      if (ch === "(") depth++;
+      else if (ch === ")") depth--;
+      if (ch === "," && depth === 0) {
+        pieces.push(buf.trim());
+        buf = "";
+      } else buf += ch;
+    }
+    if (buf.trim()) pieces.push(buf.trim());
+
+    for (const piece of pieces) {
+      // `${applyAlpha(palette.X, a)} P%`
+      let m = piece.match(
+        /^\$\{applyAlpha\(\s*palette\.(\w+)\s*,\s*([\d.]+)\s*\)\}\s*(-?[\d.]+)%?\s*$/
       );
-
-      // Detect solid color references
-      let colorMatch = trimmedValue.match(
-        /palette\.(\w+)|applyAlpha\(palette\.(\w+),\s*([\d.]+)\)/
-      );
-      if (colorMatch) {
-        const [, paletteColor, alphaColor, alpha] = colorMatch;
-        acc[trimmedKey] = {
-          value: alpha
-            ? `rgba({palette.${alphaColor}}, ${alpha})`
-            : `{palette.${paletteColor}}`,
-          type: "color",
-          description: alpha ? alphaColor : paletteColor,
-        };
+      if (m) {
+        stops.push({
+          value: `rgba({palette.${m[1]}}, ${m[2]})`,
+          stop: parseFloat(m[3]) / 100,
+        });
+        continue;
       }
-
-      return acc;
-    }, {});
-  };
-
-  // Function to extract border radius values
-  const extractRadius = (code, regex) => {
-    const match = code.match(regex);
-    if (!match) return null;
-
-    const block = match[1];
-    const lines = block.split("\n").filter((line) => line.includes(":"));
-
-    return lines.reduce((acc, line) => {
-      const [key, value] = line.split(":");
-      if (!value) return acc;
-
-      const name = key.trim();
-      let raw = value.replace(/['",]/g, "").trim();
-
-      // remove px if present (e.g., "999px" → "999")
-      if (raw.endsWith("px")) raw = raw.slice(0, -2);
-
-      acc[name] = { value: raw, type: "borderRadius" };
-      return acc;
-    }, {});
-  };
-
-  function extractTypography(code) {
-    const typography = { weight: {}, size: {}, lineHeight: {} };
-
-    // 1️⃣ Find where textPresets starts
-    const startMatch = code.match(/textPresets\s*:\s*{/);
-    if (!startMatch) return typography;
-
-    let startIndex = startMatch.index + startMatch[0].length - 1;
-
-    // 2️⃣ Walk to find the matching closing brace
-    let depth = 1;
-    let endIndex = startIndex + 1;
-
-    while (depth > 0 && endIndex < code.length) {
-      const char = code[endIndex];
-      if (char === "{") depth++;
-      else if (char === "}") depth--;
-      endIndex++;
+      // `${palette.X} P%`
+      m = piece.match(/^\$\{palette\.(\w+)\}\s*(-?[\d.]+)%?\s*$/);
+      if (m) {
+        stops.push({
+          value: `{palette.${m[1]}}`,
+          stop: parseFloat(m[2]) / 100,
+        });
+        continue;
+      }
+      // Fallback: plain colour/string + percentage.
+      m = piece.match(/^(.+?)\s*(-?[\d.]+)%\s*$/);
+      if (m) {
+        stops.push({ value: m[1].trim(), stop: parseFloat(m[2]) / 100 });
+      }
     }
 
-    // 3️⃣ Extract the object literal as string
-    const objLiteral = code.slice(startIndex, endIndex);
-
-    try {
-      // 4️⃣ Evaluate the object literal
-      const presets = Function(`"use strict"; return (${objLiteral})`)();
-
-      // 5️⃣ Transform into the expected token format
-      for (const [name, def] of Object.entries(presets)) {
-        if (def.weight)
-          typography.weight[name] = { value: def.weight, type: "typography" };
-        if (def.size)
-          typography.size[name] = { value: def.size, type: "typography" };
-        if (def.lineHeight)
-          typography.lineHeight[name] = {
-            value: def.lineHeight,
-            type: "typography",
-          };
-      }
-    } catch (err) {
-      console.error("Failed to parse textPresets:", err);
-    }
-
-    return typography;
+    if (!stops.length) return null;
+    return { type: "linear-gradient", value: { angle, colors: stops } };
   }
 
-  const extractThemeVariant = (code, regex) => {
-    const match = code.match(regex);
-    if (!match) return null;
+  // applyAlpha(palette.X, alpha) — solid color with alpha.
+  const alphaMatch = value.match(
+    /^applyAlpha\(\s*palette\.(\w+)\s*,\s*([\d.]+)\s*\)$/
+  );
+  if (alphaMatch) {
+    return {
+      value: `rgba({palette.${alphaMatch[1]}}, ${alphaMatch[2]})`,
+      type: "color",
+      description: alphaMatch[1],
+    };
+  }
 
-    const block = match[1];
-    const lines = block.split("\n").filter((line) => line.includes(":"));
+  // palette.X — plain solid reference.
+  const paletteMatch = value.match(/^palette\.(\w+)$/);
+  if (paletteMatch) {
+    return {
+      value: `{palette.${paletteMatch[1]}}`,
+      type: "color",
+      description: paletteMatch[1],
+    };
+  }
 
-    return lines.reduce((acc, line) => {
-      const [key, value] = line.split(":");
-      if (!value) return acc;
+  return null;
+}
 
-      acc[key.trim()] = {
-        value: value.replace(/['",]/g, "").trim(),
-        type: "themeVariant",
-      };
-      return acc;
-    }, {});
-  };
+function extractColors(code, sectionName) {
+  const block = extractBlock(code, sectionName);
+  if (!block) return null;
 
-  // Extract information
-  const paletteCode = extractPalette(rawCode, paletteRegex);
-  const lightColors = extractColors(rawCode, lightColorsRegex);
-  const darkColors = extractColors(rawCode, darkColorsRegex);
-  const radiusValues = extractRadius(rawCode, radiusRegex);
-  const themeVariant = extractThemeVariant(rawCode, themeVariantRegex);
-  const text = extractTypography(rawCode);
+  const result = {};
+  for (const entry of splitTopLevelEntries(block)) {
+    const kv = splitKeyValue(entry);
+    if (!kv) continue;
+    const [name, rawValue] = kv;
+    const parsed = parseColorValue(rawValue);
+    if (parsed) result[name] = parsed;
+  }
+  return result;
+}
 
-  // Convert the extracted information to JSON
+function extractRadius(code) {
+  const block = extractBlock(code, "borderRadii");
+  if (!block) return null;
+
+  const result = {};
+  for (const entry of splitTopLevelEntries(block)) {
+    const kv = splitKeyValue(entry);
+    if (!kv) continue;
+    const [name, rawValue] = kv;
+    const cleaned = rawValue.replace(/['",]/g, "").trim();
+    if (!cleaned) continue;
+    result[name] = { value: cleaned, type: "borderRadius" };
+  }
+  return result;
+}
+
+function evalObjectLiteral(source) {
+  try {
+    return Function(`"use strict"; return (${source})`)();
+  } catch {
+    return null;
+  }
+}
+
+function extractTextPresets(code) {
+  const block = extractBlock(code, "textPresets");
+  if (!block) return { weight: {}, size: {}, lineHeight: {} };
+
+  const presets = evalObjectLiteral(`{${block}}`);
+  const out = { weight: {}, size: {}, lineHeight: {} };
+  if (!presets) return out;
+
+  for (const [name, def] of Object.entries(presets)) {
+    if (def == null || typeof def !== "object") continue;
+    if (def.weight !== undefined)
+      out.weight[name] = { value: def.weight, type: "typography" };
+    if (def.size !== undefined)
+      out.size[name] = { value: def.size, type: "typography" };
+    if (def.lineHeight !== undefined)
+      out.lineHeight[name] = { value: def.lineHeight, type: "typography" };
+  }
+  return out;
+}
+
+function extractThemeVariants(code) {
+  const block = extractBlock(code, "themeVariants");
+  if (!block) return null;
+
+  const result = {};
+  for (const entry of splitTopLevelEntries(block)) {
+    const kv = splitKeyValue(entry);
+    if (!kv) continue;
+    const [name, rawValue] = kv;
+    result[name] = {
+      value: rawValue.replace(/['",]/g, "").trim(),
+      type: "themeVariant",
+    };
+  }
+  return result;
+}
+
+function extractSpacing(code) {
+  const block = extractBlock(code, "spacing");
+  if (!block) return null;
+
+  const parsed = evalObjectLiteral(`{${block}}`);
+  if (!parsed) return null;
+
+  const out = {};
+  for (const [name, value] of Object.entries(parsed)) {
+    out[name] = { value, type: "spacing" };
+  }
+  return out;
+}
+
+function transformToJSON(rawCode) {
+  if (!rawCode || typeof rawCode !== "string") return null;
+
   const result = {
-    light: lightColors,
-    dark: darkColors,
-    radius: radiusValues,
-    themeVariant,
-    text,
-    global: { palette: paletteCode },
+    light: extractColors(rawCode, "colors"),
+    dark: extractColors(rawCode, "darkModeColors"),
+    radius: extractRadius(rawCode),
+    themeVariant: extractThemeVariants(rawCode),
+    text: extractTextPresets(rawCode),
+    spacing: extractSpacing(rawCode),
+    global: { palette: extractPalette(rawCode) },
   };
 
   return result;
