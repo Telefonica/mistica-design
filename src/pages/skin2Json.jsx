@@ -139,15 +139,22 @@ const Skin2Json = () => {
                   <textarea
                     readOnly
                     style={rightStyles}
-                    value={
-                      input === "skin"
-                        ? JSON.stringify(
+                    value={(() => {
+                      try {
+                        if (input === "skin") {
+                          return JSON.stringify(
                             transformToJSON(rawCode) || "",
                             null,
-                            2
-                          )
-                        : rawJsCode !== "" && generateSkin("skin", rawJsCode)
-                    }
+                            2,
+                          );
+                        }
+                        return rawJsCode !== ""
+                          ? generateSkin("skin", rawJsCode)
+                          : "";
+                      } catch (err) {
+                        return `// Conversion error: ${err.message}`;
+                      }
+                    })()}
                   ></textarea>
                 </Inline>
                 <div
