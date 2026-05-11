@@ -23,11 +23,10 @@ body:
       label: Which brand icon set should these icons be part of?
       multiple: true
       options:
-        - Movistar
-        - Vivo
-        - O2
-        - Telefónica
-        - Blau
+        - Default set (Telefónica, Movistar, eSIM)
+        - Vivo set
+        - O2 set
+        - Blau set
     validations:
       required: true
   - type: textarea
