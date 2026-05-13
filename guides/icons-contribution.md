@@ -66,6 +66,24 @@ Mística Icons aggregates the icons from all brand libraries. The magic of multi
 4. Request the approval adding at least 2 members of the design ops team as reviewers of that branch.
 5. Merge the branch when approved.
 
+## 5. Run the Figma export action in mistica-icons
+
+Once the icon lives in Figma and the keywords JSON is up to date, the SVGs need to be pulled into the `mistica-icons` repository.
+
+1. Go to the [Actions tab in mistica-icons](https://github.com/Telefonica/mistica-icons/actions).
+2. Select the **🚀 Release (Figma)** workflow (`figma-export.yml`).
+3. Click **Run workflow** and configure the inputs:
+   - `brand`: the brand whose icons you want to export (`all`, `telefonica`, `o2`, `o2-new`, `blau`, `vivo`). Use `all` for full syncs.
+   - `draft`: keep it as `true` unless the PR is ready to be reviewed immediately.
+   - `branch`: leave the default (`import-figma-icons`) unless you need a specific branch name.
+4. Run the workflow.
+
+The action will:
+
+- Export the SVGs from the configured Figma files for the selected brand(s).
+- Commit any change to the target branch.
+- Open (or update) a Pull Request against `production` titled "Update _brand_ icons" and including a link to review the updated `ICON_TABLE.md`.
+
 ## 5. Sync icon keywords in Figma
 
 Each icon component in Figma carries a description with its keywords and a link to the documentation. These descriptions are kept in sync with the `icons-keywords.json` file in `mistica-icons` through the **Sync Icon Descriptions** Figma plugin.
@@ -109,24 +127,6 @@ The plugin source is in the `mistica-icons` repository:
 
 > [!TIP]
 > If you need to debug the plugin, open the Figma console with `Cmd + Option + I` (macOS) or `Ctrl + Shift + I` (Windows). Logs include processed components and any errors.
-
-## 6. Run the Figma export action in mistica-icons
-
-Once the icon lives in Figma and the keywords JSON is up to date, the SVGs need to be pulled into the `mistica-icons` repository.
-
-1. Go to the [Actions tab in mistica-icons](https://github.com/Telefonica/mistica-icons/actions).
-2. Select the **🚀 Release (Figma)** workflow (`figma-export.yml`).
-3. Click **Run workflow** and configure the inputs:
-   - `brand`: the brand whose icons you want to export (`all`, `telefonica`, `o2`, `o2-new`, `blau`, `vivo`). Use `all` for full syncs.
-   - `draft`: keep it as `true` unless the PR is ready to be reviewed immediately.
-   - `branch`: leave the default (`import-figma-icons`) unless you need a specific branch name.
-4. Run the workflow.
-
-The action will:
-
-- Export the SVGs from the configured Figma files for the selected brand(s).
-- Commit any change to the target branch.
-- Open (or update) a Pull Request against `production` titled "Update _brand_ icons" and including a link to review the updated `ICON_TABLE.md`.
 
 ## 7. Review and merge the auto-generated PR
 
