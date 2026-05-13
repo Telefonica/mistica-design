@@ -84,7 +84,7 @@ The action will:
 - Commit any change to the target branch.
 - Open (or update) a Pull Request against `production` titled "Update _brand_ icons" and including a link to review the updated `ICON_TABLE.md`.
 
-## 5. Sync icon keywords in Figma
+## 6. Sync icon keywords in Figma
 
 Each icon component in Figma carries a description with its keywords and a link to the documentation. These descriptions are kept in sync with the `icons-keywords.json` file in `mistica-icons` through the **Sync Icon Descriptions** Figma plugin.
 
@@ -95,7 +95,7 @@ The plugin source is in the `mistica-icons` repository:
 - Path: `mistica-icons/.github/figma-plugins/sync-icons-keywords`
 - Plugin reference: [Sync Icon Descriptions README](https://github.com/Telefonica/mistica-icons/tree/production/.github/figma-plugins/sync-icons-keywords)
 
-### 5.1 Update the keywords source (optional)
+### 6.1 Update the keywords source (optional)
 
 > [!NOTE]
 > This sub-step is optional. Skip it if you prefer the AI to generate the keywords during the export workflow.
@@ -111,7 +111,7 @@ The plugin source is in the `mistica-icons` repository:
 
 2. Open a PR with this change and merge it once approved. The JSON in the `production` branch is the source of truth that the Figma plugin reads.
 
-### 5.2 Install the plugin in Figma (first time only)
+### 6.2 Install the plugin in Figma (first time only)
 
 1. Clone or download the `mistica-icons` repository.
 2. In Figma, go to `Plugins > Development > New Plugin`.
