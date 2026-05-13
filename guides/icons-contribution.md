@@ -117,7 +117,7 @@ The plugin source is in the `mistica-icons` repository:
 2. In Figma, go to `Plugins > Development > New Plugin`.
 3. Choose the `Manifest` option and select `mistica-icons/.github/figma-plugins/sync-icons-keywords/manifest.json`.
 
-### 5.3 Run the plugin
+### 6.3 Run the plugin
 
 1. Open the Mística Icons Figma file and navigate to the page that contains the icon components.
 2. Run the plugin from `Plugins > Development > Sync Icon Descriptions`.
