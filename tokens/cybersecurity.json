@@ -175,19 +175,19 @@
       "description": "grey100"
     },
     "borderLow": {
-      "value": "{palette.brand10}",
-      "type": "color",
-      "description": "brand10"
-    },
-    "border": {
       "value": "{palette.grey100}",
       "type": "color",
       "description": "grey100"
     },
-    "borderHigh": {
-      "value": "{palette.grey400}",
+    "border": {
+      "value": "{palette.grey300}",
       "type": "color",
-      "description": "grey400"
+      "description": "grey300"
+    },
+    "borderHigh": {
+      "value": "{palette.grey500}",
+      "type": "color",
+      "description": "grey500"
     },
     "borderSelected": {
       "value": "{palette.brand}",
@@ -539,9 +539,9 @@
       "description": "brand70"
     },
     "textButtonSecondary": {
-      "value": "{palette.brand}",
+      "value": "{palette.black}",
       "type": "color",
-      "description": "brand"
+      "description": "black"
     },
     "textButtonSecondaryInverse": {
       "value": "{palette.white}",
@@ -1710,9 +1710,9 @@
       "description": "darkModeBlack"
     },
     "border": {
-      "value": "{palette.darkModeGrey}",
+      "value": "{palette.grey800}",
       "type": "color",
-      "description": "darkModeGrey"
+      "description": "grey800"
     },
     "borderHigh": {
       "value": "{palette.grey400}",
@@ -1912,9 +1912,9 @@
       "description": "white"
     },
     "buttonSecondaryBorder": {
-      "value": "{palette.white}",
+      "value": "{palette.darkModeBrand}",
       "type": "color",
-      "description": "white"
+      "description": "darkModeBrand"
     },
     "buttonSecondaryBorderInverse": {
       "value": "{palette.white}",
@@ -2456,14 +2456,14 @@
       "description": "grey400"
     },
     "neutralLow": {
-      "value": "{palette.brandDark}",
+      "value": "{palette.grey700}",
       "type": "color",
-      "description": "brandDark"
+      "description": "grey700"
     },
     "neutralLowAlternative": {
-      "value": "{palette.brandDark}",
+      "value": "{palette.grey700}",
       "type": "color",
-      "description": "brandDark"
+      "description": "grey700"
     },
     "textPrimary": {
       "value": "{palette.brand10}",
@@ -3824,7 +3824,7 @@
         "type": "color"
       },
       "orange60": {
-        "value": "#E0844E",
+        "value": "#DA773E",
         "type": "color"
       },
       "orange90": {
@@ -3835,8 +3835,20 @@
         "value": "#43A062",
         "type": "color"
       },
+      "green10": {
+        "value": "#CCF6DA",
+        "type": "color"
+      },
+      "green20": {
+        "value": "#BCEFCD",
+        "type": "color"
+      },
       "green30": {
         "value": "#54B675",
+        "type": "color"
+      },
+      "green70": {
+        "value": "#367049",
         "type": "color"
       },
       "green90": {
@@ -3872,7 +3884,7 @@
         "type": "color"
       },
       "yellow70": {
-        "value": "#69581F",
+        "value": "#B3902F",
         "type": "color"
       },
       "yellow80": {
@@ -3880,7 +3892,7 @@
         "type": "color"
       },
       "red": {
-        "value": "#FC6A6D",
+        "value": "#F4686B",
         "type": "color"
       },
       "red10": {
@@ -3932,7 +3944,7 @@
         "type": "color"
       },
       "purple70": {
-        "value": "#7F258E",
+        "value": "#9E2EB1",
         "type": "color"
       },
       "purple80": {
@@ -3988,7 +4000,7 @@
         "type": "color"
       },
       "grey500": {
-        "value": "#58617A",
+        "value": "#5A637C",
         "type": "color"
       },
       "grey600": {
@@ -4000,7 +4012,7 @@
         "type": "color"
       },
       "grey800": {
-        "value": "#23303D",
+        "value": "#393F46",
         "type": "color"
       },
       "grey900": {

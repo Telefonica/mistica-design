@@ -8,41 +8,20 @@ import {
 import formatBrandName from "./utils/format-brand-name.mjs";
 
 export const FONT_FAMILIES = {
-  [BRANDS.MOVISTAR]: "On Air",
-  [BRANDS.MOVISTAR_NEW]: "Movistar Sans",
-  [BRANDS.VIVO_NEW]: "Vivo Type",
-  [BRANDS.O2_NEW]: "On Air",
-  [BRANDS.TELEFONICA]: "Telefonica Sans",
-  [BRANDS.BLAU]: "SF Pro Text",
-  [BRANDS.TU]: "Telefonica Sans",
-  [BRANDS.ESIMFLAG]: "On Air",
+  [BRANDS.AI_NATIVE_SOC]: "Telefonica Sans",
 };
 
 export const ICON_SETS = {
-  [BRANDS.MOVISTAR]: "Movistar",
-  [BRANDS.MOVISTAR_NEW]: "Default",
-  [BRANDS.VIVO_NEW]: "Vivo",
-  [BRANDS.O2_NEW]: "O2",
-  [BRANDS.TELEFONICA]: "Default",
-  [BRANDS.BLAU]: "Blau",
-  [BRANDS.TU]: "Default",
-  [BRANDS.ESIMFLAG]: "Default",
+  [BRANDS.AI_NATIVE_SOC]: "Default",
 };
 
 export const BRAND_NAMES = {
-  [BRANDS.MOVISTAR]: "Movistar",
-  [BRANDS.MOVISTAR_NEW]: "Movistar New",
-  [BRANDS.VIVO_NEW]: "Vivo",
-  [BRANDS.O2_NEW]: "O2",
-  [BRANDS.TELEFONICA]: "Telefónica",
-  [BRANDS.BLAU]: "Blau",
-  [BRANDS.TU]: "TU",
-  [BRANDS.ESIMFLAG]: "eSimFLAG",
+  [BRANDS.AI_NATIVE_SOC]: "AI Native SOC",
 };
 
 export const getPaletteVariables = (
   jsonData,
-  brand
+  brand,
 ) => [
   {
     variables: jsonData[brand]?.palette || [],
@@ -55,7 +34,7 @@ export const getPaletteVariables = (
 
 export const getConstantVariables = (
   jsonData,
-  brand
+  brand,
 ) => [
   {
     variables: jsonData[brand]?.light || [],
@@ -75,7 +54,7 @@ export const getConstantVariables = (
 
 export const getNonColorVariables = (
   jsonData,
-  brand
+  brand,
 ) => [
   {
     variables: jsonData[brand]?.radius || [],
