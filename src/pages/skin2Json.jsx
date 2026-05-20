@@ -21,6 +21,7 @@ import {
 } from "@telefonica/mistica";
 import { useNavigate } from "react-router-dom";
 import { generateSkin } from "../helpers/jsonToSkin";
+import { skinExample, jsonExample } from "../helpers/skin2JsonExamples";
 import AppLayout from "../components/app-layout";
 import SubHeader from "../components/sub-header";
 
@@ -30,6 +31,13 @@ const Skin2Json = () => {
   const [rawJsCode, setRawJsCode] = useState("");
   const [input, setInput] = useState("skin");
   const [copied, setCopied] = useState(false);
+
+  const codeStyles = {
+    fontFamily:
+      "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace",
+    fontSize: 14,
+    lineHeight: "1.5rem",
+  };
 
   const rightStyles = {
     width: "100%",
@@ -41,7 +49,21 @@ const Skin2Json = () => {
     padding: 48,
     resize: "none",
     margin: 0,
+    outline: "none",
   };
+
+  const output = (() => {
+    try {
+      if (input === "skin") {
+        if (!rawCode) return "";
+        const json = transformToJSON(rawCode);
+        return json ? JSON.stringify(json, null, 2) : "";
+      }
+      return rawJsCode !== "" ? generateSkin("skin", rawJsCode) : "";
+    } catch (err) {
+      return `// Conversion error: ${err.message}`;
+    }
+  })();
 
   const leftStyles = {
     width: "100%",
@@ -52,6 +74,7 @@ const Skin2Json = () => {
     padding: 48,
     resize: "none",
     margin: 0,
+    outlineOffset: -1,
   };
 
   return (
@@ -120,34 +143,28 @@ const Skin2Json = () => {
                 <Inline space={0} fullWidth>
                   {input === "skin" ? (
                     <textarea
-                      style={leftStyles}
+                      style={{ ...leftStyles, ...codeStyles }}
                       value={rawCode}
                       onChange={(e) => {
                         setRawCode(e.target.value);
                       }}
+                      placeholder={skinExample}
                     ></textarea>
                   ) : (
                     <textarea
-                      style={leftStyles}
+                      style={{ ...leftStyles, ...codeStyles }}
                       value={rawJsCode}
                       onChange={(e) => {
                         setRawJsCode(e.target.value);
                       }}
+                      placeholder={jsonExample}
                     ></textarea>
                   )}
 
                   <textarea
                     readOnly
-                    style={rightStyles}
-                    value={
-                      input === "skin"
-                        ? JSON.stringify(
-                            transformToJSON(rawCode) || "",
-                            null,
-                            2
-                          )
-                        : rawJsCode !== "" && generateSkin("skin", rawJsCode)
-                    }
+                    style={{ ...rightStyles, ...codeStyles }}
+                    value={output}
                   ></textarea>
                 </Inline>
                 <div
@@ -170,11 +187,7 @@ const Skin2Json = () => {
                   <ButtonPrimary
                     small
                     onPress={() => {
-                      if (input === "skin") {
-                        navigator.clipboard.writeText(rawCode);
-                      } else {
-                        navigator.clipboard.writeText(rawJsCode);
-                      }
+                      navigator.clipboard.writeText(output);
                       setCopied(true);
                     }}
                   >
