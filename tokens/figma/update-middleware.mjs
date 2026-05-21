@@ -425,11 +425,22 @@ async function updateBrandCollection(jsonData) {
       }
     }
 
+    const validBrandPrefixes = new Set(
+      brandNames.flatMap((b) => [
+        b,
+        formatBrandName(b),
+      ]),
+    );
+
     existingModeVariables.forEach((variable) => {
       if (
         variable.resolvedType ===
         VARIABLE_TYPES.COLOR
       ) {
+        const prefix = variable.name.split("/")[0];
+        if (!validBrandPrefixes.has(prefix)) {
+          return;
+        }
         const variableName = variable.name
           .split("/")
           .pop();
@@ -443,10 +454,9 @@ async function updateBrandCollection(jsonData) {
             deprecated: false,
           });
         }
-        const brand = variable.name.split("/")[0];
         const modeVariableData =
           variableToBrandMap.get(canonicalName);
-        modeVariableData.brandMap[brand] =
+        modeVariableData.brandMap[prefix] =
           variable.id;
         modeVariableData.deprecated =
           modeVariableData.deprecated ||
