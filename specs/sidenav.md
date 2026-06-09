@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   SeC2Owe7FlB3eAhDYB82mQ
   pageId:    6510:13264
-  generated: 2026-05-07T07:23:07.915Z
+  generated: 2026-06-01T07:12:37.979Z
 -->
 
 # Sidenav
@@ -12,6 +12,10 @@
 
 | Branch | Figma last modified | Generated |
 | --- | --- | --- |
+| main | 2026-06-01T07:07:36Z | 2026-06-01T07:09:57.070Z |
+| main | 2026-05-22T08:09:25Z | 2026-05-22T08:13:17.467Z |
+| main | 2026-05-22T07:48:20Z | 2026-05-22T07:53:53.815Z |
+| main | 2026-05-22T07:46:43Z | 2026-05-22T07:47:43.211Z |
 | main | 2026-05-07T07:02:04Z | 2026-05-07T07:08:31.673Z |
 
 ## Typology
@@ -22,7 +26,7 @@
 - body
 - footer
 
-![sidenav-regions](sidenav/figures/sidenav-regions.png)
+![sidenav-regions](sidenav/figures/typology-sidenav-regions.png)
 
 | Element | Space type | Value |
 | --- | --- | --- |
@@ -34,7 +38,7 @@
 - Collapse/uncollapse action (Included via collapse prop, can be custom rendered)
 - Slot
 
-![Sidenav header anatomy](sidenav/figures/header-region.png)
+![Sidenav header anatomy](sidenav/figures/typology-header-region.png)
 
 *Sidenav header anatomy*
 
@@ -58,23 +62,25 @@
 - Section title (Optional)
 - Section divider top (Optional)
 - Section divider bottom (Optional)
+- Items
 
 | Element | Space type | Value(px) |
 | --- | --- | --- |
-| Section title to items | gap | 16 |
+| Section title to items | gap | 8 |
 | Section title x paddings | padding | 16 |
+| Content to top/bottom dividers | gap | 16 |
 
 #### Sidenav item
 
 - Selected indicator: Appears only in the selected item
 - Asset (Optional)
 - Item label (Optional): when collapsed appears as a tooltip on the right of the element
-- Right slot
+- Right slot (Optional)
 - Chevron: appears only in items with children
 
-The item content area appears tinted when selected and also change color when hovered pressed
+The item content area appears tinted when selected and also change color when hovered or pressed
 
-![Sidenav item anatomy (uncollapsed left, collapsed right)](sidenav/figures/sidenav-item.png)
+![Sidenav item anatomy (uncollapsed left, collapsed right)](sidenav/figures/typology-sidenav-item.png)
 
 *Sidenav item anatomy (uncollapsed left, collapsed right)*
 
@@ -91,17 +97,42 @@ The item content area appears tinted when selected and also change color when ho
 | Right slot to chevron | gap | 8 |
 | Chevron | width/height | 16 |
 
-### Footer region (Fixed)
+### Footer region
 
 - Slot
+
+![Sidenav item anatomy (uncollapsed left, collapsed right)](sidenav/figures/typology-footer-region.png)
+
+*Sidenav item anatomy (uncollapsed left, collapsed right)*
+
+### Floating panel
+
+A floating panel that is used to show the children of an item when the sidenav is collapsed
+
+![Sidenav floating panel anatomy](sidenav/figures/typology-floating-panel.png)
+
+*Sidenav floating panel anatomy*
+
+| Element | Space type | Value(px) |
+| --- | --- | --- |
+| Item title to items | gap | 16 |
+| Container top/bottom padding | padding | 16 |
+| Container right/left padding | padding | 8 |
+| Left gap with sidenav | margin | 8 |
 
 ### Double panel
 
 A double panel can be shown if the second level of items is defined to appear in a panel
 
+| Element | Space type | Value(px) |
+| --- | --- | --- |
+| Item title to items | gap | 16 |
+| Container top/bottom padding | padding | 24 |
+| Panel right/left padding | padding | 8 |
+
 ### Mobile
 
-All sidenav is collapsed ina main navigation bar
+All sidenav is collapsed in a main navigation bar
 
 Elements are mapped in the following way
 
@@ -118,11 +149,18 @@ Footer → Bottom slot bottom
 
 When both elements are in the same ui, items should be collapsed together, the items from main navigation bar will be placed first  and the the idems coming from sidenav
 
-![Section item anatomy](sidenav/figures/section-item.png)
+![Section item anatomy](sidenav/figures/typology-section-item.png)
 
 *Section item anatomy*
 
 ## Behaviour
+
+### Boxed
+
+- Sidenav container can be defined as boxed, by default will be false
+- Boxed=true variant cannot display right divider, since the box already works as separation
+
+![boxed](sidenav/figures/behaviour-boxed.png)
 
 ### Collapse / Uncollapse
 
@@ -137,7 +175,7 @@ When both elements are in the same ui, items should be collapsed together, the i
 - Dual tier panel will open when user interacts with an element that has children (fig. 2)
 - Dual tier panel will push content when open
 
-![Dual tier=”true”, uncollapsed and collapsed](sidenav/figures/dual-tier.png)
+![Dual tier=”true”, uncollapsed and collapsed](sidenav/figures/behaviour-dual-tier.png)
 
 *Dual tier=”true”, uncollapsed and collapsed*
 
@@ -177,28 +215,351 @@ When both elements are in the same ui, items should be collapsed together, the i
 
 - By default the sidenav will have a fixed width (280)
 - Width can be overrided to any value (same as drawer)
+- Collapsed width will be 72px
 
 ### Dual tier=”false”, uncollapsed and collapsed
+
+### Right divider
+
+- Sidenav will show a right divider by default, this divider can be hidden
 
 ### Scroll behaviour
 
 - Sidenav will have its own scroll inside its container
-- Header and footer can be defined as fixed 
-- When content goes underneath a divider appears
+- Header and footer can be defined as fixed, by default header will be fixed and footer will not
+- When content goes underneath a divider appears in the intersection helping to
+
+![Scroll behaviour: the divider appears when the content goes underneath](sidenav/figures/behaviour-scroll-behaviour.png)
+
+*Scroll behaviour: the divider appears when the content goes underneath*
+
+### Layout
+
+- The sidenav component will provide the layout for main content to behave correctly in all breakpoints
+  - Layout can vary between taking the whole viewport or centered
+- Users can either dedice to use the layout provided by sidenav or to place the sidenav in a custom layout
+
+![layout](sidenav/figures/behaviour-layout.png)
+
+### Layout / Whole viewport
+
+When the sidenav provides the layout for content and both take the whole viewport will follow the following:
+
+| Breakpoint | Sidenav width (default) | Main content paddings | Main width |
+| --- | --- | --- | --- |
+| Mobile & Tablet | N/A | N/A | N/A |
+| Desktop (1024–1919px) | 240px | 32 | auto |
+| Large Desktop (≥1920px) | 280px | 64 (min) | 1512px |
+
+### Layout / Centered
+
+When the sidenav provides the layout for content and are centered, both will be included in a responsive layout container
+
+| Breakpoint | Sidenav width (default) | sidenav / content gutter | Main width |
+| --- | --- | --- | --- |
+| Mobile & Tablet | N/A | N/A | N/A |
+| Desktop (1024–1919px) | 240px | 32 | auto |
+| Large Desktop (≥1920px) | 280px | 64 (min) | auto |
+
+### Layout / Custom
+
+The sidenav may be placed in any custom layout, so it should work as a single piece in desktop
 
 ## Tokens
 
+### Default
+
 | Element | Token / Color |
 | --- | --- |
-| body background | backgroundContainer |
-| background:hover | backgroundContainerHover |
-| background:active / pressed | backgroundContainerPressed |
-| footer background | backgroundContainer |
-| border | border |
-| divider | divider |
+| body background | transparent |
+| body background (Boxed) | backgroundContainer |
+
+#### Header
+
+![default-header](sidenav/figures/tokens-default-header.png)
+
+| Element | Token / Color |
+| --- | --- |
+| header background | background |
+| header background (Boxed) | backgroundContainer |
+| overscroll divider | divider |
+
+#### Section
+
+![default-section](sidenav/figures/tokens-default-section.png)
+
+| Element | Token / Color | Font-size | Line-height | Font-weight |
+| --- | --- | --- | --- | --- |
+| Section title | textSecondaryBrand | text3 | text3 | text3 |
+| dividers | divider |  |  |  |
+
+#### Item
+
+![default-item](sidenav/figures/tokens-default-item.png)
+
+| Element | Token / Color | Font-size | Line-height | Font-weight |
+| --- | --- | --- | --- | --- |
+| Selected indicator | controlActivated |  |  |  |
+| Asset | currentColor |  |  |  |
+| Label | textPrimary | text2 | text2 | text2 |
+| background | transparent |  |  |  |
+| background:hover | backgroundContainerHover |  |  |  |
+| background:pressed | backgroundContainerPressed |  |  |  |
+| background:selected | backgroundContainerSelected |  |  |  |
+| background:selected:hover | backgroundContainerSelectedHover |  |  |  |
+| background:selected:pressed | backgroundContainerSelectedPressed |  |  |  |
+| chevron | neutralHigh |  |  |  |
+
+#### Footer
+
+| Element | Token / Color |
+| --- | --- |
+| footer background | background |
+| footer background (Boxed) | backgroundContainer |
+| overscroll divider | divider |
+
+### Brand
+
+| Element | Token / Color |
+| --- | --- |
+| body background | transparent |
+| body background (Boxed) | backgroundContainerBrand |
+
+#### Header
+
+![brand-header](sidenav/figures/tokens-brand-header.png)
+
+| Element | Token / Color |
+| --- | --- |
+| header background | backgroundBrandTop |
+| header background(Boxed) | backgroundContainerBrand |
+| overscroll divider | dividerBrand |
+
+#### Section
+
+![brand-section](sidenav/figures/tokens-brand-section.png)
+
+| Element | Token / Color | Font-size | Line-height | Font-weight |
+| --- | --- | --- | --- | --- |
+| Section title | textSecondaryBrand | text3 | text3 | text3 |
+| dividers | divider |  |  |  |
+
+#### Item
+
+![brand-item](sidenav/figures/tokens-brand-item.png)
+
+| Element | Token / Color | Font-size | Line-height | Font-weight |
+| --- | --- | --- | --- | --- |
+| Selected indicator | controlActivatedBrand |  |  |  |
+| Asset | currentColor |  |  |  |
+| Label | textPrimaryBrand | text2 | text2 | text2 |
+| background | transparent |  |  |  |
+| background:hover | backgroundContainerBrandHover |  |  |  |
+| background:pressed | backgroundContainerBrandPressed |  |  |  |
+| background:selected | backgroundContainerSelected |  |  |  |
+| background:selected:hover | backgroundContainerSelectedHover |  |  |  |
+| background:selected:pressed | backgroundContainerSelectedPressed |  |  |  |
+| chevron | neutralHighBrand |  |  |  |
+
+#### Footer
+
+| Element | Token / Color |
+| --- | --- |
+| footer background | backgroundBrandTop |
+| footer background(Boxed) | backgroundContainerBrand |
+| overscroll divider | dividerBrand |
+
+### Alternative
+
+| Element | Token / Color |
+| --- | --- |
+| body background | transparent |
+| body background (Boxed) | backgroundContainerAlternative |
+
+#### Header
+
+![alternative-header](sidenav/figures/tokens-alternative-header.png)
+
+| Element | Token / Color |
+| --- | --- |
+| header background | background |
+| header background (Boxed) | backgroundContainerAlternative |
+| overscroll divider | divider |
+
+#### Section
+
+![alternative-section](sidenav/figures/tokens-alternative-section.png)
+
+| Element | Token / Color | Font-size | Line-height | Font-weight |
+| --- | --- | --- | --- | --- |
+| Section title | textSecondaryBrand | text3 | text3 | text3 |
+| dividers | divider |  |  |  |
+
+#### Item
+
+![alternative-item](sidenav/figures/tokens-alternative-item.png)
+
+| Element | Token / Color | Font-size | Line-height | Font-weight |
+| --- | --- | --- | --- | --- |
+| Selected indicator | controlActivated |  |  |  |
+| Asset | currentColor |  |  |  |
+| Label | textPrimary | text2 | text2 | text2 |
+| background | transparent |  |  |  |
+| background:hover | backgroundContainerHover |  |  |  |
+| background:pressed | backgroundContainerPressed |  |  |  |
+| background:selected | backgroundContainerSelected |  |  |  |
+| background:selected:hover | backgroundContainerSelectedHover |  |  |  |
+| background:selected:pressed | backgroundContainerSelectedPressed |  |  |  |
+| chevron | neutralHigh |  |  |  |
+
+#### Footer
+
+| Element | Token / Color |
+| --- | --- |
+| footer background | background |
+| footer background (Boxed) | backgroundContainerAlternative |
+| overscroll divider | divider |
+
+### Negative
+
+| Element | Token / Color |
+| --- | --- |
+| body background | transparent |
+| body background (Boxed) | backgroundContainerNegative |
+
+#### Header
+
+![negative-header](sidenav/figures/tokens-negative-header.png)
+
+| Element | Token / Color |
+| --- | --- |
+| header background | backgroundNegative |
+| header background (Boxed) | backgroundContainerNegative |
+| overscroll divider | dividerNegative |
+
+#### Section
+
+![negative-section](sidenav/figures/tokens-negative-section.png)
+
+| Element | Token / Color | Font-size | Line-height | Font-weight |
+| --- | --- | --- | --- | --- |
+| Section title | textSecondaryNegative | text3 | text3 | text3 |
+| dividers | dividerNegative |  |  |  |
+
+#### Item
+
+![negative-item](sidenav/figures/tokens-negative-item.png)
+
+| Element | Token / Color | Font-size | Line-height | Font-weight |
+| --- | --- | --- | --- | --- |
+| Selected indicator | controlActivatedNegative |  |  |  |
+| Asset | currentColor |  |  |  |
+| Label | textPrimaryNegative | text2 | text2 | text2 |
+| background | transparent |  |  |  |
+| background:hover | backgroundContainerNegativeHover |  |  |  |
+| background:pressed | backgroundContainerNegativePressed |  |  |  |
+| background:selected | backgroundContainerSelected |  |  |  |
+| background:selected:hover | backgroundContainerSelectedHover |  |  |  |
+| background:selected:pressed | backgroundContainerSelectedPressed |  |  |  |
+| chevron | neutralHighNegative |  |  |  |
+
+#### Footer
+
+| Element | Token / Color |
+| --- | --- |
+| footer background | backgroundNegative |
+| footer background (Boxed) | backgroundContainerNegative |
+| overscroll divider | dividerNegative |
+
+### Media
+
+| Element | Token / Color |
+| --- | --- |
+| body background | transparent |
+| body background (Boxed) | backgroundContainerNegative |
+
+#### Header
+
+![media-header](sidenav/figures/tokens-media-header.png)
+
+| Element | Token / Color |
+| --- | --- |
+| header background | backgroundNegative |
+| header background (Boxed) | backgroundContainerNegative |
+| overscroll divider | dividerNegative |
+
+#### Section
+
+![media-section](sidenav/figures/tokens-media-section.png)
+
+| Element | Token / Color | Font-size | Line-height | Font-weight |
+| --- | --- | --- | --- | --- |
+| Section title | textSecondaryNegative | text3 | text3 | text3 |
+| dividers | dividerNegative |  |  |  |
+
+#### Item
+
+![media-item](sidenav/figures/tokens-media-item.png)
+
+| Element | Token / Color | Font-size | Line-height | Font-weight |
+| --- | --- | --- | --- | --- |
+| Selected indicator | controlActivatedNegative |  |  |  |
+| Asset | currentColor |  |  |  |
+| Label | textPrimaryNegative | text2 | text2 | text2 |
+| background | transparent |  |  |  |
+| background:hover | backgroundContainerNegativeHover |  |  |  |
+| background:pressed | backgroundContainerNegativePressed |  |  |  |
+| background:selected | backgroundContainerSelected |  |  |  |
+| background:selected:hover | backgroundContainerSelectedHover |  |  |  |
+| background:selected:pressed | backgroundContainerSelectedPressed |  |  |  |
+| chevron | neutralHighNegative |  |  |  |
+
+#### Footer
+
+| Element | Token / Color |
+| --- | --- |
+| footer background | backgroundNegative |
+| footer background (Boxed) | backgroundContainerNegative |
+| overscroll divider | dividerNegative |
+
+### Floating panel
+
+![floating-panel](sidenav/figures/tokens-floating-panel.png)
+
+| Element | Token / Color | Font-size | Line-height | Font-weight |
+| --- | --- | --- | --- | --- |
+| container background | backgroundContainer |  |  |  |
+| title | textSecondary | text3 | text3 | text3 |
 
 ## Accessibility
 
-### Items that navigate and have children
+### General
 
-- Two focus stop should be included in this items, one to collapse/uncollapse and another to navigate
+- Navigation items should be semantically defined as a navigation
+- Navigation items that have children should give the user information about their expand and collapse behaviour
+- Items should allow to include an accessible name, this should be mandatory when sidenav is collapsed
+- When Items that navigate and have children Two focus stop should be included in this items, one to collapse/uncollapse and another to navigate
+
+### Reading order
+
+#### Header
+
+1. Icon button (collapse/uncollapse)
+1. Slot elements: should be announced in visual order
+
+#### Item
+
+1. [Concatenate the following elements]
+  1. Label
+  1. Slot elements: should be announced in visual order
+1. Icon button (Collapse/uncollapse) (if present)
+
+### Default labels
+
+![Header reading order](sidenav/figures/accessibility-header-region.png)
+
+*Header reading order*
+
+![Item reading order](sidenav/figures/accessibility-section-item.png)
+
+*Item reading order*

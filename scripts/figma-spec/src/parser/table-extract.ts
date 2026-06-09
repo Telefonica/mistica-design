@@ -2,11 +2,15 @@
  * Reconstruct a markdown table from a Figma frame's node tree, without OCR.
  *
  * Approach: collect every TEXT descendant of the table frame, cluster them
- * into rows by Y position, sort each row by X, and emit pipe-delimited
- * markdown. This bypasses OCR entirely (no rate limits, no provider cost,
- * exact text). Falls back gracefully — returns null if the frame's structure
- * doesn't look like a regular grid, in which case the caller can drop down
- * to the OCR pipeline.
+ * into rows by Y position, then assign each cell to a column based on
+ * X-position proximity to the widest row's anchors. This bypasses OCR
+ * entirely (no rate limits, no provider cost, exact text). Falls back
+ * gracefully — returns null if the frame's structure doesn't look like a
+ * regular grid, in which case the caller can drop down to the OCR pipeline.
+ *
+ * Handles "sparse" rows where some columns are empty (e.g. a header row
+ * with 5 columns but a body row only filling 2 of them) by snapping each
+ * cell to its nearest column and leaving the rest blank.
  */
 import type { AnyNode, TextNode } from "../figma/types.ts";
 
@@ -50,14 +54,26 @@ export function extractTableFromFrame(frame: AnyNode): string | null {
 
   for (const row of rows) row.sort((a, b) => xOf(a) - xOf(b));
 
-  // All rows should have the same column count for a "regular" table. Some
-  // tolerance: allow rows that differ by 1 (e.g. an empty trailing cell that
-  // wasn't drawn) by padding with empty strings.
-  const counts = rows.map((r) => r.length);
-  const maxCount = Math.max(...counts);
-  const minCount = Math.min(...counts);
-  if (maxCount < 2) return null;
-  if (maxCount - minCount > 1) return null;
+  // Pick the widest row to anchor the columns. For tables where some rows
+  // are sparse (only fill a subset of columns), the widest row reveals the
+  // full column layout.
+  let widestRow = rows[0]!;
+  for (const row of rows) {
+    if (row.length > widestRow.length) widestRow = row;
+  }
+  const nCols = widestRow.length;
+  if (nCols < 2) return null;
+  const columnAnchors = widestRow.map((c) => xOf(c));
+
+  // Reject if cells can't be confidently assigned: each cell's nearest
+  // column anchor must be closer than the gap to the next anchor. Use half
+  // the minimum inter-anchor gap as the tolerance.
+  const anchorGaps: number[] = [];
+  for (let i = 1; i < nCols; i++) {
+    anchorGaps.push(columnAnchors[i]! - columnAnchors[i - 1]!);
+  }
+  const minGap = anchorGaps.length ? Math.min(...anchorGaps) : Infinity;
+  const tolerance = minGap === Infinity ? Infinity : minGap;
 
   const escape = (s: string): string =>
     s
@@ -66,16 +82,31 @@ export function extractTableFromFrame(frame: AnyNode): string | null {
       .replace(/\r?\n/g, "<br>")
       .trim();
 
-  const padRow = (row: TextNode[]): string[] => {
-    const cells = row.map((c) => escape(c.characters ?? ""));
-    while (cells.length < maxCount) cells.push("");
-    return cells;
-  };
+  const grid: string[][] = [];
+  for (const row of rows) {
+    const cols: string[] = new Array(nCols).fill("");
+    for (const cell of row) {
+      const x = xOf(cell);
+      let best = 0;
+      let bestDist = Math.abs(x - columnAnchors[0]!);
+      for (let i = 1; i < nCols; i++) {
+        const d = Math.abs(x - columnAnchors[i]!);
+        if (d < bestDist) {
+          best = i;
+          bestDist = d;
+        }
+      }
+      if (bestDist > tolerance) return null; // cell doesn't fit any column
+      const text = escape(cell.characters ?? "");
+      cols[best] = cols[best] ? `${cols[best]} ${text}` : text;
+    }
+    grid.push(cols);
+  }
 
   const fmt = (cols: string[]) => `| ${cols.join(" | ")} |`;
-  const header = padRow(rows[0]!);
+  const header = grid[0]!;
   const sep = header.map(() => "---");
-  const body = rows.slice(1).map((r) => fmt(padRow(r)));
+  const body = grid.slice(1).map(fmt);
   return [fmt(header), fmt(sep), ...body].join("\n");
 }
 

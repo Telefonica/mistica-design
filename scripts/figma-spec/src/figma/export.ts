@@ -3,12 +3,19 @@ import { resolve } from "node:path";
 import { FigmaClient, FigmaError } from "./client.ts";
 
 export interface FigureExportRequest {
+  /** Identity key from the caller (section-scoped) — preserved on the result. */
+  key: string;
   slug: string;
+  /** Base filename (without `.png`) — caller pre-computes this so duplicates
+   *  across sections get section-prefixed names. */
+  filename: string;
   nodeId: string;
 }
 
 export interface FigureExportResult {
+  key: string;
   slug: string;
+  filename: string;
   nodeId: string;
   /** Relative to outputDir, suitable for use as a Markdown image src. */
   relativePath: string;
@@ -67,26 +74,33 @@ export async function exportFigures(
       );
       continue;
     }
-    const filename = `${fig.slug}.png`;
-    const destPath = resolve(figuresDirAbs, filename);
+    const pngName = `${fig.filename}.png`;
+    const destPath = resolve(figuresDirAbs, pngName);
     await writeFile(destPath, buf);
     results.push({
+      key: fig.key,
       slug: fig.slug,
+      filename: fig.filename,
       nodeId: fig.nodeId,
       destPath,
-      relativePath: `${componentSlug}/figures/${filename}`,
+      relativePath: `${componentSlug}/figures/${pngName}`,
     });
   }
   return results;
 }
 
 export interface TableExportRequest {
+  key: string;
   slug: string;
+  /** Base filename for the cached PNG (without `.png`). */
+  filename: string;
   nodeId: string;
 }
 
 export interface TableExportResult {
+  key: string;
   slug: string;
+  filename: string;
   nodeId: string;
   /** Absolute path to the cached PNG, used as input for OCR. */
   destPath: string;
@@ -141,9 +155,15 @@ export async function exportTables(
       );
       continue;
     }
-    const destPath = resolve(cacheDirAbs, `${t.slug}.png`);
+    const destPath = resolve(cacheDirAbs, `${t.filename}.png`);
     await writeFile(destPath, buf);
-    results.push({ slug: t.slug, nodeId: t.nodeId, destPath });
+    results.push({
+      key: t.key,
+      slug: t.slug,
+      filename: t.filename,
+      nodeId: t.nodeId,
+      destPath,
+    });
   }
   return results;
 }

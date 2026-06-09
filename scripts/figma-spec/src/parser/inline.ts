@@ -15,24 +15,26 @@ export function emitFigure(ref: FigureRef): string {
 
 export function replaceInlineFigures(
   body: string,
-  figuresBySlug: Map<string, FigureRef>,
+  figuresByKey: Map<string, FigureRef>,
+  sectionSlug: string,
   consumed: Set<string>,
   warnings: string[],
 ): string {
   return body.replace(INLINE_FIG_RE, (match, slug: string) => {
-    const fig = figuresBySlug.get(slug);
+    const key = `${sectionSlug}::${slug}`;
+    const fig = figuresByKey.get(key);
     if (!fig) {
       warnings.push(
-        `Inline marker (fig. ${slug}) has no matching fig::${slug} frame.`,
+        `Inline marker (fig. ${slug}) has no matching fig::${slug} frame in section "${sectionSlug}".`,
       );
       return match;
     }
-    if (consumed.has(slug)) {
+    if (consumed.has(key)) {
       warnings.push(
         `Inline marker (fig. ${slug}) appears more than once; figure will be embedded twice.`,
       );
     }
-    consumed.add(slug);
+    consumed.add(key);
     return `\n\n${emitFigure(fig)}\n\n`;
   });
 }

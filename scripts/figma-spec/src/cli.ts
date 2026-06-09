@@ -94,6 +94,24 @@ async function runGenerate(
 
   const warnings: string[] = [];
 
+  // Compose the identity key for a figure or table: `${sectionSlug}::${slug}`.
+  // Section-scoped so duplicate slugs across artboards don't clash.
+  const keyOf = (sectionSlug: string, slug: string) =>
+    `${sectionSlug}::${slug}`;
+
+  // Pick a base filename per identity key. Always prefix with the section
+  // slug (`${sectionSlug}-${slug}`) so filenames are self-describing and
+  // their layout on disk mirrors the spec's section structure.
+  function buildFilenames<T extends { slug: string; sectionSlug: string }>(
+    frames: T[],
+  ): Map<string, string> {
+    const filenames = new Map<string, string>();
+    for (const f of frames) {
+      filenames.set(keyOf(f.sectionSlug, f.slug), `${f.sectionSlug}-${f.slug}`);
+    }
+    return filenames;
+  }
+
   // ── Figures ────────────────────────────────────────────────────────────
   const figureFrames = getAllFigureFrames(page, warnings);
   process.stderr.write(
@@ -103,19 +121,29 @@ async function runGenerate(
         : "") +
       "\n",
   );
+  const figureFilenames = buildFilenames(figureFrames);
   const figureExports = await exportFigures({
     client,
     fileKey: source.fileKey,
     componentSlug: slug,
     outputDirAbs: config.outputDirAbs,
-    figures: figureFrames.map((f) => ({ slug: f.slug, nodeId: f.nodeId })),
+    figures: figureFrames.map((f) => {
+      const key = keyOf(f.sectionSlug, f.slug);
+      return {
+        key,
+        slug: f.slug,
+        filename: figureFilenames.get(key)!,
+        nodeId: f.nodeId,
+      };
+    }),
     warnings,
   });
-  const figuresBySlug = new Map<string, FigureRef>();
+  const figuresByKey = new Map<string, FigureRef>();
   for (const fig of figureFrames) {
-    const exp = figureExports.find((e) => e.slug === fig.slug);
+    const key = keyOf(fig.sectionSlug, fig.slug);
+    const exp = figureExports.find((e) => e.key === key);
     if (!exp) continue;
-    figuresBySlug.set(fig.slug, {
+    figuresByKey.set(key, {
       slug: fig.slug,
       caption: fig.caption,
       relativePath: exp.relativePath,
@@ -131,13 +159,15 @@ async function runGenerate(
         : "") +
       "\n",
   );
-  const tablesBySlug = new Map<string, string>();
+  const tableFilenames = buildFilenames(tableFrames);
+  const tablesByKey = new Map<string, string>();
   const needsOcr: typeof tableFrames = [];
   for (const t of tableFrames) {
+    const key = keyOf(t.sectionSlug, t.slug);
     const structured = extractTableFromFrame(t.node);
     if (structured) {
       process.stderr.write(`  table::${t.slug} … ok (structural)\n`);
-      tablesBySlug.set(t.slug, structured);
+      tablesByKey.set(key, structured);
     } else {
       needsOcr.push(t);
     }
@@ -148,7 +178,15 @@ async function runGenerate(
       client,
       fileKey: source.fileKey,
       cacheDirAbs: CACHE_DIR_ABS,
-      tables: needsOcr.map((t) => ({ slug: t.slug, nodeId: t.nodeId })),
+      tables: needsOcr.map((t) => {
+        const key = keyOf(t.sectionSlug, t.slug);
+        return {
+          key,
+          slug: t.slug,
+          filename: tableFilenames.get(key)!,
+          nodeId: t.nodeId,
+        };
+      }),
       warnings,
     });
     const ocr = new OcrOrchestrator({ geminiApiKey: process.env.GEMINI_API_KEY });
@@ -165,7 +203,7 @@ async function runGenerate(
           `OCR failed for table::${exp.slug} — left an HTML-comment placeholder.`,
         );
       }
-      tablesBySlug.set(exp.slug, result.rendered);
+      tablesByKey.set(exp.key, result.rendered);
     }
   }
 
@@ -184,8 +222,8 @@ async function runGenerate(
     pageId,
     page,
     generatedAt,
-    figuresBySlug,
-    tablesBySlug,
+    figuresByKey,
+    tablesByKey,
     changelog: {
       previous: previousChangelog,
       current: {

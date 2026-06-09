@@ -27,10 +27,10 @@ export interface RenderInput {
   pageId: string;
   page: AnyNode;
   generatedAt: Date;
-  /** Map of figure slug → exported PNG metadata. */
-  figuresBySlug: Map<string, FigureRef>;
-  /** Map of table slug → pre-rendered markdown (or HTML-comment fallback). */
-  tablesBySlug: Map<string, string>;
+  /** Map of `${sectionSlug}::${figureSlug}` → exported PNG metadata. */
+  figuresByKey: Map<string, FigureRef>;
+  /** Map of `${sectionSlug}::${tableSlug}` → pre-rendered markdown. */
+  tablesByKey: Map<string, string>;
   /** Branch label + Figma lastModified for this run. */
   changelog: {
     previous: ChangelogEntry[];
@@ -65,20 +65,22 @@ export function renderMarkdown(input: RenderInput): string {
 
     const sectionFigures = getFigureFramesInSection(section, warnings);
     const sectionTables = getTableFramesInSection(section, warnings);
+    const sectionSlug = slugifyName(section.name);
+    const keyOf = (figSlug: string) => `${sectionSlug}::${figSlug}`;
 
-    const emitFigureBySlug = (slug: string): boolean => {
-      if (consumed.has(slug)) return false;
-      const ref = input.figuresBySlug.get(slug);
+    const emitFigureBySlug = (figSlug: string): boolean => {
+      const key = keyOf(figSlug);
+      if (consumed.has(key)) return false;
+      const ref = input.figuresByKey.get(key);
       if (!ref) return false;
-      consumed.add(slug);
+      consumed.add(key);
       parts.push(emitFigure(ref));
       return true;
     };
 
     // Place a figure whose slug matches the H2 section name right under the heading.
-    const sectionHeadingSlug = slugifyName(section.name);
     for (const fig of sectionFigures) {
-      if (fig.slug === sectionHeadingSlug) emitFigureBySlug(fig.slug);
+      if (fig.slug === sectionSlug) emitFigureBySlug(fig.slug);
     }
 
     const items: SectionItem[] = [];
@@ -86,7 +88,8 @@ export function renderMarkdown(input: RenderInput): string {
       const block = toH3Block(node);
       block.body = replaceInlineFigures(
         block.body,
-        input.figuresBySlug,
+        input.figuresByKey,
+        sectionSlug,
         consumed,
         warnings,
       );
@@ -102,11 +105,17 @@ export function renderMarkdown(input: RenderInput): string {
     for (const item of items) {
       if (item.kind === "h3") {
         parts.push(emitH3(item.block));
-        // If a figure's slug matches this H3's title, place it right after.
-        const h3Slug = slugifyName(item.block.title);
-        if (figureSlugsInSection.has(h3Slug)) emitFigureBySlug(h3Slug);
+        // Try the full-path slug first (e.g. `Default/Header` → `default-header`),
+        // then fall back to the title-only slug (`header`) for backward compat.
+        const pathSlug = slugifyName(item.block.pathSegments.join("/"));
+        const titleSlug = slugifyName(item.block.title);
+        if (pathSlug && figureSlugsInSection.has(pathSlug)) {
+          emitFigureBySlug(pathSlug);
+        } else if (titleSlug && figureSlugsInSection.has(titleSlug)) {
+          emitFigureBySlug(titleSlug);
+        }
       } else {
-        const rendered = input.tablesBySlug.get(item.frame.slug);
+        const rendered = input.tablesByKey.get(keyOf(item.frame.slug));
         if (rendered) {
           parts.push(rendered);
         } else {

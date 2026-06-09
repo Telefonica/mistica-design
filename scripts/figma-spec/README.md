@@ -171,7 +171,8 @@ Within an H2 section, the walker treats every direct text-node child whose left
 edge sits at `x < 900` (canvas coordinates) as an H3 block. The first line of
 the text becomes the H3 title; the remainder becomes the body.
 
-Sections are emitted in canvas top-to-bottom order (`y` ascending).
+Sections are emitted in canvas left-to-right order (`x` ascending), with `y`
+as a tiebreaker so frames stacked in the same column read top-to-bottom.
 
 ## Repository layout produced
 

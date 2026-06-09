@@ -1,4 +1,5 @@
 import type { AnyNode } from "../figma/types.ts";
+import { slugifyName } from "../figma/url.ts";
 import { getSpecSections } from "./walk.ts";
 
 export const TABLE_PREFIX = "table::";
@@ -6,6 +7,9 @@ const VALID_SLUG_RE = /^[\w-]+$/;
 
 export interface TableFrame {
   slug: string;
+  /** Slug of the H2 section this table belongs to. Used to disambiguate
+   *  duplicate slugs across different sections (artboards). */
+  sectionSlug: string;
   nodeId: string;
   y: number;
   node: AnyNode;
@@ -26,6 +30,7 @@ export function getTableFramesInSection(
   warnings: string[] = [],
 ): TableFrame[] {
   const children = section.children ?? [];
+  const sectionSlug = slugifyName(section.name);
   const tables: TableFrame[] = [];
   for (const child of children) {
     if (!isTableFrame(child)) continue;
@@ -38,6 +43,7 @@ export function getTableFramesInSection(
     }
     tables.push({
       slug,
+      sectionSlug,
       nodeId: child.id,
       y: child.absoluteBoundingBox?.y ?? 0,
       node: child,
@@ -52,16 +58,18 @@ export function getAllTableFrames(
 ): TableFrame[] {
   const sections = getSpecSections(page);
   const all: TableFrame[] = [];
-  const seen = new Set<string>();
   for (const section of sections) {
+    // Dedup per-section only: the same slug can appear in different sections
+    // and each is a distinct table.
+    const seenInSection = new Set<string>();
     for (const t of getTableFramesInSection(section, warnings)) {
-      if (seen.has(t.slug)) {
+      if (seenInSection.has(t.slug)) {
         warnings.push(
-          `Duplicate table slug "${t.slug}" — only the first occurrence will be exported.`,
+          `Duplicate table slug "${t.slug}" within section "${section.name}" — only the first occurrence will be exported.`,
         );
         continue;
       }
-      seen.add(t.slug);
+      seenInSection.add(t.slug);
       all.push(t);
     }
   }

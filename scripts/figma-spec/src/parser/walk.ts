@@ -12,13 +12,20 @@ export function getSpecSections(page: AnyNode): AnyNode[] {
   return children
     .filter(isSpecSection)
     .slice()
-    .sort(byCanvasY);
+    .sort(byCanvasXThenY);
 }
 
 export function byCanvasY(a: AnyNode, b: AnyNode): number {
   const ay = a.absoluteBoundingBox?.y ?? 0;
   const by = b.absoluteBoundingBox?.y ?? 0;
   return ay - by;
+}
+
+export function byCanvasXThenY(a: AnyNode, b: AnyNode): number {
+  const ax = a.absoluteBoundingBox?.x ?? 0;
+  const bx = b.absoluteBoundingBox?.x ?? 0;
+  if (ax !== bx) return ax - bx;
+  return byCanvasY(a, b);
 }
 
 export function isTextNode(node: AnyNode): node is TextNode {
