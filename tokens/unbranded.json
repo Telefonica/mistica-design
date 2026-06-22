@@ -1678,6 +1678,21 @@
       "type": "color",
       "description": "neutral100"
     },
+    "buttonLinkDangerBackgroundInversePressed": {
+      "value": "rgba({palette.neutral100}, 0.08)",
+      "type": "color",
+      "description": "neutral100"
+    },
+    "buttonLinkDangerBackgroundNegativePressed": {
+      "value": "rgba({palette.neutral100}, 0.08)",
+      "type": "color",
+      "description": "neutral100"
+    },
+    "buttonLinkDangerBackgroundBrandPressed": {
+      "value": "rgba({palette.neutral100}, 0.08)",
+      "type": "color",
+      "description": "neutral100"
+    },
     "buttonLinkDangerBackgroundMediaPressed": {
       "value": "{palette.red100}",
       "type": "color",
@@ -1848,6 +1863,11 @@
       "type": "color",
       "description": "neutral100"
     },
+    "buttonSecondaryBackgroundNegativeHover": {
+      "value": "rgba({palette.neutral100}, 0.15)",
+      "type": "color",
+      "description": "neutral100"
+    },
     "buttonSecondaryBackgroundBrandHover": {
       "value": "rgba({palette.neutral100}, 0.15)",
       "type": "color",
@@ -1859,6 +1879,16 @@
       "description": "neutral100"
     },
     "buttonSecondaryBackgroundPressed": {
+      "value": "rgba({palette.neutral100}, 0.15)",
+      "type": "color",
+      "description": "neutral100"
+    },
+    "buttonSecondaryBackgroundInversePressed": {
+      "value": "rgba({palette.neutral100}, 0.15)",
+      "type": "color",
+      "description": "neutral100"
+    },
+    "buttonSecondaryBackgroundNegativePressed": {
       "value": "rgba({palette.neutral100}, 0.15)",
       "type": "color",
       "description": "neutral100"
@@ -2836,7 +2866,8 @@
             "stop": 1
           }
         ]
-      }
+      },
+      "description": "black"
     },
     "cardFooterOverlay": {
       "value": "rgba({palette.black}, 0.7)",
