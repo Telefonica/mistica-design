@@ -11,8 +11,8 @@ The icon flow involves three repositories and two Figma libraries, so it is impo
 - [2. Add the icon to the brand library in Figma](#2-add-the-icon-to-the-brand-library-in-figma)
 - [3. Publish the brand library](#3-publish-the-brand-library)
 - [4. Add the icon to the Mística Icons library in Figma](#4-add-the-icon-to-the-mística-icons-library-in-figma)
-- [5. Sync icon keywords in Figma](#5-sync-icon-keywords-in-figma)
-- [6. Run the Figma export action in mistica-icons](#6-run-the-figma-export-action-in-mistica-icons)
+- [5. Run the Figma export action in mistica-icons](#5-run-the-figma-export-action-in-mistica-icons)
+- [6. Sync icon keywords in Figma](#6-sync-icon-keywords-in-figma)
 - [7. Review and merge the auto-generated PR](#7-review-and-merge-the-auto-generated-pr)
 - [8. Import the icons in mistica-web](#8-import-the-icons-in-mistica-web)
 
