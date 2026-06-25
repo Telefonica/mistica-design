@@ -41,4 +41,5 @@ export const BRANDS = {
   BLAU: "blau",
   TU: "tu",
   ESIMFLAG: "esimflag",
+  UNBRANDED: "unbranded",
 };
