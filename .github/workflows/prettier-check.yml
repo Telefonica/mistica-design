@@ -1,0 +1,29 @@
+name: Prettier Format Check
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "tokens/**/*.json"
+      - ".github/workflows/prettier-check.yml"
+    branches:
+      - production
+
+permissions:
+  contents: read
+
+jobs:
+  prettier-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check formatting with Prettier
+        run: npx --yes prettier@latest --check "tokens/**/*.json"
