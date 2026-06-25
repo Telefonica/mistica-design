@@ -17,6 +17,7 @@ export const FONT_FAMILIES = {
   [BRANDS.TU]: "Telefonica Sans",
   [BRANDS.ESIMFLAG]: "On Air",
   [BRANDS.UNBRANDED]: "Telefonica Sans",
+  [BRANDS.CYBER]: "Telefonica Sans",
 };
 
 export const ICON_SETS = {
@@ -29,6 +30,7 @@ export const ICON_SETS = {
   [BRANDS.TU]: "Default",
   [BRANDS.ESIMFLAG]: "Default",
   [BRANDS.UNBRANDED]: "Default",
+  [BRANDS.CYBER]: "Default",
 };
 
 export const BRAND_NAMES = {
@@ -41,6 +43,7 @@ export const BRAND_NAMES = {
   [BRANDS.TU]: "TU",
   [BRANDS.ESIMFLAG]: "eSimFLAG",
   [BRANDS.UNBRANDED]: "Unbranded",
+  [BRANDS.CYBER]: "Cyber",
 };
 
 export const getPaletteVariables = (

@@ -42,4 +42,10 @@ export const BRANDS = {
   TU: "tu",
   ESIMFLAG: "esimflag",
   UNBRANDED: "unbranded",
+  CYBER: "cyber",
 };
+
+// Subset of BRANDS whose token file lives in tokens/community/.
+// These are surfaced in Figma with a " (Community)" suffix on
+// their Brand-collection mode name (see format-brand-name.mjs).
+export const COMMUNITY_BRANDS = [BRANDS.CYBER];
