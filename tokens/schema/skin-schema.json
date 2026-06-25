@@ -348,7 +348,19 @@
         "tagBackgroundInfoNegative",
         "tagBackgroundSuccessNegative",
         "tagBackgroundWarningNegative",
-        "tagBackgroundErrorNegative"
+        "tagBackgroundErrorNegative",
+        "buttonLinkNeutralBackgroundPressed",
+        "buttonLinkNeutralBackgroundBrand",
+        "buttonLinkNeutralBackgroundBrandPressed",
+        "buttonLinkNeutralBackgroundNegative",
+        "buttonLinkNeutralBackgroundNegativePressed",
+        "buttonLinkNeutralBackgroundMedia",
+        "buttonLinkNeutralBackgroundMediaPressed",
+        "textLinkNeutral",
+        "textLinkNeutralBrand",
+        "textLinkNeutralNegative",
+        "textLinkNeutralAlternative",
+        "textLinkNeutralMedia"
       ],
       "properties": {
         "appBarBackground": { "$ref": "#/definitions/constantProperties" },
@@ -432,6 +444,13 @@
         "buttonSecondaryBackgroundInversePressed": { "$ref": "#/definitions/constantProperties" },
         "buttonSecondaryBackgroundNegativePressed": { "$ref": "#/definitions/constantProperties" },
         "buttonSecondaryBackgroundMediaPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundBrand": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundBrandPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundNegative": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundNegativePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundMedia": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundMediaPressed": { "$ref": "#/definitions/constantProperties" },
         "completedStep": { "$ref": "#/definitions/constantProperties" },
         "completedStepInverse": { "$ref": "#/definitions/constantProperties" },
         "completedStepNegative": { "$ref": "#/definitions/constantProperties" },
@@ -509,6 +528,11 @@
         "textLinkDanger": { "$ref": "#/definitions/constantProperties" },
         "textLinkDangerMedia": { "$ref": "#/definitions/constantProperties" },
         "textLinkSnackbar": { "$ref": "#/definitions/constantProperties" },
+        "textLinkNeutral": { "$ref": "#/definitions/constantProperties" },
+        "textLinkNeutralBrand": { "$ref": "#/definitions/constantProperties" },
+        "textLinkNeutralNegative": { "$ref": "#/definitions/constantProperties" },
+        "textLinkNeutralAlternative": { "$ref": "#/definitions/constantProperties" },
+        "textLinkNeutralMedia": { "$ref": "#/definitions/constantProperties" },
         "textNavigationBarPrimary": { "$ref": "#/definitions/constantProperties" },
         "textNavigationBarSecondary": { "$ref": "#/definitions/constantProperties" },
         "textNavigationSearchBarHint": { "$ref": "#/definitions/constantProperties" },
@@ -914,6 +938,10 @@
             {
               "comment": "EsimFLAG",
               "pattern": "(.*?rgba.*?)+([({])+(palette.(blue|blue10|blue15|blue20|blue30|blue55|blue65|blue80|blue85|grass|grass10|grass70|grass75|peach|peach10|peach75|purple|purple30|purple10|purple55|blush|blush20|teal|teal10|teal75|chili|tomato|tomato10|tomato55|tomato60|tomato65|grey1|grey2|grey3|grey4|grey5|grey6|black|white|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeBlue)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(blue|blue10|blue15|blue20|blue30|blue55|blue65|blue80|blue85|grass|grass10|grass70|grass75|peach|peach10|peach75|purple|purple30|purple10|purple55|blush|blush20|teal|teal10|teal75|chili|tomato|tomato10|tomato55|tomato60|tomato65|grey1|grey2|grey3|grey4|grey5|grey6|black|white|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeBlue)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
+            },
+            {
+              "comment": "Unbranded",
+              "pattern": "(.*?rgba.*?)+([({])+(palette.(black|white|neutral50|neutral100|neutral200|neutral500|neutral600|neutral700|neutral800|neutral850|neutral900|slate500|green100|green300|green600|green800|orange100|orange400|orange600|orange800|red100|red400|red600|red800)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(black|white|neutral50|neutral100|neutral200|neutral500|neutral600|neutral700|neutral800|neutral850|neutral900|slate500|green100|green300|green600|green800|orange100|orange400|orange600|orange800|red100|red400|red600|red800)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
             }
           ],
           "properties": {
@@ -963,6 +991,10 @@
                       {
                         "comment": "EsimFLAG",
                         "pattern": "(.*?rgba.*?)+([({])+(palette.(blue|blue10|blue15|blue20|blue30|blue55|blue65|blue80|blue85|grass|grass10|grass70|grass75|peach|peach10|peach75|purple|purple30|purple10|purple55|blush|blush20|teal|teal10|teal75|chili|tomato|tomato10|tomato55|tomato60|tomato65|grey1|grey2|grey3|grey4|grey5|grey6|black|white|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeBlue)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(blue|blue10|blue15|blue20|blue30|blue55|blue65|blue80|blue85|grass|grass10|grass70|grass75|peach|peach10|peach75|purple|purple30|purple10|purple55|blush|blush20|teal|teal10|teal75|chili|tomato|tomato10|tomato55|tomato60|tomato65|grey1|grey2|grey3|grey4|grey5|grey6|black|white|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeBlue)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
+                      },
+                      {
+                        "comment": "Unbranded",
+                        "pattern": "(.*?rgba.*?)+([({])+(palette.(black|white|neutral50|neutral100|neutral200|neutral500|neutral600|neutral700|neutral800|neutral850|neutral900|slate500|green100|green300|green600|green800|orange100|orange400|orange600|orange800|red100|red400|red600|red800)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(black|white|neutral50|neutral100|neutral200|neutral500|neutral600|neutral700|neutral800|neutral850|neutral900|slate500|green100|green300|green600|green800|orange100|orange400|orange600|orange800|red100|red400|red600|red800)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
                       }
                     ]
                   },
@@ -1020,6 +1052,10 @@
             {
               "comment": "EsimFLAG",
               "pattern": "^(EsimflagGradient|blue|blue10|blue15|blue20|blue30|blue55|blue65|blue80|blue85|grass|grass10|grass70|grass75|peach|peach10|peach75|purple|purple30|purple10|purple55|blush|blush20|teal|teal10|teal75|chili|tomato|tomato10|tomato55|tomato60|tomato65|grey1|grey2|grey3|grey4|grey5|grey6|black|white|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeBlue)+$"
+            },
+            {
+              "comment": "Unbranded",
+              "pattern": "^(black|white|neutral50|neutral100|neutral200|neutral500|neutral600|neutral700|neutral800|neutral850|neutral900|slate500|green100|green300|green600|green800|orange100|orange400|orange600|orange800|red100|red400|red600|red800)+$"
             }
           ]
         }
