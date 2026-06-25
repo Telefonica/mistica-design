@@ -17,6 +17,7 @@ export const FONT_FAMILIES = {
   [BRANDS.TU]: "Telefonica Sans",
   [BRANDS.ESIMFLAG]: "On Air",
   [BRANDS.CYBER]: "Telefonica Sans",
+  [BRANDS.UNBRANDED]: "Telefonica Sans",
 };
 
 export const ICON_SETS = {
@@ -29,6 +30,7 @@ export const ICON_SETS = {
   [BRANDS.TU]: "Default",
   [BRANDS.ESIMFLAG]: "Default",
   [BRANDS.CYBER]: "Default",
+  [BRANDS.UNBRANDED]: "Default",
 };
 
 export const BRAND_NAMES = {
@@ -41,11 +43,12 @@ export const BRAND_NAMES = {
   [BRANDS.TU]: "TU",
   [BRANDS.ESIMFLAG]: "eSimFLAG",
   [BRANDS.CYBER]: "Cyber",
+  [BRANDS.UNBRANDED]: "Unbranded",
 };
 
 export const getPaletteVariables = (
   jsonData,
-  brand
+  brand,
 ) => [
   {
     variables: jsonData[brand]?.palette || [],
@@ -58,7 +61,7 @@ export const getPaletteVariables = (
 
 export const getConstantVariables = (
   jsonData,
-  brand
+  brand,
 ) => [
   {
     variables: jsonData[brand]?.light || [],
@@ -78,7 +81,7 @@ export const getConstantVariables = (
 
 export const getNonColorVariables = (
   jsonData,
-  brand
+  brand,
 ) => [
   {
     variables: jsonData[brand]?.radius || [],

@@ -942,6 +942,10 @@
             {
               "comment": "Cyber",
               "pattern": "(.*?rgba.*?)+([({])+(palette.(brand|brand10|brand15|brand20|brand30|brand70|brand80|brand90|brandDark|darkModeBlack|darkModeBrand|darkModeGrey|green|green10|green20|green30|green70|green90|grey10|grey100|grey15|grey200|grey300|grey400|grey500|grey600|grey700|grey800|grey900|orange|orange60|orange90|purple|purple10|purple40|purple70|purple80|red|red10|red20|red30|red40|red50|red60|red70|red80|red90|teal|teal10|teal20|teal40|teal70|teal80|white|yellow|yellow10|yellow15|yellow30|yellow40|yellow50|yellow60|yellow70|yellow80|black)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(brand|brand10|brand15|brand20|brand30|brand70|brand80|brand90|brandDark|darkModeBlack|darkModeBrand|darkModeGrey|green|green10|green20|green30|green70|green90|grey10|grey100|grey15|grey200|grey300|grey400|grey500|grey600|grey700|grey800|grey900|orange|orange60|orange90|purple|purple10|purple40|purple70|purple80|red|red10|red20|red30|red40|red50|red60|red70|red80|red90|teal|teal10|teal20|teal40|teal70|teal80|white|yellow|yellow10|yellow15|yellow30|yellow40|yellow50|yellow60|yellow70|yellow80|black)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
+            },
+            {
+              "comment": "Unbranded",
+              "pattern": "(.*?rgba.*?)+([({])+(palette.(black|white|neutral50|neutral100|neutral200|neutral500|neutral600|neutral700|neutral800|neutral850|neutral900|slate500|green100|green300|green600|green800|orange100|orange400|orange600|orange800|red100|red400|red600|red800)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(black|white|neutral50|neutral100|neutral200|neutral500|neutral600|neutral700|neutral800|neutral850|neutral900|slate500|green100|green300|green600|green800|orange100|orange400|orange600|orange800|red100|red400|red600|red800)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
             }
           ],
           "properties": {
@@ -995,6 +999,10 @@
                       {
                         "comment": "Cyber",
                         "pattern": "(.*?rgba.*?)+([({])+(palette.(brand|brand10|brand15|brand20|brand30|brand70|brand80|brand90|brandDark|darkModeBlack|darkModeBrand|darkModeGrey|green|green10|green20|green30|green70|green90|grey10|grey100|grey15|grey200|grey300|grey400|grey500|grey600|grey700|grey800|grey900|orange|orange60|orange90|purple|purple10|purple40|purple70|purple80|red|red10|red20|red30|red40|red50|red60|red70|red80|red90|teal|teal10|teal20|teal40|teal70|teal80|white|yellow|yellow10|yellow15|yellow30|yellow40|yellow50|yellow60|yellow70|yellow80|black)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(brand|brand10|brand15|brand20|brand30|brand70|brand80|brand90|brandDark|darkModeBlack|darkModeBrand|darkModeGrey|green|green10|green20|green30|green70|green90|grey10|grey100|grey15|grey200|grey300|grey400|grey500|grey600|grey700|grey800|grey900|orange|orange60|orange90|purple|purple10|purple40|purple70|purple80|red|red10|red20|red30|red40|red50|red60|red70|red80|red90|teal|teal10|teal20|teal40|teal70|teal80|white|yellow|yellow10|yellow15|yellow30|yellow40|yellow50|yellow60|yellow70|yellow80|black)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
+                      },
+                      {
+                        "comment": "Unbranded",
+                        "pattern": "(.*?rgba.*?)+([({])+(palette.(black|white|neutral50|neutral100|neutral200|neutral500|neutral600|neutral700|neutral800|neutral850|neutral900|slate500|green100|green300|green600|green800|orange100|orange400|orange600|orange800|red100|red400|red600|red800)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(black|white|neutral50|neutral100|neutral200|neutral500|neutral600|neutral700|neutral800|neutral850|neutral900|slate500|green100|green300|green600|green800|orange100|orange400|orange600|orange800|red100|red400|red600|red800)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
                       }
                     ]
                   },
@@ -1056,6 +1064,10 @@
             {
               "comment": "Cyber",
               "pattern": "^(brand|brand10|brand15|brand20|brand30|brand70|brand80|brand90|brandDark|darkModeBlack|darkModeBrand|darkModeGrey|green|green10|green20|green30|green70|green90|grey10|grey100|grey15|grey200|grey300|grey400|grey500|grey600|grey700|grey800|grey900|orange|orange60|orange90|purple|purple10|purple40|purple70|purple80|red|red10|red20|red30|red40|red50|red60|red70|red80|red90|teal|teal10|teal20|teal40|teal70|teal80|white|yellow|yellow10|yellow15|yellow30|yellow40|yellow50|yellow60|yellow70|yellow80|black)+$"
+            },
+            {
+              "comment": "Unbranded",
+              "pattern": "^(black|white|neutral50|neutral100|neutral200|neutral500|neutral600|neutral700|neutral800|neutral850|neutral900|slate500|green100|green300|green600|green800|orange100|orange400|orange600|orange800|red100|red400|red600|red800)+$"
             }
           ]
         }
