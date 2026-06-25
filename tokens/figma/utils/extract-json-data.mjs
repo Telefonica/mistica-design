@@ -21,7 +21,7 @@ export const extractSkinJsonData = (
     const parsedContent = JSON.parse(fileContent);
 
     // Extract file name without extension to use as a key
-    const fileName = file.split(".")[0];
+    const fileName = path.basename(file, ".json");
 
     // Store the parsed content in the allParsedContent object
     allParsedContent[fileName] = parsedContent;
@@ -40,7 +40,7 @@ export const extractSkinJsonData = (
     const parsedContent = JSON.parse(fileContent);
 
     // Extract file name without extension
-    const fileName = file.split(".")[0];
+    const fileName = path.basename(file, ".json");
 
     function getTokenMeta(token = {}) {
       return {
@@ -486,7 +486,7 @@ export const extractMiddlewareJsonData = (
     const parsedContent = JSON.parse(fileContent);
 
     // Extract file name without extension to use as a key
-    const fileName = file.split(".")[0];
+    const fileName = path.basename(file, ".json");
 
     // Store the parsed content in the allParsedContent object
     allParsedContent[fileName] = parsedContent;
@@ -505,7 +505,7 @@ export const extractMiddlewareJsonData = (
     const parsedContent = JSON.parse(fileContent);
 
     // Extract file name without extension
-    const fileName = file.split(".")[0];
+    const fileName = path.basename(file, ".json");
 
     function getTokenMeta(token = {}) {
       return {

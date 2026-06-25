@@ -13,6 +13,7 @@ export const BRAND_KEY = {
   [BRANDS.TU]: "19IXMaFqdYeC1IIdTwXBgY",
   [BRANDS.ESIMFLAG]: "5WSkNxQ7GwbfagfJqXfZSs",
   [BRANDS.MOVISTAR_NEW]: "kVMzBCXr4T4zFqLBjuExwe",
+  [BRANDS.CYBER]: "UqJLBr2XCY0KCBLL842sOJ",
 };
 
 export const MIDDLEWARE_KEY =

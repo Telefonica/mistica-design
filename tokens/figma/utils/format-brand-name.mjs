@@ -1,4 +1,6 @@
-function formatBrandName(brand) {
+import { COMMUNITY_BRANDS } from "./constants.mjs";
+
+function formatBaseBrandName(brand) {
   // Check if the brand is "tu" and return it in uppercase
   if (brand === "tu") {
     return brand.toUpperCase();
@@ -24,6 +26,15 @@ function formatBrandName(brand) {
     .replace(/\b\w/g, (char) =>
       char.toUpperCase()
     ); // Capitalize the first letter of each word
+}
+
+function formatBrandName(brand) {
+  const formatted = formatBaseBrandName(brand);
+
+  // Community brands are surfaced with a " (Community)" suffix
+  return COMMUNITY_BRANDS.includes(brand)
+    ? `${formatted} (Community)`
+    : formatted;
 }
 
 export default formatBrandName;
