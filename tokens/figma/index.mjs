@@ -17,9 +17,32 @@ const tokensPath = path.resolve(__dirname, "../");
 
 const files = fs.readdirSync(tokensPath);
 
-const jsonFiles = files.filter((file) =>
+const topLevelJsonFiles = files.filter((file) =>
   file.endsWith(".json")
 );
+
+// Community brands live in tokens/community/ and are
+// referenced with a "community/" prefix so their paths
+// resolve correctly while their brand key stays the bare
+// file name (see extract-json-data.mjs).
+const communityPath = path.resolve(
+  tokensPath,
+  "community"
+);
+
+const communityJsonFiles = fs.existsSync(
+  communityPath
+)
+  ? fs
+      .readdirSync(communityPath)
+      .filter((file) => file.endsWith(".json"))
+      .map((file) => `community/${file}`)
+  : [];
+
+const jsonFiles = [
+  ...topLevelJsonFiles,
+  ...communityJsonFiles,
+];
 
 const jsonDataForSkin = extractSkinJsonData(
   jsonFiles,
