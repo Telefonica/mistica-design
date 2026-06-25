@@ -41,8 +41,8 @@ export const BRANDS = {
   BLAU: "blau",
   TU: "tu",
   ESIMFLAG: "esimflag",
-  CYBER: "cyber",
   UNBRANDED: "unbranded",
+  CYBER: "cyber",
 };
 
 // Subset of BRANDS whose token file lives in tokens/community/.
