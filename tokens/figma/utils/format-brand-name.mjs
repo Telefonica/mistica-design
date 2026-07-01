@@ -24,7 +24,7 @@ function formatBaseBrandName(brand) {
     .replace(/-/g, " ") // Remove hyphens and replace with spaces
     .toLowerCase() // Convert all to lowercase first
     .replace(/\b\w/g, (char) =>
-      char.toUpperCase()
+      char.toUpperCase(),
     ); // Capitalize the first letter of each word
 }
 
