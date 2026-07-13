@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-07-07T11:53:03.116Z
+  generated: 2026-07-13T06:42:10.329Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-07-10T12:51:51Z | 2026-07-13T06:42:10.329Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-07-07T11:52:21Z | 2026-07-07T11:53:03.116Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-07-07T11:47:22Z | 2026-07-07T11:47:59.902Z |
@@ -142,7 +144,13 @@ _Sidenav item anatomy (uncollapsed left, collapsed right)_
 
 #### Item with children
 
-An item can contain other nested items. Each nesting level is cumulative and indents the whole item relative to the previous level. Indentation applies to the item container, so it behaves consistently whether or not the item has an asset.
+An item can contain nested items.
+
+- A 1st-level item with children only expands (it does not navigate).
+- A 1st-level item without children navigates directly.
+- A 2nd-level item (child) navigates and in double panel mode this also closes the panel.
+
+Each nesting level is cumulative and indents the whole item relative to the previous level. Indentation applies to the item container, so it behaves consistently whether or not the item has an asset.
 
 ![With asset Without asset Sidenav item anatomy (item with children)](sidenav/figures/anatomy-body-region-item-with-children.png)
 
@@ -184,6 +192,17 @@ _Sidenav floating panel anatomy_
 ### Double panel
 
 A double panel can be shown if the second level of items is defined to appear in a panel, the chevron will point to the right instead of bottom when children are in second panel.
+
+Panel behavior
+The trigger (pressing a 1st-level item with children) opens the panel.
+The panel closes if:
+
+- I press a 2nd-level item
+- I press outside
+- I press the same 1st-level item again (toggle)
+- I press another 1st-level item without children
+  The panel refreshes if:
+- I press another 1st-level item with children
 
 ![Double panel anatomy](sidenav/figures/anatomy-double-panel.png)
 
