@@ -35,7 +35,7 @@ export const VARIABLE_SCOPES = {
 export const BRANDS = {
   MOVISTAR: "movistar",
   MOVISTAR_NEW: "movistar-new",
-  VIVO_NEW: "vivo-new",
+  VIVO: "vivo",
   VIVO_EVOLUTION: "vivo-evolution",
   O2_NEW: "o2-new",
   TELEFONICA: "telefonica",
