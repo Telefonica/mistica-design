@@ -39,7 +39,6 @@ export const BRANDS = {
   O2: "o2",
   TELEFONICA: "telefonica",
   BLAU: "blau",
-  TU: "tu",
   ESIMFLAG: "esimflag",
   UNBRANDED: "unbranded",
   CYBER: "cyber",
