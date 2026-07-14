@@ -1252,10 +1252,11 @@
     "breakpoints": {
       "type": "object",
       "properties": {
-        "mobile": { "type": ["number", "string"] }
+        "mobile": { "type": ["number", "string"] },
+        "desktop": { "type": ["number", "string"] }
       },
       "minProperties": 1,
-      "required": ["mobile", "desktop"],
+      "required": ["mobile"],
       "additionalProperties": false
     }
   }
