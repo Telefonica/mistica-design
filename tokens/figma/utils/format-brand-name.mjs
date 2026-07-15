@@ -1,11 +1,6 @@
 import { COMMUNITY_BRANDS } from "./constants.mjs";
 
 function formatBaseBrandName(brand) {
-  // Check if the brand is "tu" and return it in uppercase
-  if (brand === "tu") {
-    return brand.toUpperCase();
-  }
-
   // Check if the brand is telefonica and return it as sentence case and with an accent
   if (brand === "telefonica") {
     return "Telefónica";
@@ -13,10 +8,6 @@ function formatBaseBrandName(brand) {
 
   if (brand === "esimflag") {
     return "eSimFLAG";
-  }
-
-  if (brand === "movistar-new") {
-    return "Movistar New";
   }
 
   // For other brands, remove the hyphen and convert to sentence case

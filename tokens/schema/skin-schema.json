@@ -1,7 +1,6 @@
 {
   "additionalProperties": false,
   "required": ["light", "dark", "radius", "text", "spacing", "global", "themeVariant", "componentProperties"],
-
   "properties": {
     "global": {
       "additionalProperties": false,
@@ -691,7 +690,7 @@
     },
     "radius": {
       "additionalProperties": false,
-      "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "chip", "input", "legacyDisplay", "popup", "sheet"],
+      "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "chip", "input", "popup", "sheet"],
       "properties": {
         "avatar": { "$ref": "#/definitions/radiusProperties" },
         "bar": { "$ref": "#/definitions/radiusProperties" },
@@ -702,7 +701,6 @@
         "chip": { "$ref": "#/definitions/radiusProperties" },
         "tag": { "$ref": "#/definitions/radiusProperties" },
         "input": { "$ref": "#/definitions/radiusProperties" },
-        "legacyDisplay": { "$ref": "#/definitions/radiusProperties" },
         "popup": { "$ref": "#/definitions/radiusProperties" },
         "sheet": { "$ref": "#/definitions/radiusProperties" },
         "mediaSmall": { "$ref": "#/definitions/radiusProperties" }
@@ -924,18 +922,10 @@
           "anyOf": [
             {
               "comment": "Movistar",
-              "pattern": "(.*?rgba.*?)+([({])+(palette.(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlue70|movistarBlue80|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlue70|movistarBlue80|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
-            },
-            {
-              "comment": "Movistar-new",
               "pattern": "(.*?rgba.*?)+([({])+(palette.(movistarBlue|movistarWhite|movistarBlack|blue100|blue200|blue300|blue600|blue800|blueLight|blueHigh|blueDark|red|red350|red600|redHigh|salmon100|salmon200|salmonLight|salmonDark|yellow|yellow200|yellow400|yellow500|yellow600|yellowLight|yellowHigh|yellowDark|emerald|emeraldHigh|green200|green400|green700|greenLight|greenHigh|greenDark|pink45|pink55|grey100|grey200|grey300|grey400|grey500|grey600|grey700|white|white100|black|darkModeBlack|darkModeGrey|darkModeMovistarBlue)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(movistarBlue|movistarWhite|movistarBlack|blue100|blue200|blue300|blue600|blue800|blueLight|blueHigh|blueDark|red|red350|red600|redHigh|salmon100|salmon200|salmonLight|salmonDark|yellow|yellow200|yellow400|yellow500|yellow600|yellowLight|yellowHigh|yellowDark|emerald|emeraldHigh|green200|green400|green700|greenLight|greenHigh|greenDark|pink45|pink55|grey100|grey200|grey300|grey400|grey500|grey600|grey700|white|white100|black|darkModeBlack|darkModeGrey|darkModeMovistarBlue)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
             },
             {
               "comment": "O2",
-              "pattern": "(.*?rgba.*?)+([({])+(palette.(o2BluePrimary|o2BluePrimary70|o2BluePrimary90|o2BluePrimary30|o2BluePrimary15|o2BluePrimary10|o2BlueMid|o2BlueLight|o2BlueLight30|o2BlueLight35|o2Teal|o2Green|o2Green10|o2Green40|o2Green80|o2Yellow|o2Orange|o2Orange10|o2Orange40|o2Orange75|o2Pink|o2Purple|o2Purple10|o2Purple30|pepper|pepper10|pepper20|pepper40|pepper60|grey1|grey2|grey3|grey4|grey5|grey6|white|black|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeO2BluePrimary|darkModeO2BluePrimaryDark)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(o2BluePrimary|o2BluePrimary70|o2BluePrimary90|o2BluePrimary30|o2BluePrimary15|o2BluePrimary10|o2BlueMid|o2BlueLight|o2BlueLight30|o2BlueLight35|o2Teal|o2Green|o2Green10|o2Green40|o2Green80|o2Yellow|o2Orange|o2Orange10|o2Orange40|o2Orange75|o2Pink|o2Purple|o2Purple10|o2Purple30|pepper|pepper10|pepper20|pepper40|pepper60|grey1|grey2|grey3|grey4|grey5|grey6|white|black|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeO2BluePrimary|darkModeO2BluePrimaryDark)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
-            },
-            {
-              "comment": "O2-new",
               "pattern": "(.*?rgba.*?)+([({])+(palette.(beyondBlue|beyondBlue70|beyondBlue90|beyondBlue55|beyondBlue40|beyondBlue30|beyondBlue15|beyondBlue10|o2BlueLight|o2BlueLight30|o2BlueLight35|o2Green|o2Green10|o2Green40|o2Green80|o2Yellow|o2Orange|o2Orange10|o2Orange40|o2Orange60|o2Orange75|o2Pink|o2Pink15|o2Pink30|o2Pink80|o2Red|o2Red10|o2Red20|o2Red40|o2Red45|o2Red60|o2Red65|grey20|grey30|grey40|grey45|grey60|grey80|black|white|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeBeyondBlue|darkBlue|beyondBlue45)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(beyondBlue|beyondBlue70|beyondBlue90|beyondBlue55|beyondBlue40|beyondBlue30|beyondBlue15|beyondBlue10|o2BlueLight|o2BlueLight30|o2BlueLight35|o2Green|o2Green10|o2Green40|o2Green80|o2Yellow|o2Orange|o2Orange10|o2Orange40|o2Orange60|o2Orange75|o2Pink|o2Pink15|o2Pink30|o2Pink80|o2Red|o2Red10|o2Red20|o2Red40|o2Red45|o2Red60|o2Red65|grey20|grey30|grey40|grey45|grey60|grey80|black|white|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeBeyondBlue|darkBlue|beyondBlue45)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
             },
             {
@@ -953,10 +943,6 @@
             {
               "comment": "Blau",
               "pattern": "(.*?rgba.*?)+([({])+(palette.(blauBluePrimary|blauBluePrimary10|blauBluePrimary20|blauBluePrimary30|blauBlueSecondary|blauBlueSecondary10|blauBlueSecondary20|blauBlueSecondary30|blauBlueSecondary60|blauPurple|blauPurple10|blauPurple30|blauYellow|blauYellow10|blauYellow40|blauYellow60|blauYellow65|blauYellow70|blauGreen|blauGreen10|blauGreen30|blauGreen70|blauRed|blauRed10|blauRed20|blauRed30|blauRed40|blauRed70|grey1|grey2|grey3|grey4|grey5|grey6|white|darkModeBlack|darkModeGrey|darkModeGrey6)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(blauBluePrimary|blauBluePrimary10|blauBluePrimary20|blauBluePrimary30|blauBlueSecondary|blauBlueSecondary10|blauBlueSecondary20|blauBlueSecondary30|blauBlueSecondary60|blauPurple|blauPurple10|blauPurple30|blauYellow|blauYellow10|blauYellow40|blauYellow60|blauYellow65|blauYellow70|blauGreen|blauGreen10|blauGreen30|blauGreen70|blauRed|blauRed10|blauRed20|blauRed30|blauRed40|blauRed70|grey1|grey2|grey3|grey4|grey5|grey6|white|darkModeBlack|darkModeGrey|darkModeGrey6)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
-            },
-            {
-              "comment": "Tu",
-              "pattern": "(.*?rgba.*?)+([({])+(palette.(primary|primary10|primary15|primary45|primary65|primary80|blue|blue10|blue20|blue30|blue70|orange|orange20|orange55|orange65|orange70|red|red10|red40|red70|red80|green|green10|green40|green75|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeBlack|darkModeGrey|darkModeGrey6)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(primary|primary10|primary15|primary45|primary65|primary80|blue|blue10|blue20|blue30|blue70|orange|orange20|orange55|orange65|orange70|red|red10|red40|red55|red70|red80|green|green10|green40|green75|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeBlack|darkModeGrey|darkModeGrey6)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
             },
             {
               "comment": "EsimFLAG",
@@ -985,18 +971,10 @@
                     "anyOf": [
                       {
                         "comment": "Movistar",
-                        "pattern": "(.*?rgba.*?)+([({])+(palette.(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlue70|movistarBlue80|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlue70|movistarBlue80|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
-                      },
-                      {
-                        "comment": "Movistar-new",
                         "pattern": "(.*?rgba.*?)+([({])+(palette.(movistarBlue|movistarWhite|movistarBlack|blue100|blue200|blue300|blue600|blue800|blueLight|blueHigh|blueDark|red|red350|red600|redHigh|salmon100|salmon200|salmonLight|salmonDark|yellow|yellow200|yellow400|yellow500|yellow600|yellowLight|yellowHigh|yellowDark|emerald|emeraldHigh|green200|green400|green700|greenLight|greenHigh|greenDark|pink45|pink55|grey100|grey200|grey300|grey400|grey500|grey600|grey700|white|white100|black|darkModeBlack|darkModeGrey|darkModeMovistarBlue)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(movistarBlue|movistarWhite|movistarBlack|blue100|blue200|blue300|blue600|blue800|blueLight|blueHigh|blueDark|red|red350|red600|redHigh|salmon100|salmon200|salmonLight|salmonDark|yellow|yellow200|yellow400|yellow500|yellow600|yellowLight|yellowHigh|yellowDark|emerald|emeraldHigh|green200|green400|green700|greenLight|greenHigh|greenDark|pink45|pink55|grey100|grey200|grey300|grey400|grey500|grey600|grey700|white|white100|black|darkModeBlack|darkModeGrey|darkModeMovistarBlue)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
                       },
                       {
                         "comment": "O2",
-                        "pattern": "(.*?rgba.*?)+([({])+(palette.(o2BluePrimary|o2BluePrimary70|o2BluePrimary90|o2BluePrimary30|o2BluePrimary15|o2BluePrimary10|o2BlueMid|o2BlueLight|o2BlueLight30|o2BlueLight35|o2Teal|o2Green|o2Green10|o2Green40|o2Green80|o2Yellow|o2Orange|o2Orange10|o2Orange40|o2Orange75|o2Pink|o2Purple|o2Purple10|o2Purple30|pepper|pepper10|pepper20|pepper40|pepper60|grey1|grey2|grey3|grey4|grey5|grey6|white|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeO2BluePrimary|darkModeO2BluePrimaryDark)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(o2BluePrimary|o2BluePrimary70|o2BluePrimary90|o2BluePrimary30|o2BluePrimary15|o2BluePrimary10|o2BlueMid|o2BlueLight|o2BlueLight30|o2BlueLight35|o2Teal|o2Green|o2Green10|o2Green40|o2Green80|o2Yellow|o2Orange|o2Orange10|o2Orange40|o2Orange75|o2Pink|o2Purple|o2Purple10|o2Purple30|pepper|pepper10|pepper20|pepper40|pepper60|grey1|grey2|grey3|grey4|grey5|grey6|white|black|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeO2BluePrimary|darkModeO2BluePrimaryDark)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
-                      },
-                      {
-                        "comment": "O2-new",
                         "pattern": "(.*?rgba.*?)+([({])+(palette.(beyondBlue|beyondBlue70|beyondBlue90|beyondBlue55|beyondBlue40|beyondBlue30|beyondBlue15|beyondBlue10|o2BlueLight|o2BlueLight30|o2BlueLight35|o2Green|o2Green10|o2Green40|o2Green80|o2Yellow|o2Orange|o2Orange10|o2Orange40|o2Orange60|o2Orange75|o2Pink|o2Pink15|o2Pink30|o2Pink80|o2Red|o2Red10|o2Red20|o2Red40|o2Red45|o2Red60|o2Red65|grey20|grey30|grey40|grey45|grey60|grey80|black|white|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeBeyondBlue|darkBlue|beyondBlue45)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(beyondBlue|beyondBlue70|beyondBlue90|beyondBlue55|beyondBlue40|beyondBlue30|beyondBlue15|beyondBlue10|o2BlueLight|o2BlueLight30|o2BlueLight35|o2Green|o2Green10|o2Green40|o2Green80|o2Yellow|o2Orange|o2Orange10|o2Orange40|o2Orange60|o2Orange75|o2Pink|o2Pink15|o2Pink30|o2Pink80|o2Red|o2Red10|o2Red20|o2Red40|o2Red45|o2Red60|o2Red65|grey20|grey30|grey40|grey45|grey60|grey80|black|white|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeBeyondBlue|darkBlue|beyondBlue45)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
                       },
                       {
@@ -1014,10 +992,6 @@
                       {
                         "comment": "Blau",
                         "pattern": "(.*?rgba.*?)+([({])+(palette.(blauBluePrimary|blauBluePrimary10|blauBluePrimary20|blauBluePrimary30|blauBlueSecondary|blauBlueSecondary10|blauBlueSecondary20|blauBlueSecondary30|blauBlueSecondary60|blauPurple|blauPurple10|blauPurple30|blauYellow|blauYellow10|blauYellow40|blauYellow60|blauYellow65|blauYellow70|blauGreen|blauGreen10|blauGreen30|blauGreen70|blauRed|blauRed10|blauRed20|blauRed30|blauRed40|blauRed70|grey1|grey2|grey3|grey4|grey5|grey6|white|darkModeBlack|darkModeGrey|darkModeGrey6)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(blauBluePrimary|blauBluePrimary10|blauBluePrimary20|blauBluePrimary30|blauBlueSecondary|blauBlueSecondary10|blauBlueSecondary20|blauBlueSecondary30|blauBlueSecondary60|blauPurple|blauPurple10|blauPurple30|blauYellow|blauYellow10|blauYellow40|blauYellow60|blauYellow65|blauYellow70|blauGreen|blauGreen10|blauGreen30|blauGreen70|blauRed|blauRed10|blauRed20|blauRed30|blauRed40|blauRed70|grey1|grey2|grey3|grey4|grey5|grey6|white|darkModeBlack|darkModeGrey|darkModeGrey6)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
-                      },
-                      {
-                        "comment": "Tu",
-                        "pattern": "(.*?rgba.*?)+([({])+(palette.(primary|primary10|primary15|primary45|primary65|primary80|blue|blue10|blue20|blue30|blue70|orange|orange20|orange55|orange65|orange70|red|red10|red40|red70|red80|green|green10|green40|green75|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeBlack|darkModeGrey|darkModeGrey6)}, (0+([.][0-9]+)?|1([.]0)?)[)])$|^({palette.(primary|primary10|primary15|primary45|primary65|primary80|blue|blue10|blue20|blue30|blue70|orange|orange20|orange55|orange65|orange70|red|red10|red40|red55|red70|red80|green|green10|green40|green75|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeBlack|darkModeGrey|darkModeGrey6)+})$|(.*?linear-gradient.*?)+([(])(?:36[0]|3[0-5][0-9]|[12][0-9][0-9]|[1-9]?[0-9])(.*?deg).*[)]$"
                       },
                       {
                         "comment": "EsimFLAG",
@@ -1054,18 +1028,10 @@
           "anyOf": [
             {
               "comment": "Movistar",
-              "pattern": "^(movistarBlue|movistarBlue10|movistarBlue15|movistarBlue20|movistarBlue30|movistarBlue40|movistarBlue55|movistarBlue70|movistarBlue80|movistarBlueHC|movistarBlueHC55|movistarBlueHC65|movistarGreen|movistarGreen10|movistarGreen30|movistarGreen40|movistarGreen55|movistarGreen60|movistarGreen70|pepper|pepper10|pepper40|pepper45|pepper55|pepper65|pepper70|egg|egg10|egg40|egg55|egg80|pink|pink45|pink55|purple|purple10|purple35|purple40|purple70|grey1|grey2|grey3|grey4|grey5|grey6|white|black|movistarBlueDark|darkModeBlack|darkModeGrey|darkModeGrey2|darkModeGrey3|darkModeGrey4|darkModeGrey5|darkModeGrey6|darkModeGrey7)+$"
-            },
-            {
-              "comment": "Movistar-new",
               "pattern": "^(movistarBlue|movistarWhite|movistarBlack|blue100|blue200|blue300|blue600|blue800|blueLight|blueHigh|blueDark|red|red350|red600|redHigh|salmon100|salmon200|salmonLight|salmonDark|yellow|yellow200|yellow400|yellow500|yellow600|yellowLight|yellowHigh|yellowDark|emerald|emeraldHigh|green200|green400|green700|greenLight|greenHigh|greenDark|pink45|pink55|grey100|grey200|grey300|grey400|grey500|grey600|grey700|white|white100|black|darkModeBlack|darkModeGrey|darkModeMovistarBlue)+$"
             },
             {
               "comment": "O2",
-              "pattern": "^(o2BluePrimary|o2BluePrimary70|o2BluePrimary90|o2BluePrimary30|o2BluePrimary15|o2BluePrimary10|o2BlueMid|o2BlueLight|o2BlueLight30|o2BlueLight35|o2Teal|o2Green|o2Green10|o2Green40|o2Green80|o2Yellow|o2Orange|o2Orange10|o2Orange40|o2Orange75|o2Pink|o2Purple|o2Purple10|o2Purple30|pepper|pepper10|pepper20|pepper40|pepper60|grey1|grey2|grey3|grey4|grey5|grey6|white|black|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeO2BluePrimary|darkModeO2BluePrimaryDark)+$"
-            },
-            {
-              "comment": "O2-new",
               "pattern": "^(o2Gradient|beyondBlue|beyondBlue70|beyondBlue90|beyondBlue55|beyondBlue40|beyondBlue30|beyondBlue15|beyondBlue10|o2BlueLight|o2BlueLight30|o2BlueLight35|o2Green|o2Green10|o2Green40|o2Green80|o2Yellow|o2Orange|o2Orange10|o2Orange40|o2Orange60|o2Orange75|o2Pink|o2Pink15|o2Pink30|o2Pink80|o2Red|o2Red10|o2Red20|o2Red40|o2Red45|o2Red60|o2Red65|grey20|grey30|grey40|grey45|grey60|grey80|black|white|darkModeBlack|darkModeGrey|darkModeGrey6|darkModeBeyondBlue|darkBlue|beyondBlue45)+$"
             },
             {
@@ -1083,10 +1049,6 @@
             {
               "comment": "Blau",
               "pattern": "^(blauBluePrimary|blauBluePrimary10|blauBluePrimary20|blauBluePrimary30|blauBlueSecondary|blauBlueSecondary10|blauBlueSecondary20|blauBlueSecondary30|blauBlueSecondary60|blauPurple|blauPurple10|blauPurple30|blauYellow|blauYellow10|blauYellow40|blauYellow60|blauYellow65|blauYellow70|blauGreen|blauGreen10|blauGreen30|blauGreen70|blauRed|blauRed10|blauRed20|blauRed30|blauRed40|blauRed70|grey1|grey2|grey3|grey4|grey5|grey6|white|darkModeBlack|darkModeGrey|darkModeGrey6)+$"
-            },
-            {
-              "comment": "Tu",
-              "pattern": "^(primary|primary10|primary15|primary45|primary65|primary80|blue|blue10|blue20|blue30|blue70|orange|orange20|orange55|orange65|orange70|red|red10|red40|red55|red70|red80|green|green10|green40|green75|grey1|grey2|grey3|grey4|grey5|grey6|grey7|grey8|grey9|white|black|darkModeBlack|darkModeGrey|darkModeGrey6)+$"
             },
             {
               "comment": "EsimFLAG",
