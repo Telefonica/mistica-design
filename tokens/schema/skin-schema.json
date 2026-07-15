@@ -1,7 +1,6 @@
 {
   "additionalProperties": false,
   "required": ["light", "dark", "radius", "text", "spacing", "global", "themeVariant", "componentProperties"],
-
   "properties": {
     "global": {
       "additionalProperties": false,
@@ -691,7 +690,7 @@
     },
     "radius": {
       "additionalProperties": false,
-      "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "chip", "input", "legacyDisplay", "popup", "sheet"],
+      "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "chip", "input", "popup", "sheet"],
       "properties": {
         "avatar": { "$ref": "#/definitions/radiusProperties" },
         "bar": { "$ref": "#/definitions/radiusProperties" },
@@ -702,7 +701,6 @@
         "chip": { "$ref": "#/definitions/radiusProperties" },
         "tag": { "$ref": "#/definitions/radiusProperties" },
         "input": { "$ref": "#/definitions/radiusProperties" },
-        "legacyDisplay": { "$ref": "#/definitions/radiusProperties" },
         "popup": { "$ref": "#/definitions/radiusProperties" },
         "sheet": { "$ref": "#/definitions/radiusProperties" },
         "mediaSmall": { "$ref": "#/definitions/radiusProperties" }
