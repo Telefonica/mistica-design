@@ -599,7 +599,7 @@ Aquí puedes ver cómo cargar dinámicamente la paleta de colores global según 
 ```
 <Loader
   load={(() => {
-    const name = theme.skinName === "Movistar" ? "movistar-new" : theme.skinName.toLowerCase();
+    const name = theme.skinName === "vivo" ? "vivo-evolution" : theme.skinName.toLowerCase();
     return `https://raw.githubusercontent.com/Telefonica/mistica-design/refs/heads/production/tokens/${name}.json`;
   })()}
   render={(data) => {
