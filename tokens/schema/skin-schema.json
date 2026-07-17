@@ -890,9 +890,10 @@
     },
     "componentProperties": {
       "additionalProperties": false,
-      "required": ["dismissActionType"],
+      "required": ["dismissActionType", "showBoxedBorder"],
       "properties": {
-        "dismissActionType": { "$ref": "#/definitions/componentProperties" }
+        "dismissActionType": { "$ref": "#/definitions/componentProperties" },
+        "showBoxedBorder": { "$ref": "#/definitions/componentProperties" }
       }
     }
   },
@@ -1198,7 +1199,21 @@
       "type": "object",
       "patternProperties": {
         "value": {
-          "type": "string"
+          "anyOf": [
+            { "type": "string" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["default", "brand", "negative", "alternative", "media"],
+              "properties": {
+                "default": { "type": "boolean" },
+                "brand": { "type": "boolean" },
+                "negative": { "type": "boolean" },
+                "alternative": { "type": "boolean" },
+                "media": { "type": "boolean" }
+              }
+            }
+          ]
         },
         "type": {
           "const": "property"
