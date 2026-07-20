@@ -8,39 +8,39 @@ import {
 import formatBrandName from "./utils/format-brand-name.mjs";
 
 export const FONT_FAMILIES = {
-  [BRANDS.MOVISTAR]: "On Air",
-  [BRANDS.MOVISTAR_NEW]: "Movistar Sans",
-  [BRANDS.VIVO_NEW]: "Vivo Type",
-  [BRANDS.O2_NEW]: "On Air",
+  [BRANDS.MOVISTAR]: "Movistar Sans",
+  [BRANDS.VIVO]: "Vivo Type",
+  [BRANDS.VIVO_EVOLUTION]: "Vivo Type",
+  [BRANDS.O2]: "On Air",
   [BRANDS.TELEFONICA]: "Telefonica Sans",
   [BRANDS.BLAU]: "SF Pro Text",
-  [BRANDS.TU]: "Telefonica Sans",
   [BRANDS.ESIMFLAG]: "On Air",
   [BRANDS.UNBRANDED]: "Telefonica Sans",
+  [BRANDS.CYBER]: "Telefonica Sans",
 };
 
 export const ICON_SETS = {
-  [BRANDS.MOVISTAR]: "Movistar",
-  [BRANDS.MOVISTAR_NEW]: "Default",
-  [BRANDS.VIVO_NEW]: "Vivo",
-  [BRANDS.O2_NEW]: "O2",
+  [BRANDS.MOVISTAR]: "Default",
+  [BRANDS.VIVO]: "Vivo",
+  [BRANDS.VIVO_EVOLUTION]: "Vivo",
+  [BRANDS.O2]: "O2",
   [BRANDS.TELEFONICA]: "Default",
   [BRANDS.BLAU]: "Blau",
-  [BRANDS.TU]: "Default",
   [BRANDS.ESIMFLAG]: "Default",
   [BRANDS.UNBRANDED]: "Default",
+  [BRANDS.CYBER]: "Default",
 };
 
 export const BRAND_NAMES = {
   [BRANDS.MOVISTAR]: "Movistar",
-  [BRANDS.MOVISTAR_NEW]: "Movistar New",
-  [BRANDS.VIVO_NEW]: "Vivo",
-  [BRANDS.O2_NEW]: "O2",
+  [BRANDS.VIVO]: "Vivo",
+  [BRANDS.VIVO_EVOLUTION]: "Vivo Evolution",
+  [BRANDS.O2]: "O2",
   [BRANDS.TELEFONICA]: "Telefónica",
   [BRANDS.BLAU]: "Blau",
-  [BRANDS.TU]: "TU",
   [BRANDS.ESIMFLAG]: "eSimFLAG",
   [BRANDS.UNBRANDED]: "Unbranded",
+  [BRANDS.CYBER]: "Cyber",
 };
 
 export const getPaletteVariables = (
