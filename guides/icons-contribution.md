@@ -62,7 +62,7 @@ Mística Icons aggregates the icons from all brand libraries. The magic of multi
 
 1. Open the [Mística Icons file](https://www.figma.com/design/JHuzksh01yxExMeMQBvymq/M%C3%ADstica-Icons).
 2. Create a new branch in the file.
-3. Add the icon component using the published asset from the brand library.
+3. Add the icon as a new variant of the corresponding master icon component, using the published asset from the brand library. Set the `brand` property of the variant to the value defined for that brand in the `ICON_SETS` map of `tokens/figma/variables.mjs` (e.g. `Default`, `O2`, `Vivo`, `Blau`).
 4. Request the approval adding at least 2 members of the design ops team as reviewers of that branch.
 5. Merge the branch when approved.
 
