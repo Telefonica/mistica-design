@@ -867,7 +867,7 @@
     },
     "spacing": {
       "additionalProperties": false,
-      "required": ["buttonDefaultPadding", "buttonSmallPadding", "cardDefaultPadding", "tagPadding", "feedbackScreenPadding", "inputPadding", "heroPadding", "headerPadding", "drawerPadding", "rowPadding"],
+      "required": ["buttonDefaultPadding", "buttonSmallPadding", "cardDefaultPadding", "tagPadding", "feedbackScreenPadding", "inputPadding", "heroPadding", "headerPadding", "drawerPadding", "boxedDefaultPadding"],
       "properties": {
         "buttonDefaultPadding": { "$ref": "#/definitions/spacingProperties" },
         "buttonSmallPadding": { "$ref": "#/definitions/spacingProperties" },
@@ -878,7 +878,7 @@
         "heroPadding": { "$ref": "#/definitions/spacingProperties" },
         "headerPadding": { "$ref": "#/definitions/spacingProperties" },
         "drawerPadding": { "$ref": "#/definitions/spacingProperties" },
-        "rowPadding": { "$ref": "#/definitions/spacingProperties" }
+        "boxedDefaultPadding": { "$ref": "#/definitions/spacingProperties" }
       }
     },
     "themeVariant": {
