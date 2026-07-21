@@ -867,7 +867,7 @@
     },
     "spacing": {
       "additionalProperties": false,
-      "required": ["buttonDefaultPadding", "buttonSmallPadding", "cardDefaultPadding", "tagPadding", "feedbackScreenPadding", "inputPadding", "heroPadding", "headerPadding", "drawerPadding"],
+      "required": ["buttonDefaultPadding", "buttonSmallPadding", "cardDefaultPadding", "tagPadding", "feedbackScreenPadding", "inputPadding", "heroPadding", "headerPadding", "drawerPadding", "responsiveLayoutMargin"],
       "properties": {
         "buttonDefaultPadding": { "$ref": "#/definitions/spacingProperties" },
         "buttonSmallPadding": { "$ref": "#/definitions/spacingProperties" },
@@ -877,7 +877,8 @@
         "inputPadding": { "$ref": "#/definitions/spacingProperties" },
         "heroPadding": { "$ref": "#/definitions/spacingProperties" },
         "headerPadding": { "$ref": "#/definitions/spacingProperties" },
-        "drawerPadding": { "$ref": "#/definitions/spacingProperties" }
+        "drawerPadding": { "$ref": "#/definitions/spacingProperties" },
+        "responsiveLayoutMargin": { "$ref": "#/definitions/spacingProperties" }
       }
     },
     "themeVariant": {
@@ -1213,9 +1214,8 @@
     "breakpoints": {
       "type": "object",
       "properties": {
-        "mobile": { "type": "number" },
-        "tablet": { "type": "number" },
-        "desktop": { "type": "number" }
+        "mobile": { "type": ["number", "string"] },
+        "desktop": { "type": ["number", "string"] }
       },
       "minProperties": 1,
       "required": ["mobile", "desktop"],
