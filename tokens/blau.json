@@ -3975,6 +3975,13 @@
       },
       "type": "spacing"
     },
+    "responsiveLayoutMargin": {
+      "value": {
+        "mobile": 16,
+        "desktop": 48
+      },
+      "type": "spacing"
+    },
     "boxedDefaultPadding": {
       "value": {
         "left": {
@@ -3984,17 +3991,11 @@
         "right": {
           "mobile": 16,
           "desktop": 16
-        },
-        "type": "spacing"
-      }
-    },
-    "responsiveLayoutMargin": {
-      "value": {
-        "mobile": 16,
-        "desktop": 48
+        }
       },
       "type": "spacing"
-    },
+    }
+  },
   "componentProperties": {
     "dismissActionType": {
       "value": "neutral",
