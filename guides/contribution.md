@@ -148,6 +148,9 @@ If an external team is the responsible os the task, some rules should be followe
 2. Include reviewers from the Mística development team and design core team.
 3. Include the link of the approved specs in the PR description.
 
+> [!NOTE]
+> When you add a new component or change its properties, the [Code Connect](https://github.com/Telefonica/mistica-web) definition must be added or updated so the Figma component stays mapped to its code counterpart. You can check the existing Code Connect definitions in [mistica-web](https://github.com/Telefonica/mistica-web).
+
 ## Updating libraries
 
 Once development is done, the change has to be reflected in the Mística Figma libraries so designers consume the same result that has been shipped. This affects the **Mistica Mobile** and **Mistica Desktop** libraries.
