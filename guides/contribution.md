@@ -9,16 +9,35 @@ This guide is designed to help you understand how you can contribute to Mística
 
 We encourage you to read this guide carefully and get in touch with us if you have any questions or feedback.
 
+> [!NOTE]
+> Adding a new icon follows its own end-to-end process across several repositories and Figma libraries. If your contribution is an icon, follow the [Icons contribution guide](icons-contribution.md).
+
 ## Index
 
+- [Workflow overview](#workflow-overview)
 - [Proposal](#proposals)
 - [Creation of an issue based on the proposal](#issues)
 - [Updating or creating the specs needed](#specifications)
+- [Changes in the design repository](#changes-in-the-design-repository)
 - [Development and final review](#from-design-to-development)
+- [Updating libraries](#updating-libraries)
 
 ## Contribution journey
 
 ![Contribution journey](../.github/resources/guides/contribution/contribution_journey.svg)
+
+## Workflow overview
+
+Every change in Mística follows the same ordered sequence. Except where noted, each step must be completed before the next one starts.
+
+1. **Proposal.** Submit your idea as a [discussion](https://github.com/Telefonica/mistica-design/discussions) and wait for it to be approved.
+2. **Issue.** An issue is created from the approved proposal and an assignee is defined.
+3. **Specs first.** Update or create the Figma specs and get them merged. Specs are the single source of truth, so nothing downstream starts until they are merged.
+4. **Design repository PR _(only if needed)_.** If the change also requires a change in this repository — for example a skin or a token change — open that pull request only after the specs are merged, and get it merged before the development that depends on it. This step is skipped when no skin or token change is involved.
+5. **Development.** Implement the merged specs in the code libraries.
+6. **Update libraries.** Once development is done, reflect the change in the Mística Mobile and Desktop Figma libraries and get those updates reviewed and merged.
+
+The following sections describe each step in detail.
 
 ## Proposals
 
@@ -96,6 +115,22 @@ Specs files are the single source of true for development teams to update Místi
 
 (1) To learn more about requesting branch reviews, read the [Figma documentation](https://www.figma.com/best-practices/branching-in-figma/best-practices-when-using-branches/#requesting-a-review-on-a-branch).
 
+## Changes in the design repository
+
+Some changes need a pull request in the `mistica-design` repository in addition to the specs. The most common cases are skin and token changes: adding, renaming or removing a token, or adding or modifying a skin.
+
+This pull request has a strict place in the sequence:
+
+1. It is opened **only after** the related specs are merged.
+2. It must be **merged before** the development that depends on it starts, so the code libraries can rely on the updated tokens and skins.
+
+When no skin or token change is involved, this step is skipped and you move straight to development.
+
+For the rules that apply to these changes, see:
+
+- [Token releases](token-releases.md) — how token and skin changes map to semantic versioning.
+- [Tokens workflow](tokens-workflow.md) — the workflow for updating tokens.
+
 ## From design to development
 
 Depending of the team that will develop the specifications update there are two different paths.
@@ -112,6 +147,21 @@ If an external team is the responsible os the task, some rules should be followe
    - [Web](https://github.com/Telefonica/mistica-web/blob/master/CONTRIBUTING.md)
 2. Include reviewers from the Mística development team and design core team.
 3. Include the link of the approved specs in the PR description.
+
+## Updating libraries
+
+Once development is done, the change has to be reflected in the Mística Figma libraries so designers consume the same result that has been shipped. This affects the **Mistica Mobile** and **Mistica Desktop** libraries.
+
+> [!NOTE]
+> If the change involved a token update, you will first need the **Mistica Skins** library published, since tokens are published through that library. The component libraries may depend on those tokens to be updated, so the Skins library has to be published before Icons, Mobile and Desktop. See the publishing order in the [Figma release process](figma-releases.md).
+
+For each affected library:
+
+1. Apply the changes in the library on a new branch.
+2. Request a review from the design core team.
+3. Merge the branch once it is approved.
+
+A library whose components are not affected by the change does not need to be updated. The release and publishing of these libraries is a separate process, described in the [Figma release process](figma-releases.md).
 
 Thank you for your interest in contributing to the Mística Design System.
 We appreciate your efforts to help us improve our system and create better user experiences for everyone.
