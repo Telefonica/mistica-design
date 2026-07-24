@@ -35,7 +35,7 @@ Every change in Mística follows the same ordered sequence. Except where noted, 
 3. **Specs first.** Update or create the Figma specs and get them merged. Specs are the single source of truth, so nothing downstream starts until they are merged.
 4. **Design repository PR _(only if needed)_.** If the change also requires a change in this repository — for example a skin or a token change — open that pull request only after the specs are merged, and get it merged before the development that depends on it. This step is skipped when no skin or token change is involved.
 5. **Development.** Implement the merged specs in the code libraries.
-6. **Update libraries.** Once development is done, reflect the change in the Mística Mobile and Desktop Figma libraries and get those updates reviewed and merged.
+6. **Update libraries.** Once development is done, reflect the change in the **Mistica Mobile** and **Mistica Desktop** Figma libraries and get those updates reviewed and merged.
 
 The following sections describe each step in detail.
 
