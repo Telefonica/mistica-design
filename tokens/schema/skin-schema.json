@@ -893,7 +893,7 @@
       "required": ["dismissActionType", "showBoxedBorder"],
       "properties": {
         "dismissActionType": { "$ref": "#/definitions/componentProperties" },
-        "showBoxedBorder": { "$ref": "#/definitions/componentProperties" }
+        "showBoxedBorder": { "$ref": "#/definitions/componentVariantBooleanProperties" }
       }
     }
   },
@@ -1199,25 +1199,34 @@
       "type": "object",
       "patternProperties": {
         "value": {
-          "anyOf": [
-            { "type": "string" },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "required": ["default", "brand", "negative", "alternative", "media"],
-              "properties": {
-                "default": { "type": "boolean" },
-                "brand": { "type": "boolean" },
-                "negative": { "type": "boolean" },
-                "alternative": { "type": "boolean" },
-                "media": { "type": "boolean" }
-              }
-            }
-          ]
+          "type": "string"
         },
         "type": {
           "const": "property"
         }
+      },
+      "properties": {
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
+      },
+      "required": ["value", "type"]
+    },
+    "componentVariantBooleanProperties": {
+      "type": "object",
+      "patternProperties": {
+        "value": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["default", "brand", "negative", "alternative", "media"],
+          "properties": {
+            "default": { "type": "boolean" },
+            "brand": { "type": "boolean" },
+            "negative": { "type": "boolean" },
+            "alternative": { "type": "boolean" },
+            "media": { "type": "boolean" }
+          }
+        },
+        "type": { "const": "property" }
       },
       "properties": {
         "deprecated": { "type": "boolean" },
