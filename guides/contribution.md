@@ -91,25 +91,26 @@ For any other teams expecting a feature you can check the design and development
 
 ## Specifications
 
-Specs files are the single source of true for development teams to update Mística libraries. There are two possible scenarios when working with specs.
+Specs files are the single source of true for development teams to update Mística libraries. There are two possible scenarios when working with specs: modifying existing components and creating new components.
 
 ### Modifying existing components
 
-1. A new branch in an existing Figma file will be created.
-2. Add the component `Dev Status` from the Mistica resources library around the new update areas of the documentation. This will make easier for reviewers and developers to find the new changes they need focus on and to everyone reading the specs to understand what's already available in the component implementation.
-3. When they are considered finished, request the approval adding at least 2 members of the design core team as reviewers of that branch<sup>(1)</sup>.
-4. Design core will review the file and provide feedback when needed.
-5. When considered ready, a reviewer will merge the branch.
-6. As soon as something is merged it is considered ready for development.
+1. Create a new branch in the existing Figma file. Name the branch using the format `{issue number} - {issue name}`. The linked issue should give the reviewer enough context to understand the changes expected in that spec.
+2. Add the `Dev Status` component from the Mística resources library around the new update areas of the documentation. This makes it easier for reviewers and developers to locate the changes they need to focus on, and helps anyone reading the specs understand what is already available in the component implementation.
+3. Mark every modified part of the specification with a "New" comment, and enclose it in a mustard-colored box indicating that the change is pending development, together with the task it corresponds to. This allows the development team to identify precisely which parts of the spec require attention.
+4. When the changes are considered finished, request approval by adding at least two members of the design core team as reviewers of that branch<sup>(1)</sup>.
+5. The design core team reviews the file and provides feedback when needed. If the changes are agreed upon, the branch is approved; otherwise, changes are requested. This happens through Figma's own branch review flow.
+6. Once the branch is approved, the task owner merges it and creates the corresponding tickets in GitHub for development.
+7. As soon as a branch is merged, it is considered ready for development.
 
 ### New components
 
-1. A new Figma file is created with the prefix `Draft`
-2. A new branch will be created in that file
-3. When they are considered finished, request the approval adding at least 2 members of the design core team as reviewers of that branch<sup>(1)</sup>.
-4. Design core will review the file and provide feedback when needed.
-5. When considered ready, a reviewer will merge the branch.
-6. As soon as something is merged it is considered ready for development.
+1. Create a new Figma file with the prefix `Draft`.
+2. Create a new branch in that file. Name the branch using the format `{issue number} - {issue name}`. The linked issue should give the reviewer enough context to understand the changes expected in that spec.
+3. When the changes are considered finished, request approval by adding at least two members of the design core team as reviewers of that branch<sup>(1)</sup>.
+4. The design core team reviews the file and provides feedback when needed. If the changes are agreed upon, the branch is approved; otherwise, changes are requested. This happens through Figma's own branch review flow.
+5. Once the branch is approved, the task owner merges it and creates the corresponding tickets in GitHub for development.
+6. As soon as a branch is merged, it is considered ready for development.
 
 ---
 
@@ -160,9 +161,12 @@ Once development is done, the change has to be reflected in the Mística Figma l
 
 For each affected library:
 
-1. Apply the changes in the library on a new branch.
-2. Request a review from the design core team.
-3. Merge the branch once it is approved.
+1. Create a new branch in the library file. Name the branch using the format `{issue number} - {issue name}`.
+2. Apply the changes in the library on that branch.
+3. When the changes are considered finished, request approval by adding a member of the design core team as a reviewer of that branch. Include in the review description the link to the issue, to give the reviewer enough context to understand the changes expected.
+4. The design core team reviews the file and provides feedback when needed. If the changes are agreed upon, the branch is approved; otherwise, changes are requested. This happens through Figma's own branch review flow.
+5. Once the branch is approved, the task owner merges the branch.
+6. As soon as a branch is merged, it is considered ready for release.
 
 A library whose components are not affected by the change does not need to be updated. The release and publishing of these libraries is a separate process, described in the [Figma release process](figma-releases.md).
 
