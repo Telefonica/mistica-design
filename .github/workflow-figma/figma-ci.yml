@@ -5,12 +5,12 @@
 # Cada paso `assert.*` con `name` se reporta como un check independiente.
 name: Validación de iconos
 version: 1
-# fileKey del archivo de Figma al que aplica este workflow: el segmento de la
-# URL entre "/design/" (o "/file/") y el nombre del archivo, p. ej. en
-# https://www.figma.com/design/ABC123XYZ/Mi-Archivo-de-Iconos la fileKey es
-# "ABC123XYZ". El widget solo usa este campo para elegir, entre todos los
-# .yml de su carpeta, cuál corresponde al archivo abierto.
-figmaFile: P7kCM2UhdjN9DwH1pdtrCb
+# Nombre del archivo de Figma al que aplica este workflow (tal cual aparece
+# en Figma, no la fileKey de la URL: esa propiedad requiere permisos de
+# plugin privado aprobados por Figma, así que el match se hace por nombre).
+# El widget solo usa este campo para elegir, entre todos los .yml de su
+# carpeta, cuál corresponde al archivo abierto.
+figmaFileName: test ci figma
 scope: current-page # current-page | current-file | selection | page:"Nombre"
 
 steps:
