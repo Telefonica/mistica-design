@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../figma-ci.schema.json
+#
+# Workflow de ejemplo: validación de un archivo de iconos.
+# Aplica los checks solo a componentes cuyo nombre termine en -regular, -filled o -light.
+# Cada paso `assert.*` con `name` se reporta como un check independiente.
+name: Validación de iconos
+version: 1
+scope: current-page # current-page | current-file | selection | page:"Nombre"
+
+steps:
+  # 1. Ninguna capa interior con winding rule EVENODD
+  - uses: select
+    with:
+      types: [COMPONENT]
+      nameMatches: "(-regular|-filled|-light)$"
+      scope: top-level
+  - uses: select.children
+  - uses: assert.property
+    name: Ninguna capa usa EVENODD
+    severity: error
+    with: { property: windingRule, notEquals: EVENODD }
+
+  # 2. Capa interior con constraints SCALE / SCALE
+  - uses: select
+    with:
+      types: [COMPONENT]
+      nameMatches: "(-regular|-filled|-light)$"
+      scope: top-level
+  - uses: select.children
+  - uses: assert.property
+    name: Sizing scale-scale
+    severity: error
+    with:
+      all:
+        - { property: constraints.horizontal, equals: SCALE }
+        - { property: constraints.vertical, equals: SCALE }
+
+  # 3. Cada icono tiene exactamente el número de capas esperado
+  - uses: select
+    with:
+      types: [COMPONENT]
+      nameMatches: "(-regular|-filled|-light)$"
+      scope: top-level
+  - uses: assert.childCount
+    name: Un solo hijo por icono
+    severity: error
+    with: { equals: 2 }
+
+  # 4. Esa capa interior se llama "icon"
+  - uses: select
+    with:
+      types: [COMPONENT]
+      nameMatches: "(-regular|-filled|-light)$"
+      scope: top-level
+  - uses: select.children
+  - uses: assert.nameMatches
+    name: La capa interior se llama "icon"
+    severity: error
+    with: { pattern: "^icon$" }
