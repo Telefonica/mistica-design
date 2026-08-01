@@ -4,7 +4,7 @@
 # Aplica los checks solo a componentes cuyo nombre termine en -regular, -filled o -light.
 # Cada paso `assert.*` con `name` se reporta como un check independiente.
 name: Brand set icon validation
-version: 1
+version: 1.0
 scope: page:"Icons" # current-page | current-file | selection | page:"Nombre"
 
 steps:
