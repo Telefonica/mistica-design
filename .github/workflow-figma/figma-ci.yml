@@ -17,6 +17,7 @@ steps:
   - uses: select.children
   - uses: assert.property
     name: EVENODD properties
+    description: Icon vector layers must not use the EVENODD fill rule. Use NONZERO instead, so the shape does not clip or invert when the icon is scaled.
     severity: error
     with: { property: windingRule, notEquals: EVENODD }
 
@@ -29,6 +30,7 @@ steps:
   - uses: select.children
   - uses: assert.property
     name: Sizing
+    description: Icon layers must have both horizontal and vertical constraints set to SCALE, so the artwork resizes proportionally with the component.
     severity: error
     with:
       all:
@@ -43,6 +45,7 @@ steps:
       scope: descendants
   - uses: assert.childCount
     name: Children layers
+    description: Each icon component must contain exactly one layer inside. More than one layer usually means ungrouped or leftover shapes.
     severity: error
     with: { equals: 1 }
 
@@ -55,5 +58,6 @@ steps:
   - uses: select.children
   - uses: assert.nameMatches
     name: Children layer name
+    description: The single inner layer of each icon must be named exactly "icon", so downstream tooling can find it reliably.
     severity: error
     with: { pattern: "^icon$" }
