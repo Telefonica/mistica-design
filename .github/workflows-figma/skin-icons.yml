@@ -4,11 +4,22 @@
 # Aplica los checks solo a componentes cuyo nombre termine en -regular, -filled o -light.
 # Cada paso `assert.*` con `name` se reporta como un check independiente.
 name: Brand set icon validation
-version: 1.0
+version: 1
 scope: page:"Icons" # current-page | current-file | selection | page:"Nombre"
 
 steps:
-  # 1. Ninguna capa interior con winding rule EVENODD
+  # 1. Todos los componentes deben terminar en -regular, -light o -filled
+  - uses: select
+    with:
+      types: [COMPONENT]
+      scope: descendants
+  - uses: assert.nameMatches
+    name: Component naming
+    description: Every component must be named ending in -regular, -light or -filled, which marks its icon style variant.
+    severity: error
+    with: { pattern: "(-regular|-filled|-light)$" }
+
+  # 2. Ninguna capa interior con winding rule EVENODD
   - uses: select
     with:
       types: [COMPONENT]
@@ -21,7 +32,7 @@ steps:
     severity: error
     with: { property: windingRule, notEquals: EVENODD }
 
-  # 2. Capa interior con constraints SCALE / SCALE
+  # 3. Capa interior con constraints SCALE / SCALE
   - uses: select
     with:
       types: [COMPONENT]
@@ -37,7 +48,7 @@ steps:
         - { property: constraints.horizontal, equals: SCALE }
         - { property: constraints.vertical, equals: SCALE }
 
-  # 3. Cada icono tiene exactamente el número de capas esperado
+  # 4. Cada icono tiene exactamente el número de capas esperado
   - uses: select
     with:
       types: [COMPONENT]
@@ -49,7 +60,7 @@ steps:
     severity: error
     with: { equals: 1 }
 
-  # 4. Esa capa interior se llama "icon"
+  # 5. Esa capa interior se llama "icon"
   - uses: select
     with:
       types: [COMPONENT]
