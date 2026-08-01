@@ -3,9 +3,9 @@
 # Workflow de ejemplo: validación de un archivo de iconos.
 # Aplica los checks solo a componentes cuyo nombre termine en -regular, -filled o -light.
 # Cada paso `assert.*` con `name` se reporta como un check independiente.
-name: Validación de iconos
+name: Brand set icon validation
 version: 1
-scope: current-page # current-page | current-file | selection | page:"Nombre"
+scope: page:"Icons" # current-page | current-file | selection | page:"Nombre"
 
 steps:
   # 1. Ninguna capa interior con winding rule EVENODD
@@ -16,7 +16,7 @@ steps:
       scope: descendants
   - uses: select.children
   - uses: assert.property
-    name: Ninguna capa usa EVENODD
+    name: EVENODD properties
     severity: error
     with: { property: windingRule, notEquals: EVENODD }
 
@@ -28,7 +28,7 @@ steps:
       scope: descendants
   - uses: select.children
   - uses: assert.property
-    name: Sizing scale-scale
+    name: Sizing
     severity: error
     with:
       all:
@@ -42,9 +42,9 @@ steps:
       nameMatches: "(-regular|-filled|-light)$"
       scope: descendants
   - uses: assert.childCount
-    name: Un solo hijo por icono
+    name: Children layers
     severity: error
-    with: { equals: 2 }
+    with: { equals: 1 }
 
   # 4. Esa capa interior se llama "icon"
   - uses: select
@@ -54,6 +54,6 @@ steps:
       scope: descendants
   - uses: select.children
   - uses: assert.nameMatches
-    name: La capa interior se llama "icon"
+    name: Children layer name
     severity: error
     with: { pattern: "^icon$" }
