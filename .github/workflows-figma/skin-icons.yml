@@ -86,6 +86,7 @@ steps:
         - { property: fills.0.color.r, equals: 0 }
         - { property: fills.0.color.g, equals: 0 }
         - { property: fills.0.color.b, equals: 0 }
+        - { property: fills.0.boundVariables.color, exists: false }
 
   # 7. The inner "icon" layer is a single flattened vector (not a boolean operation)
   - uses: select
