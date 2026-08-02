@@ -1,0 +1,106 @@
+# Expected structure, top to bottom:
+#   Page "Master Icons"
+#     Frame "Light" / "Regular" / "Filled"        (top-level, exactly these three)
+#       Component "<name>-light" / "-regular" / "-filled"   (NOT private, unlike Brands Icons)
+#         "Color"                                  (single child layer, locked)
+#           Instance                                (live; its exposed "Brand" property is
+#                                                     bound to a variable from the "iconSet"
+#                                                     variable collection)
+name: Mistica Icons Master Icons
+version: 1
+scope: page:"Master Icons" # current-page | current-file | selection | page:"Name"
+
+steps:
+  # 1. Exactly the three style frames must exist, top-level, no unexpected names
+  - uses: select
+    with:
+      types: [FRAME]
+      scope: top-level
+  - uses: assert.nameMatches
+    name: Frame naming
+    description: Every top-level frame on this page must be named "Light", "Regular" or "Filled".
+    severity: error
+    with: { pattern: "^(Light|Regular|Filled)$" }
+  - uses: assert.count
+    name: All three style frames present
+    description: The Light, Regular and Filled frames must all exist as top-level frames.
+    severity: error
+    with: { min: 3, max: 3 }
+
+  # 2. Only components live directly inside those frames, and they carry the style suffix
+  - uses: select
+    with:
+      types: [FRAME]
+      nameMatches: "^(Light|Regular|Filled)$"
+      scope: top-level
+  - uses: select.children # icon components
+  - uses: assert.property
+    name: Only components in style frames
+    description: Everything directly inside the Light, Regular and Filled frames must be a Component.
+    severity: error
+    with: { property: type, equals: COMPONENT }
+  - uses: assert.nameMatches
+    name: Icon component style suffix
+    description: Every component inside a style frame must end in -light, -regular or -filled.
+    severity: error
+    with: { pattern: "(-light|-regular|-filled)$" }
+
+  # 3. Unlike Brands Icons, these components must NOT be private, i.e. must NOT
+  # start with ".". `assert.nameMatches` only supports a positive regex, so a
+  # negative lookahead ("assert the next char isn't a dot") expresses "does
+  # not start with" — the dot must be escaped (\\.), otherwise it means "any
+  # character" instead of a literal dot.
+  - uses: assert.nameMatches
+    name: Icon component visibility
+    description: Every icon component must NOT be private, i.e. its name must not start with ".".
+    severity: error
+    with: { pattern: "^(?!\\.)" }
+
+  # 4. Each icon component must have exactly one child, and it must be named "Color".
+  # The childCount check runs BEFORE hopping down with select.children — it
+  # counts each icon component's OWN children, so an accidentally empty
+  # component is still caught even if sibling components under other frames
+  # are fine (see mistica-icons-brands.yml for the same reasoning in detail).
+  - uses: assert.childCount
+    name: Icon component has a single child
+    description: Every icon component must contain exactly one direct child layer.
+    severity: error
+    with: { equals: 1 }
+  - uses: select.children # the "Color" layer
+  - uses: assert.nameMatches
+    name: Color layer naming
+    description: The single child of each icon component must be named exactly "Color".
+    severity: error
+    with: { pattern: "^Color$" }
+
+  # 5. That "Color" layer must be locked
+  - uses: assert.property
+    name: Color layer is locked
+    description: The "Color" layer must be locked on canvas.
+    severity: error
+    with: { property: locked, equals: true }
+
+  # 6. Inside "Color" there must be a live instance (same per-node reasoning as step 4:
+  # check the "Color" layer's own child count before flattening one level further down).
+  - uses: assert.childCount
+    name: Color layer contains an instance
+    description: The "Color" layer must contain at least one child node.
+    severity: error
+    with: { min: 1 }
+  - uses: select.children # the instance inside "Color"
+  - uses: assert.isInstance
+    name: Instance is live
+    description: The node inside "Color" must be a live component instance, not detached.
+    severity: error
+
+  # 7. That instance's "Brand" property must be bound to the variable named
+  # "iconSet" (not a raw/hardcoded value). "iconSet" is the VARIABLE name
+  # (full path "utils/iconSet"); `variable:` matches either the full path or
+  # its last segment. The variable happens to live in a collection named
+  # "Brand" — that's the collection, not the variable, so `collection:` would
+  # be the wrong check here.
+  - uses: assert.variableBound
+    name: Instance brand variable
+    description: The instance's "Brand" property must be bound to the "iconSet" variable.
+    severity: error
+    with: { property: Brand, variable: iconSet }

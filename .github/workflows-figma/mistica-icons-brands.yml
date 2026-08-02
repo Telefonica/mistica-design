@@ -1,0 +1,102 @@
+# Expected structure, top to bottom:
+#   Page "Brands Icons"
+#     Frame "Light" / "Regular" / "Filled"        (top-level, exactly these three)
+#       Component ".<name>-light" / "-regular" / "-filled"   (private, style-suffixed)
+#         "Default" / "O2" / "Vivo"                (brand variant, at least one)
+#           Instance "<name>-light" / "-regular" / "-filled" (live, style-suffixed)
+name: Mistica Icons Brands Icons
+version: 1
+scope: page:"Brands Icons" # current-page | current-file | selection | page:"Name"
+
+steps:
+  # 1. Exactly the three style frames must exist, top-level, no unexpected names
+  - uses: select
+    with:
+      types: [FRAME]
+      scope: top-level
+  - uses: assert.nameMatches
+    name: Frame naming
+    description: Every top-level frame on this page must be named "Light", "Regular" or "Filled".
+    severity: error
+    with: { pattern: "^(Light|Regular|Filled)$" }
+  - uses: assert.count
+    name: All three style frames present
+    description: The Light, Regular and Filled frames must all exist as top-level frames.
+    severity: error
+    with: { min: 3, max: 3 }
+
+  # 2. Only components live directly inside those frames, and they carry the style suffix
+  - uses: select
+    with:
+      types: [FRAME]
+      nameMatches: "^(Light|Regular|Filled)$"
+      scope: top-level
+  - uses: select.children
+  - uses: assert.property
+    name: Only components in style frames
+    description: Everything directly inside the Light, Regular and Filled frames must be a Component.
+    severity: error
+    with: { property: type, equals: COMPONENT }
+  - uses: assert.nameMatches
+    name: Icon component style suffix
+    description: Every component inside a style frame must end in -light, -regular or -filled.
+    severity: error
+    with: { pattern: "(-light|-regular|-filled)$" }
+
+  # 3. Those components must be private (name starts with ".")
+  - uses: assert.nameMatches
+    name: Icon component visibility
+    description: Every icon component must be private, i.e. its name must start with ".".
+    severity: error
+    with: { pattern: "^\\." }
+
+  # 4. Inside each icon component, at least one brand variant must exist.
+  # `assert.childCount` runs PER SELECTED NODE (each icon component's own
+  # children), unlike `assert.count`, which counts the whole flattened
+  # selection at once — that would miss one empty component if its siblings
+  # under other frames still had variants.
+  - uses: select
+    with:
+      types: [FRAME]
+      nameMatches: "^(Light|Regular|Filled)$"
+      scope: top-level
+  - uses: select.children # icon components
+  - uses: assert.childCount
+    name: At least one brand variant
+    description: Every icon component must contain at least one brand variant.
+    severity: error
+    with: { min: 1 }
+  - uses: select.children # brand variants
+  - uses: assert.nameMatches
+    name: Brand variant naming
+    description: Every direct child of an icon component must be named "Default", "O2" or "Vivo".
+    severity: error
+    with: { pattern: "^(Brand=Default|Brand=O2|Brand=Vivo|Brand=Blau)$" }
+
+  # 5. Inside each brand variant, there must be a live instance.
+  # Same per-node reasoning as step 4: check each variant's own child count
+  # before flattening one more level down to the instances themselves.
+  - uses: select
+    with:
+      types: [FRAME]
+      nameMatches: "^(Light|Regular|Filled)$"
+      scope: top-level
+  - uses: select.children # icon components
+  - uses: select.children # brand variants
+  - uses: assert.childCount
+    name: Brand variant contains an instance
+    description: Every brand variant must contain at least one node.
+    severity: error
+    with: { min: 1 }
+  - uses: select.children # the variant's contents
+  - uses: assert.isInstance
+    name: Instance is live
+    description: The node inside each brand variant must be a live component instance, not detached.
+    severity: error
+
+  # 6. That instance's name must carry the same style suffix
+  - uses: assert.nameMatches
+    name: Instance naming
+    description: The instance inside each brand variant must end in -light, -regular or -filled.
+    severity: error
+    with: { pattern: "(-light|-regular|-filled)$" }
