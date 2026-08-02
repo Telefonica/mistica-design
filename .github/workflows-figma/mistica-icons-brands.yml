@@ -36,7 +36,7 @@ steps:
     name: Only components in style frames
     description: Everything directly inside the Light, Regular and Filled frames must be a Component.
     severity: error
-    with: { property: type, equals: COMPONENT }
+    with: { property: type, equals: COMPONENT_SET }
   - uses: assert.nameMatches
     name: Icon component style suffix
     description: Every component inside a style frame must end in -light, -regular or -filled.
