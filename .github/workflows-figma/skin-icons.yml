@@ -68,3 +68,34 @@ steps:
     description: The single inner layer of each icon must be named exactly "icon", so downstream tooling can find it reliably.
     severity: error
     with: { pattern: "^icon$" }
+
+  # 6. The inner "icon" layer has a solid black fill (#000000)
+  - uses: select
+    with:
+      types: [COMPONENT]
+      nameMatches: "(-regular|-filled|-light)$"
+      scope: descendants
+  - uses: select.children
+  - uses: assert.property
+    name: Icon fill color
+    description: The inner "icon" vector must have a solid black fill (#000000). Colour is applied elsewhere, so no variables/tokens are used here to keep icons lightweight.
+    severity: error
+    with:
+      all:
+        - { property: fills.0.type, equals: SOLID }
+        - { property: fills.0.color.r, equals: 0 }
+        - { property: fills.0.color.g, equals: 0 }
+        - { property: fills.0.color.b, equals: 0 }
+
+  # 7. The inner "icon" layer is a single flattened vector (not a boolean operation)
+  - uses: select
+    with:
+      types: [COMPONENT]
+      nameMatches: "(-regular|-filled|-light)$"
+      scope: descendants
+  - uses: select.children
+  - uses: assert.property
+    name: Flattened vector
+    description: The inner "icon" layer must be a single flattened vector (type VECTOR), not a live boolean operation (union, subtract, intersect or exclude).
+    severity: error
+    with: { property: type, equals: VECTOR }
