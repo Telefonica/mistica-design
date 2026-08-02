@@ -6,6 +6,29 @@ scope: page:"Icons" # current-page | current-file | selection | page:"Name"
 steps:
   - uses: select
     with:
+      types: [FRAME]
+      scope: top-level
+      nameMatches: "^(Light|Regular|Filled)$"
+  - uses: assert.count
+    name: Icon style frames
+    description: The page must contain the three style frames named "Light", "Regular" and "Filled".
+    severity: error
+    with: { min: 3, max: 3 }
+
+  - uses: select
+    with:
+      types: [FRAME]
+      scope: top-level
+      nameMatches: "^(Light|Regular|Filled)$"
+  - uses: select.children
+  - uses: assert.property
+    name: Only components in frames
+    description: Everything directly inside the Light, Regular and Filled frames must be a Component — no stray instances, groups, or un-componentised frames.
+    severity: error
+    with: { property: type, equals: COMPONENT }
+
+  - uses: select
+    with:
       types: [COMPONENT]
       scope: descendants
   - uses: assert.nameMatches
