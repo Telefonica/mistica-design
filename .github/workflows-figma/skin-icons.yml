@@ -20,7 +20,7 @@ steps:
       scope: descendants
   - uses: assert.property
     name: Icon size
-    description: Every icon component must be 24×24.
+    description: Every icon component must be 24x24.
     severity: error
     with:
       all:
