@@ -4,7 +4,6 @@ version: 1
 scope: page:"Icons" # current-page | current-file | selection | page:"Name"
 
 steps:
-  # Every component name must end in -regular, -light or -filled
   - uses: select
     with:
       types: [COMPONENT]
@@ -15,11 +14,9 @@ steps:
     severity: error
     with: { pattern: "(-regular|-filled|-light)$" }
 
-  # Every icon component is 24×24
   - uses: select
     with:
       types: [COMPONENT]
-      nameMatches: "(-regular|-filled|-light)$"
       scope: descendants
   - uses: assert.property
     name: Icon size
@@ -30,7 +27,6 @@ steps:
         - { property: width, equals: 24 }
         - { property: height, equals: 24 }
 
-  # No inner layer uses the EVENODD winding rule
   - uses: select
     with:
       types: [COMPONENT]
@@ -43,7 +39,6 @@ steps:
     severity: error
     with: { property: windingRule, notEquals: EVENODD }
 
-  # Inner layer with SCALE / SCALE constraints
   - uses: select
     with:
       types: [COMPONENT]
@@ -59,7 +54,6 @@ steps:
         - { property: constraints.horizontal, equals: SCALE }
         - { property: constraints.vertical, equals: SCALE }
 
-  # Each icon has exactly the expected number of layers
   - uses: select
     with:
       types: [COMPONENT]
@@ -71,7 +65,6 @@ steps:
     severity: error
     with: { equals: 1 }
 
-  # Children layer should be named as "icon"
   - uses: select
     with:
       types: [COMPONENT]
@@ -84,7 +77,6 @@ steps:
     severity: error
     with: { pattern: "^icon$" }
 
-  # The inner "icon" layer has a solid black fill (#000000)
   - uses: select
     with:
       types: [COMPONENT]
@@ -103,7 +95,6 @@ steps:
         - { property: fills.0.color.b, equals: 0 }
         - { property: fills.0.boundVariables.color, exists: false }
 
-  # The inner "icon" layer is a single flattened vector (not a boolean operation)
   - uses: select
     with:
       types: [COMPONENT]
