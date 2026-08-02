@@ -8,12 +8,11 @@ steps:
     with:
       types: [FRAME]
       scope: top-level
-      nameMatches: "^(Light|Regular|Filled)$"
-  - uses: assert.count
+  - uses: assert.nameMatches
     name: Icon style frames
-    description: The page must contain the three style frames named "Light", "Regular" and "Filled".
+    description: Every top-level frame must be named "Light", "Regular" or "Filled". Not all three need to exist, but no other frame names are allowed.
     severity: error
-    with: { min: 3, max: 3 }
+    with: { pattern: "^(Light|Regular|Filled)$" }
 
   - uses: select
     with:
