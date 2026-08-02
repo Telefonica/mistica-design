@@ -20,7 +20,7 @@ steps:
       scope: descendants
   - uses: assert.property
     name: Icon size
-    description: Every icon component must be 24x24.
+    description: Every icon component must be 24x24. If an icon that looks 24x24 still fails, its actual size is slightly off (sub-pixel) — Figma rounds the W/H it displays, so a value like 24.01 shows as "24".
     severity: error
     with:
       all:
