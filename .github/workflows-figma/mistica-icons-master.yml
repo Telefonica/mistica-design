@@ -56,32 +56,47 @@ steps:
     severity: error
     with: { pattern: "^(?!\\.)" }
 
-  # 4. Each icon component must have exactly one child, and it must be named "Color".
-  # The childCount check runs BEFORE hopping down with select.children — it
-  # counts each icon component's OWN children, so an accidentally empty
-  # component is still caught even if sibling components under other frames
-  # are fine (see mistica-icons-brands.yml for the same reasoning in detail).
+  # 4. Layer structure inside each icon component. A normal icon has exactly one
+  # child layer named "Color"; a DEPRECATED icon additionally has a layer named
+  # "DeprecatedIcon" (a different internal structure). So each component must
+  # have one or two children, and every child must be named either "Color" or
+  # "DeprecatedIcon" — no stray layers.
+  #   - `assert.childCount` runs on the components (the current selection), so
+  #     it counts each component's OWN children.
+  #   - `select.children` then hops down to the child layers to name-check them.
   - uses: assert.childCount
-    name: Icon component has a single child
-    description: Every icon component must contain exactly one direct child layer.
+    name: Icon component child count
+    description: Every icon component must contain one or two direct child layers.
     severity: error
-    with: { equals: 1 }
-  - uses: select.children # the "Color" layer
+    with: { min: 1, max: 2 }
+  - uses: select.children # the "Color" (and optional "DeprecatedIcon") layers
   - uses: assert.nameMatches
-    name: Color layer naming
-    description: The single child of each icon component must be named exactly "Color".
+    name: Child layer naming
+    description: Each child layer must be named "Color" or, for deprecated icons, "DeprecatedIcon".
     severity: error
-    with: { pattern: "^Color$" }
+    with: { pattern: "^(Color|DeprecatedIcon)$" }
 
-  # 5. That "Color" layer must be locked
+  # 5. The remaining structural checks apply ONLY to the "Color" layer — the
+  # "DeprecatedIcon" layer has a different internal shape and is merely
+  # tolerated, not validated here. We re-select from the frames and use the new
+  # `select.children` name filter to isolate exactly the "Color" layers (cheap:
+  # it only walks each component's direct children, never the whole page).
+  - uses: select
+    with:
+      types: [FRAME]
+      nameMatches: "^(Light|Regular|Filled)$"
+      scope: top-level
+  - uses: select.children # icon components
+  - uses: select.children # narrow to just the "Color" layer of each
+    with: { nameMatches: "^Color$" }
   - uses: assert.property
     name: Color layer is locked
     description: The "Color" layer must be locked on canvas.
     severity: error
     with: { property: locked, equals: true }
 
-  # 6. Inside "Color" there must be a live instance (same per-node reasoning as step 4:
-  # check the "Color" layer's own child count before flattening one level further down).
+  # 6. Inside "Color" there must be a live instance (per-node reasoning: check
+  # the "Color" layer's own child count before flattening one level further down).
   - uses: assert.childCount
     name: Color layer contains an instance
     description: The "Color" layer must contain at least one child node.
@@ -98,7 +113,20 @@ steps:
   # (full path "utils/iconSet"); `variable:` matches either the full path or
   # its last segment. The variable happens to live in a collection named
   # "Brand" — that's the collection, not the variable, so `collection:` would
-  # be the wrong check here.
+  # be the wrong check here. Re-select down to the "Color" layers and filter
+  # their children to `types: [INSTANCE]` only, so a detached/non-instance
+  # child — already flagged by step 6's `assert.isInstance` — is excluded
+  # here instead of also failing this variable-binding check.
+  - uses: select
+    with:
+      types: [FRAME]
+      nameMatches: "^(Light|Regular|Filled)$"
+      scope: top-level
+  - uses: select.children # icon components
+  - uses: select.children # narrow to just the "Color" layer of each
+    with: { nameMatches: "^Color$" }
+  - uses: select.children # only the live instance children of "Color"
+    with: { types: [INSTANCE] }
   - uses: assert.variableBound
     name: Instance brand variable
     description: The instance's "Brand" property must be bound to the "iconSet" variable.
