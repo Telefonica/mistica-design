@@ -114,9 +114,10 @@ steps:
   # its last segment. The variable happens to live in a collection named
   # "Brand" — that's the collection, not the variable, so `collection:` would
   # be the wrong check here. Re-select down to the "Color" layers and filter
-  # their children to `types: [INSTANCE]` only, so a detached/non-instance
-  # child — already flagged by step 6's `assert.isInstance` — is excluded
-  # here instead of also failing this variable-binding check.
+  # their children to those whose name starts with "." — the private brand
+  # instance's naming convention, same as Brands Icons — so a sibling like
+  # "DeprecatedIcon" (and anything inside it) is excluded here instead of
+  # also failing this variable-binding check.
   - uses: select
     with:
       types: [FRAME]
@@ -125,8 +126,8 @@ steps:
   - uses: select.children # icon components
   - uses: select.children # narrow to just the "Color" layer of each
     with: { nameMatches: "^Color$" }
-  - uses: select.children # only the live instance children of "Color"
-    with: { types: [INSTANCE] }
+  - uses: select.children # only the private brand instance inside "Color"
+    with: { nameMatches: "^\\." }
   - uses: assert.variableBound
     name: Instance brand variable
     description: The instance's "Brand" property must be bound to the "iconSet" variable.
