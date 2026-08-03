@@ -49,6 +49,11 @@ steps:
         - { property: width, equals: 24 }
         - { property: height, equals: 24 }
 
+  - uses: assert.uniqueName
+    name: No duplicate icon names
+    description: No two icon components may share the exact same name. A duplicate usually means an accidental copy-paste that was never renamed.
+    severity: error
+
   - uses: select
     with:
       types: [COMPONENT]
