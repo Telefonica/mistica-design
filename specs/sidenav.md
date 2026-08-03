@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-07-13T06:42:10.329Z
+  generated: 2026-08-03T07:51:45.334Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-08-03T07:30:31Z | 2026-08-03T07:51:45.334Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-07-10T12:51:51Z | 2026-07-13T06:42:10.329Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-07-07T11:52:21Z | 2026-07-07T11:53:03.116Z |
