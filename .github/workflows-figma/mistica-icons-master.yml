@@ -144,7 +144,7 @@ steps:
   - uses: select.children # icon components
   - uses: assert.property
     name: Icon component description
-    description: Every icon component must have its description field filled in.
+    description: Every icon component must have its description field filled in. Select icons and use Mistica Icons Keywords plugin from Telefonica.
     severity: error
     with: { property: description, notEquals: "" }
 
@@ -158,7 +158,7 @@ steps:
   - uses: select.children # icon components
   - uses: assert.property
     name: Icon component repo link
-    description: Every icon component must have at least one repo link filled in.
+    description: Every icon component must have at least one repo link filled in. Select icons and use Mistica Icons Keywords plugin from Telefonica.
     severity: error
     with:
       all:
