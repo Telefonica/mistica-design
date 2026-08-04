@@ -133,3 +133,34 @@ steps:
     description: The instance's "Brand" property must be bound to the "iconSet" variable.
     severity: error
     with: { property: Brand, variable: iconSet }
+
+  # 8. Every icon component must document itself: a non-empty description,
+  # for library consumers browsing the file/plugin.
+  - uses: select
+    with:
+      types: [FRAME]
+      nameMatches: "^(Light|Regular|Filled)$"
+      scope: top-level
+  - uses: select.children # icon components
+  - uses: assert.property
+    name: Icon component description
+    description: Every icon component must have its description field filled in.
+    severity: error
+    with: { property: description, notEquals: "" }
+
+  # 9. Every icon component must also have at least one documentation link
+  # filled in (e.g. pointing at the mistica-icons GitHub repo).
+  - uses: select
+    with:
+      types: [FRAME]
+      nameMatches: "^(Light|Regular|Filled)$"
+      scope: top-level
+  - uses: select.children # icon components
+  - uses: assert.property
+    name: Icon component repo link
+    description: Every icon component must have at least one repo link filled in.
+    severity: error
+    with:
+      all:
+        - { property: "documentationLinks.0.uri", exists: true }
+        - { property: "documentationLinks.0.uri", notEquals: "" }
