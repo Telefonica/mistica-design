@@ -71,7 +71,10 @@ steps:
     name: Brand variant naming
     description: Every direct child of an icon component must be named "Default", "O2" or "Vivo".
     severity: error
-    with: { pattern: "^(Brand=Default|Brand=O2|Brand=Vivo|Brand=Blau)$" }
+    with:
+      {
+        pattern: "^(Brand=Default|Brand=O2|Brand=Vivo|Brand=Vivo Evolution|Brand=Blau)$",
+      }
 
   # 5. Inside each brand variant, there must be a live instance.
   # Same per-node reasoning as step 4: check each variant's own child count
