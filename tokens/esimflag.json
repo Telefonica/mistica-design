@@ -378,34 +378,34 @@
       "description": "grey3"
     },
     "buttonLinkNeutralBackgroundBrand": {
-      "value": "rgba({palette.white}, 0)",
+      "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
     "buttonLinkNeutralBackgroundBrandPressed": {
-      "value": "rgba({palette.white}, 0.08)",
+      "value": "{palette.grey2}",
       "type": "color",
-      "description": "white"
+      "description": "grey2"
     },
     "buttonLinkNeutralBackgroundNegative": {
-      "value": "rgba({palette.white}, 0)",
+      "value": "{palette.white}",
       "type": "color",
       "description": "white"
     },
     "buttonLinkNeutralBackgroundNegativePressed": {
-      "value": "rgba({palette.white}, 0.08)",
+      "value": "{palette.grey2}",
       "type": "color",
-      "description": "white"
+      "description": "grey2"
     },
     "buttonLinkNeutralBackgroundMedia": {
-      "value": "rgba({palette.white}, 0)",
+      "value": "{palette.grey2}",
       "type": "color",
-      "description": "white"
+      "description": "grey2"
     },
     "buttonLinkNeutralBackgroundMediaPressed": {
-      "value": "rgba({palette.white}, 0.08)",
+      "value": "{palette.grey2}",
       "type": "color",
-      "description": "white"
+      "description": "grey2"
     },
     "buttonPrimaryBackground": {
       "value": "{palette.blue}",
@@ -732,14 +732,14 @@
       "description": "white"
     },
     "textLinkDanger": {
-      "value": "{palette.tomato55}",
+      "value": "{palette.tomato60}",
       "type": "color",
-      "description": "tomato55"
+      "description": "tomato60"
     },
     "textLinkDangerMedia": {
-      "value": "{palette.tomato55}",
+      "value": "{palette.tomato60}",
       "type": "color",
-      "description": "tomato55"
+      "description": "tomato60"
     },
     "textLinkSnackbar": {
       "value": "{palette.blue30}",
@@ -1142,9 +1142,9 @@
       "description": "tomato"
     },
     "textError": {
-      "value": "{palette.tomato55}",
+      "value": "{palette.tomato60}",
       "type": "color",
-      "description": "tomato55"
+      "description": "tomato60"
     },
     "textErrorInverse": {
       "value": "{palette.white}",
@@ -1917,19 +1917,19 @@
       "description": "darkModeBlack"
     },
     "buttonDangerBackground": {
-      "value": "{palette.tomato}",
+      "value": "{palette.tomato55}",
       "type": "color",
-      "description": "tomato"
+      "description": "tomato55"
     },
     "buttonDangerBackgroundPressed": {
-      "value": "{palette.tomato55}",
+      "value": "{palette.tomato60}",
       "type": "color",
-      "description": "tomato55"
+      "description": "tomato60"
     },
     "buttonDangerBackgroundHover": {
-      "value": "{palette.tomato55}",
+      "value": "{palette.tomato60}",
       "type": "color",
-      "description": "tomato55"
+      "description": "tomato60"
     },
     "buttonLinkDangerBackgroundInverse": {
       "value": "rgba({palette.white}, 0)",
@@ -2372,9 +2372,9 @@
       "description": "chili"
     },
     "textLinkDangerMedia": {
-      "value": "{palette.tomato55}",
+      "value": "{palette.tomato60}",
       "type": "color",
-      "description": "tomato55"
+      "description": "tomato60"
     },
     "textLinkSnackbar": {
       "value": "{palette.blue30}",
@@ -2713,9 +2713,9 @@
       "description": "grey3"
     },
     "textPrimaryInverse": {
-      "value": "{palette.grey3}",
+      "value": "{palette.grey2}",
       "type": "color",
-      "description": "grey3",
+      "description": "grey2",
       "deprecated": true,
       "deprecatedBy": "textPrimaryBrand"
     },
@@ -4085,7 +4085,7 @@
         "type": "color"
       },
       "grass75": {
-        "value": "#5C8019",
+        "value": "#567718",
         "type": "color"
       },
       "peach": {
