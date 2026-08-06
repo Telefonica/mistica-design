@@ -6,6 +6,7 @@ import GlobalPalette from "../components/globalPalette";
 import RadiiTable from "../components/borderRadii";
 import TextTable from "../components/typography";
 import SpacingTable from "../components/spacingTable";
+import PropertiesTable from "../components/propertiesTable";
 import {
   Box,
   ButtonLink,
@@ -100,6 +101,12 @@ const TokensMap = () => {
         return !!skin.text && Object.keys(skin.text).length > 0;
       case "spacing":
         return !!skin.spacing && Object.keys(skin.spacing).length > 0;
+      case "properties":
+        return (
+          (!!skin.themeVariant && Object.keys(skin.themeVariant).length > 0) ||
+          (!!skin.componentProperties &&
+            Object.keys(skin.componentProperties).length > 0)
+        );
       default:
         return false;
     }
@@ -110,6 +117,7 @@ const TokensMap = () => {
     radius: "Border Radii",
     text: "Typography",
     spacing: "Spacing",
+    properties: "Properties",
   };
 
   const COLOR_FILTERS = {
@@ -127,6 +135,7 @@ const TokensMap = () => {
     radius: RadiiTable,
     text: TextTable,
     spacing: SpacingTable,
+    properties: PropertiesTable,
   };
   // Modify the view depending on the selected chip
 

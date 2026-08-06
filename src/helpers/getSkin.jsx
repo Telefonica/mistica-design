@@ -6,51 +6,61 @@ const GetSkin = ({ selectedSkin, branch }) => {
   const [skinError, setSkinError] = useState(null);
 
   useEffect(() => {
-    const getSkinNames = async () => {
-      const response = await fetch(
-        `https://api.github.com/repos/Telefonica/mistica-design/contents/tokens?ref=${
-          branch || "production"
-        }`
-      );
+    const branchRef = branch || "production";
 
-      return (response?.status === 200 ? await response.json() : [])
-        .filter((value) => value.name.endsWith(".json"))
-        .map((value) => value.name.slice(0, -5));
+    const getSkinEntries = async () => {
+      const [topLevelRes, communityRes] = await Promise.all([
+        fetch(
+          `https://api.github.com/repos/Telefonica/mistica-design/contents/tokens?ref=${branchRef}`
+        ),
+        fetch(
+          `https://api.github.com/repos/Telefonica/mistica-design/contents/tokens/community?ref=${branchRef}`
+        ),
+      ]);
+
+      const topLevel = (
+        topLevelRes?.status === 200 ? await topLevelRes.json() : []
+      )
+        .filter((f) => f.name.endsWith(".json"))
+        .map((f) => ({ name: f.name.slice(0, -5), community: false }));
+
+      const community = (
+        communityRes?.status === 200 ? await communityRes.json() : []
+      )
+        .filter((f) => f.type === "file" && f.name.endsWith(".json"))
+        .map((f) => ({ name: f.name.slice(0, -5), community: true }));
+
+      return [...topLevel, ...community];
     };
 
     const fetchSkins = async () => {
-      const skinNames = await getSkinNames();
+      const entries = await getSkinEntries();
       const fetchedSkins = {};
 
       try {
-        for (let i = 0; i < skinNames.length; i++) {
-          const skinName = skinNames[i];
+        for (const { name, community } of entries) {
+          const path = community ? `community/${name}.json` : `${name}.json`;
           const response = await fetch(
-            `https://raw.githubusercontent.com/Telefonica/mistica-design/${branch}/tokens/${skinName}.json`
+            `https://raw.githubusercontent.com/Telefonica/mistica-design/${branchRef}/tokens/${path}`
           );
           const data = await response.json();
-          fetchedSkins[skinName] = data;
+          fetchedSkins[name] = data;
         }
 
+        const namesList = entries.map(({ name, community }) => ({
+          value: name,
+          text: community
+            ? `${name.charAt(0).toUpperCase() + name.slice(1)} (Community)`
+            : name.charAt(0).toUpperCase() + name.slice(1),
+        }));
+
         if (selectedSkin) {
-          // If a selected skin is provided, set the skin data for that skin
           setSkinData(fetchedSkins[selectedSkin]);
-          setSkinNames(
-            Object.keys(fetchedSkins).map((brandName) => ({
-              value: brandName,
-              text: brandName.charAt(0).toUpperCase() + brandName.slice(1),
-            }))
-          );
+          setSkinNames(namesList);
           setSkinError(false);
         } else {
-          // If no selected skin is provided, set the skin data for all skins
           setSkinData(fetchedSkins);
-          setSkinNames(
-            Object.keys(fetchedSkins).map((brandName) => ({
-              value: brandName,
-              text: brandName.charAt(0).toUpperCase() + brandName.slice(1),
-            }))
-          );
+          setSkinNames(namesList);
           setSkinError(false);
         }
       } catch (error) {
@@ -62,7 +72,7 @@ const GetSkin = ({ selectedSkin, branch }) => {
     fetchSkins();
   }, [selectedSkin, branch]);
 
-  return { skinData, skinError, skinNames }; // Return the skins object
+  return { skinData, skinError, skinNames };
 };
 
 export default GetSkin;
