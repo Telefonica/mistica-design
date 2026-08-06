@@ -118,9 +118,9 @@
       "description": "vivoNeutral950"
     },
     "backgroundContainerBrandOverBrand": {
-      "value": "{palette.vivoPurple900}",
+      "value": "{palette.vivoPurple650}",
       "type": "color",
-      "description": "vivoPurple900"
+      "description": "vivoPurple650"
     },
     "backgroundContainerAlternative": {
       "value": "{palette.vivoNeutral25}",
@@ -341,9 +341,9 @@
       "description": "vivoNeutral0"
     },
     "buttonLinkNeutralBackgroundPressed": {
-      "value": "{palette.vivoNeutral25}",
+      "value": "{palette.vivoNeutral100}",
       "type": "color",
-      "description": "vivoNeutral25"
+      "description": "vivoNeutral100"
     },
     "buttonLinkNeutralBackgroundBrand": {
       "value": "{palette.vivoNeutral0}",
@@ -3330,7 +3330,7 @@
         "type": "typography"
       },
       "rowTitle": {
-        "value": "regular",
+        "value": "medium",
         "type": "typography"
       },
       "button": {
@@ -3408,29 +3408,29 @@
       },
       "cardPretitleSnap": {
         "value": {
-          "mobile": 14,
-          "desktop": 16
+          "mobile": 12,
+          "desktop": 14
         },
         "type": "typography"
       },
       "cardTitleSnap": {
         "value": {
-          "mobile": 14,
-          "desktop": 16
+          "mobile": 16,
+          "desktop": 18
         },
         "type": "typography"
       },
       "cardSubtitleSnap": {
         "value": {
-          "mobile": 14,
-          "desktop": 16
+          "mobile": 12,
+          "desktop": 14
         },
         "type": "typography"
       },
       "cardDescriptionSnap": {
         "value": {
-          "mobile": 14,
-          "desktop": 16
+          "mobile": 12,
+          "desktop": 14
         },
         "type": "typography"
       },
@@ -3962,6 +3962,26 @@
           "mobile": 16,
           "desktop": 40
         }
+      },
+      "type": "spacing"
+    },
+    "boxedDefaultPadding": {
+      "value": {
+        "left": {
+          "mobile": 16,
+          "desktop": 24
+        },
+        "right": {
+          "mobile": 16,
+          "desktop": 24
+        }
+      },
+      "type": "spacing"
+    },
+    "responsiveLayoutMargin": {
+      "value": {
+        "mobile": 8,
+        "desktop": 48
       },
       "type": "spacing"
     }

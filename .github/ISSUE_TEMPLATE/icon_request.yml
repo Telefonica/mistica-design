@@ -7,6 +7,8 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this icon request to include in Mística!
+
+        > **One issue per icon.** Please open a separate issue for each icon you want to request.
   - type: checkboxes
     id: terms
     attributes:
@@ -27,6 +29,31 @@ body:
         - Vivo set
         - O2 set
         - Blau set
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Icon category
+      description: Select the category that best fits this icon.
+      options:
+        - Actions and system
+        - Activities
+        - Alerts and feedbacks
+        - Arrows
+        - Business and finance
+        - Development
+        - Files
+        - Health
+        - Home and devices
+        - Maps and vehicles
+        - Media
+        - Nature and sustainability
+        - Others
+        - People and users
+        - Security
+        - Telco and comms
+        - Time
     validations:
       required: true
   - type: textarea

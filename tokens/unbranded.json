@@ -106,9 +106,9 @@
       "description": "white"
     },
     "backgroundContainerBrandOverInverse": {
-      "value": "{palette.neutral900}",
+      "value": "{palette.neutral600}",
       "type": "color",
-      "description": "neutral900"
+      "description": "neutral600"
     },
     "backgroundContainerNegative": {
       "value": "rgba({palette.black}, 0.4)",
@@ -341,9 +341,9 @@
       "description": "white"
     },
     "buttonLinkNeutralBackgroundBrandPressed": {
-      "value": "rgba({palette.black}, 0.05)",
+      "value": "{palette.neutral50}",
       "type": "color",
-      "description": "black"
+      "description": "neutral50"
     },
     "buttonLinkNeutralBackgroundNegative": {
       "value": "{palette.white}",
@@ -351,9 +351,9 @@
       "description": "white"
     },
     "buttonLinkNeutralBackgroundNegativePressed": {
-      "value": "rgba({palette.black}, 0.05)",
+      "value": "{palette.neutral50}",
       "type": "color",
-      "description": "black"
+      "description": "neutral50"
     },
     "buttonLinkNeutralBackgroundMedia": {
       "value": "{palette.white}",
@@ -361,9 +361,9 @@
       "description": "white"
     },
     "buttonLinkNeutralBackgroundMediaPressed": {
-      "value": "rgba({palette.black}, 0.05)",
+      "value": "{palette.neutral50}",
       "type": "color",
-      "description": "black"
+      "description": "neutral50"
     },
     "buttonPrimaryBackground": {
       "value": "{palette.black}",
@@ -701,9 +701,9 @@
       "description": "black"
     },
     "textLinkNeutralMedia": {
-      "value": "{palette.white}",
+      "value": "{palette.black}",
       "type": "color",
-      "description": "white"
+      "description": "black"
     },
     "textActivated": {
       "value": "{palette.black}",
@@ -1789,9 +1789,9 @@
       "description": "neutral900"
     },
     "buttonDangerBackground": {
-      "value": "{palette.red600}",
+      "value": "{palette.red400}",
       "type": "color",
-      "description": "red600"
+      "description": "red400"
     },
     "buttonDangerBackgroundPressed": {
       "value": "{palette.red800}",
@@ -2089,14 +2089,14 @@
       "description": "neutral100"
     },
     "textButtonPrimary": {
+      "value": "{palette.neutral800}",
+      "type": "color",
+      "description": "neutral800"
+    },
+    "textButtonPrimaryInverse": {
       "value": "{palette.neutral700}",
       "type": "color",
       "description": "neutral700"
-    },
-    "textButtonPrimaryInverse": {
-      "value": "{palette.neutral900}",
-      "type": "color",
-      "description": "neutral900"
     },
     "textButtonPrimaryNegative": {
       "value": "{palette.neutral900}",
@@ -2539,9 +2539,9 @@
       "description": "neutral100"
     },
     "textPrimaryInverse": {
-      "value": "{palette.neutral600}",
+      "value": "{palette.neutral700}",
       "type": "color",
-      "description": "neutral600"
+      "description": "neutral700"
     },
     "textPrimaryNegative": {
       "value": "{palette.neutral50}",
@@ -3788,6 +3788,26 @@
           "mobile": 16,
           "desktop": 40
         }
+      },
+      "type": "spacing"
+    },
+    "boxedDefaultPadding": {
+      "value": {
+        "left": {
+          "mobile": 16,
+          "desktop": 16
+        },
+        "right": {
+          "mobile": 16,
+          "desktop": 16
+        }
+      },
+      "type": "spacing"
+    },
+    "responsiveLayoutMargin": {
+      "value": {
+        "mobile": 16,
+        "desktop": 48
       },
       "type": "spacing"
     }

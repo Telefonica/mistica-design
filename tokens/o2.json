@@ -373,9 +373,9 @@
       "description": "white"
     },
     "buttonLinkNeutralBackgroundPressed": {
-      "value": "{palette.grey20}",
+      "value": "rgba({palette.grey30}, 0.4)",
       "type": "color",
-      "description": "grey20"
+      "description": "grey30"
     },
     "buttonLinkNeutralBackgroundBrand": {
       "value": "{palette.white}",
@@ -3994,6 +3994,26 @@
           "mobile": 16,
           "desktop": 40
         }
+      },
+      "type": "spacing"
+    },
+    "boxedDefaultPadding": {
+      "value": {
+        "left": {
+          "mobile": 16,
+          "desktop": 16
+        },
+        "right": {
+          "mobile": 16,
+          "desktop": 16
+        }
+      },
+      "type": "spacing"
+    },
+    "responsiveLayoutMargin": {
+      "value": {
+        "mobile": 16,
+        "desktop": 48
       },
       "type": "spacing"
     }
