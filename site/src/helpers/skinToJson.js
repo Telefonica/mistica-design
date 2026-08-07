@@ -1,3 +1,10 @@
+// Default componentProperties when the skin JS source does not include the
+// section (the mistica skin JS format has never contained it). Imported from
+// unbranded.json so it stays in sync with the schema automatically — any new
+// required property added to the JSON files is picked up here without any
+// manual update to this file.
+import { componentProperties as defaultComponentProperties } from "@tokens/unbranded.json";
+
 // Extracts a top-level section block by name, balancing braces so we can
 // keep nested objects (responsive textPresets, spacing, gradients in template
 // literals, etc.) intact. Matches both `name: {` (object property) and
@@ -279,11 +286,9 @@ function extractSpacing(code) {
 }
 
 // The current mistica skin JS format does not include a componentProperties
-// section, so there is nothing to parse from the source. The schema marks
-// componentProperties as required with one key: dismissActionType. We
-// default to "neutral" (correct for every brand except Movistar which uses
-// "brand"). If a future skin source ever includes the block, it is parsed
-// correctly instead of using the default.
+// section. If a future skin source ever adds it, parse it; otherwise fall
+// back to the unbranded reference so the output stays valid against the
+// schema without any hardcoded token names or values here.
 function extractComponentProperties(code) {
   const block = extractBlock(code, "componentProperties");
   if (block) {
@@ -297,9 +302,7 @@ function extractComponentProperties(code) {
     }
     if (Object.keys(result).length > 0) return result;
   }
-  return {
-    dismissActionType: { value: "neutral", type: "property" },
-  };
+  return defaultComponentProperties;
 }
 
 function transformToJSON(rawCode) {
