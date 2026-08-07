@@ -1,0 +1,141 @@
+.candy-crush {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid.locked {
+  animation: fadeIn 0.75s ease forwards;
+}
+
+form > .candy-crush {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 65px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 8px;
+  width: 100%;
+  max-width: 70vh;
+  aspect-ratio: 1;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.grid div {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  aspect-ratio: 1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.dragging {
+  opacity: 0.4;
+  transform: scale(0.5);
+}
+
+.invalid-move {
+  animation: shake 0.3s ease;
+}
+
+@keyframes swap {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100%, 100%);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+.square.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.drop {
+  animation: drop 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes disappear {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.disappear {
+  animation: disappear 0.8s ease forwards;
+}
+
+@keyframes clearRowOrColumn {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+.clear-animation {
+  animation: clearRowOrColumn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.selected {
+  animation: fadeIn 0.75s ease forwards;
+}
+
+.square.highlighted {
+  border: 2px solid white;
+  outline: 1.5px solid #0066FF;
+  padding: 10px;
+  border-radius: 24px;
+}
