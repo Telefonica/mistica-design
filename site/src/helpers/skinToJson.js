@@ -1,9 +1,28 @@
-// Default componentProperties when the skin JS source does not include the
-// section (the mistica skin JS format has never contained it). Imported from
-// unbranded.json so it stays in sync with the schema automatically — any new
-// required property added to the JSON files is picked up here without any
-// manual update to this file.
-import { componentProperties as defaultComponentProperties } from "@tokens/unbranded.json";
+// componentProperties is not present in the mistica skin JS format, so it
+// must be derived from the matching token file. Each skin constant found in
+// the source maps to its token JSON; unbranded is the fallback for unknown
+// or community skins.
+import blauTokens from "@tokens/blau.json";
+import esimflagTokens from "@tokens/esimflag.json";
+import movistarTokens from "@tokens/movistar.json";
+import o2Tokens from "@tokens/o2.json";
+import telefonicaTokens from "@tokens/telefonica.json";
+import vivoTokens from "@tokens/vivo.json";
+import vivoEvolutionTokens from "@tokens/vivo-evolution.json";
+import unbrandedTokens from "@tokens/unbranded.json";
+
+const SKIN_COMPONENT_PROPERTIES = {
+  BLAU_SKIN: blauTokens.componentProperties,
+  ESIMFLAG_SKIN: esimflagTokens.componentProperties,
+  MOVISTAR_SKIN: movistarTokens.componentProperties,
+  MOVISTAR_NEW_SKIN: movistarTokens.componentProperties,
+  O2_SKIN: o2Tokens.componentProperties,
+  O2_NEW_SKIN: o2Tokens.componentProperties,
+  TELEFONICA_SKIN: telefonicaTokens.componentProperties,
+  VIVO_SKIN: vivoTokens.componentProperties,
+  VIVO_NEW_SKIN: vivoTokens.componentProperties,
+  VIVO_EVOLUTION_SKIN: vivoEvolutionTokens.componentProperties,
+};
 
 // Extracts a top-level section block by name, balancing braces so we can
 // keep nested objects (responsive textPresets, spacing, gradients in template
@@ -285,10 +304,10 @@ function extractSpacing(code) {
   return out;
 }
 
-// The current mistica skin JS format does not include a componentProperties
-// section. If a future skin source ever adds it, parse it; otherwise fall
-// back to the unbranded reference so the output stays valid against the
-// schema without any hardcoded token names or values here.
+// Detect the skin constant (e.g. MOVISTAR_SKIN) from the source so we can
+// pick componentProperties from the matching token file. The mistica skin JS
+// format does not include a componentProperties block, but if a future source
+// ever adds one it is parsed directly instead of falling back.
 function extractComponentProperties(code) {
   const block = extractBlock(code, "componentProperties");
   if (block) {
@@ -302,7 +321,10 @@ function extractComponentProperties(code) {
     }
     if (Object.keys(result).length > 0) return result;
   }
-  return defaultComponentProperties;
+
+  const skinMatch = code.match(/\b([A-Z][A-Z0-9_]*_SKIN)\b/);
+  const skinKey = skinMatch ? skinMatch[1] : null;
+  return SKIN_COMPONENT_PROPERTIES[skinKey] ?? unbrandedTokens.componentProperties;
 }
 
 function transformToJSON(rawCode) {
