@@ -1,5 +1,6 @@
 import { Stack, Text3, skinVars } from "@telefonica/mistica";
 import ContentWrapper from "../content-wrapper";
+import adventCalendarImg from "../../assets/images/advent-calendar.png";
 
 const AdventCalendarHistory = () => {
   return (
@@ -31,7 +32,7 @@ const AdventCalendarHistory = () => {
           </Text3>
         </Stack>
         <img
-          src={require("../../assets/images/advent-calendar.png")}
+          src={adventCalendarImg}
           alt="Advent Calendar"
           style={{
             width: "100%",

@@ -12,7 +12,6 @@ import {
   MainSectionHeader,
   MainSectionHeaderLayout,
   Boxed,
-  forceMobile,
   ResponsiveLayout,
   IconCheckRegular,
   skinVars,

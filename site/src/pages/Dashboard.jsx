@@ -7,7 +7,6 @@ import {
   Inline,
   Box,
   Boxed,
-  Icon,
   Text,
   Stack,
 } from "@telefonica/mistica";

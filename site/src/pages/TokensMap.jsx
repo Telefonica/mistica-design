@@ -9,6 +9,8 @@ import PropertiesTable from "../components/propertiesTable";
 import {
   Box,
   Chip,
+  EmptyStateCard,
+  IconErrorRegular,
   Inline,
   ResponsiveLayout,
   Select,
@@ -24,16 +26,16 @@ import {
 } from "@telefonica/mistica";
 import { useLocation } from "react-router-dom";
 import GetSkin from "../helpers/getSkin";
+import GetBranches from "../helpers/getBranches";
 import AppLayout from "../components/app-layout";
 import SubHeader from "../components/sub-header";
-
-const BRANCH = "production";
 
 const TokensMap = () => {
   // use query params to load the page in the selected state coming from a detail
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
+  const branchFromUrl = queryParams.get("branch");
   const colorFromUrl = queryParams.get("activeColor");
   const skinFromUrl = queryParams.get("skin");
   const tokenTypeFromUrl = queryParams.get("tokenType");
@@ -43,24 +45,29 @@ const TokensMap = () => {
   const [activeTokenType, setActiveTokenType] = useState(
     tokenTypeFromUrl || "color",
   );
+  const [selectedBranch, setSelectedBranch] = useState(
+    branchFromUrl || "production",
+  );
   const [selectedColor, setSelectedColor] = useState(
     colorFromUrl || "undefined",
   );
-  const { skinData, skinNames } = GetSkin({});
+  const { skinData, skinNames, skinError } = GetSkin({ branch: selectedBranch });
   const [colorView, setColorView] = useState("constants");
   const { isMobile } = useScreenSize();
 
-  // Update URL with selected skin, tokenType and color
+  const branches = GetBranches();
+
+  // Update URL with selected branch, skin, tokenType and color
 
   useEffect(() => {
-    let queryParams = `?skin=${selectedSkin}&tokenType=${activeTokenType}`;
+    let queryParams = `?branch=${selectedBranch}&skin=${selectedSkin}&tokenType=${activeTokenType}`;
 
     if (selectedColor) {
       queryParams += `&activeColor=${selectedColor}`;
     }
 
     window.history.pushState({}, "", queryParams);
-  }, [selectedColor, selectedSkin, activeTokenType]);
+  }, [selectedBranch, selectedColor, selectedSkin, activeTokenType]);
 
   // Filter tokens
 
@@ -134,7 +141,7 @@ const TokensMap = () => {
       selectedSkin={selectedSkin}
       filter={filter}
       tokenType={activeTokenType}
-      branch={BRANCH}
+      branch={selectedBranch}
       selectedColor={selectedColor}
       setSelectedColor={setSelectedColor}
     />
@@ -143,6 +150,7 @@ const TokensMap = () => {
   const filters = [
     <TextField
       fullWidth
+      disabled={skinError ? true : false}
       label="Filter tokens"
       value={filter}
       onChange={handleFilterChange}
@@ -150,10 +158,21 @@ const TokensMap = () => {
     />,
     <Select
       fullWidth
+      disabled={skinError ? true : false}
       label="Skin"
       onChangeValue={setSelectedSkin}
       value={selectedSkin}
       options={skinNames}
+    ></Select>,
+    <Select
+      fullWidth
+      label="Branch"
+      onChangeValue={setSelectedBranch}
+      value={selectedBranch}
+      options={branches.map((branch) => ({
+        value: branch.startsWith("#") ? `%23${branch.substring(1)}` : branch,
+        text: branch,
+      }))}
     ></Select>,
   ];
 
@@ -200,7 +219,7 @@ const TokensMap = () => {
               </Stack>
             </Stack>
           </Box>
-          {activeTokenType === "color" && (
+          {activeTokenType === "color" && skinError === false && (
             <Box paddingBottom={24}>
               <div
                 style={{
@@ -253,7 +272,22 @@ const TokensMap = () => {
           )}
         </ResponsiveLayout>
 
-        {view}
+        {skinError ? (
+          <ResponsiveLayout>
+            <EmptyStateCard
+              icon={
+                <IconErrorRegular
+                  size={40}
+                  color={skinVars.colors.error}
+                />
+              }
+              title="Error retrieving the tokens"
+              description={`The branch "${selectedBranch}" may not have token files or there was a problem fetching them from GitHub.`}
+            />
+          </ResponsiveLayout>
+        ) : (
+          view
+        )}
       </Box>
     </AppLayout>
   );

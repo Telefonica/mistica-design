@@ -26,7 +26,7 @@ import SubHeader from "../../components/sub-header";
 const ColorDetail = () => {
   const { id, tokenType, branch, selectedSkin, selectedColor } = useParams();
   const [foregroundColor, setForegroundColor] = useState("textPrimary");
-  const { skinData } = GetSkin({});
+  const { skinData } = GetSkin({ branch });
   const colorKeys = Object.keys(skinData?.movistar?.light || {});
 
   // Create a box to represent the foreground color against the color of the detail

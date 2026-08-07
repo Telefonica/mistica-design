@@ -6,6 +6,9 @@ import {
   BoxedRow,
 } from "@telefonica/mistica";
 import ContentWrapper from "../content-wrapper";
+import avatarJoseImg from "../../assets/images/avatar-jose.png";
+import avatarMontseImg from "../../assets/images/avatar-montse.png";
+import avatarLucasImg from "../../assets/images/avatar-lucas.png";
 
 const TopContributors = () => {
   return (
@@ -17,7 +20,7 @@ const TopContributors = () => {
               asset={
                 <Avatar
                   size={40}
-                  src={require("../../assets/images/avatar-jose.png")}
+                  src={avatarJoseImg}
                 />
               }
               title="Jose Luis González"
@@ -27,7 +30,7 @@ const TopContributors = () => {
               asset={
                 <Avatar
                   size={40}
-                  src={require("../../assets/images/avatar-montse.png")}
+                  src={avatarMontseImg}
                 />
               }
               title="Montserrat Morales"
@@ -37,7 +40,7 @@ const TopContributors = () => {
               asset={
                 <Avatar
                   size={40}
-                  src={require("../../assets/images/avatar-lucas.png")}
+                  src={avatarLucasImg}
                 />
               }
               title="Lucas Alburquerque"

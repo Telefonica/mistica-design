@@ -6,6 +6,9 @@ import {
   Carousel,
 } from "@telefonica/mistica";
 import ContentWrapper from "../content-wrapper";
+import chillMusicImg from "../../assets/images/chillmusic.png";
+import punkMusicImg from "../../assets/images/punkmusic.png";
+import electronicMusicImg from "../../assets/images/electronicmusic.png";
 
 const MusicLists = () => {
   return (
@@ -29,7 +32,7 @@ const MusicLists = () => {
               media={
                 <Image
                   aspectRatio="1:1"
-                  src={require("../../assets/images/chillmusic.png")}
+                  src={chillMusicImg}
                 />
               }
               buttonLink={
@@ -57,7 +60,7 @@ const MusicLists = () => {
               media={
                 <Image
                   aspectRatio="1:1"
-                  src={require("../../assets/images/punkmusic.png")}
+                  src={punkMusicImg}
                 />
               }
               buttonLink={
@@ -85,7 +88,7 @@ const MusicLists = () => {
               media={
                 <Image
                   aspectRatio="1:1"
-                  src={require("../../assets/images/electronicmusic.png")}
+                  src={electronicMusicImg}
                 />
               }
               buttonLink={
