@@ -278,6 +278,30 @@ function extractSpacing(code) {
   return out;
 }
 
+// The current mistica skin JS format does not include a componentProperties
+// section, so there is nothing to parse from the source. The schema marks
+// componentProperties as required with one key: dismissActionType. We
+// default to "neutral" (correct for every brand except Movistar which uses
+// "brand"). If a future skin source ever includes the block, it is parsed
+// correctly instead of using the default.
+function extractComponentProperties(code) {
+  const block = extractBlock(code, "componentProperties");
+  if (block) {
+    const result = {};
+    for (const entry of splitTopLevelEntries(block)) {
+      const kv = splitKeyValue(entry);
+      if (!kv) continue;
+      const [name, rawValue] = kv;
+      const cleaned = rawValue.replace(/['",]/g, "").trim();
+      if (cleaned) result[name] = { value: cleaned, type: "property" };
+    }
+    if (Object.keys(result).length > 0) return result;
+  }
+  return {
+    dismissActionType: { value: "neutral", type: "property" },
+  };
+}
+
 function transformToJSON(rawCode) {
   if (!rawCode || typeof rawCode !== "string") return null;
 
@@ -289,6 +313,7 @@ function transformToJSON(rawCode) {
     text: extractTextPresets(rawCode),
     spacing: extractSpacing(rawCode),
     global: { palette: extractPalette(rawCode) },
+    componentProperties: extractComponentProperties(rawCode),
   };
 
   return result;
