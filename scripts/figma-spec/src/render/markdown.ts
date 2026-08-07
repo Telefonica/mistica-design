@@ -16,6 +16,11 @@ import {
   type FigureRef,
 } from "../parser/inline.ts";
 import {
+  emitLinkFrame,
+  getLinkFramesInSection,
+  type LinkFrame,
+} from "../parser/link-frame.ts";
+import {
   appendIfChanged,
   emitChangelog,
   type ChangelogEntry,
@@ -42,7 +47,8 @@ export interface RenderInput {
 
 type SectionItem =
   | { kind: "h3"; y: number; block: H3Block }
-  | { kind: "table"; y: number; frame: TableFrame };
+  | { kind: "table"; y: number; frame: TableFrame }
+  | { kind: "link"; y: number; frame: LinkFrame };
 
 export function renderMarkdown(input: RenderInput): string {
   const sections = getSpecSections(input.page);
@@ -98,6 +104,9 @@ export function renderMarkdown(input: RenderInput): string {
     for (const t of sectionTables) {
       items.push({ kind: "table", y: t.y, frame: t });
     }
+    for (const l of getLinkFramesInSection(section, warnings)) {
+      items.push({ kind: "link", y: l.y, frame: l });
+    }
     items.sort((a, b) => a.y - b.y);
 
     const figureSlugsInSection = new Set(sectionFigures.map((f) => f.slug));
@@ -114,7 +123,7 @@ export function renderMarkdown(input: RenderInput): string {
         } else if (titleSlug && figureSlugsInSection.has(titleSlug)) {
           emitFigureBySlug(titleSlug);
         }
-      } else {
+      } else if (item.kind === "table") {
         const rendered = input.tablesByKey.get(keyOf(item.frame.slug));
         if (rendered) {
           parts.push(rendered);
@@ -123,6 +132,8 @@ export function renderMarkdown(input: RenderInput): string {
             `No rendered output for table::${item.frame.slug} — skipping.`,
           );
         }
+      } else {
+        parts.push(emitLinkFrame(item.frame, warnings));
       }
     }
 

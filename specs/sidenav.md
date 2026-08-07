@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-08-03T07:51:45.334Z
+  generated: 2026-08-07T18:26:50.752Z
 -->
 
 # Sidenav
@@ -12,12 +12,14 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-08-07T18:17:35Z | 2026-08-07T18:26:50.752Z |
+| Branch | Figma last modified  | Generated                |
+| main   | 2026-08-07T18:17:35Z | 2026-08-07T18:25:07.021Z |
+| Branch | Figma last modified  | Generated                |
+| main   | 2026-08-07T18:17:35Z | 2026-08-07T18:18:14.317Z |
 | main   | 2026-08-03T07:30:31Z | 2026-08-03T07:51:45.334Z |
-| Branch | Figma last modified  | Generated                |
 | main   | 2026-07-10T12:51:51Z | 2026-07-13T06:42:10.329Z |
-| Branch | Figma last modified  | Generated                |
 | main   | 2026-07-07T11:52:21Z | 2026-07-07T11:53:03.116Z |
-| Branch | Figma last modified  | Generated                |
 | main   | 2026-07-07T11:47:22Z | 2026-07-07T11:47:59.902Z |
 | main   | 2026-06-01T07:07:36Z | 2026-06-01T07:09:57.070Z |
 | main   | 2026-05-22T08:09:25Z | 2026-05-22T08:13:17.467Z |
@@ -189,7 +191,7 @@ _Sidenav floating panel anatomy_
 | Container right/left padding | padding    | 8         |
 | Left gap with sidenav        | margin     | 8         |
 
-### The dialog panel follows the specifications of the Menu component. You can view full specs here
+> See also: The dialog panel follows the specifications of the Menu component. You can view full specs [here](https://www.figma.com/design/a1pgrI7Wg41iyXWU8ETqlU/%F0%9F%94%B8-Menu-Specs?node-id=1703-724&t=vwLOWfP1Om9sVVnH-4)
 
 ### Double panel
 
@@ -236,7 +238,7 @@ For animation details use the same as the production component for consistency.
 
 _Level 1 Level 0 Level 2_
 
-### You can view the full MainNavBar specs here
+> See also: You can view the full MainNavBar specs [here](https://www.figma.com/design/Os5UfsnhLtQ9rnzmtcX8J4/%F0%9F%94%B8-Navigation-Bar-Specs?node-id=1206-2534)
 
 ## Behaviour
 
@@ -293,6 +295,7 @@ Divider consistency: the divider must be the same in both states (expanded/colla
 - When sidenav is collapsed the dropdown can be opened in the following ways:
   - Dialog panel: a dialog opens near to the item trigger, showing children links
   - Double panel: a full panel appears attached to right of the sidenav, displaying all item children links
+- The sidenav will allow only 1 children level, a children item cannot have any nested level inside
 
 ![Double panel=”false”, uncollapsed and collapsed](sidenav/figures/behaviour-item-dropdowns.png)
 
@@ -363,7 +366,8 @@ _Centered layout_
 
 - The burger menu open/close behavior emulates the Main Navigation Bar component.
 - For animation details use the sames as the production component for consistency.
-  You can view the full MainNavBar specs here
+
+> See also: You can view the full MainNavBar specs [here](https://www.figma.com/design/Os5UfsnhLtQ9rnzmtcX8J4/%F0%9F%94%B8-Navigation-Bar-Specs?node-id=1206-2534)
 
 ## Tokens
 

@@ -6,8 +6,8 @@ This tool walks the spec sections on a Figma page and produces a single Markdown
 file per component under `specs/` at the repo root. Generated `.md` files are
 manually reviewed and committed by the designer.
 
-> **Status:** Phase 3 — H2 sections, H3 prose, inline figures, and tables via
-> OCR (Gemini 2.5 Flash with a Tesseract fallback).
+> **Status:** Phase 3 — H2 sections, H3 prose, inline figures, tables via
+> OCR (Gemini 2.5 Flash with a Tesseract fallback), and hyperlinks.
 
 ## One-time setup
 
@@ -91,15 +91,38 @@ it.
 
 The walker keys off frame names. The conventions are:
 
-| Frame name               | Treated as                                                   |
-| ------------------------ | ------------------------------------------------------------ |
-| `Specs Header` (a child) | Marks its parent frame as a top-level H2 section             |
-| `fig::<slug>`            | Inline figure — exported as PNG, slug is the filename        |
-| `table::<slug>`          | Table — PNG cached to `.cache/`, OCR'd into a Markdown table |
-| (anything else)          | Plain frame, ignored by the walker                           |
+| Frame name               | Treated as                                                                        |
+| ------------------------ | --------------------------------------------------------------------------------- |
+| `Specs Header` (a child) | Marks its parent frame as a top-level H2 section                                  |
+| `fig::<slug>`            | Inline figure — exported as PNG, slug is the filename                             |
+| `table::<slug>`          | Table — PNG cached to `.cache/`, OCR'd into a Markdown table                     |
+| `link::<slug>`           | Standalone reference link — rendered as `> See also: [text](url)`                |
+| (anything else)          | Plain frame, ignored by the walker                                                |
 
-`<slug>` must match `[A-Za-z0-9_-]+`. The frame's caption is the concatenated
-text of its direct text children, in canvas top-to-bottom order.
+`<slug>` must match `[A-Za-z0-9_-]+`.
+
+#### Slug naming convention
+
+The slug always matches the H3 paragraph it belongs to — the same rule as
+`fig::` and `table::`. For example, a "Mobile" H3 inside the "Anatomy" artboard
+uses:
+
+```
+fig::mobile
+table::mobile
+link::mobile
+```
+
+Heading slugs are computed by lowercasing, normalising diacritics, and collapsing
+non-alphanumeric runs to `-`. An H3 titled `Header region` becomes `header-region`.
+
+When two or more link frames sit in the same paragraph, append a short suffix to
+keep slugs unique within the artboard:
+
+```
+link::mobile-menu
+link::mobile-tokens
+```
 
 ### Embedding figures inline
 
@@ -160,6 +183,35 @@ OCR pipeline, in order:
    ```
 
 The cache lives at `scripts/figma-spec/.cache/` and is gitignored.
+
+### Links
+
+There are two ways hyperlinks appear in the output.
+
+**Inline links in prose text** are extracted automatically. Any word or phrase
+inside an H3 text node that carries a Figma hyperlink (set via the link icon in
+the Figma text toolbar) is converted to a Markdown `[text](url)` link. No
+special frame naming is needed — the link lives in the character style data of
+the text node itself.
+
+**Standalone reference links** use a `link::<slug>` node. Two authoring
+patterns are supported:
+
+- **Text node directly** — rename an existing text node inside the artboard
+  to `link::<slug>`. The text content and its hyperlink are read from the
+  node itself. This is the simpler approach when the text is already there.
+- **Wrapper frame** — add a frame named `link::<slug>` as a direct child of
+  the artboard, then place a text node inside it with the label and link.
+
+The renderer emits the frame as a blockquote in reading order (by canvas `y`,
+alongside H3 blocks and tables):
+
+```markdown
+> See also: [Menu component specs](https://www.figma.com/…)
+```
+
+If the text node has no hyperlink set, the tool still emits the text and prints
+a warning so it can be fixed in Figma.
 
 ## How the walker decides what is a "spec section"
 

@@ -42,11 +42,33 @@ export interface BaseNode {
 
 export type LineType = "NONE" | "ORDERED" | "UNORDERED";
 
+/** A URL-type hyperlink attached to a character run in a text node. */
+export interface FigmaHyperlink {
+  type: "URL";
+  url: string;
+}
+
+/**
+ * Per-character style override entry from `styleOverrideTable`.
+ * Only the `hyperlink` field is modelled; other overrides (fills, font
+ * weight, etc.) are ignored by this tool.
+ */
+export interface StyleOverride {
+  hyperlink?: FigmaHyperlink;
+}
+
 export interface TextNode extends BaseNode {
   type: "TEXT";
   characters: string;
   lineTypes?: LineType[];
   lineIndentations?: number[];
+  /**
+   * One integer per character in `characters`, mapping to a key in
+   * `styleOverrideTable`. A value of `0` means no override.
+   */
+  characterStyleOverrides?: number[];
+  /** Map of override-key → style properties. */
+  styleOverrideTable?: Record<number, StyleOverride>;
 }
 
 export type AnyNode = BaseNode | TextNode;

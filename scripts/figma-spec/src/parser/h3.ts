@@ -1,5 +1,7 @@
 import type { AnyNode, LineType, TextNode } from "../figma/types.ts";
 import { byCanvasY, getDirectTextChildren, SPECS_HEADER_NAME } from "./walk.ts";
+import { renderCharactersWithLinks } from "./link.ts";
+import { LINK_PREFIX } from "./link-frame.ts";
 
 const PROSE_X_THRESHOLD = 900;
 
@@ -28,6 +30,7 @@ const PATH_SEPARATOR_RE = /(?<!\s)\/(?!\s)/;
 export function getH3TextNodes(section: AnyNode): TextNode[] {
   return getDirectTextChildren(section)
     .filter((node) => node.name !== SPECS_HEADER_NAME)
+    .filter((node) => !node.name.startsWith(LINK_PREFIX))
     .filter((node) => {
       const x = node.absoluteBoundingBox?.x;
       return typeof x === "number" && x < PROSE_X_THRESHOLD;
@@ -37,26 +40,35 @@ export function getH3TextNodes(section: AnyNode): TextNode[] {
 }
 
 export function toH3Block(node: TextNode): H3Block {
+  // Use the raw characters for the heading title so that PATH_SEPARATOR_RE
+  // is never confused by `/` characters inside Markdown link URLs.
   const raw = node.characters ?? "";
-  const lines = raw.split("\n");
-  if (lines.length === 0) return { level: 3, title: "", pathSegments: [], body: "", node };
+  const rawLines = raw.split("\n");
+  if (rawLines.length === 0) return { level: 3, title: "", pathSegments: [], body: "", node };
 
-  const firstLine = (lines[0] ?? "").trim();
+  const firstLine = (rawLines[0] ?? "").trim();
   const segments = firstLine.split(PATH_SEPARATOR_RE).map((s) => s.trim()).filter(Boolean);
   const depth = Math.max(1, segments.length);
   const level = Math.min(6, 2 + depth);
   const title = segments[segments.length - 1] ?? firstLine;
   const pathSegments = segments.length > 0 ? segments : [title];
 
-  if (lines.length === 1) return { level, title, pathSegments, body: "", node };
+  if (rawLines.length === 1) return { level, title, pathSegments, body: "", node };
+
+  // Render body lines with hyperlink substitution. The offset skips past the
+  // heading line (its length + 1 for the newline character) so that run
+  // indices from characterStyleOverrides remain accurate.
+  const headingByteLen = (rawLines[0] ?? "").length + 1;
+  const bodyText = renderCharactersWithLinks(node, headingByteLen);
+  const bodyLines = bodyText.split("\n");
 
   const types = node.lineTypes ?? [];
   const indents = node.lineIndentations ?? [];
-  const bodyLines = lines.slice(1).map((line, i) => {
-    const idx = i + 1;
+  const formattedLines = bodyLines.map((line, i) => {
+    const idx = i + 1; // +1 because line 0 is the heading
     return formatBodyLine(line, types[idx] ?? "NONE", indents[idx] ?? 0);
   });
-  const body = bodyLines.join("\n").replace(/\s+$/u, "");
+  const body = formattedLines.join("\n").replace(/\s+$/u, "");
   return { level, title, pathSegments, body, node };
 }
 
