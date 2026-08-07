@@ -11,13 +11,17 @@ const GitHub = () => {
   const { isMobile } = useScreenSize();
 
   useEffect(() => {
+    // Horizontal scroll animation only applies to the desktop layout.
+    // On mobile these elements do not exist, so bail out early.
+    if (isMobile) return;
+
     const sticky = document.querySelector(`.${styles.content}`);
     const scrollSection = document.querySelector(`.${styles.scroll}`);
+    if (!sticky || !scrollSection) return;
 
     const handleScroll = () => {
-      const offsetTop = sticky.closest(`.sticky`).offsetTop;
+      const offsetTop = sticky.closest(".sticky")?.offsetTop ?? 0;
 
-      // Calculate scroll percentage relative to the top and bottom of the section
       let scrollPercentage =
         ((window.scrollY - offsetTop) / window.innerHeight) * 100;
 
@@ -28,7 +32,6 @@ const GitHub = () => {
           ? 100
           : scrollPercentage;
 
-      // Use transform property for horizontal scrolling
       scrollSection.style.transform = `translate3d(${
         scrollPercentage * -1
       }vw, 0, 0)`;
@@ -39,7 +42,7 @@ const GitHub = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [!isMobile]); // Empty dependency array means the effect runs once when the component mounts
+  }, [isMobile]);
 
   const svg = (
     <svg
@@ -71,8 +74,8 @@ const GitHub = () => {
       <path
         d="M166.37 777.123C280.877 571.985 569.7 257.904 509.89 161.708C450.08 65.5115 104.269 535.942 -13.0599 488.534C-130.389 441.125 266.733 -34.65 323.721 -191"
         stroke="url(#paint0_linear_878_5623)"
-        stroke-width="16"
-        stroke-linecap="round"
+        strokeWidth="16"
+        strokeLinecap="round"
       />
       <defs>
         <linearGradient
@@ -83,8 +86,8 @@ const GitHub = () => {
           y2="459.916"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEBE58" />
-          <stop offset="1" stop-color="#DE2BAE" />
+          <stop stopColor="#FEBE58" />
+          <stop offset="1" stopColor="#DE2BAE" />
         </linearGradient>
       </defs>
     </svg>
@@ -103,20 +106,20 @@ const GitHub = () => {
         <path
           d="M1036.85 2037.27C1499.85 1207.8 2667.69 -62.1618 2425.86 -451.127C2184.02 -840.091 785.749 1062.07 311.336 870.375C-163.076 678.682 1010.26 -473.835 1240.68 -1106.03"
           stroke="url(#paint0_linear_924_1614)"
-          stroke-width="22.4498"
-          stroke-linecap="round"
+          strokeWidth="22.4498"
+          strokeLinecap="round"
         />
         <path
           d="M-107.902 727.953C193.375 1036.7 252.299 1722.77 795.929 1654.18C1339.56 1585.59 943.655 721.136 1522.99 522.188C2102.32 323.241 2196.95 878.956 2533.93 1057.34"
           stroke="url(#paint1_linear_924_1614)"
-          stroke-width="22.4498"
-          stroke-linecap="round"
+          strokeWidth="22.4498"
+          strokeLinecap="round"
         />
         <path
           d="M3110.08 -424.614C2999.23 -13.6618 2451.45 402.468 2777.53 808.242C3103.6 1214.02 3634.99 427.821 4088.3 792.708C4541.6 1157.6 4121.06 1532.84 4137.45 1902.9"
           stroke="url(#paint2_linear_924_1614)"
-          stroke-width="22.4498"
-          stroke-linecap="round"
+          strokeWidth="22.4498"
+          strokeLinecap="round"
         />
       </g>
 
@@ -129,8 +132,8 @@ const GitHub = () => {
           y2="754.66"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEBE58" />
-          <stop offset="1" stop-color="#DE2BAE" />
+          <stop stopColor="#FEBE58" />
+          <stop offset="1" stopColor="#DE2BAE" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_924_1614"
@@ -140,8 +143,8 @@ const GitHub = () => {
           y2="161.898"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEBE58" />
-          <stop offset="1" stop-color="#DE2BAE" />
+          <stop stopColor="#FEBE58" />
+          <stop offset="1" stopColor="#DE2BAE" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_924_1614"
@@ -151,8 +154,8 @@ const GitHub = () => {
           y2="1252.83"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEBE58" />
-          <stop offset="1" stop-color="#DE2BAE" />
+          <stop stopColor="#FEBE58" />
+          <stop offset="1" stopColor="#DE2BAE" />
         </linearGradient>
         <clipPath id="clip0_924_1614">
           <rect width="4344" height="1024" fill="white" />
@@ -176,7 +179,7 @@ const GitHub = () => {
         d="M9.47807 15.3658H44.1906C47.48 15.3658 49.4383 15.6793 50.0623 16.3064C50.6863 16.9334 51 18.8912 51 22.1765V35.1609C51 38.3912 50.6648 40.3373 49.9943 41.0027C49.3238 41.6665 47.3903 42 44.1939 42H6.80608C3.72086 42 1.81396 41.6364 1.08871 40.906C0.361796 40.1772 0 38.2628 0 35.1609V22.1765C0 19.113 0.282134 17.2036 0.848063 16.4448C1.41233 15.6877 2.85122 15.3091 5.16639 15.3091L6.75132 15.3642V14.8388C6.75132 12.0338 7.60104 9.67577 9.30215 7.76463C11.0033 5.85349 13.1126 4.89959 15.6319 4.89959C16.8268 4.89959 18.1512 5.10304 19.6034 5.50828L20.8166 5.8685C22.4164 6.33044 23.7956 6.56058 24.954 6.56058C28.2998 6.56058 30.5801 5.08469 31.7933 2.13127C32.3642 0.710423 32.9417 0 33.5309 0C34.3773 0 34.8005 0.39691 34.8005 1.19072C34.8005 2.59322 34.047 4.14414 32.5417 5.84182C30.5203 8.14986 28.0326 9.30221 25.0751 9.30221C24.0644 9.30221 22.4762 9.05373 20.3087 8.5551L18.8483 8.22323C17.25 7.83633 16.1116 7.64121 15.4311 7.64121C13.7964 7.64121 12.3957 8.3433 11.229 9.7458C10.0623 11.1483 9.47973 12.8193 9.47973 14.7571L9.47807 15.3658ZM44.2188 16.7216H6.8094C4.12581 16.7216 2.54585 16.9618 2.06788 17.442C1.58991 17.9223 1.35093 19.5016 1.35093 22.1815V35.1526C1.35093 37.8509 1.58991 39.4401 2.06788 39.9204C2.54585 40.4007 4.12581 40.6409 6.8094 40.6409H44.2188C46.9024 40.6409 48.4774 40.4007 48.9471 39.9204C49.4167 39.4401 49.6507 37.8509 49.6507 35.1526V22.1815C49.6507 19.5016 49.4117 17.9223 48.9338 17.442C48.4541 16.9618 46.8841 16.7216 44.2188 16.7216ZM6.74966 20.7357H10.1386V24.141H13.5557V20.7357H16.9994V24.141H20.3602V20.7357H23.8039V24.141H27.1928V20.7357H30.5834V24.141H33.9723V20.7357H37.3613V24.141H40.7784V20.7357H44.1674V24.1961H40.8066V27.6298H44.1674V31.0351H40.7784V27.6848H37.3613V31.0351H33.9723V27.6848H30.5834V31.0351H27.1945V27.6848H23.8055V31.0351H20.3618V27.6848H17.0011V31.0351H13.5557V27.6848H10.1386V31.0351H6.74966V27.6298H10.1104V24.1961H6.74966V20.7357ZM13.5557 36.5451V33.1397H37.3613V36.5451H13.5557ZM13.584 27.6298H16.9447V24.1961H13.584V27.6298ZM20.3884 27.6298H23.7773V24.1961H20.3884V27.6298ZM27.221 27.6298H30.5552V24.1961H27.221V27.6298ZM33.9989 27.6298H37.3331V24.1961H33.9989V27.6298Z"
         fill="black"
         stroke="black"
-        stroke-width="566"
+        strokeWidth="566"
         mask="url(#path-1-inside-1_878_5675)"
       />
     </svg>

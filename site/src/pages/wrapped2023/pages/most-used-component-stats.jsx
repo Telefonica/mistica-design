@@ -25,7 +25,7 @@ const MostUsedComponentStats = () => {
       <path
         d="M14.7524 10.5371L15.251 48.2983"
         stroke="#E3B315"
-        stroke-width="2"
+        strokeWidth="2"
       />
       <path
         d="M64 26.049L15.0434 11.6028L15.0434 35.5489L64 26.049Z"

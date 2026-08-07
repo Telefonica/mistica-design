@@ -19,7 +19,7 @@ const Outro = () => {
     >
       <rect x="4" y="5" width="85" height="85" fill="#EAC344" />
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         clip-rule="evenodd"
         d="M88.1721 6.59649H7.36505V87.4035H88.1721V6.59649ZM0.768555 0V94H94.7686V0H0.768555Z"
         fill="black"
@@ -58,7 +58,7 @@ const Outro = () => {
       fill="none"
     >
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         clip-rule="evenodd"
         d="M87.4035 6.59649H6.59649V87.4035H87.4035V6.59649ZM0 0V94H94V0H0Z"
         fill="black"
@@ -97,14 +97,14 @@ const Outro = () => {
         cy="767.048"
         r="410.5"
         stroke="#FABADA"
-        stroke-width="141"
+        strokeWidth="141"
       />
       <circle
         cx="767.172"
         cy="767.048"
         r="696.5"
         stroke="#FABADA"
-        stroke-width="141"
+        strokeWidth="141"
       />
     </svg>
   );

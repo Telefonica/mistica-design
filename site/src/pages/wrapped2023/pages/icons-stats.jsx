@@ -64,7 +64,7 @@ const IconsStats = () => {
           {Object.keys(IconData).map((key, index) => {
             const icon = IconData[key];
             return (
-              <li>
+              <li key={key}>
                 <div
                   style={{
                     display: "flex",

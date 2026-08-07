@@ -1,5 +1,5 @@
 import styles from "./margin-layout.module.css";
-const { useScreenSize } = require("@telefonica/mistica");
+import { useScreenSize } from "@telefonica/mistica";
 
 const MarginLayout = ({ children }) => {
   const { isMobile } = useScreenSize();
