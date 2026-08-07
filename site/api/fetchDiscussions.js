@@ -4,7 +4,7 @@ export default async function handler(request, response) {
   const year = 2023;
   const githubToken =
     process.env.NODE_ENV === "development"
-      ? process.env.REACT_APP_GITHUB
+      ? process.env.GITHUB_DEV
       : process.env.GITHUB;
 
   let cursor = null;

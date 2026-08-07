@@ -6,7 +6,7 @@ import {
   skinVars,
   useTheme,
 } from "@telefonica/mistica";
-import { SchemeContext } from "../App";
+import { SchemeContext } from "../context/scheme-context";
 import { useContext } from "react";
 import logoDark from "../img/logo_dark.svg";
 import logoLight from "../img/logo_light.svg";

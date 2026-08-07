@@ -42,7 +42,7 @@ import {
   BoxedAccordionItem,
 } from "@telefonica/mistica";
 import { generateCustomSkin } from "../../helpers/generateCustomSkin";
-import { SchemeContext } from "../../App";
+import { SchemeContext } from "../../context/scheme-context";
 
 const SkinPreview = ({ skin }) => {
   const generatedSkin = generateCustomSkin("Custom", skin, skin.global.palette);

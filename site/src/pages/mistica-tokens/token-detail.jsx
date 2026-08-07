@@ -25,7 +25,7 @@ import SubHeader from "../../components/sub-header";
 
 const TokenDetail = () => {
   const { id, tokenType, branch, tokenTextType, selectedSkin } = useParams();
-  const { skinData } = GetSkin({ branch });
+  const { skinData } = GetSkin({});
 
   const renderRadiusTable = () => {
     const content = getRadiusData(skinData, id).map((skin) => [

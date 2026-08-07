@@ -30,10 +30,7 @@ import { generateSkin } from "../helpers/jsonToSkin";
 
 const ColorEditor = () => {
   const [selectedSkin, setSelectedSkin] = useState("movistar");
-  const { skinData, skinNames, skinError } = GetSkin({
-    selectedSkin,
-    branch: "production",
-  });
+  const { skinData, skinNames, skinError } = GetSkin({ selectedSkin });
   const [skin, setSkin] = useState({});
   const [editedLightColors, setEditedLightColors] = useState(skin.colors || {});
   const [editedDarkColors, setEditedDarkColors] = useState(

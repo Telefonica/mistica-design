@@ -25,10 +25,7 @@ import { getHCLScale, getHSLScale } from "../helpers/getColorScale";
 
 const PaletteGenerator = () => {
   const [selectedSkin, setSelectedSkin] = useState("movistar");
-  const { skinData, skinNames, skinError } = GetSkin({
-    selectedSkin,
-    branch: "production",
-  });
+  const { skinData, skinNames, skinError } = GetSkin({ selectedSkin });
   const [selectedColor, setSelectedColor] = useState(undefined);
   const [colorModel, setColorModel] = useState("getHCLScale");
   const [paletteSteps, setPaletteSteps] = useState(10);

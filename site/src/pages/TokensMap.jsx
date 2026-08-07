@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ReferencePalette from "../components/referencePalette";
 import Palette from "../components/Palette";
-import skinPreview from "../pages/mistica-tokens/skin-preview";
 import GlobalPalette from "../components/globalPalette";
 import RadiiTable from "../components/borderRadii";
 import TextTable from "../components/typography";
@@ -9,7 +8,6 @@ import SpacingTable from "../components/spacingTable";
 import PropertiesTable from "../components/propertiesTable";
 import {
   Box,
-  ButtonLink,
   Chip,
   Inline,
   ResponsiveLayout,
@@ -22,24 +20,20 @@ import {
   Circle,
   Text,
   skinVars,
-  EmptyStateCard,
-  IconErrorRegular,
   useScreenSize,
 } from "@telefonica/mistica";
-import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import GetSkin from "../helpers/getSkin";
-import GetBranches from "../helpers/getBranches";
 import AppLayout from "../components/app-layout";
 import SubHeader from "../components/sub-header";
-import SkinPreview from "../pages/mistica-tokens/skin-preview";
+
+const BRANCH = "production";
 
 const TokensMap = () => {
   // use query params to load the page in the selected state coming from a detail
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const branchFromUrl = queryParams.get("branch");
   const colorFromUrl = queryParams.get("activeColor");
   const skinFromUrl = queryParams.get("skin");
   const tokenTypeFromUrl = queryParams.get("tokenType");
@@ -49,31 +43,24 @@ const TokensMap = () => {
   const [activeTokenType, setActiveTokenType] = useState(
     tokenTypeFromUrl || "color",
   );
-  const [selectedBranch, setSelectedBranch] = useState(
-    branchFromUrl || "production",
-  );
   const [selectedColor, setSelectedColor] = useState(
     colorFromUrl || "undefined",
   );
-  const { skinData, skinNames, skinError } = GetSkin({
-    branch: selectedBranch,
-  });
+  const { skinData, skinNames } = GetSkin({});
   const [colorView, setColorView] = useState("constants");
   const { isMobile } = useScreenSize();
 
-  const branches = GetBranches();
-
-  // Update URL with selected branch, skin, tokenType and color
+  // Update URL with selected skin, tokenType and color
 
   useEffect(() => {
-    let queryParams = `?branch=${selectedBranch}&skin=${selectedSkin}&tokenType=${activeTokenType}`;
+    let queryParams = `?skin=${selectedSkin}&tokenType=${activeTokenType}`;
 
     if (selectedColor) {
       queryParams += `&activeColor=${selectedColor}`;
     }
 
     window.history.pushState({}, "", queryParams);
-  }, [selectedBranch, selectedColor, selectedSkin, activeTokenType]);
+  }, [selectedColor, selectedSkin, activeTokenType]);
 
   // Filter tokens
 
@@ -147,7 +134,7 @@ const TokensMap = () => {
       selectedSkin={selectedSkin}
       filter={filter}
       tokenType={activeTokenType}
-      branch={selectedBranch}
+      branch={BRANCH}
       selectedColor={selectedColor}
       setSelectedColor={setSelectedColor}
     />
@@ -156,7 +143,6 @@ const TokensMap = () => {
   const filters = [
     <TextField
       fullWidth
-      disabled={skinError ? true : false}
       label="Filter tokens"
       value={filter}
       onChange={handleFilterChange}
@@ -164,21 +150,10 @@ const TokensMap = () => {
     />,
     <Select
       fullWidth
-      disabled={skinError ? true : false}
       label="Skin"
       onChangeValue={setSelectedSkin}
       value={selectedSkin}
       options={skinNames}
-    ></Select>,
-    <Select
-      fullWidth
-      label="Branch"
-      onChangeValue={setSelectedBranch}
-      value={selectedBranch}
-      options={branches.map((branch) => ({
-        value: branch.startsWith("#") ? `%23${branch.substring(1)}` : branch,
-        text: branch,
-      }))}
     ></Select>,
   ];
 
@@ -225,7 +200,7 @@ const TokensMap = () => {
               </Stack>
             </Stack>
           </Box>
-          {activeTokenType === "color" && skinError === false && (
+          {activeTokenType === "color" && (
             <Box paddingBottom={24}>
               <div
                 style={{
@@ -278,22 +253,7 @@ const TokensMap = () => {
           )}
         </ResponsiveLayout>
 
-        {skinError ? (
-          <ResponsiveLayout>
-            <EmptyStateCard
-              icon={
-                <IconErrorRegular
-                  size={40}
-                  color={skinVars.colors.error}
-                ></IconErrorRegular>
-              }
-              title="Error retrieving the tokens"
-              description={`The branch ${selectedBranch} may not have token files or there's a problem fetching them from GitHub.`}
-            />
-          </ResponsiveLayout>
-        ) : (
-          view
-        )}
+        {view}
       </Box>
     </AppLayout>
   );
