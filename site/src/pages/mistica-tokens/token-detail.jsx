@@ -12,7 +12,7 @@ import {
   Text,
 } from "@telefonica/mistica";
 import styles from "./tokenDetail.module.css";
-import GetSkin from "../../helpers/getSkin";
+import useSkin from "../../helpers/getSkin";
 import {
   getRadiusData,
   getSizeData,
@@ -25,7 +25,7 @@ import SubHeader from "../../components/sub-header";
 
 const TokenDetail = () => {
   const { id, tokenType, branch, tokenTextType, selectedSkin } = useParams();
-  const { skinData } = GetSkin({ branch });
+  const { skinData } = useSkin({ branch });
 
   const renderRadiusTable = () => {
     const content = getRadiusData(skinData, id).map((skin) => [

@@ -25,8 +25,8 @@ import {
   useScreenSize,
 } from "@telefonica/mistica";
 import { useLocation } from "react-router-dom";
-import GetSkin from "../helpers/getSkin";
-import GetBranches from "../helpers/getBranches";
+import useSkin from "../helpers/getSkin";
+import useBranches from "../helpers/getBranches";
 import AppLayout from "../components/app-layout";
 import SubHeader from "../components/sub-header";
 
@@ -51,11 +51,11 @@ const TokensMap = () => {
   const [selectedColor, setSelectedColor] = useState(
     colorFromUrl || "undefined",
   );
-  const { skinData, skinNames, skinError } = GetSkin({ branch: selectedBranch });
+  const { skinData, skinNames, skinError } = useSkin({ branch: selectedBranch });
   const [colorView, setColorView] = useState("constants");
   const { isMobile } = useScreenSize();
 
-  const branches = GetBranches();
+  const branches = useBranches();
 
   // Update URL with selected branch, skin, tokenType and color
 
@@ -235,9 +235,9 @@ const TokensMap = () => {
                   value={colorView}
                 >
                   <Inline space={8}>
-                    {Object.keys(COLOR_FILTERS).map((filter, index) => (
+                    {Object.keys(COLOR_FILTERS).map((filter) => (
                       <RadioButton
-                        key={index}
+                        key={filter}
                         value={filter}
                         render={({ checked, labelId }) => (
                           <Chip active={checked} id={labelId}>

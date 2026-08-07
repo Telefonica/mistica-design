@@ -24,12 +24,12 @@ import {
   ErrorFeedbackScreen,
 } from "@telefonica/mistica";
 import Preview from "../components/preview";
-import GetSkin from "../helpers/getSkin";
+import useSkin from "../helpers/getSkin";
 import { generateSkin } from "../helpers/jsonToSkin";
 
 const ColorEditor = () => {
   const [selectedSkin, setSelectedSkin] = useState("movistar");
-  const { skinData, skinNames, skinError } = GetSkin({ selectedSkin });
+  const { skinData, skinNames, skinError } = useSkin({ selectedSkin });
   const [skin, setSkin] = useState({});
   const [editedLightColors, setEditedLightColors] = useState(skin.colors || {});
   const [editedDarkColors, setEditedDarkColors] = useState(

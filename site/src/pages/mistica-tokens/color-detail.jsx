@@ -18,7 +18,7 @@ import {
 import styles from "./tokenDetail.module.css";
 import ColorSample from "../../components/colorSample";
 import getColorValue from "../../helpers/getColorValue";
-import GetSkin from "../../helpers/getSkin";
+import useSkin from "../../helpers/getSkin";
 import { getColorData } from "../../helpers/getTokenData";
 import AppLayout from "../../components/app-layout";
 import SubHeader from "../../components/sub-header";
@@ -26,8 +26,11 @@ import SubHeader from "../../components/sub-header";
 const ColorDetail = () => {
   const { id, tokenType, branch, selectedSkin, selectedColor } = useParams();
   const [foregroundColor, setForegroundColor] = useState("textPrimary");
-  const { skinData } = GetSkin({ branch });
-  const colorKeys = Object.keys(skinData?.movistar?.light || {});
+  const { skinData } = useSkin({ branch });
+  // Derive the foreground colour key list from the first available skin so the
+  // selector is not empty when the branch lacks a movistar token file.
+  const firstSkin = Object.values(skinData)[0];
+  const colorKeys = Object.keys(firstSkin?.light || {});
 
   // Create a box to represent the foreground color against the color of the detail
 
@@ -88,7 +91,7 @@ const ColorDetail = () => {
             tokens.tokenValue,
             getColorValue(
               skinData?.[tokens.skinName]?.[colorScheme]?.[foregroundColor]
-                .value,
+                ?.value,
               skinData?.[tokens.skinName]?.global?.palette,
             ),
           )}

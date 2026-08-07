@@ -17,7 +17,7 @@ const staticSkinNames = tokenNames.map(({ value, text, community }) => ({
  * - When branch is any other value: tokens are fetched at runtime from the
  *   GitHub raw API so the design team can preview feature-branch changes.
  */
-const GetSkin = ({ selectedSkin, branch }) => {
+const useSkin = ({ selectedSkin, branch }) => {
   const [fetchedData, setFetchedData] = useState(null);
   const [fetchedNames, setFetchedNames] = useState([]);
   const [skinError, setSkinError] = useState(null);
@@ -99,4 +99,4 @@ const GetSkin = ({ selectedSkin, branch }) => {
   };
 };
 
-export default GetSkin;
+export default useSkin;

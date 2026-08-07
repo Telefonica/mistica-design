@@ -127,7 +127,7 @@ const Dashboard = () => {
       <ResponsiveLayout>
         <ButtonLink to={`/`}>Back to home</ButtonLink>
         <div id="analytics" data-theme={theme.isDarkMode ? "dark" : "light"}>
-          <div class="sections">
+          <div className="sections">
             <div className="section">
               <div className="section_metadata">
                 <a name="open-issues-by-type"></a>
@@ -152,6 +152,7 @@ const Dashboard = () => {
                     { label: "Bugs", className: "secondary", filter: "bug 🐞" },
                   ].map((widget) => (
                     <a
+                      key={widget.filter}
                       href={`https://github.com/Telefonica/mistica-design/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22${widget.filter}%22`}
                     >
                       <div className={`number_widget ${widget.className}`}>
@@ -174,7 +175,7 @@ const Dashboard = () => {
                   { title: "Component request list", label: "request ✨" },
                   { title: "Bugs list", label: "bug 🐞" },
                 ].map((table) => (
-                  <div className="table_widget">
+                  <div key={table.label} className="table_widget">
                     <a name={`${table.label}-list`}></a>
                     <h3 className="table_title">
                       <a
@@ -214,14 +215,14 @@ const Dashboard = () => {
               </div>
             </div>
             <Inline space={24} fullWidth>
-              <div class="section" style={{ minWidth: "60vw" }}>
+              <div className="section" style={{ minWidth: "60vw" }}>
                 <Boxed>
                   <Box padding={24}>
                     <Stack space={24}>
                       <Text size={14}>Open issues by age</Text>
 
-                      <div class="graph_widget">
-                        <div class="graph">
+                      <div className="graph_widget">
+                        <div className="graph">
                           {days.map((day) => {
                             const fromDate = new Date();
                             fromDate.setDate(fromDate.getDate() - day);
@@ -232,14 +233,14 @@ const Dashboard = () => {
                             const url = `https://github.com/Telefonica/mistica-design/issues?q=is%3Aopen%20is%3Aissue%20created%3A%3E${formattedFromDate}%20is%3Aopen`;
 
                             return (
-                              <div class="graph_item primary">
-                                <span class="graph_item_title">
-                                  <span class="title">{day} days</span>
+                              <div key={day} className="graph_item primary">
+                                <span className="graph_item_title">
+                                  <span className="title">{day} days</span>
                                 </span>
-                                <span class="graph_item_value">
+                                <span className="graph_item_value">
                                   <a href={url} target="_blank">
                                     <span
-                                      class="value"
+                                      className="value"
                                       style={{
                                         width: `${
                                           (filterIssuesByDate(issues, day)
@@ -262,7 +263,7 @@ const Dashboard = () => {
                   </Box>
                 </Boxed>
               </div>
-              <div class="section">
+              <div className="section">
                 <Stack space={24}>
                   <Boxed>
                     <Box padding={24}>
@@ -276,33 +277,33 @@ const Dashboard = () => {
               </div>
             </Inline>
 
-            <div class="section">
-              <div class="section_metadata">
+            <div className="section">
+              <div className="section_metadata">
                 <a name="pull-requests"></a>
-                <h2 class="section_title">Pull Requests</h2>
+                <h2 className="section_title">Pull Requests</h2>
               </div>
 
-              <div class="section_widgets">
-                <div class="number_widgets">
+              <div className="section_widgets">
+                <div className="number_widgets">
                   <a name="opened"></a>
                   <a href="https://github.com/Telefonica/mistica-design/issues?q=is%3Aopen%20is%3Apr%20review%3Anone">
-                    <div class="number_widget secondary">
-                      <span class="title">Opened</span>
-                      <span class="value">{pulls.length}</span>
+                    <div className="number_widget secondary">
+                      <span className="title">Opened</span>
+                      <span className="value">{pulls.length}</span>
                     </div>
                   </a>
                 </div>
 
-                <div class="table_widget">
+                <div className="table_widget">
                   <a name="open-pull-requests"></a>
-                  <h3 class="table_title">
+                  <h3 className="table_title">
                     <a href="https://github.com/Telefonica/mistica-design/issues?q=is%3Aopen%20is%3Apr%20review%3Anone%20sort%3Acreated-asc">
                       Open Pull Requests
                     </a>
                   </h3>
-                  <table class="table">
+                  <table className="table">
                     <thead>
-                      <tr class="table_header">
+                      <tr className="table_header">
                         <th>PR</th>
                         <th>Title</th>
                         <th>Date</th>
@@ -310,7 +311,7 @@ const Dashboard = () => {
                     </thead>
                     <tbody>
                       {pulls.map((pull, index) => (
-                        <tr class="table_row" key={index}>
+                        <tr className="table_row" key={index}>
                           <td>
                             <a href={pull.html_url} target="_blank">
                               <Tag type="active">#{pull.number}</Tag>

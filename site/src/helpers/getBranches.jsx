@@ -1,15 +1,22 @@
 import { useEffect, useState } from 'react';
 
-const GetBranches = () => {
+const useBranches = () => {
     const [branches, setBranches] = useState([]);
 
     useEffect(() => {
         const fetchBranches = async () => {
-            const response = await fetch(
-                `https://api.github.com/repos/Telefonica/mistica-design/branches`
-            );
-            const data = await response.json();
-            setBranches(data.map((branch) => branch.name));
+            try {
+                const response = await fetch(
+                    `https://api.github.com/repos/Telefonica/mistica-design/branches`
+                );
+                if (!response.ok) return;
+                const data = await response.json();
+                if (!Array.isArray(data)) return;
+                setBranches(data.map((branch) => branch.name));
+            } catch {
+                // Network failure or rate-limit — leave branches empty so the
+                // selector renders with no options rather than crashing.
+            }
         };
         fetchBranches();
     }, []);
@@ -17,4 +24,4 @@ const GetBranches = () => {
     return branches;
 };
 
-export default GetBranches;
+export default useBranches;

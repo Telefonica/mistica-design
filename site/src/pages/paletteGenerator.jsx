@@ -20,12 +20,12 @@ import {
   Select,
 } from "@telefonica/mistica";
 import Preview from "../components/preview";
-import GetSkin from "../helpers/getSkin";
+import useSkin from "../helpers/getSkin";
 import { getHCLScale, getHSLScale } from "../helpers/getColorScale";
 
 const PaletteGenerator = () => {
   const [selectedSkin, setSelectedSkin] = useState("movistar");
-  const { skinData, skinNames, skinError } = GetSkin({ selectedSkin });
+  const { skinData, skinNames, skinError } = useSkin({ selectedSkin });
   const [selectedColor, setSelectedColor] = useState(undefined);
   const [colorModel, setColorModel] = useState("getHCLScale");
   const [paletteSteps, setPaletteSteps] = useState(10);
