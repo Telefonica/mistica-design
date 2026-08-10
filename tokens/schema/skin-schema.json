@@ -369,7 +369,10 @@
         "textLinkNeutralNegative",
         "textLinkNeutralAlternative",
         "textLinkNeutralMedia",
-        "sideNavBackgroundContainer"
+        "sideNavBackgroundContainerBrand",
+        "sideNavBackgroundContainer",
+        "sideNavBackgroundContainerNegative",
+        "sideNavBackgroundContainerMedia"
       ],
       "properties": {
         "appBarBackground": { "$ref": "#/definitions/constantProperties" },
@@ -469,7 +472,10 @@
         "buttonLinkNeutralBackgroundNegativePressed": { "$ref": "#/definitions/constantProperties" },
         "buttonLinkNeutralBackgroundMedia": { "$ref": "#/definitions/constantProperties" },
         "buttonLinkNeutralBackgroundMediaPressed": { "$ref": "#/definitions/constantProperties" },
+        "sideNavBackgroundContainerBrand": { "$ref": "#/definitions/constantProperties" },
         "sideNavBackgroundContainer": { "$ref": "#/definitions/constantProperties" },
+        "sideNavBackgroundContainerNegative": { "$ref": "#/definitions/constantProperties" },
+        "sideNavBackgroundContainerMedia": { "$ref": "#/definitions/constantProperties" },
         "completedStep": { "$ref": "#/definitions/constantProperties" },
         "completedStepInverse": { "$ref": "#/definitions/constantProperties" },
         "completedStepNegative": { "$ref": "#/definitions/constantProperties" },

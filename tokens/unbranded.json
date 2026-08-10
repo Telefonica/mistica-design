@@ -1541,8 +1541,23 @@
       "type": "color",
       "description": "black"
     },
-    "sideNavBackgroundContainer": {
+    "sideNavBackgroundContainerBrand": {
       "value": "{palette.black}",
+      "type": "color",
+      "description": "black"
+    },
+    "sideNavBackgroundContainer": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "sideNavBackgroundContainerNegative": {
+      "value": "rgba({palette.black}, 0.4)",
+      "type": "color",
+      "description": "black"
+    },
+    "sideNavBackgroundContainerMedia": {
+      "value": "rgba({palette.black}, 0.4)",
       "type": "color",
       "description": "black"
     }
@@ -3089,7 +3104,22 @@
       "type": "color",
       "description": "black"
     },
+    "sideNavBackgroundContainerBrand": {
+      "value": "{palette.neutral900}",
+      "type": "color",
+      "description": "neutral900"
+    },
     "sideNavBackgroundContainer": {
+      "value": "{palette.neutral900}",
+      "type": "color",
+      "description": "neutral900"
+    },
+    "sideNavBackgroundContainerNegative": {
+      "value": "{palette.neutral900}",
+      "type": "color",
+      "description": "neutral900"
+    },
+    "sideNavBackgroundContainerMedia": {
       "value": "{palette.neutral900}",
       "type": "color",
       "description": "neutral900"

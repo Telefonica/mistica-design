@@ -1633,10 +1633,25 @@
       "type": "color",
       "description": "black"
     },
-    "sideNavBackgroundContainer": {
+    "sideNavBackgroundContainerBrand": {
       "value": "{palette.movistarBlue}",
       "type": "color",
       "description": "movistarBlue"
+    },
+    "sideNavBackgroundContainer": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "sideNavBackgroundContainerNegative": {
+      "value": "rgba({palette.movistarBlack}, 0.2)",
+      "type": "color",
+      "description": "movistarBlack"
+    },
+    "sideNavBackgroundContainerMedia": {
+      "value": "rgba({palette.movistarBlack}, 0.2)",
+      "type": "color",
+      "description": "movistarBlack"
     }
   },
   "dark": {
@@ -3273,7 +3288,22 @@
       "type": "color",
       "description": "black"
     },
+    "sideNavBackgroundContainerBrand": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
     "sideNavBackgroundContainer": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "sideNavBackgroundContainerNegative": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "sideNavBackgroundContainerMedia": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
