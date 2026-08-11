@@ -280,8 +280,20 @@ df, branches_by_issue = analyze_files(file_keys, figma_token, repo_owner, repo_n
 # Comment on individual issues with Figma branch links
 comment_figma_branches_on_issues(branches_by_issue, repo_owner, repo_name, github_token)
 
-# Convert the table to markdown format
-markdown_table = df.to_markdown(index=False)
+# Split into "In Review" and the rest
+mask_in_review = df["Status"].str.lower().str.contains("in review", na=False)
+df_in_review = df[mask_in_review]
+df_other = df[~mask_in_review]
+
+# Build each section
+if df_in_review.empty:
+    review_section = "## In Review\n\nNo branches are currently in review."
+else:
+    review_section = f"## In Review\n\n{df_in_review.to_markdown(index=False)}"
+
+other_section = f"## Other Branches\n\n{df_other.to_markdown(index=False)}"
+
+markdown_table = f"{review_section}\n\n{other_section}"
 
 # Update the issue on GitHub
 issue_number = 1927  # Change this as needed
