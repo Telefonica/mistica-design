@@ -144,15 +144,18 @@ jobs:
               });
               contractContent = Buffer.from(data.content, 'base64').toString('utf8');
             } catch (e) {
-              core.warning(
-                `Could not fetch ${WEB_OWNER}/${WEB_REPO}@${WEB_REF}:${CONTRACT_PATH} ` +
-                `(${e.message}). Skipping check.`
+              core.setFailed(
+                `Could not fetch ${WEB_OWNER}/${WEB_REPO}@${WEB_REF}:${CONTRACT_PATH} (${e.message}). ` +
+                `Cannot validate new tokens: ${newTokens.join(', ')}. ` +
+                `Re-run this workflow once the file is accessible, or apply the "${SKIP_LABEL}" label with justification to bypass.`
               );
               return;
             }
 
             // ── step 6: cross-reference ───────────────────────────────────────
-            const missingTokens = newTokens.filter(t => !contractContent.includes(t));
+            const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const tokenRegexes = newTokens.map(t => new RegExp(`(^|[^A-Za-z0-9_$])${escapeRegExp(t)}([^A-Za-z0-9_$]|$)`));
+            const missingTokens = newTokens.filter((t, i) => !tokenRegexes[i].test(contractContent));
 
             if (missingTokens.length === 0) {
               core.info('All new tokens are present in mistica-web. Check passes.');
