@@ -10,6 +10,51 @@
       "type": "color",
       "description": "blauBluePrimary20"
     },
+    "backgroundSelected": {
+      "value": "rgba({palette.blauBluePrimary}, 0.08)",
+      "type": "color",
+      "description": "blauBluePrimary"
+    },
+    "backgroundSelectedHover": {
+      "value": "rgba({palette.blauBluePrimary}, 0.12)",
+      "type": "color",
+      "description": "blauBluePrimary"
+    },
+    "backgroundSelectedPressed": {
+      "value": "rgba({palette.blauBluePrimary}, 0.16)",
+      "type": "color",
+      "description": "blauBluePrimary"
+    },
+    "backgroundSelectedBrand": {
+      "value": "rgba({palette.darkModeBlack}, 0.16)",
+      "type": "color",
+      "description": "darkModeBlack"
+    },
+    "backgroundSelectedBrandHover": {
+      "value": "rgba({palette.darkModeBlack}, 0.24)",
+      "type": "color",
+      "description": "darkModeBlack"
+    },
+    "backgroundSelectedBrandPressed": {
+      "value": "rgba({palette.darkModeBlack}, 0.32)",
+      "type": "color",
+      "description": "darkModeBlack"
+    },
+    "backgroundSelectedNegative": {
+      "value": "rgba({palette.white}, 0.2)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundSelectedNegativeHover": {
+      "value": "rgba({palette.white}, 0.28)",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundSelectedNegativePressed": {
+      "value": "rgba({palette.white}, 0.35)",
+      "type": "color",
+      "description": "white"
+    },
     "backgroundBrand": {
       "value": "{palette.blauBluePrimary}",
       "type": "color",
@@ -316,6 +361,41 @@
       "value": "rgba({palette.white}, 0.15)",
       "type": "color",
       "description": "white"
+    },
+    "buttonLinkNeutralBackgroundPressed": {
+      "value": "{palette.grey1}",
+      "type": "color",
+      "description": "grey1"
+    },
+    "buttonLinkNeutralBackgroundBrand": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkNeutralBackgroundBrandPressed": {
+      "value": "{palette.grey1}",
+      "type": "color",
+      "description": "grey1"
+    },
+    "buttonLinkNeutralBackgroundNegative": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkNeutralBackgroundNegativePressed": {
+      "value": "{palette.grey1}",
+      "type": "color",
+      "description": "grey1"
+    },
+    "buttonLinkNeutralBackgroundMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkNeutralBackgroundMediaPressed": {
+      "value": "{palette.grey1}",
+      "type": "color",
+      "description": "grey1"
     },
     "buttonPrimaryBackground": {
       "value": "{palette.blauBlueSecondary}",
@@ -655,6 +735,31 @@
       "value": "{palette.blauPurple30}",
       "type": "color",
       "description": "blauPurple30"
+    },
+    "textLinkNeutral": {
+      "value": "{palette.grey6}",
+      "type": "color",
+      "description": "grey6"
+    },
+    "textLinkNeutralBrand": {
+      "value": "{palette.grey6}",
+      "type": "color",
+      "description": "grey6"
+    },
+    "textLinkNeutralNegative": {
+      "value": "{palette.grey6}",
+      "type": "color",
+      "description": "grey6"
+    },
+    "textLinkNeutralAlternative": {
+      "value": "{palette.grey6}",
+      "type": "color",
+      "description": "grey6"
+    },
+    "textLinkNeutralMedia": {
+      "value": "{palette.grey6}",
+      "type": "color",
+      "description": "grey6"
     },
     "textActivated": {
       "value": "{palette.blauBlueSecondary}",
@@ -1540,6 +1645,51 @@
       "type": "color",
       "description": "darkModeBlack"
     },
+    "backgroundSelected": {
+      "value": "rgba({palette.blauBluePrimary}, 0.18)",
+      "type": "color",
+      "description": "blauBluePrimary"
+    },
+    "backgroundSelectedHover": {
+      "value": "rgba({palette.blauBluePrimary}, 0.25)",
+      "type": "color",
+      "description": "blauBluePrimary"
+    },
+    "backgroundSelectedPressed": {
+      "value": "rgba({palette.blauBluePrimary}, 0.33)",
+      "type": "color",
+      "description": "blauBluePrimary"
+    },
+    "backgroundSelectedBrand": {
+      "value": "rgba({palette.blauBluePrimary}, 0.18)",
+      "type": "color",
+      "description": "blauBluePrimary"
+    },
+    "backgroundSelectedBrandHover": {
+      "value": "rgba({palette.blauBluePrimary}, 0.25)",
+      "type": "color",
+      "description": "blauBluePrimary"
+    },
+    "backgroundSelectedBrandPressed": {
+      "value": "rgba({palette.blauBluePrimary}, 0.33)",
+      "type": "color",
+      "description": "blauBluePrimary"
+    },
+    "backgroundSelectedNegative": {
+      "value": "rgba({palette.blauBluePrimary}, 0.18)",
+      "type": "color",
+      "description": "blauBluePrimary"
+    },
+    "backgroundSelectedNegativeHover": {
+      "value": "rgba({palette.blauBluePrimary}, 0.25)",
+      "type": "color",
+      "description": "blauBluePrimary"
+    },
+    "backgroundSelectedNegativePressed": {
+      "value": "rgba({palette.blauBluePrimary}, 0.33)",
+      "type": "color",
+      "description": "blauBluePrimary"
+    },
     "backgroundBrand": {
       "value": "{palette.darkModeBlack}",
       "type": "color",
@@ -1680,7 +1830,7 @@
       "description": "white"
     },
     "backgroundDropZoneNegativeHover": {
-     "value": "rgba({palette.white}, 0.15)",
+      "value": "rgba({palette.white}, 0.15)",
       "type": "color",
       "description": "white"
     },
@@ -1844,6 +1994,41 @@
     },
     "buttonLinkBackgroundMediaPressed": {
       "value": "rgba({palette.white}, 0.15)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkNeutralBackgroundPressed": {
+      "value": "rgba({palette.white}, 0.08)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkNeutralBackgroundBrand": {
+      "value": "rgba({palette.white}, 0)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkNeutralBackgroundBrandPressed": {
+      "value": "rgba({palette.white}, 0.08)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkNeutralBackgroundNegative": {
+      "value": "rgba({palette.white}, 0)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkNeutralBackgroundNegativePressed": {
+      "value": "rgba({palette.white}, 0.08)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkNeutralBackgroundMedia": {
+      "value": "rgba({palette.white}, 0)",
+      "type": "color",
+      "description": "white"
+    },
+    "buttonLinkNeutralBackgroundMediaPressed": {
+      "value": "rgba({palette.white}, 0.08)",
       "type": "color",
       "description": "white"
     },
@@ -2185,6 +2370,31 @@
       "value": "{palette.blauPurple30}",
       "type": "color",
       "description": "blauPurple30"
+    },
+    "textLinkNeutral": {
+      "value": "{palette.grey2}",
+      "type": "color",
+      "description": "grey2"
+    },
+    "textLinkNeutralBrand": {
+      "value": "{palette.grey2}",
+      "type": "color",
+      "description": "grey2"
+    },
+    "textLinkNeutralNegative": {
+      "value": "{palette.grey2}",
+      "type": "color",
+      "description": "grey2"
+    },
+    "textLinkNeutralAlternative": {
+      "value": "{palette.grey2}",
+      "type": "color",
+      "description": "grey2"
+    },
+    "textLinkNeutralMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
     },
     "textActivated": {
       "value": "{palette.blauBluePrimary}",
@@ -3096,10 +3306,6 @@
       "value": "8",
       "type": "borderRadius"
     },
-    "legacyDisplay": {
-      "value": "16",
-      "type": "borderRadius"
-    },
     "popup": {
       "value": "8",
       "type": "borderRadius"
@@ -3768,11 +3974,41 @@
         }
       },
       "type": "spacing"
+    },
+    "responsiveLayoutMargin": {
+      "value": {
+        "mobile": 16,
+        "desktop": 48
+      },
+      "type": "spacing"
+    },
+    "boxedDefaultPadding": {
+      "value": {
+        "left": {
+          "mobile": 16,
+          "desktop": 16
+        },
+        "right": {
+          "mobile": 16,
+          "desktop": 16
+        }
+      },
+      "type": "spacing"
     }
   },
   "componentProperties": {
     "dismissActionType": {
       "value": "neutral",
+      "type": "property"
+    },
+    "showBoxedBorder": {
+      "value": {
+        "default": true,
+        "brand": true,
+        "negative": true,
+        "alternative": true,
+        "media": true
+      },
       "type": "property"
     }
   },

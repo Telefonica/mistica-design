@@ -9,9 +9,33 @@ import { contrastPairs } from "./contrastPairs.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const tokensDir = path.resolve(__dirname, "..");
+const communityDir = path.join(
+  tokensDir,
+  "community",
+);
 
 const themes = ["light", "dark"];
 const VALID_MODES = ["format", "contrast"];
+
+// Enumerate all skin token files: top-level brands plus
+// community brands under tokens/community/ (referenced with a
+// "community/" prefix so path.join resolves them correctly).
+async function listSkinJsonFiles() {
+  const topLevel = (
+    await fs.readdir(tokensDir)
+  ).filter((f) => f.endsWith(".json"));
+
+  let community = [];
+  try {
+    community = (await fs.readdir(communityDir))
+      .filter((f) => f.endsWith(".json"))
+      .map((f) => `community/${f}`);
+  } catch {
+    // No community folder; nothing to add.
+  }
+
+  return [...topLevel, ...community];
+}
 
 function extractPaletteRef(value) {
   if (typeof value !== "string") return null;
@@ -78,10 +102,7 @@ async function loadTokens(fileName) {
     return { [fileName]: JSON.parse(content) };
   }
 
-  const files = await fs.readdir(tokensDir);
-  const jsonFiles = files.filter((f) =>
-    f.endsWith(".json"),
-  );
+  const jsonFiles = await listSkinJsonFiles();
 
   const tokens = {};
   for (const file of jsonFiles) {
@@ -284,10 +305,7 @@ async function promptForMode() {
 }
 
 async function promptForFile() {
-  const files = await fs.readdir(tokensDir);
-  const jsonFiles = files.filter((f) =>
-    f.endsWith(".json"),
-  );
+  const jsonFiles = await listSkinJsonFiles();
 
   const answers = await inquirer.prompt([
     {

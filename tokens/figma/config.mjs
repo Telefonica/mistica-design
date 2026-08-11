@@ -5,14 +5,16 @@ dotenv.config({ path: "../../.env" });
 import { BRANDS } from "./utils/constants.mjs";
 
 export const BRAND_KEY = {
-  [BRANDS.MOVISTAR]: "ObNHOLPtrIytjy9BH7M9jW",
-  [BRANDS.O2_NEW]: "CjvgrHEIycSQ6exznxnFXT",
-  [BRANDS.VIVO_NEW]: "EApRpjaTyUOwW5VQU2ZqgP",
+  [BRANDS.MOVISTAR]: "kVMzBCXr4T4zFqLBjuExwe",
+  [BRANDS.O2]: "CjvgrHEIycSQ6exznxnFXT",
+  [BRANDS.VIVO]: "EApRpjaTyUOwW5VQU2ZqgP",
+  [BRANDS.VIVO_EVOLUTION]:
+    "sDxRJeu0D7OEX5FjJsORbu",
   [BRANDS.TELEFONICA]: "m8srmP3eedfvDaqYnbM6PI",
   [BRANDS.BLAU]: "czemeClWRGBI8oF7caNa5m",
-  [BRANDS.TU]: "19IXMaFqdYeC1IIdTwXBgY",
   [BRANDS.ESIMFLAG]: "5WSkNxQ7GwbfagfJqXfZSs",
-  [BRANDS.MOVISTAR_NEW]: "kVMzBCXr4T4zFqLBjuExwe",
+  [BRANDS.UNBRANDED]: "4MCgtJnkTXK8zTE3thNjzu",
+  [BRANDS.CYBER]: "UqJLBr2XCY0KCBLL842sOJ",
 };
 
 export const MIDDLEWARE_KEY =
