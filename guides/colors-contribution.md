@@ -261,6 +261,29 @@ The `value` field of a border-radius token can be modified:
 
 ![tokens_modify_radius](https://github.com/Telefonica/mistica-design/assets/44420072/cb1c7f44-3c09-4fdc-961f-5a3a5e170397)
 
+## Pairing with mistica-web
+
+> [!IMPORTANT]
+>
+> **Required for new constants**
+>
+> Whenever a PR adds new constant tokens to `tokens/schema/skin-schema.json`, a paired PR in [mistica-web](https://github.com/Telefonica/mistica-web) must update `src/skins/skin-contract.css.ts` before this PR can merge.
+
+An automated check (`check-token-import`) runs on every push and label change for PRs that modify the schema. It compares the `global.constants.required` array against the live mistica-web contract and:
+
+- **Passes** when no new tokens are introduced (fix-only changes).
+- **Passes** when all new tokens are already present in the contract file.
+- **Blocks merge** and applies the `waiting-for-mistica-web` label when one or more tokens are missing.
+- **Removes** the `waiting-for-mistica-web` label automatically once the contract is updated and the check re-runs.
+
+### Bypassing the check
+
+For exceptional cases (e.g. a token intentionally shipped to design before the web implementation), apply the `skip-web-check` label to the PR. The workflow will log a warning and exit without failing. Document the reason in the PR description so there is an audit trail.
+
+> [!WARNING]
+>
+> Do not use `skip-web-check` routinely. The label exists for coordinated, planned exceptions — not to work around the process.
+
 ## Modifying the JSON schema
 
 > [!WARNING]
