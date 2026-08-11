@@ -4,13 +4,50 @@ on:
   workflow_dispatch:
   schedule:
     - cron: 0 8 * * *
+  projects_v2_item:
+    types: [edited]
 
 permissions:
   contents: read
   issues: write
 
 jobs:
+  check-trigger:
+    runs-on: ubuntu-latest
+    outputs:
+      should-run: ${{ steps.check.outputs.should-run }}
+    steps:
+      - name: Check if status changed to In Review
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN_MISTICA }}
+        run: |
+          if [ "${{ github.event_name }}" != "projects_v2_item" ]; then
+            echo "should-run=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          STATUS=$(gh api graphql \
+            -f query='query($nodeId: ID!) {
+              node(id: $nodeId) {
+                ... on ProjectV2Item {
+                  fieldValueByName(name: "Status") {
+                    ... on ProjectV2ItemFieldSingleSelectValue { name }
+                  }
+                }
+              }
+            }' \
+            -f nodeId="${{ github.event.projects_v2_item.node_id }}" \
+            --jq '.data.node.fieldValueByName.name // "unknown"')
+          echo "Detected status: $STATUS"
+          if echo "$STATUS" | grep -qi "in review"; then
+            echo "should-run=true" >> $GITHUB_OUTPUT
+          else
+            echo "should-run=false" >> $GITHUB_OUTPUT
+          fi
+
   sync-figma-brand:
+    needs: check-trigger
+    if: needs.check-trigger.outputs.should-run == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -23,12 +60,9 @@ jobs:
         with:
           python-version: "3.x"
 
-      # Paso 3: Instalar dependencias de Python
       - name: Install dependencies
         run: |
-          pip install requests pandas
-          pip install tabulate
-          pip install load_dotenv
+          pip install requests pandas tabulate load_dotenv
 
       - name: Run sync for the brand(s)
         env:
