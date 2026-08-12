@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-08-07T18:26:50.752Z
+  generated: 2026-08-12T13:48:55.378Z
 -->
 
 # Sidenav
@@ -12,6 +12,10 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-08-12T13:48:09Z | 2026-08-12T13:48:55.378Z |
+| Branch | Figma last modified  | Generated                |
+| main   | 2026-08-12T13:39:14Z | 2026-08-12T13:42:15.779Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-08-07T18:17:35Z | 2026-08-07T18:26:50.752Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-08-07T18:17:35Z | 2026-08-07T18:25:07.021Z |
@@ -60,14 +64,15 @@
 
 ![boxed-container](sidenav/figures/anatomy-boxed-container.png)
 
-| Element                                    | Space type | Value/token                 |
-| ------------------------------------------ | ---------- | --------------------------- |
-| Border radius                              | radius     | popup                       |
-| Inset                                      | margin     | 8                           |
-| Height                                     | height     | 100% − (inset top + bottom) |
-| Sidenav container                          | width      | 240-8px                     |
-| Border (Optional)                          | width      | 1                           |
-| You can view the full elevation specs here |            |                             |
+| Element           | Space type | Value/token                 |
+| ----------------- | ---------- | --------------------------- |
+| Border radius     | radius     | popup                       |
+| Inset             | margin     | 8                           |
+| Height            | height     | 100% − (inset top + bottom) |
+| Sidenav container | width      | 240-8px                     |
+| Border (Optional) | width      | 1                           |
+
+> See also: You can view the full elevation specs [here](https://www.figma.com/file/dvMqeg6s8tDh9Hyxu7IYDl/%F0%9F%94%B8-Subatomic-Components?node-id=6%3A220)
 
 ### Sidenav regions
 
@@ -191,7 +196,7 @@ _Sidenav floating panel anatomy_
 | Container right/left padding | padding    | 8         |
 | Left gap with sidenav        | margin     | 8         |
 
-> See also: The dialog panel follows the specifications of the Menu component. You can view full specs [here](https://www.figma.com/design/a1pgrI7Wg41iyXWU8ETqlU/%F0%9F%94%B8-Menu-Specs?node-id=1703-724&t=vwLOWfP1Om9sVVnH-4)
+### The dialog panel follows the specifications of the Menu component. You can view full specs here
 
 ### Double panel
 
@@ -221,22 +226,28 @@ _Double panel anatomy_
 
 ### Mobile
 
-On mobile, the Sidenav collapses following the same behavior as the Main Navigation Bar.
-Element mapping:
-
-- Burger menu: Opens/closes body panel
-- Logo: Remains in top bar
-- Uncollapse: N/A
-- Header Slot: Integrated in top slot area
-- Footer: Integrated at slot bottom of panel
-- Body items: Display inside the panel (same hierarchy)
-- Item Hierarchy in Panel:• Level 0: Main entry (appears in burger menu) • Level 1: Group label/ Category (can expand) • Level 2: Interactive element (leaf, navigable)
-
-For animation details use the same as the production component for consistency.
+The mobile version of Sidenav is composed of a top bar and a navigation panel.
 
 ![Level 1 Level 0 Level 2](sidenav/figures/anatomy-mobile.png)
 
 _Level 1 Level 0 Level 2_
+
+#### Top Bar
+
+- Burger Menu → Top bar trigger
+- Logo → Remains in top bar
+- Header Slot → Relocates to top bar
+
+#### Navigation Panel
+
+- Navigation Items → Rendered inside navigation panel
+- Nested Navigation Levels
+- Footer Slot → Rendered at the bottom of the panel content
+- Divider → Not rendered
+
+#### Compatibility note
+
+We will aim to maintain the same API and data structure as the Navigation Bar to maximize compatibility between both components.
 
 > See also: You can view the full MainNavBar specs [here](https://www.figma.com/design/Os5UfsnhLtQ9rnzmtcX8J4/%F0%9F%94%B8-Navigation-Bar-Specs?node-id=1206-2534)
 
@@ -259,10 +270,14 @@ _Level 1 Level 0 Level 2_
 
 ### Double panel
 
-- Double panel will open when user interacts with an element that has children.
-- Double panel will push content when open.
-- If right divider is true will be shown in the double panel
-- Bay default will inheritate the same width as defined for main sidenav panel unless explicitly defined other width
+- The Double Panel is available in both boxed and default (non-boxed) variants.
+- Double Panel is a global mode. When enabled, all parent items with children use the Double Panel pattern.
+- The Double Panel opens when the user interacts with a parent item that contains children.
+- When a child item becomes selected through an external navigation event, the Double Panel automatically opens to reveal the selected child.
+- The Double Panel always displays the parent item's title as its header.
+- The Double Panel pushes content when opened.
+- If rightDivider is enabled, the divider is displayed within the Double Panel.
+- By default, the Double Panel inherits the same width as the main Sidenav panel unless a custom width is explicitly defined.
 
 ![Double panel=”true”, uncollapsed and collapsed](sidenav/figures/behaviour-double-panel.png)
 
@@ -285,17 +300,25 @@ Divider consistency: the divider must be the same in both states (expanded/colla
 ### Items
 
 - An item can be sectioned or not (it may belong to a section or stand alone).
-- An item in a collapsed sidenav view should show label in a tooltip when hovered.
+- An item in a collapsed sidenav view should show its label in a tooltip when hovered.
+- When a child item is selected, its parent item displays its selected state.
+- When the sidenav is collapsed and a child item is selected, the parent item displays its selected state but does not display the active indicator.
+
+![Expanded parent item (not active)](sidenav/figures/behaviour-items.png)
+
+_Expanded parent item (not active)_
 
 ### Item dropdowns
 
 - Inside sections, an item can have children.
-- An item with children can be interactive. When an item has children but also navigates, it will navigate and show its children at the same time.
-- Items with children can be defined as open by default, when the sidenav is collapsed, all parent items should appear closed.
-- When sidenav is collapsed the dropdown can be opened in the following ways:
-  - Dialog panel: a dialog opens near to the item trigger, showing children links
-  - Double panel: a full panel appears attached to right of the sidenav, displaying all item children links
-- The sidenav will allow only 1 children level, a children item cannot have any nested level inside
+- Parent items with children are used exclusively to reveal or hide their children. They do not navigate or trigger any other action when selected.
+- Navigation is only available on items without children and on child items.
+- Parent items can be configured to be expanded by default. However, when the sidenav is collapsed, all parent items should appear collapsed.
+- Parent items retain their current expanded or collapsed state when navigation occurs elsewhere. Opening one parent item does not automatically collapse other parent items.
+- When a child item is selected, its parent item displays its expanded state.
+- When a child item becomes selected through an external navigation event, its parent item automatically displays its expanded state.
+- When the sidenav is collapsed, child items can be displayed using one of the following patterns: Dialog panel: A dialog opens next to the parent item, displaying its child items. Double panel: A secondary panel appears attached to the right side of the sidenav, displaying its child items.
+- The sidenav supports a single level of nesting. Child items cannot contain additional nested items.
 
 ![Double panel=”false”, uncollapsed and collapsed](sidenav/figures/behaviour-item-dropdowns.png)
 
@@ -327,6 +350,8 @@ _Double panel=”false”, uncollapsed and collapsed_
 ![Scroll behaviour: the divider appears when the content goes underneath](sidenav/figures/behaviour-scroll-behaviour.png)
 
 _Scroll behaviour: the divider appears when the content goes underneath_
+
+### Double panel=”false”, uncollapsed and collapsed
 
 ### Layout
 
@@ -362,12 +387,66 @@ _Centered layout_
 | Desktop (1024–1919px)   | 240px                   |
 | Large Desktop (≥1920px) | 296px                   |
 
+### Mobile
+
+The mobile experience follows Main Navigation Bar Mobile behaviour as closely as possible.
+
 #### Burger Menu
 
 - The burger menu open/close behavior emulates the Main Navigation Bar component.
-- For animation details use the sames as the production component for consistency.
+- For animation details use the sames as the production Main Navigation Bar for consistency.
+
+#### Navigation Hierarchy
+
+The navigation is displayed as a hierarchical structure.
+
+- Level 0: Main entry point displayed in the burger menu.
+- Level 1: Parent item.
+- Level 2: Child item.
+
+#### Selected items
+
+In mobile selected items will not show any indicator they’re selected
+
+![Desktop vs mobile Selected item](sidenav/figures/behaviour-mobile-selected-items.png)
+
+_Desktop vs mobile Selected item_
+
+#### Parent Items with Children
+
+When a parent item contains children, selecting it opens the next navigation level displaying those children.
+
+Parent items with children are not navigable and do not trigger actions. Their purpose is exclusively to reveal and organize child items.
+
+Items without children navigate and close the panel.
+
+Parents with selected childrens will not show any indicator that they have a selected children
+
+#### Slot
+
+The Header Slot is relocated to the top bar.
+
+The Footer Slot is rendered at the bottom of the panel content and flows with the content. The fixed-bottom behaviour is not supported on mobile.
+
+![Mobile header and footer slots](sidenav/figures/behaviour-mobile-slot.png)
+
+_Mobile header and footer slots_
+
+#### custom content
+
+Parent items can only render children navigation items. Custom content are not supported.
+
+#### Section dividers
+
+Section dividers are not rendered on mobile.
 
 > See also: You can view the full MainNavBar specs [here](https://www.figma.com/design/Os5UfsnhLtQ9rnzmtcX8J4/%F0%9F%94%B8-Navigation-Bar-Specs?node-id=1206-2534)
+
+#### Variants
+
+The variant only affect the navigation bar, the panel is always displayed in default.
+
+> See also: See tokens definition of main navigation bar [here](https://www.figma.com/design/Os5UfsnhLtQ9rnzmtcX8J4/%F0%9F%94%B8-Navigation-Bar-Specs?m=auto&node-id=1206-5760&t=oWllXixG7KGY1XHX-1)
 
 ## Tokens
 
@@ -375,7 +454,7 @@ _Centered layout_
 
 | Element                 | Token / Color       |
 | ----------------------- | ------------------- |
-| body background         | backgroundContainer |
+| body background         | transparent         |
 | body background (Boxed) | backgroundContainer |
 | right divider           | divider             |
 
@@ -425,21 +504,21 @@ _Centered layout_
 
 ### Brand
 
-| Element                 | Token / Color            |
-| ----------------------- | ------------------------ |
-| body background         | transparent              |
-| body background (Boxed) | backgroundContainerBrand |
-| right divider           | dividerBrand             |
+| Element                 | Token / Color              |
+| ----------------------- | -------------------------- |
+| body background         | transparent                |
+| body background (Boxed) | sideNavBackgroundContainer |
+| right divider           | dividerBrand               |
 
 #### Header
 
 ![brand-header](sidenav/figures/tokens-brand-header.png)
 
-| Element                  | Token / Color            |
-| ------------------------ | ------------------------ |
-| header background        | backgroundBrandTop       |
-| header background(Boxed) | backgroundContainerBrand |
-| overscroll divider       | dividerBrand             |
+| Element                  | Token / Color                   |
+| ------------------------ | ------------------------------- |
+| header background        | sideNavBackgroundContainerBrand |
+| header background(Boxed) | sideNavBackgroundContainerBrand |
+| overscroll divider       | dividerBrand                    |
 
 #### Section
 
@@ -469,11 +548,11 @@ _Centered layout_
 
 #### Footer
 
-| Element                  | Token / Color            |
-| ------------------------ | ------------------------ |
-| footer background        | backgroundBrandTop       |
-| footer background(Boxed) | backgroundContainerBrand |
-| overscroll divider       | dividerBrand             |
+| Element                  | Token / Color              |
+| ------------------------ | -------------------------- |
+| footer background        | sideNavBackgroundContainer |
+| footer background(Boxed) | sideNavBackgroundContainer |
+| overscroll divider       | dividerBrand               |
 
 ### Alternative
 
