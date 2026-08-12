@@ -133,10 +133,10 @@ def analyze_files(file_keys, figma_token, repo_owner, repo_name, github_token):
                     branch_name = branch["name"]
                     branch_link = f"[{branch_name}](https://www.figma.com/file/{file_key}/branch/{branch['key']})"
                     
-                    # Extract the issue number using regex
-                    issue_match = re.match(r"#(\d+)", branch_name)
-                    issue_number = issue_match.group(1) if issue_match else None
-                    issue_display = f"#{issue_number}" if issue_number else ""
+                    # Extract all issue numbers using regex
+                    issue_numbers = re.findall(r"#(\d+)", branch_name)
+                    issue_number = issue_numbers[0] if issue_numbers else None
+                    issue_display = " ".join(f"#{n}" for n in issue_numbers)
 
                     # Calculate the days since the last modification using timezone-aware datetime
                     last_modified_str = branch["last_modified"]
@@ -147,17 +147,18 @@ def analyze_files(file_keys, figma_token, repo_owner, repo_name, github_token):
                     # Format the time difference
                     formatted_time = format_time_difference(days_since_modification)
 
-                    # Collect branch info for commenting on the issue
-                    if issue_number:
+                    # Collect branch info for commenting on each linked issue
+                    if issue_numbers:
                         figma_url = f"https://www.figma.com/file/{file_key}/branch/{branch['key']}"
-                        branches_by_issue.setdefault(issue_number, []).append({
-                            "file_name": file_name,
-                            "name": branch_name,
-                            "url": figma_url,
-                            "last_modification": formatted_time
-                        })
+                        for num in issue_numbers:
+                            branches_by_issue.setdefault(num, []).append({
+                                "file_name": file_name,
+                                "name": branch_name,
+                                "url": figma_url,
+                                "last_modification": formatted_time
+                            })
 
-                    # Get the issue status from GitHub
+                    # Get the issue status from GitHub using the first linked issue
                     issue_status = get_issue_status(repo_owner, repo_name, issue_number, github_token) if issue_number else ""
                     
                     table_data.append({
@@ -280,8 +281,20 @@ df, branches_by_issue = analyze_files(file_keys, figma_token, repo_owner, repo_n
 # Comment on individual issues with Figma branch links
 comment_figma_branches_on_issues(branches_by_issue, repo_owner, repo_name, github_token)
 
-# Convert the table to markdown format
-markdown_table = df.to_markdown(index=False)
+# Split into "In Review" and the rest
+mask_in_review = df["Status"].str.lower().str.contains("in review", na=False)
+df_in_review = df[mask_in_review]
+df_other = df[~mask_in_review]
+
+# Build each section
+if df_in_review.empty:
+    review_section = "## In Review\n\nNo branches are currently in review."
+else:
+    review_section = f"## In Review\n\n{df_in_review.to_markdown(index=False)}"
+
+other_section = f"## Other Branches\n\n{df_other.to_markdown(index=False)}"
+
+markdown_table = f"{review_section}\n\n{other_section}"
 
 # Update the issue on GitHub
 issue_number = 1927  # Change this as needed
