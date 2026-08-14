@@ -951,17 +951,30 @@ export const extractMiddlewareJsonData = (
 
     const componentPropertiesArray = Object.keys(
       parsedContent.componentProperties || {},
-    ).map((key) =>
-      attachTokenMeta(
-        parsedContent.componentProperties[key],
-        {
-          name: `componentProperties/${key}`,
-          value:
-            parsedContent.componentProperties[key]
-              .value,
-        },
-      ),
-    );
+    ).flatMap((key) => {
+      const token =
+        parsedContent.componentProperties[key];
+      const { value } = token;
+
+      // If value is an object, expand into one entry per sub-key
+      if (
+        typeof value === "object" &&
+        value !== null
+      ) {
+        return Object.keys(value).map((subKey) =>
+          attachTokenMeta(token, {
+            name: `componentProperties/${key}/${subKey}`,
+            value: value[subKey],
+          }),
+        );
+      }
+
+      // Scalar value — keep as-is
+      return attachTokenMeta(token, {
+        name: `componentProperties/${key}`,
+        value,
+      });
+    });
 
     // Accumulate results
     accumulator[fileName] = {
