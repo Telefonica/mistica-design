@@ -140,8 +140,18 @@ export const getNonColorVariables = (
     hasAlias: false,
   },
   {
-    variables:
-      jsonData[brand]?.componentProperties || [],
+    variables: (
+      jsonData[brand]?.componentProperties || []
+    ).filter((v) => typeof v.value === "boolean"),
+    collectionName: COLLECTION_NAMES.SKIN,
+    resolvedType: VARIABLE_TYPES.BOOLEAN,
+    variableScopes: [VARIABLE_SCOPES.ALL_SCOPES],
+    hasAlias: false,
+  },
+  {
+    variables: (
+      jsonData[brand]?.componentProperties || []
+    ).filter((v) => typeof v.value !== "boolean"),
     collectionName: COLLECTION_NAMES.SKIN,
     resolvedType: VARIABLE_TYPES.STRING,
     variableScopes: [VARIABLE_SCOPES.ALL_SCOPES],
