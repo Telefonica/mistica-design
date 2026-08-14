@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-08-12T13:48:55.378Z
+  generated: 2026-08-14T13:12:28.219Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-08-14T13:11:45Z | 2026-08-14T13:12:28.219Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-08-12T13:48:09Z | 2026-08-12T13:48:55.378Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-08-12T13:39:14Z | 2026-08-12T13:42:15.779Z |
@@ -161,9 +163,9 @@ An item can contain nested items.
 
 Each nesting level is cumulative and indents the whole item relative to the previous level. Indentation applies to the item container, so it behaves consistently whether or not the item has an asset.
 
-![With asset Without asset Sidenav item anatomy (item with children)](sidenav/figures/anatomy-body-region-item-with-children.png)
+![With asset Without asset Expanded + closed Expanded + open Sidenav item anatomy (item with children)](sidenav/figures/anatomy-body-region-item-with-children.png)
 
-_With asset Without asset Sidenav item anatomy (item with children)_
+_With asset Without asset Expanded + closed Expanded + open Sidenav item anatomy (item with children)_
 
 | Element                         | Space type   | Value(px) |
 | ------------------------------- | ------------ | --------- |
@@ -196,8 +198,6 @@ _Sidenav floating panel anatomy_
 | Container right/left padding | padding    | 8         |
 | Left gap with sidenav        | margin     | 8         |
 
-### The dialog panel follows the specifications of the Menu component. You can view full specs here
-
 ### Double panel
 
 A double panel can be shown if the second level of items is defined to appear in a panel, the chevron will point to the right instead of bottom when children are in second panel.
@@ -228,9 +228,9 @@ _Double panel anatomy_
 
 The mobile version of Sidenav is composed of a top bar and a navigation panel.
 
-![Level 1 Level 0 Level 2](sidenav/figures/anatomy-mobile.png)
+![Level 1 Level 2](sidenav/figures/anatomy-mobile.png)
 
-_Level 1 Level 0 Level 2_
+_Level 1 Level 2_
 
 #### Top Bar
 
@@ -242,12 +242,13 @@ _Level 1 Level 0 Level 2_
 
 - Navigation Items → Rendered inside navigation panel
 - Nested Navigation Levels
+- Item Slot → Rendered at right side
 - Footer Slot → Rendered at the bottom of the panel content
 - Divider → Not rendered
 
 #### Compatibility note
 
-We will aim to maintain the same API and data structure as the Navigation Bar to maximize compatibility between both components.
+We will aim to maintain the same API and data structure as the Navigation Bar to maximize compatibility between both components. Some differences exist, but they are explicited above.
 
 > See also: You can view the full MainNavBar specs [here](https://www.figma.com/design/Os5UfsnhLtQ9rnzmtcX8J4/%F0%9F%94%B8-Navigation-Bar-Specs?node-id=1206-2534)
 
@@ -285,12 +286,10 @@ _Double panel=”true”, uncollapsed and collapsed_
 
 ### Sections
 
-A section can be defined in two ways:
+A section can have:
 
-- with section title only
-- with divider only (top, bottom, or both)
-
-The divider is independent from the section title.
+- Title
+- Dividers (top, bottom, or both)
 
 Section with children:
 Expanded state: the section title is shown + optional divider.
@@ -299,7 +298,6 @@ Divider consistency: the divider must be the same in both states (expanded/colla
 
 ### Items
 
-- An item can be sectioned or not (it may belong to a section or stand alone).
 - An item in a collapsed sidenav view should show its label in a tooltip when hovered.
 - When a child item is selected, its parent item displays its selected state.
 - When the sidenav is collapsed and a child item is selected, the parent item displays its selected state but does not display the active indicator.
@@ -308,21 +306,35 @@ Divider consistency: the divider must be the same in both states (expanded/colla
 
 _Expanded parent item (not active)_
 
+### Items / stand alone items
+
+- An item can be sectioned or not (it may belong to a section or stand alone).
+
 ### Item dropdowns
 
 - Inside sections, an item can have children.
 - Parent items with children are used exclusively to reveal or hide their children. They do not navigate or trigger any other action when selected.
 - Navigation is only available on items without children and on child items.
-- Parent items can be configured to be expanded by default. However, when the sidenav is collapsed, all parent items should appear collapsed.
-- Parent items retain their current expanded or collapsed state when navigation occurs elsewhere. Opening one parent item does not automatically collapse other parent items.
-- When a child item is selected, its parent item displays its expanded state.
 - When a child item becomes selected through an external navigation event, its parent item automatically displays its expanded state.
 - When the sidenav is collapsed, child items can be displayed using one of the following patterns: Dialog panel: A dialog opens next to the parent item, displaying its child items. Double panel: A secondary panel appears attached to the right side of the sidenav, displaying its child items.
+- Opening one parent item does not automatically collapse other parent items.
+- When a child item is selected, its parent item displays its expanded state.
 - The sidenav supports a single level of nesting. Child items cannot contain additional nested items.
 
 ![Double panel=”false”, uncollapsed and collapsed](sidenav/figures/behaviour-item-dropdowns.png)
 
 _Double panel=”false”, uncollapsed and collapsed_
+
+#### Accordion
+
+- Parent items can be configured to be expanded by default. However, when the sidenav is collapsed, all parent items should appear collapsed (following the dropdown examples we have).
+- Parent items retain their current expanded or collapsed state when navigation occurs elsewhere.
+
+![Expanded accordion child selected and close accordion](sidenav/figures/behaviour-accordion.png)
+
+_Expanded accordion child selected and close accordion_
+
+### Sections and stand alone items
 
 ### Sidenav Footer
 
@@ -389,7 +401,7 @@ _Centered layout_
 
 ### Mobile
 
-The mobile experience follows Main Navigation Bar Mobile behaviour as closely as possible.
+On mobile, the Sidenav follows Main Navigation Bar Mobile behaviour as closely as possible.
 
 #### Burger Menu
 
@@ -400,7 +412,7 @@ The mobile experience follows Main Navigation Bar Mobile behaviour as closely as
 
 The navigation is displayed as a hierarchical structure.
 
-- Level 0: Main entry point displayed in the burger menu.
+- Main entry point displayed in the burger menu.
 - Level 1: Parent item.
 - Level 2: Child item.
 
@@ -447,6 +459,8 @@ Section dividers are not rendered on mobile.
 The variant only affect the navigation bar, the panel is always displayed in default.
 
 > See also: See tokens definition of main navigation bar [here](https://www.figma.com/design/Os5UfsnhLtQ9rnzmtcX8J4/%F0%9F%94%B8-Navigation-Bar-Specs?m=auto&node-id=1206-5760&t=oWllXixG7KGY1XHX-1)
+
+![stand-alone-items](sidenav/figures/behaviour-stand-alone-items.png)
 
 ## Tokens
 
@@ -783,6 +797,8 @@ Logo (mute) 1. Collapse/uncollapse button2. Accessible label item 1 (collapsed)W
 1. Label Item 1.3
 1. Accessible label item 2 (collapsed)
 1. Accessible label item 3 (collapsed)
+
+Focus remains within the dropdown until the user presses Esc or enters/selects an item.
 
 Note: The panel's title is muted since it's already announced via the icon's accessibility label.
 
