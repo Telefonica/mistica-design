@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: "0 7-17/2 * * 1-5"
 
+concurrency:
+  group: open-branches
+  cancel-in-progress: false
+
 permissions:
   contents: read
   issues: write
