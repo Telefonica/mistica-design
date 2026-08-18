@@ -128,11 +128,10 @@ def analyze_files(file_keys, figma_token, repo_owner, repo_name, github_token):
             num_branches = len(branches)
             
             if num_branches > 0:
-                first_branch = True
                 for branch in branches:
                     branch_name = branch["name"]
                     branch_link = f"[{branch_name}](https://www.figma.com/file/{file_key}/branch/{branch['key']})"
-                    
+
                     # Extract all issue numbers using regex
                     issue_numbers = re.findall(r"#(\d+)", branch_name)
                     issue_number = issue_numbers[0] if issue_numbers else None
@@ -160,16 +159,14 @@ def analyze_files(file_keys, figma_token, repo_owner, repo_name, github_token):
 
                     # Get the issue status from GitHub using the first linked issue
                     issue_status = get_issue_status(repo_owner, repo_name, issue_number, github_token) if issue_number else ""
-                    
+
                     table_data.append({
-                        "File Name": file_name if first_branch else "",
+                        "File Name": file_name,
                         "Branch Names": branch_link,
                         "Issue": issue_display,
                         "Status": issue_status,
                         "Last Modification": formatted_time
                     })
-
-                    first_branch = False
     
     df = pd.DataFrame(table_data)
     return df, branches_by_issue
@@ -269,6 +266,7 @@ project_ids = [
     "266390224", # Mística Skins Libraries
     "27955986",  # Specs
     "170790970", # Community Specs
+    "633553592"  # Community Mística Skins Libraries 
     "30110755"   # Materials
 ]
 
@@ -281,10 +279,17 @@ df, branches_by_issue = analyze_files(file_keys, figma_token, repo_owner, repo_n
 # Comment on individual issues with Figma branch links
 comment_figma_branches_on_issues(branches_by_issue, repo_owner, repo_name, github_token)
 
+def deduplicate_file_names(df):
+    result = df.copy()
+    result["File Name"] = result["File Name"].where(
+        result["File Name"] != result["File Name"].shift(), ""
+    )
+    return result
+
 # Split into "In Review" and the rest
 mask_in_review = df["Status"].str.lower().str.contains("in review", na=False)
-df_in_review = df[mask_in_review]
-df_other = df[~mask_in_review]
+df_in_review = deduplicate_file_names(df[mask_in_review].reset_index(drop=True))
+df_other = deduplicate_file_names(df[~mask_in_review].reset_index(drop=True))
 
 # Build each section
 if df_in_review.empty:

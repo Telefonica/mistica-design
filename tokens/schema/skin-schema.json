@@ -690,7 +690,7 @@
     },
     "radius": {
       "additionalProperties": false,
-      "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "chip", "input", "popup", "sheet"],
+      "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "chip", "input", "popup", "sheet", "snackbar"],
       "properties": {
         "avatar": { "$ref": "#/definitions/radiusProperties" },
         "bar": { "$ref": "#/definitions/radiusProperties" },
@@ -703,7 +703,8 @@
         "input": { "$ref": "#/definitions/radiusProperties" },
         "popup": { "$ref": "#/definitions/radiusProperties" },
         "sheet": { "$ref": "#/definitions/radiusProperties" },
-        "mediaSmall": { "$ref": "#/definitions/radiusProperties" }
+        "mediaSmall": { "$ref": "#/definitions/radiusProperties" },
+        "snackbar": { "$ref": "#/definitions/radiusProperties" }
       }
     },
     "weight": {
