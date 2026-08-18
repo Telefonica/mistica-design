@@ -274,7 +274,16 @@ An automated check (`check-token-import`) runs on every push and label change fo
 - **Passes** when no new tokens are introduced (fix-only changes).
 - **Passes** when all new tokens are already present in the contract file.
 - **Blocks merge** and applies the `waiting-for-mistica-web` label when one or more tokens are missing.
-- **Removes** the `waiting-for-mistica-web` label automatically once the contract is updated and the check re-runs.
+- **Removes** the `waiting-for-mistica-web` label on its next run, once the contract contains the new tokens.
+
+### Re-running the check after the mistica-web PR merges
+
+Merging the paired mistica-web PR does not re-trigger this check on its own: the workflow only runs on activity in the design PR itself. Once the contract is updated, re-run the check in one of two ways.
+
+- Push any commit to the design PR, or remove and re-add a label, which re-triggers the workflow automatically.
+- Run it manually from **Actions → Check Token Import in mistica-web → Run workflow**, entering the design PR number in the `pr` field.
+
+Until the check runs again, the PR keeps the failing status and the `waiting-for-mistica-web` label even though the contract is already correct.
 
 ### Bypassing the check
 
