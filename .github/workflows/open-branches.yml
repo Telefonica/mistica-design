@@ -3,7 +3,11 @@ name: Open branches in Figma
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 8 * * *
+    - cron: "0 7-17/2 * * 1-5"
+
+concurrency:
+  group: open-branches
+  cancel-in-progress: true
 
 permissions:
   contents: read
