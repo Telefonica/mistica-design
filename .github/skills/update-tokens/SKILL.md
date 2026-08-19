@@ -37,7 +37,8 @@ When this skill is invoked, follow this order strictly:
 4. Validate structure consistency across brands
 5. Update schema file
 6. Update linter if impacted
-7. Summarize the changes made
+7. **If new constants were added to `global.constants.required`**: remind the user that a paired PR in [mistica-web](https://github.com/Telefonica/mistica-web) is required to update `src/skins/skin-contract.css.ts`. The `check-token-import` CI workflow will block the mistica-design PR until those tokens appear in the contract file.
+8. Summarize the changes made
 
 ---
 
