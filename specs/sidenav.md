@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-08-19T15:04:35.404Z
+  generated: 2026-08-21T08:08:05.381Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-08-21T08:00:10Z | 2026-08-21T08:08:05.381Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-08-19T15:03:49Z | 2026-08-19T15:04:35.404Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-08-19T14:55:35Z | 2026-08-19T14:59:21.757Z |
@@ -86,6 +88,9 @@
 ### Header region
 
 - Logo (Optional)
+  - By default the sidenav will show the brand logo type=”isotype”
+  - The logo should accept any custom element
+  - The logo should allow to be changed between collapsed and exapnded states
 - Collapse/uncollapse action (Included via collapse prop, can be custom rendered)
   - Action will use an IconButton component type=”neutral” background=”transparent”
 - Header slot (Optional)
@@ -130,6 +135,8 @@ _Section item anatomy_
 - Selected indicator: Appears only in the selected item
 - Asset: Optional when expanded, but required when the sidenav is collapsed (it is the only element shown in the collapsed view).
 - Item label (Optional): when collapsed appears as a tooltip on the right of the element
+  - When the item has children, and the panel is open or dual panel is true and open, avoid to display a tooltip, the parent title is available on dialog or double panel
+  - Other 1st level items when a dialog panel is open will not show tooltip, they only show it when collapsed or dual panel is true
 - Right slot (Optional). Will be hidden when collapsed
 - Chevron: appears only in items with children
 
@@ -186,9 +193,9 @@ _Sidenav footer anatomy_
 
 A floating panel that is used to show the children of an item when the sidenav is collapsed, whenever is possible the panel will be anchored to the top of the trigger, matching the trigger and the first children item in the same height.
 
-![Sidenav floating panel anatomy](sidenav/figures/anatomy-dialog-panel.png)
+![Sidenav dialog panel anatomy](sidenav/figures/anatomy-dialog-panel.png)
 
-_Sidenav floating panel anatomy_
+_Sidenav dialog panel anatomy_
 
 | Element                      | Space type | Value(px) |
 | ---------------------------- | ---------- | --------- |
@@ -201,22 +208,35 @@ _Sidenav floating panel anatomy_
 
 ### Double panel
 
-A double panel can be shown if the second level of items is defined to appear in a panel, the chevron will point to the right instead of bottom when children are in second panel.
-
-Panel behavior
-The trigger (pressing a 1st-level item with children) opens the panel.
-The panel closes if:
-
-- I press a 2nd-level item
-- I press outside
-- I press the same 1st-level item again (toggle)
-- I press another 1st-level item without children
-  The panel refreshes if:
-- I press another 1st-level item with children
+A double panel can be shown if the second level of items is defined to appear in a panel, the chevron will point to the right instead of bottom when children are in second panel. Toggling sidenav divider shouldn't change sidenav width.
 
 ![Double panel anatomy](sidenav/figures/anatomy-double-panel.png)
 
 _Double panel anatomy_
+
+#### behaviour
+
+The trigger (pressing a 1st-level item with children) opens the panel.
+The panel closes if:
+
+- A child is selected (or reselected if it already is)
+- Click outside the bar (both first or second column)
+- click and select a first level item with no children
+- From outside a first level item with no children is selected
+  Switches if:
+- From outside a second level item of another parent is selected: the column moves to that parent
+
+Keeps opened if:
+
+- Clicked some "side nav bar" area (background for instance)
+- From outside a second level level item is selected
+- Click outside the bar while the open column holds the current selection
+
+Highlight definition
+
+- Only one first level item is highlighted: the parent of the open column
+- The parent of the selected child loses the highlight while another column is open, and gets it back when that column closes
+- The selected child keeps its selected indicator
 
 | Element                      | Space type | Value(px)                              |
 | ---------------------------- | ---------- | -------------------------------------- |
@@ -268,7 +288,7 @@ We will aim to maintain the same API and data structure as the Navigation Bar to
   - user can collapse or uncollapse, by default will be uncollapsed
   - true: is collapsed and cannot be changed
   - false: is not collapsed and cannot be changed
-- Collapse action button will be provided by default, but also allow a provider to paint this action as custom and with a different placing, so developer can choose.
+- Collapse behavior can be triggered by any element in the UI, by default will be triggered by the provided collapse/expand icon
 
 ### Double panel
 
@@ -371,6 +391,7 @@ _Scroll behaviour: the divider appears when the content goes underneath_
 - The sidenav component will provide the layout for main content to behave correctly in all breakpoints.
 - Layout can vary between taking the whole viewport or centered.
 - Users can either decide to use the layout provided by sidenav or to place the sidenav in a custom layout.
+- Sidenav and main navigation bar are not meant to share UI, users should decide to use one or another, since responsive implications can cause collision.
 
 #### Whole viewport
 
