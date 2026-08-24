@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-08-24T12:04:30.946Z
+  generated: 2026-08-24T15:13:48.798Z
 -->
 
 # Sidenav
@@ -12,6 +12,10 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-08-24T15:13:02Z | 2026-08-24T15:13:48.798Z |
+| Branch | Figma last modified  | Generated                |
+| main   | 2026-08-24T14:57:33Z | 2026-08-24T15:00:59.080Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-08-24T12:03:50Z | 2026-08-24T12:04:30.946Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-08-24T10:18:14Z | 2026-08-24T12:02:44.797Z |
@@ -518,10 +522,10 @@ The variant only affect the navigation bar, the panel is always displayed in def
 
 ![default-section](sidenav/figures/tokens-default-section.png)
 
-| Element       | Token / Color      | Font-size | Line-height | Font-weight |
-| ------------- | ------------------ | --------- | ----------- | ----------- |
-| Section title | textSecondaryBrand | text3     | text3       | text3       |
-| dividers      | divider            |           |             |             |
+| Element       | Token / Color | Font-size | Line-height | Font-weight |
+| ------------- | ------------- | --------- | ----------- | ----------- |
+| Section title | textSecondary | text3     | text3       | text3       |
+| dividers      | divider       |           |             |             |
 
 #### Item
 
@@ -622,10 +626,10 @@ The variant only affect the navigation bar, the panel is always displayed in def
 
 ![alternative-section](sidenav/figures/tokens-alternative-section.png)
 
-| Element       | Token / Color      | Font-size | Line-height | Font-weight |
-| ------------- | ------------------ | --------- | ----------- | ----------- |
-| Section title | textSecondaryBrand | text3     | text3       | text3       |
-| dividers      | divider            |           |             |             |
+| Element       | Token / Color | Font-size | Line-height | Font-weight |
+| ------------- | ------------- | --------- | ----------- | ----------- |
+| Section title | textSecondary | text3     | text3       | text3       |
+| dividers      | divider       |           |             |             |
 
 #### Item
 
@@ -683,18 +687,18 @@ The variant only affect the navigation bar, the panel is always displayed in def
 
 ![negative-item](sidenav/figures/tokens-negative-item.png)
 
-| Element                     | Token / Color                      | Font-size | Line-height | Font-weight |
-| --------------------------- | ---------------------------------- | --------- | ----------- | ----------- |
-| Selected indicator          | controlActivatedNegative           |           |             |             |
-| Asset                       | currentColor                       |           |             |             |
-| Label                       | textPrimaryNegative                | text2     | text2       | text2       |
-| background                  | transparent                        |           |             |             |
-| background:hover            | backgroundContainerNegativeHover   |           |             |             |
-| background:pressed          | backgroundContainerNegativePressed |           |             |             |
-| background:selected         | backgroundSelectedNegative         |           |             |             |
-| background:selected:hover   | backgroundSelectedNegativeHover    |           |             |             |
-| background:selected:pressed | backgroundSelectedNegativePressed  |           |             |             |
-| chevron                     | neutralHighNegative                |           |             |             |
+| Element                     | Token / Color                     | Font-size | Line-height | Font-weight |
+| --------------------------- | --------------------------------- | --------- | ----------- | ----------- |
+| Selected indicator          | controlActivatedNegative          |           |             |             |
+| Asset                       | currentColor                      |           |             |             |
+| Label                       | textPrimaryNegative               | text2     | text2       | text2       |
+| background                  | transparent                       |           |             |             |
+| background:hover            | backgroundContainerHover          |           |             |             |
+| background:pressed          | backgroundContainerPressed        |           |             |             |
+| background:selected         | backgroundSelectedNegative        |           |             |             |
+| background:selected:hover   | backgroundSelectedNegativeHover   |           |             |             |
+| background:selected:pressed | backgroundSelectedNegativePressed |           |             |             |
+| chevron                     | neutralHighNegative               |           |             |             |
 
 #### Footer
 
@@ -735,18 +739,18 @@ The variant only affect the navigation bar, the panel is always displayed in def
 
 ![media-item](sidenav/figures/tokens-media-item.png)
 
-| Element                     | Token / Color                      | Font-size | Line-height | Font-weight |
-| --------------------------- | ---------------------------------- | --------- | ----------- | ----------- |
-| Selected indicator          | controlActivatedNegative           |           |             |             |
-| Asset                       | currentColor                       |           |             |             |
-| Label                       | textPrimaryNegative                | text2     | text2       | text2       |
-| background                  | transparent                        |           |             |             |
-| background:hover            | backgroundContainerNegativeHover   |           |             |             |
-| background:pressed          | backgroundContainerNegativePressed |           |             |             |
-| background:selected         | backgroundContainerSelected        |           |             |             |
-| background:selected:hover   | backgroundContainerSelectedHover   |           |             |             |
-| background:selected:pressed | backgroundContainerSelectedPressed |           |             |             |
-| chevron                     | neutralHighNegative                |           |             |             |
+| Element                     | Token / Color              | Font-size | Line-height | Font-weight |
+| --------------------------- | -------------------------- | --------- | ----------- | ----------- |
+| Selected indicator          | controlActivatedNegative   |           |             |             |
+| Asset                       | currentColor               |           |             |             |
+| Label                       | textPrimaryNegative        | text2     | text2       | text2       |
+| background                  | transparent                |           |             |             |
+| background:hover            | backgroundContainerHover   |           |             |             |
+| background:pressed          | backgroundContainerPressed |           |             |             |
+| background:selected         | backgroundSelected         |           |             |             |
+| background:selected:hover   | backgroundSelectedHover    |           |             |             |
+| background:selected:pressed | backgroundSelectedPressed  |           |             |             |
+| chevron                     | neutralHighNegative        |           |             |             |
 
 #### Footer
 
