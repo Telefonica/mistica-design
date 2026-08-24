@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-08-21T08:08:05.381Z
+  generated: 2026-08-24T07:56:50.139Z
 -->
 
 # Sidenav
@@ -12,6 +12,10 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-08-24T07:53:45Z | 2026-08-24T07:56:50.139Z |
+| Branch | Figma last modified  | Generated                |
+| main   | 2026-08-24T07:46:45Z | 2026-08-24T07:47:32.756Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-08-21T08:00:10Z | 2026-08-21T08:08:05.381Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-08-19T15:03:49Z | 2026-08-19T15:04:35.404Z |
@@ -765,6 +769,42 @@ The variant only affect the navigation bar, the panel is always displayed in def
 
 ## Animation
 
+### Collapse and uncollapse animation
+
+Duration:
+• 350ms
+
+Easing:
+• cubic-bezier(0.4, 0, 0.2, 1)
+
+Simultaneous animations:
+• Container width: 280px → 72px
+• Header label: opacity 1 → 0 (delay: 50ms)
+• Item labels: opacity 1 → 0 (staggered delay: 80ms, 120ms, 160ms)
+• Icons: always visible, no animation
+
+Collapsed state:
+• Width: 72px
+• Labels: hidden (opacity 0, width 0)
+• Icons: visible and centered
+
+Accessibility:
+• Respects prefers-reduced-motion: instant transition (0ms)
+• Labels remain accessible in DOM (opacity 0 only)
+• Tooltip shows label on hover when collapsed
+
+> See also: See animation example [here](https://www.figma.com/make/uKGeAGsReRxJsZ1xSTvpMI/%F0%9F%94%B8-M%C3%ADstica-Scaffold-%7C-M%C3%ADstica-for-Figma-Make--Alpha---Copy-?t=YlkL5eST46oWNxV4-1)
+
+### Chevron icon rotation
+
+When the user clicks/taps a parent item to expand or collapse it, the Chevron icon rotates 180° around its own axis to reflect the change in state.
+
+### Content expand-collapse
+
+- Transition - ease
+
+When the user clicks/taps the component to expand or collapse it, animate the children content as a single group using transition: all 0.4s ease.
+
 ## Accessibility
 
 ### General
@@ -772,7 +812,6 @@ The variant only affect the navigation bar, the panel is always displayed in def
 - Navigation items should be semantically defined as a navigation
 - Navigation items that have children should give the user information about their expand and collapse behaviour
 - Items should allow to include an accessible name, this should be mandatory when sidenav is collapsed
-- When Items that navigate and have children Two focus stop should be included in this items, one to collapse/uncollapse and another to navigate
 - Dual-tier panel push, floating panel slide-in, and collapse/expand transitions must respect prefers-reduced-motion: reduce and fall back to an instant state change.
 
 ### Reading order
@@ -791,7 +830,6 @@ _Header reading order_
 1. Concatenate the following elements:
 1. Label
 1. Slot elements: should be announced in visual order
-1. Icon button (Collapse/uncollapse) (if present)
 
 ![Item reading order](sidenav/figures/accessibility-reading-order-item.png)
 
