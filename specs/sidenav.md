@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-08-24T07:56:50.139Z
+  generated: 2026-08-24T08:07:25.553Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-08-24T08:03:36Z | 2026-08-24T08:07:25.553Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-08-24T07:53:45Z | 2026-08-24T07:56:50.139Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-08-24T07:46:45Z | 2026-08-24T07:47:32.756Z |
@@ -778,13 +780,12 @@ Easing:
 • cubic-bezier(0.4, 0, 0.2, 1)
 
 Simultaneous animations:
-• Container width: 280px → 72px
-• Header label: opacity 1 → 0 (delay: 50ms)
+• Container width: 240px → 72px
+• Section title label: opacity 1 → 0 (delay: 50ms)
 • Item labels: opacity 1 → 0 (staggered delay: 80ms, 120ms, 160ms)
 • Icons: always visible, no animation
 
 Collapsed state:
-• Width: 72px
 • Labels: hidden (opacity 0, width 0)
 • Icons: visible and centered
 
