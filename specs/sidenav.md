@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-08-24T08:07:25.553Z
+  generated: 2026-08-24T12:04:30.946Z
 -->
 
 # Sidenav
@@ -12,6 +12,10 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-08-24T12:03:50Z | 2026-08-24T12:04:30.946Z |
+| Branch | Figma last modified  | Generated                |
+| main   | 2026-08-24T10:18:14Z | 2026-08-24T12:02:44.797Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-08-24T08:03:36Z | 2026-08-24T08:07:25.553Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-08-24T07:53:45Z | 2026-08-24T07:56:50.139Z |
@@ -75,7 +79,7 @@
 
 | Element           | Space type | Value/token                 |
 | ----------------- | ---------- | --------------------------- |
-| Border radius     | radius     | popup                       |
+| Sidenav container | radius     | popup                       |
 | Inset             | margin     | 8                           |
 | Height            | height     | 100% − (inset top + bottom) |
 | Sidenav container | width      | 240-8px                     |
@@ -96,8 +100,8 @@
 - Logo (Optional)
   - By default the sidenav will show the brand logo type=”isotype”
   - The logo should accept any custom element
-  - The logo should allow to be changed between collapsed and exapnded states
-- Collapse/uncollapse action (Included via collapse prop, can be custom rendered)
+  - The logo should allow to be changed between collapsed and expanded states
+- Collapse/expand action (Included via collapse prop, can be custom rendered)
   - Action will use an IconButton component type=”neutral” background=”transparent”
 - Header slot (Optional)
 
@@ -148,9 +152,9 @@ _Section item anatomy_
 
 The item content area appears tinted when selected and also change color when hovered or pressed
 
-![Sidenav item anatomy (uncollapsed left, collapsed right)](sidenav/figures/anatomy-body-region-sidenav-item.png)
+![Sidenav item anatomy (expanded left, collapsed right)](sidenav/figures/anatomy-body-region-sidenav-item.png)
 
-_Sidenav item anatomy (uncollapsed left, collapsed right)_
+_Sidenav item anatomy (expanded left, collapsed right)_
 
 | Element                            | Space type         | Value(px)             |
 | ---------------------------------- | ------------------ | --------------------- |
@@ -197,7 +201,7 @@ _Sidenav footer anatomy_
 
 ### Dialog panel
 
-A floating panel that is used to show the children of an item when the sidenav is collapsed, whenever is possible the panel will be anchored to the top of the trigger, matching the trigger and the first children item in the same height.
+A dialog panel that is used to show the children of an item when the sidenav is collapsed, whenever is possible the panel will be anchored to the top of the trigger, matching the trigger and the first children item in the same height.
 
 ![Sidenav dialog panel anatomy](sidenav/figures/anatomy-dialog-panel.png)
 
@@ -288,10 +292,10 @@ We will aim to maintain the same API and data structure as the Navigation Bar to
 
 ![boxed](sidenav/figures/behaviour-boxed.png)
 
-### Collapse / Uncollapse
+### Collapse / Expand
 
 - Sidenav can be defined as collapsed, this definition should support:
-  - user can collapse or uncollapse, by default will be uncollapsed
+  - user can collapse or expand, by default will be expanded
   - true: is collapsed and cannot be changed
   - false: is not collapsed and cannot be changed
 - Collapse behavior can be triggered by any element in the UI, by default will be triggered by the provided collapse/expand icon
@@ -307,9 +311,9 @@ We will aim to maintain the same API and data structure as the Navigation Bar to
 - If rightDivider is enabled, the divider is displayed within the Double Panel.
 - By default, the Double Panel inherits the same width as the main Sidenav panel unless a custom width is explicitly defined.
 
-![Double panel=”true”, uncollapsed and collapsed](sidenav/figures/behaviour-double-panel.png)
+![Double panel=”true”, expanded and collapsed](sidenav/figures/behaviour-double-panel.png)
 
-_Double panel=”true”, uncollapsed and collapsed_
+_Double panel=”true”, expanded and collapsed_
 
 ### Sections
 
@@ -333,7 +337,7 @@ Divider consistency: the divider must be the same in both states (expanded/colla
 
 _Expanded parent item (not active)_
 
-### Items / stand alone items
+### Items / stand-alone items
 
 - An item can be sectioned or not (it may belong to a section or stand alone).
 
@@ -348,9 +352,9 @@ _Expanded parent item (not active)_
 - When a child item is selected, its parent item displays its expanded state.
 - The sidenav supports a single level of nesting. Child items cannot contain additional nested items.
 
-![Double panel=”false”, uncollapsed and collapsed](sidenav/figures/behaviour-item-dropdowns.png)
+![Double panel=”false”, expanded and collapsed](sidenav/figures/behaviour-item-dropdowns.png)
 
-_Double panel=”false”, uncollapsed and collapsed_
+_Double panel=”false”, expanded and collapsed_
 
 #### Accordion
 
@@ -361,7 +365,7 @@ _Double panel=”false”, uncollapsed and collapsed_
 
 _Expanded accordion child selected and close accordion_
 
-### Sections and stand alone items
+### Sections and stand-alone items
 
 ### Sidenav Footer
 
@@ -390,7 +394,7 @@ _Expanded accordion child selected and close accordion_
 
 _Scroll behaviour: the divider appears when the content goes underneath_
 
-### Double panel=”false”, uncollapsed and collapsed
+### Double panel=”false”, expanded and collapsed
 
 ### Layout
 
@@ -752,9 +756,9 @@ The variant only affect the navigation bar, the panel is always displayed in def
 | footer background (Boxed) | backgroundNegative |
 | overscroll divider        | dividerNegative    |
 
-### Floating panel
+### Dialog panel
 
-![floating-panel](sidenav/figures/tokens-floating-panel.png)
+![dialog-panel](sidenav/figures/tokens-dialog-panel.png)
 
 | Element              | Token / Color       | Font-size | Line-height | Font-weight |
 | -------------------- | ------------------- | --------- | ----------- | ----------- |
@@ -771,7 +775,7 @@ The variant only affect the navigation bar, the panel is always displayed in def
 
 ## Animation
 
-### Collapse and uncollapse animation
+### Collapse and expand animation
 
 Duration:
 • 350ms
@@ -813,13 +817,13 @@ When the user clicks/taps the component to expand or collapse it, animate the ch
 - Navigation items should be semantically defined as a navigation
 - Navigation items that have children should give the user information about their expand and collapse behaviour
 - Items should allow to include an accessible name, this should be mandatory when sidenav is collapsed
-- Dual-tier panel push, floating panel slide-in, and collapse/expand transitions must respect prefers-reduced-motion: reduce and fall back to an instant state change.
+- Double panel panel push, dialog panel slide-in, and collapse/expand transitions must respect prefers-reduced-motion: reduce and fall back to an instant state change.
 
 ### Reading order
 
 #### Header
 
-1. Icon button (collapse/uncollapse)
+1. Icon button (collapse/expand)
 1. Slot elements: should be announced in visual order
 
 ![Header reading order](sidenav/figures/accessibility-reading-order-header.png)
@@ -839,7 +843,7 @@ _Item reading order_
 #### Double panel
 
 Concatenate the following elements:  
- Logo (mute) 1. Collapse/uncollapse button 2. Section title 3. Item title (the item that opens the panel) Panel items 4. Item 1.1 5. Item 1.2
+ Logo (mute) 1. Collapse/expand button 2. Section title 3. Item title (the item that opens the panel) Panel items 4. Item 1.1 5. Item 1.2
 6.Item 1.3
 
 Note: The panel's title is muted to avoid duplication since it matches the triggering item.
@@ -851,7 +855,7 @@ _Reading Order / Double Panel_
 #### Dialog panel
 
 Concatenate the following elements:
-Logo (mute) 1. Collapse/uncollapse button2. Accessible label item 1 (collapsed)When dialog panel opens: Item title (mute - read from icon accessibility label, do not repeat)
+Logo (mute) 1. Collapse/expand button2. Accessible label item 1 (collapsed)When dialog panel opens: Item title (mute - read from icon accessibility label, do not repeat)
 
 1. Label Item 1.1
 1. Label Item 1.2
@@ -869,9 +873,9 @@ _Reading Order / Dialog Panel_
 
 ### Focus management
 
-- When the sidenav is toggled between expanded and collapsed, focus must remain on the collapse/uncollapse button.
-- Opening a floating panel does not move focus automatically; focus moves into the panel only on ArrowDown or Tab.
-- Closing a floating panel returns focus to the item that triggered it.
+- When the sidenav is toggled between expanded and collapsed, focus must remain on the collapse/expand button.
+- Opening a dialog panel does not move focus automatically; focus moves into the panel only on ArrowDown or Tab.
+- Closing a dialog panel returns focus to the item that triggered it.
 
 ![Focus management](sidenav/figures/accessibility-focus-management.png)
 
@@ -885,16 +889,16 @@ _Focus management_
 
 ### Default labels
 
-| Element                                  | Default label              | Notes                                                                                                                             |
-| ---------------------------------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Sidenav landmark                         | Main navigation            | Applied as aria-label on the <nav> element                                                                                        |
-| Collapse button (sidenav is expanded)    | Collapse navigation        | Announced state via aria-expanded="true"                                                                                          |
-| Uncollapse button (sidenav is collapsed) | Expand navigation          | Announced state via aria-expanded="false"                                                                                         |
-| Item with children — expand              | Expand {item label}        | On the chevron icon-button, not the row. Only when the item also navigates; if it only has children, the whole row is the target. |
-| Item with children — collapse            | Collapse {item label}      | On the chevron icon-button                                                                                                        |
-| Selected item                            | (no extra label)           | Convey via aria-current="page", not text                                                                                          |
-| Floating panel (collapsed item children) | {item label} submenu       | Applied to the panel's labelling region                                                                                           |
-| Section group                            | {section title} if present | When section has no title, group is unlabelled but still role="group" │                                                           |
+| Element                                | Default label              | Notes                                                                                                                             |
+| -------------------------------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Sidenav landmark                       | Main navigation            | Applied as aria-label on the <nav> element                                                                                        |
+| Collapse button (sidenav is expanded)  | Collapse navigation        | Announced state via aria-expanded="true"                                                                                          |
+| Expand button (sidenav is collapsed)   | Expand navigation          | Announced state via aria-expanded="false"                                                                                         |
+| Item with children — expand            | Expand {item label}        | On the chevron icon-button, not the row. Only when the item also navigates; if it only has children, the whole row is the target. |
+| Item with children — collapse          | Collapse {item label}      | On the chevron icon-button                                                                                                        |
+| Selected item                          | (no extra label)           | Convey via aria-current="page", not text                                                                                          |
+| Dialog panel (collapsed item children) | {item label} submenu       | Applied to the panel's labelling region                                                                                           |
+| Section group                          | {section title} if present | When section has no title, group is unlabelled but still role="group" │                                                           |
 
 ### Keyboard interaction
 
@@ -906,4 +910,4 @@ _Focus management_
 | ArrowRight          | On a collapsed item with children, expand it                                                                 |
 | ArrowLeft           | On an expanded item with children, collapse it. On a leaf inside an expanded group, move focus to the parent |
 | Home / End          | Focus first / last item in the sidenav                                                                       |
-| Escape              | Close the floating panel (collapsed mode) and return focus to the triggering item                            |
+| Escape              | Close the dialog panel (collapsed mode) and return focus to the triggering item                              |
