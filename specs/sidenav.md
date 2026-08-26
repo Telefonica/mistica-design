@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-08-26T09:00:24.749Z
+  generated: 2026-08-26T13:01:55.917Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-08-26T09:56:34Z | 2026-08-26T13:01:55.917Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-08-26T07:24:12Z | 2026-08-26T09:00:24.749Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-08-24T15:13:02Z | 2026-08-24T15:13:48.798Z |
@@ -85,7 +87,7 @@
 
 | Element           | Space type | Value/token                 |
 | ----------------- | ---------- | --------------------------- |
-| Sidenav container | radius     | popup                       |
+| Sidenav container | radius     | container                   |
 | Inset             | margin     | 8                           |
 | Height            | height     | 100% − (inset top + bottom) |
 | Sidenav container | width      | 240-8px                     |
