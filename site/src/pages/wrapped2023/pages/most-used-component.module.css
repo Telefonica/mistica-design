@@ -1,0 +1,33 @@
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.list {
+  display: grid;
+  flex-direction: column;
+  gap: 16px;
+  width: 50%;
+}
+
+.list li {
+  border-bottom: 8px solid black;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.listContent {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
