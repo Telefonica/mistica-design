@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-08-24T15:13:48.798Z
+  generated: 2026-08-26T09:00:24.749Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-08-26T07:24:12Z | 2026-08-26T09:00:24.749Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-08-24T15:13:02Z | 2026-08-24T15:13:48.798Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-08-24T14:57:33Z | 2026-08-24T15:00:59.080Z |
@@ -524,7 +526,7 @@ The variant only affect the navigation bar, the panel is always displayed in def
 
 | Element       | Token / Color | Font-size | Line-height | Font-weight |
 | ------------- | ------------- | --------- | ----------- | ----------- |
-| Section title | textSecondary | text3     | text3       | text3       |
+| Section title | textSecondary | text2     | text2       | medium      |
 | dividers      | divider       |           |             |             |
 
 #### Item
@@ -535,7 +537,7 @@ The variant only affect the navigation bar, the panel is always displayed in def
 | --------------------------- | -------------------------- | --------- | ----------- | ----------- |
 | Selected indicator          | controlActivated           |           |             |             |
 | Asset                       | currentColor               |           |             |             |
-| Label                       | textPrimary                | text2     | text2       | text2       |
+| Label                       | textPrimary                | text2     | text2       | regular     |
 | background                  | transparent                |           |             |             |
 | background:hover            | backgroundContainerHover   |           |             |             |
 | background:pressed          | backgroundContainerPressed |           |             |             |
@@ -576,7 +578,7 @@ The variant only affect the navigation bar, the panel is always displayed in def
 
 | Element       | Token / Color      | Font-size | Line-height | Font-weight |
 | ------------- | ------------------ | --------- | ----------- | ----------- |
-| Section title | textSecondaryBrand | text3     | text3       | text3       |
+| Section title | textSecondaryBrand | text2     | text2       | medium      |
 | dividers      | divider            |           |             |             |
 
 #### Item
@@ -587,7 +589,7 @@ The variant only affect the navigation bar, the panel is always displayed in def
 | --------------------------- | ------------------------------- | --------- | ----------- | ----------- |
 | Selected indicator          | controlActivatedBrand           |           |             |             |
 | Asset                       | currentColor                    |           |             |             |
-| Label                       | textPrimaryBrand                | text2     | text2       | text2       |
+| Label                       | textPrimaryBrand                | text2     | text2       | regular     |
 | background                  | transparent                     |           |             |             |
 | background:hover            | backgroundContainerBrandHover   |           |             |             |
 | background:pressed          | backgroundContainerBrandPressed |           |             |             |
@@ -628,7 +630,7 @@ The variant only affect the navigation bar, the panel is always displayed in def
 
 | Element       | Token / Color | Font-size | Line-height | Font-weight |
 | ------------- | ------------- | --------- | ----------- | ----------- |
-| Section title | textSecondary | text3     | text3       | text3       |
+| Section title | textSecondary | text2     | text2       | medium      |
 | dividers      | divider       |           |             |             |
 
 #### Item
@@ -639,7 +641,7 @@ The variant only affect the navigation bar, the panel is always displayed in def
 | --------------------------- | -------------------------- | --------- | ----------- | ----------- |
 | Selected indicator          | controlActivated           |           |             |             |
 | Asset                       | currentColor               |           |             |             |
-| Label                       | textPrimary                | text2     | text2       | text2       |
+| Label                       | textPrimary                | text2     | text2       | regular     |
 | background                  | transparent                |           |             |             |
 | background:hover            | backgroundContainerHover   |           |             |             |
 | background:pressed          | backgroundContainerPressed |           |             |             |
@@ -680,7 +682,7 @@ The variant only affect the navigation bar, the panel is always displayed in def
 
 | Element       | Token / Color         | Font-size | Line-height | Font-weight |
 | ------------- | --------------------- | --------- | ----------- | ----------- |
-| Section title | textSecondaryNegative | text3     | text3       | text3       |
+| Section title | textSecondaryNegative | text2     | text2       | medium      |
 | dividers      | dividerNegative       |           |             |             |
 
 #### Item
@@ -691,7 +693,7 @@ The variant only affect the navigation bar, the panel is always displayed in def
 | --------------------------- | --------------------------------- | --------- | ----------- | ----------- |
 | Selected indicator          | controlActivatedNegative          |           |             |             |
 | Asset                       | currentColor                      |           |             |             |
-| Label                       | textPrimaryNegative               | text2     | text2       | text2       |
+| Label                       | textPrimaryNegative               | text2     | text2       | regular     |
 | background                  | transparent                       |           |             |             |
 | background:hover            | backgroundContainerHover          |           |             |             |
 | background:pressed          | backgroundContainerPressed        |           |             |             |
@@ -732,7 +734,7 @@ The variant only affect the navigation bar, the panel is always displayed in def
 
 | Element       | Token / Color         | Font-size | Line-height | Font-weight |
 | ------------- | --------------------- | --------- | ----------- | ----------- |
-| Section title | textSecondaryNegative | text3     | text3       | text3       |
+| Section title | textSecondaryNegative | text2     | text2       | medium      |
 | dividers      | dividerNegative       |           |             |             |
 
 #### Item
@@ -743,7 +745,7 @@ The variant only affect the navigation bar, the panel is always displayed in def
 | --------------------------- | -------------------------- | --------- | ----------- | ----------- |
 | Selected indicator          | controlActivatedNegative   |           |             |             |
 | Asset                       | currentColor               |           |             |             |
-| Label                       | textPrimaryNegative        | text2     | text2       | text2       |
+| Label                       | textPrimaryNegative        | text2     | text2       | regular     |
 | background                  | transparent                |           |             |             |
 | background:hover            | backgroundContainerHover   |           |             |             |
 | background:pressed          | backgroundContainerPressed |           |             |             |
@@ -767,7 +769,7 @@ The variant only affect the navigation bar, the panel is always displayed in def
 | Element              | Token / Color       | Font-size | Line-height | Font-weight |
 | -------------------- | ------------------- | --------- | ----------- | ----------- |
 | container background | backgroundContainer |           |             |             |
-| title                | textSecondary       | text3     | text3       | text3       |
+| title                | textSecondary       | text2     | text2       | medium      |
 
 ### Boxed Sidenav
 
