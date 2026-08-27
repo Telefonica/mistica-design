@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-08-26T13:01:55.917Z
+  generated: 2026-08-27T15:03:40.960Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-08-27T13:46:59Z | 2026-08-27T15:03:40.960Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-08-26T09:56:34Z | 2026-08-26T13:01:55.917Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-08-26T07:24:12Z | 2026-08-26T09:00:24.749Z |
@@ -141,12 +143,13 @@ _Sidenav header anatomy_
 
 _Section item anatomy_
 
-| Element                        | Space type | Value(px)                             |
-| ------------------------------ | ---------- | ------------------------------------- |
-| Section title to items         | gap        | 8                                     |
-| Section title x paddings       | padding    | 16                                    |
-| Content to top/bottom dividers | gap        | 8                                     |
-| Top/bottom dividers            | width      | full width (of the section container) |
+| Element                               | Space type | Value(px)                             |
+| ------------------------------------- | ---------- | ------------------------------------- |
+| Section title to items                | gap        | 8                                     |
+| Section title X paddings              | padding    | 24                                    |
+| Gap between divider and section title | gap        | 24                                    |
+| Gap between last item and divider     | gap        | 16                                    |
+| Top/bottom dividers                   | width      | full width (of the section container) |
 
 #### Sidenav item
 
@@ -179,7 +182,7 @@ _Sidenav item anatomy (expanded left, collapsed right)_
 
 #### Item with children
 
-An item can contain nested items.
+ An item can contain nested items.
 
 - A 1st-level item with children only expands (it does not navigate).
 - A 1st-level item without children navigates directly.
@@ -258,7 +261,7 @@ Highlight definition
 
 | Element                      | Space type | Value(px)                              |
 | ---------------------------- | ---------- | -------------------------------------- |
-| Item title to items          | gap        | 16                                     |
+| Item title to items          | gap        | 8                                      |
 | Container top/bottom padding | padding    | 24                                     |
 | Panel right/left padding     | padding    | 8                                      |
 | Width panel                  | width      | 240 (Same as sidenav panel main width) |
@@ -325,7 +328,7 @@ _Double panel=”true”, expanded and collapsed_
 
 ### Sections
 
-A section can have:
+ A section can have:
 
 - Title
 - Dividers (top, bottom, or both)
@@ -333,7 +336,7 @@ A section can have:
 Section with children:
 Expanded state: the section title is shown + optional divider.
 Collapsed state: the section title is hidden (reserving its space) and the divider remains visible if defined.
-Divider consistency: the divider must be the same in both states (expanded/collapsed).
+ Divider consistency: the divider must be the same in both states (expanded/collapsed).
 
 ### Items
 
@@ -851,7 +854,7 @@ _Item reading order_
 #### Double panel
 
 Concatenate the following elements:  
- Logo (mute) 1. Collapse/expand button 2. Section title 3. Item title (the item that opens the panel) Panel items 4. Item 1.1 5. Item 1.2
+ Logo (mute)  1. Collapse/expand button  2. Section title  3. Item title (the item that opens the panel)  Panel items 4. Item 1.1 5. Item 1.2
 6.Item 1.3
 
 Note: The panel's title is muted to avoid duplication since it matches the triggering item.
@@ -863,7 +866,7 @@ _Reading Order / Double Panel_
 #### Dialog panel
 
 Concatenate the following elements:
-Logo (mute) 1. Collapse/expand button2. Accessible label item 1 (collapsed)When dialog panel opens: Item title (mute - read from icon accessibility label, do not repeat)
+ Logo (mute)  1. Collapse/expand button 2. Accessible label item 1 (collapsed) When dialog panel opens:  Item title (mute - read from icon accessibility label, do not repeat)
 
 1. Label Item 1.1
 1. Label Item 1.2

@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import { format as prettierFormat, resolveConfig } from "prettier";
 import { Command } from "commander";
 import { config as loadEnv } from "dotenv";
 import { getRepoRoot, getScriptRoot, loadConfig } from "./config.ts";
@@ -235,7 +236,12 @@ async function runGenerate(
     warnings,
   });
 
-  await writeFile(outPath, markdown, "utf8");
+  const prettierConfig = await resolveConfig(outPath);
+  const formatted = await prettierFormat(markdown, {
+    ...prettierConfig,
+    parser: "markdown",
+  });
+  await writeFile(outPath, formatted, "utf8");
   process.stderr.write(`✓ wrote ${outPath}\n`);
 
   if (warnings.length > 0) {
