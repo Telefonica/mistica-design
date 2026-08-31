@@ -709,7 +709,7 @@
     },
     "weight": {
       "additionalProperties": false,
-      "required": ["drawerTitle", "cardTitle", "rowTitle", "button", "tabsLabel", "link", "indicator", "navigationBar", "title1", "title2", "title3", "title4", "text5", "text6", "text7", "text8", "text9", "text10", "chipLabel"],
+      "required": ["drawerTitle", "cardTitle", "rowTitle", "button", "tabsLabel", "link", "indicator", "navigationBar", "title1", "title2", "title3", "title4", "text5", "text6", "text7", "text8", "text9", "text10", "chipLabel",  "headerPretitle"],
       "properties": {
         "drawerTitle": { "$ref": "#/definitions/weightProperties" },
         "cardTitle": { "$ref": "#/definitions/weightProperties" },
@@ -729,7 +729,8 @@
         "text8": { "$ref": "#/definitions/weightProperties" },
         "text9": { "$ref": "#/definitions/weightProperties" },
         "text10": { "$ref": "#/definitions/weightProperties" },
-        "chipLabel": { "$ref": "#/definitions/weightProperties" }
+        "chipLabel": { "$ref": "#/definitions/weightProperties" },
+        "headerPretitle": { "$ref": "#/definitions/weightProperties" }
       }
     },
     "size": {
@@ -764,7 +765,8 @@
         "inputValue",
         "inputHelperText",
         "stepperStepLabel",
-        "loadingScreenTitle"
+        "loadingScreenTitle",
+        "headerPretitle"
       ],
       "properties": {
         "drawerTitle": { "$ref": "#/definitions/sizeProperties" },
@@ -796,7 +798,8 @@
         "inputValue": { "$ref": "#/definitions/sizeProperties" },
         "inputHelperText": { "$ref": "#/definitions/sizeProperties" },
         "stepperStepLabel": { "$ref": "#/definitions/sizeProperties" },
-        "loadingScreenTitle": { "$ref": "#/definitions/sizeProperties" }
+        "loadingScreenTitle": { "$ref": "#/definitions/sizeProperties" },
+        "headerPretitle": { "$ref": "#/definitions/sizeProperties" }
       }
     },
     "lineHeight": {
@@ -831,7 +834,8 @@
         "inputValue",
         "inputHelperText",
         "stepperStepLabel",
-        "loadingScreenTitle"
+        "loadingScreenTitle",
+        "headerPretitle"
       ],
       "properties": {
         "drawerTitle": { "$ref": "#/definitions/lineHeightProperties" },
@@ -863,7 +867,8 @@
         "inputValue": { "$ref": "#/definitions/lineHeightProperties" },
         "inputHelperText": { "$ref": "#/definitions/lineHeightProperties" },
         "stepperStepLabel": { "$ref": "#/definitions/lineHeightProperties" },
-        "loadingScreenTitle": { "$ref": "#/definitions/lineHeightProperties" }
+        "loadingScreenTitle": { "$ref": "#/definitions/lineHeightProperties" },
+        "headerPretitle": { "$ref": "#/definitions/lineHeightProperties" }
       }
     },
     "spacing": {
