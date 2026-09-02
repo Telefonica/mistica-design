@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-08-27T15:03:40.960Z
+  generated: 2026-09-02T09:14:52.556Z
 -->
 
 # Sidenav
@@ -12,6 +12,12 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-09-02T09:14:01Z | 2026-09-02T09:14:52.556Z |
+| Branch | Figma last modified  | Generated                |
+| main   | 2026-09-02T08:42:16Z | 2026-09-02T08:43:07.908Z |
+| Branch | Figma last modified  | Generated                |
+| main   | 2026-09-01T14:21:22Z | 2026-09-02T08:39:46.494Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-08-27T13:46:59Z | 2026-08-27T15:03:40.960Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-08-26T09:56:34Z | 2026-08-26T13:01:55.917Z |
@@ -407,6 +413,10 @@ _Scroll behaviour: the divider appears when the content goes underneath_
 
 ### Double panel=”false”, expanded and collapsed
 
+### Line wrapping behavior
+
+Section titles and item labels grow vertically as needed to accommodate their content. When the text length exceeds the maximum available width, automatic line breaks are applied, allowing the element to continue expanding in height to display the full content.   Under no circumstances will truncation or ellipsis be applied, the text will always remain fully visible.
+
 ### Layout
 
 - The sidenav component will provide the layout for main content to behave correctly in all breakpoints.
@@ -504,6 +514,10 @@ The variant only affect the navigation bar, the panel is always displayed in def
 > See also: See tokens definition of main navigation bar [here](https://www.figma.com/design/Os5UfsnhLtQ9rnzmtcX8J4/%F0%9F%94%B8-Navigation-Bar-Specs?m=auto&node-id=1206-5760&t=oWllXixG7KGY1XHX-1)
 
 ![stand-alone-items](sidenav/figures/behaviour-stand-alone-items.png)
+
+![Line wrapping behaviour](sidenav/figures/behaviour-line-wrapping-behaviour.png)
+
+_Line wrapping behaviour_
 
 ## Tokens
 
