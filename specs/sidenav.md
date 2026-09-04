@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-09-02T09:14:52.556Z
+  generated: 2026-09-04T10:29:52.307Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-09-04T09:38:17Z | 2026-09-04T10:29:52.307Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-09-02T09:14:01Z | 2026-09-02T09:14:52.556Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-09-02T08:42:16Z | 2026-09-02T08:43:07.908Z |
@@ -794,9 +796,13 @@ _Line wrapping behaviour_
 
 ![boxed-sidenav](sidenav/figures/tokens-boxed-sidenav.png)
 
-| Element | Token / Color |
-| ------- | ------------- |
-| border  | border        |
+| Color variant | Token / Color       |
+| ------------- | ------------------- |
+| Default       | border              |
+| Brand         | inputBorderBrand    |
+| Alternative   | border              |
+| Negative      | inputBorderNegative |
+| Media         | inputBorderNegative |
 
 ## Animation
 
@@ -936,3 +942,7 @@ _Focus management_
 | ArrowLeft           | On an expanded item with children, collapse it. On a leaf inside an expanded group, move focus to the parent |
 | Home / End          | Focus first / last item in the sidenav                                                                       |
 | Escape              | Close the dialog panel (collapsed mode) and return focus to the triggering item                              |
+
+### Semantic section title
+
+- The section title can take any level between h1 and h6. By default, it will be an h3.
