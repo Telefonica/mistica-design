@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-09-04T10:29:52.307Z
+  generated: 2026-09-04T10:32:04.052Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-09-04T10:31:12Z | 2026-09-04T10:32:04.052Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-09-04T09:38:17Z | 2026-09-04T10:29:52.307Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-09-02T09:14:01Z | 2026-09-02T09:14:52.556Z |
@@ -942,7 +944,3 @@ _Focus management_
 | ArrowLeft           | On an expanded item with children, collapse it. On a leaf inside an expanded group, move focus to the parent |
 | Home / End          | Focus first / last item in the sidenav                                                                       |
 | Escape              | Close the dialog panel (collapsed mode) and return focus to the triggering item                              |
-
-### Semantic section title
-
-- The section title can take any level between h1 and h6. By default, it will be an h3.
