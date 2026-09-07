@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-09-07T07:41:20.299Z
+  generated: 2026-09-07T11:35:08.217Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-09-07T11:34:28Z | 2026-09-07T11:35:08.217Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-09-07T07:40:35Z | 2026-09-07T07:41:20.299Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-09-04T10:31:12Z | 2026-09-04T10:32:04.052Z |
@@ -569,7 +571,7 @@ _Line wrapping behaviour_
 | background:selected         | backgroundSelected         |           |             |             |
 | background:selected:hover   | backgroundSelectedHover    |           |             |             |
 | background:selected:pressed | backgroundSelectedPressed  |           |             |             |
-| chevron                     | neutralHigh                |           |             |             |
+| chevron                     | chevronIndicator           |           |             |             |
 
 #### Footer
 
@@ -673,7 +675,7 @@ _Line wrapping behaviour_
 | background:selected         | backgroundSelected         |           |             |             |
 | background:selected:hover   | backgroundSelectedHover    |           |             |             |
 | background:selected:pressed | backgroundSelectedPressed  |           |             |             |
-| chevron                     | neutralHigh                |           |             |             |
+| chevron                     | chevronIndicator           |           |             |             |
 
 #### Footer
 
@@ -745,8 +747,6 @@ _Line wrapping behaviour_
 
 #### Header
 
-![media-header](sidenav/figures/tokens-media-header.png)
-
 | Element                   | Token / Color      |
 | ------------------------- | ------------------ |
 | header background         | backgroundNegative |
@@ -755,16 +755,12 @@ _Line wrapping behaviour_
 
 #### Section
 
-![media-section](sidenav/figures/tokens-media-section.png)
-
 | Element       | Token / Color         | Font-size | Line-height | Font-weight |
 | ------------- | --------------------- | --------- | ----------- | ----------- |
 | Section title | textSecondaryNegative | text2     | text2       | medium      |
 | dividers      | dividerNegative       |           |             |             |
 
 #### Item
-
-![media-item](sidenav/figures/tokens-media-item.png)
 
 | Element                     | Token / Color              | Font-size | Line-height | Font-weight |
 | --------------------------- | -------------------------- | --------- | ----------- | ----------- |
@@ -837,7 +833,7 @@ Accessibility:
 
 ### Chevron icon rotation
 
-When the user clicks/taps a parent item to expand or collapse it, the Chevron icon rotates 180° around its own axis to reflect the change in state.
+When the user clicks/taps a parent item to expand or collapse it, the Chevron icon rotates 180° clockwise around its center (0° → 180°) on expand, and reverses back to 0° on collapse, using a smooth transition animation.
 
 ### Content expand-collapse
 
