@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-09-04T10:32:04.052Z
+  generated: 2026-09-07T07:41:20.299Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-09-07T07:40:35Z | 2026-09-07T07:41:20.299Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-09-04T10:31:12Z | 2026-09-04T10:32:04.052Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-09-04T09:38:17Z | 2026-09-04T10:29:52.307Z |
@@ -345,7 +347,7 @@ _Double panel=”true”, expanded and collapsed_
 
 Section with children:
 Expanded state: the section title is shown + optional divider.
-Collapsed state: the section title is hidden (reserving its space) and the divider remains visible if defined.
+Collapsed state: the section title is hidden and the divider remains visible if defined.
  Divider consistency: the divider must be the same in both states (expanded/collapsed).
 
 ### Items
