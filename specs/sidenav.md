@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-09-07T11:35:08.217Z
+  generated: 2026-09-08T15:07:08.408Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-09-08T12:05:50Z | 2026-09-08T15:07:08.408Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-09-07T11:34:28Z | 2026-09-07T11:35:08.217Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-09-07T07:40:35Z | 2026-09-07T07:41:20.299Z |
@@ -153,6 +155,10 @@ _Sidenav header anatomy_
 - Items
 - Section divider bottom (Optional)
 
+Nota: When two consecutive sections both show a divider, only a single divider will be displayed between them, with no gap or duplicate line.
+
+The title, in collapsed mode, does not take up space nor add anything visually; it is only read by assistive technologies (ATs).
+
 ![Section item anatomy](sidenav/figures/anatomy-body-region-section.png)
 
 _Section item anatomy_
@@ -223,6 +229,9 @@ _Sidenav footer anatomy_
 | Element          | Space type | Value(px) |
 | ---------------- | ---------- | --------- |
 | Slot top padding | padding    | 8         |
+| Botttom padding  | padding    | 32        |
+| Left padding     | padding    | 24        |
+| Right padding    | padding    | 24        |
 
 ### Dialog panel
 
@@ -349,7 +358,7 @@ _Double panel=”true”, expanded and collapsed_
 
 Section with children:
 Expanded state: the section title is shown + optional divider.
-Collapsed state: the section title is hidden and the divider remains visible if defined.
+Collapsed state: the section title is hidden and the divider remains visible if defined. The title, in collapsed mode, does not take up space nor add anything visually; it is only read by assistive technologies (ATs).
  Divider consistency: the divider must be the same in both states (expanded/collapsed).
 
 ### Items
@@ -411,9 +420,9 @@ _Expanded accordion child selected and close accordion_
 
 ### Scroll behaviour
 
-- Sidenav will have its own scroll inside its container
-- Header and footer can be defined as fixed, by default header will be fixed and footer will not
-- When content goes underneath, a divider appears at the intersection to indicate that the content continues below.
+- Sidenav will have its own scroll inside its container.
+- Header and footer can be defined as fixed. By default, header will be fixed and footer will not.
+- When content scrolls underneath the header or footer, a divider will appear at each intersection to visually indicate that there is more content out of view.
 
 ![Scroll behaviour: the divider appears when the content goes underneath](sidenav/figures/behaviour-scroll-behaviour.png)
 
@@ -828,8 +837,6 @@ Accessibility:
 • Respects prefers-reduced-motion: instant transition (0ms)
 • Labels remain accessible in DOM (opacity 0 only)
 • Tooltip shows label on hover when collapsed
-
-> See also: See animation example [here](https://www.figma.com/make/uKGeAGsReRxJsZ1xSTvpMI/%F0%9F%94%B8-M%C3%ADstica-Scaffold-%7C-M%C3%ADstica-for-Figma-Make--Alpha---Copy-?t=YlkL5eST46oWNxV4-1)
 
 ### Chevron icon rotation
 
