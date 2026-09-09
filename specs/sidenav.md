@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-09-08T15:07:08.408Z
+  generated: 2026-09-09T19:29:39.327Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-09-09T19:28:42Z | 2026-09-09T19:29:39.327Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-09-08T12:05:50Z | 2026-09-08T15:07:08.408Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-09-07T11:34:28Z | 2026-09-07T11:35:08.217Z |
@@ -127,7 +129,7 @@
   - By default the sidenav will show the brand logo type=”isotype”
   - The logo should accept any custom element
   - The logo should allow to be changed between collapsed and expanded states
-- Collapse/expand action (Included via collapse prop, can be custom rendered)
+- Collapse/expand action
   - Action will use an IconButton component type=”neutral” background=”transparent”
 - Header slot (Optional)
 
