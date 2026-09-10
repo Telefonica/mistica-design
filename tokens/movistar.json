@@ -3400,6 +3400,10 @@
       "chipLabel": {
         "value": "medium",
         "type": "typography"
+      },
+      "chipLabelSmall": {
+        "value": "medium",
+        "type": "typography"
       }
     },
     "size": {
@@ -3573,8 +3577,15 @@
       },
       "chipLabel": {
         "value": {
+          "mobile": 16,
+          "desktop": 16
+        },
+        "type": "typography"
+      },
+      "chipLabelSmall": {
+        "value": {
           "mobile": 14,
-          "desktop": 18
+          "desktop": 14
         },
         "type": "typography"
       },
@@ -3784,6 +3795,13 @@
         "type": "typography"
       },
       "chipLabel": {
+        "value": {
+          "mobile": 20,
+          "desktop": 24
+        },
+        "type": "typography"
+      },
+      "chipLabelSmall": {
         "value": {
           "mobile": 20,
           "desktop": 24
