@@ -1,6 +1,15 @@
 {
   "additionalProperties": false,
-  "required": ["light", "dark", "radius", "text", "spacing", "global", "themeVariant", "componentProperties"],
+  "required": [
+    "light",
+    "dark",
+    "radius",
+    "text",
+    "spacing",
+    "global",
+    "themeVariant",
+    "componentProperties"
+  ],
   "properties": {
     "global": {
       "additionalProperties": false,
@@ -1343,7 +1352,19 @@
     },
     "radius": {
       "additionalProperties": false,
-      "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "chip", "input", "popup", "sheet", "snackbar"],
+      "required": [
+        "bar",
+        "button",
+        "checkbox",
+        "avatar",
+        "container",
+        "indicator",
+        "chip",
+        "input",
+        "popup",
+        "sheet",
+        "snackbar"
+      ],
       "properties": {
         "avatar": {
           "$ref": "#/definitions/radiusProperties"
@@ -1388,7 +1409,28 @@
     },
     "weight": {
       "additionalProperties": false,
-      "required": ["drawerTitle", "cardTitle", "rowTitle", "button", "tabsLabel", "link", "indicator", "navigationBar", "title1", "title2", "title3", "title4", "text5", "text6", "text7", "text8", "text9", "text10", "chipLabel", "chipLabelSmall"],
+      "required": [
+        "drawerTitle",
+        "cardTitle",
+        "rowTitle",
+        "button",
+        "tabsLabel",
+        "link",
+        "indicator",
+        "navigationBar",
+        "title1",
+        "title2",
+        "title3",
+        "title4",
+        "text5",
+        "text6",
+        "text7",
+        "text8",
+        "text9",
+        "text10",
+        "chipLabel",
+        "chipLabelSmall"
+      ],
       "properties": {
         "drawerTitle": {
           "$ref": "#/definitions/weightProperties"
@@ -1448,7 +1490,7 @@
           "$ref": "#/definitions/weightProperties"
         },
         "chiplabelSmall": {
-          "$ref": "#/definitions/weightproperties"
+          "$ref": "#/definitions/weightProperties"
         }
       }
     },
@@ -1716,7 +1758,19 @@
     },
     "spacing": {
       "additionalProperties": false,
-      "required": ["buttonDefaultPadding", "buttonSmallPadding", "cardDefaultPadding", "tagPadding", "feedbackScreenPadding", "inputPadding", "heroPadding", "headerPadding", "drawerPadding", "boxedDefaultPadding", "responsiveLayoutMargin"],
+      "required": [
+        "buttonDefaultPadding",
+        "buttonSmallPadding",
+        "cardDefaultPadding",
+        "tagPadding",
+        "feedbackScreenPadding",
+        "inputPadding",
+        "heroPadding",
+        "headerPadding",
+        "drawerPadding",
+        "boxedDefaultPadding",
+        "responsiveLayoutMargin"
+      ],
       "properties": {
         "buttonDefaultPadding": {
           "$ref": "#/definitions/spacingProperties"
@@ -1755,7 +1809,10 @@
     },
     "themeVariant": {
       "additionalProperties": false,
-      "required": ["successFeedback", "brandLoadingScreen"],
+      "required": [
+        "successFeedback",
+        "brandLoadingScreen"
+      ],
       "properties": {
         "successFeedback": {
           "$ref": "#/definitions/themeVariantProperties"
@@ -1767,7 +1824,10 @@
     },
     "componentProperties": {
       "additionalProperties": false,
-      "required": ["dismissActionType", "showBoxedBorder"],
+      "required": [
+        "dismissActionType",
+        "showBoxedBorder"
+      ],
       "properties": {
         "dismissActionType": {
           "$ref": "#/definitions/componentProperties"
@@ -1790,7 +1850,10 @@
           "const": "color"
         }
       },
-      "required": ["value", "type"],
+      "required": [
+        "value",
+        "type"
+      ],
       "properties": {
         "deprecated": {
           "type": "boolean"
@@ -1803,7 +1866,10 @@
     "constantProperties": {
       "patternProperties": {
         "value": {
-          "type": ["string", "object"],
+          "type": [
+            "string",
+            "object"
+          ],
           "anyOf": [
             {
               "comment": "Movistar",
@@ -1898,15 +1964,24 @@
                     "maximum": 1
                   }
                 },
-                "required": ["value", "stop"]
+                "required": [
+                  "value",
+                  "stop"
+                ]
               }
             }
           },
-          "required": ["angle", "colors"]
+          "required": [
+            "angle",
+            "colors"
+          ]
         },
         "type": {
           "type": "string",
-          "enum": ["color", "linear-gradient"]
+          "enum": [
+            "color",
+            "linear-gradient"
+          ]
         },
         "description": {
           "type": "string",
@@ -1958,7 +2033,11 @@
           "type": "string"
         }
       },
-      "required": ["value", "type", "description"],
+      "required": [
+        "value",
+        "type",
+        "description"
+      ],
       "additionalProperties": false
     },
     "radiusProperties": {
@@ -1971,7 +2050,10 @@
           "const": "borderRadius"
         }
       },
-      "required": ["value", "type"],
+      "required": [
+        "value",
+        "type"
+      ],
       "properties": {
         "deprecated": {
           "type": "boolean"
@@ -1992,7 +2074,10 @@
           "const": "typography"
         }
       },
-      "required": ["value", "type"],
+      "required": [
+        "value",
+        "type"
+      ],
       "properties": {
         "deprecated": {
           "type": "boolean"
@@ -2011,7 +2096,10 @@
               "$ref": "#/definitions/breakpoints"
             },
             {
-              "required": ["mobile", "desktop"]
+              "required": [
+                "mobile",
+                "desktop"
+              ]
             }
           ]
         },
@@ -2027,7 +2115,10 @@
           "type": "string"
         }
       },
-      "required": ["value", "type"]
+      "required": [
+        "value",
+        "type"
+      ]
     },
     "lineHeightProperties": {
       "type": "object",
@@ -2038,7 +2129,10 @@
               "$ref": "#/definitions/breakpoints"
             },
             {
-              "required": ["mobile", "desktop"]
+              "required": [
+                "mobile",
+                "desktop"
+              ]
             }
           ]
         },
@@ -2054,11 +2148,17 @@
           "type": "string"
         }
       },
-      "required": ["value", "type"]
+      "required": [
+        "value",
+        "type"
+      ]
     },
     "spacingProperties": {
       "type": "object",
-      "required": ["value", "type"],
+      "required": [
+        "value",
+        "type"
+      ],
       "properties": {
         "type": {
           "const": "spacing"
@@ -2102,7 +2202,13 @@
       "patternProperties": {
         "value": {
           "type": "string",
-          "enum": ["default", "inverse", "alternative", "brand", "media"]
+          "enum": [
+            "default",
+            "inverse",
+            "alternative",
+            "brand",
+            "media"
+          ]
         },
         "type": {
           "const": "themeVariant"
@@ -2116,7 +2222,10 @@
           "type": "string"
         }
       },
-      "required": ["value", "type"]
+      "required": [
+        "value",
+        "type"
+      ]
     },
     "componentProperties": {
       "type": "object",
@@ -2136,7 +2245,10 @@
           "type": "string"
         }
       },
-      "required": ["value", "type"]
+      "required": [
+        "value",
+        "type"
+      ]
     },
     "componentVariantBooleanProperties": {
       "type": "object",
@@ -2144,7 +2256,13 @@
         "value": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["default", "brand", "negative", "alternative", "media"],
+          "required": [
+            "default",
+            "brand",
+            "negative",
+            "alternative",
+            "media"
+          ],
           "properties": {
             "default": {
               "type": "boolean"
@@ -2175,7 +2293,10 @@
           "type": "string"
         }
       },
-      "required": ["value", "type"]
+      "required": [
+        "value",
+        "type"
+      ]
     },
     "breakpoints": {
       "type": "object",
@@ -2188,7 +2309,10 @@
         }
       },
       "minProperties": 1,
-      "required": ["mobile", "desktop"],
+      "required": [
+        "mobile",
+        "desktop"
+      ],
       "additionalProperties": false
     }
   }
