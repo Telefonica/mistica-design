@@ -6,92 +6,49 @@
       "additionalProperties": false,
       "properties": {
         "palette": {
-          "anyOf": [
-            {
-              "$ref": "#/global/palette"
-            }
-          ]
+          "anyOf": [{ "$ref": "#/global/palette" }]
         }
       }
     },
-    "prominent": {
-      "comment": "Prominent will be deleted soon",
-      "additionalProperties": true
-    },
+    "prominent": { "comment": "Prominent will be deleted soon", "additionalProperties": true },
     "light": {
       "comment": "Aquí se obliga a usar las constantes definidas para light mode",
-      "allOf": [
-        {
-          "$ref": "#/global/constants"
-        }
-      ]
+      "allOf": [{ "$ref": "#/global/constants" }]
     },
     "dark": {
       "comment": "Aquí se obliga a usar las constantes definidas para dark mode",
-      "allOf": [
-        {
-          "$ref": "#/global/constants"
-        }
-      ]
+      "allOf": [{ "$ref": "#/global/constants" }]
     },
     "radius": {
       "comment": "Aquí se obliga a usar los border radius definidos",
-      "allOf": [
-        {
-          "$ref": "#/global/radius"
-        }
-      ]
+      "allOf": [{ "$ref": "#/global/radius" }]
     },
     "text": {
       "comment": "Aquí se obliga a usar los text weight definidos",
       "additionalProperties": false,
       "properties": {
         "weight": {
-          "allOf": [
-            {
-              "$ref": "#/global/weight"
-            }
-          ]
+          "allOf": [{ "$ref": "#/global/weight" }]
         },
         "size": {
-          "allOf": [
-            {
-              "$ref": "#/global/size"
-            }
-          ]
+          "allOf": [{ "$ref": "#/global/size" }]
         },
         "lineHeight": {
-          "allOf": [
-            {
-              "$ref": "#/global/lineHeight"
-            }
-          ]
+          "allOf": [{ "$ref": "#/global/lineHeight" }]
         }
       }
     },
     "spacing": {
       "comment": "Aquí se obliga a usar los spacing definidos",
-      "allOf": [
-        {
-          "$ref": "#/global/spacing"
-        }
-      ]
+      "allOf": [{ "$ref": "#/global/spacing" }]
     },
     "themeVariant": {
       "comment": "Aquí se definen las variantes de tema",
-      "allOf": [
-        {
-          "$ref": "#/global/themeVariant"
-        }
-      ]
+      "allOf": [{ "$ref": "#/global/themeVariant" }]
     },
     "componentProperties": {
       "comment": "Aquí se definen las propiedades específicas de los componentes",
-      "allOf": [
-        {
-          "$ref": "#/global/componentProperties"
-        }
-      ]
+      "allOf": [{ "$ref": "#/global/componentProperties" }]
     }
   },
   "global": {
@@ -414,921 +371,311 @@
         "textLinkNeutralMedia"
       ],
       "properties": {
-        "appBarBackground": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "background": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundContainer": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundContainerError": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundContainerHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundContainerPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundContainerAlternative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundContainerBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundContainerBrandHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundContainerBrandPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundContainerBrandOverInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundContainerNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundBrandSecondary": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundOverlay": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundSkeleton": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundSkeletonInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundSkeletonNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundAlternative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundSelected": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundSelectedHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundSelectedPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundSelectedBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundSelectedBrandHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundSelectedBrandPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundSelectedNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundSelectedNegativeHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundSelectedNegativePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundBrandTop": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundBrandBottom": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "navigationBarBackground": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundDropZoneHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundDropZoneDragover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundDropZoneBrandHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundDropZoneBrandDragover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundDropZoneNegativeHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundDropZoneNegativeDragover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundDropZoneMediaHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundDropZoneMediaDragover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "skeletonWave": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "border": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "borderLow": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "borderHigh": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "borderSelected": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "coverBackgroundHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "coverBackgroundPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonDangerBackground": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonDangerBackgroundPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonDangerBackgroundHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkDangerBackgroundPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkDangerBackgroundInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkDangerBackgroundNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkDangerBackgroundMedia": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkDangerBackgroundInversePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkDangerBackgroundNegativePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkDangerBackgroundMediaPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkBackgroundPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkBackgroundInversePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkBackgroundNegativePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkBackgroundMediaPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackground": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundMedia": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundInverseHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundNegativeHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundMediaHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundInversePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundNegativePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundMediaPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBackgroundBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBorder": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBorderInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBorderNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBorderMedia": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBorderPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBorderInversePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBorderNegativePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBorderMediaPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBackgroundHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBackgroundInverseHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBackgroundNegativeHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBackgroundMediaHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBackgroundPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBackgroundInversePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBackgroundNegativePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBackgroundMediaPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkNeutralBackgroundPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkNeutralBackgroundBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkNeutralBackgroundBrandPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkNeutralBackgroundNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkNeutralBackgroundNegativePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkNeutralBackgroundMedia": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkNeutralBackgroundMediaPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "completedStep": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "completedStepInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "completedStepNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "control": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "controlActivated": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "controlInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "controlActivatedInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "controlNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "controlActivatedNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "controlError": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "barTrack": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "barTrackInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "barTrackNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "loadingBar": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "loadingBarBackground": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "toggleAndroidInactive": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "toggleAndroidBackgroundActive": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "toggleAndroidActiveBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "toggleAndroidInactiveBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "toggleAndroidBackgroundActiveBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "toggleAndroidBackgroundInactiveBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "iosControlKnob": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "controlKnobInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "controlKnobNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "divider": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "dividerInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "dividerNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "navigationBarDivider": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "badge": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "feedbackErrorBackground": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "feedbackInfoBackground": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "brand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "brandHigh": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "inverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "negative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "neutralHigh": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "neutralLow": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "neutralLowAlternative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "neutralMedium": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "promo": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "error": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textError": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textErrorInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textErrorNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "highlight": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "success": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "warning": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textPrimary": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textPrimaryInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textPrimaryNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textPrimaryMedia": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textSecondary": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textSecondaryInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textSecondaryNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textSecondaryMedia": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonPrimary": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonPrimaryInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonPrimaryNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonPrimaryMedia": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonPrimaryInversePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonPrimaryNegativePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonPrimaryMediaPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonSecondary": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonSecondaryInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonSecondaryNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonSecondaryMedia": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonSecondaryPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonSecondaryInversePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonSecondaryNegativePressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonSecondaryMediaPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textLink": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textLinkInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textLinkNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textLinkMedia": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textLinkDanger": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textLinkDangerMedia": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textLinkSnackbar": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textLinkNeutral": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textLinkNeutralBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textLinkNeutralNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textLinkNeutralAlternative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textLinkNeutralMedia": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textNavigationBarPrimary": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textNavigationBarSecondary": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textNavigationSearchBarHint": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textNavigationSearchBarText": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textAppBar": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textAppBarSelected": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "iosGlassAppBar": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "iosGlassAppBarSelected": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textActivated": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "neutralHighNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "successLow": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "warningLow": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "errorLow": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "promoLow": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "brandLow": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "successHigh": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "warningHigh": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "errorHigh": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "promoHigh": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "successHighInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "warningHighInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "errorHighInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "promoHighInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "successHighNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "warningHighNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "errorHighNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "promoHighNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "neutralMediumInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "neutralMediumNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "customTabsBackground": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextPromo": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextActive": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextInactive": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextInfo": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextSuccess": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextWarning": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextError": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundPromo": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundActive": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundInactive": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundInfo": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundSuccess": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundWarning": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundError": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextPromoInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextActiveInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextInactiveInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextInfoInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextSuccessInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextWarningInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextErrorInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundPromoInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundActiveInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundInactiveInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundInfoInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundSuccessInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundWarningInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundErrorInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "cardContentOverlay": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "cardFooterOverlay": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "inputBorder": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "inputBorderInverse": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "inputBorderNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundContainerBrandOverBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "backgroundSkeletonBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "completedStepBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkDangerBackgroundBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkDangerBackgroundBrandPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonLinkBackgroundBrandPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundBrandHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonPrimaryBackgroundBrandPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBorderBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBorderBrandPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBackgroundBrandHover": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "buttonSecondaryBackgroundBrandPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonPrimaryBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonPrimaryBrandPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonSecondaryBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textButtonSecondaryBrandPressed": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textLinkBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "inputBorderBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "controlBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "controlActivatedBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "barTrackBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "controlKnobBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "dividerBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "neutralHighBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "neutralMediumBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textPrimaryBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textSecondaryBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "textErrorBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "successHighBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "warningHighBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "errorHighBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "promoHighBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextPromoBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextActiveBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextInactiveBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextInfoBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextSuccessBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextWarningBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextErrorBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundPromoBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundActiveBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundInactiveBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundInfoBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundSuccessBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundWarningBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundErrorBrand": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextPromoNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextActiveNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextInactiveNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextInfoNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextSuccessNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextWarningNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagTextErrorNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundPromoNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundActiveNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundInactiveNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundInfoNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundSuccessNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundWarningNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "tagBackgroundErrorNegative": {
-          "$ref": "#/definitions/constantProperties"
-        },
-        "chevronIndicator": {
-          "$ref": "#/definitions/constantProperties"
-        },
+        "appBarBackground": { "$ref": "#/definitions/constantProperties" },
+        "background": { "$ref": "#/definitions/constantProperties" },
+        "backgroundContainer": { "$ref": "#/definitions/constantProperties" },
+        "backgroundContainerError": { "$ref": "#/definitions/constantProperties" },
+        "backgroundContainerHover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundContainerPressed": { "$ref": "#/definitions/constantProperties" },
+        "backgroundContainerAlternative": { "$ref": "#/definitions/constantProperties" },
+        "backgroundContainerBrand": { "$ref": "#/definitions/constantProperties" },
+        "backgroundContainerBrandHover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundContainerBrandPressed": { "$ref": "#/definitions/constantProperties" },
+        "backgroundContainerBrandOverInverse": { "$ref": "#/definitions/constantProperties" },
+        "backgroundContainerNegative": { "$ref": "#/definitions/constantProperties" },
+        "backgroundBrand": { "$ref": "#/definitions/constantProperties" },
+        "backgroundNegative": { "$ref": "#/definitions/constantProperties" },
+        "backgroundBrandSecondary": { "$ref": "#/definitions/constantProperties" },
+        "backgroundOverlay": { "$ref": "#/definitions/constantProperties" },
+        "backgroundSkeleton": { "$ref": "#/definitions/constantProperties" },
+        "backgroundSkeletonInverse": { "$ref": "#/definitions/constantProperties" },
+        "backgroundSkeletonNegative": { "$ref": "#/definitions/constantProperties" },
+        "backgroundAlternative": { "$ref": "#/definitions/constantProperties" },
+        "backgroundSelected": { "$ref": "#/definitions/constantProperties" },
+        "backgroundSelectedHover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundSelectedPressed": { "$ref": "#/definitions/constantProperties" },
+        "backgroundSelectedBrand": { "$ref": "#/definitions/constantProperties" },
+        "backgroundSelectedBrandHover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundSelectedBrandPressed": { "$ref": "#/definitions/constantProperties" },
+        "backgroundSelectedNegative": { "$ref": "#/definitions/constantProperties" },
+        "backgroundSelectedNegativeHover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundSelectedNegativePressed": { "$ref": "#/definitions/constantProperties" },
+        "backgroundBrandTop": { "$ref": "#/definitions/constantProperties" },
+        "backgroundBrandBottom": { "$ref": "#/definitions/constantProperties" },
+        "navigationBarBackground": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneHover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneDragover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneBrandHover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneBrandDragover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneNegativeHover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneNegativeDragover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneMediaHover": { "$ref": "#/definitions/constantProperties" },
+        "backgroundDropZoneMediaDragover": { "$ref": "#/definitions/constantProperties" },
+        "skeletonWave": { "$ref": "#/definitions/constantProperties" },
+        "border": { "$ref": "#/definitions/constantProperties" },
+        "borderLow": { "$ref": "#/definitions/constantProperties" },
+        "borderHigh": { "$ref": "#/definitions/constantProperties" },
+        "borderSelected": { "$ref": "#/definitions/constantProperties" },
+        "coverBackgroundHover": { "$ref": "#/definitions/constantProperties" },
+        "coverBackgroundPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonDangerBackground": { "$ref": "#/definitions/constantProperties" },
+        "buttonDangerBackgroundPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonDangerBackgroundHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkDangerBackgroundPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkDangerBackgroundInverse": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkDangerBackgroundNegative": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkDangerBackgroundMedia": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkDangerBackgroundInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkDangerBackgroundNegativePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkDangerBackgroundMediaPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkBackgroundPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkBackgroundInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkBackgroundNegativePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkBackgroundMediaPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackground": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundInverse": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundNegative": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundMedia": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundInverseHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundNegativeHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundMediaHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundNegativePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundMediaPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundBrand": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBorder": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBorderInverse": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBorderNegative": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBorderMedia": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBorderPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBorderInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBorderNegativePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBorderMediaPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundInverseHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundNegativeHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundMediaHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundNegativePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundMediaPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundBrand": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundBrandPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundNegative": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundNegativePressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundMedia": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkNeutralBackgroundMediaPressed": { "$ref": "#/definitions/constantProperties" },
+        "completedStep": { "$ref": "#/definitions/constantProperties" },
+        "completedStepInverse": { "$ref": "#/definitions/constantProperties" },
+        "completedStepNegative": { "$ref": "#/definitions/constantProperties" },
+        "control": { "$ref": "#/definitions/constantProperties" },
+        "controlActivated": { "$ref": "#/definitions/constantProperties" },
+        "controlInverse": { "$ref": "#/definitions/constantProperties" },
+        "controlActivatedInverse": { "$ref": "#/definitions/constantProperties" },
+        "controlNegative": { "$ref": "#/definitions/constantProperties" },
+        "controlActivatedNegative": { "$ref": "#/definitions/constantProperties" },
+        "controlError": { "$ref": "#/definitions/constantProperties" },
+        "barTrack": { "$ref": "#/definitions/constantProperties" },
+        "barTrackInverse": { "$ref": "#/definitions/constantProperties" },
+        "barTrackNegative": { "$ref": "#/definitions/constantProperties" },
+        "loadingBar": { "$ref": "#/definitions/constantProperties" },
+        "loadingBarBackground": { "$ref": "#/definitions/constantProperties" },
+        "toggleAndroidInactive": { "$ref": "#/definitions/constantProperties" },
+        "toggleAndroidBackgroundActive": { "$ref": "#/definitions/constantProperties" },
+        "toggleAndroidActiveBrand": { "$ref": "#/definitions/constantProperties" },
+        "toggleAndroidInactiveBrand": { "$ref": "#/definitions/constantProperties" },
+        "toggleAndroidBackgroundActiveBrand": { "$ref": "#/definitions/constantProperties" },
+        "toggleAndroidBackgroundInactiveBrand": { "$ref": "#/definitions/constantProperties" },
+        "iosControlKnob": { "$ref": "#/definitions/constantProperties" },
+        "controlKnobInverse": { "$ref": "#/definitions/constantProperties" },
+        "controlKnobNegative": { "$ref": "#/definitions/constantProperties" },
+        "divider": { "$ref": "#/definitions/constantProperties" },
+        "dividerInverse": { "$ref": "#/definitions/constantProperties" },
+        "dividerNegative": { "$ref": "#/definitions/constantProperties" },
+        "navigationBarDivider": { "$ref": "#/definitions/constantProperties" },
+        "badge": { "$ref": "#/definitions/constantProperties" },
+        "feedbackErrorBackground": { "$ref": "#/definitions/constantProperties" },
+        "feedbackInfoBackground": { "$ref": "#/definitions/constantProperties" },
+        "brand": { "$ref": "#/definitions/constantProperties" },
+        "brandHigh": { "$ref": "#/definitions/constantProperties" },
+        "inverse": { "$ref": "#/definitions/constantProperties" },
+        "negative": { "$ref": "#/definitions/constantProperties" },
+        "neutralHigh": { "$ref": "#/definitions/constantProperties" },
+        "neutralLow": { "$ref": "#/definitions/constantProperties" },
+        "neutralLowAlternative": { "$ref": "#/definitions/constantProperties" },
+        "neutralMedium": { "$ref": "#/definitions/constantProperties" },
+        "promo": { "$ref": "#/definitions/constantProperties" },
+        "error": { "$ref": "#/definitions/constantProperties" },
+        "textError": { "$ref": "#/definitions/constantProperties" },
+        "textErrorInverse": { "$ref": "#/definitions/constantProperties" },
+        "textErrorNegative": { "$ref": "#/definitions/constantProperties" },
+        "highlight": { "$ref": "#/definitions/constantProperties" },
+        "success": { "$ref": "#/definitions/constantProperties" },
+        "warning": { "$ref": "#/definitions/constantProperties" },
+        "textPrimary": { "$ref": "#/definitions/constantProperties" },
+        "textPrimaryInverse": { "$ref": "#/definitions/constantProperties" },
+        "textPrimaryNegative": { "$ref": "#/definitions/constantProperties" },
+        "textPrimaryMedia": { "$ref": "#/definitions/constantProperties" },
+        "textSecondary": { "$ref": "#/definitions/constantProperties" },
+        "textSecondaryInverse": { "$ref": "#/definitions/constantProperties" },
+        "textSecondaryNegative": { "$ref": "#/definitions/constantProperties" },
+        "textSecondaryMedia": { "$ref": "#/definitions/constantProperties" },
+        "textButtonPrimary": { "$ref": "#/definitions/constantProperties" },
+        "textButtonPrimaryInverse": { "$ref": "#/definitions/constantProperties" },
+        "textButtonPrimaryNegative": { "$ref": "#/definitions/constantProperties" },
+        "textButtonPrimaryMedia": { "$ref": "#/definitions/constantProperties" },
+        "textButtonPrimaryInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "textButtonPrimaryNegativePressed": { "$ref": "#/definitions/constantProperties" },
+        "textButtonPrimaryMediaPressed": { "$ref": "#/definitions/constantProperties" },
+        "textButtonSecondary": { "$ref": "#/definitions/constantProperties" },
+        "textButtonSecondaryInverse": { "$ref": "#/definitions/constantProperties" },
+        "textButtonSecondaryNegative": { "$ref": "#/definitions/constantProperties" },
+        "textButtonSecondaryMedia": { "$ref": "#/definitions/constantProperties" },
+        "textButtonSecondaryPressed": { "$ref": "#/definitions/constantProperties" },
+        "textButtonSecondaryInversePressed": { "$ref": "#/definitions/constantProperties" },
+        "textButtonSecondaryNegativePressed": { "$ref": "#/definitions/constantProperties" },
+        "textButtonSecondaryMediaPressed": { "$ref": "#/definitions/constantProperties" },
+        "textLink": { "$ref": "#/definitions/constantProperties" },
+        "textLinkInverse": { "$ref": "#/definitions/constantProperties" },
+        "textLinkNegative": { "$ref": "#/definitions/constantProperties" },
+        "textLinkMedia": { "$ref": "#/definitions/constantProperties" },
+        "textLinkDanger": { "$ref": "#/definitions/constantProperties" },
+        "textLinkDangerMedia": { "$ref": "#/definitions/constantProperties" },
+        "textLinkSnackbar": { "$ref": "#/definitions/constantProperties" },
+        "textLinkNeutral": { "$ref": "#/definitions/constantProperties" },
+        "textLinkNeutralBrand": { "$ref": "#/definitions/constantProperties" },
+        "textLinkNeutralNegative": { "$ref": "#/definitions/constantProperties" },
+        "textLinkNeutralAlternative": { "$ref": "#/definitions/constantProperties" },
+        "textLinkNeutralMedia": { "$ref": "#/definitions/constantProperties" },
+        "textNavigationBarPrimary": { "$ref": "#/definitions/constantProperties" },
+        "textNavigationBarSecondary": { "$ref": "#/definitions/constantProperties" },
+        "textNavigationSearchBarHint": { "$ref": "#/definitions/constantProperties" },
+        "textNavigationSearchBarText": { "$ref": "#/definitions/constantProperties" },
+        "textAppBar": { "$ref": "#/definitions/constantProperties" },
+        "textAppBarSelected": { "$ref": "#/definitions/constantProperties" },
+        "iosGlassAppBar": { "$ref": "#/definitions/constantProperties" },
+        "iosGlassAppBarSelected": { "$ref": "#/definitions/constantProperties" },
+        "textActivated": { "$ref": "#/definitions/constantProperties" },
+        "textBrand": { "$ref": "#/definitions/constantProperties" },
+        "neutralHighNegative": { "$ref": "#/definitions/constantProperties" },
+        "successLow": { "$ref": "#/definitions/constantProperties" },
+        "warningLow": { "$ref": "#/definitions/constantProperties" },
+        "errorLow": { "$ref": "#/definitions/constantProperties" },
+        "promoLow": { "$ref": "#/definitions/constantProperties" },
+        "brandLow": { "$ref": "#/definitions/constantProperties" },
+        "successHigh": { "$ref": "#/definitions/constantProperties" },
+        "warningHigh": { "$ref": "#/definitions/constantProperties" },
+        "errorHigh": { "$ref": "#/definitions/constantProperties" },
+        "promoHigh": { "$ref": "#/definitions/constantProperties" },
+        "successHighInverse": { "$ref": "#/definitions/constantProperties" },
+        "warningHighInverse": { "$ref": "#/definitions/constantProperties" },
+        "errorHighInverse": { "$ref": "#/definitions/constantProperties" },
+        "promoHighInverse": { "$ref": "#/definitions/constantProperties" },
+        "successHighNegative": { "$ref": "#/definitions/constantProperties" },
+        "warningHighNegative": { "$ref": "#/definitions/constantProperties" },
+        "errorHighNegative": { "$ref": "#/definitions/constantProperties" },
+        "promoHighNegative": { "$ref": "#/definitions/constantProperties" },
+        "neutralMediumInverse": { "$ref": "#/definitions/constantProperties" },
+        "neutralMediumNegative": { "$ref": "#/definitions/constantProperties" },
+        "customTabsBackground": { "$ref": "#/definitions/constantProperties" },
+        "tagTextPromo": { "$ref": "#/definitions/constantProperties" },
+        "tagTextActive": { "$ref": "#/definitions/constantProperties" },
+        "tagTextInactive": { "$ref": "#/definitions/constantProperties" },
+        "tagTextInfo": { "$ref": "#/definitions/constantProperties" },
+        "tagTextSuccess": { "$ref": "#/definitions/constantProperties" },
+        "tagTextWarning": { "$ref": "#/definitions/constantProperties" },
+        "tagTextError": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundPromo": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundActive": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundInactive": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundInfo": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundSuccess": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundWarning": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundError": { "$ref": "#/definitions/constantProperties" },
+        "tagTextPromoInverse": { "$ref": "#/definitions/constantProperties" },
+        "tagTextActiveInverse": { "$ref": "#/definitions/constantProperties" },
+        "tagTextInactiveInverse": { "$ref": "#/definitions/constantProperties" },
+        "tagTextInfoInverse": { "$ref": "#/definitions/constantProperties" },
+        "tagTextSuccessInverse": { "$ref": "#/definitions/constantProperties" },
+        "tagTextWarningInverse": { "$ref": "#/definitions/constantProperties" },
+        "tagTextErrorInverse": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundPromoInverse": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundActiveInverse": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundInactiveInverse": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundInfoInverse": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundSuccessInverse": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundWarningInverse": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundErrorInverse": { "$ref": "#/definitions/constantProperties" },
+        "cardContentOverlay": { "$ref": "#/definitions/constantProperties" },
+        "cardFooterOverlay": { "$ref": "#/definitions/constantProperties" },
+        "inputBorder": { "$ref": "#/definitions/constantProperties" },
+        "inputBorderInverse": { "$ref": "#/definitions/constantProperties" },
+        "inputBorderNegative": { "$ref": "#/definitions/constantProperties" },
+        "backgroundContainerBrandOverBrand": { "$ref": "#/definitions/constantProperties" },
+        "backgroundSkeletonBrand": { "$ref": "#/definitions/constantProperties" },
+        "completedStepBrand": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkDangerBackgroundBrand": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkDangerBackgroundBrandPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonLinkBackgroundBrandPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundBrand": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundBrandHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonPrimaryBackgroundBrandPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBorderBrand": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBorderBrandPressed": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundBrandHover": { "$ref": "#/definitions/constantProperties" },
+        "buttonSecondaryBackgroundBrandPressed": { "$ref": "#/definitions/constantProperties" },
+        "textButtonPrimaryBrand": { "$ref": "#/definitions/constantProperties" },
+        "textButtonPrimaryBrandPressed": { "$ref": "#/definitions/constantProperties" },
+        "textButtonSecondaryBrand": { "$ref": "#/definitions/constantProperties" },
+        "textButtonSecondaryBrandPressed": { "$ref": "#/definitions/constantProperties" },
+        "textLinkBrand": { "$ref": "#/definitions/constantProperties" },
+        "inputBorderBrand": { "$ref": "#/definitions/constantProperties" },
+        "controlBrand": { "$ref": "#/definitions/constantProperties" },
+        "controlActivatedBrand": { "$ref": "#/definitions/constantProperties" },
+        "barTrackBrand": { "$ref": "#/definitions/constantProperties" },
+        "controlKnobBrand": { "$ref": "#/definitions/constantProperties" },
+        "dividerBrand": { "$ref": "#/definitions/constantProperties" },
+        "neutralHighBrand": { "$ref": "#/definitions/constantProperties" },
+        "neutralMediumBrand": { "$ref": "#/definitions/constantProperties" },
+        "textPrimaryBrand": { "$ref": "#/definitions/constantProperties" },
+        "textSecondaryBrand": { "$ref": "#/definitions/constantProperties" },
+        "textErrorBrand": { "$ref": "#/definitions/constantProperties" },
+        "successHighBrand": { "$ref": "#/definitions/constantProperties" },
+        "warningHighBrand": { "$ref": "#/definitions/constantProperties" },
+        "errorHighBrand": { "$ref": "#/definitions/constantProperties" },
+        "promoHighBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagTextPromoBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagTextActiveBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagTextInactiveBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagTextInfoBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagTextSuccessBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagTextWarningBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagTextErrorBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundPromoBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundActiveBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundInactiveBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundInfoBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundSuccessBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundWarningBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundErrorBrand": { "$ref": "#/definitions/constantProperties" },
+        "tagTextPromoNegative": { "$ref": "#/definitions/constantProperties" },
+        "tagTextActiveNegative": { "$ref": "#/definitions/constantProperties" },
+        "tagTextInactiveNegative": { "$ref": "#/definitions/constantProperties" },
+        "tagTextInfoNegative": { "$ref": "#/definitions/constantProperties" },
+        "tagTextSuccessNegative": { "$ref": "#/definitions/constantProperties" },
+        "tagTextWarningNegative": { "$ref": "#/definitions/constantProperties" },
+        "tagTextErrorNegative": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundPromoNegative": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundActiveNegative": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundInactiveNegative": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundInfoNegative": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundSuccessNegative": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundWarningNegative": { "$ref": "#/definitions/constantProperties" },
+        "tagBackgroundErrorNegative": { "$ref": "#/definitions/constantProperties" },
+        "chevronIndicator": { "$ref": "#/definitions/constantProperties" },
         "extended": {
           "type": "object",
           "patternProperties": {
@@ -1345,111 +692,45 @@
       "additionalProperties": false,
       "required": ["bar", "button", "checkbox", "avatar", "container", "indicator", "chip", "input", "popup", "sheet", "snackbar"],
       "properties": {
-        "avatar": {
-          "$ref": "#/definitions/radiusProperties"
-        },
-        "bar": {
-          "$ref": "#/definitions/radiusProperties"
-        },
-        "button": {
-          "$ref": "#/definitions/radiusProperties"
-        },
-        "checkbox": {
-          "$ref": "#/definitions/radiusProperties"
-        },
-        "container": {
-          "$ref": "#/definitions/radiusProperties"
-        },
-        "indicator": {
-          "$ref": "#/definitions/radiusProperties"
-        },
-        "chip": {
-          "$ref": "#/definitions/radiusProperties"
-        },
-        "tag": {
-          "$ref": "#/definitions/radiusProperties"
-        },
-        "input": {
-          "$ref": "#/definitions/radiusProperties"
-        },
-        "popup": {
-          "$ref": "#/definitions/radiusProperties"
-        },
-        "sheet": {
-          "$ref": "#/definitions/radiusProperties"
-        },
-        "mediaSmall": {
-          "$ref": "#/definitions/radiusProperties"
-        },
-        "snackbar": {
-          "$ref": "#/definitions/radiusProperties"
-        }
+        "avatar": { "$ref": "#/definitions/radiusProperties" },
+        "bar": { "$ref": "#/definitions/radiusProperties" },
+        "button": { "$ref": "#/definitions/radiusProperties" },
+        "checkbox": { "$ref": "#/definitions/radiusProperties" },
+        "container": { "$ref": "#/definitions/radiusProperties" },
+        "indicator": { "$ref": "#/definitions/radiusProperties" },
+        "chip": { "$ref": "#/definitions/radiusProperties" },
+        "tag": { "$ref": "#/definitions/radiusProperties" },
+        "input": { "$ref": "#/definitions/radiusProperties" },
+        "popup": { "$ref": "#/definitions/radiusProperties" },
+        "sheet": { "$ref": "#/definitions/radiusProperties" },
+        "mediaSmall": { "$ref": "#/definitions/radiusProperties" },
+        "snackbar": { "$ref": "#/definitions/radiusProperties" }
       }
     },
     "weight": {
       "additionalProperties": false,
-      "required": ["drawerTitle", "cardTitle", "rowTitle", "button", "tabsLabel", "link", "indicator", "navigationBar", "title1", "title2", "title3", "title4", "text5", "text6", "text7", "text8", "text9", "text10", "chipLabel", "chipLabelSmall"],
+      "required": ["drawerTitle", "cardTitle", "rowTitle", "button", "tabsLabel", "link", "indicator", "navigationBar", "title1", "title2", "title3", "title4", "text5", "text6", "text7", "text8", "text9", "text10", "chipLabel",  "chipLabelSmall"],
       "properties": {
-        "drawerTitle": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "cardTitle": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "rowTitle": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "button": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "tabsLabel": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "link": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "indicator": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "navigationBar": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "title1": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "title2": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "title3": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "title4": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "text5": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "text6": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "text7": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "text8": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "text9": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "text10": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "chipLabel": {
-          "$ref": "#/definitions/weightProperties"
-        },
-        "chipLabelSmall": {
-          "$ref": "#/definitions/weightProperties"
-        }
+        "drawerTitle": { "$ref": "#/definitions/weightProperties" },
+        "cardTitle": { "$ref": "#/definitions/weightProperties" },
+        "rowTitle": { "$ref": "#/definitions/weightProperties" },
+        "button": { "$ref": "#/definitions/weightProperties" },
+        "tabsLabel": { "$ref": "#/definitions/weightProperties" },
+        "link": { "$ref": "#/definitions/weightProperties" },
+        "indicator": { "$ref": "#/definitions/weightProperties" },
+        "navigationBar": { "$ref": "#/definitions/weightProperties" },
+        "title1": { "$ref": "#/definitions/weightProperties" },
+        "title2": { "$ref": "#/definitions/weightProperties" },
+        "title3": { "$ref": "#/definitions/weightProperties" },
+        "title4": { "$ref": "#/definitions/weightProperties" },
+        "text5": { "$ref": "#/definitions/weightProperties" },
+        "text6": { "$ref": "#/definitions/weightProperties" },
+        "text7": { "$ref": "#/definitions/weightProperties" },
+        "text8": { "$ref": "#/definitions/weightProperties" },
+        "text9": { "$ref": "#/definitions/weightProperties" },
+        "text10": { "$ref": "#/definitions/weightProperties" },
+        "chipLabel": { "$ref": "#/definitions/weightProperties" },
+        "chipLabelSmall": { "$ref": "#/definitions/weightProperties" }
       }
     },
     "size": {
@@ -1488,99 +769,37 @@
         "loadingScreenTitle"
       ],
       "properties": {
-        "drawerTitle": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "cardPretitleDefault": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "cardTitleDefault": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "cardSubtitleDefault": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "cardDescriptionDefault": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "cardPretitleSnap": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "cardTitleSnap": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "cardSubtitleSnap": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "cardDescriptionSnap": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "tabsLabel": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "title1": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "title2": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "title3": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "title4": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "text1": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "text2": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "text3": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "text4": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "text5": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "text6": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "text7": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "text8": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "text9": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "text10": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "chipLabel": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "chipLabelSmall": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "inputLabel": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "inputValue": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "inputHelperText": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "stepperStepLabel": {
-          "$ref": "#/definitions/sizeProperties"
-        },
-        "loadingScreenTitle": {
-          "$ref": "#/definitions/sizeProperties"
-        }
+        "drawerTitle": { "$ref": "#/definitions/sizeProperties" },
+        "cardPretitleDefault": { "$ref": "#/definitions/sizeProperties" },
+        "cardTitleDefault": { "$ref": "#/definitions/sizeProperties" },
+        "cardSubtitleDefault": { "$ref": "#/definitions/sizeProperties" },
+        "cardDescriptionDefault": { "$ref": "#/definitions/sizeProperties" },
+        "cardPretitleSnap": { "$ref": "#/definitions/sizeProperties" },
+        "cardTitleSnap": { "$ref": "#/definitions/sizeProperties" },
+        "cardSubtitleSnap": { "$ref": "#/definitions/sizeProperties" },
+        "cardDescriptionSnap": { "$ref": "#/definitions/sizeProperties" },
+        "tabsLabel": { "$ref": "#/definitions/sizeProperties" },
+        "title1": { "$ref": "#/definitions/sizeProperties" },
+        "title2": { "$ref": "#/definitions/sizeProperties" },
+        "title3": { "$ref": "#/definitions/sizeProperties" },
+        "title4": { "$ref": "#/definitions/sizeProperties" },
+        "text1": { "$ref": "#/definitions/sizeProperties" },
+        "text2": { "$ref": "#/definitions/sizeProperties" },
+        "text3": { "$ref": "#/definitions/sizeProperties" },
+        "text4": { "$ref": "#/definitions/sizeProperties" },
+        "text5": { "$ref": "#/definitions/sizeProperties" },
+        "text6": { "$ref": "#/definitions/sizeProperties" },
+        "text7": { "$ref": "#/definitions/sizeProperties" },
+        "text8": { "$ref": "#/definitions/sizeProperties" },
+        "text9": { "$ref": "#/definitions/sizeProperties" },
+        "text10": { "$ref": "#/definitions/sizeProperties" },
+        "chipLabel": { "$ref": "#/definitions/sizeProperties" },
+        "chipLabelSmall": { "$ref": "#/definitions/sizeProperties" },
+        "inputLabel": { "$ref": "#/definitions/sizeProperties" },
+        "inputValue": { "$ref": "#/definitions/sizeProperties" },
+        "inputHelperText": { "$ref": "#/definitions/sizeProperties" },
+        "stepperStepLabel": { "$ref": "#/definitions/sizeProperties" },
+        "loadingScreenTitle": { "$ref": "#/definitions/sizeProperties" }
       }
     },
     "lineHeight": {
@@ -1619,162 +838,70 @@
         "loadingScreenTitle"
       ],
       "properties": {
-        "drawerTitle": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "cardPretitleDefault": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "cardTitleDefault": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "cardSubtitleDefault": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "cardDescriptionDefault": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "cardPretitleSnap": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "cardTitleSnap": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "cardSubtitleSnap": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "cardDescriptionSnap": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "tabsLabel": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "title1": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "title2": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "title3": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "title4": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "text1": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "text2": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "text3": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "text4": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "text5": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "text6": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "text7": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "text8": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "text9": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "text10": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "chipLabel": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "chipLabelSmall": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "inputLabel": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "inputValue": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "inputHelperText": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "stepperStepLabel": {
-          "$ref": "#/definitions/lineHeightProperties"
-        },
-        "loadingScreenTitle": {
-          "$ref": "#/definitions/lineHeightProperties"
-        }
+        "drawerTitle": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardPretitleDefault": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardTitleDefault": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardSubtitleDefault": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardDescriptionDefault": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardPretitleSnap": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardTitleSnap": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardSubtitleSnap": { "$ref": "#/definitions/lineHeightProperties" },
+        "cardDescriptionSnap": { "$ref": "#/definitions/lineHeightProperties" },
+        "tabsLabel": { "$ref": "#/definitions/lineHeightProperties" },
+        "title1": { "$ref": "#/definitions/lineHeightProperties" },
+        "title2": { "$ref": "#/definitions/lineHeightProperties" },
+        "title3": { "$ref": "#/definitions/lineHeightProperties" },
+        "title4": { "$ref": "#/definitions/lineHeightProperties" },
+        "text1": { "$ref": "#/definitions/lineHeightProperties" },
+        "text2": { "$ref": "#/definitions/lineHeightProperties" },
+        "text3": { "$ref": "#/definitions/lineHeightProperties" },
+        "text4": { "$ref": "#/definitions/lineHeightProperties" },
+        "text5": { "$ref": "#/definitions/lineHeightProperties" },
+        "text6": { "$ref": "#/definitions/lineHeightProperties" },
+        "text7": { "$ref": "#/definitions/lineHeightProperties" },
+        "text8": { "$ref": "#/definitions/lineHeightProperties" },
+        "text9": { "$ref": "#/definitions/lineHeightProperties" },
+        "text10": { "$ref": "#/definitions/lineHeightProperties" },
+        "chipLabel": { "$ref": "#/definitions/lineHeightProperties" },
+        "chipLabelSmall": { "$ref": "#/definitions/lineHeightProperties" },
+        "inputLabel": { "$ref": "#/definitions/lineHeightProperties" },
+        "inputValue": { "$ref": "#/definitions/lineHeightProperties" },
+        "inputHelperText": { "$ref": "#/definitions/lineHeightProperties" },
+        "stepperStepLabel": { "$ref": "#/definitions/lineHeightProperties" },
+        "loadingScreenTitle": { "$ref": "#/definitions/lineHeightProperties" }
       }
     },
     "spacing": {
       "additionalProperties": false,
       "required": ["buttonDefaultPadding", "buttonSmallPadding", "cardDefaultPadding", "tagPadding", "feedbackScreenPadding", "inputPadding", "heroPadding", "headerPadding", "drawerPadding", "boxedDefaultPadding", "responsiveLayoutMargin"],
       "properties": {
-        "buttonDefaultPadding": {
-          "$ref": "#/definitions/spacingProperties"
-        },
-        "buttonSmallPadding": {
-          "$ref": "#/definitions/spacingProperties"
-        },
-        "cardDefaultPadding": {
-          "$ref": "#/definitions/spacingProperties"
-        },
-        "tagPadding": {
-          "$ref": "#/definitions/spacingProperties"
-        },
-        "feedbackScreenPadding": {
-          "$ref": "#/definitions/spacingProperties"
-        },
-        "inputPadding": {
-          "$ref": "#/definitions/spacingProperties"
-        },
-        "heroPadding": {
-          "$ref": "#/definitions/spacingProperties"
-        },
-        "headerPadding": {
-          "$ref": "#/definitions/spacingProperties"
-        },
-        "drawerPadding": {
-          "$ref": "#/definitions/spacingProperties"
-        },
-        "boxedDefaultPadding": {
-          "$ref": "#/definitions/spacingProperties"
-        },
-        "responsiveLayoutMargin": {
-          "$ref": "#/definitions/spacingProperties"
-        }
+        "buttonDefaultPadding": { "$ref": "#/definitions/spacingProperties" },
+        "buttonSmallPadding": { "$ref": "#/definitions/spacingProperties" },
+        "cardDefaultPadding": { "$ref": "#/definitions/spacingProperties" },
+        "tagPadding": { "$ref": "#/definitions/spacingProperties" },
+        "feedbackScreenPadding": { "$ref": "#/definitions/spacingProperties" },
+        "inputPadding": { "$ref": "#/definitions/spacingProperties" },
+        "heroPadding": { "$ref": "#/definitions/spacingProperties" },
+        "headerPadding": { "$ref": "#/definitions/spacingProperties" },
+        "drawerPadding": { "$ref": "#/definitions/spacingProperties" },
+        "boxedDefaultPadding": { "$ref": "#/definitions/spacingProperties" },
+        "responsiveLayoutMargin": { "$ref": "#/definitions/spacingProperties" }
       }
     },
     "themeVariant": {
       "additionalProperties": false,
       "required": ["successFeedback", "brandLoadingScreen"],
       "properties": {
-        "successFeedback": {
-          "$ref": "#/definitions/themeVariantProperties"
-        },
-        "brandLoadingScreen": {
-          "$ref": "#/definitions/themeVariantProperties"
-        }
+        "successFeedback": { "$ref": "#/definitions/themeVariantProperties" },
+        "brandLoadingScreen": { "$ref": "#/definitions/themeVariantProperties" }
       }
     },
     "componentProperties": {
       "additionalProperties": false,
       "required": ["dismissActionType", "showBoxedBorder"],
       "properties": {
-        "dismissActionType": {
-          "$ref": "#/definitions/componentProperties"
-        },
-        "showBoxedBorder": {
-          "$ref": "#/definitions/componentVariantBooleanProperties"
-        }
+        "dismissActionType": { "$ref": "#/definitions/componentProperties" },
+        "showBoxedBorder": { "$ref": "#/definitions/componentVariantBooleanProperties" }
       }
     }
   },
@@ -1792,12 +919,8 @@
       },
       "required": ["value", "type"],
       "properties": {
-        "deprecated": {
-          "type": "boolean"
-        },
-        "deprecatedBy": {
-          "type": "string"
-        }
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
       }
     },
     "constantProperties": {
@@ -1973,12 +1096,8 @@
       },
       "required": ["value", "type"],
       "properties": {
-        "deprecated": {
-          "type": "boolean"
-        },
-        "deprecatedBy": {
-          "type": "string"
-        }
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
       },
       "additionalProperties": false
     },
@@ -1994,12 +1113,8 @@
       },
       "required": ["value", "type"],
       "properties": {
-        "deprecated": {
-          "type": "boolean"
-        },
-        "deprecatedBy": {
-          "type": "string"
-        }
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
       }
     },
     "sizeProperties": {
@@ -2007,9 +1122,7 @@
       "patternProperties": {
         "value": {
           "allOf": [
-            {
-              "$ref": "#/definitions/breakpoints"
-            },
+            { "$ref": "#/definitions/breakpoints" },
             {
               "required": ["mobile", "desktop"]
             }
@@ -2020,12 +1133,8 @@
         }
       },
       "properties": {
-        "deprecated": {
-          "type": "boolean"
-        },
-        "deprecatedBy": {
-          "type": "string"
-        }
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
       },
       "required": ["value", "type"]
     },
@@ -2034,9 +1143,7 @@
       "patternProperties": {
         "value": {
           "allOf": [
-            {
-              "$ref": "#/definitions/breakpoints"
-            },
+            { "$ref": "#/definitions/breakpoints" },
             {
               "required": ["mobile", "desktop"]
             }
@@ -2047,12 +1154,8 @@
         }
       },
       "properties": {
-        "deprecated": {
-          "type": "boolean"
-        },
-        "deprecatedBy": {
-          "type": "string"
-        }
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
       },
       "required": ["value", "type"]
     },
@@ -2060,35 +1163,20 @@
       "type": "object",
       "required": ["value", "type"],
       "properties": {
-        "type": {
-          "const": "spacing"
-        },
-        "deprecated": {
-          "type": "boolean"
-        },
-        "deprecatedBy": {
-          "type": "string"
-        },
+        "type": { "const": "spacing" },
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" },
         "value": {
           "anyOf": [
-            {
-              "$ref": "#/definitions/breakpoints"
-            },
+            { "$ref": "#/definitions/breakpoints" },
+
             {
               "type": "object",
               "properties": {
-                "top": {
-                  "$ref": "#/definitions/breakpoints"
-                },
-                "right": {
-                  "$ref": "#/definitions/breakpoints"
-                },
-                "bottom": {
-                  "$ref": "#/definitions/breakpoints"
-                },
-                "left": {
-                  "$ref": "#/definitions/breakpoints"
-                }
+                "top": { "$ref": "#/definitions/breakpoints" },
+                "right": { "$ref": "#/definitions/breakpoints" },
+                "bottom": { "$ref": "#/definitions/breakpoints" },
+                "left": { "$ref": "#/definitions/breakpoints" }
               },
               "additionalProperties": false,
               "minProperties": 1
@@ -2097,6 +1185,7 @@
         }
       }
     },
+
     "themeVariantProperties": {
       "type": "object",
       "patternProperties": {
@@ -2109,12 +1198,8 @@
         }
       },
       "properties": {
-        "deprecated": {
-          "type": "boolean"
-        },
-        "deprecatedBy": {
-          "type": "string"
-        }
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
       },
       "required": ["value", "type"]
     },
@@ -2129,12 +1214,8 @@
         }
       },
       "properties": {
-        "deprecated": {
-          "type": "boolean"
-        },
-        "deprecatedBy": {
-          "type": "string"
-        }
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
       },
       "required": ["value", "type"]
     },
@@ -2146,46 +1227,26 @@
           "additionalProperties": false,
           "required": ["default", "brand", "negative", "alternative", "media"],
           "properties": {
-            "default": {
-              "type": "boolean"
-            },
-            "brand": {
-              "type": "boolean"
-            },
-            "negative": {
-              "type": "boolean"
-            },
-            "alternative": {
-              "type": "boolean"
-            },
-            "media": {
-              "type": "boolean"
-            }
+            "default": { "type": "boolean" },
+            "brand": { "type": "boolean" },
+            "negative": { "type": "boolean" },
+            "alternative": { "type": "boolean" },
+            "media": { "type": "boolean" }
           }
         },
-        "type": {
-          "const": "property"
-        }
+        "type": { "const": "property" }
       },
       "properties": {
-        "deprecated": {
-          "type": "boolean"
-        },
-        "deprecatedBy": {
-          "type": "string"
-        }
+        "deprecated": { "type": "boolean" },
+        "deprecatedBy": { "type": "string" }
       },
       "required": ["value", "type"]
     },
     "breakpoints": {
       "type": "object",
       "properties": {
-        "mobile": {
-          "type": "number"
-        },
-        "desktop": {
-          "type": "number"
-        }
+        "mobile": { "type": "number" },
+        "desktop": { "type": "number" }
       },
       "minProperties": 1,
       "required": ["mobile", "desktop"],
