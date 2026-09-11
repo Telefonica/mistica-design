@@ -3,7 +3,7 @@
   component: sidenav
   fileKey:   4woEBHpukbLVkmk9UJTGUD
   pageId:    6510:13264
-  generated: 2026-09-09T19:29:39.327Z
+  generated: 2026-09-11T11:21:53.675Z
 -->
 
 # Sidenav
@@ -12,6 +12,8 @@
 
 | Branch | Figma last modified  | Generated                |
 | ------ | -------------------- | ------------------------ |
+| main   | 2026-09-11T10:46:14Z | 2026-09-11T11:21:53.675Z |
+| Branch | Figma last modified  | Generated                |
 | main   | 2026-09-09T19:28:42Z | 2026-09-09T19:29:39.327Z |
 | Branch | Figma last modified  | Generated                |
 | main   | 2026-09-08T12:05:50Z | 2026-09-08T15:07:08.408Z |
@@ -126,11 +128,11 @@
 ### Header region
 
 - Logo (Optional)
-  - By default the sidenav will show the brand logo type=”isotype”
-  - The logo should accept any custom element
-  - The logo should allow to be changed between collapsed and expanded states
-- Collapse/expand action
-  - Action will use an IconButton component type=”neutral” background=”transparent”
+  - By default, the sidenav will show the brand logo type="isotype".
+  - The logo should accept any custom element.
+  - The logo should allow being changed between collapsed and expanded states. 
+- The collapse/expand element can be placed anywhere within the sidenav; what cannot be customized is the render of that button in the location where it is drawn by default.
+
 - Header slot (Optional)
 
 ![Sidenav header anatomy](sidenav/figures/anatomy-header-region.png)
