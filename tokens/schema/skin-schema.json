@@ -709,7 +709,7 @@
     },
     "weight": {
       "additionalProperties": false,
-      "required": ["drawerTitle", "cardTitle", "rowTitle", "button", "tabsLabel", "link", "indicator", "navigationBar", "title1", "title2", "title3", "title4", "text5", "text6", "text7", "text8", "text9", "text10", "chipLabel"],
+      "required": ["drawerTitle", "cardTitle", "rowTitle", "button", "tabsLabel", "link", "indicator", "navigationBar", "title1", "title2", "title3", "title4", "text5", "text6", "text7", "text8", "text9", "text10", "chipLabel", "chipLabelSmall"],
       "properties": {
         "drawerTitle": { "$ref": "#/definitions/weightProperties" },
         "cardTitle": { "$ref": "#/definitions/weightProperties" },
@@ -729,7 +729,8 @@
         "text8": { "$ref": "#/definitions/weightProperties" },
         "text9": { "$ref": "#/definitions/weightProperties" },
         "text10": { "$ref": "#/definitions/weightProperties" },
-        "chipLabel": { "$ref": "#/definitions/weightProperties" }
+        "chipLabel": { "$ref": "#/definitions/weightProperties" },
+        "chipLabelSmall": { "$ref": "#/definitions/weightProperties" }
       }
     },
     "size": {
@@ -760,6 +761,7 @@
         "text9",
         "text10",
         "chipLabel",
+        "chipLabelSmall",
         "inputLabel",
         "inputValue",
         "inputHelperText",
@@ -792,6 +794,7 @@
         "text9": { "$ref": "#/definitions/sizeProperties" },
         "text10": { "$ref": "#/definitions/sizeProperties" },
         "chipLabel": { "$ref": "#/definitions/sizeProperties" },
+        "chipLabelSmall": { "$ref": "#/definitions/sizeProperties" },
         "inputLabel": { "$ref": "#/definitions/sizeProperties" },
         "inputValue": { "$ref": "#/definitions/sizeProperties" },
         "inputHelperText": { "$ref": "#/definitions/sizeProperties" },
@@ -827,6 +830,7 @@
         "text9",
         "text10",
         "chipLabel",
+        "chipLabelSmall",
         "inputLabel",
         "inputValue",
         "inputHelperText",
@@ -859,6 +863,7 @@
         "text9": { "$ref": "#/definitions/lineHeightProperties" },
         "text10": { "$ref": "#/definitions/lineHeightProperties" },
         "chipLabel": { "$ref": "#/definitions/lineHeightProperties" },
+        "chipLabelSmall": { "$ref": "#/definitions/lineHeightProperties" },
         "inputLabel": { "$ref": "#/definitions/lineHeightProperties" },
         "inputValue": { "$ref": "#/definitions/lineHeightProperties" },
         "inputHelperText": { "$ref": "#/definitions/lineHeightProperties" },
