@@ -25,12 +25,23 @@ on the first try.
 - Prototyping a Mistica component, screen, or interaction live in the browser (not in a local repo).
 - Mobile/desktop variants of the URL also apply: `/playroom-mobile` and `/playroom-desktop`.
 
-## Pair with the `mistica-react` skill (design-system fidelity)
+## Pair with the `mistica-react` skill (design-system fidelity) — mandatory
 
-The JSX written here must be as faithful to the Mistica design system as production code. **Before generating
-any component code, invoke the `mistica-react` skill** (via the Skill tool) and use it as the source of truth
-for: which component to pick for each UI need, valid props and variants, layout primitives, spacing tokens,
-color tokens, and accessibility expectations.
+The JSX written here must be as faithful to the Mistica design system as production code. This skill has a
+**hard dependency on the `mistica-react` skill** for every component-choice, prop, and token decision — do not
+generate component code without it.
+
+**Preflight: confirm `mistica-react` is available (do this before generating any component code, right after
+the browser-control preflight above).**
+
+1. Check whether `mistica-react` is listed among the skills available in the current session.
+2. **If it is available**, invoke it via the Skill tool and use it as the source of truth for: which component
+   to pick for each UI need, valid props and variants, layout primitives, spacing tokens, color tokens, and
+   accessibility expectations.
+3. **If it is not available**, stop before generating any component code. Tell the user `mistica-react` is
+   missing and offer to help them install it (e.g. via the `find-skills` skill or their plugin marketplace).
+   Only fall back to generating JSX from general Mistica knowledge if the user explicitly asks to proceed
+   without it, and flag in your reply that design-system fidelity was not verified against the skill.
 
 Precedence when the two skills disagree: `mistica-react` governs *what* to build (component choice, props,
 tokens, patterns); **this skill governs *how* the code must be shaped to run in Playroom** and always wins on
@@ -179,6 +190,8 @@ Imperative dialog:
 
 ## Self-check before declaring done
 
+- `mistica-react` availability was checked before generating component code; if missing, the user was offered
+  help installing it rather than silently skipping it.
 - The `mistica-react` skill was consulted for component choice, props, and tokens; the result is
   design-system-faithful and then adapted to Playroom's mechanics.
 - No `import` / `export` / `function` / top-level `return` in the code.
