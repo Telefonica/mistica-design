@@ -1,0 +1,80 @@
+.simon-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.simon-board {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 11px;
+  margin-bottom: 20px;
+}
+
+.color {
+  width: 130px;
+  height: 130px;
+  border-radius: 16px;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+.color.green {
+  background-color: #59C2C9;
+}
+
+.color.red {
+  background-color: #E66C64;
+}
+
+.color.yellow {
+  background-color: #EAC344;
+}
+
+.color.blue {
+  background-color: #0066FF;
+}
+
+.color.highlight {
+  opacity: 0.6;
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes clickPulse {
+  0% {
+    transform: scale(1);
+    background-color: #ffffff;
+  }
+  50% {
+    transform: scale(1.1);
+    background-color: #d3d3d3;
+  }
+  100% {
+    transform: scale(1);
+    background-color: initial;
+  }
+}
+
+.color.clicked {
+  animation: clickPulse 0.5s ease-in-out;
+}
+
+.color.gameover {
+  opacity: 0.3;
+}

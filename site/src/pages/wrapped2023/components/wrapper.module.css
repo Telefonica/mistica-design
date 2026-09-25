@@ -1,0 +1,58 @@
+.container {
+  height: 100vh;
+  position: relative;
+}
+
+.scrollX {
+  scroll-snap-type: x mandatory;
+  max-height: 100vh;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+}
+
+.labelRotate {
+  position: fixed;
+  top: 32px;
+  left: 32px;
+  z-index: 9999;
+}
+
+.logo {
+  position: fixed;
+  height: 79px;
+  display: flex;
+  align-items: center;
+  top: 32px;
+  right: 48px;
+  z-index: 9999;
+}
+
+.madeBy {
+  position: fixed;
+  height: 79px;
+  display: flex;
+  align-items: center;
+  bottom: 104px;
+  left: 0px;
+  z-index: 9999;
+  transform: rotate(-90deg);
+}
+
+.shareButton {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  bottom: 64px;
+  right: 64px;
+  z-index: 9999;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}

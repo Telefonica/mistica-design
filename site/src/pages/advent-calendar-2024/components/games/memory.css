@@ -1,0 +1,113 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: fit-content;
+  margin: 0 auto;
+  gap: 15px;
+  width: 100%;
+}
+
+.card.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-back,
+.card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.card-front {
+  backface-visibility: hidden;
+}
+
+.card {
+  width: 96px;
+  height: 96px;
+
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+
+  border-radius: 10px;
+  background-color: white;
+  border: 1.5px solid #d1d5e4;
+
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+  cursor: default;
+
+  border: 1.5px solid #0066ff;
+}
+
+/* Cara frontal de la carta (cuando está oculta) */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  backface-visibility: hidden;
+}
+
+.left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 10px;
+}
+
+.right-column {
+  flex: 2; /* Ocupa más espacio que la columna izquierda */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#timer {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+#score {
+  font-size: 20px;
+}

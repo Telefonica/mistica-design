@@ -1,0 +1,22 @@
+.palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+.palette .arrow {
+  position: absolute;
+  border-left: 1px solid black;
+}
+
+.selected {
+  background-color: #ccc;
+}
+
+code {
+  background-color: #fafafa;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+}

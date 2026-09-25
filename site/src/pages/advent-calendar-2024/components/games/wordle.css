@@ -1,0 +1,76 @@
+.wordle-game {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  gap: 24px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+ 
+.letter-boxes {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+  justify-content: center;
+}
+ 
+.letter-box {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+ 
+.mobile-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  caret-color: transparent;
+  background: transparent;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 1px;
+  height: 1px;
+}
+ 
+.wordle-game {
+  -webkit-user-select: none;
+  user-select: none;
+}
+ 
+@media screen and (max-width: 600px) {
+  .wordle-game {
+    gap: 12px;
+    padding: 0 8px;
+  }
+ 
+  .letter-boxes {
+    gap: 4px;
+  }
+ 
+  .letter-box {
+    width: 40px;
+    height: 40px;
+  }
+}
+ 
+@media screen and (max-width: 360px) {
+  .letter-box {
+    width: 32px;
+    height: 32px;
+  }
+ 
+  .letter-boxes {
+    gap: 3px;
+  }
+}
