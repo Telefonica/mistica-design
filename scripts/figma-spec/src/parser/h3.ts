@@ -8,12 +8,12 @@ const PROSE_X_THRESHOLD = 900;
 export interface H3Block {
   /** Heading level: 3 for `### …`, 4 for `#### …`, capped at 6. */
   level: number;
-  /** Last segment of the path — the rendered heading text. */
+  /** The rendered heading text — first line of `node.characters` (no `#` prefix). */
   title: string;
   /**
-   * All path segments parsed from the heading. For a node titled
-   * `Default/Header` this is `["Default", "Header"]`, used to match
-   * figures whose slug encodes the full path (e.g. `fig::default-header`).
+   * Path segments for figure slug matching. Always `[title]` with the
+   * markdown-heading notation — kept as an array so `markdown.ts` can
+   * join and slugify without special-casing.
    */
   pathSegments: string[];
   body: string;
@@ -21,9 +21,18 @@ export interface H3Block {
 }
 
 /**
+ * Matches a markdown heading prefix at the start of a Figma layer name.
+ * `## My Title` → hashes = "##"
+ * The hash count maps directly to the heading level: `#` → h1, `##` → h2, etc.
+ * When present on the layer name it takes priority over slash notation.
+ */
+const MARKDOWN_HEADING_RE = /^(#{1,6})\s+/;
+
+/**
  * Splits a heading path on bare `/` (no whitespace on either side).
  * `Body region/Section item` → ["Body region", "Section item"]
  * `Collapse / Uncollapse`    → ["Collapse / Uncollapse"]  (preserved)
+ * Used as the fallback when the layer name has no `#` prefix.
  */
 const PATH_SEPARATOR_RE = /(?<!\s)\/(?!\s)/;
 
@@ -40,18 +49,34 @@ export function getH3TextNodes(section: AnyNode): TextNode[] {
 }
 
 export function toH3Block(node: TextNode): H3Block {
-  // Use the raw characters for the heading title so that PATH_SEPARATOR_RE
-  // is never confused by `/` characters inside Markdown link URLs.
   const raw = node.characters ?? "";
   const rawLines = raw.split("\n");
   if (rawLines.length === 0) return { level: 3, title: "", pathSegments: [], body: "", node };
 
   const firstLine = (rawLines[0] ?? "").trim();
-  const segments = firstLine.split(PATH_SEPARATOR_RE).map((s) => s.trim()).filter(Boolean);
-  const depth = Math.max(1, segments.length);
-  const level = Math.min(6, 2 + depth);
-  const title = segments[segments.length - 1] ?? firstLine;
-  const pathSegments = segments.length > 0 ? segments : [title];
+
+  // Priority 1 — markdown notation in the layer name:
+  //   layer name `## My Title …` → level 2, title from node.characters first line.
+  // Priority 2 — slash notation in the text content (legacy):
+  //   first line `Body region/Section` → segments ["Body region","Section"],
+  //   depth 2 → level 4, title = last segment.
+  // Fallback — plain title, no prefix, no slash → level 3.
+  const nameMatch = node.name.match(MARKDOWN_HEADING_RE);
+  let level: number;
+  let title: string;
+  let pathSegments: string[];
+
+  if (nameMatch) {
+    level = Math.min(6, nameMatch[1]?.length ?? 1);
+    title = firstLine;
+    pathSegments = title ? [title] : [firstLine];
+  } else {
+    const segments = firstLine.split(PATH_SEPARATOR_RE).map((s) => s.trim()).filter(Boolean);
+    const depth = Math.max(1, segments.length);
+    level = Math.min(6, 2 + depth);
+    title = segments[segments.length - 1] ?? firstLine;
+    pathSegments = segments.length > 0 ? segments : [title];
+  }
 
   if (rawLines.length === 1) return { level, title, pathSegments, body: "", node };
 
