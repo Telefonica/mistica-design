@@ -2,8 +2,7 @@
 name: mistica-playroom
 description:
   Generate ready-to-paste JSX code for Mistica's hosted Playroom web editor
-  (https://mistica-web.vercel.app/playroom). This skill only produces code — it does not open a browser,
-  control any tab, or execute anything. Use it whenever the user asks to build, edit, or fix a Playroom
+  (https://mistica-web.vercel.app/playroom). Use it whenever the user asks to build, edit, or fix a Playroom
   example with Mistica components. Triggers on mentions of Playroom, mistica-web.vercel.app, or prototyping
   Mistica UI.
 license: MIT
@@ -27,15 +26,9 @@ into the editor.
 
 ## Output format
 
-The only deliverable this skill produces is a **single fenced `jsx` code block** containing the complete,
-paste-ready JSX. Nothing else is automated.
-
-- The code block must be self-contained: select-all + paste into the Playroom editor is the only action the
-  user needs to take.
-- This skill **never** opens a browser, navigates to a URL, clicks, types into any editor, or executes code
-  anywhere. Any browser-control tools that may be present in the session are irrelevant here and must not be
-  used.
-- Do not split the output across multiple code blocks. One block, complete JSX, ready to paste.
+Deliver a **single fenced `jsx` code block** containing the complete, paste-ready JSX. The block must be
+self-contained: select-all + paste into the Playroom editor is the only action the user needs to take. Do not
+split the output across multiple code blocks.
 
 ## Pair with the `mistica-react` skill (design-system fidelity) — mandatory
 
