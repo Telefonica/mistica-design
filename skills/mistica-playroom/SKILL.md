@@ -1,29 +1,41 @@
 ---
 name: mistica-playroom
 description:
-  Write JSX code in Mistica's hosted Playroom web editor (https://mistica-web.vercel.app/playroom) through a
-  connected browser. Use this skill whenever producing or typing code into the Playroom web app, prototyping
-  Mistica components live in the browser, or when the user is on the mistica-web.vercel.app/playroom page and
-  asks to build, edit, or fix a Playroom example. Triggers on mentions of Playroom, mistica-web.vercel.app, or
-  prototyping Mistica UI in the browser.
+  Generate ready-to-paste JSX code for Mistica's hosted Playroom web editor
+  (https://mistica-web.vercel.app/playroom). This skill only produces code — it does not open a browser,
+  control any tab, or execute anything. Use it whenever the user asks to build, edit, or fix a Playroom
+  example with Mistica components. Triggers on mentions of Playroom, mistica-web.vercel.app, or prototyping
+  Mistica UI.
 license: MIT
 metadata:
   author: telefonica
-  version: '1.0.0'
+  version: '2.0.0'
 ---
 
 # Mistica Playroom (web editor)
 
 Playroom is Mistica's hosted live-prototyping tool at **https://mistica-web.vercel.app/playroom**. The left
 panel is a code editor; the right panel renders the result instantly across the configured widths. This skill
-covers the peculiarities of writing code into that editor through a connected browser, so the code renders
-on the first try.
+covers the peculiarities of writing Playroom-compatible JSX so the code renders on the first try when pasted
+into the editor.
 
 ## When to apply
 
-- The user is on, or asks you to open, `https://mistica-web.vercel.app/playroom` and write or edit code.
-- Prototyping a Mistica component, screen, or interaction live in the browser (not in a local repo).
+- The user asks to build or edit a Playroom example for Mistica.
+- Prototyping a Mistica component, screen, or interaction (not in a local repo).
 - Mobile/desktop variants of the URL also apply: `/playroom-mobile` and `/playroom-desktop`.
+
+## Output format
+
+The only deliverable this skill produces is a **single fenced `jsx` code block** containing the complete,
+paste-ready JSX. Nothing else is automated.
+
+- The code block must be self-contained: select-all + paste into the Playroom editor is the only action the
+  user needs to take.
+- This skill **never** opens a browser, navigates to a URL, clicks, types into any editor, or executes code
+  anywhere. Any browser-control tools that may be present in the session are irrelevant here and must not be
+  used.
+- Do not split the output across multiple code blocks. One block, complete JSX, ready to paste.
 
 ## Pair with the `mistica-react` skill (design-system fidelity) — mandatory
 
@@ -31,8 +43,7 @@ The JSX written here must be as faithful to the Mistica design system as product
 **hard dependency on the `mistica-react` skill** for every component-choice, prop, and token decision — do not
 generate component code without it.
 
-**Preflight: confirm `mistica-react` is available (do this before generating any component code, right after
-the browser-control preflight above).**
+**Preflight: confirm `mistica-react` is available (do this before generating any component code).**
 
 1. Check whether `mistica-react` is listed among the skills available in the current session.
 2. **If it is available**, invoke it via the Skill tool and use it as the source of truth for: which component
@@ -55,42 +66,6 @@ then strip anything Playroom forbids:
 - Drop any hand-added `ThemeContextProvider`/`SheetRoot` — the frame already provides them.
 - Use the in-scope `colors`/`skinVars` tokens instead of hardcoded color values, exactly as `mistica-react`
   recommends.
-
-## Preflight: confirm browser control (do this first)
-
-This skill drives the live web editor, so it requires a connected browser-control tool. **Before writing or
-sending any code, verify that browser control is available.** Do not assume it is.
-
-1. Check for a browser-control tool in the current session. Look for tools such as `Claude in Chrome`
-   (`mcp__Claude_in_Chrome__*`, e.g. `list_connected_browsers`, `navigate`), `Control Chrome`
-   (`mcp__Control_Chrome__*`), or a preview/browser tool that can open a URL and read the page.
-2. Run one lightweight, read-only probe to confirm the connection actually works — for example list the
-   connected browsers or read the current tab. A tool merely being listed is not proof it is connected; the
-   probe must succeed.
-3. **If the probe succeeds**, proceed to "How the editor works" below.
-4. **If no browser-control tool exists, or the probe fails**, stop and do not pretend to type into the editor.
-   Take both of these steps:
-   - **Ask the user to enable browser control.** Point them to the Claude for Chrome extension (or their
-     browser-MCP connector), and tell them to connect it to the active tab on
-     `https://mistica-web.vercel.app/playroom`, then say "ready" so the probe can be retried.
-   - **Provide a manual fallback in the meantime.** Output the complete Playroom JSX in a single fenced code
-     block, following all the Hard rules below, and instruct the user to select-all in the Playroom editor and
-     paste it. This way the user is never blocked even without browser access.
-
-Re-run the probe after the user reports the connection is ready; only then continue with the automated flow.
-
-## How the editor works (browser flow)
-
-1. Open the URL. The editor area is a CodeMirror text field; the preview renders to the right.
-2. To set the code, **replace the whole editor contents** rather than appending — Playroom encodes the current
-   code into the URL hash, so partial typing can fight with existing content. Select-all then type/paste the
-   full JSX.
-3. The preview updates live. If nothing renders or an error overlay appears, re-read the code against the
-   rules below — the usual cause is an `import`, an `export`, or a `React.useState` call.
-4. Use the frame controls (skin tabs, iOS/Android, light/dark) to check the example across themes; do not bake
-   a theme into the code.
-5. The current example is shareable via the page URL (the code lives in the URL hash) — capture it when the
-   user wants to save or share the prototype.
 
 ## Hard rules — why Playroom code differs from normal React
 
@@ -197,7 +172,5 @@ Imperative dialog:
 - No `import` / `export` / `function` / top-level `return` in the code.
 - Any interactivity uses `getState`/`setState`, not `React.useState`.
 - No `ThemeContextProvider` / `SheetRoot` wrapper added by hand.
-- The preview panel renders without an error overlay; the example looks correct after toggling skin and
-  light/dark in the on-page controls.
-- If browser control was unavailable, the full JSX was delivered as a single paste-ready code block and the
-  user was told how to enable browser control.
+- The full JSX is delivered as a single paste-ready fenced code block so the user can select-all and paste it
+  directly into the Playroom editor.
