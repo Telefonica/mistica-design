@@ -22,7 +22,7 @@ export const FONT_FAMILIES = {
 export const ICON_SETS = {
   [BRANDS.MOVISTAR]: "Default",
   [BRANDS.VIVO]: "Vivo",
-  [BRANDS.VIVO_EVOLUTION]: "Vivo",
+  [BRANDS.VIVO_EVOLUTION]: "Vivo Evolution",
   [BRANDS.O2]: "O2",
   [BRANDS.TELEFONICA]: "Default",
   [BRANDS.BLAU]: "Blau",
