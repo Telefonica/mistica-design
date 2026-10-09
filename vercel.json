@@ -1,0 +1,5 @@
+{
+  "rootDirectory": "site",
+  "outputDirectory": "dist",
+  "ignoreCommand": "git diff HEAD~1 --name-only | grep -qE '^(site|tokens)/'"
+}

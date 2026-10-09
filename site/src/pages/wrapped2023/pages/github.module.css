@@ -1,0 +1,68 @@
+.content {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scroll {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 200vw;
+  will-change: transform;
+  display: flex;
+  justify-content: space-between;
+  padding: 8rem;
+  gap: 2rem;
+  z-index: 2;
+}
+
+.mobileBackground {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(100% + 32px);
+  margin: -96px -16px 0 -16px;
+  height: calc(100% + 96px);
+  z-index: 0;
+}
+
+.desktopBackground {
+  position: relative;
+  height: calc(100% + 16rem);
+  margin: 0 -100vw;
+}
+
+.desktopBackground svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.titleSize {
+  max-width: 64ch;
+}
+
+.contributors {
+  text-align: center;
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: calc(100vw - 12rem);
+  align-items: center;
+  margin-left: -12rem;
+  gap: 124px;
+}
+
+.iconsMobile {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.icon {
+  z-index: 1;
+}

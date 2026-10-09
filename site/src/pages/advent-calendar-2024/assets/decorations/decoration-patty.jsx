@@ -1,0 +1,94 @@
+import { skinVars } from "@telefonica/mistica";
+import styles from "./decoration-patty.module.css";
+
+const DecorationPatty = ({
+  size = 120,
+  color = "transparent",
+  background = "transparent",
+  text = "",
+  textColor = skinVars.colors.brand,
+  textSize = 10,
+  children,
+  stroke = "1.5",
+  check = false,
+  easterEgg = false,
+}) => {
+  return (
+    <div
+      className={easterEgg ? `${styles.decorationPatty}` : undefined}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+      }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 41 40"
+        fill={background}
+      >
+        <path
+          d="M27.1056 4.72604L27.1705 4.70224C28.6534 4.15833 30.2665 5.09201 30.5335 6.64882C30.8233 8.33833 32.1504 9.65947 33.8412 9.94156L33.9146 9.95379C35.4624 10.212 36.3884 11.8202 35.8348 13.2885C35.2298 14.8932 35.7193 16.7055 37.0473 17.789C38.2719 18.7883 38.2719 20.6637 37.0473 21.663C35.7193 22.7466 35.2298 24.5588 35.8348 26.1635C36.3884 27.6318 35.4624 29.24 33.9146 29.4983L33.8412 29.5105C32.1504 29.7926 30.8233 31.1137 30.5335 32.8032C30.2665 34.36 28.6534 35.2937 27.1705 34.7498L27.1056 34.726C25.4935 34.1347 23.6838 34.6174 22.5803 35.933C21.5512 37.1599 19.6637 37.1599 18.6346 35.933C17.5311 34.6174 15.7213 34.1347 14.1092 34.726L14.0443 34.7498C12.5614 35.2937 10.9483 34.36 10.6813 32.8032C10.3916 31.1137 9.06441 29.7926 7.3736 29.5105L7.30028 29.4983C5.75245 29.24 4.8264 27.6318 5.38002 26.1635C5.98504 24.5588 5.49549 22.7466 4.16757 21.663C2.94291 20.6637 2.94291 18.7883 4.16757 17.789C5.49549 16.7055 5.98504 14.8932 5.38002 13.2885C4.8264 11.8202 5.75245 10.212 7.30028 9.95379L7.3736 9.94156C9.06441 9.65947 10.3916 8.33833 10.6813 6.64882C10.9483 5.09201 12.5614 4.15833 14.0443 4.70224L14.1092 4.72604C15.7213 5.31732 17.5311 4.83463 18.6346 3.51906C19.6637 2.29216 21.5512 2.29216 22.5803 3.51906C23.6838 4.83463 25.4935 5.31732 27.1056 4.72604Z"
+          stroke={color}
+          strokeWidth={stroke}
+        />
+        <g>
+          {text && (
+            <text
+              x="50%"
+              y="50%"
+              textAnchor="middle"
+              fontWeight={700}
+              fill={textColor}
+              fontSize={textSize}
+              dy=".3em" // Vertical alignment adjustment
+            >
+              {text}
+            </text>
+          )}
+        </g>
+      </svg>
+      <div
+        style={{
+          position: "absolute",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: { size },
+          height: { size },
+        }}
+      >
+        {children}
+      </div>
+      {check && (
+        <div style={{ position: "absolute", top: 4, right: 4 }}>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clipPath="url(#clip0_935_13591)">
+              <circle cx="9" cy="9" r="9" fill="#0066FF" />
+              <path
+                d="M7.56318 12.125L4.94473 9.32809C4.78305 9.16436 4.80305 8.89598 4.96473 8.75251C5.1264 8.58878 5.39141 8.60903 5.53309 8.77276L7.58318 10.9114L12.4767 5.9978C12.6384 5.83407 12.8834 5.83407 13.0451 5.9978C13.2068 6.16153 13.2068 6.40965 13.0451 6.57338L7.56318 12.125Z"
+                fill="white"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_935_13591">
+                <rect width="18" height="18" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default DecorationPatty;

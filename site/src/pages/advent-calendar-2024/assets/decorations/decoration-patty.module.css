@@ -1,0 +1,13 @@
+@keyframes infiniteRotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.decorationPatty:hover {
+  animation: infiniteRotation 1s linear infinite; /* Animación infinita */
+  animation-delay: 5s;
+}

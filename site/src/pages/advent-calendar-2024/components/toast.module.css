@@ -1,0 +1,23 @@
+/* toast.module.css */
+
+/* Keyframes for the toast entry animation */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(400px); /* Start below */
+  }
+  100% {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to final position */
+  }
+}
+
+
+
+/* Base toast styles */
+.toast {
+  opacity: 0;
+  transform: translateY(400px); /* Initial off-screen position */
+  animation: slideIn 0.5s ease-out forwards; /* Entry animation */
+}
+
