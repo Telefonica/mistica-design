@@ -13,12 +13,15 @@ export const COLLECTION_NAMES = {
   SKIN: "Brand",
   COLOR_SCHEME: "Mode",
   PALETTE: "Palette",
+  DENSITY: "Density",
 };
 
 export const MODE_NAMES = {
   DEFAULT: "Mode 1",
   LIGHT: "Light",
   DARK: "Dark",
+  DENSITY_DEFAULT: "default",
+  DENSITY_COMPACT: "compact",
 };
 
 export const VARIABLE_SCOPES = {
