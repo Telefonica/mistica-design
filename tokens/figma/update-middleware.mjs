@@ -636,7 +636,7 @@ async function updateBrandCollection(jsonData) {
           // For fontSize/lineHeight use a Content density alias; fall back to
           // the raw float for all other token types.
           const densityVarName = getDensityVarName(
-            descriptor.name,
+            descriptor.canonicalName,
             brand,
           );
           const densityVarId = densityVarName
