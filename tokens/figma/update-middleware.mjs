@@ -364,7 +364,7 @@ async function updateBrandCollection(jsonData) {
         )
       : {};
 
-    // Maps "fontSize/desktop/text1" + brand → "brand/desktop/text1"
+    // Maps "fontSize/desktop/text1" + brand → "brand/desktop/fontSize/text1"
     // Maps "lineHeight/mobile/drawerTitle" + brand → "brand/mobile/lineHeight/drawerTitle"
     // Maps "spacing/mobile/buttonDefaultPaddingTop" + brand → "brand/mobile/spacing/buttonDefaultPaddingTop"
     // (only resolves for spacing tokens that define a compact value)
@@ -373,7 +373,7 @@ async function updateBrandCollection(jsonData) {
         /^fontSize\/(mobile|desktop)\/(.+)$/,
       );
       if (fsMatch)
-        return `${brand}/${fsMatch[1]}/${fsMatch[2]}`;
+        return `${brand}/${fsMatch[1]}/fontSize/${fsMatch[2]}`;
       const lhMatch = brandVarName.match(
         /^lineHeight\/(mobile|desktop)\/(.+)$/,
       );
@@ -767,12 +767,13 @@ async function addDensityVariable(
   defaultValue,
   compactValue,
   scopes,
+  legacyNames = [],
 ) {
   const variableData = await updateOrCreateVariables(
     {
       variable: {
         name: variableName,
-        legacyNames: [],
+        legacyNames,
         resolvedType: VARIABLE_TYPES.FLOAT,
         scopes,
       },
@@ -797,7 +798,7 @@ async function addDensityVariable(
     await updateOrCreateVariableModeValues({
       variable: {
         name: variableName,
-        legacyNames: [],
+        legacyNames,
         value: defaultValue,
         hasAlias: false,
       },
@@ -816,7 +817,7 @@ async function addDensityVariable(
     await updateOrCreateVariableModeValues({
       variable: {
         name: variableName,
-        legacyNames: [],
+        legacyNames,
         value: compactValue,
         hasAlias: false,
       },
@@ -916,10 +917,11 @@ async function updateContentDensityCollection(
           newData,
           existingCollections,
           existingDensityVariables,
-          `${brand}/mobile/${key}`,
+          `${brand}/mobile/fontSize/${key}`,
           mobile,
           mobile,
           scopes,
+          [`${brand}/mobile/${key}`],
         );
 
         // desktop: default = desktop, compact = mobile
@@ -927,10 +929,11 @@ async function updateContentDensityCollection(
           newData,
           existingCollections,
           existingDensityVariables,
-          `${brand}/desktop/${key}`,
+          `${brand}/desktop/fontSize/${key}`,
           desktopVal,
           mobile,
           scopes,
+          [`${brand}/desktop/${key}`],
         );
       }
 
