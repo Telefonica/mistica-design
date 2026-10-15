@@ -2,6 +2,15 @@ import fs from "fs";
 import path from "path";
 import hexToRgba from "./hex-to-rgba.mjs";
 
+// A token leaf is a scalar, a { default, compact } pair, or a { mobile, desktop } pair
+// whose entries are scalars or density pairs. Normalise to per-breakpoint entries.
+const toBreakpoints = (value) =>
+  typeof value === "object" &&
+  value !== null &&
+  ("mobile" in value || "desktop" in value)
+    ? value
+    : { mobile: value, desktop: value };
+
 export const extractSkinJsonData = (
   jsonFiles,
   directoryPath,
@@ -412,14 +421,16 @@ export const extractSkinJsonData = (
         side,
         breakpoints,
       ) => {
-        Object.entries(breakpoints).forEach(
+        Object.entries(toBreakpoints(breakpoints)).forEach(
           ([breakpoint, bpValue]) => {
             const figmaName = side
               ? `${key}${capitalize(side)}`
               : key;
             result.push({
               name: `spacing/${breakpoint}/${figmaName}`,
-              value: Number(bpValue),
+              value: Number(
+                bpValue?.default ?? bpValue,
+              ),
             });
           },
         );
@@ -427,9 +438,11 @@ export const extractSkinJsonData = (
 
       // CASE 1 — scalar (all sides, no sides explicitly defined)
       if (
-        typeof value === "object" &&
-        value !== null &&
-        !sides.some((side) => side in value)
+        !(
+          typeof value === "object" &&
+          value !== null &&
+          sides.some((side) => side in value)
+        )
       ) {
         pushBreakpoints(null, value); // Only master variable
       } else {
@@ -902,7 +915,7 @@ export const extractMiddlewareJsonData = (
         nameSuffix,
         breakpoints,
       ) => {
-        Object.entries(breakpoints).forEach(
+        Object.entries(toBreakpoints(breakpoints)).forEach(
           ([bp, bpValue]) => {
             const figmaName = nameSuffix
               ? `${key}${capitalize(nameSuffix)}`
@@ -910,7 +923,16 @@ export const extractMiddlewareJsonData = (
             result.push({
               ...attachTokenMeta(token, {
                 name: `spacing/${bp}/${figmaName}`,
-                value: Number(bpValue),
+                value: Number(
+                  bpValue?.default ?? bpValue,
+                ),
+                ...(bpValue?.compact !== undefined
+                  ? {
+                      compact: Number(
+                        bpValue.compact,
+                      ),
+                    }
+                  : {}),
               }),
             });
           },
@@ -919,9 +941,11 @@ export const extractMiddlewareJsonData = (
 
       // CASE 1 — scalar (all breakpoints, no sides explicitly defined)
       if (
-        typeof value === "object" &&
-        value !== null &&
-        !sides.some((side) => side in value)
+        !(
+          typeof value === "object" &&
+          value !== null &&
+          sides.some((side) => side in value)
+        )
       ) {
         pushBreakpoints(null, value); // master variable only
       } else {

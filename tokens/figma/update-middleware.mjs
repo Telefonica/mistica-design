@@ -366,6 +366,8 @@ async function updateBrandCollection(jsonData) {
 
     // Maps "fontSize/desktop/text1" + brand → "brand/desktop/fontSize/text1"
     // Maps "lineHeight/mobile/drawerTitle" + brand → "brand/mobile/lineHeight/drawerTitle"
+    // Maps "spacing/mobile/buttonDefaultPaddingTop" + brand → "brand/mobile/spacing/buttonDefaultPaddingTop"
+    // (only resolves for spacing tokens that define a compact value)
     function getDensityVarName(brandVarName, brand) {
       const fsMatch = brandVarName.match(
         /^fontSize\/(mobile|desktop)\/(.+)$/,
@@ -377,6 +379,11 @@ async function updateBrandCollection(jsonData) {
       );
       if (lhMatch)
         return `${brand}/${lhMatch[1]}/lineHeight/${lhMatch[2]}`;
+      const spMatch = brandVarName.match(
+        /^spacing\/(mobile|desktop)\/(.+)$/,
+      );
+      if (spMatch)
+        return `${brand}/${spMatch[1]}/spacing/${spMatch[2]}`;
       return null;
     }
 
@@ -966,6 +973,27 @@ async function updateContentDensityCollection(
           desktopVal,
           mobile,
           scopes,
+        );
+      }
+
+      // --- spacing (only tokens that define a compact value) ---
+      for (const item of brandData.spacing || []) {
+        if (item.compact === undefined) continue;
+        const match = item.name.match(
+          /^spacing\/(mobile|desktop)\/(.+)$/,
+        );
+        if (!match) continue;
+        await addDensityVariable(
+          newData,
+          existingCollections,
+          existingDensityVariables,
+          `${brand}/${match[1]}/spacing/${match[2]}`,
+          item.value,
+          item.compact,
+          [
+            VARIABLE_SCOPES.WIDTH_HEIGHT,
+            VARIABLE_SCOPES.GAP,
+          ],
         );
       }
     }
