@@ -1,0 +1,100 @@
+name: Figma sync check
+
+# Lists closed issues that have unchecked checkboxes ("- [ ] ...") in the body
+# and no associated branch ("#<issue> ...") in the Mistica Mobile / Desktop Figma files.
+# The table is printed in the action log.
+
+on:
+  workflow_dispatch:
+  # To run it periodically, add a schedule trigger, for example every Monday at 08:00 UTC:
+  # schedule:
+  #   - cron: "0 8 * * 1"
+
+permissions:
+  contents: read
+  issues: read
+
+concurrency:
+  group: figma-sync-check
+  cancel-in-progress: true
+
+jobs:
+  figma-sync-check:
+    runs-on: ubuntu-latest
+    env:
+      REPO: Telefonica/mistica-design
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+      FIGMA_MOBILE_KEY: WCkDDzlXE16R6yXaljxddj 
+      FIGMA_DESKTOP_KEY: DSWhPLyJzbliP1fBrLxDUR
+    steps:
+      # ---------------------------------------------------------------------
+      # TODO(verify): Figma branch extraction.
+      # This reuses the approach of .github/issue-scripts/branch-table.py:
+      #   GET https://api.figma.com/v1/files/:key?branch_data=true
+      # and reads `.branches[].name`. It is NOT confirmed against the Figma REST
+      # API docs in this change. Pending verification:
+      #   1. That `branch_data=true` and the `branches` array are still current
+      #      (the docs page consulted did not cover them).
+      #   2. That `depth=1` is accepted (used only to reduce the payload size).
+      #   3. Whether a branch merge state is exposed. Nothing is filtered by merge
+      #      state here: ANY branch listed counts as "associated". If merged
+      #      branches must be ignored, add the filter in the jq expression below.
+      #   4. Whether the branch list is paginated for files with many branches.
+      #   5. The exact branch name format. Assumed: "#<number> <text>" at the
+      #      start of the name.
+      # ---------------------------------------------------------------------
+      - name: Collect issue numbers that have a Figma branch
+        run: |
+          set -euo pipefail
+
+          : > figma_issue_numbers.txt
+          for KEY in "$FIGMA_MOBILE_KEY" "$FIGMA_DESKTOP_KEY"; do
+            if [ -z "$KEY" ]; then
+              echo "::error::FIGMA_MOBILE_KEY or FIGMA_DESKTOP_KEY is not set"
+              exit 1
+            fi
+            curl -fsS -H "X-Figma-Token: $FIGMA_TOKEN" \
+              "https://api.figma.com/v1/files/${KEY}?branch_data=true&depth=1" \
+              | jq -r '.branches[]?.name | capture("^\\s*#(?<n>[0-9]+)") | .n' \
+              >> figma_issue_numbers.txt
+          done
+          sort -un figma_issue_numbers.txt -o figma_issue_numbers.txt
+          echo "Issues with a Figma branch: $(wc -l < figma_issue_numbers.txt)"
+
+      - name: Fetch closed issues (excluding pull requests)
+        run: |
+          set -euo pipefail
+
+          # The issues endpoint also returns PRs; they carry a "pull_request" key.
+          gh api --paginate "repos/${REPO}/issues?state=closed&per_page=100" \
+            --jq '.[] | select(.pull_request == null) | {number, title, body, url: .html_url}' \
+            | jq -s '.' > closed_issues.json
+          echo "Closed issues (no PRs): $(jq length closed_issues.json)"
+
+      - name: Print table
+        run: |
+          set -euo pipefail
+
+          # Issues without a Figma branch and with at least one unchecked "- [ ] text".
+          jq -r --rawfile figma figma_issue_numbers.txt '
+            def esc: gsub("\\|"; "\\|") | gsub("\r?\n"; " ");
+
+            ($figma | split("\n") | map(select(length > 0) | tonumber)) as $withBranch
+            | .[]
+            | select(.number as $n | $withBranch | index($n) | not)
+            | . as $i
+            | [ ($i.body // "") | split("\n")[]
+                | gsub("\r"; "")
+                | select(test("^\\s*[-*+]\\s+\\[ \\]\\s+"))
+                | sub("^\\s*[-*+]\\s+\\[ \\]\\s+"; "")
+                | esc ] as $todo
+            | select($todo | length > 0)
+            | "| [#\($i.number)](\($i.url)) | \($i.title | esc) | \($todo | map("- [ ] " + .) | join("<br>")) |"
+          ' closed_issues.json > rows.md
+
+          echo "| Issue | Título | Checkboxes sin marcar |"
+          echo "| --- | --- | --- |"
+          cat rows.md
+          echo
+          echo "Total issues found: $(wc -l < rows.md | tr -d ' ')"
