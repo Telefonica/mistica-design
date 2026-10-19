@@ -3901,8 +3901,14 @@
           "desktop": 16
         },
         "bottom": {
-          "mobile": 12,
-          "desktop": 12
+          "mobile": {
+            "default": 12,
+            "compact": 8
+          },
+          "desktop": {
+            "default": 12,
+            "compact": 8
+          }
         },
         "left": {
           "mobile": 16,
