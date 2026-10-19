@@ -11,6 +11,60 @@ const toBreakpoints = (value) =>
     ? value
     : { mobile: value, desktop: value };
 
+// Fixed output order, so a skin that declares "desktop" before "mobile" still
+// produces entries in the same order as every other skin.
+const BREAKPOINTS = ["mobile", "desktop"];
+
+const isDensity = (value) =>
+  typeof value === "object" &&
+  value !== null &&
+  "default" in value;
+
+const isBreakpoints = (value) =>
+  typeof value === "object" &&
+  value !== null &&
+  ("mobile" in value || "desktop" in value);
+
+// Radius values are strings in the skins: "circle" means fully rounded.
+const parseRadius = (value) =>
+  value === "circle" ? 999 : parseFloat(value);
+
+// Splits a leaf into { value, compact? }. compact is only set for density pairs,
+// so the middleware can tell a density-aware token from an ordinary one.
+const splitDensity = (value, parse) =>
+  isDensity(value)
+    ? {
+        value: parse(value.default),
+        compact: parse(value.compact),
+      }
+    : { value: parse(value) };
+
+// Expands a scalar / density / breakpoint value into named entries.
+// Names are breakpoint-qualified when the value declares breakpoints, or when
+// alwaysBreakpoints is set — typography always needs mobile/desktop names, even
+// for a scalar, because the Density collection is keyed on them.
+const expandValue = (
+  prefix,
+  key,
+  value,
+  parse,
+  alwaysBreakpoints = false,
+) =>
+  isBreakpoints(value) || alwaysBreakpoints
+    ? BREAKPOINTS.map((breakpoint) => ({
+        name: `${prefix}${breakpoint}/${key}`,
+        ...splitDensity(
+          toBreakpoints(value)[breakpoint],
+          parse,
+        ),
+      }))
+    : [
+        {
+          name: `${prefix}${key}`,
+          ...splitDensity(value, parse),
+        },
+      ];
+
 export const extractSkinJsonData = (
   jsonFiles,
   directoryPath,
@@ -315,19 +369,14 @@ export const extractSkinJsonData = (
 
     const radiusArray = Object.keys(
       parsedContent.radius,
-    ).map((key) => ({
-      name: key,
-      value:
-        typeof parsedContent.radius[key].value ===
-        "string"
-          ? parsedContent.radius[key].value ===
-            "circle"
-            ? 999 // If the value is "circle", set it to 999
-            : parseFloat(
-                parsedContent.radius[key].value,
-              ) // Otherwise, convert it to a float
-          : parsedContent.radius[key].value, // If it's not a string, use the original value
-    }));
+    ).flatMap((key) =>
+      expandValue(
+        "",
+        key,
+        parsedContent.radius[key].value,
+        parseRadius,
+      ),
+    );
 
     const fontWeightArray = Object.keys(
       parsedContent.text.weight,
@@ -338,63 +387,27 @@ export const extractSkinJsonData = (
 
     const fontSizeArray = Object.keys(
       parsedContent.text.size,
-    ).flatMap((key) => {
-      const value =
-        parsedContent.text.size[key].value;
-
-      // Check if the value is an object with mobile and desktop properties
-      if (
-        typeof value === "object" &&
-        value !== null
-      ) {
-        return [
-          {
-            name: `mobile/${key}`,
-            value: parseFloat(value.mobile),
-          },
-          {
-            name: `desktop/${key}`,
-            value: parseFloat(value.desktop),
-          },
-        ];
-      }
-
-      // If value is not an object, return a single entry
-      return {
-        name: key,
-        value: parseFloat(value),
-      };
-    });
+    ).flatMap((key) =>
+      expandValue(
+        "",
+        key,
+        parsedContent.text.size[key].value,
+        parseFloat,
+        true,
+      ),
+    );
 
     const lineHeightArray = Object.keys(
       parsedContent.text.lineHeight,
-    ).flatMap((key) => {
-      const value =
-        parsedContent.text.lineHeight[key].value;
-
-      // Check if the value is an object with mobile and desktop properties
-      if (
-        typeof value === "object" &&
-        value !== null
-      ) {
-        return [
-          {
-            name: `mobile/${key}`,
-            value: parseFloat(value.mobile),
-          },
-          {
-            name: `desktop/${key}`,
-            value: parseFloat(value.desktop),
-          },
-        ];
-      }
-
-      // If value is not an object, return a single entry
-      return {
-        name: key,
-        value: parseFloat(value),
-      };
-    });
+    ).flatMap((key) =>
+      expandValue(
+        "",
+        key,
+        parsedContent.text.lineHeight[key].value,
+        parseFloat,
+        true,
+      ),
+    );
 
     const spacingArray = Object.keys(
       parsedContent.spacing,
@@ -448,7 +461,7 @@ export const extractSkinJsonData = (
       } else {
         // CASE 2 — side-specific values
         sides.forEach((side) => {
-          if (value[side])
+          if (value[side] !== undefined)
             pushBreakpoints(side, value[side]);
         });
       }
@@ -803,20 +816,18 @@ export const extractMiddlewareJsonData = (
 
     const radiusArray = Object.keys(
       parsedContent.radius,
-    ).map((key) =>
-      attachTokenMeta(parsedContent.radius[key], {
-        name: `radii/${key}`,
-        value:
-          typeof parsedContent.radius[key]
-            .value === "string"
-            ? parsedContent.radius[key].value ===
-              "circle"
-              ? 999 // If the value is "circle", set it to 999
-              : parseFloat(
-                  parsedContent.radius[key].value,
-                ) // Otherwise, convert it to a float
-            : parsedContent.radius[key].value, // If it's not a string, use the original value
-      }),
+    ).flatMap((key) =>
+      expandValue(
+        "radii/",
+        key,
+        parsedContent.radius[key].value,
+        parseRadius,
+      ).map((entry) =>
+        attachTokenMeta(
+          parsedContent.radius[key],
+          entry,
+        ),
+      ),
     );
 
     const fontWeightArray = Object.keys(
@@ -834,64 +845,37 @@ export const extractMiddlewareJsonData = (
 
     const fontSizeArray = Object.keys(
       parsedContent.text.size,
-    ).flatMap((key) => {
-      const token = parsedContent.text.size[key];
-      const value = token.value;
-
-      // Check if the value is an object with mobile and desktop properties
-      if (
-        typeof value === "object" &&
-        value !== null
-      ) {
-        return [
-          attachTokenMeta(token, {
-            name: `fontSize/mobile/${key}`,
-            value: parseFloat(value.mobile),
-          }),
-          attachTokenMeta(token, {
-            name: `fontSize/desktop/${key}`,
-            value: parseFloat(value.desktop),
-          }),
-        ];
-      }
-
-      // If value is not an object, return a single entry
-      return attachTokenMeta(token, {
-        name: key,
-        value: parseFloat(value),
-      });
-    });
+    ).flatMap((key) =>
+      expandValue(
+        "fontSize/",
+        key,
+        parsedContent.text.size[key].value,
+        parseFloat,
+        true,
+      ).map((entry) =>
+        attachTokenMeta(
+          parsedContent.text.size[key],
+          entry,
+        ),
+      ),
+    );
 
     const lineHeightArray = Object.keys(
       parsedContent.text.lineHeight,
-    ).flatMap((key) => {
-      const token =
-        parsedContent.text.lineHeight[key];
-      const value = token.value;
-
-      // Check if the value is an object with mobile and desktop properties
-      if (
-        typeof value === "object" &&
-        value !== null
-      ) {
-        return [
-          attachTokenMeta(token, {
-            name: `lineHeight/mobile/${key}`,
-            value: parseFloat(value.mobile),
-          }),
-          attachTokenMeta(token, {
-            name: `lineHeight/desktop/${key}`,
-            value: parseFloat(value.desktop),
-          }),
-        ];
-      }
-
-      // If value is not an object, return a single entry
-      return attachTokenMeta(token, {
-        name: key,
-        value: parseFloat(value),
-      });
-    });
+    ).flatMap((key) =>
+      expandValue(
+        "lineHeight/",
+        key,
+        parsedContent.text.lineHeight[key].value,
+        parseFloat,
+        true,
+      ).map((entry) =>
+        attachTokenMeta(
+          parsedContent.text.lineHeight[key],
+          entry,
+        ),
+      ),
+    );
 
     const spacingArray = Object.keys(
       parsedContent.spacing,
@@ -951,7 +935,7 @@ export const extractMiddlewareJsonData = (
       } else {
         // CASE 2 — side-specific values
         sides.forEach((side) => {
-          if (value[side]) {
+          if (value[side] !== undefined) {
             pushBreakpoints(side, value[side]);
           }
         });
