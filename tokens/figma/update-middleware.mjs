@@ -405,6 +405,23 @@ async function updateBrandCollection(jsonData) {
       variableModes: [],
     };
 
+    // Brand variables are shared across brands: only their mode values differ.
+    // Every brand iteration therefore resolves the same variable and yields an
+    // identical action. Figma expects one action per variable — repeated
+    // CREATEs reuse a single tempId, so the new variable would be created once
+    // per brand — while mode values stay one per brand.
+    const seenVariableIds = new Set();
+
+    function pushVariableOnce(result) {
+      if (
+        !result ||
+        seenVariableIds.has(result.id)
+      )
+        return;
+      seenVariableIds.add(result.id);
+      newData.variables.push(result);
+    }
+
     // Step 5: Create or update modes based on the brands
 
     const firstBrand = brandNames[0];
@@ -564,7 +581,7 @@ async function updateBrandCollection(jsonData) {
             existingCollections,
         });
 
-      newData.variables.push(variableData);
+      pushVariableOnce(variableData);
 
       // Step 8: Update mode values with the correct aliases for each brand
       for (const brand of brandNames) {
@@ -644,12 +661,7 @@ async function updateBrandCollection(jsonData) {
                 existingCollections,
             });
 
-          if (!newData.variables) {
-            newData.variables = [];
-          }
-          newData.variables.push(
-            variableUpdateResult,
-          );
+          pushVariableOnce(variableUpdateResult);
 
           // For density-aware tokens use a Content density alias; fall back to
           // the raw float for all other token types.
