@@ -3395,7 +3395,7 @@
       "type": "borderRadius"
     },
     "bar": {
-      "value": "0",
+      "value": "999",
       "type": "borderRadius"
     },
     "button": {
@@ -3403,11 +3403,11 @@
       "type": "borderRadius"
     },
     "checkbox": {
-      "value": "2",
+      "value": "4",
       "type": "borderRadius"
     },
     "container": {
-      "value": "4",
+      "value": "20",
       "type": "borderRadius"
     },
     "indicator": {
@@ -3423,23 +3423,23 @@
       "type": "borderRadius"
     },
     "input": {
-      "value": "8",
+      "value": "12",
       "type": "borderRadius"
     },
     "popup": {
-      "value": "4",
+      "value": "12",
       "type": "borderRadius"
     },
     "sheet": {
-      "value": "0",
+      "value": "20",
       "type": "borderRadius"
     },
     "mediaSmall": {
-      "value": "2",
+      "value": "12",
       "type": "borderRadius"
     },
     "snackbar": {
-      "value": "4",
+      "value": "12",
       "type": "borderRadius"
     }
   },
@@ -3518,6 +3518,10 @@
         "type": "typography"
       },
       "chipLabel": {
+        "value": "medium",
+        "type": "typography"
+      },
+      "chipLabelSmall": {
         "value": "medium",
         "type": "typography"
       },
@@ -3697,8 +3701,15 @@
       },
       "chipLabel": {
         "value": {
-          "mobile": 14,
+          "mobile": 16,
           "desktop": 16
+        },
+        "type": "typography"
+      },
+      "chipLabelSmall": {
+        "value": {
+          "mobile": 14,
+          "desktop": 14
         },
         "type": "typography"
       },
@@ -3916,8 +3927,15 @@
       },
       "chipLabel": {
         "value": {
-          "mobile": 20,
+          "mobile": 24,
           "desktop": 24
+        },
+        "type": "typography"
+      },
+      "chipLabelSmall": {
+        "value": {
+          "mobile": 20,
+          "desktop": 20
         },
         "type": "typography"
       },
