@@ -882,10 +882,11 @@
     },
     "spacing": {
       "additionalProperties": false,
-      "required": ["buttonDefaultPadding", "buttonSmallPadding", "cardDefaultPadding", "tagPadding", "feedbackScreenPadding", "inputPadding", "heroPadding", "headerPadding", "drawerPadding", "boxedDefaultPadding", "responsiveLayoutMargin"],
+      "required": ["buttonDefaultPadding", "buttonSmallPadding", "iconButtonDefaultPadding", "cardDefaultPadding", "tagPadding", "feedbackScreenPadding", "inputPadding", "heroPadding", "headerPadding", "drawerPadding", "boxedDefaultPadding", "responsiveLayoutMargin"],
       "properties": {
         "buttonDefaultPadding": { "$ref": "#/definitions/spacingProperties" },
         "buttonSmallPadding": { "$ref": "#/definitions/spacingProperties" },
+        "iconButtonDefaultPadding": { "$ref": "#/definitions/spacingProperties" },
         "cardDefaultPadding": { "$ref": "#/definitions/spacingProperties" },
         "tagPadding": { "$ref": "#/definitions/spacingProperties" },
         "feedbackScreenPadding": { "$ref": "#/definitions/spacingProperties" },
