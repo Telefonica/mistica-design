@@ -3896,11 +3896,31 @@
   "spacing": {
     "buttonDefaultPadding": {
       "value": {
-        "left": {
+        "top": {
+          "mobile": {
+            "default": 12,
+            "compact": 8
+          },
+          "desktop": {
+            "default": 12,
+            "compact": 8
+          }
+        },
+        "right": {
           "mobile": 16,
           "desktop": 16
         },
-        "right": {
+        "bottom": {
+          "mobile": {
+            "default": 12,
+            "compact": 8
+          },
+          "desktop": {
+            "default": 12,
+            "compact": 8
+          }
+        },
+        "left": {
           "mobile": 16,
           "desktop": 16
         }
@@ -3909,13 +3929,34 @@
     },
     "buttonSmallPadding": {
       "value": {
-        "left": {
-          "mobile": 12,
-          "desktop": 12
+        "top": {
+          "mobile": 6,
+          "desktop": 6
         },
         "right": {
           "mobile": 12,
           "desktop": 12
+        },
+        "bottom": {
+          "mobile": 6,
+          "desktop": 6
+        },
+        "left": {
+          "mobile": 12,
+          "desktop": 12
+        }
+      },
+      "type": "spacing"
+    },
+    "iconButtonDefaultPadding": {
+      "value": {
+        "mobile": {
+          "default": 12,
+          "compact": 8
+        },
+        "desktop": {
+          "default": 12,
+          "compact": 8
         }
       },
       "type": "spacing"
