@@ -44,7 +44,7 @@ jobs:
         uses: rlespinasse/github-slug-action@v3.x
 
       - name: Create Release Notes
-        uses: docker://decathlon/release-notes-generator-action:3.1.7
+        uses: Decathlon/release-notes-generator-action@6763e8c460981d99ad576a53981f22fd4d0abacf # v3.1.7
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OUTPUT_FOLDER: changelog-versions
