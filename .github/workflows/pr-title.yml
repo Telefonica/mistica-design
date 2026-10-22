@@ -1,0 +1,33 @@
+name: Check PR title
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  pull-requests: read
+
+jobs:
+  semantic-pr-title:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          requireScope: true
+
+      - name: Show expected format
+        if: failure()
+        run: |
+          echo "::error title=Invalid PR title::Expected format: type(scope): description. Example: feat(tokens): add chipLabelSmall token"
+          {
+            echo "## Invalid PR title"
+            echo
+            echo "The title must follow the format \`type(scope): description\`."
+            echo
+            echo "Examples:"
+            echo "- \`feat(tokens): add chipLabelSmall token\`"
+            echo "- \`fix(tokens): revert responsiveLayoutMargin to 16px\`"
+            echo "- \`chore(ci): add PR title check\`"
+          } >> "$GITHUB_STEP_SUMMARY"

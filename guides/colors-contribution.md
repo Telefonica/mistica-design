@@ -261,6 +261,38 @@ The `value` field of a border-radius token can be modified:
 
 ![tokens_modify_radius](https://github.com/Telefonica/mistica-design/assets/44420072/cb1c7f44-3c09-4fdc-961f-5a3a5e170397)
 
+## Pairing with mistica-web
+
+> [!IMPORTANT]
+>
+> **Required for new constants**
+>
+> Whenever a PR adds new constant tokens to `tokens/schema/skin-schema.json`, a paired PR in [mistica-web](https://github.com/Telefonica/mistica-web) must update `src/skins/skin-contract.css.ts` before this PR can merge.
+
+An automated check (`check-token-import`) runs on every push and label change for PRs that modify the schema. It compares the `global.constants.required` array against the live mistica-web contract and:
+
+- **Passes** when no new tokens are introduced (fix-only changes).
+- **Passes** when all new tokens are already present in the contract file.
+- **Blocks merge** and applies the `waiting-for-mistica-web` label when one or more tokens are missing.
+- **Removes** the `waiting-for-mistica-web` label on its next run, once the contract contains the new tokens.
+
+### Re-running the check after the mistica-web PR merges
+
+Merging the paired mistica-web PR does not re-trigger this check on its own: the workflow only runs on activity in the design PR itself. Once the contract is updated, re-run the check in one of two ways.
+
+- Push any commit to the design PR, or remove and re-add a label, which re-triggers the workflow automatically.
+- Run it manually from **Actions → Check Token Import in mistica-web → Run workflow**, entering the design PR number in the `pr` field.
+
+Until the check runs again, the PR keeps the failing status and the `waiting-for-mistica-web` label even though the contract is already correct.
+
+### Bypassing the check
+
+For exceptional cases (e.g. a token intentionally shipped to design before the web implementation), apply the `skip-web-check` label to the PR. The workflow will log a warning and exit without failing. Document the reason in the PR description so there is an audit trail.
+
+> [!WARNING]
+>
+> Do not use `skip-web-check` routinely. The label exists for coordinated, planned exceptions — not to work around the process.
+
 ## Modifying the JSON schema
 
 > [!WARNING]

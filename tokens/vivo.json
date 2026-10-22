@@ -127,6 +127,16 @@
       "type": "color",
       "description": "grey1"
     },
+    "backgroundContainerAlternativeOverAlternative": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundContainerAlternativeOverBrand": {
+      "value": "{palette.vivoPurpleDark}",
+      "type": "color",
+      "description": "vivoPurpleDark"
+    },
     "backgroundOverlay": {
       "value": "rgba({palette.grey6}, 0.6)",
       "type": "color",
@@ -346,34 +356,34 @@
       "description": "grey2"
     },
     "buttonLinkNeutralBackgroundBrand": {
-      "value": "{palette.white}",
+      "value": "rgba({palette.white}, 0)",
       "type": "color",
       "description": "white"
     },
     "buttonLinkNeutralBackgroundBrandPressed": {
-      "value": "{palette.grey1}",
+      "value": "rgba({palette.white}, 0.1)",
       "type": "color",
-      "description": "grey1"
+      "description": "white"
     },
     "buttonLinkNeutralBackgroundNegative": {
-      "value": "{palette.white}",
+      "value": "rgba({palette.white}, 0)",
       "type": "color",
       "description": "white"
     },
     "buttonLinkNeutralBackgroundNegativePressed": {
-      "value": "{palette.grey1}",
+      "value": "rgba({palette.white}, 0.1)",
       "type": "color",
-      "description": "grey1"
+      "description": "white"
     },
     "buttonLinkNeutralBackgroundMedia": {
-      "value": "{palette.white}",
+      "value": "rgba({palette.white}, 0)",
       "type": "color",
       "description": "white"
     },
     "buttonLinkNeutralBackgroundMediaPressed": {
-      "value": "{palette.grey1}",
+      "value": "rgba({palette.white}, 0.1)",
       "type": "color",
-      "description": "grey1"
+      "description": "white"
     },
     "buttonPrimaryBackground": {
       "value": "{palette.vivoPurple}",
@@ -720,14 +730,14 @@
       "description": "grey6"
     },
     "textLinkNeutralBrand": {
-      "value": "{palette.grey6}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "grey6"
+      "description": "white"
     },
     "textLinkNeutralNegative": {
-      "value": "{palette.grey6}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "grey6"
+      "description": "white"
     },
     "textLinkNeutralAlternative": {
       "value": "{palette.grey6}",
@@ -735,9 +745,9 @@
       "description": "grey6"
     },
     "textLinkNeutralMedia": {
-      "value": "{palette.grey6}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "grey6"
+      "description": "white"
     },
     "textActivated": {
       "value": "{palette.vivoPurple}",
@@ -1758,6 +1768,16 @@
       "description": "darkModeGrey"
     },
     "backgroundContainerAlternative": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "backgroundContainerAlternativeOverAlternative": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "backgroundContainerAlternativeOverBrand": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
@@ -3400,6 +3420,14 @@
       "chipLabel": {
         "value": "medium",
         "type": "typography"
+      },
+      "chipLabelSmall": {
+        "value": "medium",
+        "type": "typography"
+      },
+      "headerPretitle": {
+        "value": "regular",
+        "type": "typography"
       }
     },
     "size": {
@@ -3578,6 +3606,13 @@
         },
         "type": "typography"
       },
+      "chipLabelSmall": {
+        "value": {
+          "mobile": 14,
+          "desktop": 16
+        },
+        "type": "typography"
+      },
       "inputLabel": {
         "value": {
           "mobile": 12,
@@ -3610,6 +3645,13 @@
         "value": {
           "mobile": 18,
           "desktop": 24
+        },
+        "type": "typography"
+      },
+      "headerPretitle": {
+        "value": {
+          "mobile": 16,
+          "desktop": 18
         },
         "type": "typography"
       }
@@ -3790,6 +3832,13 @@
         },
         "type": "typography"
       },
+      "chipLabelSmall": {
+        "value": {
+          "mobile": 20,
+          "desktop": 24
+        },
+        "type": "typography"
+      },
       "inputLabel": {
         "value": {
           "mobile": 16,
@@ -3822,6 +3871,13 @@
         "value": {
           "mobile": 24,
           "desktop": 28
+        },
+        "type": "typography"
+      },
+      "headerPretitle": {
+        "value": {
+          "mobile": 24,
+          "desktop": 24
         },
         "type": "typography"
       }
@@ -3918,9 +3974,17 @@
           "mobile": 8,
           "desktop": 8
         },
+        "right": {
+          "mobile": 16,
+          "desktop": 16
+        },
         "bottom": {
           "mobile": 8,
           "desktop": 8
+        },
+        "left": {
+          "mobile": 12,
+          "desktop": 12
         }
       },
       "type": "spacing"

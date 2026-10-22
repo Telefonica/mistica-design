@@ -1,0 +1,50 @@
+name: Check Token Import in mistica-web
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+    paths:
+      - "tokens/schema/skin-schema.json"
+    branches:
+      - production
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "PR number to re-check (use after the paired mistica-web PR has merged)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+# Serialise runs per PR: `synchronize` and `labeled` events both mutate the
+# waiting-for-mistica-web label, and overlapping runs could leave it
+# contradicting the reported conclusion. The newest run wins.
+concurrency:
+  group: check-token-import-${{ github.event.pull_request.number || inputs.pr }}
+  cancel-in-progress: true
+
+jobs:
+  check-token-import:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # A manual run would otherwise check out the default branch, so the
+          # PR head is requested explicitly. Empty means "use the event default".
+          ref: ${{ github.event_name == 'workflow_dispatch' && format('refs/pull/{0}/head', inputs.pr) || '' }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Detect new tokens and validate mistica-web sync
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node .github/issue-scripts/check-token-import.js
