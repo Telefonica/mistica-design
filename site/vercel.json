@@ -1,4 +1,5 @@
 {
   "outputDirectory": "dist",
-  "ignoreCommand": "git diff --quiet HEAD~1 -- :/site :/tokens"
+  "ignoreCommand": "git diff --quiet HEAD~1 -- :/site :/tokens",
+  "buildCommand": "pwd; ls -la / /vercel .. ../..; readlink -f . ; vite build"
 }
