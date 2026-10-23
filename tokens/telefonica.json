@@ -67,6 +67,16 @@
       "type": "color",
       "description": "grey1"
     },
+    "backgroundContainerAlternativeOverAlternative": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundContainerAlternativeOverBrand": {
+      "value": "{palette.telefonicaBlue70}",
+      "type": "color",
+      "description": "telefonicaBlue70"
+    },
     "backgroundBrand": {
       "value": "{palette.telefonicaBlue}",
       "type": "color",
@@ -346,34 +356,34 @@
       "description": "grey2"
     },
     "buttonLinkNeutralBackgroundBrand": {
-      "value": "{palette.white}",
+      "value": "rgba({palette.white}, 0)",
       "type": "color",
       "description": "white"
     },
     "buttonLinkNeutralBackgroundBrandPressed": {
-      "value": "{palette.grey1}",
+      "value": "rgba({palette.white}, 0.08)",
       "type": "color",
-      "description": "grey1"
+      "description": "white"
     },
     "buttonLinkNeutralBackgroundNegative": {
-      "value": "{palette.white}",
+      "value": "rgba({palette.white}, 0)",
       "type": "color",
       "description": "white"
     },
     "buttonLinkNeutralBackgroundNegativePressed": {
-      "value": "{palette.grey1}",
+      "value": "rgba({palette.white}, 0.08)",
       "type": "color",
-      "description": "grey1"
+      "description": "white"
     },
     "buttonLinkNeutralBackgroundMedia": {
-      "value": "{palette.white}",
+      "value": "rgba({palette.white}, 0)",
       "type": "color",
       "description": "white"
     },
     "buttonLinkNeutralBackgroundMediaPressed": {
-      "value": "{palette.grey1}",
+      "value": "rgba({palette.white}, 0.08)",
       "type": "color",
-      "description": "grey1"
+      "description": "white"
     },
     "buttonPrimaryBackground": {
       "value": "{palette.telefonicaBlue}",
@@ -720,14 +730,14 @@
       "description": "grey9"
     },
     "textLinkNeutralBrand": {
-      "value": "{palette.grey9}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "grey9"
+      "description": "white"
     },
     "textLinkNeutralNegative": {
-      "value": "{palette.grey9}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "grey9"
+      "description": "white"
     },
     "textLinkNeutralAlternative": {
       "value": "{palette.grey9}",
@@ -735,9 +745,9 @@
       "description": "grey9"
     },
     "textLinkNeutralMedia": {
-      "value": "{palette.grey9}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "grey9"
+      "description": "white"
     },
     "textActivated": {
       "value": "{palette.telefonicaBlue70}",
@@ -1758,6 +1768,16 @@
       "description": "darkModeGrey"
     },
     "backgroundContainerAlternative": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "backgroundContainerAlternativeOverAlternative": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "backgroundContainerAlternativeOverBrand": {
       "value": "{palette.darkModeGrey}",
       "type": "color",
       "description": "darkModeGrey"
@@ -3275,7 +3295,7 @@
       "type": "borderRadius"
     },
     "bar": {
-      "value": "0",
+      "value": "999",
       "type": "borderRadius"
     },
     "button": {
@@ -3283,11 +3303,11 @@
       "type": "borderRadius"
     },
     "checkbox": {
-      "value": "2",
+      "value": "4",
       "type": "borderRadius"
     },
     "container": {
-      "value": "4",
+      "value": "20",
       "type": "borderRadius"
     },
     "indicator": {
@@ -3303,23 +3323,23 @@
       "type": "borderRadius"
     },
     "input": {
-      "value": "8",
+      "value": "12",
       "type": "borderRadius"
     },
     "popup": {
-      "value": "4",
+      "value": "12",
       "type": "borderRadius"
     },
     "sheet": {
-      "value": "0",
+      "value": "20",
       "type": "borderRadius"
     },
     "mediaSmall": {
-      "value": "2",
+      "value": "12",
       "type": "borderRadius"
     },
     "snackbar": {
-      "value": "4",
+      "value": "12",
       "type": "borderRadius"
     }
   },
@@ -3399,6 +3419,14 @@
       },
       "chipLabel": {
         "value": "medium",
+        "type": "typography"
+      },
+      "chipLabelSmall": {
+        "value": "medium",
+        "type": "typography"
+      },
+      "headerPretitle": {
+        "value": "regular",
         "type": "typography"
       }
     },
@@ -3573,8 +3601,15 @@
       },
       "chipLabel": {
         "value": {
-          "mobile": 14,
+          "mobile": 16,
           "desktop": 16
+        },
+        "type": "typography"
+      },
+      "chipLabelSmall": {
+        "value": {
+          "mobile": 14,
+          "desktop": 14
         },
         "type": "typography"
       },
@@ -3610,6 +3645,13 @@
         "value": {
           "mobile": 18,
           "desktop": 20
+        },
+        "type": "typography"
+      },
+      "headerPretitle": {
+        "value": {
+          "mobile": 16,
+          "desktop": 18
         },
         "type": "typography"
       }
@@ -3785,8 +3827,15 @@
       },
       "chipLabel": {
         "value": {
-          "mobile": 20,
+          "mobile": 24,
           "desktop": 24
+        },
+        "type": "typography"
+      },
+      "chipLabelSmall": {
+        "value": {
+          "mobile": 20,
+          "desktop": 20
         },
         "type": "typography"
       },
@@ -3822,6 +3871,13 @@
         "value": {
           "mobile": 24,
           "desktop": 28
+        },
+        "type": "typography"
+      },
+      "headerPretitle": {
+        "value": {
+          "mobile": 24,
+          "desktop": 24
         },
         "type": "typography"
       }
@@ -3986,6 +4042,19 @@
         "right": {
           "mobile": 16,
           "desktop": 16
+        }
+      },
+      "type": "spacing"
+    },
+    "boxedSmallPadding": {
+      "value": {
+        "top": {
+          "mobile": 8,
+          "desktop": 8
+        },
+        "bottom": {
+          "mobile": 8,
+          "desktop": 8
         }
       },
       "type": "spacing"

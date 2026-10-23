@@ -127,6 +127,16 @@
       "type": "color",
       "description": "vivoNeutral25"
     },
+    "backgroundContainerAlternativeOverAlternative": {
+      "value": "{palette.vivoNeutral150}",
+      "type": "color",
+      "description": "vivoNeutral150"
+    },
+    "backgroundContainerAlternativeOverBrand": {
+      "value": "{palette.vivoPurple800}",
+      "type": "color",
+      "description": "vivoPurple800"
+    },
     "backgroundOverlay": {
       "value": "rgba({palette.vivoNeutral975}, 0.6)",
       "type": "color",
@@ -346,34 +356,34 @@
       "description": "vivoNeutral100"
     },
     "buttonLinkNeutralBackgroundBrand": {
-      "value": "{palette.vivoNeutral0}",
+      "value": "rgba({palette.vivoNeutral0}, 0)",
       "type": "color",
       "description": "vivoNeutral0"
     },
     "buttonLinkNeutralBackgroundBrandPressed": {
-      "value": "{palette.vivoNeutral25}",
+      "value": "rgba({palette.vivoNeutral0}, 0.1)",
       "type": "color",
-      "description": "vivoNeutral25"
+      "description": "vivoNeutral0"
     },
     "buttonLinkNeutralBackgroundNegative": {
-      "value": "{palette.vivoNeutral0}",
+      "value": "rgba({palette.vivoNeutral0}, 0)",
       "type": "color",
       "description": "vivoNeutral0"
     },
     "buttonLinkNeutralBackgroundNegativePressed": {
-      "value": "{palette.vivoNeutral25}",
+      "value": "rgba({palette.vivoNeutral0}, 0.1)",
       "type": "color",
-      "description": "vivoNeutral25"
+      "description": "vivoNeutral0"
     },
     "buttonLinkNeutralBackgroundMedia": {
-      "value": "{palette.vivoNeutral0}",
+      "value": "rgba({palette.vivoNeutral0}, 0)",
       "type": "color",
       "description": "vivoNeutral0"
     },
     "buttonLinkNeutralBackgroundMediaPressed": {
-      "value": "{palette.vivoNeutral25}",
+      "value": "rgba({palette.vivoNeutral0}, 0.1)",
       "type": "color",
-      "description": "vivoNeutral25"
+      "description": "vivoNeutral0"
     },
     "buttonPrimaryBackground": {
       "value": "{palette.vivoPurple700}",
@@ -720,14 +730,14 @@
       "description": "vivoNeutral975"
     },
     "textLinkNeutralBrand": {
-      "value": "{palette.vivoNeutral975}",
+      "value": "{palette.vivoNeutral0}",
       "type": "color",
-      "description": "vivoNeutral975"
+      "description": "vivoNeutral0"
     },
     "textLinkNeutralNegative": {
-      "value": "{palette.vivoNeutral975}",
+      "value": "{palette.vivoNeutral0}",
       "type": "color",
-      "description": "vivoNeutral975"
+      "description": "vivoNeutral0"
     },
     "textLinkNeutralAlternative": {
       "value": "{palette.vivoNeutral975}",
@@ -735,9 +745,9 @@
       "description": "vivoNeutral975"
     },
     "textLinkNeutralMedia": {
-      "value": "{palette.vivoNeutral975}",
+      "value": "{palette.vivoNeutral0}",
       "type": "color",
-      "description": "vivoNeutral975"
+      "description": "vivoNeutral0"
     },
     "textActivated": {
       "value": "{palette.vivoPurple700}",
@@ -1761,6 +1771,16 @@
       "value": "{palette.vivoNeutral900}",
       "type": "color",
       "description": "vivoNeutral900"
+    },
+    "backgroundContainerAlternativeOverAlternative": {
+      "value": "{palette.vivoNeutral150}",
+      "type": "color",
+      "description": "vivoNeutral150"
+    },
+    "backgroundContainerAlternativeOverBrand": {
+      "value": "{palette.vivoPurple800}",
+      "type": "color",
+      "description": "vivoPurple800"
     },
     "backgroundOverlay": {
       "value": "rgba({palette.vivoNeutral900}, 0.8)",
@@ -3400,6 +3420,14 @@
       "chipLabel": {
         "value": "medium",
         "type": "typography"
+      },
+      "chipLabelSmall": {
+        "value": "medium",
+        "type": "typography"
+      },
+      "headerPretitle": {
+        "value": "regular",
+        "type": "typography"
       }
     },
     "size": {
@@ -3419,7 +3447,7 @@
       },
       "cardTitleSnap": {
         "value": {
-          "mobile": 16,
+          "mobile": 14,
           "desktop": 18
         },
         "type": "typography"
@@ -3447,7 +3475,7 @@
       },
       "cardTitleDefault": {
         "value": {
-          "mobile": 18,
+          "mobile": 16,
           "desktop": 24
         },
         "type": "typography"
@@ -3578,6 +3606,13 @@
         },
         "type": "typography"
       },
+      "chipLabelSmall": {
+        "value": {
+          "mobile": 14,
+          "desktop": 16
+        },
+        "type": "typography"
+      },
       "inputLabel": {
         "value": {
           "mobile": 12,
@@ -3610,6 +3645,13 @@
         "value": {
           "mobile": 18,
           "desktop": 24
+        },
+        "type": "typography"
+      },
+      "headerPretitle": {
+        "value": {
+          "mobile": 14,
+          "desktop": 16
         },
         "type": "typography"
       }
@@ -3790,6 +3832,13 @@
         },
         "type": "typography"
       },
+      "chipLabelSmall": {
+        "value": {
+          "mobile": 20,
+          "desktop": 24
+        },
+        "type": "typography"
+      },
       "inputLabel": {
         "value": {
           "mobile": 16,
@@ -3822,6 +3871,13 @@
         "value": {
           "mobile": 24,
           "desktop": 28
+        },
+        "type": "typography"
+      },
+      "headerPretitle": {
+        "value": {
+          "mobile": 20,
+          "desktop": 24
         },
         "type": "typography"
       }
@@ -3990,9 +4046,22 @@
       },
       "type": "spacing"
     },
+    "boxedSmallPadding": {
+      "value": {
+        "top": {
+          "mobile": 16,
+          "desktop": 16
+        },
+        "bottom": {
+          "mobile": 16,
+          "desktop": 16
+        }
+      },
+      "type": "spacing"
+    },
     "responsiveLayoutMargin": {
       "value": {
-        "mobile": 8,
+        "mobile": 16,
         "desktop": 48
       },
       "type": "spacing"

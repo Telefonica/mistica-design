@@ -125,6 +125,16 @@
       "type": "color",
       "description": "neutral50"
     },
+    "backgroundContainerAlternativeOverAlternative": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "backgroundContainerAlternativeOverBrand": {
+      "value": "{palette.neutral900}",
+      "type": "color",
+      "description": "neutral900"
+    },
     "backgroundOverlay": {
       "value": "rgba({palette.black}, 0.6)",
       "type": "color",
@@ -336,34 +346,34 @@
       "description": "black"
     },
     "buttonLinkNeutralBackgroundBrand": {
-      "value": "{palette.white}",
+      "value": "rgba({palette.neutral100}, 0)",
       "type": "color",
-      "description": "white"
+      "description": "neutral100"
     },
     "buttonLinkNeutralBackgroundBrandPressed": {
-      "value": "{palette.neutral50}",
+      "value": "rgba({palette.white}, 0.1)",
       "type": "color",
-      "description": "neutral50"
+      "description": "white"
     },
     "buttonLinkNeutralBackgroundNegative": {
-      "value": "{palette.white}",
+      "value": "rgba({palette.neutral100}, 0)",
       "type": "color",
-      "description": "white"
+      "description": "neutral100"
     },
     "buttonLinkNeutralBackgroundNegativePressed": {
-      "value": "{palette.neutral50}",
-      "type": "color",
-      "description": "neutral50"
-    },
-    "buttonLinkNeutralBackgroundMedia": {
-      "value": "{palette.white}",
+      "value": "rgba({palette.white}, 0.1)",
       "type": "color",
       "description": "white"
     },
-    "buttonLinkNeutralBackgroundMediaPressed": {
-      "value": "{palette.neutral50}",
+    "buttonLinkNeutralBackgroundMedia": {
+      "value": "rgba({palette.neutral100}, 0)",
       "type": "color",
-      "description": "neutral50"
+      "description": "neutral100"
+    },
+    "buttonLinkNeutralBackgroundMediaPressed": {
+      "value": "rgba({palette.white}, 0.1)",
+      "type": "color",
+      "description": "white"
     },
     "buttonPrimaryBackground": {
       "value": "{palette.black}",
@@ -686,14 +696,14 @@
       "description": "black"
     },
     "textLinkNeutralBrand": {
-      "value": "{palette.black}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "black"
+      "description": "white"
     },
     "textLinkNeutralNegative": {
-      "value": "{palette.black}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "black"
+      "description": "white"
     },
     "textLinkNeutralAlternative": {
       "value": "{palette.black}",
@@ -701,9 +711,9 @@
       "description": "black"
     },
     "textLinkNeutralMedia": {
-      "value": "{palette.black}",
+      "value": "{palette.white}",
       "type": "color",
-      "description": "black"
+      "description": "white"
     },
     "textActivated": {
       "value": "{palette.black}",
@@ -1664,6 +1674,16 @@
       "description": "neutral900"
     },
     "backgroundContainerAlternative": {
+      "value": "{palette.neutral900}",
+      "type": "color",
+      "description": "neutral900"
+    },
+    "backgroundContainerAlternativeOverAlternative": {
+      "value": "{palette.neutral900}",
+      "type": "color",
+      "description": "neutral900"
+    },
+    "backgroundContainerAlternativeOverBrand": {
       "value": "{palette.neutral900}",
       "type": "color",
       "description": "neutral900"
@@ -3163,6 +3183,10 @@
         "value": "medium",
         "type": "typography"
       },
+      "chipLabelSmall": {
+        "value": "medium",
+        "type": "typography"
+      },
       "drawerTitle": {
         "value": "medium",
         "type": "typography"
@@ -3226,6 +3250,10 @@
       "title4": {
         "value": "medium",
         "type": "typography"
+      },
+      "headerPretitle": {
+        "value": "regular",
+        "type": "typography"
       }
     },
     "size": {
@@ -3288,6 +3316,13 @@
       "chipLabel": {
         "value": {
           "desktop": 16,
+          "mobile": 16
+        },
+        "type": "typography"
+      },
+      "chipLabelSmall": {
+        "value": {
+          "desktop": 14,
           "mobile": 14
         },
         "type": "typography"
@@ -3438,6 +3473,13 @@
           "mobile": 24
         },
         "type": "typography"
+      },
+      "headerPretitle": {
+        "value": {
+          "desktop": 18,
+          "mobile": 16
+        },
+        "type": "typography"
       }
     },
     "lineHeight": {
@@ -3500,6 +3542,13 @@
       "chipLabel": {
         "value": {
           "desktop": 24,
+          "mobile": 24
+        },
+        "type": "typography"
+      },
+      "chipLabelSmall": {
+        "value": {
+          "desktop": 20,
           "mobile": 20
         },
         "type": "typography"
@@ -3648,6 +3697,13 @@
         "value": {
           "desktop": 40,
           "mobile": 32
+        },
+        "type": "typography"
+      },
+      "headerPretitle": {
+        "value": {
+          "desktop": 24,
+          "mobile": 24
         },
         "type": "typography"
       }
@@ -3812,6 +3868,19 @@
         "right": {
           "mobile": 16,
           "desktop": 16
+        }
+      },
+      "type": "spacing"
+    },
+    "boxedSmallPadding": {
+      "value": {
+        "top": {
+          "mobile": 8,
+          "desktop": 8
+        },
+        "bottom": {
+          "mobile": 8,
+          "desktop": 8
         }
       },
       "type": "spacing"
