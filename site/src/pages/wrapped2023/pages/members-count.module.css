@@ -1,0 +1,50 @@
+.containerMobile {
+  height: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+}
+
+.containerDesktop {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  max-width: 100vw;
+  overflow: hidden;
+}
+.planets {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  width: 300%;
+}
+
+.bottomTextMobile {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 9999;
+  width: 100%;
+  text-align: center;
+}
+
+.bottomTextDesktop {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 9999;
+  width: 100%;
+  text-align: center;
+}
