@@ -1,4 +1,7 @@
 {
   "outputDirectory": "dist",
-  "ignoreCommand": "git diff --quiet HEAD~1 -- site tokens"
+  "ignoreCommand": "git diff --quiet HEAD~1 -- :/site :/tokens",
+  "installCommand": "mkdir -p /tmp/corepack-bin && corepack enable --install-directory /tmp/corepack-bin && /tmp/corepack-bin/yarn install --immutable",
+  "buildCommand": "/tmp/corepack-bin/yarn build",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
