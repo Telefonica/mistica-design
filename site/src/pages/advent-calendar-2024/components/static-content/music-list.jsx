@@ -29,12 +29,7 @@ const MusicLists = () => {
                 </svg>
               }
               title="Christmas Chill"
-              media={
-                <Image
-                  aspectRatio="1:1"
-                  src={chillMusicImg}
-                />
-              }
+              imageSrc={chillMusicImg}
               buttonLink={
                 <ButtonLink
                   small
@@ -57,12 +52,7 @@ const MusicLists = () => {
                 </svg>
               }
               title="Punk Christmas"
-              media={
-                <Image
-                  aspectRatio="1:1"
-                  src={punkMusicImg}
-                />
-              }
+              imageSrc={punkMusicImg}
               buttonLink={
                 <ButtonLink
                   small
@@ -85,12 +75,7 @@ const MusicLists = () => {
                 </svg>
               }
               title="Electronic Christmas"
-              media={
-                <Image
-                  aspectRatio="1:1"
-                  src={electronicMusicImg}
-                />
-              }
+              imageSrc={electronicMusicImg}
               buttonLink={
                 <ButtonLink
                   small

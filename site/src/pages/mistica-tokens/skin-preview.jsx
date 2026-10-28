@@ -15,11 +15,7 @@ import {
   ButtonLinkDanger,
   MediaCard,
   DataCard,
-  DisplayDataCard,
-  DisplayMediaCard,
-  PosterCard,
-  SnapCard,
-  HighlightedCard,
+  CoverCard,
   Title1,
   Avatar,
   Callout,
@@ -155,20 +151,31 @@ const SkinPreview = ({ skin }) => {
             <Inline space={8} alignItems="center">
               <MediaCard title="Title" description="Description"></MediaCard>
               <DataCard title="Title" description="Description"></DataCard>
-              <DisplayDataCard
+              <DataCard
+                size="display"
                 title="Title"
                 description="Description"
-              ></DisplayDataCard>
-              <DisplayMediaCard
+              ></DataCard>
+              <CoverCard
+                size="display"
                 title="Title"
                 description="Description"
-              ></DisplayMediaCard>
-              <PosterCard title="Title" description="Description"></PosterCard>
-              <SnapCard title="Title" subtitle="Description"></SnapCard>
-              <HighlightedCard
+              ></CoverCard>
+              <CoverCard
+                size="default"
                 title="Title"
                 description="Description"
-              ></HighlightedCard>
+              ></CoverCard>
+              <DataCard
+                size="snap"
+                title="Title"
+                subtitle="Description"
+              ></DataCard>
+              <MediaCard
+                mediaPosition="right"
+                title="Title"
+                description="Description"
+              ></MediaCard>
             </Inline>
             <Title1>Callout</Title1>
             <Inline space={8} alignItems="center">

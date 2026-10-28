@@ -57,7 +57,7 @@ const PaletteGenerator = () => {
 
   return (
     <div>
-      <MainSectionHeaderLayout isInverse={true}>
+      <MainSectionHeaderLayout variant="brand">
         <MainSectionHeader title="Palette Generator" />
       </MainSectionHeaderLayout>
       <ResponsiveLayout>

@@ -153,7 +153,7 @@ const NavBar = () => {
         right={<TelefonicaLogo type="imagotype" size={32} />}
         withBorder={false}
         logo={<RotatingSVG />}
-        burgerMenuExtra={
+        burgerMenuSlot={
           <div style={{ marginTop: -16 }}>
             <Divider />
             <NegativeBox>

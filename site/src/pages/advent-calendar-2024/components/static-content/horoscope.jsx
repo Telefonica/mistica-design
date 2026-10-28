@@ -1,5 +1,5 @@
 import {
-  DisplayDataCard,
+  DataCard,
   Grid,
   GridItem,
   Text6,
@@ -112,7 +112,8 @@ const Horoscope = () => {
     <Grid columns={isMobile ? 1 : 3} gap={24}>
       {zodiacComponents.map(({ icon, sign, component, explanation, link }) => (
         <GridItem key={sign}>
-          <DisplayDataCard
+          <DataCard
+            size="display"
             buttonLink={
               <ButtonLink href={link}>Go to {component} doc</ButtonLink>
             }

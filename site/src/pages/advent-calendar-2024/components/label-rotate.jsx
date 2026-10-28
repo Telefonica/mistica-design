@@ -1,7 +1,7 @@
 import {
   skinVars,
-  useIsInverseVariant,
   useScreenSize,
+  useThemeVariant,
 } from "@telefonica/mistica";
 import { useState } from "react";
 import styles from "./label-rotate.module.css";
@@ -9,11 +9,10 @@ import styles from "./label-rotate.module.css";
 const RotatingSVG = ({
   fill,
   color = skinVars.colors.brand,
-  useIsInverseOrMediaVariant,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const { isMobile } = useScreenSize();
-  const isInverse = useIsInverseVariant();
+  const isInverse = useThemeVariant() === "brand";
 
   return (
     <div

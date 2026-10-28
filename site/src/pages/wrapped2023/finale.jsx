@@ -61,7 +61,7 @@ const WrappedFinale = () => {
         <Inline fullWidth space="between" alignItems="center">
           <RotatingSVG fill={skinVars.colors.neutralHigh}></RotatingSVG>
 
-          <ThemeVariant isInverse={false}>
+          <ThemeVariant variant="default">
             <Logo size={isMobile ? 32 : 56} type="imagotype" />
           </ThemeVariant>
         </Inline>
