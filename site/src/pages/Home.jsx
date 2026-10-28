@@ -25,7 +25,6 @@ import {
   Row,
   Title2,
   NegativeBox,
-  DisplayDataCard,
 } from "@telefonica/mistica";
 import React from "react";
 import "@telefonica/mistica/css/mistica.css";
@@ -205,7 +204,7 @@ const Home = () => {
           items={projects.map((project, index) => (
             <Hero
               headline={
-                <ThemeVariant isInverse>
+                <ThemeVariant variant="brand">
                   <Tag type="active">Project</Tag>
                 </ThemeVariant>
               }
@@ -237,8 +236,9 @@ const Home = () => {
 
                   <SubGrid columns={isDesktopOrBigger ? resources.length : 1}>
                     {resources.map((resource, index) => (
-                      <DisplayDataCard
-                        isInverse={resource.inverse}
+                      <DataCard
+                        size="display"
+                        variant={resource.inverse ? "brand" : "default"}
                         key={index}
                         icon={
                           <Circle

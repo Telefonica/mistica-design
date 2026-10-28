@@ -61,7 +61,7 @@ const Cover = () => {
   return (
     <div className={styles.container}>
       <div className={isMobile ? styles.yearMobile : styles.yearDesktop}>
-        <ThemeVariant isInverse>
+        <ThemeVariant variant="brand">
           <TextLayout>
             <div className={styles.coverText}>
               {isMobile && (

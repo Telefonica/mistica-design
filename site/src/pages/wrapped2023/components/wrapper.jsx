@@ -55,7 +55,7 @@ const Wrapper = ({ children }) => {
                   }
                 ></RotatingSVG>
 
-                <ThemeVariant isInverse={currentSection === 1 ? true : false}>
+                <ThemeVariant variant={currentSection === 1 ? "brand" : "default"}>
                   <Logo size={isMobile ? 32 : 56} type="imagotype" />
                 </ThemeVariant>
               </Inline>
@@ -74,12 +74,12 @@ const Wrapper = ({ children }) => {
             ></RotatingSVG>
           </div>
           <div className={styles.logo}>
-            <ThemeVariant isInverse={currentSection === 1 ? true : false}>
+            <ThemeVariant variant={currentSection === 1 ? "brand" : "default"}>
               <Logo size={isMobile ? 48 : 56} type="imagotype" />
             </ThemeVariant>
           </div>
           <div className={styles.madeBy}>
-            <ThemeVariant isInverse={currentSection === 1 ? true : false}>
+            <ThemeVariant variant={currentSection === 1 ? "brand" : "default"}>
               <Text2
                 color={
                   currentSection === 1
@@ -100,7 +100,7 @@ const Wrapper = ({ children }) => {
             </ThemeVariant>
           </div>
           <div className={styles.shareButton}>
-            <ThemeVariant isInverse={currentSection === 1 ? true : false}>
+            <ThemeVariant variant={currentSection === 1 ? "brand" : "default"}>
               <ButtonSecondary
                 onPress={() => {
                   navigator.clipboard.writeText(

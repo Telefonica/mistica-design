@@ -175,8 +175,8 @@ const ColorEditor = () => {
                         title="Title"
                         subtitle="Subtitle"
                         description="Description"
-                        extra={<Placeholder />}
-                        button={
+                        slot={<Placeholder />}
+                        buttonPrimary={
                           <ButtonPrimary small onPress={() => {}}>
                             Action
                           </ButtonPrimary>

@@ -258,7 +258,7 @@ const Members = () => {
     <ContentContainer>
       <div className={styles.planets}>{planets}</div>
       <Circle></Circle>
-      <ThemeVariant isInverse>
+      <ThemeVariant variant="brand">
         <SectionTitle
           isSmall
           align="center"

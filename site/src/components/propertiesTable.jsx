@@ -8,6 +8,13 @@ import {
   Stack,
 } from "@telefonica/mistica";
 
+const formatValue = (value) =>
+  value !== null && typeof value === "object"
+    ? Object.entries(value)
+        .map(([k, v]) => `${k}: ${formatValue(v)}`)
+        .join(", ")
+    : String(value);
+
 const PropertiesTable = ({ skin, filter }) => {
   if (!skin) return null;
 
@@ -38,7 +45,7 @@ const PropertiesTable = ({ skin, filter }) => {
             heading={["Token", "Value", "Category"]}
             content={allEntries.map(({ key, value, category }) => [
               <Tag type="active">{key}</Tag>,
-              <Text>{value}</Text>,
+              <Text>{formatValue(value)}</Text>,
               <Tag type="inactive">{category}</Tag>,
             ])}
             boxed
