@@ -1241,12 +1241,17 @@
       "required": ["value", "type"]
     },
     "numberDensity": {
+      "$comment": "The reserved 'density' key marks the axis. Modes are open-ended: 'default' is required, any other key is a density mode.",
       "type": "object",
       "properties": {
-        "default": { "type": "number" },
-        "compact": { "type": "number" }
+        "density": {
+          "type": "object",
+          "properties": { "default": { "type": "number" } },
+          "required": ["default"],
+          "additionalProperties": { "type": "number" }
+        }
       },
-      "required": ["default", "compact"],
+      "required": ["density"],
       "additionalProperties": false
     },
     "numberBreakpoints": {
@@ -1259,17 +1264,22 @@
       "additionalProperties": false
     },
     "numberValue": {
-      "$comment": "A value is a scalar, a density pair, a breakpoint pair, or a breakpoint pair whose entries are density pairs.",
-      "anyOf": [{ "type": "number" }, { "$ref": "#/definitions/numberDensity" }, { "$ref": "#/definitions/numberBreakpoints" }]
+      "$comment": "A value is a scalar, a { density } object, a breakpoint pair, or a breakpoint pair whose entries are { density } objects.",
+      "oneOf": [{ "type": "number" }, { "$ref": "#/definitions/numberDensity" }, { "$ref": "#/definitions/numberBreakpoints" }]
     },
     "radiusScalar": { "type": "string", "pattern": "^(0|2|4|8|10|12|16|20|24|32|circle|999|(0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32))$" },
     "radiusDensity": {
+      "$comment": "The reserved 'density' key marks the axis. Modes are open-ended: 'default' is required, any other key is a density mode.",
       "type": "object",
       "properties": {
-        "default": { "$ref": "#/definitions/radiusScalar" },
-        "compact": { "$ref": "#/definitions/radiusScalar" }
+        "density": {
+          "type": "object",
+          "properties": { "default": { "$ref": "#/definitions/radiusScalar" } },
+          "required": ["default"],
+          "additionalProperties": { "$ref": "#/definitions/radiusScalar" }
+        }
       },
-      "required": ["default", "compact"],
+      "required": ["density"],
       "additionalProperties": false
     },
     "radiusBreakpoints": {
@@ -1282,8 +1292,8 @@
       "additionalProperties": false
     },
     "radiusValue": {
-      "$comment": "A value is a scalar, a density pair, a breakpoint pair, or a breakpoint pair whose entries are density pairs.",
-      "anyOf": [{ "$ref": "#/definitions/radiusScalar" }, { "$ref": "#/definitions/radiusDensity" }, { "$ref": "#/definitions/radiusBreakpoints" }]
+      "$comment": "A value is a scalar, a { density } object, a breakpoint pair, or a breakpoint pair whose entries are { density } objects.",
+      "oneOf": [{ "$ref": "#/definitions/radiusScalar" }, { "$ref": "#/definitions/radiusDensity" }, { "$ref": "#/definitions/radiusBreakpoints" }]
     }
   }
 }

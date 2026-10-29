@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import hexToRgba from "./hex-to-rgba.mjs";
 
-// A token leaf is a scalar, a { default, compact } pair, or a { mobile, desktop } pair
-// whose entries are scalars or density pairs. Normalise to per-breakpoint entries.
+// A token leaf is a scalar, a { density: { default, compact } } object, or a
+// { mobile, desktop } pair whose entries are scalars or density objects. Normalise to per-breakpoint entries.
 const toBreakpoints = (value) =>
   typeof value === "object" &&
   value !== null &&
@@ -18,7 +18,7 @@ const BREAKPOINTS = ["mobile", "desktop"];
 const isDensity = (value) =>
   typeof value === "object" &&
   value !== null &&
-  "default" in value;
+  "density" in value;
 
 const isBreakpoints = (value) =>
   typeof value === "object" &&
@@ -29,13 +29,16 @@ const isBreakpoints = (value) =>
 const parseRadius = (value) =>
   value === "circle" ? 999 : parseFloat(value);
 
-// Splits a leaf into { value, compact? }. compact is only set for density pairs,
+// Splits a leaf into { value, compact? }. compact is only set for density objects,
 // so the middleware can tell a density-aware token from an ordinary one.
 const splitDensity = (value, parse) =>
   isDensity(value)
     ? {
-        value: parse(value.default),
-        compact: parse(value.compact),
+        value: parse(value.density.default),
+        compact:
+          value.density.compact === undefined
+            ? undefined
+            : parse(value.density.compact),
       }
     : { value: parse(value) };
 
@@ -442,7 +445,7 @@ export const extractSkinJsonData = (
             result.push({
               name: `spacing/${breakpoint}/${figmaName}`,
               value: Number(
-                bpValue?.default ?? bpValue,
+                bpValue?.density?.default ?? bpValue,
               ),
             });
           },
@@ -908,12 +911,12 @@ export const extractMiddlewareJsonData = (
               ...attachTokenMeta(token, {
                 name: `spacing/${bp}/${figmaName}`,
                 value: Number(
-                  bpValue?.default ?? bpValue,
+                  bpValue?.density?.default ?? bpValue,
                 ),
-                ...(bpValue?.compact !== undefined
+                ...(bpValue?.density?.compact !== undefined
                   ? {
                       compact: Number(
-                        bpValue.compact,
+                        bpValue.density.compact,
                       ),
                     }
                   : {}),
