@@ -1,4 +1,5 @@
 import getColorValue from "./getColorValue";
+import { resolveDensity, hasDensity } from "./density";
 
 const transformRadiusValue = (value) => {
   if (value.endsWith("%")) {
@@ -131,7 +132,11 @@ export const getLineHeightData = (skinData, currentToken) => {
   return tokenData;
 };
 
-export const getSpacingData = (skinData, currentToken) => {
+const SPACING_SIDES = ["top", "bottom", "left", "right"];
+
+// A spacing value is either per side ({ top, right, bottom, left }) or a single
+// { mobile, desktop } pair applied to every side. Entries may be density objects.
+export const getSpacingData = (skinData, currentToken, density = "cozy") => {
   const tokenData = [];
 
   for (const skinName in skinData) {
@@ -148,19 +153,25 @@ export const getSpacingData = (skinData, currentToken) => {
       if (currentToken && tokenName !== currentToken) continue;
 
       const tokenValue = spacingTokens[tokenName].value;
+      const isUniform = !SPACING_SIDES.some((side) => side in tokenValue);
 
-      // Make sure all sides exist
-      const normalizedValue = {
-        top: tokenValue.top || { mobile: 0, desktop: 0 },
-        bottom: tokenValue.bottom || { mobile: 0, desktop: 0 },
-        left: tokenValue.left || { mobile: 0, desktop: 0 },
-        right: tokenValue.right || { mobile: 0, desktop: 0 },
-      };
+      // Make sure all sides exist and every density object is resolved
+      const normalizedValue = {};
+      for (const side of SPACING_SIDES) {
+        const sideValue = isUniform
+          ? tokenValue
+          : tokenValue[side] || { mobile: 0, desktop: 0 };
+        normalizedValue[side] = {
+          mobile: resolveDensity(sideValue.mobile, density),
+          desktop: resolveDensity(sideValue.desktop, density),
+        };
+      }
 
       tokenData.push({
         skinName,
         tokenName,
         tokenValue: normalizedValue,
+        hasDensity: hasDensity(tokenValue),
       });
     }
   }
