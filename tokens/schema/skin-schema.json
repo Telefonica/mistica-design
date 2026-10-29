@@ -1241,13 +1241,13 @@
       "required": ["value", "type"]
     },
     "numberDensity": {
-      "$comment": "The reserved 'density' key marks the axis. Modes are open-ended: 'default' is required, any other key is a density mode.",
+      "$comment": "The reserved 'density' key marks the axis. Modes are open-ended: 'cozy' is required, any other key is a density mode.",
       "type": "object",
       "properties": {
         "density": {
           "type": "object",
-          "properties": { "default": { "type": "number" } },
-          "required": ["default"],
+          "properties": { "cozy": { "type": "number" } },
+          "required": ["cozy"],
           "additionalProperties": { "type": "number" }
         }
       },
@@ -1269,13 +1269,13 @@
     },
     "radiusScalar": { "type": "string", "pattern": "^(0|2|4|8|10|12|16|20|24|32|circle|999|(0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32))$" },
     "radiusDensity": {
-      "$comment": "The reserved 'density' key marks the axis. Modes are open-ended: 'default' is required, any other key is a density mode.",
+      "$comment": "The reserved 'density' key marks the axis. Modes are open-ended: 'cozy' is required, any other key is a density mode.",
       "type": "object",
       "properties": {
         "density": {
           "type": "object",
-          "properties": { "default": { "$ref": "#/definitions/radiusScalar" } },
-          "required": ["default"],
+          "properties": { "cozy": { "$ref": "#/definitions/radiusScalar" } },
+          "required": ["cozy"],
           "additionalProperties": { "$ref": "#/definitions/radiusScalar" }
         }
       },

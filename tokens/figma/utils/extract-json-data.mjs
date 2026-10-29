@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import hexToRgba from "./hex-to-rgba.mjs";
 
-// A token leaf is a scalar, a { density: { default, compact } } object, or a
+// A token leaf is a scalar, a { density: { cozy, compact } } object, or a
 // { mobile, desktop } pair whose entries are scalars or density objects. Normalise to per-breakpoint entries.
 const toBreakpoints = (value) =>
   typeof value === "object" &&
@@ -34,7 +34,7 @@ const parseRadius = (value) =>
 const splitDensity = (value, parse) =>
   isDensity(value)
     ? {
-        value: parse(value.density.default),
+        value: parse(value.density.cozy),
         compact:
           value.density.compact === undefined
             ? undefined
@@ -445,7 +445,7 @@ export const extractSkinJsonData = (
             result.push({
               name: `spacing/${breakpoint}/${figmaName}`,
               value: Number(
-                bpValue?.density?.default ?? bpValue,
+                bpValue?.density?.cozy ?? bpValue,
               ),
             });
           },
@@ -911,7 +911,7 @@ export const extractMiddlewareJsonData = (
               ...attachTokenMeta(token, {
                 name: `spacing/${bp}/${figmaName}`,
                 value: Number(
-                  bpValue?.density?.default ?? bpValue,
+                  bpValue?.density?.cozy ?? bpValue,
                 ),
                 ...(bpValue?.density?.compact !== undefined
                   ? {
