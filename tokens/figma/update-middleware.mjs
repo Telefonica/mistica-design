@@ -836,13 +836,13 @@ async function addDensityVariable(
   newData.variables.push(variableData);
 
   // default mode: use "Mode 1" name when collection was just created,
-  // "default" when it already has the renamed mode.
+  // "cozy" when it already has the renamed mode.
   const defaultModeName = hasDefaultMode(
     COLLECTION_NAMES.DENSITY,
     existingCollections,
   )
     ? MODE_NAMES.DEFAULT
-    : MODE_NAMES.DENSITY_DEFAULT;
+    : MODE_NAMES.DENSITY_COZY;
 
   const defaultModeValue =
     await updateOrCreateVariableModeValues({
@@ -905,7 +905,7 @@ async function updateContentDensityCollection(
     // Create / rename modes
     const defaultModeResult =
       await updateOrCreateModes({
-        mode: { name: MODE_NAMES.DENSITY_DEFAULT },
+        mode: { name: MODE_NAMES.DENSITY_COZY },
         isDefault: true,
         targetCollectionName:
           COLLECTION_NAMES.DENSITY,
