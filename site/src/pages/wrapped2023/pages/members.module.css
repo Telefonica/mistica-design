@@ -1,0 +1,17 @@
+.container {
+  height: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bgImageMobile {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 0;
+  width: calc(100vw + 32px);
+  margin: 0 -16px;
+}
