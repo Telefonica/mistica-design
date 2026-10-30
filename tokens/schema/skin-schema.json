@@ -882,10 +882,11 @@
     },
     "spacing": {
       "additionalProperties": false,
-      "required": ["buttonDefaultPadding", "buttonSmallPadding", "cardDefaultPadding", "tagPadding", "feedbackScreenPadding", "inputPadding", "heroPadding", "headerPadding", "drawerPadding", "boxedDefaultPadding", "boxedSmallPadding", "responsiveLayoutMargin"],
+      "required": ["buttonDefaultPadding", "buttonSmallPadding", "iconButtonDefaultPadding", "cardDefaultPadding", "tagPadding", "feedbackScreenPadding", "inputPadding", "heroPadding", "headerPadding", "drawerPadding", "boxedDefaultPadding", "boxedSmallPadding", "responsiveLayoutMargin"],
       "properties": {
         "buttonDefaultPadding": { "$ref": "#/definitions/spacingProperties" },
         "buttonSmallPadding": { "$ref": "#/definitions/spacingProperties" },
+        "iconButtonDefaultPadding": { "$ref": "#/definitions/spacingProperties" },
         "cardDefaultPadding": { "$ref": "#/definitions/spacingProperties" },
         "tagPadding": { "$ref": "#/definitions/spacingProperties" },
         "feedbackScreenPadding": { "$ref": "#/definitions/spacingProperties" },
@@ -1097,8 +1098,7 @@
     "radiusProperties": {
       "patternProperties": {
         "value": {
-          "type": "string",
-          "pattern": "^(0|2|4|8|10|12|16|20|24|32|circle|999|(0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32))$"
+          "$ref": "#/definitions/radiusValue"
         },
         "type": {
           "const": "borderRadius"
@@ -1131,12 +1131,7 @@
       "type": "object",
       "patternProperties": {
         "value": {
-          "allOf": [
-            { "$ref": "#/definitions/breakpoints" },
-            {
-              "required": ["mobile", "desktop"]
-            }
-          ]
+          "$ref": "#/definitions/numberValue"
         },
         "type": {
           "const": "typography"
@@ -1152,12 +1147,7 @@
       "type": "object",
       "patternProperties": {
         "value": {
-          "allOf": [
-            { "$ref": "#/definitions/breakpoints" },
-            {
-              "required": ["mobile", "desktop"]
-            }
-          ]
+          "$ref": "#/definitions/numberValue"
         },
         "type": {
           "const": "typography"
@@ -1178,15 +1168,14 @@
         "deprecatedBy": { "type": "string" },
         "value": {
           "anyOf": [
-            { "$ref": "#/definitions/breakpoints" },
-
+            { "$ref": "#/definitions/numberValue" },
             {
               "type": "object",
               "properties": {
-                "top": { "$ref": "#/definitions/breakpoints" },
-                "right": { "$ref": "#/definitions/breakpoints" },
-                "bottom": { "$ref": "#/definitions/breakpoints" },
-                "left": { "$ref": "#/definitions/breakpoints" }
+                "top": { "$ref": "#/definitions/numberValue" },
+                "right": { "$ref": "#/definitions/numberValue" },
+                "bottom": { "$ref": "#/definitions/numberValue" },
+                "left": { "$ref": "#/definitions/numberValue" }
               },
               "additionalProperties": false,
               "minProperties": 1
@@ -1252,15 +1241,60 @@
       },
       "required": ["value", "type"]
     },
-    "breakpoints": {
+    "numberDensity": {
+      "$comment": "The reserved 'density' key marks the axis. Modes are open-ended: 'cozy' is required, any other key is a density mode.",
       "type": "object",
       "properties": {
-        "mobile": { "type": "number" },
-        "desktop": { "type": "number" }
+        "density": {
+          "type": "object",
+          "properties": { "cozy": { "type": "number" } },
+          "required": ["cozy"],
+          "additionalProperties": { "type": "number" }
+        }
       },
-      "minProperties": 1,
+      "required": ["density"],
+      "additionalProperties": false
+    },
+    "numberBreakpoints": {
+      "type": "object",
+      "properties": {
+        "mobile": { "anyOf": [{ "type": "number" }, { "$ref": "#/definitions/numberDensity" }] },
+        "desktop": { "anyOf": [{ "type": "number" }, { "$ref": "#/definitions/numberDensity" }] }
+      },
       "required": ["mobile", "desktop"],
       "additionalProperties": false
+    },
+    "numberValue": {
+      "$comment": "A value is a scalar, a { density } object, a { breakpoint } object, or a { breakpoint } whose entries are { density } objects.",
+    },
+    "radiusScalar": { "type": "string", "pattern": "^(0|2|4|8|10|12|16|20|24|32|circle|999|(0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32))$" },
+    "radiusDensity": {
+      "$comment": "The reserved 'density' key marks the axis. Modes are open-ended: 'cozy' is required, any other key is a density mode.",
+      "type": "object",
+      "properties": {
+        "density": {
+          "type": "object",
+          "properties": { "cozy": { "$ref": "#/definitions/radiusScalar" } },
+          "required": ["cozy"],
+          "propertyNames": { "$ref": "#/definitions/densityMode" },
+          "additionalProperties": { "$ref": "#/definitions/radiusScalar" }
+        }
+      },
+      "required": ["density"],
+      "additionalProperties": false
+    },
+    "radiusBreakpoints": {
+      "type": "object",
+      "properties": {
+        "mobile": { "anyOf": [{ "$ref": "#/definitions/radiusScalar" }, { "$ref": "#/definitions/radiusDensity" }] },
+        "desktop": { "anyOf": [{ "$ref": "#/definitions/radiusScalar" }, { "$ref": "#/definitions/radiusDensity" }] }
+      },
+      "required": ["mobile", "desktop"],
+      "additionalProperties": false
+    },
+    "radiusValue": {
+      "$comment": "A value is a scalar, a { density } object, a { breakpoint } object, or a { breakpoint } whose entries are { density } objects.",
+      "oneOf": [{ "$ref": "#/definitions/radiusScalar" }, { "$ref": "#/definitions/radiusDensity" }, { "$ref": "#/definitions/radiusBreakpoints" }]
     }
   }
 }
