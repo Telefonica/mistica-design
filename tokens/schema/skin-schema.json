@@ -1264,8 +1264,7 @@
       "additionalProperties": false
     },
     "numberValue": {
-      "$comment": "A value is a scalar, a { density } object, a breakpoint pair, or a breakpoint pair whose entries are { density } objects.",
-      "oneOf": [{ "type": "number" }, { "$ref": "#/definitions/numberDensity" }, { "$ref": "#/definitions/numberBreakpoints" }]
+      "$comment": "A value is a scalar, a { density } object, a { breakpoint } object, or a { breakpoint } whose entries are { density } objects.",
     },
     "radiusScalar": { "type": "string", "pattern": "^(0|2|4|8|10|12|16|20|24|32|circle|999|(0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32))$" },
     "radiusDensity": {
@@ -1276,6 +1275,7 @@
           "type": "object",
           "properties": { "cozy": { "$ref": "#/definitions/radiusScalar" } },
           "required": ["cozy"],
+          "propertyNames": { "$ref": "#/definitions/densityMode" },
           "additionalProperties": { "$ref": "#/definitions/radiusScalar" }
         }
       },
@@ -1292,7 +1292,7 @@
       "additionalProperties": false
     },
     "radiusValue": {
-      "$comment": "A value is a scalar, a { density } object, a breakpoint pair, or a breakpoint pair whose entries are { density } objects.",
+      "$comment": "A value is a scalar, a { density } object, a { breakpoint } object, or a { breakpoint } whose entries are { density } objects.",
       "oneOf": [{ "$ref": "#/definitions/radiusScalar" }, { "$ref": "#/definitions/radiusDensity" }, { "$ref": "#/definitions/radiusBreakpoints" }]
     }
   }
