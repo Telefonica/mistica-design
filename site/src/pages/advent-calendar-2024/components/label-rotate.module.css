@@ -1,0 +1,33 @@
+.rotation {
+  --d: 10s; /* animation duration */
+  --s: 0.5; /* slowmo speed factor */
+  width: max-content;
+  height: max-content;
+  background-color: blue;
+  animation: r linear infinite var(--d),
+    r linear infinite calc(var(--d) / var(--s)) reverse paused;
+  animation-composition: add;
+  transform-origin: center;
+}
+
+.rotationInverse {
+  --d: 10s; /* animation duration */
+  --s: 0.5; /* slowmo speed factor */
+  width: max-content;
+  height: max-content;
+  background-color: blue;
+  animation: r linear infinite var(--d) reverse,
+    r linear infinite calc(var(--d) / var(--s)) paused;
+  animation-composition: add;
+  transform-origin: center;
+}
+
+.slowMo {
+  animation-play-state: running;
+}
+
+@keyframes r {
+  to {
+    rotate: 1turn;
+  }
+}
