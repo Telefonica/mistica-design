@@ -737,7 +737,7 @@
     },
     "weight": {
       "additionalProperties": false,
-      "required": ["drawerTitle", "cardTitle", "rowTitle", "button", "tabsLabel", "link", "indicator", "navigationBar", "title1", "title2", "title3", "title4", "text5", "text6", "text7", "text8", "text9", "text10", "chipLabel", "chipLabelSmall", "headerPretitle"],
+      "required": ["drawerTitle", "cardTitle", "rowTitle", "button", "tabsLabel", "link", "indicator", "navigationBar", "title1", "title2", "title3", "title4", "text5", "text6", "text7", "text8", "text9", "text10", "chipLabel", "chipLabelSmall", "headerPretitle", "feedbackScreenTitle", "feedbackScreenDescription"],
       "properties": {
         "drawerTitle": { "$ref": "#/definitions/weightProperties" },
         "cardTitle": { "$ref": "#/definitions/weightProperties" },
@@ -758,8 +758,10 @@
         "text9": { "$ref": "#/definitions/weightProperties" },
         "text10": { "$ref": "#/definitions/weightProperties" },
         "chipLabel": { "$ref": "#/definitions/weightProperties" },
-        "chipLabelSmall": { "$ref": "#/definitions/weightProperties" },
-        "headerPretitle": { "$ref": "#/definitions/weightProperties" }
+        "headerPretitle": { "$ref": "#/definitions/weightProperties" },
+        "feedbackScreenTitle": { "$ref": "#/definitions/weightProperties" },
+        "feedbackScreenDescription": { "$ref": "#/definitions/weightProperties" },
+        "chipLabelSmall": { "$ref": "#/definitions/weightProperties" }
       }
     },
     "size": {
@@ -796,7 +798,9 @@
         "inputHelperText",
         "stepperStepLabel",
         "loadingScreenTitle",
-        "headerPretitle"
+        "headerPretitle",
+        "feedbackScreenTitle",
+        "feedbackScreenDescription"
       ],
       "properties": {
         "drawerTitle": { "$ref": "#/definitions/sizeProperties" },
@@ -830,7 +834,9 @@
         "inputHelperText": { "$ref": "#/definitions/sizeProperties" },
         "stepperStepLabel": { "$ref": "#/definitions/sizeProperties" },
         "loadingScreenTitle": { "$ref": "#/definitions/sizeProperties" },
-        "headerPretitle": { "$ref": "#/definitions/sizeProperties" }
+        "headerPretitle": { "$ref": "#/definitions/sizeProperties" },
+        "feedbackScreenTitle": { "$ref": "#/definitions/sizeProperties" },
+        "feedbackScreenDescription": { "$ref": "#/definitions/sizeProperties" }
       }
     },
     "lineHeight": {
@@ -867,7 +873,9 @@
         "inputHelperText",
         "stepperStepLabel",
         "loadingScreenTitle",
-        "headerPretitle"
+        "headerPretitle",
+        "feedbackScreenTitle",
+        "feedbackScreenDescription"
       ],
       "properties": {
         "drawerTitle": { "$ref": "#/definitions/lineHeightProperties" },
@@ -901,7 +909,9 @@
         "inputHelperText": { "$ref": "#/definitions/lineHeightProperties" },
         "stepperStepLabel": { "$ref": "#/definitions/lineHeightProperties" },
         "loadingScreenTitle": { "$ref": "#/definitions/lineHeightProperties" },
-        "headerPretitle": { "$ref": "#/definitions/lineHeightProperties" }
+        "headerPretitle": { "$ref": "#/definitions/lineHeightProperties" },
+        "feedbackScreenTitle": { "$ref": "#/definitions/lineHeightProperties" },
+        "feedbackScreenDescription": { "$ref": "#/definitions/lineHeightProperties" }
       }
     },
     "spacing": {
