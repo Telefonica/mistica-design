@@ -1,0 +1,218 @@
+import React, { useState } from "react";
+import transformToJSON from "../helpers/skinToJson";
+import {
+  NavigationBar,
+  ResponsiveLayout,
+  RadioGroup,
+  RadioButton,
+  Stack,
+  Inline,
+  Chip,
+  Box,
+  TextField,
+  skinVars,
+  ButtonPrimary,
+  Circle,
+  IconArrowLineRightRegular,
+  IconLayersRegular,
+  Text6,
+  Text3,
+  Snackbar,
+} from "@telefonica/mistica";
+import { useNavigate } from "react-router-dom";
+import { generateSkin } from "../helpers/jsonToSkin";
+import { skinExample, jsonExample } from "../helpers/skin2JsonExamples";
+import AppLayout from "../components/app-layout";
+import SubHeader from "../components/sub-header";
+
+const Skin2Json = () => {
+  const navigate = useNavigate();
+  const [rawCode, setRawCode] = useState("");
+  const [rawJsCode, setRawJsCode] = useState("");
+  const [input, setInput] = useState("skin");
+  const [copied, setCopied] = useState(false);
+
+  const codeStyles = {
+    fontFamily:
+      "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace",
+    fontSize: 14,
+    lineHeight: "1.5rem",
+  };
+
+  const rightStyles = {
+    width: "100%",
+    height: "50vh",
+    backgroundColor: skinVars.colors.backgroundAlternative,
+    borderRadius: "0 24px 24px 0",
+    border: `1px solid ${skinVars.colors.border}`,
+    borderLeft: "none",
+    padding: 48,
+    resize: "none",
+    margin: 0,
+    outline: "none",
+  };
+
+  const output = (() => {
+    try {
+      if (input === "skin") {
+        if (!rawCode) return "";
+        const json = transformToJSON(rawCode);
+        return json ? JSON.stringify(json, null, 2) : "";
+      }
+      return rawJsCode !== "" ? generateSkin("skin", rawJsCode) : "";
+    } catch (err) {
+      return `// Conversion error: ${err.message}`;
+    }
+  })();
+
+  const leftStyles = {
+    width: "100%",
+    height: "50vh",
+    borderRadius: "24px 0 0 24px",
+    border: `1px solid ${skinVars.colors.border}`,
+    borderRight: "none",
+    padding: 48,
+    resize: "none",
+    margin: 0,
+    outlineOffset: -1,
+  };
+
+  return (
+    <>
+      <AppLayout>
+        <ResponsiveLayout>
+          <Box paddingTop={48}>
+            <SubHeader to={`/`} />
+            <Stack space={24}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  gap: 32,
+                  alignItems: "center",
+                }}
+              >
+                <div
+                  style={{
+                    borderBottom: `4px solid ${skinVars.colors.brand}`,
+                  }}
+                >
+                  <IconLayersRegular size={48}></IconLayersRegular>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    gap: 8,
+                    alignItems: "center",
+                  }}
+                >
+                  <Text6>Skin2Json</Text6>
+                  <Text3 color={skinVars.colors.textSecondary}>
+                    Convert skin tokens file to web
+                  </Text3>
+                </div>
+                <RadioGroup
+                  name="chip-group"
+                  defaultValue="skin"
+                  onChange={setInput}
+                >
+                  <Inline space={8}>
+                    <RadioButton
+                      value="skin"
+                      render={({ checked, labelId }) => (
+                        <Chip active={checked} id={labelId}>
+                          Skin to JSON
+                        </Chip>
+                      )}
+                    />
+                    <RadioButton
+                      value="json"
+                      render={({ checked, labelId }) => (
+                        <Chip active={checked} id={labelId}>
+                          JSON to skin
+                        </Chip>
+                      )}
+                    />
+                  </Inline>
+                </RadioGroup>
+              </div>
+              <div style={{ position: "relative" }}>
+                <Inline space={0} fullWidth>
+                  {input === "skin" ? (
+                    <textarea
+                      style={{ ...leftStyles, ...codeStyles }}
+                      value={rawCode}
+                      onChange={(e) => {
+                        setRawCode(e.target.value);
+                      }}
+                      placeholder={skinExample}
+                    ></textarea>
+                  ) : (
+                    <textarea
+                      style={{ ...leftStyles, ...codeStyles }}
+                      value={rawJsCode}
+                      onChange={(e) => {
+                        setRawJsCode(e.target.value);
+                      }}
+                      placeholder={jsonExample}
+                    ></textarea>
+                  )}
+
+                  <textarea
+                    readOnly
+                    style={{ ...rightStyles, ...codeStyles }}
+                    value={output}
+                  ></textarea>
+                </Inline>
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                  }}
+                >
+                  <Circle
+                    border={true}
+                    size={48}
+                    backgroundColor={skinVars.colors.background}
+                  >
+                    <IconArrowLineRightRegular />
+                  </Circle>
+                </div>
+                <div style={{ position: "absolute", bottom: 16, right: 16 }}>
+                  <ButtonPrimary
+                    small
+                    onPress={() => {
+                      navigator.clipboard.writeText(output);
+                      setCopied(true);
+                    }}
+                  >
+                    Copy to clipboard
+                  </ButtonPrimary>
+                </div>
+              </div>
+            </Stack>
+          </Box>
+          {copied && (
+            <Snackbar
+              message="Copied to clipboard!"
+              withDismiss
+              onClose={({ action }) => {
+                setCopied(false);
+                if (action === "DISMISS") {
+                  setCopied(false);
+                }
+              }}
+            ></Snackbar>
+          )}
+        </ResponsiveLayout>
+      </AppLayout>
+    </>
+  );
+};
+
+export default Skin2Json;

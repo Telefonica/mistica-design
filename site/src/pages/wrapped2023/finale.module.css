@@ -1,0 +1,92 @@
+.yearDesktop {
+  position: relative;
+  z-index: 9999;
+  height: calc(100vh - (168px * 2));
+  max-width: 1440px;
+  width: 100%;
+  text-align: left;
+  margin: 168px auto;
+  display: flex;
+  align-items: center;
+}
+
+.yearMobile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 9999;
+}
+
+.container {
+  height: 100%;
+  overflow: hidden;
+}
+
+.textContainer {
+  height: 100%;
+}
+
+.textContainerDesktop {
+  width: 100%;
+  padding: 0 32px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.coverText {
+  max-width: 80ch;
+}
+
+.bandContainer {
+  height: 100vh;
+  width: calc(100vw + 800px);
+
+  position: relative;
+  top: 0;
+  left: -800px;
+  top: -1400px;
+}
+
+.barContainerMobile {
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  top: 0;
+  height: 100vh;
+  margin: 0 -16px;
+}
+
+.containerMobile {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100%;
+  scroll-snap-align: start;
+  overflow: hidden;
+  position: relative;
+  padding-top: 96px;
+  height: 100%;
+}
+
+.madeBy {
+  position: fixed;
+  height: 79px;
+  display: flex;
+  align-items: center;
+  bottom: 104px;
+  left: 0px;
+  z-index: 9999;
+  transform: rotate(-90deg);
+}
+
+.shareButton {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  bottom: 64px;
+  right: 64px;
+  z-index: 9999;
+}
