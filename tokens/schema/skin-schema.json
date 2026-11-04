@@ -1241,6 +1241,7 @@
       },
       "required": ["value", "type"]
     },
+    "densityMode": { "type": "string", "pattern": "^[a-z][a-zA-Z0-9-]*$" },
     "numberDensity": {
       "$comment": "The reserved 'density' key marks the axis. Modes are open-ended: 'cozy' is required, any other key is a density mode.",
       "type": "object",
@@ -1249,6 +1250,7 @@
           "type": "object",
           "properties": { "cozy": { "type": "number" } },
           "required": ["cozy"],
+          "propertyNames": { "$ref": "#/definitions/densityMode" },
           "additionalProperties": { "type": "number" }
         }
       },
@@ -1266,6 +1268,7 @@
     },
     "numberValue": {
       "$comment": "A value is a scalar, a { density } object, a { breakpoint } object, or a { breakpoint } whose entries are { density } objects.",
+      "oneOf": [{ "type": "number" }, { "$ref": "#/definitions/numberDensity" }, { "$ref": "#/definitions/numberBreakpoints" }]
     },
     "radiusScalar": { "type": "string", "pattern": "^(0|2|4|8|10|12|16|20|24|32|circle|999|(0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32) (0|4|8|10|12|16|20|24|32))$" },
     "radiusDensity": {
