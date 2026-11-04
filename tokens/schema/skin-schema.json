@@ -1241,7 +1241,7 @@
       },
       "required": ["value", "type"]
     },
-    "densityMode": { "type": "string", "pattern": "^[a-z][a-zA-Z0-9-]*$" },
+    "densityMode": {  "enum": ["cozy", "compact"]},
     "numberDensity": {
       "$comment": "The reserved 'density' key marks the axis. Modes are open-ended: 'cozy' is required, any other key is a density mode.",
       "type": "object",
