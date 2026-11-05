@@ -76,13 +76,41 @@ const TokenDetail = () => {
     );
   };
 
+  const renderBreakpointValue = (skin, compact, breakpoint) => {
+    const cozyValue = skin[breakpoint];
+    const compactValue = compact?.[breakpoint];
+
+    if (!skin.hasDensity || cozyValue === compactValue) {
+      return <Text>{cozyValue}px</Text>;
+    }
+
+    return (
+      <Stack space={4}>
+        <Text>{`Cozy: ${cozyValue}px`}</Text>
+        <Text>{`Compact: ${compactValue}px`}</Text>
+      </Stack>
+    );
+  };
+
+  const findCompact = (compactData, skin) =>
+    compactData.find((item) => item.skinName === skin.skinName);
+
   const renderSizeTable = () => {
+    const compactData = getSizeData(skinData, id, "compact");
     const content =
       Object.keys(skinData).length > 0
         ? getSizeData(skinData, id).map((skin) => [
             skin.skinName,
-            <Text>{skin.tokenValueMobile}px</Text>,
-            <Text>{skin.tokenValueDesktop}px</Text>,
+            renderBreakpointValue(
+              skin,
+              findCompact(compactData, skin),
+              "tokenValueMobile"
+            ),
+            renderBreakpointValue(
+              skin,
+              findCompact(compactData, skin),
+              "tokenValueDesktop"
+            ),
             <Inline space={16}>
               <Text size={skin.tokenValueMobile} weight="regular">
                 Aa
@@ -105,12 +133,21 @@ const TokenDetail = () => {
   };
 
   const renderLineHeightTable = () => {
+    const compactData = getLineHeightData(skinData, id, "compact");
     const content =
       Object.keys(skinData).length > 0
         ? getLineHeightData(skinData, id).map((skin) => [
             skin.skinName,
-            <Text>{skin.tokenValueMobile}px</Text>,
-            <Text>{skin.tokenValueDesktop}px</Text>,
+            renderBreakpointValue(
+              skin,
+              findCompact(compactData, skin),
+              "tokenValueMobile"
+            ),
+            renderBreakpointValue(
+              skin,
+              findCompact(compactData, skin),
+              "tokenValueDesktop"
+            ),
             <Inline space={16}>
               <Text size={skin.tokenValueMobile} weight="regular">
                 Aa

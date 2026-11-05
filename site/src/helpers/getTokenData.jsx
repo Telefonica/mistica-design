@@ -69,68 +69,46 @@ export const getWeightData = (skinData, currentToken) => {
   return tokenData;
 };
 
-export const getSizeData = (skinData, currentToken) => {
+// Size and line height values are { mobile, desktop } pairs whose entries may be density objects.
+const getBreakpointTypographyData = (
+  skinData,
+  currentToken,
+  category,
+  density = "cozy"
+) => {
   const tokenData = [];
 
   for (const skinName in skinData) {
-    if (skinData.hasOwnProperty(skinName)) {
-      const skin = skinData[skinName];
-      const sizeTokens = skin.text?.size;
+    if (!skinData.hasOwnProperty(skinName)) continue;
 
-      if (sizeTokens) {
-        for (const tokenName in sizeTokens) {
-          if (sizeTokens.hasOwnProperty(tokenName)) {
-            if (!currentToken || tokenName === currentToken) {
-              const tokenValueMobile = sizeTokens[tokenName].value?.mobile;
-              const tokenValueDesktop = sizeTokens[tokenName].value?.desktop;
+    const tokens = skinData[skinName].text?.[category];
 
-              tokenData.push({
-                skinName,
-                tokenName,
-                tokenValueMobile,
-                tokenValueDesktop,
-              });
-            }
-          }
-        }
-      }
+    if (!tokens) continue;
+
+    for (const tokenName in tokens) {
+      if (!tokens.hasOwnProperty(tokenName)) continue;
+      if (currentToken && tokenName !== currentToken) continue;
+
+      const tokenValue = tokens[tokenName].value;
+
+      tokenData.push({
+        skinName,
+        tokenName,
+        tokenValueMobile: resolveDensity(tokenValue?.mobile, density),
+        tokenValueDesktop: resolveDensity(tokenValue?.desktop, density),
+        hasDensity: hasDensity(tokenValue),
+      });
     }
   }
 
   return tokenData;
 };
 
-export const getLineHeightData = (skinData, currentToken) => {
-  const tokenData = [];
+export const getSizeData = (skinData, currentToken, density) =>
+  getBreakpointTypographyData(skinData, currentToken, "size", density);
 
-  for (const skinName in skinData) {
-    if (skinData.hasOwnProperty(skinName)) {
-      const skin = skinData[skinName];
-      const lineHeightTokens = skin.text?.lineHeight;
-
-      if (lineHeightTokens) {
-        for (const tokenName in lineHeightTokens) {
-          if (lineHeightTokens.hasOwnProperty(tokenName)) {
-            if (!currentToken || tokenName === currentToken) {
-              const tokenValueMobile = lineHeightTokens[tokenName].value.mobile;
-              const tokenValueDesktop =
-                lineHeightTokens[tokenName].value.desktop;
-
-              tokenData.push({
-                skinName,
-                tokenName,
-                tokenValueMobile,
-                tokenValueDesktop,
-              });
-            }
-          }
-        }
-      }
-    }
-  }
-
-  return tokenData;
-};
+export const getLineHeightData = (skinData, currentToken, density) =>
+  getBreakpointTypographyData(skinData, currentToken, "lineHeight", density);
 
 const SPACING_SIDES = ["top", "bottom", "left", "right"];
 

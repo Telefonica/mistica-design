@@ -14,6 +14,7 @@ import {
   Chip,
   Table,
 } from "@telefonica/mistica";
+import { DENSITIES, hasDensity, resolveDensity } from "../helpers/density";
 
 const TextTable = ({
   skin,
@@ -29,6 +30,16 @@ const TextTable = ({
   const lineHeight = skin?.text?.lineHeight || {};
 
   const [active, setActive] = React.useState("size");
+  const [density, setDensity] = React.useState("cozy");
+
+  const showDensity =
+    (active === "size" || active === "lineHeight") &&
+    Object.values(active === "size" ? size : lineHeight).some((token) =>
+      hasDensity(token.value),
+    );
+
+  const getBreakpointValue = (tokens, key, breakpoint) =>
+    resolveDensity(tokens[key]?.value?.[breakpoint], density);
 
   const weightKeys = Object.keys(weight).filter((key) =>
     key.toLowerCase().includes(filter?.toLowerCase()),
@@ -77,6 +88,27 @@ const TextTable = ({
         </RadioGroup>
       </Box>
       <Stack space={16}>
+        {showDensity && (
+          <RadioGroup
+            onChange={setDensity}
+            name="density-group"
+            value={density}
+          >
+            <Inline space={8}>
+              {Object.entries(DENSITIES).map(([key, label]) => (
+                <RadioButton
+                  key={key}
+                  value={key}
+                  render={({ checked, labelId }) => (
+                    <Chip active={checked} id={labelId}>
+                      {label}
+                    </Chip>
+                  )}
+                />
+              ))}
+            </Inline>
+          </RadioGroup>
+        )}
         <div className={styles.palette}>
           <Inline space={8} alignItems="center">
             <Tag type="inactive">{`Constants (${
@@ -96,10 +128,18 @@ const TextTable = ({
           content={
             active === "size"
               ? sizeKeys.map((key) => {
-                  const mobileValue = size[key]?.value?.mobile;
-                  const desktopValue = size[key]?.value?.desktop;
-                  const mobileLineHeight = lineHeight[key]?.value?.mobile;
-                  const desktopLineHeight = lineHeight[key]?.value?.desktop;
+                  const mobileValue = getBreakpointValue(size, key, "mobile");
+                  const desktopValue = getBreakpointValue(size, key, "desktop");
+                  const mobileLineHeight = getBreakpointValue(
+                    lineHeight,
+                    key,
+                    "mobile",
+                  );
+                  const desktopLineHeight = getBreakpointValue(
+                    lineHeight,
+                    key,
+                    "desktop",
+                  );
 
                   return [
                     <Stack space={8}>
@@ -144,8 +184,16 @@ const TextTable = ({
                     ];
                   })
                 : lineHeightKeys.map((key) => {
-                    const mobileValue = lineHeight[key]?.value?.mobile;
-                    const desktopValue = lineHeight[key]?.value?.desktop;
+                    const mobileValue = getBreakpointValue(
+                      lineHeight,
+                      key,
+                      "mobile",
+                    );
+                    const desktopValue = getBreakpointValue(
+                      lineHeight,
+                      key,
+                      "desktop",
+                    );
 
                     return [
                       <Stack space={8}>
