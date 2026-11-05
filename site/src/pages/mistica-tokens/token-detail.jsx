@@ -136,14 +136,26 @@ const TokenDetail = () => {
     const content =
       Object.keys(skinData).length > 0
         ? getSpacingData(skinData, id).map((skin) => {
-            const { top, bottom, left, right } = skin.tokenValue;
+            const compact = getSpacingData(skinData, id, "compact").find(
+              (item) => item.skinName === skin.skinName
+            );
+            const format = ({ mobile, desktop }) =>
+              `${mobile}px / ${desktop}px`;
 
             return [
               skin.skinName,
-              `${top.mobile}px / ${top.desktop}px`,
-              `${bottom.mobile}px / ${bottom.desktop}px`,
-              `${left.mobile}px / ${left.desktop}px`,
-              `${right.mobile}px / ${right.desktop}px`,
+              ...["top", "bottom", "left", "right"].map((side) =>
+                skin.hasDensity ? (
+                  <Stack space={4}>
+                    <Text>{`Cozy: ${format(skin.tokenValue[side])}`}</Text>
+                    <Text>{`Compact: ${format(
+                      compact.tokenValue[side]
+                    )}`}</Text>
+                  </Stack>
+                ) : (
+                  format(skin.tokenValue[side])
+                )
+              ),
             ];
           })
         : [];
