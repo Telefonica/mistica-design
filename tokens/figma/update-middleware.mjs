@@ -366,18 +366,36 @@ async function updateBrandCollection(jsonData) {
 
     // Maps "fontSize/desktop/text1" + brand → "brand/desktop/fontSize/text1"
     // Maps "lineHeight/mobile/drawerTitle" + brand → "brand/mobile/lineHeight/drawerTitle"
+    // Maps "spacing/mobile/buttonDefaultPaddingTop" + brand → "brand/mobile/spacing/buttonDefaultPaddingTop"
+    // Maps "radii/mobile/container" + brand → "brand/mobile/radii/container"
+    // Maps "radii/container" + brand → "brand/radii/container" (density, no breakpoints)
     function getDensityVarName(brandVarName, brand) {
-      const fsMatch = brandVarName.match(
-        /^fontSize\/(mobile|desktop)\/(.+)$/,
+      const bpMatch = brandVarName.match(
+        /^(fontSize|lineHeight|spacing|radii)\/(mobile|desktop)\/(.+)$/,
       );
-      if (fsMatch)
-        return `${brand}/${fsMatch[1]}/fontSize/${fsMatch[2]}`;
-      const lhMatch = brandVarName.match(
-        /^lineHeight\/(mobile|desktop)\/(.+)$/,
+      if (bpMatch)
+        return `${brand}/${bpMatch[2]}/${bpMatch[1]}/${bpMatch[3]}`;
+      const radiiMatch = brandVarName.match(
+        /^radii\/(.+)$/,
       );
-      if (lhMatch)
-        return `${brand}/${lhMatch[1]}/lineHeight/${lhMatch[2]}`;
+      if (radiiMatch)
+        return `${brand}/radii/${radiiMatch[1]}`;
       return null;
+    }
+
+    // fontSize and lineHeight always get a Density variable, so they always
+    // alias. spacing and radii only get one when the token defines a compact
+    // value — without this check, reverting a token to an ordinary value would
+    // leave Brand aliased to a stale Density variable.
+    function hasDensityVariable(
+      variable,
+      canonicalName,
+    ) {
+      return /^(fontSize|lineHeight)\//.test(
+        canonicalName,
+      )
+        ? true
+        : variable.compact !== undefined;
     }
 
     // Step 4: Prepare new variables data for the Brand collection
@@ -386,6 +404,23 @@ async function updateBrandCollection(jsonData) {
       variableModeValues: [],
       variableModes: [],
     };
+
+    // Brand variables are shared across brands: only their mode values differ.
+    // Every brand iteration therefore resolves the same variable and yields an
+    // identical action. Figma expects one action per variable — repeated
+    // CREATEs reuse a single tempId, so the new variable would be created once
+    // per brand — while mode values stay one per brand.
+    const seenVariableIds = new Set();
+
+    function pushVariableOnce(result) {
+      if (
+        !result ||
+        seenVariableIds.has(result.id)
+      )
+        return;
+      seenVariableIds.add(result.id);
+      newData.variables.push(result);
+    }
 
     // Step 5: Create or update modes based on the brands
 
@@ -546,7 +581,7 @@ async function updateBrandCollection(jsonData) {
             existingCollections,
         });
 
-      newData.variables.push(variableData);
+      pushVariableOnce(variableData);
 
       // Step 8: Update mode values with the correct aliases for each brand
       for (const brand of brandNames) {
@@ -626,22 +661,22 @@ async function updateBrandCollection(jsonData) {
                 existingCollections,
             });
 
-          if (!newData.variables) {
-            newData.variables = [];
-          }
-          newData.variables.push(
-            variableUpdateResult,
-          );
+          pushVariableOnce(variableUpdateResult);
 
-          // For fontSize/lineHeight use a Content density alias; fall back to
+          // For density-aware tokens use a Content density alias; fall back to
           // the raw float for all other token types.
           const densityVarName = getDensityVarName(
             descriptor.canonicalName,
             brand,
           );
-          const densityVarId = densityVarName
-            ? densityVarByName[densityVarName]
-            : null;
+          const densityVarId =
+            densityVarName &&
+            hasDensityVariable(
+              variable,
+              descriptor.canonicalName,
+            )
+              ? densityVarByName[densityVarName]
+              : null;
 
           const variableModeValuesUpdatedResult =
             await updateOrCreateVariableModeValues(
@@ -736,7 +771,8 @@ async function processAllBrands(jsonData) {
   }
 }
 
-// Build a map of {key → {mobile, desktop}} from processed fontSize/lineHeight arrays.
+// Build a map of {key → {mobile, desktop}} from processed fontSize/lineHeight
+// arrays, each breakpoint holding { value, compact? }.
 // Input items have names like "fontSize/mobile/text1" or "lineHeight/desktop/drawerTitle".
 function buildPlatformMap(items, prefix) {
   const map = {};
@@ -747,9 +783,30 @@ function buildPlatformMap(items, prefix) {
     if (!match) continue;
     const [, platform, key] = match;
     if (!map[key]) map[key] = {};
-    map[key][platform] = item.value;
+    map[key][platform] = {
+      value: item.value,
+      compact: item.compact,
+    };
   }
   return map;
+}
+
+// Resolves the two density modes for one typography token. An explicit compact
+// value wins; otherwise compact collapses to the mobile value, which is the
+// existing behaviour for tokens that only declare breakpoints.
+function resolveTypographyDensity(mobile, desktop) {
+  const desktopEntry = desktop ?? mobile;
+  return {
+    mobileValues: {
+      value: mobile.value,
+      compact: mobile.compact ?? mobile.value,
+    },
+    desktopValues: {
+      value: desktopEntry.value,
+      compact:
+        desktopEntry.compact ?? mobile.value,
+    },
+  };
 }
 
 async function addDensityVariable(
@@ -898,33 +955,34 @@ async function updateContentDensityCollection(
       )) {
         const { mobile, desktop } = platforms;
         if (mobile === undefined) continue;
-        const desktopVal =
-          desktop !== undefined ? desktop : mobile;
         const scopes = [
           VARIABLE_SCOPES.FONT_SIZE,
           VARIABLE_SCOPES.TEXT_CONTENT,
         ];
+        const { mobileValues, desktopValues } =
+          resolveTypographyDensity(
+            mobile,
+            desktop,
+          );
 
-        // mobile: both modes stay at mobile value
         await addDensityVariable(
           newData,
           existingCollections,
           existingDensityVariables,
           `${brand}/mobile/fontSize/${key}`,
-          mobile,
-          mobile,
+          mobileValues.value,
+          mobileValues.compact,
           scopes,
           [`${brand}/mobile/${key}`],
         );
 
-        // desktop: default = desktop, compact = mobile
         await addDensityVariable(
           newData,
           existingCollections,
           existingDensityVariables,
           `${brand}/desktop/fontSize/${key}`,
-          desktopVal,
-          mobile,
+          desktopValues.value,
+          desktopValues.compact,
           scopes,
           [`${brand}/desktop/${key}`],
         );
@@ -940,21 +998,24 @@ async function updateContentDensityCollection(
       )) {
         const { mobile, desktop } = platforms;
         if (mobile === undefined) continue;
-        const desktopVal =
-          desktop !== undefined ? desktop : mobile;
         const scopes = [
           VARIABLE_SCOPES.LINE_HEIGHT,
           VARIABLE_SCOPES.TEXT_CONTENT,
           VARIABLE_SCOPES.WIDTH_HEIGHT,
         ];
+        const { mobileValues, desktopValues } =
+          resolveTypographyDensity(
+            mobile,
+            desktop,
+          );
 
         await addDensityVariable(
           newData,
           existingCollections,
           existingDensityVariables,
           `${brand}/mobile/lineHeight/${key}`,
-          mobile,
-          mobile,
+          mobileValues.value,
+          mobileValues.compact,
           scopes,
         );
 
@@ -963,9 +1024,51 @@ async function updateContentDensityCollection(
           existingCollections,
           existingDensityVariables,
           `${brand}/desktop/lineHeight/${key}`,
-          desktopVal,
-          mobile,
+          desktopValues.value,
+          desktopValues.compact,
           scopes,
+        );
+      }
+
+      // --- spacing (only tokens that define a compact value) ---
+      for (const item of brandData.spacing || []) {
+        if (item.compact === undefined) continue;
+        const match = item.name.match(
+          /^spacing\/(mobile|desktop)\/(.+)$/,
+        );
+        if (!match) continue;
+        await addDensityVariable(
+          newData,
+          existingCollections,
+          existingDensityVariables,
+          `${brand}/${match[1]}/spacing/${match[2]}`,
+          item.value,
+          item.compact,
+          [
+            VARIABLE_SCOPES.WIDTH_HEIGHT,
+            VARIABLE_SCOPES.GAP,
+          ],
+        );
+      }
+
+      // --- radii (only tokens that define a compact value) ---
+      for (const item of brandData.radius || []) {
+        if (item.compact === undefined) continue;
+        const match = item.name.match(
+          /^radii\/(?:(mobile|desktop)\/)?(.+)$/,
+        );
+        if (!match) continue;
+        const [, breakpoint, key] = match;
+        await addDensityVariable(
+          newData,
+          existingCollections,
+          existingDensityVariables,
+          breakpoint
+            ? `${brand}/${breakpoint}/radii/${key}`
+            : `${brand}/radii/${key}`,
+          item.value,
+          item.compact,
+          [VARIABLE_SCOPES.CORNER_RADIUS],
         );
       }
     }
