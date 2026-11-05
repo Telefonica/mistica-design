@@ -383,19 +383,11 @@ async function updateBrandCollection(jsonData) {
       return null;
     }
 
-    // fontSize and lineHeight always get a Density variable, so they always
-    // alias. spacing and radii only get one when the token defines a compact
-    // value — without this check, reverting a token to an ordinary value would
-    // leave Brand aliased to a stale Density variable.
-    function hasDensityVariable(
-      variable,
-      canonicalName,
-    ) {
-      return /^(fontSize|lineHeight)\//.test(
-        canonicalName,
-      )
-        ? true
-        : variable.compact !== undefined;
+    // A token only gets a Density variable when it defines a compact value —
+    // without this check, reverting a token to an ordinary value would leave
+    // Brand aliased to a stale Density variable.
+    function hasDensityVariable(variable) {
+      return variable.compact !== undefined;
     }
 
     // Step 4: Prepare new variables data for the Brand collection
@@ -671,10 +663,7 @@ async function updateBrandCollection(jsonData) {
           );
           const densityVarId =
             densityVarName &&
-            hasDensityVariable(
-              variable,
-              descriptor.canonicalName,
-            )
+            hasDensityVariable(variable)
               ? densityVarByName[densityVarName]
               : null;
 
@@ -789,24 +778,6 @@ function buildPlatformMap(items, prefix) {
     };
   }
   return map;
-}
-
-// Resolves the two density modes for one typography token. An explicit compact
-// value wins; otherwise compact collapses to the mobile value, which is the
-// existing behaviour for tokens that only declare breakpoints.
-function resolveTypographyDensity(mobile, desktop) {
-  const desktopEntry = desktop ?? mobile;
-  return {
-    mobileValues: {
-      value: mobile.value,
-      compact: mobile.compact ?? mobile.value,
-    },
-    desktopValues: {
-      value: desktopEntry.value,
-      compact:
-        desktopEntry.compact ?? mobile.value,
-    },
-  };
 }
 
 async function addDensityVariable(
@@ -959,33 +930,23 @@ async function updateContentDensityCollection(
           VARIABLE_SCOPES.FONT_SIZE,
           VARIABLE_SCOPES.TEXT_CONTENT,
         ];
-        const { mobileValues, desktopValues } =
-          resolveTypographyDensity(
-            mobile,
-            desktop,
+        // Only tokens that define a compact value get a Density variable.
+        for (const [platform, entry] of Object.entries({
+          mobile,
+          desktop,
+        })) {
+          if (entry?.compact === undefined) continue;
+          await addDensityVariable(
+            newData,
+            existingCollections,
+            existingDensityVariables,
+            `${brand}/${platform}/fontSize/${key}`,
+            entry.value,
+            entry.compact,
+            scopes,
+            [`${brand}/${platform}/${key}`],
           );
-
-        await addDensityVariable(
-          newData,
-          existingCollections,
-          existingDensityVariables,
-          `${brand}/mobile/fontSize/${key}`,
-          mobileValues.value,
-          mobileValues.compact,
-          scopes,
-          [`${brand}/mobile/${key}`],
-        );
-
-        await addDensityVariable(
-          newData,
-          existingCollections,
-          existingDensityVariables,
-          `${brand}/desktop/fontSize/${key}`,
-          desktopValues.value,
-          desktopValues.compact,
-          scopes,
-          [`${brand}/desktop/${key}`],
-        );
+        }
       }
 
       // --- line heights ---
@@ -1003,31 +964,22 @@ async function updateContentDensityCollection(
           VARIABLE_SCOPES.TEXT_CONTENT,
           VARIABLE_SCOPES.WIDTH_HEIGHT,
         ];
-        const { mobileValues, desktopValues } =
-          resolveTypographyDensity(
-            mobile,
-            desktop,
+        // Only tokens that define a compact value get a Density variable.
+        for (const [platform, entry] of Object.entries({
+          mobile,
+          desktop,
+        })) {
+          if (entry?.compact === undefined) continue;
+          await addDensityVariable(
+            newData,
+            existingCollections,
+            existingDensityVariables,
+            `${brand}/${platform}/lineHeight/${key}`,
+            entry.value,
+            entry.compact,
+            scopes,
           );
-
-        await addDensityVariable(
-          newData,
-          existingCollections,
-          existingDensityVariables,
-          `${brand}/mobile/lineHeight/${key}`,
-          mobileValues.value,
-          mobileValues.compact,
-          scopes,
-        );
-
-        await addDensityVariable(
-          newData,
-          existingCollections,
-          existingDensityVariables,
-          `${brand}/desktop/lineHeight/${key}`,
-          desktopValues.value,
-          desktopValues.compact,
-          scopes,
-        );
+        }
       }
 
       // --- spacing (only tokens that define a compact value) ---
