@@ -361,4 +361,21 @@ export const contrastPairs = [
     bg: "badge",
     minRatio: normalTextMinRatio,
   },
+  //Bubble
+  {
+    fg: ["textBrand", "textPrimary", "textSecondary"],
+    bg: [
+      "messageBubbleBackgroundOutgoing",
+      "messageBubbleBackgroundOutgoingBrand",
+      "messageBubbleBackgroundOutgoingAlternative",
+      "messageBubbleBackgroundOutgoingNegative",
+      "messageBubbleBackgroundOutgoingMedia",
+      "messageBubbleBackgroundIncoming",
+      "messageBubbleBackgroundIncomingBrand",
+      "messageBubbleBackgroundIncomingAlternative",
+      "messageBubbleBackgroundIncomingNegative",
+      "messageBubbleBackgroundIncomingMedia",
+    ],
+    minRatio: normalTextMinRatio,
+  },
 ];
