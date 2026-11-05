@@ -3987,16 +3987,36 @@
     "inputPadding": {
       "value": {
         "top": {
-          "mobile": 9,
-          "desktop": 3
+          "mobile": {
+            "density": {
+              "cozy": 9,
+              "compact": 3
+            }
+          },
+          "desktop": {
+            "density": {
+              "cozy": 3,
+              "compact": 3
+            }
+          }
         },
         "right": {
           "mobile": 16,
           "desktop": 16
         },
         "bottom": {
-          "mobile": 9,
-          "desktop": 3
+          "mobile": {
+            "density": {
+              "cozy": 9,
+              "compact": 3
+            }
+          },
+          "desktop": {
+            "density": {
+              "cozy": 3,
+              "compact": 3
+            }
+          }
         },
         "left": {
           "mobile": 12,
