@@ -256,6 +256,56 @@
       "type": "color",
       "description": "beyondBlue90"
     },
+    "messageBubbleBackgroundOutgoing": {
+      "value": "{palette.beyondBlue5}",
+      "type": "color",
+      "description": "beyondBlue5"
+    },
+    "messageBubbleBackgroundOutgoingBrand": {
+      "value": "{palette.beyondBlue5}",
+      "type": "color",
+      "description": "beyondBlue5"
+    },
+    "messageBubbleBackgroundOutgoingAlternative": {
+      "value": "{palette.beyondBlue5}",
+      "type": "color",
+      "description": "beyondBlue5"
+    },
+    "messageBubbleBackgroundOutgoingNegative": {
+      "value": "{palette.beyondBlue5}",
+      "type": "color",
+      "description": "beyondBlue5"
+    },
+    "messageBubbleBackgroundOutgoingMedia": {
+      "value": "{palette.beyondBlue5}",
+      "type": "color",
+      "description": "beyondBlue5"
+    },
+    "messageBubbleBackgroundIncoming": {
+      "value": "{palette.grey20}",
+      "type": "color",
+      "description": "grey20"
+    },
+    "messageBubbleBackgroundIncomingBrand": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "messageBubbleBackgroundIncomingAlternative": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "messageBubbleBackgroundIncomingNegative": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
+    "messageBubbleBackgroundIncomingMedia": {
+      "value": "{palette.white}",
+      "type": "color",
+      "description": "white"
+    },
     "skeletonWave": {
       "value": "{palette.grey30}",
       "type": "color",
@@ -1896,6 +1946,56 @@
       "type": "color",
       "description": "white"
     },
+    "messageBubbleBackgroundOutgoing": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "messageBubbleBackgroundOutgoingBrand": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "messageBubbleBackgroundOutgoingAlternative": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "messageBubbleBackgroundOutgoingNegative": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "messageBubbleBackgroundOutgoingMedia": {
+      "value": "{palette.darkModeGrey6}",
+      "type": "color",
+      "description": "darkModeGrey6"
+    },
+    "messageBubbleBackgroundIncoming": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "messageBubbleBackgroundIncomingBrand": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "messageBubbleBackgroundIncomingAlternative": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "messageBubbleBackgroundIncomingNegative": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
+    "messageBubbleBackgroundIncomingMedia": {
+      "value": "{palette.darkModeGrey}",
+      "type": "color",
+      "description": "darkModeGrey"
+    },
     "navigationBarBackground": {
       "value": "{palette.darkModeBlack}",
       "type": "color",
@@ -3460,6 +3560,14 @@
       "headerPretitle": {
         "value": "regular",
         "type": "typography"
+      },
+      "feedbackScreenTitle": {
+        "value": "bold",
+        "type": "typography"
+      },
+      "feedbackScreenDescription": {
+        "value": "regular",
+        "type": "typography"
       }
     },
     "size": {
@@ -3844,6 +3952,20 @@
               "compact": 16
             }
           }
+        },
+        "type": "typography"
+      },
+      "feedbackScreenTitle": {
+        "value": {
+          "mobile": 24,
+          "desktop": 32
+        },
+        "type": "typography"
+      },
+      "feedbackScreenDescription": {
+        "value": {
+          "mobile": 16,
+          "desktop": 18
         },
         "type": "typography"
       }
@@ -4232,6 +4354,20 @@
           }
         },
         "type": "typography"
+      },
+      "feedbackScreenTitle": {
+        "value": {
+          "mobile": 32,
+          "desktop": 40
+        },
+        "type": "typography"
+      },
+      "feedbackScreenDescription": {
+        "value": {
+          "mobile": 24,
+          "desktop": 24
+        },
+        "type": "typography"
       }
     }
   },
@@ -4502,6 +4638,10 @@
     "palette": {
       "beyondBlue": {
         "value": "#0050FF",
+        "type": "color"
+      },
+      "beyondBlue5": {
+        "value": "#F2F6FF",
         "type": "color"
       },
       "beyondBlue10": {
