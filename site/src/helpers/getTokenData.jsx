@@ -81,8 +81,12 @@ export const getSizeData = (skinData, currentToken) => {
         for (const tokenName in sizeTokens) {
           if (sizeTokens.hasOwnProperty(tokenName)) {
             if (!currentToken || tokenName === currentToken) {
-              const tokenValueMobile = sizeTokens[tokenName].value?.mobile;
-              const tokenValueDesktop = sizeTokens[tokenName].value?.desktop;
+              const tokenValueMobile = resolveDensity(
+                sizeTokens[tokenName].value?.mobile,
+              );
+              const tokenValueDesktop = resolveDensity(
+                sizeTokens[tokenName].value?.desktop,
+              );
 
               tokenData.push({
                 skinName,
@@ -112,9 +116,12 @@ export const getLineHeightData = (skinData, currentToken) => {
         for (const tokenName in lineHeightTokens) {
           if (lineHeightTokens.hasOwnProperty(tokenName)) {
             if (!currentToken || tokenName === currentToken) {
-              const tokenValueMobile = lineHeightTokens[tokenName].value.mobile;
-              const tokenValueDesktop =
-                lineHeightTokens[tokenName].value.desktop;
+              const tokenValueMobile = resolveDensity(
+                lineHeightTokens[tokenName].value.mobile,
+              );
+              const tokenValueDesktop = resolveDensity(
+                lineHeightTokens[tokenName].value.desktop,
+              );
 
               tokenData.push({
                 skinName,
