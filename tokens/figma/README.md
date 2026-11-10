@@ -534,7 +534,7 @@ The script finds collections and modes **by name**. If you rename one in Figma o
 
 ## 8. Run the script
 
-> **Warning:** the script writes to the **production** Figma files that are in `config.mjs`. To test a change, duplicate the middleware file in Figma and put the key of the copy in `MIDDLEWARE_KEY` on your machine only. Do not commit that change.
+> **Warning:** by default, the script writes to **all the production** Figma files: the 9 skin files (`BRAND_KEY`) and the middleware file (`MIDDLEWARE_KEY`). Designers see each change immediately. To test a change, follow [Test a change](#test-a-change).
 
 ### Setup
 
@@ -567,6 +567,35 @@ The script finds collections and modes **by name**. If you rename one in Figma o
    ```bash
    node index.mjs
    ```
+
+### Test a change
+
+There is no test mode. To test a change, make temporary edits on your machine only. Do not commit these edits.
+
+The middleware step does not read the skin files. It reads only the brand names (the keys of `BRAND_KEY`). Thus you can test the middleware without a change to the production skins.
+
+1. In Figma, duplicate the middleware file.
+
+2. In `config.mjs`, put the key of the copy in `MIDDLEWARE_KEY`.
+
+3. In `index.mjs`, remove or comment out the call to `updateSkinFiles` in `processAll`:
+
+   ```js
+   async function processAll() {
+     // await updateSkinFiles(jsonDataForSkin);
+     await updateMiddleware(jsonDataForMiddleware);
+   }
+   ```
+
+4. Run the script:
+
+   ```bash
+   node index.mjs
+   ```
+
+5. Discard the edits to `config.mjs` and `index.mjs`.
+
+> **Caution:** if you do step 2 but not step 3, the script still writes to all 9 production skin files. To test a change to a `Palette` collection, duplicate the skin files and put the keys of the copies in `BRAND_KEY`. Do not remove brands from `BRAND_KEY`, because the middleware step uses these brand names. Also do step 2, because the middleware step always runs.
 
 ### Validation tips
 

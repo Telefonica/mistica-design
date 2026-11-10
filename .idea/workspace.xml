@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="70cd4dbd-40c5-4d34-a583-8ac239e86839" name="Changes" comment="docs(figma-script): rewrite tokens sync README&#10;&#10;- Replace the short project overview with a full guide to the Figma tokens sync.&#10;- Document the JSON token contract, the Figma variables model, and the Brand, Mode, and Density collection architecture.&#10;- Describe the sync flow, the upsert helpers, density and deprecation handling, and how to change the middleware structure.&#10;- Add setup and validation steps and list known quirks of the script.">
+      <change beforePath="$PROJECT_DIR$/tokens/figma/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/tokens/figma/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tokens/figma/config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/tokens/figma/config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tokens/figma/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/tokens/figma/index.mjs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="2847-compact-replicate-movistar-inputpadding-values-in-inputs" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;brtbrt&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:Telefonica/mistica-design.git&quot;,
+    &quot;accountId&quot;: &quot;97e07f27-8fdd-421d-9b02-98c904aae933&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;Telefonica&quot;,
+    &quot;repository&quot;: &quot;mistica-design&quot;
+  },
+  &quot;reviewCommentPreferred&quot;: false
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.md" root0="ESSENTIAL" />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0000000000000009" />
+      <entry key="S10" value="1.0000001292004381" />
+      <entry key="S30" value="1.0604726331471734" />
+      <entry key="S60" value="3.0499912337107626" />
+      <entry key="M2" value="13.871283555322997" />
+      <entry key="M5" value="41.62903529331381" />
+      <entry key="M10" value="66.34290966787995" />
+      <entry key="M15" value="81.9830047510441" />
+      <entry key="M30" value="107.29035144900206" />
+      <entry key="H1" value="126.28944855614577" />
+      <entry key="H2" value="138.20567956432672" />
+      <entry key="H4" value="147.12752011880042" />
+      <entry key="D1" value="201.50193756001246" />
+      <entry key="W1" value="237.89666873243036" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.8122523963562356" />
+      <entry key="MS500" value="0.9592641193252643" />
+      <entry key="S2" value="0.989656656415207" />
+      <entry key="S5" value="0.995849753094459" />
+      <entry key="S10" value="0.9979228481544031" />
+      <entry key="S30" value="1.0597692855212404" />
+      <entry key="S60" value="3.04933118588618" />
+      <entry key="M2" value="13.869684477149654" />
+      <entry key="M5" value="41.62673201095321" />
+      <entry key="M10" value="66.34107983570121" />
+      <entry key="M15" value="81.98156545124597" />
+      <entry key="M30" value="107.28949209394027" />
+      <entry key="H1" value="126.28897578117086" />
+      <entry key="H2" value="138.20543091962924" />
+      <entry key="H4" value="147.1273902434852" />
+      <entry key="D1" value="201.50190719144615" />
+      <entry key="W1" value="237.8966635214599" />
+    </decayedShown>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3LPnG14Px1d5hH4FqRxhxZyt8jh" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortKey" value="BY_TIME_DESCENDING" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "mbertamini/2830-update-readme",
+    "javascript.preferred.runtime.type.id": "node",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="mistica-design" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="mistica-design" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-ac68fc9d2b05-intellij.indexing.shared.core-IU-263.7307.200" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="70cd4dbd-40c5-4d34-a583-8ac239e86839" name="Changes" comment="" />
+      <created>1793364472357</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1793364472357</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="2a4ec3686d" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat(site): add cozy and compact density to typography tokens" />
+    <MESSAGE value="docs(figma-script): rewrite tokens sync README&#10;&#10;- Replace the short project overview with a full guide to the Figma tokens sync.&#10;- Document the JSON token contract, the Figma variables model, and the Brand, Mode, and Density collection architecture.&#10;- Describe the sync flow, the upsert helpers, density and deprecation handling, and how to change the middleware structure.&#10;- Add setup and validation steps and list known quirks of the script." />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(figma-script): rewrite tokens sync README&#10;&#10;- Replace the short project overview with a full guide to the Figma tokens sync.&#10;- Document the JSON token contract, the Figma variables model, and the Brand, Mode, and Density collection architecture.&#10;- Describe the sync flow, the upsert helpers, density and deprecation handling, and how to change the middleware structure.&#10;- Add setup and validation steps and list known quirks of the script." />
+  </component>
+</project>

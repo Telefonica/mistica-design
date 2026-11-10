@@ -18,7 +18,7 @@ export const BRAND_KEY = {
 };
 
 export const MIDDLEWARE_KEY =
-  "w7fBxCsEb8WrMVVuxDnCQd";
+  "testest";
 
 export const FIGMA_TOKEN =
   process.env.FIGMA_TOKEN;
