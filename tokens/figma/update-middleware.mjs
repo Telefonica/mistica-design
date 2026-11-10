@@ -935,6 +935,8 @@ async function updateContentDensityCollection(
           mobile,
           desktop,
         })) {
+          // TODO https://github.com/Telefonica/mistica-design/issues/2904
+          // Skipped tokens keep any previously generated Density variable (no cleanup).
           if (entry?.compact === undefined) continue;
           await addDensityVariable(
             newData,
@@ -969,6 +971,8 @@ async function updateContentDensityCollection(
           mobile,
           desktop,
         })) {
+          // TODO https://github.com/Telefonica/mistica-design/issues/2904
+          // Skipped tokens keep any previously generated Density variable (no cleanup).
           if (entry?.compact === undefined) continue;
           await addDensityVariable(
             newData,
@@ -984,6 +988,8 @@ async function updateContentDensityCollection(
 
       // --- spacing (only tokens that define a compact value) ---
       for (const item of brandData.spacing || []) {
+        // TODO https://github.com/Telefonica/mistica-design/issues/2904
+        // Skipped tokens keep any previously generated Density variable (no cleanup).
         if (item.compact === undefined) continue;
         const match = item.name.match(
           /^spacing\/(mobile|desktop)\/(.+)$/,
@@ -1005,6 +1011,8 @@ async function updateContentDensityCollection(
 
       // --- radii (only tokens that define a compact value) ---
       for (const item of brandData.radius || []) {
+        // TODO https://github.com/Telefonica/mistica-design/issues/2904
+        // Skipped tokens keep any previously generated Density variable (no cleanup).
         if (item.compact === undefined) continue;
         const match = item.name.match(
           /^radii\/(?:(mobile|desktop)\/)?(.+)$/,
