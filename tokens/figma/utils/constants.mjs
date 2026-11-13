@@ -20,8 +20,8 @@ export const MODE_NAMES = {
   DEFAULT: "Mode 1",
   LIGHT: "Light",
   DARK: "Dark",
-  DENSITY_COZY: "cozy",
-  DENSITY_COMPACT: "compact",
+  DENSITY_COZY: "Cozy",
+  DENSITY_COMPACT: "Compact",
 };
 
 export const VARIABLE_SCOPES = {
