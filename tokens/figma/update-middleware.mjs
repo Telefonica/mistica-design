@@ -344,12 +344,75 @@ async function updateBrandCollection(jsonData) {
         brandCollection.id,
     );
 
+    // Build Content density variable name → ID map so fontSize/lineHeight
+    // mode values can be stored as aliases instead of hardcoded floats.
+    const densityCollection = Object.values(
+      existingCollections,
+    ).find(
+      (c) =>
+        c.name === COLLECTION_NAMES.DENSITY,
+    );
+    const densityVarByName = densityCollection
+      ? Object.fromEntries(
+          Object.values(existingVariables)
+            .filter(
+              (v) =>
+                v.variableCollectionId ===
+                densityCollection.id,
+            )
+            .map((v) => [v.name, v.id]),
+        )
+      : {};
+
+    // Maps "fontSize/desktop/text1" + brand → "brand/desktop/fontSize/text1"
+    // Maps "lineHeight/mobile/drawerTitle" + brand → "brand/mobile/lineHeight/drawerTitle"
+    // Maps "spacing/mobile/buttonDefaultPaddingTop" + brand → "brand/mobile/spacing/buttonDefaultPaddingTop"
+    // Maps "radii/mobile/container" + brand → "brand/mobile/radii/container"
+    // Maps "radii/container" + brand → "brand/radii/container" (density, no breakpoints)
+    function getDensityVarName(brandVarName, brand) {
+      const bpMatch = brandVarName.match(
+        /^(fontSize|lineHeight|spacing|radii)\/(mobile|desktop)\/(.+)$/,
+      );
+      if (bpMatch)
+        return `${brand}/${bpMatch[2]}/${bpMatch[1]}/${bpMatch[3]}`;
+      const radiiMatch = brandVarName.match(
+        /^radii\/(.+)$/,
+      );
+      if (radiiMatch)
+        return `${brand}/radii/${radiiMatch[1]}`;
+      return null;
+    }
+
+    // A token only gets a Density variable when it defines a compact value —
+    // without this check, reverting a token to an ordinary value would leave
+    // Brand aliased to a stale Density variable.
+    function hasDensityVariable(variable) {
+      return variable.compact !== undefined;
+    }
+
     // Step 4: Prepare new variables data for the Brand collection
     const newData = {
       variables: [],
       variableModeValues: [],
       variableModes: [],
     };
+
+    // Brand variables are shared across brands: only their mode values differ.
+    // Every brand iteration therefore resolves the same variable and yields an
+    // identical action. Figma expects one action per variable — repeated
+    // CREATEs reuse a single tempId, so the new variable would be created once
+    // per brand — while mode values stay one per brand.
+    const seenVariableIds = new Set();
+
+    function pushVariableOnce(result) {
+      if (
+        !result ||
+        seenVariableIds.has(result.id)
+      )
+        return;
+      seenVariableIds.add(result.id);
+      newData.variables.push(result);
+    }
 
     // Step 5: Create or update modes based on the brands
 
@@ -510,7 +573,7 @@ async function updateBrandCollection(jsonData) {
             existingCollections,
         });
 
-      newData.variables.push(variableData);
+      pushVariableOnce(variableData);
 
       // Step 8: Update mode values with the correct aliases for each brand
       for (const brand of brandNames) {
@@ -590,26 +653,40 @@ async function updateBrandCollection(jsonData) {
                 existingCollections,
             });
 
-          if (!newData.variables) {
-            newData.variables = [];
-          }
-          newData.variables.push(
-            variableUpdateResult,
-          );
+          pushVariableOnce(variableUpdateResult);
 
-          // Find the mode for the current brand and set the mode values correctly
+          // For density-aware tokens use a Content density alias; fall back to
+          // the raw float for all other token types.
+          const densityVarName = getDensityVarName(
+            descriptor.canonicalName,
+            brand,
+          );
+          const densityVarId =
+            densityVarName &&
+            hasDensityVariable(variable)
+              ? densityVarByName[densityVarName]
+              : null;
+
           const variableModeValuesUpdatedResult =
             await updateOrCreateVariableModeValues(
               {
-                variable: {
-                  ...variable,
-                  name: descriptor.name,
-                  legacyNames:
-                    descriptor.legacyNames,
-                  resolvedType: resolvedType,
-                  scopes: variableScopes,
-                  hasAlias: hasAlias,
-                },
+                variable: densityVarId
+                  ? {
+                      name: descriptor.name,
+                      legacyNames:
+                        descriptor.legacyNames,
+                      value: densityVarId,
+                      hasAlias: true,
+                    }
+                  : {
+                      ...variable,
+                      name: descriptor.name,
+                      legacyNames:
+                        descriptor.legacyNames,
+                      resolvedType: resolvedType,
+                      scopes: variableScopes,
+                      hasAlias: hasAlias,
+                    },
                 targetModeName:
                   hasDefaultMode(
                     collectionName,
@@ -651,6 +728,7 @@ async function postCollections(brand) {
   const collectionNames = [
     COLLECTION_NAMES.SKIN,
     COLLECTION_NAMES.COLOR_SCHEME,
+    COLLECTION_NAMES.DENSITY,
   ];
 
   try {
@@ -682,7 +760,289 @@ async function processAllBrands(jsonData) {
   }
 }
 
+// Build a map of {key → {mobile, desktop}} from processed fontSize/lineHeight
+// arrays, each breakpoint holding { value, compact? }.
+// Input items have names like "fontSize/mobile/text1" or "lineHeight/desktop/drawerTitle".
+function buildPlatformMap(items, prefix) {
+  const map = {};
+  for (const item of items) {
+    const match = item.name.match(
+      new RegExp(`^${prefix}\\/(mobile|desktop)\\/(.+)$`),
+    );
+    if (!match) continue;
+    const [, platform, key] = match;
+    if (!map[key]) map[key] = {};
+    map[key][platform] = {
+      value: item.value,
+      compact: item.compact,
+    };
+  }
+  return map;
+}
+
+async function addDensityVariable(
+  newData,
+  existingCollections,
+  existingDensityVariables,
+  variableName,
+  defaultValue,
+  compactValue,
+  scopes,
+  legacyNames = [],
+) {
+  const variableData = await updateOrCreateVariables(
+    {
+      variable: {
+        name: variableName,
+        legacyNames,
+        resolvedType: VARIABLE_TYPES.FLOAT,
+        scopes,
+      },
+      targetCollectionName:
+        COLLECTION_NAMES.DENSITY,
+      existingVariables: existingDensityVariables,
+      existingCollections,
+    },
+  );
+  newData.variables.push(variableData);
+
+  // default mode: use "Mode 1" name when collection was just created,
+  // "cozy" when it already has the renamed mode.
+  const defaultModeName = hasDefaultMode(
+    COLLECTION_NAMES.DENSITY,
+    existingCollections,
+  )
+    ? MODE_NAMES.DEFAULT
+    : MODE_NAMES.DENSITY_COZY;
+
+  const defaultModeValue =
+    await updateOrCreateVariableModeValues({
+      variable: {
+        name: variableName,
+        legacyNames,
+        value: defaultValue,
+        hasAlias: false,
+      },
+      targetModeName: defaultModeName,
+      targetCollectionName:
+        COLLECTION_NAMES.DENSITY,
+      existingCollections,
+      existingVariables: existingDensityVariables,
+    });
+  if (defaultModeValue)
+    newData.variableModeValues.push(
+      defaultModeValue,
+    );
+
+  const compactModeValue =
+    await updateOrCreateVariableModeValues({
+      variable: {
+        name: variableName,
+        legacyNames,
+        value: compactValue,
+        hasAlias: false,
+      },
+      targetModeName: MODE_NAMES.DENSITY_COMPACT,
+      targetCollectionName:
+        COLLECTION_NAMES.DENSITY,
+      existingCollections,
+      existingVariables: existingDensityVariables,
+    });
+  if (compactModeValue)
+    newData.variableModeValues.push(
+      compactModeValue,
+    );
+}
+
+async function updateContentDensityCollection(
+  jsonData,
+) {
+  try {
+    const figmaData = await getFigmaData(
+      MIDDLEWARE_KEY,
+    );
+    const existingVariables =
+      figmaData.meta.variables;
+    const existingCollections =
+      figmaData.meta.variableCollections;
+
+    const newData = {
+      variableCollections: [],
+      variableModes: [],
+      variables: [],
+      variableModeValues: [],
+    };
+
+    // Create / rename modes
+    const defaultModeResult =
+      await updateOrCreateModes({
+        mode: { name: MODE_NAMES.DENSITY_COZY },
+        isDefault: true,
+        targetCollectionName:
+          COLLECTION_NAMES.DENSITY,
+        existingCollections,
+      });
+    if (defaultModeResult)
+      newData.variableModes.push(defaultModeResult);
+
+    const compactModeResult =
+      await updateOrCreateModes({
+        mode: { name: MODE_NAMES.DENSITY_COMPACT },
+        isDefault: false,
+        targetCollectionName:
+          COLLECTION_NAMES.DENSITY,
+        existingCollections,
+      });
+    if (compactModeResult)
+      newData.variableModes.push(compactModeResult);
+
+    // Isolate existing density variables so lookups stay fast
+    const densityCollection = Object.values(
+      existingCollections,
+    ).find(
+      (c) =>
+        c.name === COLLECTION_NAMES.DENSITY,
+    );
+    const existingDensityVariables =
+      densityCollection
+        ? Object.values(existingVariables).filter(
+            (v) =>
+              v.variableCollectionId ===
+              densityCollection.id,
+          )
+        : [];
+
+    for (const brand of brandNames) {
+      const brandData = jsonData[brand];
+      if (!brandData) continue;
+
+      // --- font sizes ---
+      const fontSizeMap = buildPlatformMap(
+        brandData.fontSize || [],
+        "fontSize",
+      );
+      for (const [key, platforms] of Object.entries(
+        fontSizeMap,
+      )) {
+        const { mobile, desktop } = platforms;
+        if (mobile === undefined) continue;
+        const scopes = [
+          VARIABLE_SCOPES.FONT_SIZE,
+          VARIABLE_SCOPES.TEXT_CONTENT,
+        ];
+        // Only tokens that define a compact value get a Density variable.
+        for (const [platform, entry] of Object.entries({
+          mobile,
+          desktop,
+        })) {
+          // TODO https://github.com/Telefonica/mistica-design/issues/2904
+          // Skipped tokens keep any previously generated Density variable (no cleanup).
+          if (entry?.compact === undefined) continue;
+          await addDensityVariable(
+            newData,
+            existingCollections,
+            existingDensityVariables,
+            `${brand}/${platform}/fontSize/${key}`,
+            entry.value,
+            entry.compact,
+            scopes,
+            [`${brand}/${platform}/${key}`],
+          );
+        }
+      }
+
+      // --- line heights ---
+      const lineHeightMap = buildPlatformMap(
+        brandData.lineHeight || [],
+        "lineHeight",
+      );
+      for (const [key, platforms] of Object.entries(
+        lineHeightMap,
+      )) {
+        const { mobile, desktop } = platforms;
+        if (mobile === undefined) continue;
+        const scopes = [
+          VARIABLE_SCOPES.LINE_HEIGHT,
+          VARIABLE_SCOPES.TEXT_CONTENT,
+          VARIABLE_SCOPES.WIDTH_HEIGHT,
+        ];
+        // Only tokens that define a compact value get a Density variable.
+        for (const [platform, entry] of Object.entries({
+          mobile,
+          desktop,
+        })) {
+          // TODO https://github.com/Telefonica/mistica-design/issues/2904
+          // Skipped tokens keep any previously generated Density variable (no cleanup).
+          if (entry?.compact === undefined) continue;
+          await addDensityVariable(
+            newData,
+            existingCollections,
+            existingDensityVariables,
+            `${brand}/${platform}/lineHeight/${key}`,
+            entry.value,
+            entry.compact,
+            scopes,
+          );
+        }
+      }
+
+      // --- spacing (only tokens that define a compact value) ---
+      for (const item of brandData.spacing || []) {
+        // TODO https://github.com/Telefonica/mistica-design/issues/2904
+        // Skipped tokens keep any previously generated Density variable (no cleanup).
+        if (item.compact === undefined) continue;
+        const match = item.name.match(
+          /^spacing\/(mobile|desktop)\/(.+)$/,
+        );
+        if (!match) continue;
+        await addDensityVariable(
+          newData,
+          existingCollections,
+          existingDensityVariables,
+          `${brand}/${match[1]}/spacing/${match[2]}`,
+          item.value,
+          item.compact,
+          [
+            VARIABLE_SCOPES.WIDTH_HEIGHT,
+            VARIABLE_SCOPES.GAP,
+          ],
+        );
+      }
+
+      // --- radii (only tokens that define a compact value) ---
+      for (const item of brandData.radius || []) {
+        // TODO https://github.com/Telefonica/mistica-design/issues/2904
+        // Skipped tokens keep any previously generated Density variable (no cleanup).
+        if (item.compact === undefined) continue;
+        const match = item.name.match(
+          /^radii\/(?:(mobile|desktop)\/)?(.+)$/,
+        );
+        if (!match) continue;
+        const [, breakpoint, key] = match;
+        await addDensityVariable(
+          newData,
+          existingCollections,
+          existingDensityVariables,
+          breakpoint
+            ? `${brand}/${breakpoint}/radii/${key}`
+            : `${brand}/radii/${key}`,
+          item.value,
+          item.compact,
+          [VARIABLE_SCOPES.CORNER_RADIUS],
+        );
+      }
+    }
+
+    await postFigmaVariables(MIDDLEWARE_KEY, newData);
+    return newData;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+}
+
 export async function updateMiddleware(jsonData) {
   await processAllBrands(jsonData);
+  await updateContentDensityCollection(jsonData);
   await updateBrandCollection(jsonData);
 }
