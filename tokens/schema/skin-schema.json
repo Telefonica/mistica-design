@@ -1142,52 +1142,37 @@
       "additionalProperties": false
     },
     "weightProperties": {
-      "patternProperties": {
-        "value": {
-          "type": "string",
-          "pattern": "^(light|regular|medium|bold)+$"
-        },
-        "type": {
-          "const": "typography"
-        }
-      },
+      "type": "object",
       "required": ["value", "type"],
       "properties": {
+        "value": { "enum": ["light", "regular", "medium", "bold"] },
+        "type": { "const": "typography" },
         "deprecated": { "type": "boolean" },
         "deprecatedBy": { "type": "string" }
-      }
+      },
+      "additionalProperties": false
     },
     "sizeProperties": {
       "type": "object",
-      "patternProperties": {
-        "value": {
-          "$ref": "#/definitions/numberValue"
-        },
-        "type": {
-          "const": "typography"
-        }
-      },
+      "required": ["value", "type"],
       "properties": {
+        "value": { "$ref": "#/definitions/numberValue" },
+        "type": { "const": "typography" },
         "deprecated": { "type": "boolean" },
         "deprecatedBy": { "type": "string" }
       },
-      "required": ["value", "type"]
+      "additionalProperties": false
     },
     "lineHeightProperties": {
       "type": "object",
-      "patternProperties": {
-        "value": {
-          "$ref": "#/definitions/numberValue"
-        },
-        "type": {
-          "const": "typography"
-        }
-      },
+      "required": ["value", "type"],
       "properties": {
+        "value": { "$ref": "#/definitions/numberValue" },
+        "type": { "const": "typography" },
         "deprecated": { "type": "boolean" },
         "deprecatedBy": { "type": "string" }
       },
-      "required": ["value", "type"]
+      "additionalProperties": false
     },
     "spacingProperties": {
       "type": "object",
@@ -1290,8 +1275,14 @@
     "numberBreakpoints": {
       "type": "object",
       "properties": {
-        "mobile": { "anyOf": [{ "type": "number" }, { "$ref": "#/definitions/numberDensity" }] },
-        "desktop": { "anyOf": [{ "type": "number" }, { "$ref": "#/definitions/numberDensity" }] }
+        "mobile": {
+          "description": "Value for the mobile breakpoint.",
+          "anyOf": [{ "type": "number" }, { "$ref": "#/definitions/numberDensity" }]
+        },
+        "desktop": {
+          "description": "Value for the desktop breakpoint.",
+          "anyOf": [{ "type": "number" }, { "$ref": "#/definitions/numberDensity" }]
+        }
       },
       "required": ["mobile", "desktop"],
       "additionalProperties": false
