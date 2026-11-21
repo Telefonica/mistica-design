@@ -1,4 +1,5 @@
 import React from "react";
+import { resolveDensity } from "../helpers/density";
 import styles from "./borderRadii.module.css";
 import {
   ResponsiveLayout,
@@ -96,10 +97,10 @@ const TextTable = ({
           content={
             active === "size"
               ? sizeKeys.map((key) => {
-                  const mobileValue = size[key]?.value?.mobile;
-                  const desktopValue = size[key]?.value?.desktop;
-                  const mobileLineHeight = lineHeight[key]?.value?.mobile;
-                  const desktopLineHeight = lineHeight[key]?.value?.desktop;
+                  const mobileValue = resolveDensity(size[key]?.value?.mobile);
+                  const desktopValue = resolveDensity(size[key]?.value?.desktop);
+                  const mobileLineHeight = resolveDensity(lineHeight[key]?.value?.mobile);
+                  const desktopLineHeight = resolveDensity(lineHeight[key]?.value?.desktop);
 
                   return [
                     <Stack space={8}>
@@ -144,8 +145,8 @@ const TextTable = ({
                     ];
                   })
                 : lineHeightKeys.map((key) => {
-                    const mobileValue = lineHeight[key]?.value?.mobile;
-                    const desktopValue = lineHeight[key]?.value?.desktop;
+                    const mobileValue = resolveDensity(lineHeight[key]?.value?.mobile);
+                    const desktopValue = resolveDensity(lineHeight[key]?.value?.desktop);
 
                     return [
                       <Stack space={8}>
