@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./borderRadii.module.css";
 import {
   skinVars,
@@ -15,6 +15,8 @@ import {
   Chip,
   Table,
 } from "@telefonica/mistica";
+import { getSpacingData } from "../helpers/getTokenData";
+import { DENSITIES } from "../helpers/density";
 
 const SpacingTable = ({
   skin,
@@ -25,6 +27,8 @@ const SpacingTable = ({
   selectedBranch,
   selectedColor,
 }) => {
+  const [density, setDensity] = useState("cozy");
+
   if (!skin || !skin.spacing) {
     // Show a loading/fallback state if spacing is not available yet
     return (
@@ -35,18 +39,42 @@ const SpacingTable = ({
       </ResponsiveLayout>
     );
   }
-  const spacing = skin?.spacing;
-
-  const spacingKeys = Object.keys(spacing).filter((key) =>
-    key.toLowerCase().includes(filter?.toLowerCase()),
+  const tokens = getSpacingData(
+    { [selectedSkin]: skin },
+    undefined,
+    density
+  ).filter(({ tokenName }) =>
+    tokenName.toLowerCase().includes(filter?.toLowerCase())
   );
-
-  // Filter tokens
+  const showDensity = getSpacingData({ [selectedSkin]: skin }).some(
+    (token) => token.hasDensity
+  );
 
   return (
     <ResponsiveLayout>
       <Box paddingBottom={24}></Box>
       <Stack space={16}>
+        {showDensity && (
+          <RadioGroup
+            onChange={setDensity}
+            name="density-group"
+            value={density}
+          >
+            <Inline space={8}>
+              {Object.entries(DENSITIES).map(([key, label]) => (
+                <RadioButton
+                  key={key}
+                  value={key}
+                  render={({ checked, labelId }) => (
+                    <Chip active={checked} id={labelId}>
+                      {label}
+                    </Chip>
+                  )}
+                />
+              ))}
+            </Inline>
+          </RadioGroup>
+        )}
         <Table
           heading={[
             "Example",
@@ -56,8 +84,7 @@ const SpacingTable = ({
             "Left value",
             "Right value",
           ]}
-          content={spacingKeys.map((key) => {
-            const value = spacing[key]?.value;
+          content={tokens.map(({ tokenName: key, tokenValue: value }) => {
             const sides = ["top", "bottom", "left", "right"];
 
             return [
@@ -71,7 +98,7 @@ const SpacingTable = ({
                   boxSizing: "border-box",
                 }}
               >
-                {value.top && (
+                {
                   <div
                     style={{
                       position: "absolute",
@@ -82,7 +109,7 @@ const SpacingTable = ({
                       backgroundColor: skinVars.colors.brandLow,
                     }}
                   />
-                )}
+                }
                 {value.bottom && (
                   <div
                     style={{
